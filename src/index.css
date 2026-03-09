@@ -48,6 +48,21 @@
     --sidebar-accent-foreground: 240 10% 93%;
     --sidebar-border: 0 0% 100% / 0.06;
     --sidebar-ring: 248 75% 64%;
+
+    /* DISPLAY SCALE */
+    --text-display-2xl: 72px;
+    --text-display-xl: 60px;
+    --text-display-lg: 48px;
+    --text-display-md: 36px;
+    --text-display-sm: 30px;
+    --text-display-xs: 24px;
+
+    /* TEXT SCALE */
+    --text-xl: 20px;
+    --text-lg: 18px;
+    --text-md: 16px;
+    --text-sm: 14px;
+    --text-xs: 12px;
   }
 }
 
@@ -58,12 +73,32 @@
 
   body {
     @apply bg-background text-foreground font-manrope antialiased;
+    font-size: var(--text-md);
+    line-height: 24px;
+    font-weight: 300;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tight;
+    letter-spacing: -0.02em;
   }
 }
+
+/* Typographic utilities */
+.text-display-2xl { font-size: var(--text-display-2xl); line-height: 90px; letter-spacing: -0.02em; font-weight: 300; }
+.text-display-xl  { font-size: var(--text-display-xl);  line-height: 72px; letter-spacing: -0.02em; font-weight: 300; }
+.text-display-lg  { font-size: var(--text-display-lg);  line-height: 60px; letter-spacing: -0.02em; font-weight: 300; }
+.text-display-md  { font-size: var(--text-display-md);  line-height: 44px; letter-spacing: -0.02em; font-weight: 400; }
+.text-display-sm  { font-size: var(--text-display-sm);  line-height: 38px; font-weight: 400; }
+.text-display-xs  { font-size: var(--text-display-xs);  line-height: 32px; font-weight: 400; }
+
+.text-body-xl { font-size: var(--text-xl); line-height: 30px; font-weight: 300; }
+.text-body-lg { font-size: var(--text-lg); line-height: 28px; font-weight: 300; }
+.text-body-md { font-size: var(--text-md); line-height: 24px; font-weight: 300; }
+.text-body-sm { font-size: var(--text-sm); line-height: 20px; font-weight: 400; }
+.text-body-xs { font-size: var(--text-xs); line-height: 18px; font-weight: 400; }
+
+.text-label { font-size: var(--text-xs); line-height: 18px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+.text-nav   { font-size: var(--text-sm); line-height: 20px; font-weight: 400; }
 
 .grid-dots {
   background-image: radial-gradient(circle, hsl(0 0% 100% / 0.05) 1px, transparent 1px);
