@@ -216,7 +216,31 @@ const WorldMapCanvas = () => {
         });
       }
 
+      // Spawn ripples for arriving packets
+      packetsRef.current.forEach(pkt => {
+        if (pkt.progress > 1) {
+          const [, bId] = ROUTES[pkt.routeIdx];
+          const bi = nodeIdx(bId);
+          if (bi >= 0) {
+            const dest = positions[bi];
+            ripplesRef.current.push({ x: dest.x, y: dest.y, age: 0, color: pkt.color });
+          }
+        }
+      });
       packetsRef.current = packetsRef.current.filter(p => p.progress <= 1);
+
+      // ── Ripples (arrival effect) ────────────
+      ripplesRef.current.forEach(r => { r.age += 0.025; });
+      ripplesRef.current = ripplesRef.current.filter(r => r.age < 1);
+      ripplesRef.current.forEach(r => {
+        const radius = 6 + r.age * 22;
+        const alpha = (1 - r.age) * 0.4;
+        ctx.beginPath();
+        ctx.arc(r.x, r.y, radius, 0, Math.PI * 2);
+        ctx.strokeStyle = r.color + Math.round(alpha * 255).toString(16).padStart(2, "0");
+        ctx.lineWidth = 1.2 * (1 - r.age);
+        ctx.stroke();
+      });
       packetsRef.current.forEach(pkt => {
         pkt.progress += pkt.speed;
         const [aId, bId] = ROUTES[pkt.routeIdx];
