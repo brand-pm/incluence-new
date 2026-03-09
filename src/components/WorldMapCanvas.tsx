@@ -1,32 +1,37 @@
 import { useRef, useEffect, useState } from "react";
 
-// ── NODE DATA ────────────────────────────────────────────────────────
+// ── SVG VIEWBOX (from world-map.svg) ─────────────────────────────────
+const VB = { x: 30.767, y: 241.591, w: 784.077, h: 458.627 };
+
+// ── NODE DATA (positions in SVG coordinate space) ────────────────────
 interface JNode {
   id: string;
   name: string;
-  svgX: number;
-  svgY: number;
+  sx: number; // SVG x
+  sy: number; // SVG y
   tier: 1 | 2;
   reg: string;
   desc: string;
 }
 
+// Coordinates derived from lat/lon → SVG Robinson projection mapping
+// calibrated against known country positions in the SVG
 const NODES: JNode[] = [
-  { id: "uk",        name: "United Kingdom", svgX: 999,  svgY: 214, tier: 1, reg: "FCA",   desc: "Financial Services" },
-  { id: "malta",     name: "Malta",          svgX: 1081, svgY: 301, tier: 1, reg: "MGA",   desc: "Gambling & Gaming" },
-  { id: "gibraltar", name: "Gibraltar",      svgX: 971,  svgY: 299, tier: 1, reg: "GBGA",  desc: "Sports Betting" },
-  { id: "cyprus",    name: "Cyprus",         svgX: 1186, svgY: 305, tier: 1, reg: "CySEC", desc: "Investment Firms & FX" },
-  { id: "estonia",   name: "Estonia",        svgX: 1139, svgY: 174, tier: 2, reg: "FIU",   desc: "Crypto & VASP" },
-  { id: "swiss",     name: "Switzerland",    svgX: 1046, svgY: 240, tier: 1, reg: "FINMA", desc: "Banking & Fintech" },
-  { id: "uae",       name: "UAE",            svgX: 1307, svgY: 360, tier: 1, reg: "DFSA",  desc: "Capital Markets" },
-  { id: "hk",        name: "Hong Kong",      svgX: 1634, svgY: 376, tier: 1, reg: "SFC",   desc: "Securities & Asset Mgmt" },
-  { id: "singapore", name: "Singapore",      svgX: 1577, svgY: 493, tier: 1, reg: "MAS",   desc: "Payments & Fintech" },
-  { id: "cayman",    name: "Cayman Is.",     svgX: 548,  svgY: 393, tier: 1, reg: "CIMA",  desc: "Investment Funds & PE" },
-  { id: "bvi",       name: "BVI",            svgX: 641,  svgY: 398, tier: 2, reg: "FSC",   desc: "Offshore Structures" },
-  { id: "seychelles",name: "Seychelles",     svgX: 1308, svgY: 526, tier: 2, reg: "FSA",   desc: "Offshore Companies" },
-  { id: "delaware",  name: "Delaware",       svgX: 581,  svgY: 283, tier: 2, reg: "SEC",   desc: "US Holdings" },
-  { id: "belize",    name: "Belize",         svgX: 508,  svgY: 404, tier: 2, reg: "IFSC",  desc: "Forex Brokers" },
-  { id: "curacao",   name: "Curaçao",        svgX: 617,  svgY: 433, tier: 2, reg: "CGA",   desc: "Online Gaming" },
+  { id: "uk",         name: "United Kingdom", sx: 402,   sy: 383,   tier: 1, reg: "FCA",   desc: "Financial Services" },
+  { id: "malta",      name: "Malta",          sx: 439,   sy: 432,   tier: 1, reg: "MGA",   desc: "Gambling & Gaming" },
+  { id: "gibraltar",  name: "Gibraltar",      sx: 392,   sy: 432,   tier: 1, reg: "GBGA",  desc: "Sports Betting" },
+  { id: "cyprus",     name: "Cyprus",         sx: 484,   sy: 438,   tier: 1, reg: "CySEC", desc: "Investment Firms & FX" },
+  { id: "estonia",    name: "Estonia",        sx: 462,   sy: 365,   tier: 2, reg: "FIU",   desc: "Crypto & VASP" },
+  { id: "swiss",      name: "Switzerland",    sx: 424,   sy: 403,   tier: 1, reg: "FINMA", desc: "Banking & Fintech" },
+  { id: "uae",        name: "UAE",            sx: 534,   sy: 467,   tier: 1, reg: "DFSA",  desc: "Capital Markets" },
+  { id: "hk",         name: "Hong Kong",      sx: 674,   sy: 475,   tier: 1, reg: "SFC",   desc: "Securities & Asset Mgmt" },
+  { id: "singapore",  name: "Singapore",      sx: 649,   sy: 510,   tier: 1, reg: "MAS",   desc: "Payments & Fintech" },
+  { id: "cayman",     name: "Cayman Is.",     sx: 209,   sy: 484,   tier: 1, reg: "CIMA",  desc: "Investment Funds & PE" },
+  { id: "bvi",        name: "BVI",            sx: 249,   sy: 483,   tier: 2, reg: "FSC",   desc: "Offshore Structures" },
+  { id: "seychelles", name: "Seychelles",     sx: 534,   sy: 529,   tier: 2, reg: "FSA",   desc: "Offshore Companies" },
+  { id: "delaware",   name: "Delaware",       sx: 223,   sy: 425,   tier: 2, reg: "SEC",   desc: "US Holdings" },
+  { id: "belize",     name: "Belize",         sx: 192,   sy: 485,   tier: 2, reg: "IFSC",  desc: "Forex Brokers" },
+  { id: "curacao",    name: "Curaçao",        sx: 238,   sy: 495,   tier: 2, reg: "CGA",   desc: "Online Gaming" },
 ];
 
 const ROUTES: [string, string][] = [
@@ -64,6 +69,7 @@ const WorldMapCanvas = () => {
     if (!ctx) return;
 
     let W = 0, H = 0;
+    let mapScale = 1, mapTx = 0, mapTy = 0;
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -72,9 +78,23 @@ const WorldMapCanvas = () => {
       canvas.width = W * dpr;
       canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      // Compute "cover" transform matching the SVG background
+      // Same as preserveAspectRatio="xMidYMid slice"
+      mapScale = Math.max(W / VB.w, H / VB.h);
+      mapTx = (W - VB.w * mapScale) / 2;
+      mapTy = (H - VB.h * mapScale) / 2;
     };
     resize();
     window.addEventListener("resize", resize);
+
+    // Convert SVG coords to screen coords
+    function toScreen(sx: number, sy: number) {
+      return {
+        x: (sx - VB.x) * mapScale + mapTx,
+        y: (sy - VB.y) * mapScale + mapTy,
+      };
+    }
 
     // Spawn initial packets
     for (let i = 0; i < 10; i++) {
@@ -117,20 +137,14 @@ const WorldMapCanvas = () => {
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y;
 
-      // The SVG map image is rendered as a separate layer below canvas.
-      // Canvas only handles: arcs, packets, nodes.
-
-      // ── Node positions ───────────────────────
-      const positions = NODES.map(n => ({
-        x: (n.svgX / 2000) * W,
-        y: (n.svgY / 1000) * H,
-      }));
+      // ── Node screen positions ────────────────
+      const positions = NODES.map(n => toScreen(n.sx, n.sy));
 
       // ── Detect hovered ───────────────────────
       let hovered = -1;
       if (mx >= 0 && my >= 0) {
         for (let i = 0; i < positions.length; i++) {
-          if (Math.hypot(positions[i].x - mx, positions[i].y - my) < 20) {
+          if (Math.hypot(positions[i].x - mx, positions[i].y - my) < 22) {
             hovered = i;
             break;
           }
@@ -212,7 +226,7 @@ const WorldMapCanvas = () => {
         const isHov = hovered === i;
         const baseR = node.tier === 1 ? 5.5 : 3.5;
         const r = isHov ? baseR * 1.8 : baseR;
-        const pulse = (Math.sin(t * 1.8 + node.svgX * 0.002) + 1) / 2;
+        const pulse = (Math.sin(t * 1.8 + node.sx * 0.01) + 1) / 2;
 
         // 1. Pulse ring
         const pulseR = r + pulse * (node.tier === 1 ? 20 : 12);
@@ -284,31 +298,31 @@ const WorldMapCanvas = () => {
 
   return (
     <>
-      {/* Layer 1: Real SVG world map as image with CSS filter */}
-      <div
-        className="absolute inset-0"
+      {/* Layer 1: Real SVG world map with CSS filter to match theme */}
+      <img
+        src="/world-map.svg"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full pointer-events-none select-none"
         style={{
           zIndex: 1,
-          backgroundImage: "url(/world-map.svg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center 40%",
-          backgroundRepeat: "no-repeat",
-          /* Turn black SVG paths into blue tones */
-          filter: "brightness(0) saturate(100%) invert(18%) sepia(80%) saturate(4000%) hue-rotate(230deg) brightness(70%) contrast(100%)",
-          opacity: 0.13,
+          objectFit: "cover",
+          objectPosition: "center center",
+          filter: "brightness(0) saturate(100%) invert(18%) sepia(80%) saturate(4000%) hue-rotate(230deg) brightness(70%)",
+          opacity: 0.15,
         }}
       />
 
-      {/* Subtle radial glow overlay */}
+      {/* Subtle radial glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           zIndex: 1,
-          background: "radial-gradient(ellipse 60% 50% at 62% 38%, rgba(26,32,104,0.18) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 60% 50% at 55% 45%, rgba(26,32,104,0.2) 0%, transparent 70%)",
         }}
       />
 
-      {/* Layer 2: Canvas animations */}
+      {/* Layer 2: Canvas animations (nodes, arcs, packets) */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
