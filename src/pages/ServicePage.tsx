@@ -18,13 +18,17 @@ const otherJurisdictions = [
   { country: "Curaçao", price: "$12,000" },
 ];
 
+const sectionPad = { padding: "var(--space-24) var(--space-12)" };
+const cardPad = { padding: "var(--space-10)" };
+const sidebarPad = { padding: "var(--space-8)" };
+
 const ServicePage = () => (
   <div>
-    <section className="relative flex min-h-[60vh] flex-col justify-end overflow-hidden px-6 lg:px-12 pb-16 pt-28">
+    <section className="relative flex min-h-[60vh] flex-col justify-end overflow-hidden" style={{ padding: "var(--nav-height) var(--space-12) var(--space-16)" }}>
       <div className="absolute inset-0 grid-dots opacity-50" />
       <div className="absolute inset-0 gold-glow opacity-60" />
-      <div className="relative mx-auto w-full max-w-[1400px]">
-        <div className="flex items-center gap-2 text-body-xs text-muted-foreground mb-6">
+      <div className="relative mx-auto w-full max-w-[1280px]">
+        <div className="flex items-center text-body-xs text-muted-foreground" style={{ gap: "var(--space-2)", marginBottom: "var(--space-6)" }}>
           <Link to="/" className="hover:text-gold transition-colors">Home</Link>
           <ChevronRight size={12} />
           <Link to="/licenses/gambling" className="hover:text-gold transition-colors">Gambling Licenses</Link>
@@ -32,26 +36,26 @@ const ServicePage = () => (
           <span className="text-foreground">Malta MGA</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3" style={{ gap: "var(--space-12)" }}>
           <div className="lg:col-span-2">
-            <h1 className="text-display-xl mb-6">Malta Gaming Authority License</h1>
-            <p className="text-body-lg text-muted-foreground max-w-2xl mb-8">
+            <h1 className="text-display-xl" style={{ marginBottom: "var(--space-6)" }}>Malta Gaming Authority License</h1>
+            <p className="text-body-lg text-muted-foreground max-w-2xl" style={{ marginBottom: "var(--space-8)" }}>
               The Malta Gaming Authority (MGA) license is one of the most reputable iGaming licenses in the world, providing access to EU markets and global credibility.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <button className="inline-flex items-center gap-2 bg-gold px-7 py-3 text-body-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity">
+            <div className="flex flex-wrap" style={{ gap: "var(--space-4)" }}>
+              <button className="inline-flex items-center bg-gold text-body-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity" style={{ padding: "var(--space-3) var(--space-8)", gap: "var(--space-2)" }}>
                 Apply Now <ArrowRight size={16} />
               </button>
-              <button className="inline-flex items-center gap-2 border border-gold-border px-7 py-3 text-body-sm font-medium text-gold hover:bg-gold hover:text-primary-foreground transition-colors">
+              <button className="inline-flex items-center border border-gold-border text-body-sm font-medium text-gold hover:bg-gold hover:text-primary-foreground transition-colors" style={{ padding: "var(--space-3) var(--space-8)", gap: "var(--space-2)" }}>
                 Book Consultation
               </button>
             </div>
           </div>
 
-          <div className="bg-card border border-border p-8">
-            <div className="text-label text-muted-foreground mb-2">Starting from</div>
-            <div className="text-display-md text-gold mb-8">€25,000</div>
-            <div className="space-y-4 mb-8">
+          <div className="bg-card border border-border" style={sidebarPad}>
+            <div className="text-label text-muted-foreground" style={{ marginBottom: "var(--space-2)" }}>Starting from</div>
+            <div className="text-display-md text-gold" style={{ marginBottom: "var(--space-8)" }}>€25,000</div>
+            <div className="flex flex-col" style={{ gap: "var(--space-4)", marginBottom: "var(--space-8)" }}>
               {[
                 { label: "Timeline", value: "6-12 months" },
                 { label: "Application Fee", value: "€5,000" },
@@ -64,7 +68,7 @@ const ServicePage = () => (
                 </div>
               ))}
             </div>
-            <button className="w-full bg-gold py-3 text-body-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity">
+            <button className="w-full bg-gold text-body-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity" style={{ padding: "var(--space-3) 0" }}>
               Apply for MGA License
             </button>
           </div>
@@ -72,13 +76,13 @@ const ServicePage = () => (
       </div>
     </section>
 
-    <section className="py-24 px-6 lg:px-12">
-      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-3 gap-16">
+    <section style={sectionPad}>
+      <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-3" style={{ gap: "var(--space-16)" }}>
         <div className="lg:col-span-2">
-          <div className="mb-16">
-            <p className="text-label text-gold mb-3">Overview</p>
-            <h2 className="text-display-lg mb-6">About the MGA License</h2>
-            <div className="space-y-4 text-body-md text-muted-foreground">
+          <div style={{ marginBottom: "var(--space-16)" }}>
+            <p className="text-label text-gold" style={{ marginBottom: "var(--space-3)" }}>Overview</p>
+            <h2 className="text-display-lg" style={{ marginBottom: "var(--space-6)" }}>About the MGA License</h2>
+            <div className="text-body-md text-muted-foreground" style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
               <p>The Malta Gaming Authority (MGA) is the single regulatory body responsible for the governance of all gaming activities in Malta. Established in 2001, the MGA has become one of the most respected gaming regulators in the world.</p>
               <p>An MGA license allows operators to offer gaming services to players across the European Union and many other jurisdictions that recognize the Malta license.</p>
               <p>Malta offers a corporate tax rate of 35% with an effective rate of 5% after refunds, making it one of the most tax-efficient jurisdictions for gaming operators in the EU.</p>
@@ -86,13 +90,13 @@ const ServicePage = () => (
           </div>
 
           <div>
-            <p className="text-label text-gold mb-3">Requirements</p>
-            <h2 className="text-display-lg mb-8">Key Requirements</h2>
+            <p className="text-label text-gold" style={{ marginBottom: "var(--space-3)" }}>Requirements</p>
+            <h2 className="text-display-lg" style={{ marginBottom: "var(--space-8)" }}>Key Requirements</h2>
             <div className="grid grid-cols-1 gap-px bg-border md:grid-cols-2">
               {requirements.map((req) => (
-                <div key={req.title} className="card-hover bg-card p-8">
-                  <req.icon className="text-gold mb-4" size={24} strokeWidth={1.5} />
-                  <h3 className="text-body-sm font-medium mb-2">{req.title}</h3>
+                <div key={req.title} className="card-hover bg-card" style={sidebarPad}>
+                  <req.icon className="text-gold" size={24} strokeWidth={1.5} style={{ marginBottom: "var(--space-4)" }} />
+                  <h3 className="text-body-sm font-medium" style={{ marginBottom: "var(--space-2)" }}>{req.title}</h3>
                   <p className="text-body-xs text-muted-foreground">{req.desc}</p>
                 </div>
               ))}
@@ -100,13 +104,13 @@ const ServicePage = () => (
           </div>
         </div>
 
-        <div className="space-y-8 lg:sticky lg:top-24 lg:self-start">
-          <div className="bg-card border border-border p-8">
-            <h3 className="text-label text-muted-foreground mb-5">Related Services</h3>
-            <ul className="space-y-3">
+        <div className="lg:sticky lg:top-24 lg:self-start" style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)" }}>
+          <div className="bg-card border border-border" style={sidebarPad}>
+            <h3 className="text-label text-muted-foreground" style={{ marginBottom: "var(--space-5)" }}>Related Services</h3>
+            <ul style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
               {relatedServices.map((s) => (
                 <li key={s}>
-                  <Link to="/" className="flex items-center gap-2 text-body-sm text-foreground/70 hover:text-gold transition-colors">
+                  <Link to="/" className="flex items-center text-body-sm text-foreground/70 hover:text-gold transition-colors" style={{ gap: "var(--space-2)" }}>
                     <ArrowRight size={12} className="text-gold" /> {s}
                   </Link>
                 </li>
@@ -114,9 +118,9 @@ const ServicePage = () => (
             </ul>
           </div>
 
-          <div className="bg-card border border-border p-8">
-            <h3 className="text-label text-muted-foreground mb-5">Other Jurisdictions</h3>
-            <ul className="space-y-4">
+          <div className="bg-card border border-border" style={sidebarPad}>
+            <h3 className="text-label text-muted-foreground" style={{ marginBottom: "var(--space-5)" }}>Other Jurisdictions</h3>
+            <ul style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
               {otherJurisdictions.map((j) => (
                 <li key={j.country}>
                   <Link to="/licenses/gambling" className="flex justify-between text-body-sm hover:text-gold transition-colors">
@@ -128,12 +132,12 @@ const ServicePage = () => (
             </ul>
           </div>
 
-          <div className="bg-gold-dim border border-gold-border p-8">
-            <h3 className="text-body-sm font-medium text-gold mb-3">Free Consultation</h3>
-            <p className="text-body-xs text-muted-foreground mb-5">
+          <div className="bg-gold-dim border border-gold-border" style={sidebarPad}>
+            <h3 className="text-body-sm font-medium text-gold" style={{ marginBottom: "var(--space-3)" }}>Free Consultation</h3>
+            <p className="text-body-xs text-muted-foreground" style={{ marginBottom: "var(--space-5)" }}>
               Get expert advice on whether the MGA license is right for your business model.
             </p>
-            <button className="w-full bg-gold py-3 text-body-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity">
+            <button className="w-full bg-gold text-body-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity" style={{ padding: "var(--space-3) 0" }}>
               Schedule a Call
             </button>
           </div>
