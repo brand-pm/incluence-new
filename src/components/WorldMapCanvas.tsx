@@ -58,7 +58,7 @@ const ROUTES: [string, string][] = [
   ["singapore","uae"],["uae","swiss"],["uae","seychelles"],
   ["cayman","bvi"],["cayman","delaware"],
   ["belize","curacao"],["curacao","cayman"],["swiss","cyprus"],["estonia","uk"],
-  // New routes
+  // European
   ["uk","dublin"],["uk","jersey"],["uk","luxembourg"],
   ["luxembourg","swiss"],["luxembourg","liechten"],
   ["dublin","bermuda"],["bermuda","bahamas"],["bahamas","cayman"],
@@ -67,6 +67,10 @@ const ROUTES: [string, string][] = [
   ["singapore","labuan"],["labuan","hk"],
   ["uae","mauritius"],["mauritius","seychelles"],
   ["jersey","gibraltar"],
+  // ── Long-haul intercontinental (borderless feel) ──
+  ["tokyo","delaware"],["singapore","cayman"],["dublin","hk"],
+  ["swiss","singapore"],["cyprus","shanghai"],["bermuda","uk"],
+  ["mauritius","labuan"],["malta","uae"],
 ];
 
 const nodeIdx = (id: string) => NODES.findIndex(n => n.id === id);
@@ -79,12 +83,20 @@ interface Packet {
   size: number;
 }
 
+interface Ripple {
+  x: number;
+  y: number;
+  age: number;       // 0→1 lifecycle
+  color: string;
+}
+
 // ── COMPONENT ────────────────────────────────────────────────────────
 const WorldMapCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number>(0);
   const frameRef = useRef(0);
   const packetsRef = useRef<Packet[]>([]);
+  const ripplesRef = useRef<Ripple[]>([]);
   const mouseRef = useRef<{ x: number; y: number }>({ x: -1, y: -1 });
   const [hoveredNode, setHoveredNode] = useState<{ x: number; y: number; node: JNode } | null>(null);
 
@@ -204,7 +216,31 @@ const WorldMapCanvas = () => {
         });
       }
 
+      // Spawn ripples for arriving packets
+      packetsRef.current.forEach(pkt => {
+        if (pkt.progress > 1) {
+          const [, bId] = ROUTES[pkt.routeIdx];
+          const bi = nodeIdx(bId);
+          if (bi >= 0) {
+            const dest = positions[bi];
+            ripplesRef.current.push({ x: dest.x, y: dest.y, age: 0, color: pkt.color });
+          }
+        }
+      });
       packetsRef.current = packetsRef.current.filter(p => p.progress <= 1);
+
+      // ── Ripples (arrival effect) ────────────
+      ripplesRef.current.forEach(r => { r.age += 0.025; });
+      ripplesRef.current = ripplesRef.current.filter(r => r.age < 1);
+      ripplesRef.current.forEach(r => {
+        const radius = 6 + r.age * 22;
+        const alpha = (1 - r.age) * 0.4;
+        ctx.beginPath();
+        ctx.arc(r.x, r.y, radius, 0, Math.PI * 2);
+        ctx.strokeStyle = r.color + Math.round(alpha * 255).toString(16).padStart(2, "0");
+        ctx.lineWidth = 1.2 * (1 - r.age);
+        ctx.stroke();
+      });
       packetsRef.current.forEach(pkt => {
         pkt.progress += pkt.speed;
         const [aId, bId] = ROUTES[pkt.routeIdx];
