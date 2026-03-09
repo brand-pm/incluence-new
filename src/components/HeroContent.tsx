@@ -168,8 +168,8 @@ const HeroContent = () => (
 
     {/* ═══════ DESKTOP layout (≥ md) ═══════ */}
     <div
-      className="absolute z-10 hidden md:block left-12 top-1/2"
-      style={{ fontFamily: "Manrope, sans-serif", maxWidth: 560, transform: "translateY(-52%)" }}
+      className="absolute z-10 hidden md:block left-12 bottom-[140px] lg:bottom-[160px]"
+      style={{ fontFamily: "Manrope, sans-serif", maxWidth: 520 }}
     >
       <motion.div className="flex items-center" style={{ gap: 10, marginBottom: 16 }} {...fade(0.2)}>
         <span style={{ width: 28, height: 1, background: "#444CE7" }} />
