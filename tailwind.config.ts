@@ -62,6 +62,50 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Status colors
+        error: {
+          100: "hsl(var(--error-100))",
+          500: "hsl(var(--error-500))",
+          600: "hsl(var(--error-600))",
+        },
+        warning: {
+          100: "hsl(var(--warning-100))",
+          500: "hsl(var(--warning-500))",
+          600: "hsl(var(--warning-600))",
+        },
+        success: {
+          100: "hsl(var(--success-100))",
+          500: "hsl(var(--success-500))",
+          600: "hsl(var(--success-600))",
+        },
+        // Gray scale
+        gray: {
+          25: "hsl(var(--gray-25))",
+          50: "hsl(var(--gray-50))",
+          100: "hsl(var(--gray-100))",
+          200: "hsl(var(--gray-200))",
+          300: "hsl(var(--gray-300))",
+          400: "hsl(var(--gray-400))",
+          500: "hsl(var(--gray-500))",
+          600: "hsl(var(--gray-600))",
+          700: "hsl(var(--gray-700))",
+          800: "hsl(var(--gray-800))",
+          900: "hsl(var(--gray-900))",
+        },
+        // Brand scale
+        brand: {
+          25: "hsl(var(--brand-25))",
+          50: "hsl(var(--brand-50))",
+          100: "hsl(var(--brand-100))",
+          200: "hsl(var(--brand-200))",
+          300: "hsl(var(--brand-300))",
+          400: "hsl(var(--brand-400))",
+          500: "hsl(var(--brand-500))",
+          600: "hsl(var(--brand-600))",
+          700: "hsl(var(--brand-700))",
+          800: "hsl(var(--brand-800))",
+          900: "hsl(var(--brand-900))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

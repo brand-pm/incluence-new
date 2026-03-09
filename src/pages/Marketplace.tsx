@@ -79,8 +79,8 @@ const Marketplace = () => {
                 )}
 
                 <div className="flex items-center" style={{ gap: "var(--space-2)", marginBottom: "var(--space-5)" }}>
-                  <span className={`w-2 h-2 rounded-full ${c.status === "Available" ? "bg-emerald-500" : "bg-orange-500"}`} />
-                  <span className={`text-body-xs ${c.status === "Available" ? "text-emerald-500" : "text-orange-500"}`}>{c.status}</span>
+                  <span className={`w-2 h-2 rounded-full ${c.status === "Available" ? "bg-success-500" : "bg-warning-500"}`} />
+                  <span className={`text-body-xs ${c.status === "Available" ? "text-success-500" : "text-warning-500"}`}>{c.status}</span>
                 </div>
 
                 <span className="text-display-md block" style={{ marginBottom: "var(--space-4)" }}>{c.flag}</span>

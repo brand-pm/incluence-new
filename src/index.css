@@ -1,53 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 240 20% 10%;
-    --foreground: 240 10% 93%;
+    /* ── GRAY SCALE ──────────────────────────────── */
+    --gray-25:  252 5% 99%;
+    --gray-50:  220 14% 97%;
+    --gray-100: 220 17% 95%;
+    --gray-200: 220 13% 91%;
+    --gray-300: 216 12% 84%;
+    --gray-400: 218 11% 65%;
+    --gray-500: 220 9% 46%;
+    --gray-600: 215 14% 34%;
+    --gray-700: 217 19% 27%;
+    --gray-800: 215 28% 17%;
+    --gray-900: 221 39% 11%;
 
-    --card: 240 18% 12%;
-    --card-foreground: 240 10% 93%;
+    /* ── BRAND (primary accent) ──────────────────── */
+    --brand-25:  226 100% 97%;
+    --brand-50:  224 100% 94%;
+    --brand-100: 224 100% 88%;
+    --brand-200: 224 97% 78%;
+    --brand-300: 224 94% 73%;
+    --brand-400: 228 88% 66%;
+    --brand-500: 233 84% 60%;
+    --brand-600: 236 77% 53%;
+    --brand-700: 239 73% 50%;
+    --brand-800: 240 66% 43%;
+    --brand-900: 240 56% 37%;
 
-    --popover: 240 18% 11%;
-    --popover-foreground: 240 10% 93%;
+    /* ── STATUS COLORS ───────────────────────────── */
+    --error-600: 0 75% 49%;
+    --error-500: 4 83% 58%;
+    --error-100: 4 92% 94%;
 
-    --primary: 248 75% 64%;
+    --warning-600: 30 95% 43%;
+    --warning-500: 28 92% 56%;
+    --warning-100: 43 96% 89%;
+
+    --success-600: 155 72% 30%;
+    --success-500: 142 64% 39%;
+    --success-100: 145 80% 90%;
+
+    /* ── SECONDARY ───────────────────────────────── */
+    --yellow-600: 72 92% 63%;
+    --purple-600: 263 84% 50%;
+
+    /* ── DARK THEME TOKENS ───────────────────────── */
+    --background: 0 0% 3%;
+    --foreground: 36 33% 93%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 36 33% 93%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 36 33% 93%;
+
+    --primary: 236 77% 53%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 18% 14%;
-    --secondary-foreground: 240 10% 93%;
+    --secondary: 0 0% 7%;
+    --secondary-foreground: 36 33% 93%;
 
-    --muted: 240 15% 14%;
-    --muted-foreground: 240 5% 55%;
+    --muted: 0 0% 7%;
+    --muted-foreground: 25 5% 50%;
 
-    --accent: 248 75% 64%;
+    --accent: 236 77% 53%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 49%;
+    --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 100% / 0.06;
     --input: 0 0% 100% / 0.06;
-    --ring: 248 75% 64%;
+    --ring: 236 77% 53%;
 
     --radius: 0px;
 
-    --gold: 248 75% 64%;
-    --gold-dim: 248 75% 64% / 0.12;
-    --gold-border: 248 75% 64% / 0.2;
-    --surface: 240 18% 11%;
-    --surface-alt: 240 18% 13%;
+    /* ── ACCENT DERIVED ──────────────────────────── */
+    --gold: 236 77% 53%;
+    --gold-dim: 236 77% 53% / 0.12;
+    --gold-border: 236 77% 53% / 0.25;
+    --surface: 0 0% 5%;
+    --surface-alt: 0 0% 7%;
 
     /* SPACING */
-    --space-1: 4px;
-    --space-2: 8px;
-    --space-3: 12px;
-    --space-4: 16px;
-    --space-5: 20px;
-    --space-6: 24px;
-    --space-8: 32px;
+    --space-1:  4px;
+    --space-2:  8px;
+    --space-3:  12px;
+    --space-4:  16px;
+    --space-5:  20px;
+    --space-6:  24px;
+    --space-8:  32px;
     --space-10: 40px;
     --space-12: 48px;
     --space-16: 64px;
@@ -62,14 +109,14 @@
     /* NAV */
     --nav-height: 72px;
 
-    --sidebar-background: 240 18% 11%;
-    --sidebar-foreground: 240 10% 93%;
-    --sidebar-primary: 248 75% 64%;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 36 33% 93%;
+    --sidebar-primary: 236 77% 53%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 18% 14%;
-    --sidebar-accent-foreground: 240 10% 93%;
+    --sidebar-accent: 0 0% 7%;
+    --sidebar-accent-foreground: 36 33% 93%;
     --sidebar-border: 0 0% 100% / 0.06;
-    --sidebar-ring: 248 75% 64%;
+    --sidebar-ring: 236 77% 53%;
 
     /* DISPLAY SCALE */
     --text-display-2xl: 72px;
@@ -122,13 +169,31 @@
 .text-label { font-size: var(--text-xs); line-height: 18px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
 .text-nav   { font-size: var(--text-sm); line-height: 20px; font-weight: 400; }
 
+/* Section tag with line prefix */
+.section-tag {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(var(--gold));
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-tag::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: hsl(var(--gold));
+}
+
 .grid-dots {
   background-image: radial-gradient(circle, hsl(0 0% 100% / 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
 .gold-glow {
-  background: radial-gradient(ellipse 600px 400px at 50% 40%, hsl(248 75% 64% / 0.08), transparent);
+  background: radial-gradient(ellipse 600px 400px at 50% 40%, hsl(236 77% 53% / 0.08), transparent);
 }
 
 .card-hover {
@@ -140,16 +205,58 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0;
+  width: 100%;
   height: 2px;
-  background: hsl(248 75% 64%);
-  transition: width 0.4s ease;
+  background: hsl(var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
 }
 .card-hover:hover {
-  background-color: hsl(240 18% 9%);
+  background-color: hsl(0 0% 4%);
 }
 .card-hover:hover::after {
-  width: 100%;
+  transform: scaleX(1);
+}
+
+/* Button utilities */
+.btn-primary {
+  background: hsl(var(--gold));
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 0;
+  transition: background 0.25s, transform 0.2s;
+}
+.btn-primary:hover {
+  background: hsl(239 73% 50%);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: hsl(var(--muted-foreground));
+  border: 1px solid hsl(var(--border));
+  padding: 14px 32px;
+  border-radius: 0;
+}
+.btn-secondary:hover {
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--gold-border));
+}
+
+/* Accent word for hero */
+.accent-word {
+  color: hsl(var(--gold));
+  font-style: italic;
+}
+
+.accent-text {
+  color: hsl(var(--gold));
 }
 
 ::-webkit-scrollbar {
@@ -157,8 +264,8 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(240 20% 10%);
+  background: hsl(0 0% 3%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(240 15% 25%);
+  background: hsl(0 0% 20%);
 }
