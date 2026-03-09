@@ -193,7 +193,7 @@
 }
 
 .gold-glow {
-  background: radial-gradient(ellipse 600px 400px at 50% 40%, hsl(236 77% 53% / 0.08), transparent);
+  background: radial-gradient(ellipse 600px 400px at 50% 40%, hsl(258 86% 49% / 0.08), transparent);
 }
 
 .card-hover {
