@@ -124,7 +124,7 @@ const HeroContent = () => (
       style={{ zIndex: 10, right: 48, bottom: 72, fontFamily: "Manrope, sans-serif" }}
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94], delay: 1.0 }}
+      transition={{ duration: 0.7, ease, delay: 1.0 }}
     >
       {stats.map((s, i) => (
         <div key={s.label} className="flex items-center">
