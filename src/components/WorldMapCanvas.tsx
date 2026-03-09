@@ -17,13 +17,14 @@ interface JNode {
 // Coordinates derived from lat/lon → SVG Robinson projection mapping
 // calibrated against known country positions in the SVG
 const NODES: JNode[] = [
+  // ── Original 15 ──
   { id: "uk",         name: "United Kingdom", sx: 402,   sy: 383,   tier: 1, reg: "FCA",   desc: "Financial Services" },
   { id: "malta",      name: "Malta",          sx: 439,   sy: 432,   tier: 1, reg: "MGA",   desc: "Gambling & Gaming" },
   { id: "gibraltar",  name: "Gibraltar",      sx: 392,   sy: 432,   tier: 1, reg: "GBGA",  desc: "Sports Betting" },
   { id: "cyprus",     name: "Cyprus",         sx: 484,   sy: 438,   tier: 1, reg: "CySEC", desc: "Investment Firms & FX" },
   { id: "estonia",    name: "Estonia",        sx: 462,   sy: 365,   tier: 2, reg: "FIU",   desc: "Crypto & VASP" },
   { id: "swiss",      name: "Switzerland",    sx: 424,   sy: 403,   tier: 1, reg: "FINMA", desc: "Banking & Fintech" },
-  { id: "uae",        name: "UAE",            sx: 534,   sy: 467,   tier: 1, reg: "DFSA",  desc: "Capital Markets" },
+  { id: "uae",        name: "Dubai (DIFC)",   sx: 534,   sy: 467,   tier: 1, reg: "DFSA",  desc: "Capital Markets & DIFC" },
   { id: "hk",         name: "Hong Kong",      sx: 674,   sy: 475,   tier: 1, reg: "SFC",   desc: "Securities & Asset Mgmt" },
   { id: "singapore",  name: "Singapore",      sx: 649,   sy: 510,   tier: 1, reg: "MAS",   desc: "Payments & Fintech" },
   { id: "cayman",     name: "Cayman Is.",     sx: 209,   sy: 484,   tier: 1, reg: "CIMA",  desc: "Investment Funds & PE" },
@@ -32,15 +33,40 @@ const NODES: JNode[] = [
   { id: "delaware",   name: "Delaware",       sx: 223,   sy: 425,   tier: 2, reg: "SEC",   desc: "US Holdings" },
   { id: "belize",     name: "Belize",         sx: 192,   sy: 485,   tier: 2, reg: "IFSC",  desc: "Forex Brokers" },
   { id: "curacao",    name: "Curaçao",        sx: 238,   sy: 495,   tier: 2, reg: "CGA",   desc: "Online Gaming" },
+  // ── European hubs ──
+  { id: "luxembourg", name: "Luxembourg",     sx: 417,   sy: 393,   tier: 1, reg: "CSSF",  desc: "Investment Funds & Banking" },
+  { id: "liechten",   name: "Liechtenstein",  sx: 425,   sy: 401,   tier: 2, reg: "FMA",   desc: "Private Banking & Trusts" },
+  { id: "dublin",     name: "Dublin",         sx: 387,   sy: 382,   tier: 1, reg: "CBI",   desc: "Funds & Insurance" },
+  { id: "jersey",     name: "Jersey",         sx: 397,   sy: 394,   tier: 2, reg: "JFSC",  desc: "Trusts & Private Wealth" },
+  // ── Caribbean / LatAm ──
+  { id: "panama",     name: "Panama",         sx: 213,   sy: 515,   tier: 2, reg: "SBP",   desc: "Offshore Banking & Corps" },
+  { id: "bahamas",    name: "Bahamas",        sx: 219,   sy: 467,   tier: 2, reg: "SCB",   desc: "Investment Funds" },
+  { id: "bermuda",    name: "Bermuda",        sx: 248,   sy: 445,   tier: 1, reg: "BMA",   desc: "Insurance & Reinsurance" },
+  // ── Asia-Pacific ──
+  { id: "tokyo",      name: "Tokyo",          sx: 735,   sy: 435,   tier: 1, reg: "FSA-JP", desc: "Capital Markets" },
+  { id: "shanghai",   name: "Shanghai",       sx: 691,   sy: 448,   tier: 1, reg: "CSRC",  desc: "Securities & Banking" },
+  { id: "labuan",     name: "Labuan",         sx: 676,   sy: 526,   tier: 2, reg: "LFSA",  desc: "Islamic Finance & Offshore" },
+  // ── Indian Ocean ──
+  { id: "mauritius",  name: "Mauritius",      sx: 539,   sy: 603,   tier: 2, reg: "FSC-MU", desc: "GBC & Fund Structures" },
 ];
 
 const ROUTES: [string, string][] = [
+  // Original routes
   ["uk","malta"],["uk","hk"],["uk","cayman"],["uk","swiss"],["uk","cyprus"],
   ["hk","singapore"],["hk","seychelles"],["hk","uae"],
   ["malta","cyprus"],["malta","estonia"],["malta","gibraltar"],
   ["singapore","uae"],["uae","swiss"],["uae","seychelles"],
   ["cayman","bvi"],["cayman","delaware"],
   ["belize","curacao"],["curacao","cayman"],["swiss","cyprus"],["estonia","uk"],
+  // New routes
+  ["uk","dublin"],["uk","jersey"],["uk","luxembourg"],
+  ["luxembourg","swiss"],["luxembourg","liechten"],
+  ["dublin","bermuda"],["bermuda","bahamas"],["bahamas","cayman"],
+  ["panama","belize"],["panama","cayman"],
+  ["hk","tokyo"],["hk","shanghai"],["shanghai","tokyo"],
+  ["singapore","labuan"],["labuan","hk"],
+  ["uae","mauritius"],["mauritius","seychelles"],
+  ["jersey","gibraltar"],
 ];
 
 const nodeIdx = (id: string) => NODES.findIndex(n => n.id === id);
