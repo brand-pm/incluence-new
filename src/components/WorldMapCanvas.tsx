@@ -83,6 +83,13 @@ interface Packet {
   size: number;
 }
 
+interface Ripple {
+  x: number;
+  y: number;
+  age: number;       // 0→1 lifecycle
+  color: string;
+}
+
 // ── COMPONENT ────────────────────────────────────────────────────────
 const WorldMapCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
