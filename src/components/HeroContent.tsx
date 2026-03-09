@@ -48,12 +48,12 @@ const HeroContent = () => (
       </span>
     </motion.div>
 
-    {/* ─── MOBILE layout (< md) ─── */}
+    {/* ═══════ MOBILE layout (< md) ═══════ */}
     <div
       className="absolute inset-0 z-10 flex flex-col justify-end md:hidden"
       style={{ fontFamily: "Manrope, sans-serif", padding: "0 20px 24px" }}
     >
-      {/* Tag — slide in from left */}
+      {/* Tag — line draws in, text slides from left */}
       <motion.div
         className="flex items-center"
         style={{ gap: 8, marginBottom: 12 }}
@@ -72,7 +72,7 @@ const HeroContent = () => (
         </span>
       </motion.div>
 
-      {/* H1 — word-by-word stagger feel via clip */}
+      {/* H1 — blur-in + slide up */}
       <motion.h1
         style={{
           fontFamily: "Manrope, sans-serif",
@@ -86,7 +86,7 @@ const HeroContent = () => (
       >
         Legal clarity for businesses that{" "}
         <motion.em
-          style={{ fontStyle: "italic", color: "#444CE7", fontWeight: 400 }}
+          style={{ fontStyle: "italic", color: "#444CE7", fontWeight: 400, display: "inline-block" }}
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease, delay: 0.9 }}
@@ -96,7 +96,7 @@ const HeroContent = () => (
         {" "}beyond borders
       </motion.h1>
 
-      {/* Buttons — staggered */}
+      {/* Buttons — staggered entrance */}
       <div className="flex gap-2.5">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -137,7 +137,7 @@ const HeroContent = () => (
         </motion.div>
       </div>
 
-      {/* Stats — line draws in, then numbers fade up individually */}
+      {/* Stats — line draws in, numbers stagger up */}
       <div className="mt-6">
         <motion.div
           style={{ height: 1, background: "rgba(255,255,255,0.06)" }}
@@ -164,13 +164,13 @@ const HeroContent = () => (
           ))}
         </div>
       </div>
+    </div>
 
-    {/* ─── DESKTOP layout (≥ md) ─── */}
+    {/* ═══════ DESKTOP layout (≥ md) ═══════ */}
     <div
       className="absolute z-10 hidden md:block left-12 top-1/2"
       style={{ fontFamily: "Manrope, sans-serif", maxWidth: 560, transform: "translateY(-52%)" }}
     >
-      {/* Tag */}
       <motion.div className="flex items-center" style={{ gap: 10, marginBottom: 16 }} {...fade(0.2)}>
         <span style={{ width: 28, height: 1, background: "#444CE7" }} />
         <span style={{ fontSize: 10, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase" as const, color: "#444CE7" }}>
@@ -178,7 +178,6 @@ const HeroContent = () => (
         </span>
       </motion.div>
 
-      {/* H1 */}
       <motion.h1
         className="text-[clamp(36px,4.5vw,64px)]"
         style={{
@@ -193,7 +192,6 @@ const HeroContent = () => (
         {" "}beyond borders
       </motion.h1>
 
-      {/* Subline */}
       <motion.p style={{
         fontSize: 14, color: "#9A9590", lineHeight: 1.7,
         maxWidth: 440, fontWeight: 300, margin: 0, marginBottom: 28,
@@ -202,7 +200,6 @@ const HeroContent = () => (
         to tax structuring and compliance across 15+ jurisdictions worldwide.
       </motion.p>
 
-      {/* Buttons */}
       <motion.div className="flex gap-3.5" {...fade(0.8)}>
         <Link
           to="/licenses/gambling"
