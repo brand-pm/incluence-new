@@ -44,7 +44,7 @@ const HeroContent = () => (
         }} />
       </div>
       <span style={{ fontSize: 12 }}>
-        <span style={{ color: "#F0EBE0", fontWeight: 500 }}>15 jurisdictions</span>
+        <span style={{ color: "#F0EBE0", fontWeight: 500 }}>26 jurisdictions</span>
         <span style={{ color: "#9A9590" }}> · live</span>
       </span>
     </div>
