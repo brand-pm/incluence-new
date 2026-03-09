@@ -23,9 +23,9 @@ const companies: Company[] = [
 ];
 
 const badgeColors: Record<string, string> = {
-  HOT: "bg-red-500/90",
+  HOT: "bg-error-500/90",
   PREMIUM: "bg-gold",
-  "BEST PRICE": "bg-emerald-600/90",
+  "BEST PRICE": "bg-success-600/90",
 };
 
 const sectionPad = { padding: "var(--space-24) var(--space-12)" };
