@@ -31,31 +31,36 @@ const partners = ["Nebeus", "Bankstore", "N5Bank", "Avitar Legal"];
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
+const sectionPad = { padding: "var(--space-24) var(--space-12)" };
+const cardPad = { padding: "var(--space-10) var(--space-10)" };
+
 const Index = () => (
   <div>
     {/* HERO */}
-    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 lg:px-12">
+    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden" style={{ padding: "0 var(--space-12)" }}>
       <div className="absolute inset-0 grid-dots" />
       <div className="absolute inset-0 gold-glow" />
-      <div className="relative mx-auto w-full max-w-[1400px] pt-16">
+      <div className="relative mx-auto w-full max-w-[1280px]" style={{ paddingTop: "var(--nav-height)" }}>
         <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.8 }}>
           <h1 className="text-display-2xl max-w-4xl">
             Legal clarity for businesses that{" "}
             <span className="text-gold font-normal">operate</span> beyond borders
           </h1>
-          <p className="mt-6 max-w-xl text-body-lg text-muted-foreground">
+          <p className="max-w-xl text-body-lg text-muted-foreground" style={{ marginTop: "var(--space-6)" }}>
             Assistance in obtaining licenses for crypto, banking, gambling, Forex, investment, and financial services across 40+ jurisdictions.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="flex flex-wrap" style={{ marginTop: "var(--space-10)", gap: "var(--space-4)" }}>
             <Link
               to="/licenses/gambling"
-              className="inline-flex items-center gap-2 bg-gold px-7 py-3 text-body-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              className="inline-flex items-center bg-gold text-body-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              style={{ padding: "var(--space-3) var(--space-8)", gap: "var(--space-2)" }}
             >
               Explore Licenses <ArrowRight size={16} />
             </Link>
             <Link
               to="/marketplace"
-              className="inline-flex items-center gap-2 border border-gold-border px-7 py-3 text-body-sm font-medium text-gold transition-colors hover:bg-gold hover:text-primary-foreground"
+              className="inline-flex items-center border border-gold-border text-body-sm font-medium text-gold transition-colors hover:bg-gold hover:text-primary-foreground"
+              style={{ padding: "var(--space-3) var(--space-8)", gap: "var(--space-2)" }}
             >
               Marketplace
             </Link>
@@ -66,7 +71,8 @@ const Index = () => (
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="absolute bottom-12 right-0 hidden lg:flex items-end gap-10"
+          className="absolute bottom-12 right-0 hidden lg:flex items-end"
+          style={{ gap: "var(--space-10)" }}
         >
           {[
             { v: "500+", l: "Companies" },
@@ -75,7 +81,7 @@ const Index = () => (
           ].map((s) => (
             <div key={s.l} className="text-right">
               <div className="text-display-sm text-gold">{s.v}</div>
-              <div className="text-label text-muted-foreground mt-1">{s.l}</div>
+              <div className="text-label text-muted-foreground" style={{ marginTop: "var(--space-1)" }}>{s.l}</div>
             </div>
           ))}
         </motion.div>
@@ -88,7 +94,8 @@ const Index = () => (
         {industries.map((ind) => (
           <div
             key={ind}
-            className="flex-shrink-0 border-r border-border px-8 py-5 text-body-sm text-muted-foreground hover:text-gold hover:bg-gold-dim transition-colors cursor-pointer"
+            className="flex-shrink-0 border-r border-border text-body-sm text-muted-foreground hover:text-gold hover:bg-gold-dim transition-colors cursor-pointer"
+            style={{ padding: "var(--space-5) var(--space-8)" }}
           >
             {ind}
           </div>
@@ -97,17 +104,17 @@ const Index = () => (
     </section>
 
     {/* SERVICES */}
-    <section className="py-24 px-6 lg:px-12">
-      <div className="mx-auto max-w-[1400px]">
-        <div className="mb-16">
-          <p className="text-label text-gold mb-3">What We Do</p>
+    <section style={sectionPad}>
+      <div className="mx-auto max-w-[1280px]">
+        <div style={{ marginBottom: "var(--space-16)" }}>
+          <p className="text-label text-gold" style={{ marginBottom: "var(--space-3)" }}>What We Do</p>
           <h2 className="text-display-lg">Comprehensive Legal Services</h2>
         </div>
         <div className="grid grid-cols-1 gap-px bg-border md:grid-cols-3">
           {services.map((svc) => (
-            <div key={svc.title} className="card-hover bg-card p-10">
-              <svc.icon className="text-gold mb-5" size={28} strokeWidth={1.5} />
-              <h3 className="text-display-xs mb-3">{svc.title}</h3>
+            <div key={svc.title} className="card-hover bg-card" style={cardPad}>
+              <svc.icon className="text-gold" size={28} strokeWidth={1.5} style={{ marginBottom: "var(--space-5)" }} />
+              <h3 className="text-display-xs" style={{ marginBottom: "var(--space-3)" }}>{svc.title}</h3>
               <p className="text-body-sm text-muted-foreground">{svc.desc}</p>
             </div>
           ))}
@@ -116,17 +123,17 @@ const Index = () => (
     </section>
 
     {/* PROCESS */}
-    <section className="py-24 px-6 lg:px-12 bg-surface">
-      <div className="mx-auto max-w-[1400px]">
-        <div className="mb-16">
-          <p className="text-label text-gold mb-3">How It Works</p>
+    <section className="bg-surface" style={sectionPad}>
+      <div className="mx-auto max-w-[1280px]">
+        <div style={{ marginBottom: "var(--space-16)" }}>
+          <p className="text-label text-gold" style={{ marginBottom: "var(--space-3)" }}>How It Works</p>
           <h2 className="text-display-lg">Our Process</h2>
         </div>
         <div className="grid grid-cols-1 gap-px bg-border md:grid-cols-2">
           {process.map((p) => (
-            <div key={p.step} className="card-hover bg-card p-10">
+            <div key={p.step} className="card-hover bg-card" style={cardPad}>
               <span className="text-display-lg text-gold/30">{p.step}</span>
-              <h3 className="text-display-xs mt-4 mb-3">{p.title}</h3>
+              <h3 className="text-display-xs" style={{ marginTop: "var(--space-4)", marginBottom: "var(--space-3)" }}>{p.title}</h3>
               <p className="text-body-sm text-muted-foreground">{p.desc}</p>
             </div>
           ))}
@@ -136,10 +143,10 @@ const Index = () => (
 
     {/* STATS */}
     <section className="border-y border-border">
-      <div className="mx-auto max-w-[1400px] grid grid-cols-2 md:grid-cols-4">
+      <div className="mx-auto max-w-[1280px] grid grid-cols-2 md:grid-cols-4">
         {stats.map((s) => (
-          <div key={s.label} className="border-r border-border last:border-r-0 py-16 px-8 text-center">
-            <div className="text-display-md text-gold mb-2">{s.value}</div>
+          <div key={s.label} className="border-r border-border last:border-r-0 text-center" style={{ padding: "var(--space-16) var(--space-8)" }}>
+            <div className="text-display-md text-gold" style={{ marginBottom: "var(--space-2)" }}>{s.value}</div>
             <div className="text-label text-muted-foreground">{s.label}</div>
           </div>
         ))}
@@ -147,10 +154,10 @@ const Index = () => (
     </section>
 
     {/* PARTNERS */}
-    <section className="py-24 px-6 lg:px-12">
-      <div className="mx-auto max-w-[1400px]">
-        <p className="text-label text-gold mb-10 text-center">Trusted Partners</p>
-        <div className="flex flex-wrap justify-center gap-16">
+    <section style={sectionPad}>
+      <div className="mx-auto max-w-[1280px]">
+        <p className="text-label text-gold text-center" style={{ marginBottom: "var(--space-10)" }}>Trusted Partners</p>
+        <div className="flex flex-wrap justify-center" style={{ gap: "var(--space-16)" }}>
           {partners.map((p) => (
             <div key={p} className="text-display-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors">
               {p}
@@ -161,24 +168,24 @@ const Index = () => (
     </section>
 
     {/* CONTACT */}
-    <section className="py-24 px-6 lg:px-12 bg-surface">
-      <div className="mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
+    <section className="bg-surface" style={sectionPad}>
+      <div className="mx-auto max-w-[1280px]">
+        <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "var(--space-16)" }}>
           <div>
-            <p className="text-label text-gold mb-3">Get In Touch</p>
-            <h2 className="text-display-lg mb-6">Let's discuss your project</h2>
+            <p className="text-label text-gold" style={{ marginBottom: "var(--space-3)" }}>Get In Touch</p>
+            <h2 className="text-display-lg" style={{ marginBottom: "var(--space-6)" }}>Let's discuss your project</h2>
             <p className="text-body-lg text-muted-foreground">
               Schedule a free consultation with our experts. We'll analyze your business needs and recommend the optimal licensing strategy.
             </p>
           </div>
-          <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-2 gap-4">
-              <input placeholder="Full Name" className="w-full bg-card border border-border px-4 py-3 text-body-sm text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none" />
-              <input placeholder="Email" type="email" className="w-full bg-card border border-border px-4 py-3 text-body-sm text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none" />
+          <form className="flex flex-col" style={{ gap: "var(--space-5)" }} onSubmit={(e) => e.preventDefault()}>
+            <div className="grid grid-cols-2" style={{ gap: "var(--space-4)" }}>
+              <input placeholder="Full Name" className="w-full bg-card border border-border text-body-sm text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none" style={{ padding: "var(--space-3) var(--space-4)" }} />
+              <input placeholder="Email" type="email" className="w-full bg-card border border-border text-body-sm text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none" style={{ padding: "var(--space-3) var(--space-4)" }} />
             </div>
-            <input placeholder="Company Name" className="w-full bg-card border border-border px-4 py-3 text-body-sm text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none" />
-            <textarea rows={4} placeholder="Tell us about your project..." className="w-full bg-card border border-border px-4 py-3 text-body-sm text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none resize-none" />
-            <button type="submit" className="bg-gold px-8 py-3 text-body-sm font-medium text-primary-foreground transition-opacity hover:opacity-90">
+            <input placeholder="Company Name" className="w-full bg-card border border-border text-body-sm text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none" style={{ padding: "var(--space-3) var(--space-4)" }} />
+            <textarea rows={4} placeholder="Tell us about your project..." className="w-full bg-card border border-border text-body-sm text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none resize-none" style={{ padding: "var(--space-3) var(--space-4)" }} />
+            <button type="submit" className="bg-gold text-body-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 self-start" style={{ padding: "var(--space-3) var(--space-8)" }}>
               Send Message
             </button>
           </form>

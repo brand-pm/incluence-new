@@ -20,25 +20,28 @@ const steps = [
   { n: "04", title: "License Approval" },
 ];
 
+const sectionPad = { padding: "var(--space-24) var(--space-12)" };
+const cardPad = { padding: "var(--space-10)" };
+
 const CategoryPage = () => {
   const [active, setActive] = useState("All");
   const filtered = active === "All" ? jurisdictions : jurisdictions.filter((j) => j.tags.includes(active));
 
   return (
     <div>
-      <section className="relative flex min-h-[55vh] flex-col justify-end overflow-hidden px-6 lg:px-12 pb-16 pt-28">
+      <section className="relative flex min-h-[55vh] flex-col justify-end overflow-hidden" style={{ padding: "var(--nav-height) var(--space-12) var(--space-16)" }}>
         <div className="absolute inset-0 grid-dots opacity-50" />
         <div className="absolute inset-0 gold-glow opacity-60" />
-        <div className="relative mx-auto w-full max-w-[1400px]">
-          <div className="flex items-center gap-2 text-body-xs text-muted-foreground mb-6">
+        <div className="relative mx-auto w-full max-w-[1280px]">
+          <div className="flex items-center text-body-xs text-muted-foreground" style={{ gap: "var(--space-2)", marginBottom: "var(--space-6)" }}>
             <Link to="/" className="hover:text-gold transition-colors">Home</Link>
             <ChevronRight size={12} />
             <Link to="/licenses/gambling" className="hover:text-gold transition-colors">Licenses</Link>
             <ChevronRight size={12} />
             <span className="text-foreground">Gambling & Gaming</span>
           </div>
-          <h1 className="text-display-xl mb-8">Gambling & Gaming Licenses</h1>
-          <div className="flex flex-wrap gap-8">
+          <h1 className="text-display-xl" style={{ marginBottom: "var(--space-8)" }}>Gambling & Gaming Licenses</h1>
+          <div className="flex flex-wrap" style={{ gap: "var(--space-8)" }}>
             {[
               { v: "6", l: "Jurisdictions" },
               { v: "From $12k", l: "Starting Price" },
@@ -46,25 +49,26 @@ const CategoryPage = () => {
             ].map((s) => (
               <div key={s.l}>
                 <div className="text-display-xs text-gold">{s.v}</div>
-                <div className="text-label text-muted-foreground mt-1">{s.l}</div>
+                <div className="text-label text-muted-foreground" style={{ marginTop: "var(--space-1)" }}>{s.l}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-6 lg:px-12">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="flex gap-2 mb-12">
+      <section style={sectionPad}>
+        <div className="mx-auto max-w-[1280px]">
+          <div className="flex" style={{ gap: "var(--space-2)", marginBottom: "var(--space-12)" }}>
             {filters.map((f) => (
               <button
                 key={f}
                 onClick={() => setActive(f)}
-                className={`px-5 py-2 text-body-sm font-medium transition-all ${
+                className={`text-body-sm font-medium transition-all ${
                   active === f
                     ? "bg-gold text-primary-foreground"
                     : "border border-border text-muted-foreground hover:border-gold-border hover:text-gold"
                 }`}
+                style={{ padding: "var(--space-2) var(--space-5)" }}
               >
                 {f}
               </button>
@@ -73,17 +77,17 @@ const CategoryPage = () => {
 
           <div className="grid grid-cols-1 gap-px bg-border md:grid-cols-3">
             {filtered.map((j) => (
-              <Link key={j.country} to="/licenses/gambling/malta" className="card-hover bg-card p-8 block">
-                <div className="flex items-start justify-between mb-5">
+              <Link key={j.country} to="/licenses/gambling/malta" className="card-hover bg-card block" style={cardPad}>
+                <div className="flex items-start justify-between" style={{ marginBottom: "var(--space-5)" }}>
                   <span className="text-display-md">{j.flag}</span>
-                  <div className="flex gap-1.5">
+                  <div className="flex" style={{ gap: "var(--space-1)" }}>
                     {j.tags.map((t) => (
-                      <span key={t} className="bg-gold-dim text-gold text-label px-2 py-0.5">{t}</span>
+                      <span key={t} className="bg-gold-dim text-gold text-label" style={{ padding: "var(--space-1) var(--space-2)" }}>{t}</span>
                     ))}
                   </div>
                 </div>
-                <h3 className="text-display-xs mb-1">{j.country}</h3>
-                <p className="text-body-sm text-muted-foreground mb-4">{j.license}</p>
+                <h3 className="text-display-xs" style={{ marginBottom: "var(--space-1)" }}>{j.country}</h3>
+                <p className="text-body-sm text-muted-foreground" style={{ marginBottom: "var(--space-4)" }}>{j.license}</p>
                 <div className="flex items-end justify-between">
                   <div>
                     <span className="text-body-xs text-muted-foreground">From</span>
@@ -98,9 +102,9 @@ const CategoryPage = () => {
       </section>
 
       <section className="border-y border-border bg-surface">
-        <div className="mx-auto max-w-[1400px] grid grid-cols-2 md:grid-cols-4">
+        <div className="mx-auto max-w-[1280px] grid grid-cols-2 md:grid-cols-4">
           {steps.map((s, i) => (
-            <div key={s.n} className="border-r border-border last:border-r-0 py-10 px-8 flex items-start gap-4">
+            <div key={s.n} className="border-r border-border last:border-r-0 flex items-start" style={{ padding: "var(--space-10) var(--space-8)", gap: "var(--space-4)" }}>
               <span className="text-display-xs text-gold/30">{s.n}</span>
               <p className="text-body-sm font-medium">{s.title}</p>
               {i < 3 && <ArrowRight size={14} className="text-gold/30 ml-auto mt-1 hidden md:block" />}

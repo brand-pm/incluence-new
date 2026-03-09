@@ -14,8 +14,8 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6 lg:px-12">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl" style={{ height: "var(--nav-height)" }}>
+      <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between" style={{ padding: "0 var(--space-12)" }}>
         <Link to="/" className="text-xl font-semibold tracking-tight">
           <span className="text-foreground">Inclu</span>
           <span className="text-gold">ence</span>
@@ -38,7 +38,8 @@ const Navbar = () => {
         <div className="hidden md:block">
           <Link
             to="/"
-            className="border border-gold-border px-5 py-2 text-body-sm font-medium text-gold transition-all hover:bg-gold hover:text-primary-foreground"
+            className="border border-gold-border text-body-sm font-medium text-gold transition-all hover:bg-gold hover:text-primary-foreground"
+            style={{ padding: "var(--space-2) var(--space-5)" }}
           >
             Start a Project
           </Link>
@@ -50,13 +51,14 @@ const Navbar = () => {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-border bg-background px-6 py-4 md:hidden">
+        <div className="border-t border-border bg-background md:hidden" style={{ padding: "var(--space-4) var(--space-6)" }}>
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
               onClick={() => setMobileOpen(false)}
-              className="block py-3 text-nav text-muted-foreground hover:text-gold"
+              className="block text-nav text-muted-foreground hover:text-gold"
+              style={{ padding: "var(--space-3) 0" }}
             >
               {link.label}
             </Link>
@@ -64,7 +66,8 @@ const Navbar = () => {
           <Link
             to="/"
             onClick={() => setMobileOpen(false)}
-            className="mt-3 inline-block border border-gold-border px-5 py-2 text-body-sm font-medium text-gold"
+            className="inline-block border border-gold-border text-body-sm font-medium text-gold"
+            style={{ marginTop: "var(--space-3)", padding: "var(--space-2) var(--space-5)" }}
           >
             Start a Project
           </Link>
