@@ -59,7 +59,7 @@
     --popover: 0 0% 5%;
     --popover-foreground: 36 33% 93%;
 
-    --primary: 236 77% 53%;
+    --primary: 258 86% 49%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 7%;
@@ -68,7 +68,7 @@
     --muted: 0 0% 7%;
     --muted-foreground: 25 5% 50%;
 
-    --accent: 236 77% 53%;
+    --accent: 258 86% 49%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 75% 49%;
@@ -76,14 +76,14 @@
 
     --border: 0 0% 100% / 0.06;
     --input: 0 0% 100% / 0.06;
-    --ring: 236 77% 53%;
+    --ring: 258 86% 49%;
 
     --radius: 0px;
 
     /* ── ACCENT DERIVED ──────────────────────────── */
-    --gold: 236 77% 53%;
-    --gold-dim: 236 77% 53% / 0.12;
-    --gold-border: 236 77% 53% / 0.25;
+    --gold: 258 86% 49%;
+    --gold-dim: 258 86% 49% / 0.12;
+    --gold-border: 258 86% 49% / 0.25;
     --surface: 0 0% 5%;
     --surface-alt: 0 0% 7%;
 
@@ -111,12 +111,12 @@
 
     --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 36 33% 93%;
-    --sidebar-primary: 236 77% 53%;
+    --sidebar-primary: 258 86% 49%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 7%;
     --sidebar-accent-foreground: 36 33% 93%;
     --sidebar-border: 0 0% 100% / 0.06;
-    --sidebar-ring: 236 77% 53%;
+    --sidebar-ring: 258 86% 49%;
 
     /* DISPLAY SCALE */
     --text-display-2xl: 72px;
@@ -193,7 +193,7 @@
 }
 
 .gold-glow {
-  background: radial-gradient(ellipse 600px 400px at 50% 40%, hsl(236 77% 53% / 0.08), transparent);
+  background: radial-gradient(ellipse 600px 400px at 50% 40%, hsl(258 86% 49% / 0.08), transparent);
 }
 
 .card-hover {
@@ -233,7 +233,7 @@
   transition: background 0.25s, transform 0.2s;
 }
 .btn-primary:hover {
-  background: hsl(239 73% 50%);
+  background: hsl(258 86% 44%);
   transform: translateY(-1px);
 }
 
