@@ -246,16 +246,20 @@ const WorldMapCanvas = () => {
 
       // ── Nodes ───────────────────────────────
       let tooltipData: { x: number; y: number; node: JNode } | null = null;
+      const isMobile = W < 768;
 
       positions.forEach((pos, i) => {
         const node = NODES[i];
+        // Hide tier-2 on mobile
+        if (isMobile && node.tier === 2) return;
+
         const isHov = hovered === i;
-        const baseR = node.tier === 1 ? 5.5 : 3.5;
+        const baseR = node.tier === 1 ? (isMobile ? 4 : 5.5) : 3.5;
         const r = isHov ? baseR * 1.8 : baseR;
         const pulse = (Math.sin(t * 1.8 + node.sx * 0.01) + 1) / 2;
 
         // 1. Pulse ring
-        const pulseR = r + pulse * (node.tier === 1 ? 20 : 12);
+        const pulseR = r + pulse * (node.tier === 1 ? (isMobile ? 14 : 20) : 12);
         const pulseAlpha = (1 - pulse) * (node.tier === 1 ? 0.3 : 0.15);
         ctx.beginPath();
         ctx.arc(pos.x, pos.y, pulseR, 0, Math.PI * 2);
@@ -289,19 +293,21 @@ const WorldMapCanvas = () => {
         ctx.arc(pos.x, pos.y, r, 0, Math.PI * 2);
         ctx.fill();
 
-        // 5. Label
-        const showLabel = node.tier === 1 || isHov;
-        if (showLabel) {
-          ctx.font = "500 10px Manrope, sans-serif";
-          ctx.textAlign = "center";
-          ctx.fillStyle = isHov ? "#F0EBE0" : "rgba(240,235,224,0.55)";
-          ctx.fillText(node.name, pos.x, pos.y - r - 9);
-        }
-        if (isHov) {
-          ctx.font = "500 9px Manrope, sans-serif";
-          ctx.fillStyle = "#6172F3";
-          ctx.fillText(node.reg, pos.x, pos.y + r + 16);
-          tooltipData = { x: pos.x, y: pos.y, node };
+        // 5. Label — hide all labels on mobile, show tier-1 on desktop
+        if (!isMobile) {
+          const showLabel = node.tier === 1 || isHov;
+          if (showLabel) {
+            ctx.font = "500 10px Manrope, sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillStyle = isHov ? "#F0EBE0" : "rgba(240,235,224,0.55)";
+            ctx.fillText(node.name, pos.x, pos.y - r - 9);
+          }
+          if (isHov) {
+            ctx.font = "500 9px Manrope, sans-serif";
+            ctx.fillStyle = "#6172F3";
+            ctx.fillText(node.reg, pos.x, pos.y + r + 16);
+            tooltipData = { x: pos.x, y: pos.y, node };
+          }
         }
       });
 
