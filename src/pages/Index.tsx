@@ -21,9 +21,21 @@ const Index = () => (
           zIndex: 3,
           background: [
             "radial-gradient(ellipse 52% 100% at 0% 50%, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.6) 30%, transparent 60%)",
-            "linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.92) 6%, rgba(8,8,8,0.7) 14%, rgba(8,8,8,0.4) 22%, rgba(8,8,8,0.15) 30%, transparent 42%)",
-            "linear-gradient(to bottom, rgba(8,8,8,0.8) 0%, rgba(8,8,8,0.4) 8%, transparent 20%)",
+            "linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.97) 3%, rgba(8,8,8,0.9) 7%, rgba(8,8,8,0.78) 12%, rgba(8,8,8,0.6) 18%, rgba(8,8,8,0.4) 24%, rgba(8,8,8,0.2) 31%, rgba(8,8,8,0.08) 38%, transparent 48%)",
+            "linear-gradient(to bottom, rgba(8,8,8,0.8) 0%, rgba(8,8,8,0.5) 6%, rgba(8,8,8,0.2) 12%, transparent 20%)",
           ].join(", "),
+        }}
+      />
+
+      {/* Noise overlay to eliminate gradient banding */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          zIndex: 4,
+          opacity: 0.035,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "128px 128px",
         }}
       />
 
