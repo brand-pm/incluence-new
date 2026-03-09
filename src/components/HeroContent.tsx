@@ -8,10 +8,12 @@ const stats = [
   { num: "12", suffix: " yrs", label: "Experience" },
 ];
 
+const ease: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+
 const fade = (delay: number) => ({
   initial: { opacity: 0, y: 18 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94], delay },
+  transition: { duration: 0.7, ease, delay },
 });
 
 const HeroContent = () => (
