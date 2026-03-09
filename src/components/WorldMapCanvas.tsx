@@ -58,7 +58,7 @@ const ROUTES: [string, string][] = [
   ["singapore","uae"],["uae","swiss"],["uae","seychelles"],
   ["cayman","bvi"],["cayman","delaware"],
   ["belize","curacao"],["curacao","cayman"],["swiss","cyprus"],["estonia","uk"],
-  // New routes
+  // European
   ["uk","dublin"],["uk","jersey"],["uk","luxembourg"],
   ["luxembourg","swiss"],["luxembourg","liechten"],
   ["dublin","bermuda"],["bermuda","bahamas"],["bahamas","cayman"],
@@ -67,6 +67,10 @@ const ROUTES: [string, string][] = [
   ["singapore","labuan"],["labuan","hk"],
   ["uae","mauritius"],["mauritius","seychelles"],
   ["jersey","gibraltar"],
+  // ── Long-haul intercontinental (borderless feel) ──
+  ["tokyo","delaware"],["singapore","cayman"],["dublin","hk"],
+  ["swiss","singapore"],["cyprus","shanghai"],["bermuda","uk"],
+  ["mauritius","labuan"],["malta","uae"],
 ];
 
 const nodeIdx = (id: string) => NODES.findIndex(n => n.id === id);
