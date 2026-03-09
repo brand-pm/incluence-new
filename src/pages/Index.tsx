@@ -21,8 +21,8 @@ const Index = () => (
           zIndex: 3,
           background: [
             "radial-gradient(ellipse 52% 100% at 0% 50%, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.6) 30%, transparent 60%)",
-            "linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.45) 14%, transparent 30%)",
-            "linear-gradient(to bottom, rgba(8,8,8,0.8) 0%, transparent 20%)",
+            "linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.92) 6%, rgba(8,8,8,0.7) 14%, rgba(8,8,8,0.4) 22%, rgba(8,8,8,0.15) 30%, transparent 42%)",
+            "linear-gradient(to bottom, rgba(8,8,8,0.8) 0%, rgba(8,8,8,0.4) 8%, transparent 20%)",
           ].join(", "),
         }}
       />
