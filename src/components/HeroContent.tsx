@@ -157,13 +157,13 @@ const HeroContent = () => (
               <div style={{ fontSize: 20, fontWeight: 300, color: "#F0EBE0", lineHeight: 1 }}>
                 {s.num}<span style={{ color: "#444CE7" }}>{s.suffix}</span>
               </div>
-            <div style={{ fontSize: 8, color: "#5A5550", marginTop: 4, textTransform: "uppercase" as const, letterSpacing: "0.06em" }}>
-              {s.label}
-            </div>
-          </div>
-        ))}
-      </motion.div>
-    </div>
+              <div style={{ fontSize: 8, color: "#5A5550", marginTop: 4, textTransform: "uppercase" as const, letterSpacing: "0.06em" }}>
+                {s.label}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
     {/* ─── DESKTOP layout (≥ md) ─── */}
     <div
