@@ -233,7 +233,7 @@
   transition: background 0.25s, transform 0.2s;
 }
 .btn-primary:hover {
-  background: hsl(239 73% 50%);
+  background: hsl(258 86% 44%);
   transform: translateY(-1px);
 }
 
