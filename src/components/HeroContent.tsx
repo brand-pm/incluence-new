@@ -48,20 +48,31 @@ const HeroContent = () => (
       </span>
     </motion.div>
 
-    {/* ─── MOBILE layout (< md) ─── */}
+    {/* ═══════ MOBILE layout (< md) ═══════ */}
     <div
       className="absolute inset-0 z-10 flex flex-col justify-end md:hidden"
       style={{ fontFamily: "Manrope, sans-serif", padding: "0 20px 24px" }}
     >
-      {/* Tag */}
-      <motion.div className="flex items-center" style={{ gap: 8, marginBottom: 12 }} {...fade(0.2)}>
-        <span style={{ width: 20, height: 1, background: "#444CE7" }} />
+      {/* Tag — line draws in, text slides from left */}
+      <motion.div
+        className="flex items-center"
+        style={{ gap: 8, marginBottom: 12 }}
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, ease, delay: 0.3 }}
+      >
+        <motion.span
+          style={{ height: 1, background: "#444CE7" }}
+          initial={{ width: 0 }}
+          animate={{ width: 20 }}
+          transition={{ duration: 0.5, ease, delay: 0.5 }}
+        />
         <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase" as const, color: "#444CE7" }}>
           International Legal Services
         </span>
       </motion.div>
 
-      {/* H1 — compact */}
+      {/* H1 — blur-in + slide up */}
       <motion.h1
         style={{
           fontFamily: "Manrope, sans-serif",
@@ -69,69 +80,97 @@ const HeroContent = () => (
           fontWeight: 300, lineHeight: 1.12, letterSpacing: "-0.02em",
           color: "#F0EBE0", margin: 0, marginBottom: 14,
         }}
-        {...fade(0.35)}
+        initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{ duration: 0.8, ease, delay: 0.45 }}
       >
         Legal clarity for businesses that{" "}
-        <em style={{ fontStyle: "italic", color: "#444CE7", fontWeight: 400 }}>operate</em>
+        <motion.em
+          style={{ fontStyle: "italic", color: "#444CE7", fontWeight: 400, display: "inline-block" }}
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease, delay: 0.9 }}
+        >
+          operate
+        </motion.em>
         {" "}beyond borders
       </motion.h1>
 
-      {/* Buttons — compact */}
-      <motion.div className="flex gap-2.5" {...fade(0.55)}>
-        <Link
-          to="/licenses/gambling"
-          className="inline-flex items-center gap-1.5"
-          style={{
-            background: "#444CE7", color: "#fff",
-            padding: "10px 18px", borderRadius: 0,
-            fontSize: 10, fontWeight: 500, letterSpacing: "0.1em",
-            textTransform: "uppercase" as const, textDecoration: "none",
-          }}
+      {/* Buttons — staggered entrance */}
+      <div className="flex gap-2.5">
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease, delay: 0.7 }}
         >
-          Start project <ArrowRight size={11} />
-        </Link>
-        <Link
-          to="/marketplace"
-          className="inline-flex items-center"
-          style={{
-            background: "transparent", color: "#9A9590",
-            border: "1px solid rgba(255,255,255,0.1)",
-            padding: "10px 14px", borderRadius: 0,
-            fontSize: 10, fontWeight: 500, letterSpacing: "0.1em",
-            textTransform: "uppercase" as const, textDecoration: "none",
-          }}
+          <Link
+            to="/licenses/gambling"
+            className="inline-flex items-center gap-1.5"
+            style={{
+              background: "#444CE7", color: "#fff",
+              padding: "10px 18px", borderRadius: 0,
+              fontSize: 10, fontWeight: 500, letterSpacing: "0.1em",
+              textTransform: "uppercase" as const, textDecoration: "none",
+            }}
+          >
+            Start project <ArrowRight size={11} />
+          </Link>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease, delay: 0.85 }}
         >
-          Marketplace
-        </Link>
-      </motion.div>
+          <Link
+            to="/marketplace"
+            className="inline-flex items-center"
+            style={{
+              background: "transparent", color: "#9A9590",
+              border: "1px solid rgba(255,255,255,0.1)",
+              padding: "10px 14px", borderRadius: 0,
+              fontSize: 10, fontWeight: 500, letterSpacing: "0.1em",
+              textTransform: "uppercase" as const, textDecoration: "none",
+            }}
+          >
+            Marketplace
+          </Link>
+        </motion.div>
+      </div>
 
-      {/* Stats — inline row */}
-      <motion.div
-        className="flex justify-between mt-6 pt-5"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, ease, delay: 0.75 }}
-      >
-        {stats.map((s, i) => (
-          <div key={s.label} className="flex-1 text-center">
-            <div style={{ fontSize: 20, fontWeight: 300, color: "#F0EBE0", lineHeight: 1 }}>
-              {s.num}<span style={{ color: "#444CE7" }}>{s.suffix}</span>
-            </div>
-            <div style={{ fontSize: 8, color: "#5A5550", marginTop: 4, textTransform: "uppercase" as const, letterSpacing: "0.06em" }}>
-              {s.label}
-            </div>
-          </div>
-        ))}
-      </motion.div>
+      {/* Stats — line draws in, numbers stagger up */}
+      <div className="mt-6">
+        <motion.div
+          style={{ height: 1, background: "rgba(255,255,255,0.06)" }}
+          initial={{ scaleX: 0, transformOrigin: "left" }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.6, ease, delay: 1.0 }}
+        />
+        <div className="flex justify-between pt-5">
+          {stats.map((s, i) => (
+            <motion.div
+              key={s.label}
+              className="flex-1 text-center"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease, delay: 1.1 + i * 0.12 }}
+            >
+              <div style={{ fontSize: 20, fontWeight: 300, color: "#F0EBE0", lineHeight: 1 }}>
+                {s.num}<span style={{ color: "#444CE7" }}>{s.suffix}</span>
+              </div>
+              <div style={{ fontSize: 8, color: "#5A5550", marginTop: 4, textTransform: "uppercase" as const, letterSpacing: "0.06em" }}>
+                {s.label}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
 
-    {/* ─── DESKTOP layout (≥ md) ─── */}
+    {/* ═══════ DESKTOP layout (≥ md) ═══════ */}
     <div
       className="absolute z-10 hidden md:block left-12 top-1/2"
       style={{ fontFamily: "Manrope, sans-serif", maxWidth: 560, transform: "translateY(-52%)" }}
     >
-      {/* Tag */}
       <motion.div className="flex items-center" style={{ gap: 10, marginBottom: 16 }} {...fade(0.2)}>
         <span style={{ width: 28, height: 1, background: "#444CE7" }} />
         <span style={{ fontSize: 10, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase" as const, color: "#444CE7" }}>
@@ -139,7 +178,6 @@ const HeroContent = () => (
         </span>
       </motion.div>
 
-      {/* H1 */}
       <motion.h1
         className="text-[clamp(36px,4.5vw,64px)]"
         style={{
@@ -154,7 +192,6 @@ const HeroContent = () => (
         {" "}beyond borders
       </motion.h1>
 
-      {/* Subline */}
       <motion.p style={{
         fontSize: 14, color: "#9A9590", lineHeight: 1.7,
         maxWidth: 440, fontWeight: 300, margin: 0, marginBottom: 28,
@@ -163,7 +200,6 @@ const HeroContent = () => (
         to tax structuring and compliance across 15+ jurisdictions worldwide.
       </motion.p>
 
-      {/* Buttons */}
       <motion.div className="flex gap-3.5" {...fade(0.8)}>
         <Link
           to="/licenses/gambling"
