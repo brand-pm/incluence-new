@@ -96,6 +96,7 @@ const WorldMapCanvas = () => {
   const animRef = useRef<number>(0);
   const frameRef = useRef(0);
   const packetsRef = useRef<Packet[]>([]);
+  const ripplesRef = useRef<Ripple[]>([]);
   const mouseRef = useRef<{ x: number; y: number }>({ x: -1, y: -1 });
   const [hoveredNode, setHoveredNode] = useState<{ x: number; y: number; node: JNode } | null>(null);
 
