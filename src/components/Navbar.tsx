@@ -21,13 +21,12 @@ const Navbar = () => {
           <span className="text-gold">ence</span>
         </Link>
 
-        {/* Desktop */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-medium transition-colors hover:text-gold ${
+              className={`text-nav transition-colors hover:text-gold ${
                 location.pathname === link.path ? "text-gold" : "text-muted-foreground"
               }`}
             >
@@ -39,13 +38,12 @@ const Navbar = () => {
         <div className="hidden md:block">
           <Link
             to="/"
-            className="border border-gold-border px-5 py-2 text-sm font-medium text-gold transition-all hover:bg-gold hover:text-primary-foreground"
+            className="border border-gold-border px-5 py-2 text-body-sm font-medium text-gold transition-all hover:bg-gold hover:text-primary-foreground"
           >
             Start a Project
           </Link>
         </div>
 
-        {/* Mobile */}
         <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -58,7 +56,7 @@ const Navbar = () => {
               key={link.path}
               to={link.path}
               onClick={() => setMobileOpen(false)}
-              className="block py-3 text-sm text-muted-foreground hover:text-gold"
+              className="block py-3 text-nav text-muted-foreground hover:text-gold"
             >
               {link.label}
             </Link>
@@ -66,7 +64,7 @@ const Navbar = () => {
           <Link
             to="/"
             onClick={() => setMobileOpen(false)}
-            className="mt-3 inline-block border border-gold-border px-5 py-2 text-sm font-medium text-gold"
+            className="mt-3 inline-block border border-gold-border px-5 py-2 text-body-sm font-medium text-gold"
           >
             Start a Project
           </Link>
