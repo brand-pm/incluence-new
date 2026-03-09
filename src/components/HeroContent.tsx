@@ -1,11 +1,20 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const stats = [
   { num: "500", suffix: "+", label: "Companies" },
   { num: "40", suffix: "+", label: "Jurisdictions" },
   { num: "12", suffix: " yrs", label: "Experience" },
 ];
+
+const ease: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+
+const fade = (delay: number) => ({
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, ease, delay },
+});
 
 const HeroContent = () => (
   <>
@@ -18,7 +27,7 @@ const HeroContent = () => (
     `}</style>
 
     {/* Live badge — top right (desktop only) */}
-    <div
+    <motion.div
       className="absolute hidden md:flex items-center"
       style={{
         zIndex: 10, top: 88, right: 48,
@@ -27,6 +36,7 @@ const HeroContent = () => (
         padding: "11px 18px", gap: 10,
         fontFamily: "Manrope, sans-serif",
       }}
+      {...fade(1.2)}
     >
       <div style={{ position: "relative", width: 8, height: 8 }}>
         <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "#12B76A", opacity: 0.4, animation: "ping 1.8s infinite" }} />
@@ -36,50 +46,49 @@ const HeroContent = () => (
         <span style={{ color: "#F0EBE0", fontWeight: 500 }}>26 jurisdictions</span>
         <span style={{ color: "#9A9590" }}> · live</span>
       </span>
-    </div>
+    </motion.div>
 
-    {/* Hero text — mobile: bottom-left with padding, desktop: left-center */}
+    {/* Hero text */}
     <div
       className="absolute z-10 left-5 right-5 bottom-20 md:left-12 md:right-auto md:bottom-auto md:top-1/2"
-      style={{
-        fontFamily: "Manrope, sans-serif",
-        maxWidth: 560,
-        transform: undefined,
-      }}
+      style={{ fontFamily: "Manrope, sans-serif", maxWidth: 560 }}
     >
-      {/* Use a wrapper with md:transform */}
       <style>{`.hero-text-wrap { transform: none; } @media(min-width:768px) { .hero-text-wrap { transform: translateY(-52%); } }`}</style>
       <div className="hero-text-wrap">
         {/* Tag */}
-        <div className="flex items-center" style={{ gap: 10, marginBottom: 16 }}>
+        <motion.div className="flex items-center" style={{ gap: 10, marginBottom: 16 }} {...fade(0.2)}>
           <span className="hidden sm:inline-block" style={{ width: 28, height: 1, background: "#444CE7" }} />
           <span style={{ fontSize: 10, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase" as const, color: "#444CE7" }}>
             International Legal Services
           </span>
-        </div>
+        </motion.div>
 
         {/* H1 */}
-        <h1 className="text-[28px] sm:text-[36px] md:text-[clamp(36px,4.5vw,64px)]" style={{
-          fontFamily: "Manrope, sans-serif",
-          fontWeight: 300, lineHeight: 1.1, letterSpacing: "-0.025em",
-          color: "#F0EBE0", margin: 0, marginBottom: 16,
-        }}>
+        <motion.h1
+          className="text-[28px] sm:text-[36px] md:text-[clamp(36px,4.5vw,64px)]"
+          style={{
+            fontFamily: "Manrope, sans-serif",
+            fontWeight: 300, lineHeight: 1.1, letterSpacing: "-0.025em",
+            color: "#F0EBE0", margin: 0, marginBottom: 16,
+          }}
+          {...fade(0.4)}
+        >
           Legal clarity for businesses that{" "}
           <em style={{ fontStyle: "italic", color: "#444CE7", fontWeight: 400 }}>operate</em>
           {" "}beyond borders
-        </h1>
+        </motion.h1>
 
-        {/* Subline — hidden on xs */}
-        <p className="hidden sm:block" style={{
+        {/* Subline */}
+        <motion.p className="hidden sm:block" style={{
           fontSize: 14, color: "#9A9590", lineHeight: 1.7,
           maxWidth: 440, fontWeight: 300, margin: 0, marginBottom: 28,
-        }}>
+        }} {...fade(0.6)}>
           From company formation and licensing — VASP, EMI, PSP, Gambling —
           to tax structuring and compliance across 15+ jurisdictions worldwide.
-        </p>
+        </motion.p>
 
         {/* Buttons */}
-        <div className="flex flex-wrap gap-2.5 md:gap-3.5">
+        <motion.div className="flex flex-wrap gap-2.5 md:gap-3.5" {...fade(0.8)}>
           <Link
             to="/licenses/gambling"
             className="inline-flex items-center gap-2"
@@ -105,14 +114,17 @@ const HeroContent = () => (
           >
             View Marketplace
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
 
-    {/* Stats — desktop: bottom-right */}
-    <div
+    {/* Stats — desktop */}
+    <motion.div
       className="absolute hidden lg:flex items-end"
       style={{ zIndex: 10, right: 48, bottom: 72, fontFamily: "Manrope, sans-serif" }}
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease, delay: 1.0 }}
     >
       {stats.map((s, i) => (
         <div key={s.label} className="flex items-center">
@@ -129,12 +141,15 @@ const HeroContent = () => (
           )}
         </div>
       ))}
-    </div>
+    </motion.div>
 
-    {/* Stats — mobile: compact bottom row */}
-    <div
+    {/* Stats — mobile */}
+    <motion.div
       className="absolute flex lg:hidden justify-center w-full"
       style={{ zIndex: 10, bottom: 12, fontFamily: "Manrope, sans-serif" }}
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease, delay: 0.9 }}
     >
       {stats.map((s, i) => (
         <div key={s.label} className="flex items-center">
@@ -151,7 +166,7 @@ const HeroContent = () => (
           )}
         </div>
       ))}
-    </div>
+    </motion.div>
   </>
 );
 
