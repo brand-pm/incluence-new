@@ -12,6 +12,7 @@ import Marketplace from "./pages/Marketplace";
 import LicensesPage from "./pages/LicensesPage";
 import NotFound from "./pages/NotFound";
 import PlaceholderPage from "./pages/PlaceholderPage";
+import CostaRicaPage from "./pages/CostaRicaPage";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/licenses" element={<LicensesPage />} />
             <Route path="/licenses/gambling/malta" element={<ServicePage />} />
             <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/gambling/costa-rica" element={<CostaRicaPage />} />
             <Route path="/about" element={<Index />} />
             <Route path="/services/gambling" element={P("Gambling Licenses")} />
             <Route path="/services/forex" element={P("Forex Licenses")} />
