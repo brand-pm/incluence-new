@@ -161,6 +161,62 @@ const LicenseCard = ({ l, i }: { l: License; i: number }) => {
   );
 };
 
+const SERVICE_OPTIONS = [
+  "Gambling License", "Crypto / VASP License", "EMI or PSP License",
+  "Company Formation", "Investment License", "Ready Made Company", "Other",
+];
+
+const fieldStyle: React.CSSProperties = {
+  width: "100%", background: "#080808", border: "1px solid rgba(255,255,255,0.08)",
+  color: "#F0EBE0", padding: "12px 16px", fontSize: 14, borderRadius: 0,
+  outline: "none", fontFamily: "Manrope, sans-serif", transition: "border-color 0.2s",
+};
+const labelStyle: React.CSSProperties = {
+  fontSize: 11, color: "#5A5550", textTransform: "uppercase",
+  letterSpacing: "0.08em", marginBottom: 6, display: "block",
+};
+
+const AdvisoryForm = () => {
+  const [focused, setFocused] = useState<string | null>(null);
+  const fb = (name: string): React.CSSProperties =>
+    focused === name ? { borderColor: "rgba(68,76,231,0.5)" } : {};
+
+  return (
+    <form className="flex flex-col" style={{ gap: 16 }} onSubmit={e => e.preventDefault()}>
+      <div>
+        <label style={labelStyle}>Name</label>
+        <input placeholder="Your name" style={{ ...fieldStyle, ...fb("name") }}
+          onFocus={() => setFocused("name")} onBlur={() => setFocused(null)} />
+      </div>
+      <div>
+        <label style={labelStyle}>Email *</label>
+        <input type="email" required placeholder="Email address" style={{ ...fieldStyle, ...fb("email") }}
+          onFocus={() => setFocused("email")} onBlur={() => setFocused(null)} />
+      </div>
+      <div>
+        <label style={labelStyle}>Service Interest</label>
+        <select style={{ ...fieldStyle, ...fb("service"), appearance: "none" as const }}
+          onFocus={() => setFocused("service")} onBlur={() => setFocused(null)} defaultValue="">
+          <option value="" disabled>Select a service...</option>
+          {SERVICE_OPTIONS.map(o => <option key={o} value={o}>{o}</option>)}
+        </select>
+      </div>
+      <div>
+        <label style={labelStyle}>Message</label>
+        <textarea rows={4} placeholder="Describe your project briefly"
+          style={{ ...fieldStyle, ...fb("message"), resize: "none" as const }}
+          onFocus={() => setFocused("message")} onBlur={() => setFocused(null)} />
+      </div>
+      <button type="submit" className="btn-primary w-full inline-flex items-center justify-center gap-2">
+        Send Message <ArrowRight size={14} />
+      </button>
+      <p style={{ fontSize: 11, color: "#5A5550", textAlign: "center", margin: 0 }}>
+        Typically respond within 4 business hours
+      </p>
+    </form>
+  );
+};
+
 /* ── PAGE ──────────────────────────────────────────────────────────── */
 const LicensesPage = () => {
   const [active, setActive] = useState("All");
@@ -288,27 +344,74 @@ const LicensesPage = () => {
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────── */}
-      <section style={{ background: "#080808", padding: "72px 48px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="mx-auto max-w-[1280px] flex flex-col items-center text-center">
-          <div className="section-tag" style={{ marginBottom: 12 }}>Get Started</div>
-          <h2 style={{
-            fontFamily: "Manrope, sans-serif",
-            fontSize: 36, fontWeight: 300, color: "#F0EBE0",
-            lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 16, maxWidth: 480,
-          }}>
-            Not sure which license fits your business?
-          </h2>
-          <p style={{ fontSize: 15, color: "#9A9590", marginBottom: 32, maxWidth: 440 }}>
-            Book a free consultation — we'll analyze your model and recommend the optimal path.
-          </p>
-          <a
-            href="/"
-            className="btn-primary inline-flex items-center gap-2"
-            style={{ textDecoration: "none" }}
+      {/* ── LICENSE ADVISORY ─────────────────────────── */}
+      <section style={{ background: "#111111", padding: "72px 48px" }}>
+        <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-[55%_45%]" style={{ gap: 48 }}>
+          {/* Left */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
           >
-            Book Consultation <ArrowRight size={14} />
-          </a>
+            <div className="section-tag" style={{ marginBottom: 12 }}>License Advisory</div>
+            <h2 style={{
+              fontFamily: "Manrope, sans-serif",
+              fontSize: 40, fontWeight: 300, color: "#F0EBE0",
+              lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 16,
+            }}>
+              Not sure which license fits your business?
+            </h2>
+            <p style={{ fontSize: 15, color: "#9A9590", lineHeight: 1.75, marginBottom: 32 }}>
+              Our legal team analyzes your business model, target markets, and risk profile — then recommends
+              the optimal licensing structure. Free initial consultation.
+            </p>
+
+            {/* Indicators */}
+            <div className="flex flex-col" style={{ gap: 16, marginBottom: 32 }}>
+              {[
+                "We assess regulatory risk before recommending any jurisdiction",
+                "Full cost/timeline/compliance comparison for top 3 options",
+                "Implementation roadmap included at no extra charge",
+              ].map((point, i) => (
+                <div key={i} className="flex items-start" style={{ gap: 12 }}>
+                  <div style={{ marginTop: 4, flexShrink: 0 }}>
+                    <NodePulse delay={i * 0.5} />
+                  </div>
+                  <span style={{ fontSize: 13, color: "#9A9590", lineHeight: 1.6 }}>{point}</span>
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="/"
+              className="btn-primary inline-flex items-center gap-2"
+              style={{ textDecoration: "none" }}
+            >
+              Book Free Consultation <ArrowRight size={14} />
+            </a>
+            <p style={{ fontSize: 11, color: "#5A5550", marginTop: 12 }}>
+              Available Mon–Fri · Response within 4 hours
+            </p>
+          </motion.div>
+
+          {/* Right — Contact Form */}
+          <motion.div
+            style={{
+              background: "#0d0d0d",
+              border: "1px solid rgba(255,255,255,0.06)",
+              padding: 36,
+            }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <h3 style={{ fontSize: 16, fontWeight: 500, color: "#F0EBE0", marginBottom: 24 }}>
+              Send us your project details
+            </h3>
+            <AdvisoryForm />
+          </motion.div>
         </div>
       </section>
     </div>
