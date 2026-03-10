@@ -7,6 +7,7 @@ import LicenseCategories from "@/components/LicenseCategories";
 import ServicesSection from "@/components/ServicesSection";
 import OurServicesSection from "@/components/OurServicesSection";
 import ProcessSection from "@/components/ProcessSection";
+import JurisdictionsSection from "@/components/JurisdictionsSection";
 import StatsSection from "@/components/StatsSection";
 import PartnersSection from "@/components/PartnersSection";
 import ContactSection from "@/components/ContactSection";
