@@ -1,55 +1,90 @@
 import { Link } from "react-router-dom";
 
-const sectionPad = { padding: "var(--space-24) var(--space-12)" };
+const serviceLinks = [
+  "Company Formation", "Gambling Licenses", "Crypto / VASP", "EMI & PSP",
+  "Investment Licenses", "Tax Structuring", "Banking Setup", "AML / Compliance",
+];
+const jurisdictionLinks = [
+  "Malta", "Gibraltar", "Cyprus", "Estonia", "United Kingdom", "Switzerland",
+  "Hong Kong", "Singapore", "UAE", "Cayman Islands", "BVI", "Seychelles",
+];
+const companyLinks = [
+  "About Us", "How We Work", "Marketplace", "Affiliate Program", "Blog", "Contact",
+];
+
+const colHeading: React.CSSProperties = {
+  fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em",
+  color: "#9A9590", marginBottom: 16, fontWeight: 500,
+};
+
+const linkStyle: React.CSSProperties = {
+  fontSize: 13, color: "#5A5550", textDecoration: "none",
+  transition: "color 0.2s",
+};
 
 const Footer = () => (
-  <footer className="border-t border-border bg-surface" style={sectionPad}>
-    <div className="mx-auto grid max-w-[1280px] grid-cols-1 md:grid-cols-4" style={{ gap: "var(--space-12)" }}>
+  <footer style={{ background: "#080808", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+    <div className="mx-auto max-w-[1280px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ padding: "64px 48px", gap: 48 }}>
+      {/* Col 1 — Brand */}
       <div>
-        <div className="text-xl font-semibold" style={{ marginBottom: "var(--space-4)" }}>
-          <span className="text-foreground">Inclu</span>
-          <span className="text-gold">ence</span>
+        <div style={{ fontSize: 20, fontWeight: 600, fontFamily: "Manrope, sans-serif" }}>
+          <span style={{ color: "#F0EBE0" }}>Inclu</span>
+          <span style={{ color: "#444CE7" }}>[ence]</span>
         </div>
-        <p className="text-body-sm text-muted-foreground leading-relaxed">
-          Legal clarity for businesses that operate beyond borders. Licensing, incorporation, and banking solutions worldwide.
+        <p style={{ fontSize: 13, color: "#5A5550", marginTop: 12, marginBottom: 24, maxWidth: 200, lineHeight: 1.6 }}>
+          International legal services for FinTech, Crypto and High-Risk businesses
         </p>
+        <div style={{ fontSize: 11, color: "#5A5550", lineHeight: 1.8 }}>
+          Incluence Ltd · Registered in Hong Kong<br />
+          Rm 7B, One Capital Place, 18 Luard Rd, Wan Chai, HK
+        </div>
       </div>
 
+      {/* Col 2 — Services */}
       <div>
-        <h4 className="text-label text-muted-foreground" style={{ marginBottom: "var(--space-5)" }}>Services</h4>
-        <ul style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
-          {["Company Incorporation", "Licensing", "Bank Account Opening", "Offshore Solutions", "Compliance & AML", "Legal Advisory"].map((s) => (
-            <li key={s}><Link to="/" className="text-body-sm text-foreground/70 hover:text-gold transition-colors">{s}</Link></li>
+        <div style={colHeading}>Services</div>
+        <div className="flex flex-col" style={{ gap: 10 }}>
+          {serviceLinks.map((s) => (
+            <Link key={s} to="/" style={linkStyle} className="hover:!text-foreground">{s}</Link>
           ))}
-        </ul>
+        </div>
       </div>
 
+      {/* Col 3 — Jurisdictions */}
       <div>
-        <h4 className="text-label text-muted-foreground" style={{ marginBottom: "var(--space-5)" }}>Jurisdictions</h4>
-        <ul style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
-          {["Malta", "Cyprus", "Estonia", "Gibraltar", "Belize", "Curaçao", "UK", "Hong Kong"].map((s) => (
-            <li key={s}><Link to="/licenses/gambling" className="text-body-sm text-foreground/70 hover:text-gold transition-colors">{s}</Link></li>
+        <div style={colHeading}>Jurisdictions</div>
+        <div className="flex flex-col" style={{ gap: 10 }}>
+          {jurisdictionLinks.map((s) => (
+            <Link key={s} to="/" style={linkStyle} className="hover:!text-foreground">{s}</Link>
           ))}
-        </ul>
+        </div>
       </div>
 
+      {/* Col 4 — Company */}
       <div>
-        <h4 className="text-label text-muted-foreground" style={{ marginBottom: "var(--space-5)" }}>Company</h4>
-        <ul style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
-          {["About Us", "Contact", "Blog", "Careers", "Privacy Policy", "Terms of Service"].map((s) => (
-            <li key={s}><Link to="/" className="text-body-sm text-foreground/70 hover:text-gold transition-colors">{s}</Link></li>
+        <div style={colHeading}>Company</div>
+        <div className="flex flex-col" style={{ gap: 10 }}>
+          {companyLinks.map((s) => (
+            <Link key={s} to="/" style={linkStyle} className="hover:!text-foreground">{s}</Link>
           ))}
-        </ul>
-        <div className="text-body-xs text-muted-foreground" style={{ marginTop: "var(--space-8)" }}>
-          <p>Registered in Hong Kong</p>
-          <p>& United Kingdom</p>
         </div>
       </div>
     </div>
 
-    <div className="mx-auto max-w-[1280px] border-t border-border text-body-xs text-muted-foreground flex flex-col md:flex-row justify-between" style={{ marginTop: "var(--space-16)", paddingTop: "var(--space-8)", gap: "var(--space-4)" }}>
-      <p>© 2026 Incluence. All rights reserved.</p>
-      <p>Legal consulting services. Not a law firm.</p>
+    {/* Bottom bar */}
+    <div
+      className="flex flex-col sm:flex-row items-center justify-between"
+      style={{
+        borderTop: "1px solid rgba(255,255,255,0.04)",
+        padding: "20px 48px",
+      }}
+    >
+      <span style={{ fontSize: 12, color: "#5A5550" }}>© 2024 Incluence Ltd. All rights reserved.</span>
+      <div className="flex gap-4" style={{ fontSize: 12 }}>
+        <Link to="/" style={{ color: "#5A5550", textDecoration: "none", transition: "color 0.2s" }} className="hover:!text-muted-foreground">Privacy Policy</Link>
+        <span style={{ color: "#5A5550" }}>·</span>
+        <Link to="/" style={{ color: "#5A5550", textDecoration: "none", transition: "color 0.2s" }} className="hover:!text-muted-foreground">Terms of Service</Link>
+      </div>
     </div>
   </footer>
 );
