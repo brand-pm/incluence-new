@@ -38,8 +38,8 @@ const Navbar = () => {
         <div className="hidden md:block">
           <Link
             to="/"
-            className="border border-gold-border text-body-sm font-medium text-gold transition-all hover:bg-gold hover:text-primary-foreground"
-            style={{ padding: "var(--space-2) var(--space-5)" }}
+            className="btn-primary"
+            style={{ padding: "10px 20px", fontSize: 13, textDecoration: "none" }}
           >
             Start a Project
           </Link>
