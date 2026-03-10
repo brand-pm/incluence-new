@@ -16,7 +16,7 @@ import ContactCTA from "@/components/ContactCTA";
 const Index = () => (
   <div>
     {/* ══════════ HERO ══════════ */}
-    <section className="relative overflow-hidden" style={{ background: "#080808", height: "85vh" }}>
+    <section className="relative overflow-hidden" style={{ background: "#080808", height: "88vh" }}>
       <WorldMapCanvas />
 
       {/* Vignettes — z-index 3 */}
