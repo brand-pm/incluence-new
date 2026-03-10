@@ -33,8 +33,8 @@ const PartnersSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            onMouseEnter={(e) => (e.currentTarget.style.filter = "grayscale(0%) brightness(1)")}
-            onMouseLeave={(e) => (e.currentTarget.style.filter = "grayscale(100%) brightness(0.7)")}
+            onMouseEnter={(e) => (e.currentTarget.style.filter = "grayscale(0%) brightness(1) opacity(1)")}
+            onMouseLeave={(e) => (e.currentTarget.style.filter = "grayscale(100%) brightness(1.8) opacity(0.5)")}
           >
             <div style={{ fontSize: 18, fontWeight: 600, color: "#F0EBE0" }}>{p.name}</div>
             <div style={{ fontSize: 11, color: "#5A5550", marginTop: 4 }}>{p.domain}</div>

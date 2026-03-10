@@ -26,7 +26,7 @@ const steps = [
 ];
 
 const ProcessSection = () => (
-  <section style={{ background: "#111111", padding: "96px 48px" }}>
+  <section style={{ background: "#111111", padding: "72px 48px" }}>
     <div className="mx-auto max-w-[1280px]">
       <motion.div
         style={{ marginBottom: 72 }}

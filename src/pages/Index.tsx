@@ -49,8 +49,8 @@ const Index = () => (
 
     <IndustriesTicker />
     <LicenseCategories />
-    <OurServicesSection />
     <ProcessSection />
+    <OurServicesSection />
     <JurisdictionsSection />
     <MarketplaceTeaser />
     <StatsBar />

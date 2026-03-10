@@ -29,7 +29,7 @@ const Footer = () => (
       <div>
         <div style={{ fontSize: 20, fontWeight: 600, fontFamily: "Manrope, sans-serif" }}>
           <span style={{ color: "#F0EBE0" }}>Inclu</span>
-          <span style={{ color: "#444CE7" }}>[ence]</span>
+          <span style={{ color: "#444CE7" }}>ence</span>
         </div>
         <p style={{ fontSize: 13, color: "#5A5550", marginTop: 12, marginBottom: 24, maxWidth: 200, lineHeight: 1.6 }}>
           International legal services for FinTech, Crypto and High-Risk businesses
