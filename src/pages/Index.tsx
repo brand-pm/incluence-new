@@ -11,7 +11,7 @@ import ContactSection from "@/components/ContactSection";
 const Index = () => (
   <div>
     {/* ══════════ HERO ══════════ */}
-    <section className="relative h-screen overflow-hidden" style={{ background: "#080808" }}>
+    <section className="relative overflow-hidden" style={{ background: "#080808", height: "85vh" }}>
       <WorldMapCanvas />
 
       {/* Vignettes — z-index 3 */}
