@@ -27,8 +27,9 @@ const steps = [
 ];
 
 const ProcessSection = () => (
-  <section style={{ background: "#111111", padding: "72px 48px" }}>
-    <div className="mx-auto max-w-[1280px]">
+  <section className="relative" style={{ background: "#111111", padding: "72px 48px" }}>
+    <div className="mx-auto max-w-[1280px] relative">
+      <ProcessFlowCanvas />
       <motion.div
         style={{ marginBottom: 72 }}
         initial={{ opacity: 0, y: 24 }}
