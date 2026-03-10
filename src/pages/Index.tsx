@@ -50,7 +50,7 @@ const Index = () => (
     <LicenseCategories />
     <OurServicesSection />
     <ProcessSection />
-    <StatsSection />
+    <JurisdictionsSection />
     <PartnersSection />
     <ContactSection />
   </div>
