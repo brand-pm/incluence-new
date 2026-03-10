@@ -288,27 +288,74 @@ const LicensesPage = () => {
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────── */}
-      <section style={{ background: "#080808", padding: "72px 48px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="mx-auto max-w-[1280px] flex flex-col items-center text-center">
-          <div className="section-tag" style={{ marginBottom: 12 }}>Get Started</div>
-          <h2 style={{
-            fontFamily: "Manrope, sans-serif",
-            fontSize: 36, fontWeight: 300, color: "#F0EBE0",
-            lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 16, maxWidth: 480,
-          }}>
-            Not sure which license fits your business?
-          </h2>
-          <p style={{ fontSize: 15, color: "#9A9590", marginBottom: 32, maxWidth: 440 }}>
-            Book a free consultation — we'll analyze your model and recommend the optimal path.
-          </p>
-          <a
-            href="/"
-            className="btn-primary inline-flex items-center gap-2"
-            style={{ textDecoration: "none" }}
+      {/* ── LICENSE ADVISORY ─────────────────────────── */}
+      <section style={{ background: "#111111", padding: "72px 48px" }}>
+        <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-[55%_45%]" style={{ gap: 48 }}>
+          {/* Left */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
           >
-            Book Consultation <ArrowRight size={14} />
-          </a>
+            <div className="section-tag" style={{ marginBottom: 12 }}>License Advisory</div>
+            <h2 style={{
+              fontFamily: "Manrope, sans-serif",
+              fontSize: 40, fontWeight: 300, color: "#F0EBE0",
+              lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 16,
+            }}>
+              Not sure which license fits your business?
+            </h2>
+            <p style={{ fontSize: 15, color: "#9A9590", lineHeight: 1.75, marginBottom: 32 }}>
+              Our legal team analyzes your business model, target markets, and risk profile — then recommends
+              the optimal licensing structure. Free initial consultation.
+            </p>
+
+            {/* Indicators */}
+            <div className="flex flex-col" style={{ gap: 16, marginBottom: 32 }}>
+              {[
+                "We assess regulatory risk before recommending any jurisdiction",
+                "Full cost/timeline/compliance comparison for top 3 options",
+                "Implementation roadmap included at no extra charge",
+              ].map((point, i) => (
+                <div key={i} className="flex items-start" style={{ gap: 12 }}>
+                  <div style={{ marginTop: 4, flexShrink: 0 }}>
+                    <NodePulse delay={i * 0.5} />
+                  </div>
+                  <span style={{ fontSize: 13, color: "#9A9590", lineHeight: 1.6 }}>{point}</span>
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="/"
+              className="btn-primary inline-flex items-center gap-2"
+              style={{ textDecoration: "none" }}
+            >
+              Book Free Consultation <ArrowRight size={14} />
+            </a>
+            <p style={{ fontSize: 11, color: "#5A5550", marginTop: 12 }}>
+              Available Mon–Fri · Response within 4 hours
+            </p>
+          </motion.div>
+
+          {/* Right — Contact Form */}
+          <motion.div
+            style={{
+              background: "#0d0d0d",
+              border: "1px solid rgba(255,255,255,0.06)",
+              padding: 36,
+            }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <h3 style={{ fontSize: 16, fontWeight: 500, color: "#F0EBE0", marginBottom: 24 }}>
+              Send us your project details
+            </h3>
+            <AdvisoryForm />
+          </motion.div>
         </div>
       </section>
     </div>
