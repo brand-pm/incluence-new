@@ -15,21 +15,6 @@ const cardPad = { padding: "var(--space-10) var(--space-10)" };
 
 const ServicesSection = () => (
   <>
-    {/* Industries strip */}
-    <section className="border-y border-border bg-surface">
-      <div className="flex overflow-x-auto scrollbar-none">
-        {["Blockchain","FinTech","E-Commerce","Gambling & Gaming","Forex","Dating","IT","Investments"].map(ind => (
-          <div
-            key={ind}
-            className="flex-shrink-0 border-r border-border text-body-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer"
-            style={{ padding: "var(--space-5) var(--space-8)" }}
-          >
-            {ind}
-          </div>
-        ))}
-      </div>
-    </section>
-
     <section style={sectionPad}>
       <div className="mx-auto max-w-[1280px]">
         <motion.div
