@@ -68,7 +68,7 @@ const ProcessSection = () => (
             {/* Ghost number */}
             <span style={{
               position: "absolute", top: 16, right: 24,
-              fontSize: 80, fontWeight: 300, color: "rgba(68,76,231,0.12)",
+              fontSize: 80, fontWeight: 300, color: "rgba(68,76,231,0.12)", transition: "color 0.3s ease",
               lineHeight: 1, pointerEvents: "none",
             }}>
               {step.num}
