@@ -55,7 +55,7 @@ const Index = () => (
     <MarketplaceTeaser />
     <StatsBar />
     <PartnersSection />
-    <ContactSection />
+    <ContactCTA />
   </div>
 );
 
