@@ -81,6 +81,8 @@ interface Packet {
   speed: number;
   color: string;
   size: number;
+  type: "A" | "B";
+  trail: { x: number; y: number }[];
 }
 
 interface Ripple {
@@ -88,6 +90,17 @@ interface Ripple {
   y: number;
   age: number;       // 0→1 lifecycle
   color: string;
+}
+
+interface Shockwave {
+  x: number;
+  y: number;
+  age: number; // 0→1 over ~400ms
+}
+
+interface NodeFlash {
+  nodeIdx: number;
+  age: number; // 0→1
 }
 
 // ── COMPONENT ────────────────────────────────────────────────────────
