@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,6 +6,69 @@
 
 @layer base {
   :root {
+    /* ── BRAND PALETTE ─────────────────────────────── */
+    --accent:         233 84% 60%;
+    --accent-hover:   237 73% 50%;
+    --accent-light:   230 87% 69%;
+    --accent-dim:     233 84% 60% / 0.12;
+    --accent-border:  233 84% 60% / 0.25;
+
+    /* ── BACKGROUNDS ───────────────────────────────── */
+    --bg-1: 0 0% 3%;          /* #080808 — hero, services, stats */
+    --bg-2: 0 0% 5%;          /* #0d0d0d — license cats, jurisdictions, contact */
+    --bg-3: 0 0% 7%;          /* #111111 — how we work, marketplace */
+    --card-bg: 0 0% 5%;       /* #0d0d0d */
+    --card-hover: 0 0% 7%;    /* #111111 */
+
+    /* ── TEXT ───────────────────────────────────────── */
+    --text-primary:   36 33% 93%;    /* #F0EBE0 */
+    --text-secondary: 20 5% 59%;    /* #9A9590 */
+    --text-muted:     20 4% 34%;    /* #5A5550 */
+    --text-accent:    233 84% 60%;  /* #444CE7 */
+
+    /* ── BORDERS ───────────────────────────────────── */
+    --border-default: 0 0% 100% / 0.06;
+    --border-hover:   0 0% 100% / 0.12;
+    --border-accent:  233 84% 60% / 0.25;
+
+    /* ── SHADCN SEMANTIC TOKENS ────────────────────── */
+    --background: 0 0% 3%;
+    --foreground: 36 33% 93%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 36 33% 93%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 36 33% 93%;
+
+    --primary: 233 84% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 7%;
+    --secondary-foreground: 36 33% 93%;
+
+    --muted: 0 0% 7%;
+    --muted-foreground: 20 5% 59%;
+
+    --accent-shadcn: 233 84% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 49%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 100% / 0.06;
+    --input: 0 0% 100% / 0.06;
+    --ring: 233 84% 60%;
+
+    --radius: 0px;
+
+    /* ── LEGACY COMPAT (used by existing components) ── */
+    --gold: 233 84% 60%;
+    --gold-dim: 233 84% 60% / 0.12;
+    --gold-border: 233 84% 60% / 0.25;
+    --surface: 0 0% 5%;
+    --surface-alt: 0 0% 7%;
+
     /* ── GRAY SCALE ──────────────────────────────── */
     --gray-25:  252 5% 99%;
     --gray-50:  220 14% 97%;
@@ -19,7 +82,7 @@
     --gray-800: 215 28% 17%;
     --gray-900: 221 39% 11%;
 
-    /* ── BRAND (primary accent) ──────────────────── */
+    /* ── BRAND SCALE ─────────────────────────────── */
     --brand-25:  226 100% 97%;
     --brand-50:  224 100% 94%;
     --brand-100: 224 100% 88%;
@@ -45,49 +108,7 @@
     --success-500: 142 64% 39%;
     --success-100: 145 80% 90%;
 
-    /* ── SECONDARY ───────────────────────────────── */
-    --yellow-600: 72 92% 63%;
-    --purple-600: 263 84% 50%;
-
-    /* ── DARK THEME TOKENS ───────────────────────── */
-    --background: 0 0% 3%;
-    --foreground: 36 33% 93%;
-
-    --card: 0 0% 7%;
-    --card-foreground: 36 33% 93%;
-
-    --popover: 0 0% 5%;
-    --popover-foreground: 36 33% 93%;
-
-    --primary: 258 86% 49%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 0 0% 7%;
-    --secondary-foreground: 36 33% 93%;
-
-    --muted: 0 0% 7%;
-    --muted-foreground: 25 5% 50%;
-
-    --accent: 258 86% 49%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 75% 49%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 0 0% 100% / 0.06;
-    --input: 0 0% 100% / 0.06;
-    --ring: 258 86% 49%;
-
-    --radius: 0px;
-
-    /* ── ACCENT DERIVED ──────────────────────────── */
-    --gold: 258 86% 49%;
-    --gold-dim: 258 86% 49% / 0.12;
-    --gold-border: 258 86% 49% / 0.25;
-    --surface: 0 0% 5%;
-    --surface-alt: 0 0% 7%;
-
-    /* SPACING */
+    /* ── SPACING ─────────────────────────────────── */
     --space-1:  4px;
     --space-2:  8px;
     --space-3:  12px;
@@ -109,14 +130,15 @@
     /* NAV */
     --nav-height: 72px;
 
+    /* SIDEBAR */
     --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 36 33% 93%;
-    --sidebar-primary: 258 86% 49%;
+    --sidebar-primary: 233 84% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 7%;
     --sidebar-accent-foreground: 36 33% 93%;
     --sidebar-border: 0 0% 100% / 0.06;
-    --sidebar-ring: 258 86% 49%;
+    --sidebar-ring: 233 84% 60%;
 
     /* DISPLAY SCALE */
     --text-display-2xl: 72px;
@@ -152,7 +174,7 @@
   }
 }
 
-/* Typographic utilities */
+/* ── Typographic utilities ───────────────────── */
 .text-display-2xl { font-size: var(--text-display-2xl); line-height: 90px; letter-spacing: -0.02em; font-weight: 300; }
 .text-display-xl  { font-size: var(--text-display-xl);  line-height: 72px; letter-spacing: -0.02em; font-weight: 300; }
 .text-display-lg  { font-size: var(--text-display-lg);  line-height: 60px; letter-spacing: -0.02em; font-weight: 300; }
@@ -166,105 +188,106 @@
 .text-body-sm { font-size: var(--text-sm); line-height: 20px; font-weight: 400; }
 .text-body-xs { font-size: var(--text-xs); line-height: 18px; font-weight: 400; }
 
-.text-label { font-size: var(--text-xs); line-height: 18px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+.text-label { font-size: var(--text-xs); line-height: 18px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
 .text-nav   { font-size: var(--text-sm); line-height: 20px; font-weight: 400; }
 
-/* Section tag with line prefix */
+/* ── Section tag with em-dash prefix ─────────── */
 .section-tag {
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: hsl(var(--gold));
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  color: hsl(var(--accent));
 }
 .section-tag::before {
-  content: '';
-  width: 16px;
-  height: 1px;
-  background: hsl(var(--gold));
+  content: '— ';
 }
 
+/* ── Grid dots background ────────────────────── */
 .grid-dots {
   background-image: radial-gradient(circle, hsl(0 0% 100% / 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
+/* ── Accent glow ─────────────────────────────── */
 .gold-glow {
-  background: radial-gradient(ellipse 600px 400px at 50% 40%, hsl(258 86% 49% / 0.08), transparent);
+  background: radial-gradient(ellipse 600px 400px at 50% 40%, hsl(var(--accent) / 0.08), transparent);
 }
 
+/* ── Card hover (base) ───────────────────────── */
 .card-hover {
   position: relative;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 .card-hover::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 0%;
   height: 2px;
-  background: hsl(var(--gold));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.35s ease;
+  background: hsl(var(--accent));
+  transition: width 0.35s ease;
 }
 .card-hover:hover {
-  background-color: hsl(0 0% 4%);
+  background-color: hsl(var(--card-hover));
 }
 .card-hover:hover::after {
-  transform: scaleX(1);
+  width: 100%;
 }
 
-/* Button utilities */
+/* ── Button: Primary ─────────────────────────── */
 .btn-primary {
-  background: hsl(var(--gold));
+  background: hsl(var(--accent));
   color: #ffffff;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 14px 32px;
+  padding: 12px 28px;
   border: none;
   border-radius: 0;
-  transition: background 0.25s, transform 0.2s;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 .btn-primary:hover {
-  background: hsl(258 86% 44%);
-  transform: translateY(-1px);
+  background: hsl(var(--accent-hover));
 }
 
+/* ── Button: Secondary (Ghost) ───────────────── */
 .btn-secondary {
   background: transparent;
-  color: hsl(var(--muted-foreground));
-  border: 1px solid hsl(var(--border));
-  padding: 14px 32px;
+  color: hsl(var(--foreground));
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 11px 27px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   border-radius: 0;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 .btn-secondary:hover {
+  border-color: rgba(255,255,255,0.35);
   color: hsl(var(--foreground));
-  border-color: hsl(var(--gold-border));
 }
 
-/* Accent word for hero */
+/* ── Accent word for hero ────────────────────── */
 .accent-word {
-  color: hsl(var(--gold));
+  color: hsl(var(--accent));
   font-style: italic;
 }
-
 .accent-text {
-  color: hsl(var(--gold));
+  color: hsl(var(--accent));
 }
 
-/* Process step active flash */
+/* ── Process step active flash ───────────────── */
 .step-active .step-ghost-num {
   color: rgba(68,76,231,0.4) !important;
 }
 
-/* ── Service Card Scan Sweep ────────────────── */
+/* ── Service Card Scan Sweep ─────────────────── */
 @keyframes scan-sweep {
   0%   { top: 0%; opacity: 1; }
   90%  { top: 100%; opacity: 1; }
@@ -293,7 +316,7 @@
   border-color: rgba(68,76,231,0.2);
 }
 
-/* ── Jurisdiction Node Pulse ────────────────── */
+/* ── Jurisdiction Node Pulse ─────────────────── */
 @keyframes jurisdiction-pulse {
   0%   { transform: scale(1);   opacity: 0.6; }
   100% { transform: scale(1.6); opacity: 0; }
@@ -327,12 +350,13 @@
   opacity: 1;
 }
 
+/* ── Scrollbar ───────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(0 0% 3%);
+  background: hsl(var(--bg-1));
 }
 ::-webkit-scrollbar-thumb {
   background: hsl(0 0% 20%);
