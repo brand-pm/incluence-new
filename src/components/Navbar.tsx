@@ -66,8 +66,8 @@ const Navbar = () => {
           <Link
             to="/"
             onClick={() => setMobileOpen(false)}
-            className="inline-block border border-gold-border text-body-sm font-medium text-gold"
-            style={{ marginTop: "var(--space-3)", padding: "var(--space-2) var(--space-5)" }}
+            className="inline-block btn-primary"
+            style={{ marginTop: "var(--space-3)", textDecoration: "none" }}
           >
             Start a Project
           </Link>
