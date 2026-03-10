@@ -11,7 +11,7 @@ import ContactSection from "@/components/ContactSection";
 const Index = () => (
   <div>
     {/* ══════════ HERO ══════════ */}
-    <section className="relative h-screen overflow-hidden" style={{ background: "#080808" }}>
+    <section className="relative overflow-hidden" style={{ background: "#080808", height: "85vh" }}>
       <WorldMapCanvas />
 
       {/* Vignettes — z-index 3 */}
@@ -20,7 +20,7 @@ const Index = () => (
         style={{
           zIndex: 3,
           background: [
-            "radial-gradient(ellipse 52% 100% at 0% 50%, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.6) 30%, transparent 60%)",
+            "radial-gradient(ellipse 60% 100% at 0% 50%, rgba(8,8,8,0.97) 0%, rgba(8,8,8,0.7) 35%, transparent 58%)",
             "linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.97) 3%, rgba(8,8,8,0.9) 7%, rgba(8,8,8,0.78) 12%, rgba(8,8,8,0.6) 18%, rgba(8,8,8,0.4) 24%, rgba(8,8,8,0.2) 31%, rgba(8,8,8,0.08) 38%, transparent 48%)",
             "linear-gradient(to bottom, rgba(8,8,8,0.8) 0%, rgba(8,8,8,0.5) 6%, rgba(8,8,8,0.2) 12%, transparent 20%)",
           ].join(", "),
