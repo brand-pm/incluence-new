@@ -100,7 +100,7 @@ const ServiceCard = ({ svc, i }: { svc: typeof services[0]; i: number }) => (
 );
 
 const OurServicesSection = () => (
-  <section style={{ background: "#080808", padding: "96px 48px" }}>
+  <section style={{ background: "#080808", padding: "72px 48px" }}>
     <div className="mx-auto max-w-[1280px]">
       <motion.div
         style={{ marginBottom: 64 }}

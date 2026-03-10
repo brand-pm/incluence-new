@@ -67,7 +67,7 @@ const JurisdictionCard = ({ j, i }: { j: typeof jurisdictions[0]; i: number }) =
 );
 
 const JurisdictionsSection = () => (
-  <section style={{ background: "#0d0d0d", padding: "96px 48px" }}>
+  <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
     <div className="mx-auto max-w-[1280px]">
       <motion.div
         style={{ marginBottom: 56 }}
