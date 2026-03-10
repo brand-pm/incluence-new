@@ -110,20 +110,23 @@ const WorldMapCanvas = () => {
   const frameRef = useRef(0);
   const packetsRef = useRef<Packet[]>([]);
   const ripplesRef = useRef<Ripple[]>([]);
+  const shockwavesRef = useRef<Shockwave[]>([]);
+  const nodeFlashesRef = useRef<NodeFlash[]>([]);
   const mouseRef = useRef<{ x: number; y: number }>({ x: -1, y: -1 });
   const [hoveredNode, setHoveredNode] = useState<{ x: number; y: number; node: JNode } | null>(null);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let W = 0, H = 0;
-    let mapScale = 1, mapTx = 0, mapTy = 0;
-
-    const resize = () => {
-      const dpr = window.devicePixelRatio || 1;
+  function spawnPacket(progress = 0): Packet {
+    const isB = Math.random() < 0.3;
+    return {
+      routeIdx: Math.floor(Math.random() * ROUTES.length),
+      progress,
+      speed: isB ? (0.002 + Math.random() * 0.003) * 1.4 : 0.002 + Math.random() * 0.003,
+      color: isB ? "#818CF8" : "#444CE7",
+      size: isB ? 1.8 : 2.5,
+      type: isB ? "B" : "A",
+      trail: [],
+    };
+  }
       W = canvas.offsetWidth;
       H = canvas.offsetHeight;
       canvas.width = W * dpr;
