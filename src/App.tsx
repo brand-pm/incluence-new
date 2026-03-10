@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
 import ServicePage from "./pages/ServicePage";
 import Marketplace from "./pages/Marketplace";
+import LicensesPage from "./pages/LicensesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/licenses/gambling" element={<CategoryPage />} />
+            <Route path="/licenses" element={<LicensesPage />} />
             <Route path="/licenses/gambling/malta" element={<ServicePage />} />
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/about" element={<Index />} />
