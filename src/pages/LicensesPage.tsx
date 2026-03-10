@@ -161,6 +161,62 @@ const LicenseCard = ({ l, i }: { l: License; i: number }) => {
   );
 };
 
+const SERVICE_OPTIONS = [
+  "Gambling License", "Crypto / VASP License", "EMI or PSP License",
+  "Company Formation", "Investment License", "Ready Made Company", "Other",
+];
+
+const fieldStyle: React.CSSProperties = {
+  width: "100%", background: "#080808", border: "1px solid rgba(255,255,255,0.08)",
+  color: "#F0EBE0", padding: "12px 16px", fontSize: 14, borderRadius: 0,
+  outline: "none", fontFamily: "Manrope, sans-serif", transition: "border-color 0.2s",
+};
+const labelStyle: React.CSSProperties = {
+  fontSize: 11, color: "#5A5550", textTransform: "uppercase",
+  letterSpacing: "0.08em", marginBottom: 6, display: "block",
+};
+
+const AdvisoryForm = () => {
+  const [focused, setFocused] = useState<string | null>(null);
+  const fb = (name: string): React.CSSProperties =>
+    focused === name ? { borderColor: "rgba(68,76,231,0.5)" } : {};
+
+  return (
+    <form className="flex flex-col" style={{ gap: 16 }} onSubmit={e => e.preventDefault()}>
+      <div>
+        <label style={labelStyle}>Name</label>
+        <input placeholder="Your name" style={{ ...fieldStyle, ...fb("name") }}
+          onFocus={() => setFocused("name")} onBlur={() => setFocused(null)} />
+      </div>
+      <div>
+        <label style={labelStyle}>Email *</label>
+        <input type="email" required placeholder="Email address" style={{ ...fieldStyle, ...fb("email") }}
+          onFocus={() => setFocused("email")} onBlur={() => setFocused(null)} />
+      </div>
+      <div>
+        <label style={labelStyle}>Service Interest</label>
+        <select style={{ ...fieldStyle, ...fb("service"), appearance: "none" as const }}
+          onFocus={() => setFocused("service")} onBlur={() => setFocused(null)} defaultValue="">
+          <option value="" disabled>Select a service...</option>
+          {SERVICE_OPTIONS.map(o => <option key={o} value={o}>{o}</option>)}
+        </select>
+      </div>
+      <div>
+        <label style={labelStyle}>Message</label>
+        <textarea rows={4} placeholder="Describe your project briefly"
+          style={{ ...fieldStyle, ...fb("message"), resize: "none" as const }}
+          onFocus={() => setFocused("message")} onBlur={() => setFocused(null)} />
+      </div>
+      <button type="submit" className="btn-primary w-full inline-flex items-center justify-center gap-2">
+        Send Message <ArrowRight size={14} />
+      </button>
+      <p style={{ fontSize: 11, color: "#5A5550", textAlign: "center", margin: 0 }}>
+        Typically respond within 4 business hours
+      </p>
+    </form>
+  );
+};
+
 /* ── PAGE ──────────────────────────────────────────────────────────── */
 const LicensesPage = () => {
   const [active, setActive] = useState("All");
