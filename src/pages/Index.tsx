@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import WorldMapCanvas from "@/components/WorldMapCanvas";
 import HeroContent from "@/components/HeroContent";
+import IndustriesTicker from "@/components/IndustriesTicker";
+import LicenseCategories from "@/components/LicenseCategories";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
 import StatsSection from "@/components/StatsSection";
@@ -42,6 +44,8 @@ const Index = () => (
       <HeroContent />
     </section>
 
+    <IndustriesTicker />
+    <LicenseCategories />
     <ServicesSection />
     <ProcessSection />
     <StatsSection />
