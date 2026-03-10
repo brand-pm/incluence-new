@@ -11,6 +11,8 @@ const jurisdictions = [
   { flag: "🇦🇪", country: "UAE (DIFC)", reg: "DFSA", license: "Financial Services", badge: "Zero Tax", badgeColor: "#444CE7", price: "$20,000", timeline: "4–8 months" },
 ];
 
+const DELAYS = [0, 0.4, 0.8, 1.2, 1.6, 2.0];
+
 const JurisdictionCard = ({ j, i }: { j: typeof jurisdictions[0]; i: number }) => (
   <motion.div
     className="group relative overflow-hidden cursor-pointer"
@@ -22,6 +24,17 @@ const JurisdictionCard = ({ j, i }: { j: typeof jurisdictions[0]; i: number }) =
     onMouseEnter={(e) => (e.currentTarget.style.background = "#111111")}
     onMouseLeave={(e) => (e.currentTarget.style.background = "#0d0d0d")}
   >
+    {/* Node pulse indicator */}
+    <div className="absolute" style={{ top: 16, right: 16, width: 16, height: 16 }}>
+      {/* Outer pulse ring */}
+      <span
+        className="jurisdiction-pulse-ring"
+        style={{ animationDelay: `${DELAYS[i]}s` }}
+      />
+      {/* Inner dot */}
+      <span className="jurisdiction-node-dot" />
+    </div>
+
     {/* Bottom accent */}
     <div
       className="absolute bottom-0 left-0 w-full h-[2px]"
@@ -43,6 +56,7 @@ const JurisdictionCard = ({ j, i }: { j: typeof jurisdictions[0]; i: number }) =
       <span style={{
         fontSize: 11, padding: "3px 8px",
         border: `1px solid ${j.badgeColor}40`, color: j.badgeColor,
+        marginRight: 24,
       }}>
         {j.badge}
       </span>

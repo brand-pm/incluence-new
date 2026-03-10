@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import StatsParticlesCanvas from "./StatsParticlesCanvas";
 
 const stats = [
   { num: "500", suffix: "+", label: "Companies Registered" },
@@ -10,13 +11,14 @@ const stats = [
 ];
 
 const StatsBar = () => (
-  <section style={{
+  <section className="relative" style={{
     background: "#080808",
     borderTop: "1px solid rgba(255,255,255,0.06)",
     borderBottom: "1px solid rgba(255,255,255,0.06)",
     padding: "48px",
   }}>
-    <div className="mx-auto max-w-[1280px] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+    <StatsParticlesCanvas />
+    <div className="mx-auto max-w-[1280px] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 relative" style={{ zIndex: 1 }}>
       {stats.map((s, i) => (
         <motion.div
           key={s.label}
