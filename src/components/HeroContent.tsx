@@ -168,33 +168,39 @@ const HeroContent = () => (
 
     {/* ═══════ DESKTOP layout (≥ md) ═══════ */}
     <div
-      className="absolute z-10 hidden md:block left-12 bottom-[140px] lg:bottom-[160px]"
-      style={{ fontFamily: "Manrope, sans-serif", maxWidth: 520 }}
+      className="absolute z-10 hidden md:flex flex-col justify-end"
+      style={{
+        fontFamily: "Manrope, sans-serif",
+        left: 48, bottom: 48, right: "45%",
+        top: "42%",
+      }}
     >
-      <motion.div className="flex items-center" style={{ gap: 10, marginBottom: 16 }} {...fade(0.2)}>
-        <span style={{ width: 28, height: 1, background: "#444CE7" }} />
-        <span style={{ fontSize: 10, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase" as const, color: "#444CE7" }}>
+      <motion.div className="flex items-center" style={{ gap: 10, marginBottom: 20 }} {...fade(0.2)}>
+        <span style={{ width: 32, height: 1, background: "#444CE7" }} />
+        <span style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase" as const, color: "#444CE7" }}>
           International Legal Services
         </span>
       </motion.div>
 
       <motion.h1
-        className="text-[clamp(36px,4.5vw,64px)]"
         style={{
           fontFamily: "Manrope, sans-serif",
-          fontWeight: 300, lineHeight: 1.1, letterSpacing: "-0.025em",
-          color: "#F0EBE0", margin: 0, marginBottom: 16,
+          fontSize: "clamp(40px, 5vw, 72px)",
+          fontWeight: 300, lineHeight: 1.08, letterSpacing: "-0.03em",
+          color: "#F0EBE0", margin: 0, marginBottom: 20,
         }}
         {...fade(0.4)}
       >
-        Legal clarity for businesses that{" "}
+        Legal clarity for{" "}
+        <br className="hidden xl:inline" />
+        businesses that{" "}
         <em style={{ fontStyle: "italic", color: "#444CE7", fontWeight: 400 }}>operate</em>
         {" "}beyond borders
       </motion.h1>
 
       <motion.p style={{
-        fontSize: 14, color: "#9A9590", lineHeight: 1.7,
-        maxWidth: 440, fontWeight: 300, margin: 0, marginBottom: 28,
+        fontSize: 15, color: "#9A9590", lineHeight: 1.7,
+        maxWidth: 480, fontWeight: 300, margin: 0, marginBottom: 32,
       }} {...fade(0.6)}>
         From company formation and licensing — VASP, EMI, PSP, Gambling —
         to tax structuring and compliance across 15+ jurisdictions worldwide.
