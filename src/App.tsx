@@ -12,6 +12,7 @@ import Marketplace from "./pages/Marketplace";
 import LicensesPage from "./pages/LicensesPage";
 import NotFound from "./pages/NotFound";
 import PlaceholderPage from "./pages/PlaceholderPage";
+import CostaRicaPage from "./pages/CostaRicaPage";
 
 const queryClient = new QueryClient();
 
