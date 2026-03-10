@@ -25,7 +25,7 @@ const PartnersSection = () => (
               border: "1px solid rgba(255,255,255,0.06)",
               padding: "20px 32px",
               minWidth: 180,
-              filter: "grayscale(100%) brightness(0.7)",
+              filter: "grayscale(100%) brightness(1.8) opacity(0.5)",
               transition: "filter 0.3s",
               cursor: "pointer",
             }}
