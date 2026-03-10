@@ -9,13 +9,12 @@ interface Particle {
   vx: number;
 }
 
-const StatsParticlesCanvas = () => {
+const MicroParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -79,4 +78,4 @@ const StatsParticlesCanvas = () => {
   );
 };
 
-export default StatsParticlesCanvas;
+export default MicroParticles;
