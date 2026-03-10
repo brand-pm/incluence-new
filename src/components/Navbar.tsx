@@ -364,15 +364,13 @@ const Navbar = () => {
                           <div className="absolute left-0 top-0 bottom-0" style={{ width: 2, background: "#444CE7" }} />
                         )}
                         <div
-                          className="flex items-center justify-center flex-shrink-0"
-                          style={{
-                            width: 28,
-                            height: 28,
-                            border: isActive ? "1px solid rgba(68,76,231,0.3)" : "1px solid rgba(255,255,255,0.08)",
-                            background: isActive ? "rgba(68,76,231,0.1)" : "rgba(255,255,255,0.03)",
-                          }}
+                          className={`w-7 h-7 flex items-center justify-center flex-shrink-0 border ${
+                            isActive
+                              ? "border-[#444CE7]/40 bg-[#444CE7]/10"
+                              : "border-white/[0.08] bg-white/[0.03]"
+                          }`}
                         >
-                          <Icon size={14} color={isActive ? "#444CE7" : "#9A9590"} />
+                          <Icon size={13} className={isActive ? "text-[#444CE7]" : "text-[#5A5550]"} />
                         </div>
                         <span style={{ fontSize: 13, fontWeight: 500, color: isActive ? "#F0EBE0" : "#9A9590" }}>{cat.label}</span>
                         <ChevronRight
