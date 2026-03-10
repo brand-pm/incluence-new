@@ -320,216 +320,183 @@ const Navbar = () => {
           onMouseEnter={cancelClose}
           onMouseLeave={closeMenu}
           onClick={handleLinkClick}
-          className="hidden md:block fixed left-0 right-0 z-[99] animate-in slide-in-from-top-2 fade-in duration-200"
+          className="hidden md:block fixed left-0 right-0 z-[99]"
           style={{
             top: 60,
             background: "#0a0a0a",
             borderBottom: "1px solid rgba(255,255,255,0.07)",
             boxShadow: "0 40px 80px rgba(0,0,0,0.7)",
             fontFamily: "Manrope, sans-serif",
+            animation: "megaMenuIn 0.18s ease-out both",
           }}
         >
-          {/* Inner */}
-          <div className="flex max-w-screen-xl mx-auto" style={{ padding: "32px 48px 0", gap: 0 }}>
-            {/* COL 1 — Categories */}
-            <div className="flex-shrink-0" style={{ width: 208, borderRight: "1px solid rgba(255,255,255,0.06)", paddingRight: 32 }}>
-              <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 20, display: "block" }}>
-                — SERVICES
-              </span>
-              <div className="flex flex-col gap-1">
-                {categories.map((cat) => {
-                  const Icon = cat.icon;
-                  const isActive = activeCategory === cat.value;
-                  return (
-                    <button
-                      key={cat.value}
-                      onMouseEnter={() => setActiveCategory(cat.value)}
-                      className="flex items-center justify-between w-full cursor-pointer transition-all duration-150 bg-transparent border-none"
-                      style={{
-                        padding: "10px 12px",
-                        borderLeft: `2px solid ${isActive ? "#444CE7" : "transparent"}`,
-                        background: isActive ? "rgba(68,76,231,0.06)" : "transparent",
-                        fontFamily: "inherit",
-                        borderRadius: 0,
-                      }}
+          <style>{`
+            @keyframes megaMenuIn {
+              from { opacity: 0; transform: translateY(-6px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+          `}</style>
+
+          <div className="max-w-screen-xl mx-auto">
+            <div className="grid gap-px" style={{ gridTemplateColumns: "220px 1fr 300px", background: "rgba(255,255,255,0.05)" }}>
+
+              {/* COL 1 — Categories */}
+              <div style={{ background: "#0a0a0a", padding: "28px 0" }}>
+                <span className="block" style={{ padding: "0 24px", fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.14em", marginBottom: 20 }}>
+                  — SERVICES
+                </span>
+                <div className="flex flex-col">
+                  {categories.map((cat) => {
+                    const Icon = cat.icon;
+                    const isActive = activeCategory === cat.value;
+                    return (
+                      <button
+                        key={cat.value}
+                        onMouseEnter={() => setActiveCategory(cat.value)}
+                        className="relative flex items-center gap-3 w-full cursor-pointer bg-transparent border-0"
+                        style={{
+                          padding: "12px 24px",
+                          background: isActive ? "rgba(68,76,231,0.07)" : "transparent",
+                          fontFamily: "inherit",
+                        }}
+                      >
+                        {isActive && (
+                          <div className="absolute left-0 top-0 bottom-0" style={{ width: 2, background: "#444CE7" }} />
+                        )}
+                        <div
+                          className="flex items-center justify-center flex-shrink-0"
+                          style={{
+                            width: 28,
+                            height: 28,
+                            border: isActive ? "1px solid rgba(68,76,231,0.3)" : "1px solid rgba(255,255,255,0.08)",
+                            background: isActive ? "rgba(68,76,231,0.1)" : "rgba(255,255,255,0.03)",
+                          }}
+                        >
+                          <Icon size={14} color={isActive ? "#444CE7" : "#9A9590"} />
+                        </div>
+                        <span style={{ fontSize: 13, fontWeight: 500, color: isActive ? "#F0EBE0" : "#9A9590" }}>{cat.label}</span>
+                        <ChevronRight
+                          size={12}
+                          className="ml-auto"
+                          style={{ color: isActive ? "#444CE7" : "#5A5550", opacity: isActive ? 1 : 0 }}
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
+                <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", marginTop: 16, paddingTop: 16, paddingLeft: 24, paddingRight: 24 }}>
+                  <div className="flex items-baseline gap-2" style={{ marginBottom: 6 }}>
+                    <span style={{ fontSize: 16, fontWeight: 300, color: "#F0EBE0" }}>500+</span>
+                    <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.06em" }}>Projects</span>
+                  </div>
+                  <div className="flex items-baseline gap-2">
+                    <span style={{ fontSize: 16, fontWeight: 300, color: "#F0EBE0" }}>12 yrs</span>
+                    <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.06em" }}>Experience</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* COL 2 — Service Links */}
+              <div style={{ background: "#080808", padding: "28px 32px" }}>
+                <span className="block" style={{ fontSize: 10, color: "#444CE7", textTransform: "uppercase", letterSpacing: "0.14em", marginBottom: 20 }}>
+                  {current.sublabel}
+                </span>
+                <div className="grid grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.04)" }}>
+                  {current.items.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className="relative flex flex-col text-left cursor-pointer w-full no-underline group transition-colors duration-150"
+                      style={{ background: "#080808", padding: "16px 20px" }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(68,76,231,0.04)"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = "#080808"; }}
                     >
-                      <span className="flex items-center" style={{ gap: 10 }}>
-                        <Icon size={16} color="#444CE7" />
-                        <span style={{ fontSize: 13, fontWeight: 500, color: "#F0EBE0" }}>{cat.label}</span>
-                      </span>
-                      <ChevronRight size={12} color="#5A5550" />
-                    </button>
-                  );
-                })}
+                      <div className="absolute bottom-0 left-0 h-[1px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
+                      <div className="flex items-center justify-between" style={{ marginBottom: 4 }}>
+                        <span style={{ fontSize: 13, fontWeight: 600, color: "#F0EBE0" }}>{item.name}</span>
+                        <span className="opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: "#444CE7", fontSize: 11, marginLeft: 8 }}>→</span>
+                      </div>
+                      <span style={{ fontSize: 11, color: "#5A5550", lineHeight: 1.4 }}>{item.desc}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* COL 3 — Featured */}
+              <div className="flex flex-col gap-3" style={{ background: "#0d0d0d", padding: "28px 24px" }}>
+                <Link
+                  to="/marketplace"
+                  className="relative block no-underline text-left cursor-pointer w-full group transition-all duration-200"
+                  style={{ background: "#080808", border: "1px solid rgba(255,255,255,0.06)", padding: 20 }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(68,76,231,0.25)"; e.currentTarget.style.background = "#0a0a0a"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"; e.currentTarget.style.background = "#080808"; }}
+                >
+                  <div className="absolute bottom-0 left-0 h-[1px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
+                  <div className="absolute" style={{ top: 16, right: 16 }}>
+                    <div className="relative" style={{ width: 12, height: 12 }}>
+                      <div className="absolute inset-0" style={{ background: "#444CE7", opacity: 0.8 }} />
+                      <div className="absolute inset-0 animate-ping" style={{ background: "#444CE7", opacity: 0.3 }} />
+                    </div>
+                  </div>
+                  <span className="inline-block" style={{ fontSize: 9, color: "#444CE7", textTransform: "uppercase", letterSpacing: "0.1em", border: "1px solid rgba(68,76,231,0.3)", background: "rgba(68,76,231,0.08)", padding: "2px 8px", marginBottom: 12 }}>
+                    Popular
+                  </span>
+                  <p style={{ fontSize: 13, fontWeight: 600, color: "#F0EBE0", margin: "0 0 6px 0", paddingRight: 24 }}>Ready Made Companies</p>
+                  <p style={{ fontSize: 11, color: "#9A9590", lineHeight: 1.6, margin: "0 0 12px 0" }}>47 companies in 12 jurisdictions. Transfer in 3 days.</p>
+                  <span style={{ fontSize: 11, color: "#444CE7" }}>Browse listings →</span>
+                </Link>
+
+                <Link
+                  to="/contact"
+                  className="relative block no-underline text-left cursor-pointer w-full group transition-all duration-200"
+                  style={{ background: "#080808", border: "1px solid rgba(255,255,255,0.06)", padding: 20 }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(68,76,231,0.25)"; e.currentTarget.style.background = "#0a0a0a"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"; e.currentTarget.style.background = "#080808"; }}
+                >
+                  <div className="absolute bottom-0 left-0 h-[1px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
+                  <div className="flex items-center gap-2" style={{ marginBottom: 12 }}>
+                    <div style={{ width: 6, height: 6, background: "#22c55e" }} />
+                    <span style={{ fontSize: 9, color: "#22c55e", textTransform: "uppercase", letterSpacing: "0.1em" }}>Available now</span>
+                  </div>
+                  <p style={{ fontSize: 13, fontWeight: 600, color: "#F0EBE0", margin: "0 0 6px 0" }}>Free Consultation</p>
+                  <p style={{ fontSize: 11, color: "#9A9590", lineHeight: 1.6, margin: "0 0 12px 0" }}>30-min call with a senior attorney. No obligation.</p>
+                  <span style={{ fontSize: 11, color: "#444CE7" }}>Book a slot →</span>
+                </Link>
               </div>
             </div>
 
-            {/* COL 2 — Links */}
-            <div className="flex-1" style={{ padding: "0 40px", transition: "opacity 0.15s" }}>
-              <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 16, display: "block" }}>
-                {current.sublabel}
-              </span>
-              <div className="grid grid-cols-2 gap-x-4 gap-y-1">
-                {current.items.map((item) => (
+            {/* Bottom bar */}
+            <div
+              className="flex items-center justify-between"
+              style={{ borderTop: "1px solid rgba(255,255,255,0.04)", background: "#080808", padding: "14px 24px" }}
+            >
+              <div className="flex items-center gap-2">
+                <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.12em", marginRight: 16 }}>
+                  QUICK ACCESS:
+                </span>
+                {quickLinks.map((q) => (
                   <Link
-                    key={item.to}
-                    to={item.to}
-                    className="block group cursor-pointer transition-all duration-150 no-underline"
-                    style={{
-                      padding: "10px 12px",
-                      borderLeft: "2px solid transparent",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderLeftColor = "#444CE7";
-                      e.currentTarget.style.background = "rgba(255,255,255,0.03)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderLeftColor = "transparent";
-                      e.currentTarget.style.background = "transparent";
-                    }}
+                    key={q.to}
+                    to={q.to}
+                    className="no-underline transition-all duration-150"
+                    style={{ fontSize: 11, color: "#9A9590", border: "1px solid rgba(255,255,255,0.07)", padding: "4px 12px", background: "transparent" }}
+                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(68,76,231,0.35)"; e.currentTarget.style.color = "#F0EBE0"; e.currentTarget.style.background = "rgba(68,76,231,0.05)"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.color = "#9A9590"; e.currentTarget.style.background = "transparent"; }}
                   >
-                    <span className="flex items-center justify-between" style={{ fontSize: 14, fontWeight: 500, color: "#F0EBE0" }}>
-                      {item.name}
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: "#444CE7", fontSize: 12, marginLeft: 8 }}>→</span>
-                    </span>
-                    <span style={{ fontSize: 11, color: "#5A5550", marginTop: 2, display: "block" }}>{item.desc}</span>
+                    {q.label}
                   </Link>
                 ))}
               </div>
-            </div>
-
-            {/* COL 3 — Featured */}
-            <div className="flex-shrink-0 flex flex-col gap-3" style={{ width: 288, borderLeft: "1px solid rgba(255,255,255,0.06)", paddingLeft: 32 }}>
-              {/* Card 1 */}
               <Link
-                to="/marketplace"
-                className="block no-underline group relative transition-all duration-200"
-                style={{
-                  background: "#0d0d0d",
-                  border: "1px solid rgba(255,255,255,0.06)",
-                  padding: 20,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(68,76,231,0.3)";
-                  e.currentTarget.style.background = "#111";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
-                  e.currentTarget.style.background = "#0d0d0d";
-                }}
+                to="/licenses/gambling"
+                className="no-underline transition-colors"
+                style={{ fontSize: 11, color: "#5A5550" }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#444CE7"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#5A5550"; }}
               >
-                <span
-                  style={{
-                    fontSize: 10,
-                    color: "#444CE7",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    border: "1px solid rgba(68,76,231,0.3)",
-                    padding: "2px 8px",
-                    display: "inline-block",
-                    marginBottom: 12,
-                  }}
-                >
-                  POPULAR
-                </span>
-                {/* Pulse dot */}
-                <div className="absolute" style={{ top: 16, right: 16 }}>
-                  <div className="relative" style={{ width: 12, height: 12 }}>
-                    <div className="absolute inset-0" style={{ background: "#444CE7", opacity: 0.8 }} />
-                    <div className="absolute inset-0 animate-ping" style={{ background: "#444CE7", opacity: 0.3 }} />
-                  </div>
-                </div>
-                <div style={{ fontSize: 14, fontWeight: 600, color: "#F0EBE0", marginBottom: 6 }}>Ready Made Companies</div>
-                <div style={{ fontSize: 11, color: "#9A9590", marginBottom: 16, lineHeight: 1.6 }}>
-                  47 companies across 12 jurisdictions. Transfer ownership in 3 days.
-                </div>
-                <span className="group-hover:underline" style={{ fontSize: 12, color: "#444CE7" }}>Browse listings →</span>
+                View all services →
               </Link>
-
-              {/* Card 2 */}
-              <Link
-                to="/contact"
-                className="block no-underline group transition-all duration-200"
-                style={{
-                  background: "#0d0d0d",
-                  border: "1px solid rgba(255,255,255,0.06)",
-                  padding: 20,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(68,76,231,0.3)";
-                  e.currentTarget.style.background = "#111";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
-                  e.currentTarget.style.background = "#0d0d0d";
-                }}
-              >
-                <div style={{ fontSize: 14, fontWeight: 600, color: "#F0EBE0", marginBottom: 6 }}>Free Consultation</div>
-                <div style={{ fontSize: 11, color: "#9A9590", marginBottom: 16, lineHeight: 1.6 }}>
-                  30-min call with a senior attorney. No obligation.
-                </div>
-                <span className="group-hover:underline" style={{ fontSize: 12, color: "#444CE7" }}>Book a slot →</span>
-              </Link>
-
-              {/* Stats */}
-              <div className="flex gap-5 mt-auto" style={{ paddingTop: 16, borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-                {[
-                  { num: "500+", label: "Projects" },
-                  { num: "40+", label: "Jurisdictions" },
-                  { num: "12 yrs", label: "Experience" },
-                ].map((s) => (
-                  <div key={s.label} className="flex flex-col">
-                    <span style={{ fontSize: 18, fontWeight: 300, color: "#F0EBE0" }}>{s.num}</span>
-                    <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.06em", marginTop: 2 }}>{s.label}</span>
-                  </div>
-                ))}
-              </div>
             </div>
-          </div>
-
-          {/* Bottom row */}
-          <div
-            className="flex items-center justify-between max-w-screen-xl mx-auto"
-            style={{
-              borderTop: "1px solid rgba(255,255,255,0.04)",
-              marginTop: 24,
-              paddingTop: 16,
-              paddingBottom: 24,
-              paddingLeft: 48,
-              paddingRight: 48,
-            }}
-          >
-            <div className="flex items-center gap-2">
-              <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.12em", marginRight: 16 }}>
-                QUICK ACCESS:
-              </span>
-              {quickLinks.map((q) => (
-                <Link
-                  key={q.to}
-                  to={q.to}
-                  className="no-underline transition-all duration-150"
-                  style={{
-                    fontSize: 11,
-                    color: "#9A9590",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                    padding: "4px 12px",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(68,76,231,0.4)";
-                    e.currentTarget.style.color = "#F0EBE0";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
-                    e.currentTarget.style.color = "#9A9590";
-                  }}
-                >
-                  {q.label}
-                </Link>
-              ))}
-            </div>
-            <Link to="/licenses/gambling" className="no-underline hover:underline" style={{ fontSize: 12, color: "#444CE7" }}>
-              View all services →
-            </Link>
           </div>
         </div>
       )}
