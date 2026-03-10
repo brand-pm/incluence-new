@@ -25,6 +25,36 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+
+        // Semantic accent tokens
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          hover: "hsl(var(--accent-hover))",
+          light: "hsl(var(--accent-light))",
+          dim: "hsl(var(--accent-dim))",
+          border: "hsl(var(--accent-border))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+
+        // Background layers
+        "bg-1": "hsl(var(--bg-1))",
+        "bg-2": "hsl(var(--bg-2))",
+        "bg-3": "hsl(var(--bg-3))",
+        "card-bg": "hsl(var(--card-bg))",
+        "card-hover": "hsl(var(--card-hover))",
+
+        // Text semantic
+        "text-primary": "hsl(var(--text-primary))",
+        "text-secondary": "hsl(var(--text-secondary))",
+        "text-muted-custom": "hsl(var(--text-muted))",
+        "text-accent": "hsl(var(--text-accent))",
+
+        // Border semantic
+        "border-default": "hsl(var(--border-default))",
+        "border-hover": "hsl(var(--border-hover))",
+        "border-accent": "hsl(var(--border-accent))",
+
+        // Legacy compat
         gold: {
           DEFAULT: "hsl(var(--gold))",
           dim: "hsl(var(--gold-dim))",
@@ -49,10 +79,6 @@ export default {
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
