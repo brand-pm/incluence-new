@@ -11,7 +11,7 @@ import JurisdictionsSection from "@/components/JurisdictionsSection";
 import MarketplaceTeaser from "@/components/MarketplaceTeaser";
 import StatsBar from "@/components/StatsBar";
 import PartnersSection from "@/components/PartnersSection";
-import ContactSection from "@/components/ContactSection";
+import ContactCTA from "@/components/ContactCTA";
 
 const Index = () => (
   <div>
@@ -55,7 +55,7 @@ const Index = () => (
     <MarketplaceTeaser />
     <StatsBar />
     <PartnersSection />
-    <ContactSection />
+    <ContactCTA />
   </div>
 );
 
