@@ -259,6 +259,11 @@
   color: hsl(var(--gold));
 }
 
+/* Process step active flash */
+.step-active .step-ghost-num {
+  color: rgba(68,76,231,0.4) !important;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
