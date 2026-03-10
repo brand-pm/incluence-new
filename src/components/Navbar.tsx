@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState, useRef, useCallback } from "react";
-import { Shield, CreditCard, Globe, Building2, ChevronRight, ChevronDown, Menu, X } from "lucide-react";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { Shield, CreditCard, Globe, Building2, ChevronRight, ChevronDown, Menu, X, MessageCircle, Send, Phone, Mail } from "lucide-react";
 
 type Category = "license" | "payment" | "intl" | "offshore";
 
