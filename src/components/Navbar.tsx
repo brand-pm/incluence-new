@@ -148,25 +148,131 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* CTA — desktop */}
-        <Link
-          to="/contact"
-          className="hidden md:inline-block no-underline transition-colors duration-200"
-          style={{
-            background: "#444CE7",
-            color: "#fff",
-            padding: "8px 20px",
-            fontSize: 11,
-            fontWeight: 500,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            borderRadius: 0,
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.background = "#3538CD")}
-          onMouseLeave={(e) => (e.currentTarget.style.background = "#444CE7")}
-        >
-          Start a Project
-        </Link>
+        {/* Contact dropdown + CTA — desktop */}
+        <div className="hidden md:flex items-center gap-5">
+          {/* Contact dropdown */}
+          <div ref={contactRef} className="relative">
+            <button
+              onClick={() => setContactOpen(!contactOpen)}
+              className={`flex items-center gap-1.5 bg-transparent border-0 p-0 cursor-pointer transition-colors duration-200 ${contactOpen ? "text-[#F0EBE0]" : "text-[#9A9590] hover:text-[#F0EBE0]"}`}
+              style={{ fontSize: 14, fontFamily: "inherit" }}
+            >
+              <MessageCircle size={14} />
+              Contact
+              <ChevronDown size={12} className={`transition-transform duration-200 ${contactOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {contactOpen && (
+              <div
+                className="absolute z-[101] animate-in fade-in slide-in-from-top-2 duration-150"
+                style={{
+                  top: "calc(100% + 12px)",
+                  right: 0,
+                  width: 280,
+                  background: "#0a0a0a",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                  boxShadow: "0 20px 60px rgba(0,0,0,0.6)",
+                }}
+              >
+                <div style={{ padding: "12px 16px 8px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                  <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.1em" }}>— Quick Contact</span>
+                </div>
+
+                <div style={{ padding: "4px 0" }}>
+                  <a
+                    href="https://t.me/incluence"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 no-underline group transition-colors"
+                    style={{ padding: "10px 16px" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.04)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                    onClick={() => setContactOpen(false)}
+                  >
+                    <div style={{ width: 32, height: 32, background: "rgba(68,76,231,0.08)", border: "1px solid rgba(68,76,231,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <Send size={14} color="#444CE7" />
+                    </div>
+                    <div className="flex-1">
+                      <div style={{ fontSize: 13, fontWeight: 500, color: "#F0EBE0" }}>Telegram</div>
+                      <div style={{ fontSize: 11, color: "#5A5550" }}>@incluence</div>
+                    </div>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: "#444CE7", fontSize: 12 }}>→</span>
+                  </a>
+
+                  <a
+                    href="https://wa.me/37281703037"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 no-underline group transition-colors"
+                    style={{ padding: "10px 16px" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.04)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                    onClick={() => setContactOpen(false)}
+                  >
+                    <div style={{ width: 32, height: 32, background: "rgba(68,76,231,0.08)", border: "1px solid rgba(68,76,231,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <Phone size={14} color="#444CE7" />
+                    </div>
+                    <div className="flex-1">
+                      <div style={{ fontSize: 13, fontWeight: 500, color: "#F0EBE0" }}>WhatsApp</div>
+                      <div style={{ fontSize: 11, color: "#5A5550" }}>+372 8170 3037</div>
+                    </div>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: "#444CE7", fontSize: 12 }}>→</span>
+                  </a>
+
+                  <a
+                    href="mailto:info@incluence.net"
+                    className="flex items-center gap-3 no-underline group transition-colors"
+                    style={{ padding: "10px 16px" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.04)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                    onClick={() => setContactOpen(false)}
+                  >
+                    <div style={{ width: 32, height: 32, background: "rgba(68,76,231,0.08)", border: "1px solid rgba(68,76,231,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <Mail size={14} color="#444CE7" />
+                    </div>
+                    <div className="flex-1">
+                      <div style={{ fontSize: 13, fontWeight: 500, color: "#F0EBE0" }}>Email</div>
+                      <div style={{ fontSize: 11, color: "#5A5550" }}>info@incluence.net</div>
+                    </div>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: "#444CE7", fontSize: 12 }}>→</span>
+                  </a>
+                </div>
+
+                <div style={{ padding: "10px 16px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                  <Link
+                    to="/contact"
+                    onClick={() => setContactOpen(false)}
+                    className="flex items-center justify-between w-full no-underline hover:underline"
+                    style={{ fontSize: 12, color: "#444CE7" }}
+                  >
+                    Schedule a free consultation
+                    <span>→</span>
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* CTA */}
+          <Link
+            to="/contact"
+            className="no-underline transition-colors duration-200"
+            style={{
+              background: "#444CE7",
+              color: "#fff",
+              padding: "8px 20px",
+              fontSize: 11,
+              fontWeight: 500,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              borderRadius: 0,
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#3538CD")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "#444CE7")}
+          >
+            Start a Project
+          </Link>
+        </div>
 
         {/* Mobile toggle */}
         <button className="md:hidden bg-transparent border-none cursor-pointer" style={{ color: "#F0EBE0" }} onClick={() => setMobileOpen(!mobileOpen)}>
