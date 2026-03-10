@@ -5,6 +5,7 @@ import HeroContent from "@/components/HeroContent";
 import IndustriesTicker from "@/components/IndustriesTicker";
 import LicenseCategories from "@/components/LicenseCategories";
 import ServicesSection from "@/components/ServicesSection";
+import OurServicesSection from "@/components/OurServicesSection";
 import ProcessSection from "@/components/ProcessSection";
 import StatsSection from "@/components/StatsSection";
 import PartnersSection from "@/components/PartnersSection";
