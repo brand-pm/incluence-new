@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import ProcessFlowCanvas from "./ProcessFlowCanvas";
 
 const steps = [
   {
@@ -26,8 +27,9 @@ const steps = [
 ];
 
 const ProcessSection = () => (
-  <section style={{ background: "#111111", padding: "72px 48px" }}>
-    <div className="mx-auto max-w-[1280px]">
+  <section className="relative" style={{ background: "#111111", padding: "72px 48px" }}>
+    <div className="mx-auto max-w-[1280px] relative">
+      <ProcessFlowCanvas />
       <motion.div
         style={{ marginBottom: 72 }}
         initial={{ opacity: 0, y: 24 }}
@@ -56,6 +58,7 @@ const ProcessSection = () => (
           <motion.div
             key={step.num}
             className="relative overflow-hidden"
+            data-step={step.num === "01" ? "1" : step.num === "02" ? "2" : step.num === "03" ? "3" : "4"}
             style={{ background: "#111111", padding: "40px 36px" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -63,9 +66,9 @@ const ProcessSection = () => (
             transition={{ duration: 0.5, delay: i * 0.1 }}
           >
             {/* Ghost number */}
-            <span style={{
+            <span className="step-ghost-num" style={{
               position: "absolute", top: 16, right: 24,
-              fontSize: 80, fontWeight: 300, color: "rgba(68,76,231,0.12)",
+              fontSize: 80, fontWeight: 300, color: "rgba(68,76,231,0.12)", transition: "color 0.3s ease",
               lineHeight: 1, pointerEvents: "none",
             }}>
               {step.num}
