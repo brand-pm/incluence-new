@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
 import ServicePage from "./pages/ServicePage";
 import Marketplace from "./pages/Marketplace";
+import LicensesPage from "./pages/LicensesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
