@@ -12,6 +12,7 @@ import CostaRicaLicensePage from "./pages/gambling/CostaRicaLicensePage";
 import CuracaoLicensePage from "./pages/gambling/CuracaoLicensePage";
 import IsleOfManLicensePage from "./pages/gambling/IsleOfManLicensePage";
 import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 
 const queryClient = new QueryClient();
 
