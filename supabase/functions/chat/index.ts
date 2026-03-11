@@ -60,6 +60,7 @@ serve(async (req) => {
       body: JSON.stringify({
         model: "gpt-4o",
         max_tokens: 300,
+        stream: true,
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
           ...messages,
@@ -76,9 +77,8 @@ serve(async (req) => {
       );
     }
 
-    const data = await response.json();
-    return new Response(JSON.stringify(data), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    return new Response(response.body, {
+      headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
     });
   } catch (e) {
     console.error("Chat function error:", e);
