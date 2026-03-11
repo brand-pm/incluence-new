@@ -96,6 +96,19 @@ const StatusBadge = ({ status }: { status: string }) => {
   );
 };
 
+const scrollToCta = (company: Company) => {
+  const el = document.getElementById('marketplace-cta');
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => {
+    const jurInput = document.getElementById('cta-jurisdiction') as HTMLInputElement | null;
+    const typeInput = document.getElementById('cta-type') as HTMLInputElement | null;
+    const reqInput = document.getElementById('cta-requirements') as HTMLTextAreaElement | null;
+    if (jurInput) jurInput.value = company.country;
+    if (typeInput) typeInput.value = company.type;
+    if (reqInput) reqInput.value = `Interested in: ${company.country} ${company.type} (Est. ${company.reg}) — ${company.activity}. Listed at ${company.price}.`;
+  }, 600);
+};
+
 const MarketplacePage = () => {
   const [activeRegion, setActiveRegion] = useState("all");
   const [activeType, setActiveType] = useState("all");
