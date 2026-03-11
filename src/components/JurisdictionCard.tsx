@@ -69,7 +69,10 @@ const JurisdictionCard = ({ j, i, pulseDelay }: JurisdictionCardProps) => (
       {j.reg}
     </div>
 
-    <p style={{ fontSize: 13, color: "#9A9590", marginBottom: 16 }}>{j.license}</p>
+    <p style={{ fontSize: 13, color: "#9A9590", marginBottom: j.subtitle ? 4 : 16 }}>{j.license}</p>
+    {j.subtitle && (
+      <p style={{ fontSize: 11, color: "#5A5550", marginBottom: 16, fontStyle: "italic" }}>{j.subtitle}</p>
+    )}
 
     <div style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />
 
