@@ -4,6 +4,34 @@ import { ChevronDown, ChevronRight, Check } from "lucide-react";
 import NodePulse from "@/components/NodePulse";
 import MicroParticles from "@/components/MicroParticles";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
+import PacketCanvas, { type PacketNode } from "@/components/PacketCanvas";
+
+/* ── Malta-centric map nodes (% positions within hero container) ── */
+const MALTA_NODES: PacketNode[] = [
+  { id: "malta",     x: 50, y: 45, tier: 1 },
+  { id: "uk",        x: 38, y: 18, tier: 1 },
+  { id: "gibraltar",  x: 28, y: 55, tier: 2 },
+  { id: "cyprus",     x: 72, y: 42, tier: 1 },
+  { id: "curacao",    x: 12, y: 68, tier: 2 },
+  { id: "isle-of-man",x: 35, y: 12, tier: 2 },
+  { id: "costa-rica", x: 8,  y: 45, tier: 2 },
+  { id: "estonia",    x: 58, y: 10, tier: 2 },
+  { id: "uae",        x: 82, y: 58, tier: 1 },
+  { id: "singapore",  x: 90, y: 72, tier: 2 },
+  { id: "swiss",      x: 42, y: 30, tier: 2 },
+  { id: "luxembourg", x: 40, y: 25, tier: 2 },
+];
+
+const MALTA_ROUTES: [string, string][] = [
+  ["malta", "uk"], ["malta", "gibraltar"], ["malta", "cyprus"],
+  ["malta", "curacao"], ["malta", "isle-of-man"], ["malta", "costa-rica"],
+  ["malta", "estonia"], ["malta", "uae"], ["malta", "singapore"],
+  ["malta", "swiss"], ["malta", "luxembourg"],
+  ["uk", "malta"], ["cyprus", "malta"], ["uae", "malta"],
+  ["singapore", "malta"], ["curacao", "malta"], ["estonia", "malta"],
+  ["uk", "isle-of-man"], ["uk", "gibraltar"], ["swiss", "luxembourg"],
+  ["cyprus", "uae"], ["uae", "singapore"],
+];
 
 const steps = [
 { num: "01", title: "Company registration in Malta", body: "It is necessary to register a local company, for which a license will subsequently be issued. You should select the name of the company, indicate the participants and provide their documents." },
