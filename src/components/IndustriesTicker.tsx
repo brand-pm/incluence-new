@@ -55,10 +55,7 @@ const IndustriesTicker = () => (
         overflow: "hidden",
       }}
     >
-      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-        <TickerRow items={row1} duration={35} />
-        <TickerRow items={row2} duration={45} reverse />
-      </div>
+      <TickerRow items={row1} duration={50} />
     </section>
   </>
 );
