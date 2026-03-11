@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import NodePulse from "./NodePulse";
+import { FlagEmojiGroup } from "./FlagEmoji";
 
 export interface JurisdictionCardData {
   flag: string;
