@@ -63,10 +63,9 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cat, setCat] = useState<Category>("license");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [contactOpen, setContactOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
@@ -79,6 +78,14 @@ const Navbar = () => {
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, []);
+
+  useEffect(() => {
+    const activeIndex = CATS.findIndex(c => c.id === cat);
+    const activeTab = tabRefs.current[activeIndex];
+    if (activeTab) {
+      setIndicatorStyle({ left: activeTab.offsetLeft, width: activeTab.offsetWidth });
+    }
+  }, [cat]);
 
   const openMenu = useCallback(() => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
