@@ -7,8 +7,8 @@ type Category = "license" | "payment" | "intl" | "offshore";
 
 const CATS: { id: Category; label: string; Icon: typeof Shield }[] = [
   { id: "license", Icon: Shield, label: "License" },
-  { id: "payment", Icon: CreditCard, label: "Payment Systems" },
-  { id: "intl", Icon: Globe, label: "International" },
+  { id: "payment", Icon: CreditCard, label: "Provider payment systems" },
+  { id: "intl", Icon: Globe, label: "International operation" },
   { id: "offshore", Icon: Building2, label: "Offshore" },
 ];
 
@@ -23,7 +23,7 @@ const NAV_DATA: Record<Category, { sublabel: string; items: { href: string; labe
     ],
   },
   payment: {
-    sublabel: "— PAYMENT SYSTEMS",
+    sublabel: "— PROVIDER PAYMENT SYSTEMS",
     items: [
       { href: "/services/payment", label: "Payment Systems", desc: "Full PSP registration", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="0"/><line x1="2" y1="10" x2="22" y2="10"/></svg>, tags: ["PSP", "SEPA", "SWIFT"] },
       { href: "/services/bank-accounts", label: "Bank Accounts", desc: "Corporate accounts in 20+ countries", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>, tags: ["EU", "Asia", "Offshore"] },
@@ -39,7 +39,7 @@ const NAV_DATA: Record<Category, { sublabel: string; items: { href: string; labe
     ],
   },
   offshore: {
-    sublabel: "— OFFSHORE & CORPORATE",
+    sublabel: "— OFFSHORE",
     items: [
       { href: "/services/offshore", label: "Offshore Company", desc: "BVI, Cayman, Seychelles, UAE", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>, tags: ["BVI", "Cayman", "Seychelles"] },
       { href: "/services/company-abroad", label: "Company Registration", desc: "40+ jurisdictions", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>, tags: ["UK", "UAE", "HK", "+37"] },
