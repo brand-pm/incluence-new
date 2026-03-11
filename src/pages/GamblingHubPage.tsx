@@ -41,126 +41,63 @@ const HeroSection = () => (
 );
 
 /* ── SECTION 2 — JURISDICTIONS GRID ── */
-interface JCard {
-  flag: string;
-  badge: string;
-  badgeVariant: "default" | "secondary" | "destructive" | "outline";
-  regulator: string;
-  title: string;
-  desc: string;
-  cost: string;
-  timeline: string;
-  route: string;
-}
-
-const JURISDICTIONS: JCard[] = [
+const JURISDICTIONS = [
   {
-    flag: "🇲🇹",
-    badge: "EU Regulated",
-    badgeVariant: "outline",
-    regulator: "MGA",
-    title: "Malta",
+    reg: "MGA", badge: "EU Regulated", name: "Malta",
     desc: "Gold standard for EU operators. MGA license opens access to European payment systems, banking, and player markets. Valid 5 years, renewable.",
-    cost: "From €25,000",
-    timeline: "6–9 months",
-    route: "/licenses/gambling/malta",
+    price: "From €25,000", timeline: "6–9 months", href: "/licenses/gambling/malta",
   },
   {
-    flag: "🇨🇼",
-    badge: "Popular",
-    badgeVariant: "secondary",
-    regulator: "CGA",
-    title: "Curaçao",
+    reg: "CGA", badge: "Popular", name: "Curaçao",
     desc: "The fastest and most cost-effective entry point. One sub-license covers all gambling types. No paid-up capital requirement. Remote application possible.",
-    cost: "From €15,000",
-    timeline: "3–4 months",
-    route: "/licenses/gambling/curacao",
+    price: "From €15,000", timeline: "3–4 months", href: "/licenses/gambling/curacao",
   },
   {
-    flag: "🇮🇲",
-    badge: "Tier 1",
-    badgeVariant: "secondary",
-    regulator: "GSC",
-    title: "Isle of Man",
+    reg: "GSC", badge: "Tier 1", name: "Isle of Man",
     desc: "Tier-1 prestige license from the Gambling Supervision Commission. Covers all verticals under one permit. Trusted by top-tier operators worldwide.",
-    cost: "From £25,000",
-    timeline: "6–12 months",
-    route: "/licenses/gambling/isle-of-man",
+    price: "From £25,000", timeline: "6–12 months", href: "/licenses/gambling/isle-of-man",
   },
   {
-    flag: "🇨🇷",
-    badge: "Offshore",
-    badgeVariant: "default",
-    regulator: "Municipality",
-    title: "Costa Rica",
+    reg: "Municipality", badge: "Offshore", name: "Costa Rica",
     desc: "Data Processing license — fastest path to operation. No business plan, no financial reporting, income tax exempt for international operators.",
-    cost: "From $15,000",
-    timeline: "2–5 weeks",
-    route: "/licenses/gambling/costa-rica",
+    price: "From $15,000", timeline: "2–5 weeks", href: "/licenses/gambling/costa-rica",
   },
 ];
 
-const JurisdictionGrid = () => {
-  const navigate = useNavigate();
-  return (
-    <section className="bg-[#0d0d0d] py-[72px] px-12">
-      <SectionTag>JURISDICTIONS</SectionTag>
-      <h2
-        className="font-light text-[#F0EBE0] mb-4"
-        style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
-      >
-        Choose your licensing jurisdiction
-      </h2>
-      <p className="text-[15px] text-[#9A9590] mb-14 max-w-[500px]">
-        Each jurisdiction has a unique risk/cost/reputation profile. We assess
-        your business and recommend the optimal path.
-      </p>
-      <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-2 gap-px">
-        {JURISDICTIONS.map((j) => (
-          <div
-            key={j.title}
-            onClick={() => navigate(j.route)}
-            className="bg-[#0d0d0d] p-7 relative overflow-hidden group cursor-pointer transition-all duration-300"
-          >
-            {/* bottom accent */}
-            <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
-            {/* NodePulse */}
-            <div className="absolute top-5 right-5">
-              <NodePulse />
-            </div>
-            {/* top row */}
-            <div className="flex justify-between items-start mb-6">
-              <span className="text-[28px]">{j.flag}</span>
-              <Badge variant={j.badgeVariant}>{j.badge}</Badge>
-            </div>
-            <div className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] mb-1">
-              {j.regulator}
-            </div>
-            <div className="text-[18px] font-semibold text-[#F0EBE0] mb-3">
-              {j.title}
-            </div>
-            <p className="text-[13px] text-[#9A9590] leading-relaxed mb-6">
-              {j.desc}
-            </p>
-            <div className="border-t border-white/[0.06] pt-5 mt-2">
-              <div className="flex justify-between">
-                <span className="text-[13px] font-medium text-[#F0EBE0]">
-                  {j.cost}
-                </span>
-                <span className="text-[12px] text-[#9A9590]">
-                  {j.timeline}
-                </span>
-              </div>
-            </div>
-            <span className="text-[12px] text-[#444CE7] mt-4 block">
-              Learn more →
-            </span>
+const JurisdictionGrid = () => (
+  <section className="bg-[#0d0d0d] py-[72px] px-12">
+    <SectionTag>JURISDICTIONS</SectionTag>
+    <h2 className="font-light text-[#F0EBE0] mb-4" style={{ fontSize: "clamp(24px, 3vw, 40px)" }}>
+      Choose your licensing jurisdiction
+    </h2>
+    <p className="text-[15px] text-[#9A9590] mb-14 max-w-[500px]">
+      Each jurisdiction has a unique risk/cost/reputation profile. We assess your business and recommend the optimal path.
+    </p>
+    <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-2 gap-px">
+      {JURISDICTIONS.map((j) => (
+        <Link key={j.name} to={j.href} className="bg-[#080808] p-8 relative overflow-hidden group block no-underline">
+          <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
+          <div className="flex items-start justify-between mb-6">
+            <span className="text-[11px] font-medium text-[#444CE7] uppercase tracking-[0.1em]">{j.reg}</span>
+            <span className="text-[10px] font-medium text-[#5A5550] uppercase tracking-[0.08em] border border-white/10 px-2 py-1">{j.badge}</span>
           </div>
-        ))}
-      </div>
-    </section>
-  );
-};
+          <h3 className="text-[22px] font-light text-[#F0EBE0] mb-3">{j.name}</h3>
+          <p className="text-[13px] text-[#9A9590] leading-relaxed mb-8">{j.desc}</p>
+          <div className="flex items-end justify-between pt-5 border-t border-white/[0.06]">
+            <div>
+              <span className="block text-[10px] text-[#5A5550] uppercase tracking-[0.08em] mb-1">Starting from</span>
+              <span className="text-[16px] font-medium text-[#F0EBE0]">{j.price}</span>
+            </div>
+            <div className="text-right">
+              <span className="block text-[10px] text-[#5A5550] uppercase tracking-[0.08em] mb-1">Timeline</span>
+              <span className="text-[14px] text-[#9A9590]">{j.timeline}</span>
+            </div>
+          </div>
+        </Link>
+      ))}
+    </div>
+  </section>
+);
 
 /* ── SECTION 3 — HOW IT WORKS ── */
 const STEPS = [
