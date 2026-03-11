@@ -1,66 +1,68 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useCallback, useEffect } from "react";
-import { Shield, CreditCard, Globe, Building2, ChevronRight, ChevronDown, Menu, X, MessageCircle, Send, Phone, Mail } from "lucide-react";
+import { Shield, CreditCard, Globe, Building2, ChevronDown, Menu, X, MessageCircle, Send, Phone, Mail } from "lucide-react";
+import NodePulse from "./NodePulse";
 
 type Category = "license" | "payment" | "intl" | "offshore";
 
-const categories: { value: Category; icon: typeof Shield; label: string }[] = [
-  { value: "license", icon: Shield, label: "License" },
-  { value: "payment", icon: CreditCard, label: "Payment Systems" },
-  { value: "intl", icon: Globe, label: "International Operation" },
-  { value: "offshore", icon: Building2, label: "Offshore & Corporate" },
+const CATS: { id: Category; label: string; Icon: typeof Shield }[] = [
+  { id: "license", Icon: Shield, label: "License" },
+  { id: "payment", Icon: CreditCard, label: "Payment Systems" },
+  { id: "intl", Icon: Globe, label: "International" },
+  { id: "offshore", Icon: Building2, label: "Offshore" },
 ];
 
-const linkData: Record<Category, { sublabel: string; items: { to: string; name: string; desc: string }[] }> = {
+const NAV_DATA: Record<Category, { sublabel: string; items: { href: string; label: string; desc: string; icon: JSX.Element; tags: string[] }[] }> = {
   license: {
     sublabel: "— LICENSING",
     items: [
-      { to: "/services/gambling", name: "Gambling License", desc: "Casino, sports betting & poker" },
-      { to: "/services/forex", name: "Forex License", desc: "EU & offshore brokerage" },
-      { to: "/services/crypto", name: "Crypto / VASP", desc: "Exchange, custody & DeFi" },
-      { to: "/services/emi", name: "EMI License", desc: "E-money & SEPA access" },
+      { href: "/services/gambling", label: "Gambling License", desc: "Casino, sports betting & poker", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="0"/><circle cx="12" cy="12" r="3"/></svg>, tags: ["Malta", "Curaçao", "Gibraltar", "+9"] },
+      { href: "/services/forex", label: "Forex License", desc: "EU & offshore brokerage", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>, tags: ["Cyprus", "BVI", "Estonia", "+6"] },
+      { href: "/services/crypto", label: "Crypto / VASP", desc: "Exchange, custody & DeFi", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 16.793l-1.86-11.04"/></svg>, tags: ["Estonia", "Lithuania", "UAE", "+5"] },
+      { href: "/services/emi", label: "EMI License", desc: "E-money & SEPA access", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="0"/><line x1="2" y1="10" x2="22" y2="10"/></svg>, tags: ["UK", "Lithuania", "Malta", "+3"] },
     ],
   },
   payment: {
     sublabel: "— PAYMENT SYSTEMS",
     items: [
-      { to: "/services/payment", name: "Payment Systems", desc: "Full PSP registration" },
-      { to: "/services/bank-accounts", name: "Bank Accounts", desc: "Corporate accounts in 20+ countries" },
-      { to: "/services/merchant", name: "Merchant Account", desc: "PSP connections & processing" },
+      { href: "/services/payment", label: "Payment Systems", desc: "Full PSP registration", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="0"/><line x1="2" y1="10" x2="22" y2="10"/></svg>, tags: ["PSP", "SEPA", "SWIFT"] },
+      { href: "/services/bank-accounts", label: "Bank Accounts", desc: "Corporate accounts in 20+ countries", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>, tags: ["EU", "Asia", "Offshore"] },
+      { href: "/services/merchant", label: "Merchant Account", desc: "PSP connections & processing", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>, tags: ["Visa", "MC", "Crypto"] },
     ],
   },
   intl: {
     sublabel: "— INTERNATIONAL OPERATION",
     items: [
-      { to: "/services/legal", name: "Business Legitimization", desc: "Legal structures & compliance" },
-      { to: "/services/tax", name: "Tax & Reporting", desc: "Tax planning & transfer pricing" },
-      { to: "/services/legal-support", name: "Legal Support", desc: "Ongoing counsel & contracts" },
+      { href: "/services/legal", label: "Business Legitimization", desc: "Legal structures & compliance", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>, tags: ["Compliance", "AML", "KYC"] },
+      { href: "/services/tax", label: "Tax & Reporting", desc: "Tax planning & transfer pricing", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>, tags: ["Transfer pricing", "CFC"] },
+      { href: "/services/legal-support", label: "Legal Support", desc: "Ongoing counsel & contracts", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>, tags: ["Contracts", "Disputes"] },
     ],
   },
   offshore: {
     sublabel: "— OFFSHORE & CORPORATE",
     items: [
-      { to: "/services/offshore", name: "Offshore Company", desc: "BVI, Cayman, Seychelles, UAE" },
-      { to: "/services/company-abroad", name: "Company Registration", desc: "40+ jurisdictions" },
-      { to: "/services/funds", name: "Investment Funds", desc: "Fund registration & management" },
-      { to: "/services/residence", name: "Residence Permit", desc: "Residency by investment" },
-      { to: "/services/buy-business", name: "Buy a Business", desc: "International acquisitions" },
-      { to: "/services/contracts", name: "Int'l Contracts", desc: "Cross-border drafting & review" },
+      { href: "/services/offshore", label: "Offshore Company", desc: "BVI, Cayman, Seychelles, UAE", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>, tags: ["BVI", "Cayman", "Seychelles"] },
+      { href: "/services/company-abroad", label: "Company Registration", desc: "40+ jurisdictions", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>, tags: ["UK", "UAE", "HK", "+37"] },
+      { href: "/services/funds", label: "Investment Funds", desc: "Fund registration & management", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>, tags: ["CySEC", "CIMA", "FSA"] },
+      { href: "/services/residence", label: "Residence Permit", desc: "Residency by investment", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>, tags: ["UAE", "Portugal", "Malta"] },
+      { href: "/services/buy-business", label: "Buy a Business", desc: "International acquisitions", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>, tags: ["EU", "Asia", "Offshore"] },
+      { href: "/services/contracts", label: "Int'l Contracts", desc: "Cross-border drafting & review", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>, tags: ["Cross-border", "M&A"] },
     ],
   },
 };
 
-const quickLinks = [
-  { label: "Gambling · MGA", to: "/services/gambling" },
-  { label: "Estonia · VASP", to: "/services/crypto" },
-  { label: "UK · EMI", to: "/services/emi" },
-  { label: "BVI · Offshore", to: "/services/offshore" },
+const PILLS = [
+  { label: "Gambling · MGA", href: "/services/gambling" },
+  { label: "Estonia · VASP", href: "/services/crypto" },
+  { label: "UK · EMI", href: "/services/emi" },
+  { label: "BVI · Offshore", href: "/services/offshore" },
 ];
 
 const Navbar = () => {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<Category>("license");
+  const [cat, setCat] = useState<Category>("license");
+  const [tabIndex, setTabIndex] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -94,7 +96,12 @@ const Navbar = () => {
     setMobileOpen(false);
   };
 
-  const current = linkData[activeCategory];
+  const go = (href: string) => {
+    handleLinkClick();
+    window.location.href = href;
+  };
+
+  const currentItems = NAV_DATA[cat].items;
 
   const navLinkClass = (path: string) =>
     `transition-colors duration-200 no-underline ${location.pathname === path ? "text-[#F0EBE0]" : "text-[#9A9590] hover:text-[#F0EBE0]"}`;
@@ -286,14 +293,14 @@ const Navbar = () => {
           className="md:hidden fixed top-[60px] left-0 right-0 bottom-0 z-[99] overflow-y-auto"
           style={{ background: "#0a0a0a", fontFamily: "Manrope, sans-serif", padding: "24px 24px 48px" }}
         >
-          {categories.map((cat) => (
-            <div key={cat.value} style={{ marginBottom: 16 }}>
+          {CATS.map((c) => (
+            <div key={c.id} style={{ marginBottom: 16 }}>
               <div style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>
-                {linkData[cat.value].sublabel}
+                {NAV_DATA[c.id].sublabel}
               </div>
-              {linkData[cat.value].items.map((item) => (
-                <Link key={item.to} to={item.to} onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#F0EBE0", padding: "8px 0" }}>
-                  {item.name}
+              {NAV_DATA[c.id].items.map((item) => (
+                <Link key={item.href} to={item.href} onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#F0EBE0", padding: "8px 0" }}>
+                  {item.label}
                 </Link>
               ))}
             </div>
@@ -319,7 +326,7 @@ const Navbar = () => {
         <div
           onMouseEnter={cancelClose}
           onMouseLeave={closeMenu}
-          onClick={handleLinkClick}
+          onClick={(e) => e.stopPropagation()}
           className="hidden md:block fixed left-0 right-0 z-[99]"
           style={{
             top: 60,
@@ -335,165 +342,209 @@ const Navbar = () => {
               from { opacity: 0; transform: translateY(-6px); }
               to { opacity: 1; transform: translateY(0); }
             }
+            @keyframes tabFade {
+              from { opacity: 0; transform: translateY(4px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes scanline {
+              from { transform: translateX(-100%); }
+              to { transform: translateX(400%); }
+            }
+            @keyframes pd{0%{transform:scale(1);opacity:.5}100%{transform:scale(2.5);opacity:0}}
           `}</style>
 
           <div className="max-w-screen-xl mx-auto">
-            <div className="grid gap-px" style={{ gridTemplateColumns: "220px 1fr 300px", background: "rgba(255,255,255,0.05)" }}>
 
-              {/* COL 1 — Categories */}
-              <div style={{ background: "#0a0a0a", padding: "28px 0" }}>
-                <span className="block" style={{ padding: "0 24px", fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.14em", marginBottom: 20 }}>
-                  — SERVICES
-                </span>
-                <div className="flex flex-col">
-                  {categories.map((cat) => {
-                    const Icon = cat.icon;
-                    const isActive = activeCategory === cat.value;
-                    return (
-                      <button
-                        key={cat.value}
-                        onMouseEnter={() => setActiveCategory(cat.value)}
-                        className="relative flex items-center gap-3 w-full cursor-pointer bg-transparent border-0"
-                        style={{
-                          padding: "12px 24px",
-                          background: isActive ? "rgba(68,76,231,0.07)" : "transparent",
-                          fontFamily: "inherit",
-                        }}
-                      >
-                        {isActive && (
-                          <div className="absolute left-0 top-0 bottom-0" style={{ width: 2, background: "#444CE7" }} />
-                        )}
-                        <div
-                          className={`w-7 h-7 flex items-center justify-center flex-shrink-0 border ${
-                            isActive
-                              ? "border-[#444CE7]/40 bg-[#444CE7]/10"
-                              : "border-white/[0.08] bg-white/[0.03]"
-                          }`}
-                        >
-                          <Icon size={13} className={isActive ? "text-[#444CE7]" : "text-[#5A5550]"} />
-                        </div>
-                        <span style={{ fontSize: 13, fontWeight: 500, color: isActive ? "#F0EBE0" : "#9A9590" }}>{cat.label}</span>
-                        <ChevronRight
-                          size={12}
-                          className="ml-auto"
-                          style={{ color: isActive ? "#444CE7" : "#5A5550", opacity: isActive ? 1 : 0 }}
-                        />
-                      </button>
-                    );
-                  })}
-                </div>
-                <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", marginTop: 16, paddingTop: 16, paddingLeft: 24, paddingRight: 24 }}>
-                  <div className="flex items-baseline gap-2" style={{ marginBottom: 6 }}>
-                    <span style={{ fontSize: 16, fontWeight: 300, color: "#F0EBE0" }}>500+</span>
-                    <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.06em" }}>Projects</span>
-                  </div>
-                  <div className="flex items-baseline gap-2">
-                    <span style={{ fontSize: 16, fontWeight: 300, color: "#F0EBE0" }}>12 yrs</span>
-                    <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.06em" }}>Experience</span>
-                  </div>
-                </div>
+            {/* ── TAB BAR ── */}
+            <div style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "#0a0a0a" }}>
+              <div className="relative flex items-center">
+                {CATS.map(({ id, label, Icon }, index) => (
+                  <button
+                    key={id}
+                    onMouseEnter={() => { setCat(id); setTabIndex(index); }}
+                    className={`relative flex items-center gap-2 px-6 py-4 text-[13px] font-medium transition-colors duration-200 cursor-pointer bg-transparent border-0 whitespace-nowrap ${
+                      cat === id ? "text-[#F0EBE0]" : "text-[#5A5550] hover:text-[#9A9590]"
+                    }`}
+                    style={{ fontFamily: "inherit" }}
+                  >
+                    <Icon size={13} />
+                    {label}
+                  </button>
+                ))}
+
+                {/* Animated sliding underline */}
+                <div
+                  className="absolute bottom-0 h-[2px] bg-[#444CE7] transition-all duration-300 ease-out"
+                  style={{
+                    width: `${100 / CATS.length}%`,
+                    left: `${(tabIndex / CATS.length) * 100}%`,
+                  }}
+                />
               </div>
+            </div>
 
-              {/* COL 2 — Service Links */}
-              <div style={{ background: "#080808", padding: "28px 32px" }}>
-                <span className="block" style={{ fontSize: 10, color: "#444CE7", textTransform: "uppercase", letterSpacing: "0.14em", marginBottom: 20 }}>
-                  {current.sublabel}
-                </span>
-                <div className="grid grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.04)" }}>
-                  {current.items.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="relative flex flex-col text-left cursor-pointer w-full no-underline group transition-colors duration-150"
-                      style={{ background: "#080808", padding: "16px 20px" }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(68,76,231,0.04)"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = "#080808"; }}
+            {/* ── CONTENT AREA ── */}
+            <div className="flex" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+
+              {/* LEFT — Service cards */}
+              <div className="flex-1" style={{ background: "#080808", padding: "24px 28px" }}>
+                <div
+                  key={cat}
+                  className="grid grid-cols-2 gap-px"
+                  style={{ background: "rgba(255,255,255,0.04)", animation: "tabFade 0.2s ease-out" }}
+                >
+                  {currentItems.map((item, i) => (
+                    <button
+                      key={item.href}
+                      onClick={() => go(item.href)}
+                      className="relative bg-[#080808] overflow-hidden flex flex-col px-5 py-5 text-left cursor-pointer w-full border-0 group hover:bg-[rgba(68,76,231,0.04)] transition-colors duration-150"
+                      style={{ fontFamily: "inherit" }}
                     >
-                      <div className="absolute bottom-0 left-0 h-[1px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
-                      <div className="flex items-center justify-between" style={{ marginBottom: 4 }}>
-                        <span style={{ fontSize: 13, fontWeight: 600, color: "#F0EBE0" }}>{item.name}</span>
-                        <span className="opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: "#444CE7", fontSize: 11, marginLeft: 8 }}>→</span>
+                      {/* Scan line on hover */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none overflow-hidden">
+                        <div
+                          className="absolute top-0 left-0 w-1/4 h-full opacity-0 group-hover:opacity-100"
+                          style={{
+                            background: "linear-gradient(90deg, transparent, rgba(68,76,231,0.06), transparent)",
+                            animation: "scanline 1.5s ease-in-out infinite",
+                          }}
+                        />
                       </div>
-                      <span style={{ fontSize: 11, color: "#5A5550", lineHeight: 1.4 }}>{item.desc}</span>
-                    </Link>
+
+                      {/* Bottom accent line */}
+                      <div className="absolute bottom-0 left-0 h-[1px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
+
+                      {/* Number */}
+                      <span className="text-[10px] text-[#5A5550] tracking-[0.1em] mb-2">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+
+                      {/* Icon */}
+                      <div className="w-8 h-8 flex items-center justify-center border border-white/[0.08] bg-white/[0.03] mb-3 text-[#5A5550] group-hover:text-[#444CE7] group-hover:border-[#444CE7]/30 group-hover:bg-[#444CE7]/10 transition-all duration-200">
+                        {item.icon}
+                      </div>
+
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-[13px] font-semibold text-[#F0EBE0]">{item.label}</span>
+                        <span className="text-[#444CE7] text-[11px] opacity-0 group-hover:opacity-100 transition-opacity ml-2">→</span>
+                      </div>
+                      <span className="text-[11px] text-[#5A5550] leading-snug mb-3">{item.desc}</span>
+
+                      {/* Tag chips */}
+                      {item.tags && (
+                        <div className="flex flex-wrap gap-1 mt-auto">
+                          {item.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-[9px] text-[#5A5550] border border-white/[0.06] px-1.5 py-0.5"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </button>
                   ))}
                 </div>
               </div>
 
-              {/* COL 3 — Featured */}
-              <div className="flex flex-col gap-3" style={{ background: "#0d0d0d", padding: "28px 24px" }}>
-                <Link
-                  to="/marketplace"
-                  className="relative block no-underline text-left cursor-pointer w-full group transition-all duration-200"
-                  style={{ background: "#080808", border: "1px solid rgba(255,255,255,0.06)", padding: 20 }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(68,76,231,0.25)"; e.currentTarget.style.background = "#0a0a0a"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"; e.currentTarget.style.background = "#080808"; }}
+              {/* RIGHT — Featured sidebar */}
+              <div className="flex flex-col gap-3 flex-shrink-0" style={{ width: 280, background: "#0d0d0d", padding: "24px 20px" }}>
+
+                {/* Ready Made Companies */}
+                <button
+                  onClick={() => go("/marketplace")}
+                  className="relative flex-1 bg-[#0a0a0a] border border-white/[0.06] p-5 text-left cursor-pointer group hover:border-[#444CE7]/25 transition-all duration-200 overflow-hidden"
+                  style={{ fontFamily: "inherit" }}
                 >
                   <div className="absolute bottom-0 left-0 h-[1px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
-                  <div className="absolute" style={{ top: 16, right: 16 }}>
-                    <div className="relative" style={{ width: 12, height: 12 }}>
-                      <div className="absolute inset-0" style={{ background: "#444CE7", opacity: 0.8 }} />
-                      <div className="absolute inset-0 animate-ping" style={{ background: "#444CE7", opacity: 0.3 }} />
-                    </div>
+
+                  {/* Corner accent */}
+                  <div className="absolute top-0 right-0 w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute top-0 right-0 w-full h-[1px] bg-[#444CE7]/40" />
+                    <div className="absolute top-0 right-0 w-[1px] h-full bg-[#444CE7]/40" />
                   </div>
-                  <span className="inline-block" style={{ fontSize: 9, color: "#444CE7", textTransform: "uppercase", letterSpacing: "0.1em", border: "1px solid rgba(68,76,231,0.3)", background: "rgba(68,76,231,0.08)", padding: "2px 8px", marginBottom: 12 }}>
+
+                  <div className="absolute" style={{ top: 16, right: 16 }}>
+                    <NodePulse />
+                  </div>
+
+                  <span
+                    className="inline-block text-[9px] text-[#444CE7] uppercase tracking-[0.1em] border border-[#444CE7]/30 px-2 py-0.5 mb-3"
+                    style={{ background: "rgba(68,76,231,0.08)" }}
+                  >
                     Popular
                   </span>
-                  <p style={{ fontSize: 13, fontWeight: 600, color: "#F0EBE0", margin: "0 0 6px 0", paddingRight: 24 }}>Ready Made Companies</p>
-                  <p style={{ fontSize: 11, color: "#9A9590", lineHeight: 1.6, margin: "0 0 12px 0" }}>47 companies in 12 jurisdictions. Transfer in 3 days.</p>
-                  <span style={{ fontSize: 11, color: "#444CE7" }}>Browse listings →</span>
-                </Link>
+                  <p className="text-[13px] font-semibold text-[#F0EBE0] mb-1.5 pr-6" style={{ margin: 0, marginBottom: 6 }}>Ready Made Companies</p>
+                  <p className="text-[11px] text-[#9A9590] leading-relaxed mb-3" style={{ margin: 0, marginBottom: 12 }}>47 companies in 12 jurisdictions. Transfer in 3 days.</p>
+                  <span className="text-[11px] text-[#444CE7]">Browse listings →</span>
+                </button>
 
-                <Link
-                  to="/contact"
-                  className="relative block no-underline text-left cursor-pointer w-full group transition-all duration-200"
-                  style={{ background: "#080808", border: "1px solid rgba(255,255,255,0.06)", padding: 20 }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(68,76,231,0.25)"; e.currentTarget.style.background = "#0a0a0a"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"; e.currentTarget.style.background = "#080808"; }}
+                {/* Free Consultation */}
+                <button
+                  onClick={() => go("/contact")}
+                  className="relative flex-1 bg-[#0a0a0a] border border-white/[0.06] p-5 text-left cursor-pointer group hover:border-[#444CE7]/25 transition-all duration-200 overflow-hidden"
+                  style={{ fontFamily: "inherit" }}
                 >
                   <div className="absolute bottom-0 left-0 h-[1px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
-                  <div className="flex items-center gap-2" style={{ marginBottom: 12 }}>
-                    <div style={{ width: 6, height: 6, background: "#22c55e" }} />
-                    <span style={{ fontSize: 9, color: "#22c55e", textTransform: "uppercase", letterSpacing: "0.1em" }}>Available now</span>
+
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="relative">
+                      <div className="w-1.5 h-1.5 bg-[#22c55e]" />
+                      <div className="absolute inset-0 w-1.5 h-1.5 bg-[#22c55e]" style={{ animation: "pd 2s ease-out infinite" }} />
+                    </div>
+                    <style>{`@keyframes pd{0%{transform:scale(1);opacity:.5}100%{transform:scale(2.5);opacity:0}}`}</style>
+                    <span className="text-[9px] text-[#22c55e] uppercase tracking-[0.1em]">Available now</span>
                   </div>
-                  <p style={{ fontSize: 13, fontWeight: 600, color: "#F0EBE0", margin: "0 0 6px 0" }}>Free Consultation</p>
-                  <p style={{ fontSize: 11, color: "#9A9590", lineHeight: 1.6, margin: "0 0 12px 0" }}>30-min call with a senior attorney. No obligation.</p>
-                  <span style={{ fontSize: 11, color: "#444CE7" }}>Book a slot →</span>
-                </Link>
+
+                  <p className="text-[13px] font-semibold text-[#F0EBE0] mb-1.5" style={{ margin: 0, marginBottom: 6 }}>Free Consultation</p>
+                  <p className="text-[11px] text-[#9A9590] leading-relaxed mb-3" style={{ margin: 0, marginBottom: 12 }}>30-min call with a senior attorney. No obligation.</p>
+                  <span className="text-[11px] text-[#444CE7]">Book a slot →</span>
+                </button>
               </div>
             </div>
 
-            {/* Bottom bar */}
+            {/* ── BOTTOM BAR ── */}
             <div
               className="flex items-center justify-between"
               style={{ borderTop: "1px solid rgba(255,255,255,0.04)", background: "#080808", padding: "14px 24px" }}
             >
               <div className="flex items-center gap-2">
-                <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.12em", marginRight: 16 }}>
-                  QUICK ACCESS:
+                <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.12em]" style={{ marginRight: 16 }}>
+                  Quick Access:
                 </span>
-                {quickLinks.map((q) => (
-                  <Link
-                    key={q.to}
-                    to={q.to}
-                    className="no-underline transition-all duration-150"
-                    style={{ fontSize: 11, color: "#9A9590", border: "1px solid rgba(255,255,255,0.07)", padding: "4px 12px", background: "transparent" }}
-                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(68,76,231,0.35)"; e.currentTarget.style.color = "#F0EBE0"; e.currentTarget.style.background = "rgba(68,76,231,0.05)"; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.color = "#9A9590"; e.currentTarget.style.background = "transparent"; }}
-                  >
-                    {q.label}
-                  </Link>
-                ))}
+                <div className="flex items-center gap-1.5">
+                  {PILLS.map((p) => (
+                    <button
+                      key={p.href}
+                      onClick={() => go(p.href)}
+                      className="text-[11px] text-[#9A9590] border border-white/[0.06] px-3 py-1 bg-transparent hover:border-[#444CE7]/40 hover:text-[#F0EBE0] hover:bg-[#444CE7]/5 transition-all duration-150 cursor-pointer"
+                      style={{ fontFamily: "inherit" }}
+                    >
+                      {p.label}
+                    </button>
+                  ))}
+                </div>
               </div>
-              <Link
-                to="/licenses/gambling"
-                className="no-underline transition-colors"
-                style={{ fontSize: 11, color: "#5A5550" }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#444CE7"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#5A5550"; }}
-              >
-                View all services →
-              </Link>
+
+              <div className="flex items-center gap-4">
+                {/* Live counter */}
+                <div className="flex items-center gap-2">
+                  <div className="relative" style={{ width: 6, height: 6 }}>
+                    <div className="absolute inset-0 bg-[#22c55e]" />
+                    <div className="absolute inset-0 bg-[#22c55e] animate-ping" style={{ opacity: 0.4 }} />
+                  </div>
+                  <span className="text-[10px] text-[#5A5550]">26 jurisdictions live</span>
+                </div>
+
+                <button
+                  onClick={() => go("/licenses")}
+                  className="text-[11px] text-[#5A5550] hover:text-[#444CE7] transition-colors cursor-pointer bg-transparent border-0"
+                  style={{ fontFamily: "inherit" }}
+                >
+                  View all services →
+                </button>
+              </div>
             </div>
           </div>
         </div>
