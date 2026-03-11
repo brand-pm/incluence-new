@@ -92,7 +92,7 @@ export interface LicensePageProps {
   breadcrumbs: BreadcrumbItem[];
   hero: HeroData;
   mapSvg: ReactNode;
-  fireflies: FireflyConfig;
+  fireflies?: FireflyConfig;
   facts: FactItem[];
   process: ProcessData;
   steps: StepItem[];       // first 6 in grid-cols-3
