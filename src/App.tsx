@@ -13,6 +13,7 @@ import LicensesPage from "./pages/LicensesPage";
 import NotFound from "./pages/NotFound";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import CostaRicaPage from "./pages/CostaRicaPage";
+import GamblingHubPage from "./pages/GamblingHubPage";
 
 const queryClient = new QueryClient();
 
