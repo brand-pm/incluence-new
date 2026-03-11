@@ -213,7 +213,7 @@ const ProcessSection = () => {
         A structured process refined across 500+ client projects
       </p>
 
-      <div ref={containerRef} className="relative grid grid-cols-4 gap-px bg-[rgba(255,255,255,0.06)]">
+      <div ref={containerRef} className="relative grid grid-cols-2 gap-px bg-[rgba(255,255,255,0.06)]">
         <ProcessFlowCanvas />
         {STEPS.map((s, i) => (
           <div
