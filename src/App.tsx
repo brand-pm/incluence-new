@@ -11,6 +11,7 @@ import MaltaLicensePage from "./pages/gambling/MaltaLicensePage";
 import CostaRicaLicensePage from "./pages/gambling/CostaRicaLicensePage";
 import CuracaoLicensePage from "./pages/gambling/CuracaoLicensePage";
 import IsleOfManLicensePage from "./pages/gambling/IsleOfManLicensePage";
+import AboutPage from "./pages/AboutPage";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +37,7 @@ const App = () => (
             {/* ── LEVEL 1: Global ── */}
             <Route path="/" element={<Index />} />
             <Route path="/marketplace" element={<ComingSoon title="Marketplace" />} />
-            <Route path="/about" element={<ComingSoon title="About Incluence" />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ComingSoon title="Contact Us" />} />
 
             {/* ── LEVEL 2: All licenses catalog ── */}
