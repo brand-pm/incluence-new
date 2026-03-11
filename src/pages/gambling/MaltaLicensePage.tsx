@@ -117,38 +117,34 @@ const MaltaLicensePage = () => {
       </div>
 
       {/* ── SECTION 2 — HERO ── */}
-      <section className="bg-[#080808] py-[80px] px-12 relative overflow-hidden min-h-[520px]">
-        {/* Layer A — MicroParticles */}
+      <section className="bg-[#080808] py-[80px] px-12 relative overflow-hidden min-h-[560px]">
+        {/* Layer A — PacketCanvas (Malta-centric network) */}
         <div className="absolute inset-0 pointer-events-none z-0">
-          <MicroParticles />
+          <PacketCanvas nodes={MALTA_NODES} routes={MALTA_ROUTES} packetCount={12} opacity={0.85} />
         </div>
-        {/* Layer B — dot grid */}
-        <div
-          className="absolute inset-0 pointer-events-none z-0 opacity-[0.03]"
-          style={{
-            backgroundImage: "radial-gradient(circle, #F0EBE0 1px, transparent 1px)",
-            backgroundSize: "24px 24px"
-          }} />
-        
-        {/* Layer C — Malta island SVG */}
-        <svg className="absolute right-[-40px] top-1/2 -translate-y-1/2 w-[420px] h-[420px] pointer-events-none z-0 opacity-[0.04]" viewBox="0 0 400 400" fill="none">
-          <path d="M220 120 C240 110, 280 130, 290 160 C300 190, 310 240, 280 280 C260 310, 220 320, 200 310 C180 300, 160 270, 170 240 C175 220, 200 200, 210 180 C215 165, 205 135, 220 120Z" fill="#F0EBE0" />
-          <ellipse cx="180" cy="100" rx="30" ry="20" fill="#F0EBE0" />
-          <circle cx="200" cy="130" r="4" fill="#F0EBE0" />
-          <line x1="170" y1="150" x2="310" y2="150" stroke="#F0EBE0" strokeWidth="0.5" opacity="0.5" />
-          <line x1="170" y1="200" x2="310" y2="200" stroke="#F0EBE0" strokeWidth="0.5" opacity="0.5" />
-          <line x1="170" y1="250" x2="310" y2="250" stroke="#F0EBE0" strokeWidth="0.5" opacity="0.5" />
-          <line x1="200" y1="100" x2="200" y2="320" stroke="#F0EBE0" strokeWidth="0.5" opacity="0.5" />
-          <line x1="250" y1="100" x2="250" y2="320" stroke="#F0EBE0" strokeWidth="0.5" opacity="0.5" />
-          <line x1="300" y1="100" x2="300" y2="320" stroke="#F0EBE0" strokeWidth="0.5" opacity="0.5" />
-          <circle cx="240" cy="200" r="3" fill="#444CE7" />
-          <circle cx="240" cy="200" r="7" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.5" />
-          <text x="250" y="204" fill="#444CE7" fontSize="8" fontFamily="Manrope">Valletta</text>
-          <circle cx="260" cy="240" r="2.5" fill="#444CE7" opacity="0.7" />
-          <text x="268" y="244" fill="#444CE7" fontSize="7" fontFamily="Manrope" opacity="0.7">MGA</text>
+
+        {/* Layer B — Malta flag (very subtle, right side) */}
+        <svg className="absolute right-[5%] top-1/2 -translate-y-1/2 w-[340px] h-[240px] pointer-events-none z-0 opacity-[0.025]" viewBox="0 0 300 200" fill="none">
+          <rect x="0" y="0" width="150" height="200" fill="#F0EBE0" />
+          <rect x="150" y="0" width="150" height="200" fill="#CE2B37" />
         </svg>
-        {/* Layer D — right edge fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-[120px] pointer-events-none z-0 bg-gradient-to-l from-[#080808] to-transparent" />
+
+        {/* Layer C — Vignettes for depth */}
+        <div className="absolute inset-0 pointer-events-none z-[1]" style={{
+          background: [
+            "radial-gradient(ellipse 55% 100% at 0% 50%, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.6) 40%, transparent 65%)",
+            "linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.85) 8%, rgba(8,8,8,0.4) 22%, transparent 45%)",
+            "linear-gradient(to bottom, rgba(8,8,8,0.7) 0%, rgba(8,8,8,0.3) 10%, transparent 22%)",
+            "linear-gradient(to left, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.4) 15%, transparent 35%)",
+          ].join(", ")
+        }} />
+
+        {/* Layer D — Noise overlay */}
+        <div className="absolute inset-0 pointer-events-none z-[2] opacity-[0.03]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "128px 128px",
+        }} />
 
         <div className="max-w-screen-xl mx-auto relative z-10">
           <div className="grid grid-cols-12 gap-12">
