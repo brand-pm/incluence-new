@@ -384,19 +384,13 @@ const ContactCTA = () => {
           </p>
           <div className="flex flex-col gap-4">
             {[
-              { Icon: Shield, text: "Fixed fee pricing — no hourly surprises" },
-              {
-                Icon: Users,
-                text: "Senior attorneys on every case, no juniors",
-              },
-              {
-                Icon: Clock,
-                text: "Response within 2 business hours, Mon–Fri",
-              },
-            ].map((t) => (
-              <div key={t.text} className="flex items-center gap-3">
-                <t.Icon size={16} className="text-[#444CE7] shrink-0" />
-                <span className="text-[13px] text-[#9A9590]">{t.text}</span>
+              "Fixed fee pricing — no hourly surprises",
+              "Senior attorneys on every case, no juniors",
+              "Response within 2 business hours, Mon–Fri",
+            ].map((text) => (
+              <div key={text} className="flex items-center gap-3">
+                <NodePulse />
+                <span className="text-[13px] text-[#9A9590]">{text}</span>
               </div>
             ))}
           </div>
