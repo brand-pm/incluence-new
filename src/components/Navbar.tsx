@@ -370,13 +370,14 @@ const Navbar = () => {
                 {CATS.map(({ id, label, Icon }, index) => (
                   <button
                     key={id}
-                    onMouseEnter={() => { setCat(id); setTabIndex(index); }}
-                    className={`relative flex items-center gap-2 px-6 py-4 text-[13px] font-medium transition-colors duration-200 cursor-pointer bg-transparent border-0 whitespace-nowrap ${
-                      cat === id ? "text-[#F0EBE0]" : "text-[#5A5550] hover:text-[#9A9590]"
+                    ref={(el) => { tabRefs.current[index] = el; }}
+                    onMouseEnter={() => setCat(id)}
+                    className={`relative flex items-center gap-1.5 px-8 py-5 text-[15px] transition-colors duration-200 cursor-pointer bg-transparent border-0 whitespace-nowrap ${
+                      cat === id ? "text-[#F0EBE0] font-medium" : "text-[#9A9590] hover:text-[#F0EBE0]"
                     }`}
                     style={{ fontFamily: "inherit" }}
                   >
-                    <Icon size={13} />
+                    <Icon size={14} />
                     {label}
                   </button>
                 ))}
@@ -385,8 +386,8 @@ const Navbar = () => {
                 <div
                   className="absolute bottom-0 h-[2px] bg-[#444CE7] transition-all duration-300 ease-out"
                   style={{
-                    width: `${100 / CATS.length}%`,
-                    left: `${(tabIndex / CATS.length) * 100}%`,
+                    left: indicatorStyle.left,
+                    width: indicatorStyle.width,
                   }}
                 />
               </div>
