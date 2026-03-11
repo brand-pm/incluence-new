@@ -171,15 +171,6 @@ const MaltaLicensePage = () => {
           <rect x="150" y="0" width="150" height="200" fill="#CE2B37" />
         </svg>
 
-        {/* Layer C — Vignettes for depth */}
-        <div className="absolute inset-0 pointer-events-none z-[1]" style={{
-          background: [
-            "radial-gradient(ellipse 55% 100% at 0% 50%, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.6) 40%, transparent 65%)",
-            "linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.85) 8%, rgba(8,8,8,0.4) 22%, transparent 45%)",
-            "linear-gradient(to bottom, rgba(8,8,8,0.7) 0%, rgba(8,8,8,0.3) 10%, transparent 22%)",
-            "linear-gradient(to left, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.4) 15%, transparent 35%)",
-          ].join(", ")
-        }} />
 
         {/* Layer D — Noise overlay */}
         <div className="absolute inset-0 pointer-events-none z-[2] opacity-[0.03]" style={{
