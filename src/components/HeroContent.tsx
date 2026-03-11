@@ -96,11 +96,11 @@ const HeroContent = () => (
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.8, ease, delay: 0.45 }}
       >
-        Legal clarity for businesses that{" "}
+        Legal structure, licensing & compliance for businesses{" "}
         <motion.em style={{ fontStyle: "italic", color: "#444CE7", fontWeight: 400, display: "inline-block" }}
           initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease, delay: 0.9 }}
-        >operate</motion.em>{" "}beyond borders
+        >operating</motion.em>{" "}beyond borders
       </motion.h1>
 
       {/* Service tags — mobile */}
