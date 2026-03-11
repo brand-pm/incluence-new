@@ -74,6 +74,7 @@ const App = () => (
           </Routes>
         </main>
         <Footer />
+        <AIConsultant />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
