@@ -432,13 +432,13 @@ const Navbar = () => {
 
             {/* ── TAB BAR ── */}
             <div style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "#0a0a0a" }}>
-              <div className="relative flex items-center">
+              <div className="relative flex items-center w-full">
                 {CATS.map(({ id, label, Icon }, index) => (
                   <button
                     key={id}
                     ref={(el) => { tabRefs.current[index] = el; }}
                     onMouseEnter={() => setCat(id)}
-                    className={`relative flex items-center gap-1.5 px-8 py-5 text-[15px] transition-colors duration-200 cursor-pointer bg-transparent border-0 whitespace-nowrap ${
+                    className={`relative flex-1 flex items-center justify-center gap-1.5 py-5 text-[15px] transition-colors duration-200 cursor-pointer bg-transparent border-0 whitespace-nowrap ${
                       cat === id ? "text-[#F0EBE0] font-medium" : "text-[#9A9590] hover:text-[#F0EBE0]"
                     }`}
                     style={{ fontFamily: "inherit" }}
