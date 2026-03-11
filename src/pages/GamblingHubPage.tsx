@@ -14,8 +14,7 @@ const HeroSection = () => (
     <div className="relative z-10 max-w-[560px]">
       <SectionTag>GAMBLING LICENSES</SectionTag>
       <h1
-        className="font-light text-[#F0EBE0]"
-        style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
+        className="text-[clamp(32px,4vw,56px)] font-light text-[#F0EBE0] leading-tight mt-6 mb-4"
       >
         Gambling licenses for operators that play long-term
       </h1>
