@@ -52,7 +52,7 @@ const Footer = () => (
         <div style={colHeading}>Services</div>
         <div className="flex flex-col" style={{ gap: 10 }}>
           {serviceLinks.map((s) => (
-            <Link key={s} to="/" style={linkStyle} className="hover:!text-foreground">{s}</Link>
+            <Link key={s.label} to={s.href} style={linkStyle} className="hover:!text-foreground">{s.label}</Link>
           ))}
         </div>
       </div>
