@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SectionTag from "@/components/SectionTag";
 import MicroParticles from "@/components/MicroParticles";
 import NodePulse from "@/components/NodePulse";
+import { FlagEmojiGroup } from "@/components/FlagEmoji";
 
 const getFlagEmoji = (code: string) =>
   code.split("").map((c) => String.fromCodePoint(c.charCodeAt(0) + 127397)).join("");
