@@ -113,7 +113,7 @@ const CostaRicaLicensePage = () => (
         "linear-gradient(to right, #080808 45%, rgba(8,8,8,0.7) 65%, rgba(8,8,8,0) 100%)",
     }}
     mapSvg={CostaRicaMapSvg}
-    fireflies={{ originX: 55, originY: 50, count: 8 }}
+    fireflies={{ originX: 62, originY: 45, count: 10 }}
     facts={[
       { label: "Jurisdiction", value: "Costa Rica", cls: "text-[#F0EBE0]" },
       { label: "Regulator", value: "Municipality", cls: "text-[#444CE7] font-semibold" },
