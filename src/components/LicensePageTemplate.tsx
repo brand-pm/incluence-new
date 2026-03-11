@@ -364,11 +364,34 @@ const LicensePageTemplate = ({
                 — Requirements
               </span>
               <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] mb-6">
-                What you need to qualify
+                {requirements.title || "What you need to qualify"}
               </h2>
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-8">
                 {requirements.intro}
               </p>
+
+              {requirements.notRequiredTitle && requirements.notRequired && (
+                <>
+                  <h3 className="text-[14px] font-semibold text-[#9A9590] mb-4 flex items-center gap-2">
+                    <NodePulse />
+                    {requirements.notRequiredTitle}
+                  </h3>
+                  <ul className="space-y-3 border-l border-[#5A5550]/30 pl-5 mb-8">
+                    {requirements.notRequired.map((d) => (
+                      <li key={d} className="text-[13px] text-[#5A5550] leading-relaxed">
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              {requirements.additionalText && (
+                <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-8">
+                  {requirements.additionalText}
+                </p>
+              )}
+
               <h3 className="text-[14px] font-semibold text-[#F0EBE0] mb-4 flex items-center gap-2">
                 <NodePulse />
                 {requirements.docsTitle}

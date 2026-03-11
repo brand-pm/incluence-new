@@ -50,7 +50,7 @@ const App = () => (
             <Route path="/licenses/gambling/malta" element={<MaltaLicensePage />} />
             <Route path="/licenses/gambling/curacao" element={<ComingSoon title="Curaçao Gaming License" />} />
             <Route path="/licenses/gambling/isle-of-man" element={<ComingSoon title="Isle of Man License" />} />
-            <Route path="/licenses/gambling/costa-rica" element={<ComingSoon title="Costa Rica License" />} />
+            <Route path="/licenses/gambling/costa-rica" element={<CostaRicaLicensePage />} />
 
             {/* ── LEVEL 3: Service pages (no license) ── */}
             <Route path="/services/payment" element={<ComingSoon title="Payment Systems" />} />
