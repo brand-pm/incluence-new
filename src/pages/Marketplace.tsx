@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import MicroParticles from "@/components/MicroParticles";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
+import { FlagEmojiGroup } from "@/components/FlagEmoji";
 
 /* ── DATA ──────────────────────────────────────────────────────────── */
 interface Company {

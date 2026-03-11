@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronRight, Check } from "lucide-react";
 import NodePulse from "@/components/NodePulse";
+import { FlagEmojiGroup } from "@/components/FlagEmoji";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import VallettaFireflies from "@/components/VallettaFireflies";
 
