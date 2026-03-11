@@ -58,17 +58,11 @@ const PILLS = [
   { label: "BVI · Offshore", href: "/services/offshore" },
 ];
 
-const quickLinks = [
-  { label: "Gambling · MGA", to: "/services/gambling" },
-  { label: "Estonia · VASP", to: "/services/crypto" },
-  { label: "UK · EMI", to: "/services/emi" },
-  { label: "BVI · Offshore", to: "/services/offshore" },
-];
-
 const Navbar = () => {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<Category>("license");
+  const [cat, setCat] = useState<Category>("license");
+  const [tabIndex, setTabIndex] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -102,7 +96,12 @@ const Navbar = () => {
     setMobileOpen(false);
   };
 
-  const current = linkData[activeCategory];
+  const go = (href: string) => {
+    handleLinkClick();
+    window.location.href = href;
+  };
+
+  const currentItems = NAV_DATA[cat].items;
 
   const navLinkClass = (path: string) =>
     `transition-colors duration-200 no-underline ${location.pathname === path ? "text-[#F0EBE0]" : "text-[#9A9590] hover:text-[#F0EBE0]"}`;
