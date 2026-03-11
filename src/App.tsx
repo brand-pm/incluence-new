@@ -14,6 +14,7 @@ import IsleOfManLicensePage from "./pages/gambling/IsleOfManLicensePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import MarketplacePage from "./pages/MarketplacePage";
+import AIConsultant from "./components/ui/AIConsultant";
 
 const queryClient = new QueryClient();
 
