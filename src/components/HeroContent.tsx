@@ -185,8 +185,8 @@ const HeroContent = () => (
         fontSize: 14, color: "#9A9590", lineHeight: 1.7,
         maxWidth: 440, fontWeight: 300, margin: 0, marginBottom: 20,
       }} {...fade(0.6)}>
-        From company formation and licensing — VASP, EMI, PSP, Gambling —
-        to tax structuring and compliance across 15+ jurisdictions worldwide.
+        From company formation and licensing — VASP, EMI, PSP and Gambling —
+        to tax structuring, banking setup and ongoing compliance across 15+ jurisdictions worldwide.
       </motion.p>
 
       {/* Service tags */}
