@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SectionTag from "@/components/SectionTag";
 import MicroParticles from "@/components/MicroParticles";
 import NodePulse from "@/components/NodePulse";
@@ -13,27 +13,30 @@ interface Company {
   type: string;
   reg: string;
   activity: string;
-  status: string;
+  status: 'available' | 'reserved' | 'sold';
   badge: string;
   region: string;
   price: string;
   transfer: string;
   features: string[];
+  viewers: number;
+  reservedAgo: string | null;
+  addedDays: number;
 }
 
 const COMPANIES: Company[] = [
-  { id: 1, country: "Malta", flag: "MT", type: "Ltd", reg: "2019", activity: "Payment Services", status: "active", badge: "EU Regulated", region: "eu", price: "€18,500", transfer: "5–7 days", features: ["VAT registered", "Bank account included", "MGA eligible"] },
-  { id: 2, country: "Estonia", flag: "EE", type: "OÜ", reg: "2020", activity: "Crypto Exchange", status: "active", badge: "VASP Ready", region: "eu", price: "€22,000", transfer: "3–5 days", features: ["E-Residency compatible", "VASP license eligible", "EU passporting"] },
-  { id: 3, country: "United Kingdom", flag: "GB", type: "Ltd", reg: "2018", activity: "Financial Services", status: "active", badge: "FCA Eligible", region: "eu", price: "£14,500", transfer: "3–5 days", features: ["Companies House registered", "Clean credit history", "FCA sandbox eligible"] },
-  { id: 4, country: "Hong Kong", flag: "HK", type: "Ltd", reg: "2021", activity: "Trading Company", status: "active", badge: "Common Law", region: "asia", price: "HK$95,000", transfer: "5–7 days", features: ["English documentation", "0% offshore income tax", "Bank account eligible"] },
-  { id: 5, country: "UAE (RAKICC)", flag: "AE", type: "IBC", reg: "2022", activity: "Holding Structure", status: "active", badge: "0% Tax", region: "offshore", price: "$12,500", transfer: "3–5 days", features: ["No annual reporting", "100% foreign ownership", "Bank account available"] },
-  { id: 6, country: "Cayman Islands", flag: "KY", type: "LLC", reg: "2020", activity: "Investment Fund", status: "active", badge: "No Tax", region: "offshore", price: "$28,000", transfer: "5–10 days", features: ["Regulated fund eligible", "No capital gains tax", "English common law"] },
-  { id: 7, country: "Lithuania", flag: "LT", type: "UAB", reg: "2019", activity: "EMI Services", status: "active", badge: "EU Banking", region: "eu", price: "€16,000", transfer: "5–7 days", features: ["EMI license eligible", "SEPA access", "Baltic hub"] },
-  { id: 8, country: "Bulgaria", flag: "BG", type: "OOD", reg: "2021", activity: "E-Commerce", status: "active", badge: "Low Tax 10%", region: "eu", price: "€8,500", transfer: "3–5 days", features: ["10% flat corporate tax", "EU VAT registered", "Lowest cost EU entry"] },
-  { id: 9, country: "Seychelles", flag: "SC", type: "IBC", reg: "2020", activity: "Offshore Holding", status: "active", badge: "Asset Protection", region: "offshore", price: "$6,500", transfer: "3–5 days", features: ["Full privacy", "No public register", "Bearer shares allowed"] },
-  { id: 10, country: "Singapore", flag: "SG", type: "Pte Ltd", reg: "2021", activity: "Tech Services", status: "active", badge: "AAA Jurisdiction", region: "asia", price: "SGD 28,000", transfer: "5–7 days", features: ["Recognized globally", "17% corporate tax", "Asia gateway"] },
-  { id: 11, country: "Hungary", flag: "HU", type: "Kft", reg: "2020", activity: "Manufacturing", status: "active", badge: "9% Corp Tax", region: "eu", price: "€11,000", transfer: "5–7 days", features: ["Lowest EU corporate tax", "EU single market", "Strong legal system"] },
-  { id: 12, country: "BVI", flag: "VG", type: "IBC", reg: "2019", activity: "Holding Company", status: "active", badge: "No Tax", region: "offshore", price: "$9,500", transfer: "3–5 days", features: ["Zero tax on profits", "No annual accounts", "Excellent privacy"] },
+  { id: 1, country: "Malta", flag: "MT", type: "Ltd", reg: "2019", activity: "Payment Services", status: "available", badge: "EU Regulated", region: "eu", price: "€18,500", transfer: "5–7 days", features: ["VAT registered", "Bank account included", "MGA eligible"], viewers: 3, reservedAgo: null, addedDays: 2 },
+  { id: 2, country: "Estonia", flag: "EE", type: "OÜ", reg: "2020", activity: "Crypto Exchange", status: "reserved", badge: "VASP Ready", region: "eu", price: "€22,000", transfer: "3–5 days", features: ["E-Residency compatible", "VASP license eligible", "EU passporting"], viewers: 1, reservedAgo: "3h ago", addedDays: 8 },
+  { id: 3, country: "United Kingdom", flag: "GB", type: "Ltd", reg: "2018", activity: "Financial Services", status: "available", badge: "FCA Eligible", region: "eu", price: "£14,500", transfer: "3–5 days", features: ["Companies House registered", "Clean credit history", "FCA sandbox eligible"], viewers: 5, reservedAgo: null, addedDays: 1 },
+  { id: 4, country: "Hong Kong", flag: "HK", type: "Ltd", reg: "2021", activity: "Trading Company", status: "available", badge: "Common Law", region: "asia", price: "HK$95,000", transfer: "5–7 days", features: ["English documentation", "0% offshore income tax", "Bank account eligible"], viewers: 2, reservedAgo: null, addedDays: 14 },
+  { id: 5, country: "UAE (RAKICC)", flag: "AE", type: "IBC", reg: "2022", activity: "Holding Structure", status: "sold", badge: "0% Tax", region: "offshore", price: "$12,500", transfer: "3–5 days", features: ["No annual reporting", "100% foreign ownership", "Bank account available"], viewers: 0, reservedAgo: null, addedDays: 21 },
+  { id: 6, country: "Cayman Islands", flag: "KY", type: "LLC", reg: "2020", activity: "Investment Fund", status: "available", badge: "No Tax", region: "offshore", price: "$28,000", transfer: "5–10 days", features: ["Regulated fund eligible", "No capital gains tax", "English common law"], viewers: 4, reservedAgo: null, addedDays: 3 },
+  { id: 7, country: "Lithuania", flag: "LT", type: "UAB", reg: "2019", activity: "EMI Services", status: "reserved", badge: "EU Banking", region: "eu", price: "€16,000", transfer: "5–7 days", features: ["EMI license eligible", "SEPA access", "Baltic hub"], viewers: 2, reservedAgo: "6h ago", addedDays: 5 },
+  { id: 8, country: "Bulgaria", flag: "BG", type: "OOD", reg: "2021", activity: "E-Commerce", status: "available", badge: "Low Tax 10%", region: "eu", price: "€8,500", transfer: "3–5 days", features: ["10% flat corporate tax", "EU VAT registered", "Lowest cost EU entry"], viewers: 1, reservedAgo: null, addedDays: 9 },
+  { id: 9, country: "Seychelles", flag: "SC", type: "IBC", reg: "2020", activity: "Offshore Holding", status: "available", badge: "Asset Protection", region: "offshore", price: "$6,500", transfer: "3–5 days", features: ["Full privacy", "No public register", "Bearer shares allowed"], viewers: 6, reservedAgo: null, addedDays: 1 },
+  { id: 10, country: "Singapore", flag: "SG", type: "Pte Ltd", reg: "2021", activity: "Tech Services", status: "sold", badge: "AAA Jurisdiction", region: "asia", price: "SGD 28,000", transfer: "5–7 days", features: ["Recognized globally", "17% corporate tax", "Asia gateway"], viewers: 0, reservedAgo: null, addedDays: 30 },
+  { id: 11, country: "Hungary", flag: "HU", type: "Kft", reg: "2020", activity: "Manufacturing", status: "available", badge: "9% Corp Tax", region: "eu", price: "€11,000", transfer: "5–7 days", features: ["Lowest EU corporate tax", "EU single market", "Strong legal system"], viewers: 2, reservedAgo: null, addedDays: 4 },
+  { id: 12, country: "BVI", flag: "VG", type: "IBC", reg: "2019", activity: "Holding Company", status: "available", badge: "No Tax", region: "offshore", price: "$9,500", transfer: "3–5 days", features: ["Zero tax on profits", "No annual accounts", "Excellent privacy"], viewers: 3, reservedAgo: null, addedDays: 7 },
 ];
 
 const REGION_FILTERS = [
@@ -52,6 +55,14 @@ const TYPE_FILTERS = [
   { key: "trading", label: "Trading" },
 ];
 
+const ACTIVITY = [
+  '3 companies reserved in the last 24 hours',
+  'Estonia OÜ · Crypto — just viewed by someone in Singapore',
+  '2 new listings added this week',
+  'Malta Ltd · Payment Services — inquiry received 1h ago',
+  'Seychelles IBC — available again after reservation expired',
+];
+
 const STEPS = [
   { num: "01", title: "Select a Company", body: "Browse available companies by jurisdiction, type, and activity. Filter by region or budget. Each listing is pre-verified." },
   { num: "02", title: "Due Diligence", body: "We check the company for tax debts, liabilities, receivables, and legal encumbrances. Full compliance report provided." },
@@ -66,15 +77,49 @@ const ADVANTAGES = [
   { title: "Cost Predictable", body: "Fixed all-inclusive price covers transfer, legal support, document notarization, and post-transfer compliance check." },
 ];
 
+const StatusBadge = ({ status }: { status: string }) => {
+  if (status === 'available') return (
+    <span style={{ fontSize: 10, color: "#22c55e", border: "1px solid rgba(34,197,94,0.3)", padding: "2px 8px", textTransform: "uppercase" as const, letterSpacing: "0.08em", background: "rgba(34,197,94,0.05)" }}>
+      Available
+    </span>
+  );
+  if (status === 'reserved') return (
+    <span style={{ fontSize: 10, color: "#f59e0b", border: "1px solid rgba(245,158,11,0.3)", padding: "2px 8px", textTransform: "uppercase" as const, letterSpacing: "0.08em", background: "rgba(245,158,11,0.05)" }}>
+      Reserved
+    </span>
+  );
+  return (
+    <span style={{ fontSize: 10, color: "#5A5550", border: "1px solid rgba(255,255,255,0.08)", padding: "2px 8px", textTransform: "uppercase" as const, letterSpacing: "0.08em", background: "rgba(255,255,255,0.02)" }}>
+      Sold
+    </span>
+  );
+};
+
 const MarketplacePage = () => {
   const [activeRegion, setActiveRegion] = useState("all");
   const [activeType, setActiveType] = useState("all");
   const [visibleCount, setVisibleCount] = useState(12);
+  const [activityMsg, setActivityMsg] = useState(0);
+  const [showSold, setShowSold] = useState(false);
 
-  const filtered = COMPANIES.filter(
-    (c) => (activeRegion === "all" || c.region === activeRegion) && (activeType === "all" || true)
-  );
-  const visible = filtered.slice(0, visibleCount);
+  const availableCount = COMPANIES.filter(c => c.status === 'available').length;
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setActivityMsg(p => (p + 1) % ACTIVITY.length);
+    }, 4000);
+    return () => clearInterval(t);
+  }, []);
+
+  const filtered = COMPANIES.filter((c) => {
+    const regionMatch = activeRegion === "all" || c.region === activeRegion;
+    const soldMatch = showSold || c.status !== 'sold';
+    return regionMatch && soldMatch;
+  });
+
+  const statusOrder: Record<string, number> = { available: 0, reserved: 1, sold: 2 };
+  const sorted = [...filtered].sort((a, b) => statusOrder[a.status] - statusOrder[b.status]);
+  const visible = sorted.slice(0, visibleCount);
 
   return (
     <div style={{ fontFamily: "Manrope, sans-serif" }}>
@@ -95,7 +140,7 @@ const MarketplacePage = () => {
               </p>
               <div className="flex items-center" style={{ gap: 32 }}>
                 {[
-                  { val: "47+", label: "Available Now" },
+                  { val: `${availableCount}`, label: "Available Now" },
                   { val: "12", label: "Jurisdictions" },
                   { val: "3–7 days", label: "Transfer" },
                 ].map((s, i) => (
@@ -122,8 +167,16 @@ const MarketplacePage = () => {
       {/* === FILTERS + GRID === */}
       <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
+          {/* Activity banner */}
+          <div className="mb-8 flex items-center gap-3" style={{ padding: "10px 16px", border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
+            <div style={{ width: 6, height: 6, background: "#22c55e", flexShrink: 0, animation: "pulse-dot 2s ease-in-out infinite" }} />
+            <span style={{ fontSize: 11, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.08em", flexShrink: 0 }}>Live</span>
+            <span style={{ fontSize: 12, color: "#9A9590" }}>— {ACTIVITY[activityMsg]}</span>
+            <style>{`@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }`}</style>
+          </div>
+
           {/* Region filters */}
-          <div className="flex gap-3 mb-4">
+          <div className="flex gap-3 mb-4 flex-wrap">
             {REGION_FILTERS.map((f) => (
               <button
                 key={f.key}
@@ -144,8 +197,8 @@ const MarketplacePage = () => {
               </button>
             ))}
           </div>
-          {/* Type filters */}
-          <div className="flex gap-3 mb-12">
+          {/* Type filters + show sold */}
+          <div className="flex gap-3 mb-12 flex-wrap items-center">
             {TYPE_FILTERS.map((f) => (
               <button
                 key={f.key}
@@ -165,6 +218,25 @@ const MarketplacePage = () => {
                 {f.label}
               </button>
             ))}
+            <button
+              onClick={() => setShowSold(p => !p)}
+              className="flex items-center gap-2 transition-all duration-150"
+              style={{
+                padding: "6px 16px",
+                fontSize: 11,
+                textTransform: "uppercase",
+                letterSpacing: "0.07em",
+                border: showSold ? "1px solid rgba(255,255,255,0.2)" : "1px solid rgba(255,255,255,0.06)",
+                color: showSold ? "#9A9590" : "#5A5550",
+                background: "transparent",
+                cursor: "pointer",
+              }}
+            >
+              <div style={{ width: 12, height: 12, border: "1px solid rgba(255,255,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {showSold && <div style={{ width: 6, height: 6, background: "#444CE7" }} />}
+              </div>
+              Include sold
+            </button>
           </div>
 
           {/* Grid */}
@@ -172,12 +244,30 @@ const MarketplacePage = () => {
             {visible.map((c) => (
               <div
                 key={c.id}
-                className="relative overflow-hidden group cursor-pointer transition-colors duration-200"
+                className={`relative overflow-hidden group transition-colors duration-200 ${c.status === 'sold' ? 'opacity-50 pointer-events-none' : 'cursor-pointer'}`}
                 style={{ background: "#0d0d0d", padding: 28 }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "#111111")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = "#0d0d0d")}
+                onMouseEnter={(e) => { if (c.status !== 'sold') e.currentTarget.style.background = "#111111"; }}
+                onMouseLeave={(e) => { if (c.status !== 'sold') e.currentTarget.style.background = "#0d0d0d"; }}
               >
                 <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-500" />
+
+                {/* Sold overlay */}
+                {c.status === 'sold' && (
+                  <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 10 }}>
+                    <div style={{ transform: "rotate(-35deg)", fontSize: 14, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.15em", fontWeight: 600, opacity: 0.6 }}>
+                      Transferred
+                    </div>
+                  </div>
+                )}
+
+                {/* New badge */}
+                {c.addedDays <= 3 && c.status === 'available' && (
+                  <div className="absolute" style={{ top: 12, left: 12, zIndex: 5 }}>
+                    <span style={{ fontSize: 9, color: "#080808", background: "#22c55e", padding: "2px 6px", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 600 }}>
+                      New
+                    </span>
+                  </div>
+                )}
 
                 {/* Top row */}
                 <div className="flex justify-between items-start mb-5">
@@ -188,20 +278,7 @@ const MarketplacePage = () => {
                       {c.type} · Est. {c.reg}
                     </div>
                   </div>
-                  <span
-                    className="inline-block"
-                    style={{
-                      fontSize: 10,
-                      color: "#444CE7",
-                      border: "1px solid rgba(68,76,231,0.3)",
-                      padding: "2px 8px",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.08em",
-                      background: "rgba(68,76,231,0.05)",
-                    }}
-                  >
-                    {c.badge}
-                  </span>
+                  <StatusBadge status={c.status} />
                 </div>
 
                 {/* Middle */}
@@ -223,9 +300,31 @@ const MarketplacePage = () => {
                     <span className="block" style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>Price</span>
                     <span style={{ fontSize: 17, fontWeight: 500, color: "#F0EBE0" }}>{c.price}</span>
                   </div>
+
+                  {/* Viewers indicator */}
+                  {c.status === 'available' && c.viewers > 1 && (
+                    <div className="flex items-center gap-2">
+                      <div className="flex" style={{ gap: 2 }}>
+                        {Array.from({ length: Math.min(c.viewers, 5) }).map((_, i) => (
+                          <div key={i} style={{ width: 6, height: 6, background: "#444CE7", opacity: 1 - i * 0.15 }} />
+                        ))}
+                      </div>
+                      <span style={{ fontSize: 11, color: "#5A5550" }}>{c.viewers} viewing</span>
+                    </div>
+                  )}
+
                   <div className="text-right">
-                    <span className="block" style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>Transfer</span>
-                    <span style={{ fontSize: 13, color: "#9A9590" }}>{c.transfer}</span>
+                    {c.status === 'reserved' && c.reservedAgo ? (
+                      <>
+                        <span className="block" style={{ fontSize: 10, color: "#f59e0b", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>Reserved</span>
+                        <span style={{ fontSize: 13, color: "#f59e0b" }}>{c.reservedAgo}</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="block" style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>Transfer</span>
+                        <span style={{ fontSize: 13, color: "#9A9590" }}>{c.transfer}</span>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -233,7 +332,7 @@ const MarketplacePage = () => {
           </div>
 
           {/* Load More */}
-          {visibleCount < filtered.length && (
+          {visibleCount < sorted.length && (
             <div className="text-center mt-10">
               <button
                 onClick={() => setVisibleCount((v) => v + 6)}
