@@ -543,17 +543,33 @@ const Navbar = () => {
                         </p>
 
                         <div className="flex flex-wrap gap-1.5 relative z-10">
-                          {item.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              style={{
-                                fontSize: 11, color: "#5A5550", padding: "3px 8px",
-                                border: "1px solid rgba(255,255,255,0.08)",
-                              }}
-                            >
-                              {tag}
-                            </span>
-                          ))}
+                          {item.tags.map((tag) => {
+                            const tagHref = TAG_LINKS[tag];
+                            return tagHref ? (
+                              <button
+                                key={tag}
+                                onClick={(e) => { e.stopPropagation(); go(tagHref); }}
+                                className="bg-transparent cursor-pointer hover:border-[#444CE7]/40 hover:text-[#9A9590] transition-all duration-150"
+                                style={{
+                                  fontSize: 11, color: "#5A5550", padding: "3px 8px",
+                                  border: "1px solid rgba(255,255,255,0.08)",
+                                  fontFamily: "inherit",
+                                }}
+                              >
+                                {tag}
+                              </button>
+                            ) : (
+                              <span
+                                key={tag}
+                                style={{
+                                  fontSize: 11, color: "#5A5550", padding: "3px 8px",
+                                  border: "1px solid rgba(255,255,255,0.08)",
+                                }}
+                              >
+                                {tag}
+                              </span>
+                            );
+                          })}
                         </div>
                       </div>
                     );
