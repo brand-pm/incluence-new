@@ -74,7 +74,7 @@ const JURISDICTIONS: JCard[] = [
     title: "Curaçao",
     desc: "The fastest and most cost-effective entry point. One sub-license covers all gambling types. No paid-up capital requirement. Remote application possible.",
     cost: "From €15,000",
-    timeline: "4–8 weeks",
+    timeline: "3–4 months",
     route: "/licenses/gambling/curacao",
   },
   {
