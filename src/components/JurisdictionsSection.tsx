@@ -4,12 +4,12 @@ import JurisdictionCard from "./JurisdictionCard";
 import type { JurisdictionCardData } from "./JurisdictionCard";
 
 const jurisdictions: JurisdictionCardData[] = [
-  { flag: "🇲🇹", country: "Malta", reg: "MGA", license: "Online Gambling License", badge: "EU Regulated", badgeColor: "#12B76A", price: "€25,000", timeline: "6–9 months" },
-  { flag: "🇬🇮", country: "Gibraltar", reg: "GBGA", license: "Sports Betting & Casino", badge: "Tier 1", badgeColor: "#444CE7", price: "£25,000", timeline: "4–6 months" },
-  { flag: "🇨🇾", country: "Cyprus", reg: "CySEC", license: "Investment Firm (CIF)", badge: "EU Regulated", badgeColor: "#12B76A", price: "€35,000", timeline: "6–12 months" },
-  { flag: "🇸🇬", country: "Singapore", reg: "MAS", license: "Payment Service License", badge: "Asia Hub", badgeColor: "#F79009", price: "$30,000", timeline: "6–12 months" },
-  { flag: "🇰🇾", country: "Cayman Is.", reg: "CIMA", license: "Investment Fund", badge: "Tax Neutral", badgeColor: "#444CE7", price: "$15,000", timeline: "3–4 months" },
-  { flag: "🇦🇪", country: "UAE (DIFC)", reg: "DFSA", license: "Financial Services", badge: "Zero Tax", badgeColor: "#444CE7", price: "$20,000", timeline: "4–8 months" },
+  { flag: "🇲🇹", country: "Malta", reg: "MGA", license: "Online Gambling License", subtitle: "EU Online Gambling License (MGA)", badge: "EU Regulated", badgeColor: "#12B76A", price: "€25,000", timeline: "6–9 months" },
+  { flag: "🇬🇮", country: "Gibraltar", reg: "GBGA", license: "Sports Betting & Casino", subtitle: "Tier 1 Gambling License", badge: "Tier 1", badgeColor: "#444CE7", price: "£25,000", timeline: "4–6 months" },
+  { flag: "🇨🇾", country: "Cyprus", reg: "CySEC", license: "Investment Firm (CIF)", subtitle: "CySEC Investment Firm License", badge: "EU Regulated", badgeColor: "#12B76A", price: "€35,000", timeline: "6–12 months" },
+  { flag: "🇸🇬", country: "Singapore", reg: "MAS", license: "Payment Service License", subtitle: "Payment Services License (MAS)", badge: "Asia Hub", badgeColor: "#F79009", price: "$30,000", timeline: "6–12 months" },
+  { flag: "🇰🇾", country: "Cayman Is.", reg: "CIMA", license: "Investment Fund", subtitle: "Investment Fund Registration", badge: "Tax Neutral", badgeColor: "#444CE7", price: "$15,000", timeline: "3–4 months" },
+  { flag: "🇦🇪", country: "UAE (DIFC)", reg: "DFSA", license: "Financial Services", subtitle: "Financial Services License", badge: "Zero Tax", badgeColor: "#444CE7", price: "$20,000", timeline: "4–8 months" },
 ];
 
 const JurisdictionsSection = () => (
