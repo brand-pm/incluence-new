@@ -109,6 +109,8 @@ const LicensePreviewPanel = ({ jurisdictions, go }: { jurisdictions: Jurisdictio
     </div>
   </div>
 );
+
+const Navbar = () => {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [cat, setCat] = useState<Category>("license");
