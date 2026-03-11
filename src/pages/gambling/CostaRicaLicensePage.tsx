@@ -23,8 +23,7 @@ const CostaRicaLicensePage = () => (
       heroOverlay:
         "linear-gradient(to right, #080808 45%, rgba(8,8,8,0.7) 65%, rgba(8,8,8,0) 100%)",
     }}
-    mapSvg={CostaRicaMapSvg}
-    fireflies={{ originX: 68, originY: 47, count: 10 }}
+    mapSvg={<FocusedWorldMap focusX={198} focusY={500} zoom={4} flagColor="68,76,231" />}
     facts={[
       { label: "Jurisdiction", value: "Costa Rica", cls: "text-[#F0EBE0]" },
       { label: "Regulator", value: "Municipality", cls: "text-[#444CE7] font-semibold" },

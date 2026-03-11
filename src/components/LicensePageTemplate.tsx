@@ -191,11 +191,13 @@ const LicensePageTemplate = ({
         {hero.heroOverlay && (
           <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: hero.heroOverlay }} />
         )}
-        <VallettaFireflies
-          originX={fireflies.originX}
-          originY={fireflies.originY}
-          count={fireflies.count}
-        />
+        {fireflies && (
+          <VallettaFireflies
+            originX={fireflies.originX}
+            originY={fireflies.originY}
+            count={fireflies.count}
+          />
+        )}
         {mapSvg}
         <NoiseOverlay />
 
