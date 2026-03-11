@@ -65,7 +65,7 @@ const JURISDICTIONS: JCard[] = [
     desc: "Gold standard for EU operators. MGA license opens access to European payment systems, banking, and player markets. License valid 5 years, renewable.",
     cost: "From €25,000",
     timeline: "6–9 months",
-    route: "/gambling/malta",
+    route: "/licenses/gambling/malta",
   },
   {
     flag: "🇨🇼",
@@ -76,7 +76,7 @@ const JURISDICTIONS: JCard[] = [
     desc: "The fastest and most cost-effective entry point. One sub-license covers all gambling types. No paid-up capital requirement. Remote application possible.",
     cost: "From €15,000",
     timeline: "4–8 weeks",
-    route: "/gambling/curacao",
+    route: "/licenses/gambling/curacao",
   },
   {
     flag: "🇮🇲",
@@ -87,7 +87,7 @@ const JURISDICTIONS: JCard[] = [
     desc: "High-prestige jurisdiction with advanced telecom infrastructure and strong international recognition. GSC licenses all gambling types under one permit.",
     cost: "From £25,000",
     timeline: "6–12 months",
-    route: "/gambling/isle-of-man",
+    route: "/licenses/gambling/isle-of-man",
   },
   {
     flag: "🇨🇷",
@@ -98,7 +98,7 @@ const JURISDICTIONS: JCard[] = [
     desc: "Data Processing license — fastest path to operation. No business plan, no financial reporting, income tax exempt for international operators. Ideal as interim solution.",
     cost: "From $15,000",
     timeline: "2–5 weeks",
-    route: "/gambling/costa-rica",
+    route: "/licenses/gambling/costa-rica",
   },
 ];
 

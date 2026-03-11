@@ -16,10 +16,10 @@ const NAV_DATA: Record<Category, { sublabel: string; items: { href: string; labe
   license: {
     sublabel: "— LICENSING",
     items: [
-      { href: "/services/gambling", label: "Gambling License", desc: "Casino, sports betting & poker", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="0"/><circle cx="12" cy="12" r="3"/></svg>, tags: ["Malta", "Curaçao", "Gibraltar", "+9"] },
-      { href: "/services/forex", label: "Forex License", desc: "EU & offshore brokerage", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>, tags: ["Cyprus", "BVI", "Estonia", "+6"] },
-      { href: "/services/crypto", label: "Crypto / VASP", desc: "Exchange, custody & DeFi", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 16.793l-1.86-11.04"/></svg>, tags: ["Estonia", "Lithuania", "UAE", "+5"] },
-      { href: "/services/emi", label: "EMI License", desc: "E-money & SEPA access", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="0"/><line x1="2" y1="10" x2="22" y2="10"/></svg>, tags: ["UK", "Lithuania", "Malta", "+3"] },
+      { href: "/licenses/gambling", label: "Gambling License", desc: "Casino, sports betting & poker", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="0"/><circle cx="12" cy="12" r="3"/></svg>, tags: ["Malta", "Curaçao", "Gibraltar", "+9"] },
+      { href: "/licenses/forex", label: "Forex License", desc: "EU & offshore brokerage", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>, tags: ["Cyprus", "BVI", "Estonia", "+6"] },
+      { href: "/licenses/crypto", label: "Crypto / VASP", desc: "Exchange, custody & DeFi", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 16.793l-1.86-11.04"/></svg>, tags: ["Estonia", "Lithuania", "UAE", "+5"] },
+      { href: "/licenses/emi", label: "EMI License", desc: "E-money & SEPA access", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="0"/><line x1="2" y1="10" x2="22" y2="10"/></svg>, tags: ["UK", "Lithuania", "Malta", "+3"] },
     ],
   },
   payment: {
@@ -52,9 +52,9 @@ const NAV_DATA: Record<Category, { sublabel: string; items: { href: string; labe
 };
 
 const PILLS = [
-  { label: "Gambling · MGA", href: "/services/gambling" },
-  { label: "Estonia · VASP", href: "/services/crypto" },
-  { label: "UK · EMI", href: "/services/emi" },
+  { label: "Gambling · MGA", href: "/licenses/gambling" },
+  { label: "Estonia · VASP", href: "/licenses/crypto" },
+  { label: "UK · EMI", href: "/licenses/emi" },
   { label: "BVI · Offshore", href: "/services/offshore" },
 ];
 
