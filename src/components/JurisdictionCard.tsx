@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import NodePulse from "./NodePulse";
+import { FlagEmojiGroup } from "./FlagEmoji";
 
 export interface JurisdictionCardData {
   flag: string;
@@ -51,7 +52,7 @@ const JurisdictionCard = ({ j, i, pulseDelay }: JurisdictionCardProps) => (
     {/* Top row */}
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <span className="transition-transform duration-300 group-hover:scale-110" style={{ fontSize: 20 }}>{j.flag}</span>
+        <FlagEmojiGroup flag={j.flag} size={20} />
         <span style={{ fontSize: 14, fontWeight: 600, color: "#F0EBE0" }}>{j.country}</span>
       </div>
       <span style={{

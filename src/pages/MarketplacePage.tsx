@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SectionTag from "@/components/SectionTag";
 import MicroParticles from "@/components/MicroParticles";
 import NodePulse from "@/components/NodePulse";
+import { FlagEmojiGroup } from "@/components/FlagEmoji";
 
 const getFlagEmoji = (code: string) =>
   code.split("").map((c) => String.fromCodePoint(c.charCodeAt(0) + 127397)).join("");
@@ -272,7 +273,7 @@ const MarketplacePage = () => {
                 {/* Top row */}
                 <div className="flex justify-between items-start mb-5">
                   <div>
-                    <span style={{ fontSize: 22 }}>{getFlagEmoji(c.flag)}</span>
+                    <FlagEmojiGroup flag={getFlagEmoji(c.flag)} size={22} />
                     <div style={{ fontSize: 16, fontWeight: 600, color: "#F0EBE0", marginTop: 4 }}>{c.country}</div>
                     <div style={{ fontSize: 11, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: 2 }}>
                       {c.type} · Est. {c.reg}

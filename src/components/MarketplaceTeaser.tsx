@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import FlagEmoji from "@/components/FlagEmoji";
 
 const listings = [
   {
@@ -84,7 +85,7 @@ const MarketplaceTeaser = () => (
             >
               <div>
                 <div className="flex items-center gap-2">
-                  <span style={{ fontSize: 16 }}>{l.flag}</span>
+                  <FlagEmoji flag={l.flag} size={16} />
                   <span style={{ fontSize: 13, fontWeight: 500, color: "#F0EBE0" }}>{l.country}</span>
                 </div>
                 <div style={{ fontSize: 11, color: "#9A9590", marginTop: 2 }}>{l.type}</div>

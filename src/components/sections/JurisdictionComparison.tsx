@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SectionTag from "@/components/SectionTag";
+import FlagEmoji from "@/components/FlagEmoji";
 
 interface JurisdictionData {
   name: string;
@@ -131,7 +132,7 @@ const JurisdictionComparison = () => {
                   cursor: 'pointer',
                 }}
               >
-                <span style={{ fontSize: 16 }}>{j.flag}</span>
+                <FlagEmoji flag={j.flag} size={16} />
                 {j.name}
               </button>
             );
@@ -148,7 +149,7 @@ const JurisdictionComparison = () => {
                 </th>
                 {selectedData.map(j => (
                   <th key={j.key} style={{ minWidth: 180, background: '#0d0d0d', padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)', borderLeft: '1px solid rgba(255,255,255,0.04)', textAlign: 'left', fontWeight: 400 }}>
-                    <span style={{ fontSize: 20 }}>{j.flag}</span>
+                    <FlagEmoji flag={j.flag} size={20} />
                     <div style={{ fontSize: 14, fontWeight: 600, color: '#F0EBE0', marginTop: 4 }}>{j.name}</div>
                     <div style={{ fontSize: 11, color: '#444CE7', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{j.reg}</div>
                   </th>

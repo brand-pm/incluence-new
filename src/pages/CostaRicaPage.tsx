@@ -4,6 +4,7 @@ import { ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionTag from "@/components/SectionTag";
 import NodePulse from "@/components/NodePulse";
+import { FlagEmojiGroup } from "@/components/FlagEmoji";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -299,7 +300,7 @@ const CostaRicaPage = () => {
                 to={r.to}
                 className="bg-[hsl(var(--bg-3))] p-7 group border-l-2 border-transparent hover:border-[hsl(var(--accent))] transition-all duration-200"
               >
-                <div className="text-2xl mb-3">{r.flag}</div>
+                <div className="mb-3"><FlagEmojiGroup flag={r.flag} size={24} /></div>
                 <h3 className="text-[14px] font-semibold text-[hsl(var(--text-primary))] mb-2">{r.jurisdiction}</h3>
                 <span className={`inline-block text-[10px] uppercase tracking-widest px-2 py-0.5 border mb-3 ${r.badgeColor} ${r.badgeBg} ${r.badgeBorder}`}>
                   {r.badge}
