@@ -12,6 +12,8 @@ export interface PacketCanvasProps {
   routes: [string, string][];
   packetCount?: number;
   opacity?: number;
+  /** When true, packets spawn in synchronized waves instead of randomly */
+  synchronized?: boolean;
 }
 
 interface Packet {
@@ -63,7 +65,7 @@ function spawnPacket(routeCount: number, progress = 0): Packet {
   };
 }
 
-const PacketCanvas = ({ nodes, routes, packetCount = 8, opacity = 1 }: PacketCanvasProps) => {
+const PacketCanvas = ({ nodes, routes, packetCount = 8, opacity = 1, synchronized = false }: PacketCanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -80,6 +82,10 @@ const PacketCanvas = ({ nodes, routes, packetCount = 8, opacity = 1 }: PacketCan
     const shockwaves: Shockwave[] = [];
     const nodeFlashes: NodeFlash[] = [];
     let frame = 0;
+    let waveTimer = 0; // frames until next wave
+    const WAVE_INTERVAL = 180; // ~3 seconds between waves at 60fps
+    const WAVE_SIZE_MIN = 3;
+    const WAVE_SIZE_MAX = 6;
 
     function resize() {
       const dpr = window.devicePixelRatio || 1;
@@ -96,15 +102,44 @@ const PacketCanvas = ({ nodes, routes, packetCount = 8, opacity = 1 }: PacketCan
 
     resize();
 
-    // Spawn initial packets
-    for (let i = 0; i < packetCount; i++) {
-      packets.push(spawnPacket(routes.length, Math.random() * 0.8));
+    // Spawn initial packets — stagger them for synchronized mode
+    if (synchronized) {
+      const waveCount = Math.min(packetCount, WAVE_SIZE_MAX);
+      for (let i = 0; i < waveCount; i++) {
+        const pkt = spawnPacket(routes.length, 0);
+        // Give them similar speeds for sync
+        pkt.speed = 0.003 + (i * 0.0003);
+        pkt.progress = i * 0.04; // slight stagger within wave
+        packets.push(pkt);
+      }
+      waveTimer = WAVE_INTERVAL;
+    } else {
+      for (let i = 0; i < packetCount; i++) {
+        packets.push(spawnPacket(routes.length, Math.random() * 0.8));
+      }
     }
 
     const ro = new ResizeObserver(() => resize());
     ro.observe(canvas);
 
     let raf: number;
+
+    function spawnWave(positions: { x: number; y: number }[]) {
+      const count = WAVE_SIZE_MIN + Math.floor(Math.random() * (WAVE_SIZE_MAX - WAVE_SIZE_MIN + 1));
+      const baseSpeed = 0.0025 + Math.random() * 0.001;
+      for (let i = 0; i < count; i++) {
+        const pkt = spawnPacket(routes.length, 0);
+        pkt.speed = baseSpeed + i * 0.0002; // nearly identical speeds
+        pkt.progress = i * 0.02; // tiny stagger for visual spread
+        packets.push(pkt);
+        const [aId] = routes[pkt.routeIdx];
+        const ai = nodeIdx(aId);
+        if (ai >= 0) {
+          const p = positions[ai];
+          shockwaves.push({ x: p.x, y: p.y, age: i * 0.05 });
+        }
+      }
+    }
 
     function draw() {
       ctx!.clearRect(0, 0, W, H);
@@ -128,15 +163,23 @@ const PacketCanvas = ({ nodes, routes, packetCount = 8, opacity = 1 }: PacketCan
         ctx!.stroke();
       });
 
-      // Spawn new packets
-      if (Math.random() < 0.03 && packets.length < packetCount + 4) {
-        const pkt = spawnPacket(routes.length);
-        packets.push(pkt);
-        const [aId] = routes[pkt.routeIdx];
-        const ai = nodeIdx(aId);
-        if (ai >= 0) {
-          const p = positions[ai];
-          shockwaves.push({ x: p.x, y: p.y, age: 0 });
+      // Spawn packets
+      if (synchronized) {
+        waveTimer--;
+        if (waveTimer <= 0 && packets.length < packetCount + 8) {
+          spawnWave(positions);
+          waveTimer = WAVE_INTERVAL + Math.floor(Math.random() * 60); // 3–4s
+        }
+      } else {
+        if (Math.random() < 0.03 && packets.length < packetCount + 4) {
+          const pkt = spawnPacket(routes.length);
+          packets.push(pkt);
+          const [aId] = routes[pkt.routeIdx];
+          const ai = nodeIdx(aId);
+          if (ai >= 0) {
+            const p = positions[ai];
+            shockwaves.push({ x: p.x, y: p.y, age: 0 });
+          }
         }
       }
 
@@ -295,7 +338,7 @@ const PacketCanvas = ({ nodes, routes, packetCount = 8, opacity = 1 }: PacketCan
 
     raf = requestAnimationFrame(draw);
     return () => { cancelAnimationFrame(raf); ro.disconnect(); };
-  }, [nodes, routes, packetCount, opacity]);
+  }, [nodes, routes, packetCount, opacity, synchronized]);
 
   return (
     <canvas
