@@ -43,7 +43,11 @@ export interface FinalSteps {
 }
 
 export interface RequirementsData {
+  title?: string; // default "What you need to qualify"
   intro: string;
+  notRequiredTitle?: string;
+  notRequired?: string[];
+  additionalText?: string;
   docsTitle: string;
   docs: string[];
   checklistDocs: string[];
