@@ -9,12 +9,12 @@ const stats = [
 ];
 
 const serviceTags = [
-  "VASP License",
-  "EMI / PSP",
-  "Gambling License",
-  "Offshore Company",
-  "Fund Registration",
-  "Crypto Regulation",
+  { label: "VASP License", href: "/licenses/crypto" },
+  { label: "EMI / PSP", href: "/licenses/emi" },
+  { label: "Gambling License", href: "/licenses/gambling" },
+  { label: "Offshore Company", href: "/services/offshore" },
+  { label: "Fund Registration", href: "/services/funds" },
+  { label: "Crypto Regulation", href: "/licenses/crypto" },
 ];
 
 const jurisdictions = [
