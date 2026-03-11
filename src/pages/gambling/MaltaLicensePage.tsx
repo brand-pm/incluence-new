@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { ChevronDown, ChevronRight, Check } from "lucide-react";
 import NodePulse from "@/components/NodePulse";
 import MicroParticles from "@/components/MicroParticles";
