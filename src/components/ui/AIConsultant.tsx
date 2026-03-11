@@ -145,63 +145,93 @@ const AIConsultant = () => {
     sendMessage(q);
   };
 
-  /* ─── CLOSED: Vertical tab on right edge, vertically centered ─── */
+  /* ─── CLOSED: Floating pill on right edge, expands on hover ─── */
   if (!open) {
     return (
-      <button
-        onClick={() => setOpen(true)}
-        className="fixed right-0 top-1/2 -translate-y-1/2 z-[200] flex items-center gap-2.5 cursor-pointer group"
-        style={{
-          writingMode: "vertical-rl",
-          textOrientation: "mixed",
-          padding: "14px 8px 14px 8px",
-          background: "linear-gradient(180deg, #111111 0%, #0a0a0a 100%)",
-          border: "1px solid rgba(68,76,231,0.25)",
-          borderRight: "none",
-          borderRadius: 0,
-          boxShadow: "none",
-          fontFamily: "Manrope, sans-serif",
-          transition: "all 0.3s ease",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = "rgba(68,76,231,0.6)";
-          e.currentTarget.style.background = "linear-gradient(180deg, #161616 0%, #0d0d0d 100%)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = "rgba(68,76,231,0.25)";
-          e.currentTarget.style.background = "linear-gradient(180deg, #111111 0%, #0a0a0a 100%)";
-        }}
-      >
-        {/* Avatar photo */}
-        <img
-          src={alexAvatar}
-          alt="Alex"
-          className="relative z-10 w-7 h-7 object-cover flex-shrink-0"
+      <>
+        <style>{`
+          .alex-btn {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .alex-btn:hover {
+            padding-right: 18px !important;
+          }
+          .alex-btn:hover .alex-label {
+            max-width: 100px;
+            opacity: 1;
+            margin-left: 8px;
+          }
+          .alex-btn:hover .alex-avatar {
+            width: 38px;
+            height: 38px;
+          }
+          .alex-btn:hover .alex-dot {
+            box-shadow: 0 0 8px rgba(52,211,153,0.8);
+          }
+        `}</style>
+        <button
+          onClick={() => setOpen(true)}
+          className="alex-btn fixed right-0 top-1/2 -translate-y-1/2 z-[200] flex items-center cursor-pointer"
           style={{
+            padding: "10px 12px 10px 10px",
+            background: "linear-gradient(135deg, #111111 0%, #0a0a0a 100%)",
+            border: "1px solid rgba(68,76,231,0.25)",
+            borderRight: "none",
             borderRadius: 0,
-            border: "1px solid rgba(68,76,231,0.3)",
+            boxShadow: "none",
+            fontFamily: "Manrope, sans-serif",
           }}
-        />
-        {/* Online dot */}
-        <span
-          className="relative z-10 w-1.5 h-1.5 flex-shrink-0"
-          style={{
-            background: "#34D399",
-            boxShadow: "0 0 6px rgba(52,211,153,0.6)",
-            borderRadius: "50%",
-          }}
-        />
-        <span className="relative z-10 text-[#F0EBE0] text-[10px] font-medium tracking-[0.08em] uppercase">
-          Ask Alex
-        </span>
-        {/* Subtle accent line */}
-        <span
-          className="absolute left-0 top-[20%] bottom-[20%] w-[2px]"
-          style={{
-            background: "linear-gradient(180deg, transparent 0%, #444CE7 50%, transparent 100%)",
-          }}
-        />
-      </button>
+        >
+          {/* Avatar with online dot overlay */}
+          <div className="relative flex-shrink-0">
+            <img
+              src={alexAvatar}
+              alt="Alex"
+              className="alex-avatar object-cover"
+              style={{
+                width: 32,
+                height: 32,
+                borderRadius: 0,
+                border: "1px solid rgba(68,76,231,0.3)",
+                transition: "all 0.35s cubic-bezier(0.16,1,0.3,1)",
+              }}
+            />
+            <span
+              className="alex-dot absolute -bottom-0.5 -right-0.5 w-2 h-2"
+              style={{
+                background: "#34D399",
+                boxShadow: "0 0 6px rgba(52,211,153,0.6)",
+                borderRadius: "50%",
+                border: "1.5px solid #0a0a0a",
+                transition: "box-shadow 0.3s ease",
+              }}
+            />
+          </div>
+
+          {/* Expanding label */}
+          <span
+            className="alex-label text-[#F0EBE0] text-[12px] font-medium whitespace-nowrap overflow-hidden"
+            style={{
+              maxWidth: 0,
+              opacity: 0,
+              marginLeft: 0,
+              transition: "all 0.35s cubic-bezier(0.16,1,0.3,1)",
+              fontFamily: "Manrope, sans-serif",
+              letterSpacing: "0.02em",
+            }}
+          >
+            Ask Alex
+          </span>
+
+          {/* Accent line left edge */}
+          <span
+            className="absolute left-0 top-[15%] bottom-[15%] w-[2px]"
+            style={{
+              background: "linear-gradient(180deg, transparent 0%, #444CE7 50%, transparent 100%)",
+            }}
+          />
+        </button>
+      </>
     );
   }
 
