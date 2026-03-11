@@ -58,7 +58,57 @@ const PILLS = [
   { label: "BVI · Offshore", href: "/services/offshore" },
 ];
 
-const Navbar = () => {
+interface JurisdictionPreview {
+  reg: string; name: string; badge: string; price: string; timeline: string; href: string;
+}
+
+const LICENSE_PREVIEWS: Record<string, { jurisdictions: JurisdictionPreview[] }> = {
+  '/licenses/gambling': { jurisdictions: [
+    { reg: 'MGA', name: 'Malta', badge: 'EU Regulated', price: 'From €25,000', timeline: '6–9 months', href: '/gambling/malta' },
+    { reg: 'CGA', name: 'Curaçao', badge: 'Popular', price: 'From €15,000', timeline: '3–4 months', href: '/gambling/curacao' },
+    { reg: 'GSC', name: 'Isle of Man', badge: 'Tier 1', price: 'From £25,000', timeline: '6–12 months', href: '/gambling/isle-of-man' },
+    { reg: 'Municipality', name: 'Costa Rica', badge: 'Offshore', price: 'From $15,000', timeline: '2–5 weeks', href: '/gambling/costa-rica' },
+  ]},
+  '/licenses/forex': { jurisdictions: [] },
+  '/licenses/crypto': { jurisdictions: [] },
+  '/licenses/emi': { jurisdictions: [] },
+};
+
+const LicensePreviewPanel = ({ jurisdictions, go }: { jurisdictions: JurisdictionPreview[]; go: (href: string) => void }) => (
+  <div style={{ animation: "tabFade 0.2s ease-out" }}>
+    <span className="block text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-4">— Jurisdictions</span>
+    {jurisdictions.map((j) => (
+      <button
+        key={j.href}
+        onClick={() => go(j.href)}
+        className="group flex items-center justify-between px-3 py-2.5 border-l-2 border-transparent hover:border-[#444CE7] hover:bg-white/[0.03] transition-all duration-150 cursor-pointer w-full text-left bg-transparent"
+        style={{ fontFamily: "inherit" }}
+      >
+        <div>
+          <div className="flex items-center gap-2 mb-0.5">
+            <span className="text-[13px] font-medium text-[#F0EBE0]">{j.name}</span>
+            <span className="text-[10px] text-[#444CE7] uppercase tracking-[0.06em]">{j.reg}</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="text-[11px] text-[#5A5550]">{j.price}</span>
+            <span className="text-[11px] text-[#5A5550]">·</span>
+            <span className="text-[11px] text-[#5A5550]">{j.timeline}</span>
+          </div>
+        </div>
+        <span className="text-[11px] text-[#444CE7] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+      </button>
+    ))}
+    <div className="mt-4 pt-3 border-t border-white/[0.06]">
+      <button
+        onClick={() => go('/licenses/gambling')}
+        className="text-[11px] text-[#444CE7] hover:underline cursor-pointer bg-transparent border-0"
+        style={{ fontFamily: "inherit" }}
+      >
+        View all jurisdictions →
+      </button>
+    </div>
+  </div>
+);
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [cat, setCat] = useState<Category>("license");
