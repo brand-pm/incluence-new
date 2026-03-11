@@ -120,61 +120,88 @@ const MaltaLicensePage = () => {
 
       {/* ── SECTION 2 — HERO ── */}
       <section className="bg-[#080808] py-[80px] px-12 relative overflow-hidden min-h-[560px]">
-        {/* Layer A — PacketCanvas (Malta-centric network) */}
+        {/* Layer A — PacketCanvas: Malta at center, packets radiate outward */}
         <div className="absolute inset-0 pointer-events-none z-0">
-          <PacketCanvas nodes={MALTA_NODES} routes={MALTA_ROUTES} packetCount={12} opacity={0.85} />
+          <PacketCanvas nodes={MALTA_NODES} routes={MALTA_ROUTES} packetCount={14} opacity={0.9} />
         </div>
 
-        {/* Layer B — Malta island silhouette with grid + markers */}
-        <svg className="absolute right-[2%] top-1/2 -translate-y-1/2 w-[480px] h-[480px] pointer-events-none z-[1] opacity-[0.07]" viewBox="0 0 400 400" fill="none">
-          {/* Main island */}
-          <path d="M180 155 C195 140, 230 132, 260 138 C285 143, 310 158, 320 180 C328 198, 330 220, 322 245 C315 268, 298 290, 275 302 C255 312, 230 316, 210 310 C192 304, 178 290, 170 272 C162 254, 160 232, 165 212 C168 195, 172 170, 180 155Z" fill="#F0EBE0" />
-          {/* Gozo */}
-          <path d="M155 108 C168 98, 195 96, 210 104 C220 110, 222 122, 215 130 C208 138, 188 140, 172 136 C158 132, 148 120, 155 108Z" fill="#F0EBE0" />
-          {/* Comino */}
-          <ellipse cx="218" cy="140" rx="8" ry="5" fill="#F0EBE0" />
+        {/* Layer B — Detailed Malta archipelago map (positioned at malta node ~62%, 48%) */}
+        <svg
+          className="absolute pointer-events-none z-[1]"
+          style={{ right: '18%', top: '50%', transform: 'translateY(-50%)', width: '420px', height: '520px' }}
+          viewBox="0 0 300 400" fill="none"
+        >
+          {/* === GOZO === */}
+          <path d="M65 55 C72 42, 88 35, 108 38 C125 40, 140 48, 148 60 C154 70, 152 82, 145 92 C138 100, 125 106, 110 108 C95 110, 78 106, 68 96 C58 86, 55 70, 65 55Z"
+            fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
+          {/* Gozo internal boundaries */}
+          <path d="M85 50 L95 80 L75 95" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
+          <path d="M110 42 L108 75 L130 85" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
 
-          {/* Grid lines */}
-          {[150, 190, 230, 270, 310].map(y => (
-            <line key={`h${y}`} x1="130" y1={y} x2="340" y2={y} stroke="#F0EBE0" strokeWidth="0.4" opacity="0.4" />
-          ))}
-          {[170, 210, 250, 290, 330].map(x => (
-            <line key={`v${x}`} x1={x} y1="90" x2={x} y2="330" stroke="#F0EBE0" strokeWidth="0.4" opacity="0.4" />
-          ))}
+          {/* Victoria / Rabat marker */}
+          <circle cx="105" cy="72" r="2" fill="rgba(240,235,224,0.35)" />
+          <text x="80" y="68" fill="rgba(240,235,224,0.3)" fontSize="7" fontFamily="Manrope" fontWeight="400">Victoria</text>
 
-          {/* Valletta marker */}
-          <circle cx="260" cy="210" r="4" fill="#444CE7" opacity="0.9" />
-          <circle cx="260" cy="210" r="9" stroke="#444CE7" strokeWidth="0.8" fill="none" opacity="0.5">
-            <animate attributeName="r" values="9;16;9" dur="3s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3s" repeatCount="indefinite" />
+          {/* === COMINO === */}
+          <ellipse cx="140" cy="120" rx="10" ry="6" fill="#141822" stroke="rgba(240,235,224,0.1)" strokeWidth="0.8" />
+
+          {/* === MAIN MALTA ISLAND === */}
+          <path d="
+            M115 148 C120 140, 132 135, 148 132 C165 130, 182 132, 195 138
+            C208 144, 218 148, 225 155 C232 162, 238 168, 240 178
+            C243 190, 242 200, 238 212 C234 225, 228 235, 220 248
+            C215 258, 210 268, 200 278 C192 286, 182 292, 170 295
+            C158 298, 145 296, 135 290 C125 284, 118 275, 114 264
+            C110 252, 108 240, 110 228 C112 216, 115 205, 116 195
+            C117 182, 115 165, 115 148Z
+          " fill="#141822" stroke="rgba(240,235,224,0.15)" strokeWidth="1.2" />
+
+          {/* St. Paul's Bay peninsula */}
+          <path d="M148 132 C142 125, 138 118, 142 114 C146 110, 155 112, 158 118 C160 124, 155 130, 148 132Z"
+            fill="#141822" stroke="rgba(240,235,224,0.1)" strokeWidth="0.8" />
+
+          {/* Internal region boundaries */}
+          <path d="M140 155 L165 180 L145 210" stroke="rgba(240,235,224,0.05)" strokeWidth="0.5" fill="none" />
+          <path d="M175 145 L180 185 L210 200" stroke="rgba(240,235,224,0.05)" strokeWidth="0.5" fill="none" />
+          <path d="M130 220 L165 230 L175 260" stroke="rgba(240,235,224,0.05)" strokeWidth="0.5" fill="none" />
+          <path d="M155 175 L195 190 L210 225" stroke="rgba(240,235,224,0.05)" strokeWidth="0.5" fill="none" />
+
+          {/* === CITY MARKERS === */}
+
+          {/* Valletta — main pulsing marker */}
+          <circle cx="205" cy="195" r="5" fill="#444CE7" opacity="0.9" />
+          <circle cx="205" cy="195" r="12" stroke="#444CE7" strokeWidth="1" fill="none" opacity="0.4">
+            <animate attributeName="r" values="12;22;12" dur="3s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.4;0.05;0.4" dur="3s" repeatCount="indefinite" />
           </circle>
-          <text x="272" y="214" fill="#444CE7" fontSize="9" fontFamily="Manrope" fontWeight="500">Valletta</text>
-
-          {/* MGA marker */}
-          <circle cx="280" cy="250" r="3" fill="#444CE7" opacity="0.7" />
-          <circle cx="280" cy="250" r="7" stroke="#444CE7" strokeWidth="0.6" fill="none" opacity="0.35">
-            <animate attributeName="r" values="7;13;7" dur="3.5s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.35;0.05;0.35" dur="3.5s" repeatCount="indefinite" />
+          <circle cx="205" cy="195" r="18" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.15">
+            <animate attributeName="r" values="18;30;18" dur="4s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.15;0;0.15" dur="4s" repeatCount="indefinite" />
           </circle>
-          <text x="290" y="254" fill="#444CE7" fontSize="8" fontFamily="Manrope" fontWeight="500" opacity="0.7">MGA</text>
+          <text x="215" y="192" fill="#444CE7" fontSize="9" fontFamily="Manrope" fontWeight="600">Valletta</text>
+          <text x="215" y="203" fill="#444CE7" fontSize="7" fontFamily="Manrope" fontWeight="500" opacity="0.6">MGA HQ</text>
 
-          {/* Mdina marker */}
-          <circle cx="230" cy="195" r="2.5" fill="#F0EBE0" opacity="0.5" />
-          <text x="238" y="199" fill="#F0EBE0" fontSize="7" fontFamily="Manrope" opacity="0.4">Mdina</text>
+          {/* Mdina */}
+          <circle cx="155" cy="195" r="2" fill="rgba(240,235,224,0.4)" />
+          <text x="135" y="190" fill="rgba(240,235,224,0.25)" fontSize="7" fontFamily="Manrope">Mdina</text>
 
-          {/* Victoria (Gozo) */}
-          <circle cx="185" cy="115" r="2" fill="#F0EBE0" opacity="0.5" />
-          <text x="192" y="119" fill="#F0EBE0" fontSize="7" fontFamily="Manrope" opacity="0.4">Victoria</text>
+          {/* Sliema */}
+          <circle cx="195" cy="178" r="1.5" fill="rgba(240,235,224,0.3)" />
+          <text x="200" y="175" fill="rgba(240,235,224,0.2)" fontSize="6" fontFamily="Manrope">Sliema</text>
+
+          {/* Marsaskala */}
+          <circle cx="210" cy="248" r="1.5" fill="rgba(240,235,224,0.3)" />
+          <text x="216" y="252" fill="rgba(240,235,224,0.2)" fontSize="6.5" fontFamily="Manrope">Marsaskala</text>
+
+          {/* Birżebbuġa */}
+          <circle cx="185" cy="275" r="1.5" fill="rgba(240,235,224,0.3)" />
+          <text x="155" y="282" fill="rgba(240,235,224,0.2)" fontSize="6.5" fontFamily="Manrope">Birżebbuġa</text>
+
+          {/* === LABEL === */}
+          <text x="150" y="225" fill="rgba(240,235,224,0.08)" fontSize="28" fontFamily="Manrope" fontWeight="300" textAnchor="middle">Malta</text>
         </svg>
 
-        {/* Layer B2 — Subtle flag (far background) */}
-        <svg className="absolute right-[12%] top-[15%] w-[180px] h-[120px] pointer-events-none z-0 opacity-[0.018]" viewBox="0 0 300 200" fill="none">
-          <rect x="0" y="0" width="150" height="200" fill="#F0EBE0" />
-          <rect x="150" y="0" width="150" height="200" fill="#CE2B37" />
-        </svg>
-
-
-        {/* Layer D — Noise overlay */}
+        {/* Layer C — Noise overlay */}
         <div className="absolute inset-0 pointer-events-none z-[2] opacity-[0.03]" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
           backgroundRepeat: "repeat",
