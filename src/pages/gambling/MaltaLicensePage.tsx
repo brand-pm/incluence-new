@@ -1,39 +1,12 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ChevronDown, ChevronRight, Check } from "lucide-react";
 import NodePulse from "@/components/NodePulse";
 import MicroParticles from "@/components/MicroParticles";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
-import PacketCanvas, { type PacketNode } from "@/components/PacketCanvas";
+import VallettaFireflies from "@/components/VallettaFireflies";
 
-/* ── Malta-centric map: Malta is center, other jurisdictions radiate outward ── */
-const MALTA_NODES: PacketNode[] = [
-  // Malta — center-right of hero, where the map sits
-  { id: "malta",      x: 62, y: 48, tier: 1 },
-  // Surrounding jurisdictions — spread to edges
-  { id: "uk",         x: 42, y: 8,  tier: 1 },
-  { id: "gibraltar",  x: 35, y: 52, tier: 2 },
-  { id: "cyprus",     x: 88, y: 38, tier: 1 },
-  { id: "curacao",    x: 8,  y: 75, tier: 2 },
-  { id: "isle-of-man",x: 30, y: 15, tier: 2 },
-  { id: "estonia",    x: 55, y: 5,  tier: 2 },
-  { id: "uae",        x: 92, y: 65, tier: 1 },
-  { id: "singapore",  x: 95, y: 85, tier: 2 },
-  { id: "swiss",      x: 45, y: 28, tier: 2 },
-  { id: "costa-rica", x: 5,  y: 40, tier: 2 },
-  { id: "luxembourg", x: 38, y: 22, tier: 2 },
-];
 
-/* All routes go TO/FROM malta — packets clearly originate from the island */
-const MALTA_ROUTES: [string, string][] = [
-  ["malta", "uk"], ["malta", "gibraltar"], ["malta", "cyprus"],
-  ["malta", "curacao"], ["malta", "isle-of-man"], ["malta", "estonia"],
-  ["malta", "uae"], ["malta", "singapore"], ["malta", "swiss"],
-  ["malta", "costa-rica"], ["malta", "luxembourg"],
-  // Return routes — packets also arrive back to Malta
-  ["uk", "malta"], ["cyprus", "malta"], ["uae", "malta"],
-  ["singapore", "malta"], ["curacao", "malta"], ["costa-rica", "malta"],
-];
 
 const steps = [
 { num: "01", title: "Company registration in Malta", body: "It is necessary to register a local company, for which a license will subsequently be issued. You should select the name of the company, indicate the participants and provide their documents." },
@@ -120,6 +93,8 @@ const MaltaLicensePage = () => {
 
       {/* ── SECTION 2 — HERO ── */}
       <section className="bg-[#080808] py-[80px] px-12 relative overflow-hidden min-h-[560px]">
+        {/* Fireflies emanating from Valletta marker */}
+        <VallettaFireflies originX={72} originY={48} count={10} />
 
         {/* Layer B — Detailed Malta archipelago map (positioned at malta node ~62%, 48%) */}
         <svg
