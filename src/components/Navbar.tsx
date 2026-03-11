@@ -1,54 +1,62 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useCallback, useEffect } from "react";
-import { Shield, CreditCard, Globe, Building2, ChevronRight, ChevronDown, Menu, X, MessageCircle, Send, Phone, Mail } from "lucide-react";
+import { Shield, CreditCard, Globe, Building2, ChevronDown, Menu, X, MessageCircle, Send, Phone, Mail } from "lucide-react";
+import NodePulse from "./NodePulse";
 
 type Category = "license" | "payment" | "intl" | "offshore";
 
-const categories: { value: Category; icon: typeof Shield; label: string }[] = [
-  { value: "license", icon: Shield, label: "License" },
-  { value: "payment", icon: CreditCard, label: "Payment Systems" },
-  { value: "intl", icon: Globe, label: "International Operation" },
-  { value: "offshore", icon: Building2, label: "Offshore & Corporate" },
+const CATS: { id: Category; label: string; Icon: typeof Shield }[] = [
+  { id: "license", Icon: Shield, label: "License" },
+  { id: "payment", Icon: CreditCard, label: "Payment Systems" },
+  { id: "intl", Icon: Globe, label: "International" },
+  { id: "offshore", Icon: Building2, label: "Offshore" },
 ];
 
-const linkData: Record<Category, { sublabel: string; items: { to: string; name: string; desc: string }[] }> = {
+const NAV_DATA: Record<Category, { sublabel: string; items: { href: string; label: string; desc: string; icon: JSX.Element; tags: string[] }[] }> = {
   license: {
     sublabel: "— LICENSING",
     items: [
-      { to: "/services/gambling", name: "Gambling License", desc: "Casino, sports betting & poker" },
-      { to: "/services/forex", name: "Forex License", desc: "EU & offshore brokerage" },
-      { to: "/services/crypto", name: "Crypto / VASP", desc: "Exchange, custody & DeFi" },
-      { to: "/services/emi", name: "EMI License", desc: "E-money & SEPA access" },
+      { href: "/services/gambling", label: "Gambling License", desc: "Casino, sports betting & poker", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="0"/><circle cx="12" cy="12" r="3"/></svg>, tags: ["Malta", "Curaçao", "Gibraltar", "+9"] },
+      { href: "/services/forex", label: "Forex License", desc: "EU & offshore brokerage", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>, tags: ["Cyprus", "BVI", "Estonia", "+6"] },
+      { href: "/services/crypto", label: "Crypto / VASP", desc: "Exchange, custody & DeFi", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 16.793l-1.86-11.04"/></svg>, tags: ["Estonia", "Lithuania", "UAE", "+5"] },
+      { href: "/services/emi", label: "EMI License", desc: "E-money & SEPA access", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="0"/><line x1="2" y1="10" x2="22" y2="10"/></svg>, tags: ["UK", "Lithuania", "Malta", "+3"] },
     ],
   },
   payment: {
     sublabel: "— PAYMENT SYSTEMS",
     items: [
-      { to: "/services/payment", name: "Payment Systems", desc: "Full PSP registration" },
-      { to: "/services/bank-accounts", name: "Bank Accounts", desc: "Corporate accounts in 20+ countries" },
-      { to: "/services/merchant", name: "Merchant Account", desc: "PSP connections & processing" },
+      { href: "/services/payment", label: "Payment Systems", desc: "Full PSP registration", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="0"/><line x1="2" y1="10" x2="22" y2="10"/></svg>, tags: ["PSP", "SEPA", "SWIFT"] },
+      { href: "/services/bank-accounts", label: "Bank Accounts", desc: "Corporate accounts in 20+ countries", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>, tags: ["EU", "Asia", "Offshore"] },
+      { href: "/services/merchant", label: "Merchant Account", desc: "PSP connections & processing", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>, tags: ["Visa", "MC", "Crypto"] },
     ],
   },
   intl: {
     sublabel: "— INTERNATIONAL OPERATION",
     items: [
-      { to: "/services/legal", name: "Business Legitimization", desc: "Legal structures & compliance" },
-      { to: "/services/tax", name: "Tax & Reporting", desc: "Tax planning & transfer pricing" },
-      { to: "/services/legal-support", name: "Legal Support", desc: "Ongoing counsel & contracts" },
+      { href: "/services/legal", label: "Business Legitimization", desc: "Legal structures & compliance", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>, tags: ["Compliance", "AML", "KYC"] },
+      { href: "/services/tax", label: "Tax & Reporting", desc: "Tax planning & transfer pricing", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>, tags: ["Transfer pricing", "CFC"] },
+      { href: "/services/legal-support", label: "Legal Support", desc: "Ongoing counsel & contracts", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>, tags: ["Contracts", "Disputes"] },
     ],
   },
   offshore: {
     sublabel: "— OFFSHORE & CORPORATE",
     items: [
-      { to: "/services/offshore", name: "Offshore Company", desc: "BVI, Cayman, Seychelles, UAE" },
-      { to: "/services/company-abroad", name: "Company Registration", desc: "40+ jurisdictions" },
-      { to: "/services/funds", name: "Investment Funds", desc: "Fund registration & management" },
-      { to: "/services/residence", name: "Residence Permit", desc: "Residency by investment" },
-      { to: "/services/buy-business", name: "Buy a Business", desc: "International acquisitions" },
-      { to: "/services/contracts", name: "Int'l Contracts", desc: "Cross-border drafting & review" },
+      { href: "/services/offshore", label: "Offshore Company", desc: "BVI, Cayman, Seychelles, UAE", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>, tags: ["BVI", "Cayman", "Seychelles"] },
+      { href: "/services/company-abroad", label: "Company Registration", desc: "40+ jurisdictions", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>, tags: ["UK", "UAE", "HK", "+37"] },
+      { href: "/services/funds", label: "Investment Funds", desc: "Fund registration & management", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>, tags: ["CySEC", "CIMA", "FSA"] },
+      { href: "/services/residence", label: "Residence Permit", desc: "Residency by investment", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>, tags: ["UAE", "Portugal", "Malta"] },
+      { href: "/services/buy-business", label: "Buy a Business", desc: "International acquisitions", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>, tags: ["EU", "Asia", "Offshore"] },
+      { href: "/services/contracts", label: "Int'l Contracts", desc: "Cross-border drafting & review", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>, tags: ["Cross-border", "M&A"] },
     ],
   },
 };
+
+const PILLS = [
+  { label: "Gambling · MGA", href: "/services/gambling" },
+  { label: "Estonia · VASP", href: "/services/crypto" },
+  { label: "UK · EMI", href: "/services/emi" },
+  { label: "BVI · Offshore", href: "/services/offshore" },
+];
 
 const quickLinks = [
   { label: "Gambling · MGA", to: "/services/gambling" },
