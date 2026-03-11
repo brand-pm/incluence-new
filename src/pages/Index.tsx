@@ -52,6 +52,7 @@ const Index = () => (
     <LicenseCategories />
     <ProcessSection />
     <OurServicesSection />
+    <JurisdictionComparison />
     <JurisdictionsSection />
     <MarketplaceTeaser />
     <StatsBar />
