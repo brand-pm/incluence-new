@@ -39,7 +39,7 @@ const NAV_DATA: Record<Category, { sublabel: string; items: { href: string; labe
     ],
   },
   offshore: {
-    sublabel: "— OFFSHORE & CORPORATE",
+    sublabel: "— OFFSHORE",
     items: [
       { href: "/services/offshore", label: "Offshore Company", desc: "BVI, Cayman, Seychelles, UAE", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>, tags: ["BVI", "Cayman", "Seychelles"] },
       { href: "/services/company-abroad", label: "Company Registration", desc: "40+ jurisdictions", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>, tags: ["UK", "UAE", "HK", "+37"] },
