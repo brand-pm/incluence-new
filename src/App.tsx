@@ -9,6 +9,8 @@ import Index from "./pages/Index";
 import GamblingHubPage from "./pages/GamblingHubPage";
 import MaltaLicensePage from "./pages/gambling/MaltaLicensePage";
 import CostaRicaLicensePage from "./pages/gambling/CostaRicaLicensePage";
+import CuracaoLicensePage from "./pages/gambling/CuracaoLicensePage";
+import IsleOfManLicensePage from "./pages/gambling/IsleOfManLicensePage";
 
 const queryClient = new QueryClient();
 
@@ -48,8 +50,8 @@ const App = () => (
 
             {/* ── LEVEL 4: License detail pages ── */}
             <Route path="/licenses/gambling/malta" element={<MaltaLicensePage />} />
-            <Route path="/licenses/gambling/curacao" element={<ComingSoon title="Curaçao Gaming License" />} />
-            <Route path="/licenses/gambling/isle-of-man" element={<ComingSoon title="Isle of Man License" />} />
+            <Route path="/licenses/gambling/curacao" element={<CuracaoLicensePage />} />
+            <Route path="/licenses/gambling/isle-of-man" element={<IsleOfManLicensePage />} />
             <Route path="/licenses/gambling/costa-rica" element={<CostaRicaLicensePage />} />
 
             {/* ── LEVEL 3: Service pages (no license) ── */}
