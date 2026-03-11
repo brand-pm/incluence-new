@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import GamblingHubPage from "./pages/GamblingHubPage";
 import MaltaLicensePage from "./pages/gambling/MaltaLicensePage";
+import CostaRicaLicensePage from "./pages/gambling/CostaRicaLicensePage";
 
 const queryClient = new QueryClient();
 
