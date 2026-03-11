@@ -7,8 +7,8 @@ type Category = "license" | "payment" | "intl" | "offshore";
 
 const CATS: { id: Category; label: string; Icon: typeof Shield }[] = [
   { id: "license", Icon: Shield, label: "License" },
-  { id: "payment", Icon: CreditCard, label: "Payment Systems" },
-  { id: "intl", Icon: Globe, label: "International" },
+  { id: "payment", Icon: CreditCard, label: "Provider payment systems" },
+  { id: "intl", Icon: Globe, label: "International operation" },
   { id: "offshore", Icon: Building2, label: "Offshore" },
 ];
 
