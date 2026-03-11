@@ -338,7 +338,7 @@ const PacketCanvas = ({ nodes, routes, packetCount = 8, opacity = 1, synchronize
 
     raf = requestAnimationFrame(draw);
     return () => { cancelAnimationFrame(raf); ro.disconnect(); };
-  }, [nodes, routes, packetCount, opacity]);
+  }, [nodes, routes, packetCount, opacity, synchronized]);
 
   return (
     <canvas
