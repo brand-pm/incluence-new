@@ -270,7 +270,7 @@ const WhyUsSection = () => (
         },
       ].map((c) => (
         <div key={c.title} className="bg-[#080808] p-7">
-          <div className="text-[36px] font-light text-[#444CE7] mb-2">
+          <div className="text-[36px] font-light text-[#F0EBE0] mb-2">
             {c.num}
           </div>
           <div className="text-[14px] font-semibold text-[#F0EBE0] mb-2">
