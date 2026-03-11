@@ -1,8 +1,6 @@
 const row1 = [
   "Blockchain", "FinTech", "E-Commerce", "Gambling & Gaming", "Forex Brokerage",
   "Crypto Exchange", "Digital Assets", "Online Payments", "Dating Platforms", "iGaming",
-];
-const row2 = [
   "VASP License", "EMI License", "PSP License", "Company Formation", "Tax Structuring",
   "Bank Account Opening", "Merchant Account", "Fund Registration", "Compliance AML", "Legal Support",
 ];
@@ -57,10 +55,7 @@ const IndustriesTicker = () => (
         overflow: "hidden",
       }}
     >
-      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-        <TickerRow items={row1} duration={35} />
-        <TickerRow items={row2} duration={45} reverse />
-      </div>
+      <TickerRow items={row1} duration={50} />
     </section>
   </>
 );
