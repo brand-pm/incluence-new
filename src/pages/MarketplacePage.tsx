@@ -470,9 +470,35 @@ const MarketplacePage = () => {
             </p>
 
             <div className="grid grid-cols-2 gap-5">
+              <div>
+                <label className="block" style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>
+                  Jurisdiction
+                </label>
+                <input
+                  id="cta-jurisdiction"
+                  type="text"
+                  placeholder="e.g. Malta, BVI, Singapore"
+                  className="w-full outline-none transition-colors duration-200"
+                  style={{ background: "#080808", border: "1px solid rgba(255,255,255,0.08)", color: "#F0EBE0", fontSize: 14, padding: "12px 16px" }}
+                  onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(68,76,231,0.5)")}
+                  onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)")}
+                />
+              </div>
+              <div>
+                <label className="block" style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>
+                  Company Type
+                </label>
+                <input
+                  id="cta-type"
+                  type="text"
+                  placeholder="e.g. Ltd, LLC, IBC"
+                  className="w-full outline-none transition-colors duration-200"
+                  style={{ background: "#080808", border: "1px solid rgba(255,255,255,0.08)", color: "#F0EBE0", fontSize: 14, padding: "12px 16px" }}
+                  onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(68,76,231,0.5)")}
+                  onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)")}
+                />
+              </div>
               {[
-                { label: "Jurisdiction", placeholder: "e.g. Malta, BVI, Singapore" },
-                { label: "Company Type", placeholder: "e.g. Ltd, LLC, IBC" },
                 { label: "Budget Range", placeholder: "e.g. €10,000 – €25,000" },
                 { label: "Timeline", placeholder: "e.g. Within 2 weeks" },
               ].map((field) => (
@@ -484,13 +510,7 @@ const MarketplacePage = () => {
                     type="text"
                     placeholder={field.placeholder}
                     className="w-full outline-none transition-colors duration-200"
-                    style={{
-                      background: "#080808",
-                      border: "1px solid rgba(255,255,255,0.08)",
-                      color: "#F0EBE0",
-                      fontSize: 14,
-                      padding: "12px 16px",
-                    }}
+                    style={{ background: "#080808", border: "1px solid rgba(255,255,255,0.08)", color: "#F0EBE0", fontSize: 14, padding: "12px 16px" }}
                     onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(68,76,231,0.5)")}
                     onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)")}
                   />
@@ -501,16 +521,10 @@ const MarketplacePage = () => {
                   Additional Requirements
                 </label>
                 <textarea
+                  id="cta-requirements"
                   placeholder="Additional requirements — activity, banking needs, existing licenses..."
                   className="w-full outline-none resize-none transition-colors duration-200"
-                  style={{
-                    background: "#080808",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    color: "#F0EBE0",
-                    fontSize: 14,
-                    padding: "12px 16px",
-                    minHeight: 90,
-                  }}
+                  style={{ background: "#080808", border: "1px solid rgba(255,255,255,0.08)", color: "#F0EBE0", fontSize: 14, padding: "12px 16px", minHeight: 90 }}
                   onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(68,76,231,0.5)")}
                   onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)")}
                 />
