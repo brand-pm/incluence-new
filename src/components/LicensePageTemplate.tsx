@@ -92,7 +92,7 @@ export interface LicensePageProps {
   breadcrumbs: BreadcrumbItem[];
   hero: HeroData;
   mapSvg: ReactNode;
-  fireflies: FireflyConfig;
+  fireflies?: FireflyConfig;
   facts: FactItem[];
   process: ProcessData;
   steps: StepItem[];       // first 6 in grid-cols-3
@@ -191,11 +191,13 @@ const LicensePageTemplate = ({
         {hero.heroOverlay && (
           <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: hero.heroOverlay }} />
         )}
-        <VallettaFireflies
-          originX={fireflies.originX}
-          originY={fireflies.originY}
-          count={fireflies.count}
-        />
+        {fireflies && (
+          <VallettaFireflies
+            originX={fireflies.originX}
+            originY={fireflies.originY}
+            count={fireflies.count}
+          />
+        )}
         {mapSvg}
         <NoiseOverlay />
 
