@@ -93,6 +93,8 @@ const MaltaLicensePage = () => {
 
       {/* ── SECTION 2 — HERO ── */}
       <section className="bg-[#080808] py-[80px] px-12 relative overflow-hidden min-h-[560px]">
+        {/* Fireflies emanating from Valletta marker */}
+        <VallettaFireflies originX={72} originY={48} count={10} />
 
         {/* Layer B — Detailed Malta archipelago map (positioned at malta node ~62%, 48%) */}
         <svg
