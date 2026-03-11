@@ -123,8 +123,50 @@ const MaltaLicensePage = () => {
           <PacketCanvas nodes={MALTA_NODES} routes={MALTA_ROUTES} packetCount={12} opacity={0.85} />
         </div>
 
-        {/* Layer B — Malta flag (very subtle, right side) */}
-        <svg className="absolute right-[5%] top-1/2 -translate-y-1/2 w-[340px] h-[240px] pointer-events-none z-0 opacity-[0.025]" viewBox="0 0 300 200" fill="none">
+        {/* Layer B — Malta island silhouette with grid + markers */}
+        <svg className="absolute right-[2%] top-1/2 -translate-y-1/2 w-[480px] h-[480px] pointer-events-none z-[1] opacity-[0.07]" viewBox="0 0 400 400" fill="none">
+          {/* Main island */}
+          <path d="M180 155 C195 140, 230 132, 260 138 C285 143, 310 158, 320 180 C328 198, 330 220, 322 245 C315 268, 298 290, 275 302 C255 312, 230 316, 210 310 C192 304, 178 290, 170 272 C162 254, 160 232, 165 212 C168 195, 172 170, 180 155Z" fill="#F0EBE0" />
+          {/* Gozo */}
+          <path d="M155 108 C168 98, 195 96, 210 104 C220 110, 222 122, 215 130 C208 138, 188 140, 172 136 C158 132, 148 120, 155 108Z" fill="#F0EBE0" />
+          {/* Comino */}
+          <ellipse cx="218" cy="140" rx="8" ry="5" fill="#F0EBE0" />
+
+          {/* Grid lines */}
+          {[150, 190, 230, 270, 310].map(y => (
+            <line key={`h${y}`} x1="130" y1={y} x2="340" y2={y} stroke="#F0EBE0" strokeWidth="0.4" opacity="0.4" />
+          ))}
+          {[170, 210, 250, 290, 330].map(x => (
+            <line key={`v${x}`} x1={x} y1="90" x2={x} y2="330" stroke="#F0EBE0" strokeWidth="0.4" opacity="0.4" />
+          ))}
+
+          {/* Valletta marker */}
+          <circle cx="260" cy="210" r="4" fill="#444CE7" opacity="0.9" />
+          <circle cx="260" cy="210" r="9" stroke="#444CE7" strokeWidth="0.8" fill="none" opacity="0.5">
+            <animate attributeName="r" values="9;16;9" dur="3s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3s" repeatCount="indefinite" />
+          </circle>
+          <text x="272" y="214" fill="#444CE7" fontSize="9" fontFamily="Manrope" fontWeight="500">Valletta</text>
+
+          {/* MGA marker */}
+          <circle cx="280" cy="250" r="3" fill="#444CE7" opacity="0.7" />
+          <circle cx="280" cy="250" r="7" stroke="#444CE7" strokeWidth="0.6" fill="none" opacity="0.35">
+            <animate attributeName="r" values="7;13;7" dur="3.5s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.35;0.05;0.35" dur="3.5s" repeatCount="indefinite" />
+          </circle>
+          <text x="290" y="254" fill="#444CE7" fontSize="8" fontFamily="Manrope" fontWeight="500" opacity="0.7">MGA</text>
+
+          {/* Mdina marker */}
+          <circle cx="230" cy="195" r="2.5" fill="#F0EBE0" opacity="0.5" />
+          <text x="238" y="199" fill="#F0EBE0" fontSize="7" fontFamily="Manrope" opacity="0.4">Mdina</text>
+
+          {/* Victoria (Gozo) */}
+          <circle cx="185" cy="115" r="2" fill="#F0EBE0" opacity="0.5" />
+          <text x="192" y="119" fill="#F0EBE0" fontSize="7" fontFamily="Manrope" opacity="0.4">Victoria</text>
+        </svg>
+
+        {/* Layer B2 — Subtle flag (far background) */}
+        <svg className="absolute right-[12%] top-[15%] w-[180px] h-[120px] pointer-events-none z-0 opacity-[0.018]" viewBox="0 0 300 200" fill="none">
           <rect x="0" y="0" width="150" height="200" fill="#F0EBE0" />
           <rect x="150" y="0" width="150" height="200" fill="#CE2B37" />
         </svg>
