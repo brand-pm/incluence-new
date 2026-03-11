@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import MicroParticles from "./MicroParticles";
 
 const stats = [
-  { num: "500", suffix: "+", label: "Companies Registered" },
+  { num: "500", suffix: "+", label: "Licensed Companies" },
   { num: "40", suffix: "+", label: "Jurisdictions Covered" },
   { num: "€2", suffix: "M", label: "Saved for Clients" },
-  { num: "12", suffix: " yrs", label: "Legal Experience" },
+  { num: "9", suffix: " yrs", label: "Legal Experience" },
   { num: "39", suffix: "+", label: "Bank Accounts Opened" },
   { num: "98", suffix: "%", label: "Client Satisfaction" },
 ];
