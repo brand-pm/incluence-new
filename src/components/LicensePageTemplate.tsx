@@ -208,13 +208,27 @@ const LicensePageTemplate = ({
             </div>
 
             <h1 className="text-[clamp(32px,4vw,52px)] font-light text-[#F0EBE0] leading-tight mb-5">
-              <span className="text-[#444CE7]">{hero.titleAccent}</span>{" "}
-              {titleParts.map((part, i) => (
-                <span key={i}>
-                  {part}
-                  {i < titleParts.length - 1 && <br />}
-                </span>
-              ))}
+              {hero.accentPosition === 'end' ? (
+                <>
+                  {titleParts.map((part, i) => (
+                    <span key={i}>
+                      {part}
+                      {i < titleParts.length - 1 && <br />}
+                    </span>
+                  ))}{" "}
+                  <span className="text-[#444CE7]">{hero.titleAccent}</span>
+                </>
+              ) : (
+                <>
+                  <span className="text-[#444CE7]">{hero.titleAccent}</span>{" "}
+                  {titleParts.map((part, i) => (
+                    <span key={i}>
+                      {part}
+                      {i < titleParts.length - 1 && <br />}
+                    </span>
+                  ))}
+                </>
+              )}
             </h1>
 
             <p className="text-[15px] text-[#9A9590] leading-relaxed mb-10 max-w-[520px]">
