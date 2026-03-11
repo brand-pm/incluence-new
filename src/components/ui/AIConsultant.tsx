@@ -150,43 +150,57 @@ const AIConsultant = () => {
     return (
       <button
         onClick={() => setOpen(true)}
-        className="fixed right-0 top-1/2 -translate-y-1/2 z-[200] flex items-center gap-2 cursor-pointer group"
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-[200] flex items-center gap-2.5 cursor-pointer group"
         style={{
           writingMode: "vertical-rl",
           textOrientation: "mixed",
-          padding: "16px 10px",
-          background: "#444CE7",
-          border: "none",
+          padding: "14px 8px 14px 8px",
+          background: "linear-gradient(180deg, #111111 0%, #0a0a0a 100%)",
+          border: "1px solid rgba(68,76,231,0.25)",
+          borderRight: "none",
           borderRadius: 0,
           boxShadow: "none",
           fontFamily: "Manrope, sans-serif",
-          transition: "padding 0.2s ease",
+          transition: "all 0.3s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = "rgba(68,76,231,0.6)";
+          e.currentTarget.style.background = "linear-gradient(180deg, #161616 0%, #0d0d0d 100%)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = "rgba(68,76,231,0.25)";
+          e.currentTarget.style.background = "linear-gradient(180deg, #111111 0%, #0a0a0a 100%)";
         }}
       >
-        <span
-          className="absolute inset-0 bg-[#444CE7]"
+        {/* Avatar photo */}
+        <img
+          src={alexAvatar}
+          alt="Alex"
+          className="relative z-10 w-7 h-7 object-cover flex-shrink-0"
           style={{
-            animation: "consultant-pulse 2.5s ease-out infinite",
             borderRadius: 0,
+            border: "1px solid rgba(68,76,231,0.3)",
           }}
         />
-        <svg
-          width="16" height="16" viewBox="0 0 24 24" fill="none"
-          stroke="#fff" strokeWidth="2" strokeLinecap="square"
-          className="relative z-10"
-          style={{ transform: "rotate(90deg)" }}
-        >
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-        </svg>
-        <span className="relative z-10 text-white text-[11px] font-medium tracking-wide uppercase">
+        {/* Online dot */}
+        <span
+          className="relative z-10 w-1.5 h-1.5 flex-shrink-0"
+          style={{
+            background: "#34D399",
+            boxShadow: "0 0 6px rgba(52,211,153,0.6)",
+            borderRadius: "50%",
+          }}
+        />
+        <span className="relative z-10 text-[#F0EBE0] text-[10px] font-medium tracking-[0.08em] uppercase">
           Ask Alex
         </span>
-        <style>{`
-          @keyframes consultant-pulse {
-            0% { transform: scaleX(1); opacity: 0.4; }
-            100% { transform: scaleX(1.8); opacity: 0; }
-          }
-        `}</style>
+        {/* Subtle accent line */}
+        <span
+          className="absolute left-0 top-[20%] bottom-[20%] w-[2px]"
+          style={{
+            background: "linear-gradient(180deg, transparent 0%, #444CE7 50%, transparent 100%)",
+          }}
+        />
       </button>
     );
   }
