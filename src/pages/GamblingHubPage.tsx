@@ -1,11 +1,10 @@
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import SectionTag from "@/components/SectionTag";
 import NodePulse from "@/components/NodePulse";
 import MicroParticles from "@/components/MicroParticles";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
-import { Badge } from "@/components/ui/badge";
 
 /* ── SECTION 1 — HERO ── */
 const HeroSection = () => (
