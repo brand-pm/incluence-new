@@ -65,7 +65,7 @@ const JURISDICTIONS: JCard[] = [
     desc: "Gold standard for EU operators. MGA license opens access to European payment systems, banking, and player markets. License valid 5 years, renewable.",
     cost: "From €25,000",
     timeline: "6–9 months",
-    route: "/gambling/malta",
+    route: "/licenses/gambling/malta",
   },
   {
     flag: "🇨🇼",
