@@ -52,9 +52,9 @@ const NAV_DATA: Record<Category, { sublabel: string; items: { href: string; labe
 };
 
 const PILLS = [
-  { label: "Gambling · MGA", href: "/services/gambling" },
-  { label: "Estonia · VASP", href: "/services/crypto" },
-  { label: "UK · EMI", href: "/services/emi" },
+  { label: "Gambling · MGA", href: "/licenses/gambling" },
+  { label: "Estonia · VASP", href: "/licenses/crypto" },
+  { label: "UK · EMI", href: "/licenses/emi" },
   { label: "BVI · Offshore", href: "/services/offshore" },
 ];
 

@@ -98,7 +98,7 @@ const JURISDICTIONS: JCard[] = [
     desc: "Data Processing license — fastest path to operation. No business plan, no financial reporting, income tax exempt for international operators. Ideal as interim solution.",
     cost: "From $15,000",
     timeline: "2–5 weeks",
-    route: "/gambling/costa-rica",
+    route: "/licenses/gambling/costa-rica",
   },
 ];
 
