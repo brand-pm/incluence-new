@@ -258,12 +258,124 @@ const MarketplacePage = () => {
             {visible.map((c) => (
               <div
                 key={c.id}
-                className={`relative overflow-hidden group transition-colors duration-200 ${c.status === 'sold' ? 'opacity-50 pointer-events-none' : 'cursor-pointer'}`}
+                className={`relative overflow-hidden group transition-all duration-300 ${c.status === 'sold' ? 'opacity-50 pointer-events-none' : 'cursor-pointer'}`}
                 style={{ background: "#0d0d0d", padding: 28 }}
                 onMouseEnter={(e) => { if (c.status !== 'sold') e.currentTarget.style.background = "#111111"; }}
                 onMouseLeave={(e) => { if (c.status !== 'sold') e.currentTarget.style.background = "#0d0d0d"; }}
               >
                 <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-500" />
+
+                {/* Sold overlay */}
+                {c.status === 'sold' && (
+                  <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 10 }}>
+                    <div style={{ transform: "rotate(-35deg)", fontSize: 14, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.15em", fontWeight: 600, opacity: 0.6 }}>
+                      Transferred
+                    </div>
+                  </div>
+                )}
+
+                {/* Top row — flag + name left, badges right */}
+                <div className="flex justify-between items-start mb-5">
+                  <div className="flex items-center gap-3">
+                    <FlagEmojiGroup flag={getFlagEmoji(c.flag)} size={22} />
+                    <div>
+                      <div style={{ fontSize: 16, fontWeight: 600, color: "#F0EBE0" }}>{c.country}</div>
+                      <div style={{ fontSize: 11, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: 2 }}>
+                        {c.type} · Est. {c.reg}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end gap-1.5">
+                    <StatusBadge status={c.status} />
+                    {c.addedDays <= 3 && c.status === 'available' && (
+                      <span style={{ fontSize: 9, color: "#080808", background: "#22c55e", padding: "2px 6px", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 600 }}>
+                        New
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Activity label */}
+                <div style={{ fontSize: 12, color: "#9A9590", marginBottom: 4 }}>{c.activity}</div>
+
+                {/* Features + Order — reveal on hover */}
+                <div
+                  className="transition-all duration-300 overflow-hidden"
+                  style={{ maxHeight: 0, opacity: 0 }}
+                  ref={(el) => {
+                    if (!el) return;
+                    const card = el.closest('.group');
+                    if (!card) return;
+                    const show = () => { el.style.maxHeight = '250px'; el.style.opacity = '1'; };
+                    const hide = () => { el.style.maxHeight = '0'; el.style.opacity = '0'; };
+                    card.addEventListener('mouseenter', show);
+                    card.addEventListener('mouseleave', hide);
+                  }}
+                >
+                  <div className="space-y-1.5 pt-2 mb-4">
+                    {c.features.map((f) => (
+                      <div key={f} className="flex items-center gap-2">
+                        <div className="flex-shrink-0" style={{ width: 4, height: 4, background: "#444CE7" }} />
+                        <span style={{ fontSize: 12, color: "#9A9590" }}>{f}</span>
+                      </div>
+                    ))}
+                  </div>
+                  {c.status === 'available' && (
+                    <button
+                      onClick={(e) => { e.stopPropagation(); scrollToCta(c); }}
+                      className="w-full transition-colors duration-200 mb-3"
+                      style={{
+                        padding: "8px 16px",
+                        background: "#444CE7",
+                        color: "#fff",
+                        fontSize: 11,
+                        fontWeight: 500,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.08em",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = "#3538CD")}
+                      onMouseLeave={(e) => (e.currentTarget.style.background = "#444CE7")}
+                    >
+                      Inquire About This Company →
+                    </button>
+                  )}
+                </div>
+
+                {/* Bottom */}
+                <div className="flex justify-between items-end pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                  <div>
+                    <span className="block" style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>Price</span>
+                    <span style={{ fontSize: 17, fontWeight: 500, color: "#F0EBE0" }}>{c.price}</span>
+                  </div>
+                  {c.status === 'available' && c.viewers > 1 && (
+                    <div className="flex items-center gap-2">
+                      <div className="flex" style={{ gap: 2 }}>
+                        {Array.from({ length: Math.min(c.viewers, 5) }).map((_, i) => (
+                          <div key={i} style={{ width: 6, height: 6, background: "#444CE7", opacity: 1 - i * 0.15 }} />
+                        ))}
+                      </div>
+                      <span style={{ fontSize: 11, color: "#5A5550" }}>{c.viewers} viewing</span>
+                    </div>
+                  )}
+                  <div className="text-right">
+                    {c.status === 'reserved' && c.reservedAgo ? (
+                      <>
+                        <span className="block" style={{ fontSize: 10, color: "#f59e0b", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>Reserved</span>
+                        <span style={{ fontSize: 13, color: "#f59e0b" }}>{c.reservedAgo}</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="block" style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>Transfer</span>
+                        <span style={{ fontSize: 13, color: "#9A9590" }}>{c.transfer}</span>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
 
                 {/* Sold overlay */}
                 {c.status === 'sold' && (
