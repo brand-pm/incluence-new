@@ -58,6 +58,19 @@ const PILLS = [
   { label: "BVI · Offshore", href: "/services/offshore" },
 ];
 
+const TAG_LINKS: Record<string, string> = {
+  'Malta': '/licenses/gambling/malta',
+  'Curaçao': '/licenses/gambling/curacao',
+  'Gibraltar': '/licenses/gambling/isle-of-man',
+  'Cyprus': '/licenses/crypto',
+  'BVI': '/services/offshore',
+  'Estonia': '/licenses/crypto',
+  'Lithuania': '/licenses/emi',
+  'UAE': '/services/offshore',
+  'UK': '/licenses/emi',
+  'HK': '/services/offshore',
+};
+
 interface JurisdictionPreview {
   reg: string; name: string; badge: string; price: string; timeline: string; href: string;
 }
