@@ -121,7 +121,7 @@ const JurisdictionGrid = () => {
           <div
             key={j.title}
             onClick={() => navigate(j.route)}
-            className="bg-[#0d0d0d] p-7 relative overflow-hidden group cursor-pointer border-l-2 border-transparent hover:border-[#444CE7] transition-all duration-300"
+            className="bg-[#0d0d0d] p-7 relative overflow-hidden group cursor-pointer transition-all duration-300"
           >
             {/* bottom accent */}
             <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
