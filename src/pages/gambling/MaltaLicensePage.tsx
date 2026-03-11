@@ -189,7 +189,7 @@ const MaltaLicensePage = () => {
               </div>
 
               <h1 className="text-[clamp(32px,4vw,52px)] font-light text-[#F0EBE0] leading-tight mb-5">
-                Malta Gaming<br />License
+                <span className="text-[#444CE7]">Malta</span> Gaming<br />License
               </h1>
 
               <p className="text-[15px] text-[#9A9590] leading-relaxed mb-10 max-w-[520px]">
