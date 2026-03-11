@@ -485,7 +485,7 @@ const LicensePageTemplate = ({
                 className="bg-[#111111] p-7 cursor-pointer group relative overflow-hidden"
               >
                 <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
-                <span className="text-[24px] block mb-4">{c.flag}</span>
+                <span className="block mb-4"><FlagEmojiGroup flag={c.flag} size={24} /></span>
                 <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] block mb-1">
                   {c.reg}
                 </span>

@@ -115,7 +115,7 @@ const LicenseCard = ({ l, i }: { l: License; i: number }) => {
 
       {/* Top row: flag + country */}
       <div className="flex items-center gap-2">
-        <span style={{ fontSize: 18 }}>{l.flag}</span>
+        <FlagEmojiGroup flag={l.flag} size={18} />
         <span style={{ fontSize: 13, fontWeight: 600, color: "#F0EBE0" }}>{l.country}</span>
       </div>
 

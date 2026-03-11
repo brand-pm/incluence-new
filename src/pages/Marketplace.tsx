@@ -112,7 +112,7 @@ const CompanyCard = ({ c, i }: { c: Company; i: number }) => {
       {/* Country + type */}
       <div className="flex flex-col">
         <div className="flex items-center gap-2">
-          <span style={{ fontSize: 18 }}>{c.flag}</span>
+          <FlagEmojiGroup flag={c.flag} size={18} />
           <span style={{ fontSize: 14, fontWeight: 600, color: "#F0EBE0" }}>{c.country}</span>
         </div>
         <span style={{ fontSize: 11, color: "#9A9590", marginTop: 2 }}>{c.type}</span>
