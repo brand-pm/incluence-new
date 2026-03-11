@@ -120,10 +120,6 @@ const MaltaLicensePage = () => {
 
       {/* ── SECTION 2 — HERO ── */}
       <section className="bg-[#080808] py-[80px] px-12 relative overflow-hidden min-h-[560px]">
-        {/* Layer A — PacketCanvas: Malta at center, packets radiate outward */}
-        <div className="absolute inset-0 pointer-events-none z-0">
-          <PacketCanvas nodes={MALTA_NODES} routes={MALTA_ROUTES} packetCount={14} opacity={0.9} synchronized />
-        </div>
 
         {/* Layer B — Detailed Malta archipelago map (positioned at malta node ~62%, 48%) */}
         <svg
