@@ -65,7 +65,7 @@ function spawnPacket(routeCount: number, progress = 0): Packet {
   };
 }
 
-const PacketCanvas = ({ nodes, routes, packetCount = 8, opacity = 1 }: PacketCanvasProps) => {
+const PacketCanvas = ({ nodes, routes, packetCount = 8, opacity = 1, synchronized = false }: PacketCanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
