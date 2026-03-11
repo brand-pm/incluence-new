@@ -188,6 +188,9 @@ const LicensePageTemplate = ({
 
       {/* ── HERO ── */}
       <section className="bg-[#080808] py-[80px] px-12 relative overflow-hidden min-h-[560px]">
+        {hero.heroOverlay && (
+          <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: hero.heroOverlay }} />
+        )}
         <VallettaFireflies
           originX={fireflies.originX}
           originY={fireflies.originY}
