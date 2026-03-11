@@ -383,8 +383,6 @@ const MaltaLicensePage = () => {
 };
 
 export default MaltaLicensePage;
-import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const FACTS = [
