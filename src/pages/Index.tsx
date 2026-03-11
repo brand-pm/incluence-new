@@ -6,6 +6,7 @@ import IndustriesTicker from "@/components/IndustriesTicker";
 import LicenseCategories from "@/components/LicenseCategories";
 import ServicesSection from "@/components/ServicesSection";
 import OurServicesSection from "@/components/OurServicesSection";
+import JurisdictionComparison from "@/components/sections/JurisdictionComparison";
 import ProcessSection from "@/components/ProcessSection";
 import JurisdictionsSection from "@/components/JurisdictionsSection";
 import MarketplaceTeaser from "@/components/MarketplaceTeaser";
@@ -51,6 +52,7 @@ const Index = () => (
     <LicenseCategories />
     <ProcessSection />
     <OurServicesSection />
+    <JurisdictionComparison />
     <JurisdictionsSection />
     <MarketplaceTeaser />
     <StatsBar />
