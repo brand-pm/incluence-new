@@ -383,9 +383,6 @@ const MaltaLicensePage = () => {
 };
 
 export default MaltaLicensePage;
-import Footer from "@/components/Footer";
-
-const FACTS = [
   { label: "JURISDICTION", value: "Malta", style: "text-[13px] font-medium text-[#F0EBE0]" },
   { label: "REGULATOR", value: "MGA", style: "text-[13px] font-semibold text-[#444CE7]" },
   { label: "LICENSE TYPE", value: "B2C / B2B Gaming", style: "text-[13px] font-medium text-[#F0EBE0]" },
