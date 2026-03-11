@@ -6,17 +6,17 @@ import type { ServiceCardData } from "./ServiceCard";
 
 const services: ServiceCardData[] = [
   {
-    num: "/01", title: "Company Formation & Structuring",
+    num: "/01", title: "International Company Formation & Offshore Structuring",
     desc: "Offshore and onshore company registration with optimal holding structures for tax efficiency and asset protection.",
     tags: ["Company", "Holding", "Offshore"],
   },
   {
-    num: "/02", title: "Licensing & Regulatory Approval",
+    num: "/02", title: "International Licensing & Regulatory Approval",
     desc: "Full-cycle license acquisition: preparation, filing, authority communication, and license maintenance.",
     tags: ["License", "Regulatory", "Compliance"],
   },
   {
-    num: "/03", title: "Tax Structuring",
+    num: "/03", title: "International Tax Structuring & Planning",
     desc: "International tax planning, transfer pricing, substance requirements, and daily tax advisory for global operations.",
     tags: ["Tax", "Planning", "Advisory"],
   },
