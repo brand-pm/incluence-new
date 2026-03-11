@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { ChevronDown, ChevronRight, Check } from "lucide-react";
 import NodePulse from "@/components/NodePulse";
 import MicroParticles from "@/components/MicroParticles";
@@ -215,12 +216,27 @@ const MaltaLicensePage = () => {
           { label: 'Timeline',     value: '~6 months', cls: 'text-[#F0EBE0]' },
           { label: 'Cost',         value: 'On request', cls: 'text-[#9A9590] italic' },
           { label: 'Renewal',      value: 'Extendable', cls: 'text-[#F0EBE0]' },
-        ].map(({ label, value, cls }) => (
-          <div key={label} className="bg-[#080808] p-7 group relative overflow-hidden cursor-default">
+        ].map(({ label, value, cls }, i) => (
+          <motion.div
+            key={label}
+            className="bg-[#080808] p-7 group relative overflow-hidden cursor-default"
+            style={{
+              backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.03) 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.4, delay: i * 0.07, ease: [0.25, 0.46, 0.45, 0.94] }}
+            whileHover={{ backgroundColor: "#0d0d0d" }}
+          >
+            {/* Scan sweep line on hover */}
+            <div className="scan-line" />
+            {/* Bottom accent slide */}
             <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
             <span className="block text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-3">{label}</span>
             <span className={`text-[15px] font-medium ${cls}`}>{value}</span>
-          </div>
+          </motion.div>
         ))}
       </div>
 
