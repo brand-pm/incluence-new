@@ -428,8 +428,8 @@ const Marketplace = () => {
                 { flag: "🇸🇨", name: "Seychelles" },
                 { flag: "🇸🇬", name: "Singapore" },
               ].map(j => (
-                <span key={j.name} style={{ fontSize: 13, color: "#9A9590" }}>
-                  {j.flag} {j.name}
+                <span key={j.name} className="flex items-center gap-1.5" style={{ fontSize: 13, color: "#9A9590" }}>
+                  <FlagEmojiGroup flag={j.flag} size={14} /> {j.name}
                 </span>
               ))}
             </div>
