@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SectionTag from "@/components/SectionTag";
+import FlagEmoji from "@/components/FlagEmoji";
 
 interface JurisdictionData {
   name: string;
