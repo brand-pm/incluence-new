@@ -1,10 +1,10 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ChevronDown, ChevronRight, Check } from "lucide-react";
 import NodePulse from "@/components/NodePulse";
 import MicroParticles from "@/components/MicroParticles";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
-import PacketCanvas, { type PacketNode } from "@/components/PacketCanvas";
+import VallettaFireflies from "@/components/VallettaFireflies";
 
 /* ── Malta-centric map: Malta is center, other jurisdictions radiate outward ── */
 const MALTA_NODES: PacketNode[] = [
