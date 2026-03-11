@@ -6,27 +6,27 @@ const cards = [
   {
     num: "01", icon: ShieldCheck, title: "Gambling & Gaming",
     desc: "MGA, Gibraltar, Curaçao, Estonia, Belize — online casino, sports betting, poker platforms",
-    count: "12 licenses available",
+    count: "12 licenses available", href: "/licenses/gambling",
   },
   {
     num: "02", icon: Zap, title: "Crypto & Blockchain",
     desc: "VASP, exchange, custody, DeFi — EU regulated and offshore jurisdictions including Estonia, Lithuania, Poland",
-    count: "9 licenses available",
+    count: "9 licenses available", href: "/licenses/crypto",
   },
   {
     num: "03", icon: CreditCard, title: "EMI & PSP",
     desc: "Electronic Money Institution and Payment Service Provider licenses — UK, Lithuania, Malta, Cyprus",
-    count: "8 licenses available",
+    count: "8 licenses available", href: "/licenses/emi",
   },
   {
     num: "04", icon: Building, title: "Company Formation",
     desc: "Offshore and onshore structures — BVI, Cayman, Seychelles, UK, HK, UAE Free Zone, Delaware",
-    count: "15 jurisdictions",
+    count: "15 jurisdictions", href: "/services/offshore",
   },
   {
     num: "05", icon: TrendingUp, title: "Investment & Funds",
     desc: "Investment firm licenses, fund registration, asset management — CySEC, CIMA, FSA, Cayman, BVI",
-    count: "6 licenses available",
+    count: "6 licenses available", href: "/services/funds",
   },
 ];
 
@@ -58,9 +58,9 @@ const LicenseCategories = () => (
         style={{ gap: 1, background: "rgba(255,255,255,0.06)" }}
       >
         {cards.map((card, i) => (
+          <Link key={card.num} to={card.href} style={{ textDecoration: "none" }}>
           <motion.div
-            key={card.num}
-            className="group relative flex flex-col cursor-pointer overflow-hidden"
+            className="group relative flex flex-col cursor-pointer overflow-hidden h-full"
             style={{ background: "#0d0d0d", padding: "32px 28px", transition: "background 0.3s" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,6 @@ const LicenseCategories = () => (
             onMouseEnter={(e) => (e.currentTarget.style.background = "#111111")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "#0d0d0d")}
           >
-            {/* Bottom border slide-in */}
             <div
               className="absolute bottom-0 left-0 w-full h-[2px]"
               style={{
@@ -103,6 +102,7 @@ const LicenseCategories = () => (
               {card.count}
             </span>
           </motion.div>
+          </Link>
         ))}
       </div>
     </div>
