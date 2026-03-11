@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import alexAvatar from "@/assets/alex-avatar.jpg";
 
 const INITIAL_MESSAGE = "Hi. I'm Alex, senior consultant at Incluence. What are you looking to set up — a license, offshore structure, or ready-made company?";
 const QUICK_REPLIES = ["Gambling License", "Crypto/VASP", "Offshore Company", "Ready-Made"];
