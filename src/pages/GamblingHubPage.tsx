@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, Shield, Users, Clock } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import SectionTag from "@/components/SectionTag";
 import NodePulse from "@/components/NodePulse";
 import MicroParticles from "@/components/MicroParticles";
