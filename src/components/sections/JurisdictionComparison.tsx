@@ -132,7 +132,7 @@ const JurisdictionComparison = () => {
                   cursor: 'pointer',
                 }}
               >
-                <span style={{ fontSize: 16 }}>{j.flag}</span>
+                <FlagEmoji flag={j.flag} size={16} />
                 {j.name}
               </button>
             );
