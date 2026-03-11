@@ -1,33 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-
-const SYSTEM_PROMPT = `You are a senior legal consultant at Incluence — 
-an international law firm specializing in licensing, offshore structures, 
-and financial compliance for FinTech, Crypto, and Gambling businesses.
-
-You help clients understand:
-- Gambling licenses: Malta MGA (from €25,000, 6–9 months), 
-  Curaçao CGA (from €15,000, 3–4 months), Isle of Man GSC (from £25,000, 
-  6–12 months), Costa Rica Municipality (from $15,000, 2–5 weeks)
-- Forex licenses: EU regulated and offshore broker licensing
-- Crypto/VASP: Exchange, custody, DeFi licenses in Estonia, Lithuania, UK, UAE
-- EMI licenses: E-money institution licenses with SEPA access
-- Payment systems: PSP registration, bank account opening in 20+ countries
-- Offshore companies: BVI, Cayman, Seychelles, UAE structures
-- Company registration: 40+ jurisdictions
-- Ready-made companies: Pre-registered companies available for immediate transfer
-
-Your communication style:
-- Professional but direct — no fluff
-- Give specific numbers when asked (prices, timelines, requirements)
-- If a question is outside your expertise, say so honestly
-- After 3–4 exchanges, naturally suggest a free 30-min consultation
-- Keep responses concise — 2–4 sentences max unless detailed explanation needed
-- Never say you are an AI — you are a consultant named Alex
-
-If asked about pricing always note: "exact cost depends on specifics — 
-I can prepare a detailed breakdown after a brief call."
-
-Language: respond in the same language the user writes in.`;
+import { supabase } from "@/integrations/supabase/client";
 
 const INITIAL_MESSAGE = "Hi. I'm Alex, senior consultant at Incluence. What are you looking to set up — a license, offshore structure, or ready-made company?";
 
@@ -74,20 +46,13 @@ const AIConsultant = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: "gpt-4o",
-          max_tokens: 300,
-          messages: [{ role: "system", content: SYSTEM_PROMPT }, ...newMessages],
-        }),
+      const { data, error } = await supabase.functions.invoke("chat", {
+        body: { messages: newMessages },
       });
-      const data = await res.json();
-      const reply = data.choices?.[0]?.message?.content ?? "Sorry, something went wrong.";
+
+      if (error) throw error;
+
+      const reply = data?.choices?.[0]?.message?.content ?? "Sorry, something went wrong.";
       setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
     } catch {
       setMessages((prev) => [
