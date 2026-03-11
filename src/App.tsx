@@ -38,7 +38,7 @@ const App = () => (
           <Routes>
             {/* ── LEVEL 1: Global ── */}
             <Route path="/" element={<Index />} />
-            <Route path="/marketplace" element={<ComingSoon title="Marketplace" />} />
+            <Route path="/marketplace" element={<MarketplacePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
 
