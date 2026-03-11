@@ -58,9 +58,9 @@ const LicenseCategories = () => (
         style={{ gap: 1, background: "rgba(255,255,255,0.06)" }}
       >
         {cards.map((card, i) => (
+          <Link key={card.num} to={card.href} style={{ textDecoration: "none" }}>
           <motion.div
-            key={card.num}
-            className="group relative flex flex-col cursor-pointer overflow-hidden"
+            className="group relative flex flex-col cursor-pointer overflow-hidden h-full"
             style={{ background: "#0d0d0d", padding: "32px 28px", transition: "background 0.3s" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,6 @@ const LicenseCategories = () => (
             onMouseEnter={(e) => (e.currentTarget.style.background = "#111111")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "#0d0d0d")}
           >
-            {/* Bottom border slide-in */}
             <div
               className="absolute bottom-0 left-0 w-full h-[2px]"
               style={{
@@ -103,6 +102,7 @@ const LicenseCategories = () => (
               {card.count}
             </span>
           </motion.div>
+          </Link>
         ))}
       </div>
     </div>
