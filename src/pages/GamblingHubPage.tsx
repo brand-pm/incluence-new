@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, Shield, Users, Clock } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import SectionTag from "@/components/SectionTag";
 import NodePulse from "@/components/NodePulse";
 import MicroParticles from "@/components/MicroParticles";
@@ -14,8 +14,7 @@ const HeroSection = () => (
     <div className="relative z-10 max-w-[560px]">
       <SectionTag>GAMBLING LICENSES</SectionTag>
       <h1
-        className="font-light text-[#F0EBE0]"
-        style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
+        className="text-[clamp(32px,4vw,56px)] font-light text-[#F0EBE0] leading-tight mt-6 mb-4"
       >
         Gambling licenses for operators that play long-term
       </h1>
@@ -122,7 +121,7 @@ const JurisdictionGrid = () => {
           <div
             key={j.title}
             onClick={() => navigate(j.route)}
-            className="bg-[#0d0d0d] p-7 relative overflow-hidden group cursor-pointer border-l-2 border-transparent hover:border-[#444CE7] transition-all duration-300"
+            className="bg-[#0d0d0d] p-7 relative overflow-hidden group cursor-pointer transition-all duration-300"
           >
             {/* bottom accent */}
             <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
@@ -214,7 +213,7 @@ const ProcessSection = () => {
         A structured process refined across 500+ client projects
       </p>
 
-      <div ref={containerRef} className="relative grid grid-cols-4 gap-px bg-[rgba(255,255,255,0.06)]">
+      <div ref={containerRef} className="relative grid grid-cols-2 gap-px bg-[rgba(255,255,255,0.06)]">
         <ProcessFlowCanvas />
         {STEPS.map((s, i) => (
           <div
@@ -271,7 +270,7 @@ const WhyUsSection = () => (
         },
       ].map((c) => (
         <div key={c.title} className="bg-[#080808] p-7">
-          <div className="text-[36px] font-light text-[#444CE7] mb-2">
+          <div className="text-[36px] font-light text-[#F0EBE0] mb-2">
             {c.num}
           </div>
           <div className="text-[14px] font-semibold text-[#F0EBE0] mb-2">
@@ -385,19 +384,13 @@ const ContactCTA = () => {
           </p>
           <div className="flex flex-col gap-4">
             {[
-              { Icon: Shield, text: "Fixed fee pricing — no hourly surprises" },
-              {
-                Icon: Users,
-                text: "Senior attorneys on every case, no juniors",
-              },
-              {
-                Icon: Clock,
-                text: "Response within 2 business hours, Mon–Fri",
-              },
-            ].map((t) => (
-              <div key={t.text} className="flex items-center gap-3">
-                <t.Icon size={16} className="text-[#444CE7] shrink-0" />
-                <span className="text-[13px] text-[#9A9590]">{t.text}</span>
+              "Fixed fee pricing — no hourly surprises",
+              "Senior attorneys on every case, no juniors",
+              "Response within 2 business hours, Mon–Fri",
+            ].map((text) => (
+              <div key={text} className="flex items-center gap-3">
+                <NodePulse />
+                <span className="text-[13px] text-[#9A9590]">{text}</span>
               </div>
             ))}
           </div>
