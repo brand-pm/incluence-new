@@ -5,86 +5,88 @@ import LicensePageTemplate from "@/components/LicensePageTemplate";
 const CostaRicaMapSvg = (
   <svg
     className="absolute pointer-events-none z-[1]"
-    viewBox="0 0 400 300"
-    xmlns="http://www.w3.org/2000/svg"
-    style={{
-      right: "8%",
-      top: "50%",
-      transform: "translateY(-50%)",
-      width: "460px",
-      height: "320px",
-      opacity: 0.13,
-      pointerEvents: "none",
-    }}
+    style={{ right: '12%', top: '50%', transform: 'translateY(-50%)', width: '480px', height: '560px' }}
+    viewBox="0 0 360 420" fill="none"
   >
-    <defs>
-      <filter id="cr-glow">
-        <feGaussianBlur stdDeviation="3" result="blur" />
-        <feMerge>
-          <feMergeNode in="blur" />
-          <feMergeNode in="SourceGraphic" />
-        </feMerge>
-      </filter>
-    </defs>
-    {/* Costa Rica simplified shape */}
-    <path
-      d="M 80,60 C 100,50 130,45 165,48 C 200,51 230,58 260,70 C 290,82 315,100 330,125 C 345,150 348,175 340,200 C 332,225 312,245 285,258 C 258,271 228,275 200,270 C 172,265 148,250 128,230 C 108,210 90,185 78,158 C 66,131 62,105 68,82 Z"
-      fill="#141822"
-      stroke="rgba(240,235,224,0.15)"
-      strokeWidth="1.5"
-    />
-    {/* Internal terrain lines */}
-    <path
-      d="M 100,90 C 140,85 180,88 220,95 C 260,102 290,115 310,135"
-      fill="none"
-      stroke="rgba(68,76,231,0.2)"
-      strokeWidth="0.5"
-    />
-    <path
-      d="M 90,120 C 130,112 175,110 220,115 C 265,120 298,135 318,158"
-      fill="none"
-      stroke="rgba(68,76,231,0.15)"
-      strokeWidth="0.5"
-    />
-    <path
-      d="M 88,150 C 120,140 165,137 210,142 C 255,147 286,162 305,182"
-      fill="none"
-      stroke="rgba(68,76,231,0.12)"
-      strokeWidth="0.5"
-    />
-    {/* San José capital marker */}
-    <circle cx="195" cy="152" r="5" fill="#444CE7" opacity="0.9" filter="url(#cr-glow)" />
-    <circle cx="195" cy="152" r="12" fill="none" stroke="#444CE7" strokeWidth="0.8" opacity="0.4">
-      <animate attributeName="r" values="8;18;8" dur="2.5s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="0.5;0;0.5" dur="2.5s" repeatCount="indefinite" />
+    {/* === MAIN COSTA RICA LANDMASS — NW-SE diagonal shape === */}
+    <path d="
+      M 85,65 C 90,58 100,52 115,48 C 130,44 148,42 168,45
+      C 188,48 205,55 220,65 C 235,75 248,88 258,102
+      C 268,116 275,132 280,150 C 285,168 288,186 288,205
+      C 288,224 284,242 276,258 C 268,274 256,288 242,298
+      C 228,308 212,314 195,316 C 178,318 160,316 145,310
+      C 130,304 118,294 108,280 C 98,266 90,248 85,228
+      C 80,208 78,186 78,165 C 78,144 80,124 84,106
+      C 88,88 82,72 85,65Z
+    " fill="#141822" stroke="rgba(240,235,224,0.15)" strokeWidth="1.2" />
+
+    {/* Nicoya Peninsula (northwest bulge) */}
+    <path d="
+      M 85,65 C 78,70 68,80 62,95 C 56,110 54,128 58,145
+      C 62,160 70,170 80,175 C 78,165 78,148 80,132
+      C 82,116 85,100 85,85Z
+    " fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
+
+    {/* Osa Peninsula (southwest) */}
+    <path d="
+      M 145,310 C 138,318 128,325 120,328 C 112,331 105,330 100,325
+      C 95,320 94,312 98,305 C 102,298 110,294 120,296
+      C 130,298 138,304 145,310Z
+    " fill="#141822" stroke="rgba(240,235,224,0.1)" strokeWidth="0.8" />
+
+    {/* === INTERNAL TERRAIN / MOUNTAIN RIDGES === */}
+    {/* Cordillera Central */}
+    <path d="M 105,80 C 130,90 160,105 190,125 C 220,145 248,168 268,195"
+      fill="none" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" />
+    <path d="M 95,110 C 125,118 155,132 185,150 C 215,168 242,190 262,215"
+      fill="none" stroke="rgba(240,235,224,0.05)" strokeWidth="0.5" />
+    <path d="M 88,145 C 118,150 148,162 178,178 C 208,194 235,215 255,240"
+      fill="none" stroke="rgba(240,235,224,0.05)" strokeWidth="0.5" />
+
+    {/* River lines */}
+    <path d="M 160,100 C 155,120 148,140 140,160"
+      fill="none" stroke="rgba(68,76,231,0.12)" strokeWidth="0.4" />
+    <path d="M 200,140 C 195,160 188,180 180,200"
+      fill="none" stroke="rgba(68,76,231,0.1)" strokeWidth="0.4" />
+    <path d="M 240,180 C 235,200 228,220 220,240"
+      fill="none" stroke="rgba(68,76,231,0.08)" strokeWidth="0.4" />
+
+    {/* === SAN JOSÉ — CAPITAL MARKER === */}
+    <circle cx="175" cy="155" r="5" fill="#444CE7" opacity="0.9" />
+    <circle cx="175" cy="155" r="12" stroke="#444CE7" strokeWidth="1" fill="none" opacity="0.4">
+      <animate attributeName="r" values="12;22;12" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.4;0.05;0.4" dur="3s" repeatCount="indefinite" />
     </circle>
-    <circle cx="195" cy="152" r="20" fill="none" stroke="#444CE7" strokeWidth="0.5" opacity="0.2">
-      <animate attributeName="r" values="14;26;14" dur="2.5s" begin="0.5s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="0.3;0;0.3" dur="2.5s" begin="0.5s" repeatCount="indefinite" />
+    <circle cx="175" cy="155" r="18" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.15">
+      <animate attributeName="r" values="18;30;18" dur="4s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.15;0;0.15" dur="4s" repeatCount="indefinite" />
     </circle>
-    {/* Municipality dot */}
-    <circle cx="230" cy="138" r="2" fill="rgba(97,114,243,0.6)" />
-    {/* City labels */}
-    <text x="202" y="148" fontSize="6" fill="rgba(240,235,224,0.3)" fontFamily="Manrope,sans-serif">
-      San José
-    </text>
-    <text x="235" y="135" fontSize="5" fill="rgba(240,235,224,0.2)" fontFamily="Manrope,sans-serif">
-      Alajuela
-    </text>
-    <text x="155" y="170" fontSize="5" fill="rgba(240,235,224,0.2)" fontFamily="Manrope,sans-serif">
-      Cartago
-    </text>
-    {/* Watermark */}
-    <text
-      x="140"
-      y="175"
-      fontSize="36"
-      fill="rgba(240,235,224,0.05)"
-      fontFamily="Manrope,sans-serif"
-      fontWeight="300"
-    >
-      Costa Rica
-    </text>
+    <text x="185" y="152" fill="#444CE7" fontSize="9" fontFamily="Manrope" fontWeight="600">San José</text>
+    <text x="185" y="163" fill="#444CE7" fontSize="7" fontFamily="Manrope" fontWeight="500" opacity="0.6">Capital</text>
+
+    {/* === SECONDARY CITY MARKERS === */}
+    {/* Alajuela */}
+    <circle cx="158" cy="138" r="2" fill="rgba(240,235,224,0.4)" />
+    <text x="135" y="135" fill="rgba(240,235,224,0.25)" fontSize="7" fontFamily="Manrope">Alajuela</text>
+
+    {/* Cartago */}
+    <circle cx="195" cy="168" r="2" fill="rgba(240,235,224,0.35)" />
+    <text x="200" y="172" fill="rgba(240,235,224,0.2)" fontSize="6.5" fontFamily="Manrope">Cartago</text>
+
+    {/* Limón (Caribbean coast) */}
+    <circle cx="255" cy="185" r="1.5" fill="rgba(240,235,224,0.3)" />
+    <text x="260" y="188" fill="rgba(240,235,224,0.2)" fontSize="6" fontFamily="Manrope">Limón</text>
+
+    {/* Liberia (northwest) */}
+    <circle cx="105" cy="82" r="1.5" fill="rgba(240,235,224,0.3)" />
+    <text x="82" y="78" fill="rgba(240,235,224,0.2)" fontSize="6" fontFamily="Manrope">Liberia</text>
+
+    {/* Puntarenas */}
+    <circle cx="120" cy="175" r="1.5" fill="rgba(240,235,224,0.3)" />
+    <text x="92" y="180" fill="rgba(240,235,224,0.2)" fontSize="6.5" fontFamily="Manrope">Puntarenas</text>
+
+    {/* === WATERMARK TEXT === */}
+    <text x="180" y="250" fill="rgba(240,235,224,0.08)" fontSize="28" fontFamily="Manrope" fontWeight="300" textAnchor="middle">Costa Rica</text>
   </svg>
 );
 
@@ -111,7 +113,7 @@ const CostaRicaLicensePage = () => (
         "linear-gradient(to right, #080808 45%, rgba(8,8,8,0.7) 65%, rgba(8,8,8,0) 100%)",
     }}
     mapSvg={CostaRicaMapSvg}
-    fireflies={{ originX: 55, originY: 50, count: 8 }}
+    fireflies={{ originX: 62, originY: 45, count: 10 }}
     facts={[
       { label: "Jurisdiction", value: "Costa Rica", cls: "text-[#F0EBE0]" },
       { label: "Regulator", value: "Municipality", cls: "text-[#444CE7] font-semibold" },
