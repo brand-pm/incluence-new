@@ -479,14 +479,6 @@ const Navbar = () => {
                         </div>
                       </div>
                     );
-                  })}
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </button>
-                  ))}
                 </div>
               </div>
 
