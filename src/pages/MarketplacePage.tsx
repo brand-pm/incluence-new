@@ -96,6 +96,19 @@ const StatusBadge = ({ status }: { status: string }) => {
   );
 };
 
+const scrollToCta = (company: Company) => {
+  const el = document.getElementById('marketplace-cta');
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => {
+    const jurInput = document.getElementById('cta-jurisdiction') as HTMLInputElement | null;
+    const typeInput = document.getElementById('cta-type') as HTMLInputElement | null;
+    const reqInput = document.getElementById('cta-requirements') as HTMLTextAreaElement | null;
+    if (jurInput) jurInput.value = company.country;
+    if (typeInput) typeInput.value = company.type;
+    if (reqInput) reqInput.value = `Interested in: ${company.country} ${company.type} (Est. ${company.reg}) — ${company.activity}. Listed at ${company.price}.`;
+  }, 600);
+};
+
 const MarketplacePage = () => {
   const [activeRegion, setActiveRegion] = useState("all");
   const [activeType, setActiveType] = useState("all");
@@ -245,7 +258,7 @@ const MarketplacePage = () => {
             {visible.map((c) => (
               <div
                 key={c.id}
-                className={`relative overflow-hidden group transition-colors duration-200 ${c.status === 'sold' ? 'opacity-50 pointer-events-none' : 'cursor-pointer'}`}
+                className={`relative overflow-hidden group transition-all duration-300 ${c.status === 'sold' ? 'opacity-50 pointer-events-none' : 'cursor-pointer'}`}
                 style={{ background: "#0d0d0d", padding: 28 }}
                 onMouseEnter={(e) => { if (c.status !== 'sold') e.currentTarget.style.background = "#111111"; }}
                 onMouseLeave={(e) => { if (c.status !== 'sold') e.currentTarget.style.background = "#0d0d0d"; }}
@@ -261,31 +274,45 @@ const MarketplacePage = () => {
                   </div>
                 )}
 
-                {/* New badge */}
-                {c.addedDays <= 3 && c.status === 'available' && (
-                  <div className="absolute" style={{ top: 12, left: 12, zIndex: 5 }}>
-                    <span style={{ fontSize: 9, color: "#080808", background: "#22c55e", padding: "2px 6px", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 600 }}>
-                      New
-                    </span>
-                  </div>
-                )}
-
-                {/* Top row */}
+                {/* Top row — flag + name left, badges right */}
                 <div className="flex justify-between items-start mb-5">
-                  <div>
+                  <div className="flex items-center gap-3">
                     <FlagEmojiGroup flag={getFlagEmoji(c.flag)} size={22} />
-                    <div style={{ fontSize: 16, fontWeight: 600, color: "#F0EBE0", marginTop: 4 }}>{c.country}</div>
-                    <div style={{ fontSize: 11, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: 2 }}>
-                      {c.type} · Est. {c.reg}
+                    <div>
+                      <div style={{ fontSize: 16, fontWeight: 600, color: "#F0EBE0" }}>{c.country}</div>
+                      <div style={{ fontSize: 11, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: 2 }}>
+                        {c.type} · Est. {c.reg}
+                      </div>
                     </div>
                   </div>
-                  <StatusBadge status={c.status} />
+                  <div className="flex flex-col items-end gap-1.5">
+                    <StatusBadge status={c.status} />
+                    {c.addedDays <= 3 && c.status === 'available' && (
+                      <span style={{ fontSize: 9, color: "#080808", background: "#22c55e", padding: "2px 6px", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 600 }}>
+                        New
+                      </span>
+                    )}
+                  </div>
                 </div>
 
-                {/* Middle */}
-                <div className="mb-5">
-                  <div style={{ fontSize: 12, color: "#9A9590", marginBottom: 12 }}>{c.activity}</div>
-                  <div className="space-y-1.5">
+                {/* Activity label */}
+                <div style={{ fontSize: 12, color: "#9A9590", marginBottom: 4 }}>{c.activity}</div>
+
+                {/* Features + Order — reveal on hover */}
+                <div
+                  className="transition-all duration-300 overflow-hidden"
+                  style={{ maxHeight: 0, opacity: 0 }}
+                  ref={(el) => {
+                    if (!el) return;
+                    const card = el.closest('.group');
+                    if (!card) return;
+                    const show = () => { el.style.maxHeight = '250px'; el.style.opacity = '1'; };
+                    const hide = () => { el.style.maxHeight = '0'; el.style.opacity = '0'; };
+                    card.addEventListener('mouseenter', show);
+                    card.addEventListener('mouseleave', hide);
+                  }}
+                >
+                  <div className="space-y-1.5 pt-2 mb-4">
                     {c.features.map((f) => (
                       <div key={f} className="flex items-center gap-2">
                         <div className="flex-shrink-0" style={{ width: 4, height: 4, background: "#444CE7" }} />
@@ -293,6 +320,27 @@ const MarketplacePage = () => {
                       </div>
                     ))}
                   </div>
+                  {c.status === 'available' && (
+                    <button
+                      onClick={(e) => { e.stopPropagation(); scrollToCta(c); }}
+                      className="w-full transition-colors duration-200 mb-3"
+                      style={{
+                        padding: "8px 16px",
+                        background: "#444CE7",
+                        color: "#fff",
+                        fontSize: 11,
+                        fontWeight: 500,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.08em",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = "#3538CD")}
+                      onMouseLeave={(e) => (e.currentTarget.style.background = "#444CE7")}
+                    >
+                      Inquire About This Company →
+                    </button>
+                  )}
                 </div>
 
                 {/* Bottom */}
@@ -301,8 +349,6 @@ const MarketplacePage = () => {
                     <span className="block" style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>Price</span>
                     <span style={{ fontSize: 17, fontWeight: 500, color: "#F0EBE0" }}>{c.price}</span>
                   </div>
-
-                  {/* Viewers indicator */}
                   {c.status === 'available' && c.viewers > 1 && (
                     <div className="flex items-center gap-2">
                       <div className="flex" style={{ gap: 2 }}>
@@ -313,7 +359,6 @@ const MarketplacePage = () => {
                       <span style={{ fontSize: 11, color: "#5A5550" }}>{c.viewers} viewing</span>
                     </div>
                   )}
-
                   <div className="text-right">
                     {c.status === 'reserved' && c.reservedAgo ? (
                       <>
@@ -331,6 +376,8 @@ const MarketplacePage = () => {
               </div>
             ))}
           </div>
+
+
 
           {/* Load More */}
           {visibleCount < sorted.length && (
@@ -411,7 +458,7 @@ const MarketplacePage = () => {
       </section>
 
       {/* === CTA === */}
-      <section style={{ background: "#080808", padding: "80px 48px" }}>
+      <section id="marketplace-cta" style={{ background: "#080808", padding: "80px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <div style={{ maxWidth: 600 }}>
             <SectionTag>Get Started</SectionTag>
@@ -423,9 +470,35 @@ const MarketplacePage = () => {
             </p>
 
             <div className="grid grid-cols-2 gap-5">
+              <div>
+                <label className="block" style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>
+                  Jurisdiction
+                </label>
+                <input
+                  id="cta-jurisdiction"
+                  type="text"
+                  placeholder="e.g. Malta, BVI, Singapore"
+                  className="w-full outline-none transition-colors duration-200"
+                  style={{ background: "#080808", border: "1px solid rgba(255,255,255,0.08)", color: "#F0EBE0", fontSize: 14, padding: "12px 16px" }}
+                  onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(68,76,231,0.5)")}
+                  onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)")}
+                />
+              </div>
+              <div>
+                <label className="block" style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>
+                  Company Type
+                </label>
+                <input
+                  id="cta-type"
+                  type="text"
+                  placeholder="e.g. Ltd, LLC, IBC"
+                  className="w-full outline-none transition-colors duration-200"
+                  style={{ background: "#080808", border: "1px solid rgba(255,255,255,0.08)", color: "#F0EBE0", fontSize: 14, padding: "12px 16px" }}
+                  onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(68,76,231,0.5)")}
+                  onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)")}
+                />
+              </div>
               {[
-                { label: "Jurisdiction", placeholder: "e.g. Malta, BVI, Singapore" },
-                { label: "Company Type", placeholder: "e.g. Ltd, LLC, IBC" },
                 { label: "Budget Range", placeholder: "e.g. €10,000 – €25,000" },
                 { label: "Timeline", placeholder: "e.g. Within 2 weeks" },
               ].map((field) => (
@@ -437,13 +510,7 @@ const MarketplacePage = () => {
                     type="text"
                     placeholder={field.placeholder}
                     className="w-full outline-none transition-colors duration-200"
-                    style={{
-                      background: "#080808",
-                      border: "1px solid rgba(255,255,255,0.08)",
-                      color: "#F0EBE0",
-                      fontSize: 14,
-                      padding: "12px 16px",
-                    }}
+                    style={{ background: "#080808", border: "1px solid rgba(255,255,255,0.08)", color: "#F0EBE0", fontSize: 14, padding: "12px 16px" }}
                     onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(68,76,231,0.5)")}
                     onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)")}
                   />
@@ -454,16 +521,10 @@ const MarketplacePage = () => {
                   Additional Requirements
                 </label>
                 <textarea
+                  id="cta-requirements"
                   placeholder="Additional requirements — activity, banking needs, existing licenses..."
                   className="w-full outline-none resize-none transition-colors duration-200"
-                  style={{
-                    background: "#080808",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    color: "#F0EBE0",
-                    fontSize: 14,
-                    padding: "12px 16px",
-                    minHeight: 90,
-                  }}
+                  style={{ background: "#080808", border: "1px solid rgba(255,255,255,0.08)", color: "#F0EBE0", fontSize: 14, padding: "12px 16px", minHeight: 90 }}
                   onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(68,76,231,0.5)")}
                   onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)")}
                 />
