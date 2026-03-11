@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import MicroParticles from "@/components/MicroParticles";
 import NodePulse from "@/components/NodePulse";
+import { FlagEmojiGroup } from "@/components/FlagEmoji";
 
 /* ── DATA ──────────────────────────────────────────────────────────── */
 interface License {
