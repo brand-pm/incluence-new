@@ -12,6 +12,8 @@ export interface PacketCanvasProps {
   routes: [string, string][];
   packetCount?: number;
   opacity?: number;
+  /** When true, packets spawn in synchronized waves instead of randomly */
+  synchronized?: boolean;
 }
 
 interface Packet {
