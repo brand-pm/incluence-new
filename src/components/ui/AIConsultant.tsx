@@ -247,15 +247,12 @@ const AIConsultant = () => {
           }}
         >
           <div className="flex items-center gap-3">
-            <div
-              className="w-9 h-9 flex items-center justify-center text-white text-[13px] font-semibold"
-              style={{
-                background: "linear-gradient(135deg, #444CE7 0%, #6366F1 100%)",
-                borderRadius: 0,
-              }}
-            >
-              A
-            </div>
+            <img
+              src={alexAvatar}
+              alt="Alex"
+              className="w-9 h-9 object-cover flex-shrink-0"
+              style={{ borderRadius: 0, border: "1px solid rgba(68,76,231,0.3)" }}
+            />
             <div>
               <div className="text-[13px] text-[#F0EBE0] font-medium leading-tight">
                 Alex · Incluence
