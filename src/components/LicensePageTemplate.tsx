@@ -14,13 +14,15 @@ export interface BreadcrumbItem {
 }
 
 export interface HeroData {
-  tag: string;         // e.g. "Gambling License"
-  subTag: string;      // e.g. "EU · MGA"
-  titleAccent: string; // highlighted word, e.g. "Malta"
-  titleRest: string;   // remaining, e.g. "Gaming\nLicense" — \n becomes <br/>
+  tag: string;
+  subTag: string;
+  titleAccent: string;
+  titleRest: string;
+  accentPosition?: 'start' | 'end'; // default 'start'
   description: string;
   cta1: string;
   cta2: string;
+  heroOverlay?: string; // optional CSS gradient overlay
 }
 
 export interface FactItem {
@@ -41,7 +43,11 @@ export interface FinalSteps {
 }
 
 export interface RequirementsData {
+  title?: string; // default "What you need to qualify"
   intro: string;
+  notRequiredTitle?: string;
+  notRequired?: string[];
+  additionalText?: string;
   docsTitle: string;
   docs: string[];
   checklistDocs: string[];
@@ -182,6 +188,9 @@ const LicensePageTemplate = ({
 
       {/* ── HERO ── */}
       <section className="bg-[#080808] py-[80px] px-12 relative overflow-hidden min-h-[560px]">
+        {hero.heroOverlay && (
+          <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: hero.heroOverlay }} />
+        )}
         <VallettaFireflies
           originX={fireflies.originX}
           originY={fireflies.originY}
@@ -202,13 +211,27 @@ const LicensePageTemplate = ({
             </div>
 
             <h1 className="text-[clamp(32px,4vw,52px)] font-light text-[#F0EBE0] leading-tight mb-5">
-              <span className="text-[#444CE7]">{hero.titleAccent}</span>{" "}
-              {titleParts.map((part, i) => (
-                <span key={i}>
-                  {part}
-                  {i < titleParts.length - 1 && <br />}
-                </span>
-              ))}
+              {hero.accentPosition === 'end' ? (
+                <>
+                  {titleParts.map((part, i) => (
+                    <span key={i}>
+                      {part}
+                      {i < titleParts.length - 1 && <br />}
+                    </span>
+                  ))}{" "}
+                  <span className="text-[#444CE7]">{hero.titleAccent}</span>
+                </>
+              ) : (
+                <>
+                  <span className="text-[#444CE7]">{hero.titleAccent}</span>{" "}
+                  {titleParts.map((part, i) => (
+                    <span key={i}>
+                      {part}
+                      {i < titleParts.length - 1 && <br />}
+                    </span>
+                  ))}
+                </>
+              )}
             </h1>
 
             <p className="text-[15px] text-[#9A9590] leading-relaxed mb-10 max-w-[520px]">
@@ -341,11 +364,34 @@ const LicensePageTemplate = ({
                 — Requirements
               </span>
               <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] mb-6">
-                What you need to qualify
+                {requirements.title || "What you need to qualify"}
               </h2>
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-8">
                 {requirements.intro}
               </p>
+
+              {requirements.notRequiredTitle && requirements.notRequired && (
+                <>
+                  <h3 className="text-[14px] font-semibold text-[#9A9590] mb-4 flex items-center gap-2">
+                    <NodePulse />
+                    {requirements.notRequiredTitle}
+                  </h3>
+                  <ul className="space-y-3 border-l border-[#5A5550]/30 pl-5 mb-8">
+                    {requirements.notRequired.map((d) => (
+                      <li key={d} className="text-[13px] text-[#5A5550] leading-relaxed">
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              {requirements.additionalText && (
+                <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-8">
+                  {requirements.additionalText}
+                </p>
+              )}
+
               <h3 className="text-[14px] font-semibold text-[#F0EBE0] mb-4 flex items-center gap-2">
                 <NodePulse />
                 {requirements.docsTitle}
