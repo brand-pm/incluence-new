@@ -7,6 +7,7 @@ export interface JurisdictionCardData {
   country: string;
   reg: string;
   license: string;
+  subtitle?: string;
   badge: string;
   badgeColor: string;
   price: string;
