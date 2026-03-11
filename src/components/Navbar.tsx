@@ -64,6 +64,7 @@ const Navbar = () => {
   const [cat, setCat] = useState<Category>("license");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
