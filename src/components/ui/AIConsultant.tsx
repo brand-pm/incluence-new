@@ -405,15 +405,12 @@ const AIConsultant = () => {
 /* ── Sub-components ── */
 
 const AvatarSmall = () => (
-  <div
-    className="w-6 h-6 flex items-center justify-center text-white text-[10px] font-semibold flex-shrink-0 mt-0.5"
-    style={{
-      background: "linear-gradient(135deg, #444CE7 0%, #6366F1 100%)",
-      borderRadius: 0,
-    }}
-  >
-    A
-  </div>
+  <img
+    src={alexAvatar}
+    alt="Alex"
+    className="w-6 h-6 object-cover flex-shrink-0 mt-0.5"
+    style={{ borderRadius: 0, border: "1px solid rgba(68,76,231,0.2)" }}
+  />
 );
 
 const AssistantBubble = ({ text }: { text: string }) => (
