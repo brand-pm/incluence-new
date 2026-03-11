@@ -94,7 +94,7 @@ const JURISDICTIONS: JCard[] = [
     badgeVariant: "default",
     regulator: "Municipality",
     title: "Costa Rica",
-    desc: "Data Processing license — fastest path to operation. No business plan, no financial reporting, income tax exempt for international operators. Ideal as interim solution.",
+    desc: "Data Processing license — fastest path to operation. No business plan, no financial reporting, income tax exempt for international operators.",
     cost: "From $15,000",
     timeline: "2–5 weeks",
     route: "/licenses/gambling/costa-rica",
