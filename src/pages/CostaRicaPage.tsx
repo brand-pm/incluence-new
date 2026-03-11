@@ -4,6 +4,7 @@ import { ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionTag from "@/components/SectionTag";
 import NodePulse from "@/components/NodePulse";
+import { FlagEmojiGroup } from "@/components/FlagEmoji";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
