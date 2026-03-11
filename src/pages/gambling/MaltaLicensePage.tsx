@@ -6,53 +6,53 @@ import MicroParticles from "@/components/MicroParticles";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 
 const steps = [
-  { num: "01", title: "Company registration in Malta", body: "It is necessary to register a local company, for which a license will subsequently be issued. You should select the name of the company, indicate the participants and provide their documents." },
-  { num: "02", title: "Account opening", body: "The company needs to open a bank account in order to deposit the share capital. Opening an account is a complex process that should be entrusted to professionals. A package of documents is collected and negotiations are conducted." },
-  { num: "03", title: "Contribution of authorized capital", body: "The exact amount of authorized capital depends on the type of the license. The beneficiary must provide documents on the source of origin of funds contributed as authorized capital upon bank's request." },
-  { num: "04", title: "Hiring required employees", body: "The company must have key positions employees, some of them must be local. We will help with the search and selection of employees." },
-  { num: "05", title: "Office rent", body: "Office rent is not mandatory, but having one will significantly increase your chances of obtaining a license. We will select a budget option that meets the requirements." },
-  { num: "06", title: "Preparation of documents for applying for a license", body: "It is necessary to prepare a business plan, and policies. In addition, application forms must be filled out. The client will only need to provide basic information, on the basis of which we will prepare documents, taking into account local legislation." },
-];
+{ num: "01", title: "Company registration in Malta", body: "It is necessary to register a local company, for which a license will subsequently be issued. You should select the name of the company, indicate the participants and provide their documents." },
+{ num: "02", title: "Account opening", body: "The company needs to open a bank account in order to deposit the share capital. Opening an account is a complex process that should be entrusted to professionals. A package of documents is collected and negotiations are conducted." },
+{ num: "03", title: "Contribution of authorized capital", body: "The exact amount of authorized capital depends on the type of the license. The beneficiary must provide documents on the source of origin of funds contributed as authorized capital upon bank's request." },
+{ num: "04", title: "Hiring required employees", body: "The company must have key positions employees, some of them must be local. We will help with the search and selection of employees." },
+{ num: "05", title: "Office rent", body: "Office rent is not mandatory, but having one will significantly increase your chances of obtaining a license. We will select a budget option that meets the requirements." },
+{ num: "06", title: "Preparation of documents for applying for a license", body: "It is necessary to prepare a business plan, and policies. In addition, application forms must be filled out. The client will only need to provide basic information, on the basis of which we will prepare documents, taking into account local legislation." }];
+
 
 const faqs = [
-  { q: "How to open an online casino in Malta?", a: "In order to open an online casino in Malta, you need to prepare a business plan, register a company, obtain a license, set up a technical base and open a bank account. You should carefully prepare all the documentation and correctly apply for a license for the online casino creation. These processes should be entrusted to professionals." },
-  { q: "What are the terms of registration of a gaming license in Malta?", a: "The company registration and the gambling license obtaining in Malta takes about 6 months." },
-  { q: "What documents are required to obtain a gaming license in Malta?", a: "In order to obtain a gambling license in Malta, you must submit: copies of passports and confirmation of the address of directors and shareholders of the company; documents confirming the experience and well-being of the company's participants; statutory documents of the company; technical documentation; company policies." },
-  { q: "What is the cost of obtaining a gambling license in Malta?", a: "Various factors (the list of services offered, the number of domains, etc.) affect the final cost of obtaining a license for a gambling business in Malta. You can find out the exact cost of obtaining a license for a gambling business in Malta by contacting our specialists." },
-];
+{ q: "How to open an online casino in Malta?", a: "In order to open an online casino in Malta, you need to prepare a business plan, register a company, obtain a license, set up a technical base and open a bank account. You should carefully prepare all the documentation and correctly apply for a license for the online casino creation. These processes should be entrusted to professionals." },
+{ q: "What are the terms of registration of a gaming license in Malta?", a: "The company registration and the gambling license obtaining in Malta takes about 6 months." },
+{ q: "What documents are required to obtain a gaming license in Malta?", a: "In order to obtain a gambling license in Malta, you must submit: copies of passports and confirmation of the address of directors and shareholders of the company; documents confirming the experience and well-being of the company's participants; statutory documents of the company; technical documentation; company policies." },
+{ q: "What is the cost of obtaining a gambling license in Malta?", a: "Various factors (the list of services offered, the number of domains, etc.) affect the final cost of obtaining a license for a gambling business in Malta. You can find out the exact cost of obtaining a license for a gambling business in Malta by contacting our specialists." }];
+
 
 const checklistDocs = [
-  "Passport copies — directors & shareholders",
-  "Address confirmation — directors & shareholders",
-  "Experience & background documentation",
-  "Company statutory documents",
-  "Technical platform documentation",
-  "Company policies (AML, responsible gambling)",
-];
+"Passport copies — directors & shareholders",
+"Address confirmation — directors & shareholders",
+"Experience & background documentation",
+"Company statutory documents",
+"Technical platform documentation",
+"Company policies (AML, responsible gambling)"];
+
 
 const reqDocs = [
-  "Copies of passports and confirmation of the address of directors and shareholders",
-  "Documents confirming the experience and well-being of the company's participants",
-  "Statutory documents of the company",
-  "Technical documentation",
-  "Company policies",
-  "Business plan",
-];
+"Copies of passports and confirmation of the address of directors and shareholders",
+"Documents confirming the experience and well-being of the company's participants",
+"Statutory documents of the company",
+"Technical documentation",
+"Company policies",
+"Business plan"];
+
 
 const related = [
-  { href: "/licenses/gambling/costa-rica", flag: "🇨🇷", reg: "Municipality", name: "Gambling License in Costa Rica", desc: "A Data Processing license allowing operators to legally organize online gambling. Fast and cost-effective entry." },
-  { href: "/licenses/gambling/isle-of-man", flag: "🇮🇲", reg: "GSC", name: "Gambling License of the Isle of Man", desc: "One of the most advanced telecommunications infrastructures. GSC licenses all gambling types under one permit." },
-  { href: "/licenses/gambling/curacao", flag: "🇨🇼", reg: "CGA", name: "Curacao Gaming License", desc: "Simple and business-friendly legislation. Low taxation, accessibility, and one of the shortest licensing timelines." },
-];
+{ href: "/licenses/gambling/costa-rica", flag: "🇨🇷", reg: "Municipality", name: "Gambling License in Costa Rica", desc: "A Data Processing license allowing operators to legally organize online gambling. Fast and cost-effective entry." },
+{ href: "/licenses/gambling/isle-of-man", flag: "🇮🇲", reg: "GSC", name: "Gambling License of the Isle of Man", desc: "One of the most advanced telecommunications infrastructures. GSC licenses all gambling types under one permit." },
+{ href: "/licenses/gambling/curacao", flag: "🇨🇼", reg: "CGA", name: "Curacao Gaming License", desc: "Simple and business-friendly legislation. Low taxation, accessibility, and one of the shortest licensing timelines." }];
+
 
 const factsRows = [
-  { label: "JURISDICTION", value: "Malta", cls: "text-[13px] font-medium text-[#F0EBE0]" },
-  { label: "REGULATOR", value: "MGA", cls: "text-[13px] font-semibold text-[#444CE7]" },
-  { label: "LICENSE VALID", value: "5 years", cls: "text-[13px] font-medium text-[#F0EBE0]" },
-  { label: "TIMELINE", value: "~6 months", cls: "text-[13px] font-medium text-[#F0EBE0]" },
-  { label: "COST", value: "On request", cls: "text-[13px] font-medium text-[#9A9590] italic" },
-  { label: "RENEWAL", value: "Extendable", cls: "text-[13px] font-medium text-[#F0EBE0]" },
-];
+{ label: "JURISDICTION", value: "Malta", cls: "text-[13px] font-medium text-[#F0EBE0]" },
+{ label: "REGULATOR", value: "MGA", cls: "text-[13px] font-semibold text-[#444CE7]" },
+{ label: "LICENSE VALID", value: "5 years", cls: "text-[13px] font-medium text-[#F0EBE0]" },
+{ label: "TIMELINE", value: "~6 months", cls: "text-[13px] font-medium text-[#F0EBE0]" },
+{ label: "COST", value: "On request", cls: "text-[13px] font-medium text-[#9A9590] italic" },
+{ label: "RENEWAL", value: "Extendable", cls: "text-[13px] font-medium text-[#F0EBE0]" }];
+
 
 const MaltaLicensePage = () => {
   const navigate = useNavigate();
@@ -99,9 +99,9 @@ const MaltaLicensePage = () => {
           className="absolute inset-0 pointer-events-none z-0 opacity-[0.03]"
           style={{
             backgroundImage: "radial-gradient(circle, #F0EBE0 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }}
-        />
+            backgroundSize: "24px 24px"
+          }} />
+        
         {/* Layer C — Malta island SVG */}
         <svg className="absolute right-[-40px] top-1/2 -translate-y-1/2 w-[420px] h-[420px] pointer-events-none z-0 opacity-[0.04]" viewBox="0 0 400 400" fill="none">
           <path d="M220 120 C240 110, 280 130, 290 160 C300 190, 310 240, 280 280 C260 310, 220 320, 200 310 C180 300, 160 270, 170 240 C175 220, 200 200, 210 180 C215 165, 205 135, 220 120Z" fill="#F0EBE0" />
@@ -151,31 +151,31 @@ const MaltaLicensePage = () => {
 
             {/* Right — Sticky Facts Card */}
             <div className="col-span-5">
-              <div className="sticky top-24 bg-[#0d0d0d] border border-white/[0.06] p-8 relative">
-                {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none">
-                  <div className="absolute top-0 right-0 w-full h-[1px] bg-[#444CE7]" />
-                  <div className="absolute top-0 right-0 h-full w-[1px] bg-[#444CE7]" />
-                </div>
+              
 
-                <div className="flex items-center gap-2.5 mb-6 pb-5 border-b border-white/[0.06]">
-                  <NodePulse />
-                  <span className="text-[13px] text-[#9A9590]">License data</span>
-                </div>
 
-                <div className="flex flex-col divide-y divide-white/[0.04]">
-                  {factsRows.map((r) => (
-                    <div key={r.label} className="flex justify-between items-center py-3">
-                      <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">{r.label}</span>
-                      <span className={r.cls}>{r.value}</span>
-                    </div>
-                  ))}
-                </div>
 
-                <button className="mt-7 w-full py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors border-0 cursor-pointer">
-                  Get a Free Quote →
-                </button>
-              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
             </div>
           </div>
         </div>
@@ -191,13 +191,13 @@ const MaltaLicensePage = () => {
           <div ref={containerRef} className="relative bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
             <ProcessFlowCanvas />
 
-            {steps.map((s, i) => (
-              <div key={s.num} ref={stepRefs[i]} data-step className="bg-[#111111] p-7">
+            {steps.map((s, i) =>
+            <div key={s.num} ref={stepRefs[i]} data-step className="bg-[#111111] p-7">
                 <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] block mb-3">{s.num}</span>
                 <h3 className="text-[15px] font-semibold text-[#F0EBE0] mb-2">{s.title}</h3>
                 <p className="text-[13px] text-[#9A9590] leading-relaxed">{s.body}</p>
               </div>
-            ))}
+            )}
 
             {/* Steps 7 & 8 — full width row */}
             <div className="col-span-3 bg-[rgba(255,255,255,0.06)]">
@@ -238,9 +238,9 @@ const MaltaLicensePage = () => {
               </h3>
 
               <ul className="space-y-3 border-l border-[#444CE7]/20 pl-5">
-                {reqDocs.map((d) => (
-                  <li key={d} className="text-[13px] text-[#9A9590] leading-relaxed">{d}</li>
-                ))}
+                {reqDocs.map((d) =>
+                <li key={d} className="text-[13px] text-[#9A9590] leading-relaxed">{d}</li>
+                )}
               </ul>
             </div>
 
@@ -249,14 +249,14 @@ const MaltaLicensePage = () => {
               <div className="sticky top-24 bg-[#111111] border border-white/[0.06] p-8">
                 <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-5">— Document Checklist</span>
                 <div className="space-y-4">
-                  {checklistDocs.map((d) => (
-                    <div key={d} className="flex items-start gap-3">
+                  {checklistDocs.map((d) =>
+                  <div key={d} className="flex items-start gap-3">
                       <div className="w-4 h-4 border border-[#444CE7]/40 bg-[#444CE7]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="w-2.5 h-2.5 text-[#444CE7]" />
                       </div>
                       <span className="text-[13px] text-[#9A9590]">{d}</span>
                     </div>
-                  ))}
+                  )}
                 </div>
                 <p className="text-[12px] text-[#5A5550] mt-6 leading-relaxed">
                   We prepare and verify all documents. You provide basic information — we handle the rest.
@@ -274,20 +274,20 @@ const MaltaLicensePage = () => {
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-14">Frequently asked questions</h2>
 
           <div className="max-w-[720px]">
-            {faqs.map((faq, i) => (
-              <div key={i} className="border-b border-white/[0.06]">
+            {faqs.map((faq, i) =>
+            <div key={i} className="border-b border-white/[0.06]">
                 <button
-                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  className="w-full flex justify-between items-center py-5 text-left bg-transparent border-0 cursor-pointer group"
-                >
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full flex justify-between items-center py-5 text-left bg-transparent border-0 cursor-pointer group">
+                
                   <span className="text-[14px] font-medium text-[#F0EBE0]">{faq.q}</span>
                   <ChevronDown className={`w-4 h-4 text-[#444CE7] transition-transform duration-200 flex-shrink-0 ml-4 ${openIndex === i ? "rotate-180" : ""}`} />
                 </button>
-                {openIndex === i && (
-                  <p className="text-[13px] text-[#9A9590] leading-relaxed pb-5">{faq.a}</p>
-                )}
+                {openIndex === i &&
+              <p className="text-[13px] text-[#9A9590] leading-relaxed pb-5">{faq.a}</p>
+              }
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -299,19 +299,19 @@ const MaltaLicensePage = () => {
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-14">Other gambling jurisdictions</h2>
 
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
-            {related.map((c) => (
-              <div
-                key={c.name}
-                onClick={() => navigate(c.href)}
-                className="bg-[#111111] p-7 cursor-pointer group relative overflow-hidden"
-              >
+            {related.map((c) =>
+            <div
+              key={c.name}
+              onClick={() => navigate(c.href)}
+              className="bg-[#111111] p-7 cursor-pointer group relative overflow-hidden">
+              
                 <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
                 <span className="text-[24px] block mb-4">{c.flag}</span>
                 <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] block mb-1">{c.reg}</span>
                 <h3 className="text-[16px] font-semibold text-[#F0EBE0] mb-2">{c.name}</h3>
                 <p className="text-[13px] text-[#9A9590]">{c.desc}</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -378,10 +378,8 @@ const MaltaLicensePage = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>);
+
 };
 
 export default MaltaLicensePage;
-
-
