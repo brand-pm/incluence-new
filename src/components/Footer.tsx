@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 
 const serviceLinks = [
-  "Company Formation", "Gambling Licenses", "Crypto / VASP", "EMI & PSP",
-  "Investment Licenses", "Tax Structuring", "Banking Setup", "AML / Compliance",
+  { label: "Offshore Company Formation", href: "/services/offshore" },
+  { label: "Gambling License", href: "/licenses/gambling" },
+  { label: "Crypto Exchange License", href: "/licenses/crypto" },
+  { label: "Forex Broker License", href: "/licenses/forex" },
+  { label: "EMI License", href: "/licenses/emi" },
+  { label: "Investment Licenses", href: "/services/funds" },
+  { label: "Tax Structuring", href: "/services/tax" },
+  { label: "Opening a Foreign Bank Account", href: "/services/bank-accounts" },
+  { label: "AML / Compliance", href: "/services/legal" },
 ];
 const jurisdictionLinks = [
   "Malta", "Gibraltar", "Cyprus", "Estonia", "United Kingdom", "Switzerland",
