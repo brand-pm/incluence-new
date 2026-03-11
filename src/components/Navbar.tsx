@@ -23,7 +23,7 @@ const NAV_DATA: Record<Category, { sublabel: string; items: { href: string; labe
     ],
   },
   payment: {
-    sublabel: "— PAYMENT SYSTEMS",
+    sublabel: "— PROVIDER PAYMENT SYSTEMS",
     items: [
       { href: "/services/payment", label: "Payment Systems", desc: "Full PSP registration", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="0"/><line x1="2" y1="10" x2="22" y2="10"/></svg>, tags: ["PSP", "SEPA", "SWIFT"] },
       { href: "/services/bank-accounts", label: "Bank Accounts", desc: "Corporate accounts in 20+ countries", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>, tags: ["EU", "Asia", "Offshore"] },
