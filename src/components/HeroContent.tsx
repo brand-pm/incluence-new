@@ -174,10 +174,10 @@ const HeroContent = () => (
         fontWeight: 300, lineHeight: 1.08, letterSpacing: "-0.03em",
         color: "#F0EBE0", margin: 0, marginBottom: 14,
       }} {...fade(0.4)}>
-        Legal clarity for{" "}
+        Legal structure, licensing &{" "}
         <br className="hidden xl:inline" />
-        businesses that{" "}
-        <em style={{ fontStyle: "italic", color: "#444CE7", fontWeight: 400 }}>operate</em>
+        compliance for businesses{" "}
+        <em style={{ fontStyle: "italic", color: "#444CE7", fontWeight: 400 }}>operating</em>
         {" "}beyond borders
       </motion.h1>
 
