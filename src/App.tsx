@@ -46,7 +46,7 @@ const App = () => (
             <Route path="/licenses/emi" element={<ComingSoon title="EMI Licenses" />} />
 
             {/* ── LEVEL 4: License detail pages ── */}
-            <Route path="/licenses/gambling/malta" element={<ComingSoon title="Malta / MGA License" />} />
+            <Route path="/licenses/gambling/malta" element={<MaltaLicensePage />} />
             <Route path="/licenses/gambling/curacao" element={<ComingSoon title="Curaçao Gaming License" />} />
             <Route path="/licenses/gambling/isle-of-man" element={<ComingSoon title="Isle of Man License" />} />
             <Route path="/licenses/gambling/costa-rica" element={<ComingSoon title="Costa Rica License" />} />
