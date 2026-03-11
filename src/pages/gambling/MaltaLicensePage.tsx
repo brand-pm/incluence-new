@@ -180,9 +180,7 @@ const MaltaLicensePage = () => {
         }} />
 
         <div className="max-w-screen-xl mx-auto relative z-10">
-          <div className="grid grid-cols-12 gap-12">
-            {/* Left */}
-            <div className="col-span-7">
+          <div className="max-w-[600px]">
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Gambling License</span>
                 <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">EU · MGA</span>
@@ -204,39 +202,27 @@ const MaltaLicensePage = () => {
                   View Requirements
                 </button>
               </div>
-            </div>
-
-            {/* Right — Sticky Facts Card */}
-            <div className="col-span-5">
-              
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              
-            </div>
           </div>
         </div>
       </section>
+
+      {/* ── FACTS STRIP ── */}
+      <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-6 gap-px">
+        {[
+          { label: 'Jurisdiction', value: 'Malta', cls: 'text-[#F0EBE0]' },
+          { label: 'Regulator',    value: 'MGA',   cls: 'text-[#444CE7] font-semibold' },
+          { label: 'License valid',value: '5 years',cls: 'text-[#F0EBE0]' },
+          { label: 'Timeline',     value: '~6 months', cls: 'text-[#F0EBE0]' },
+          { label: 'Cost',         value: 'On request', cls: 'text-[#9A9590] italic' },
+          { label: 'Renewal',      value: 'Extendable', cls: 'text-[#F0EBE0]' },
+        ].map(({ label, value, cls }) => (
+          <div key={label} className="bg-[#080808] p-7 group relative overflow-hidden cursor-default">
+            <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
+            <span className="block text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-3">{label}</span>
+            <span className={`text-[15px] font-medium ${cls}`}>{value}</span>
+          </div>
+        ))}
+      </div>
 
       {/* ── SECTION 3 — PROCESS ── */}
       <section className="bg-[#111111] py-[72px] px-12">
