@@ -83,7 +83,7 @@ const JURISDICTIONS: JCard[] = [
     badgeVariant: "secondary",
     regulator: "GSC",
     title: "Isle of Man",
-    desc: "High-prestige jurisdiction with advanced telecom infrastructure and strong international recognition. GSC licenses all gambling types under one permit.",
+    desc: "Tier-1 prestige license from the Gambling Supervision Commission. Covers all verticals under one permit. Trusted by top-tier operators worldwide.",
     cost: "From £25,000",
     timeline: "6–12 months",
     route: "/licenses/gambling/isle-of-man",
