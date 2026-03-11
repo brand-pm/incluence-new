@@ -192,7 +192,7 @@ const HeroContent = () => (
       {/* Service tags */}
       <motion.div className="flex flex-wrap" style={{ gap: 8, marginBottom: 28 }} {...fade(0.7)}>
         {serviceTags.map(t => (
-          <span key={t} className="service-tag" style={{ fontSize: 11, padding: "5px 12px", fontFamily: FONT, cursor: "default" }}>{t}</span>
+          <Link key={t.label} to={t.href} className="service-tag" style={{ fontSize: 11, padding: "5px 12px", fontFamily: FONT, cursor: "pointer", textDecoration: "none" }}>{t.label}</Link>
         ))}
       </motion.div>
 
