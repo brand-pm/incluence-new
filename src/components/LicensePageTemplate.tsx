@@ -14,13 +14,15 @@ export interface BreadcrumbItem {
 }
 
 export interface HeroData {
-  tag: string;         // e.g. "Gambling License"
-  subTag: string;      // e.g. "EU · MGA"
-  titleAccent: string; // highlighted word, e.g. "Malta"
-  titleRest: string;   // remaining, e.g. "Gaming\nLicense" — \n becomes <br/>
+  tag: string;
+  subTag: string;
+  titleAccent: string;
+  titleRest: string;
+  accentPosition?: 'start' | 'end'; // default 'start'
   description: string;
   cta1: string;
   cta2: string;
+  heroOverlay?: string; // optional CSS gradient overlay
 }
 
 export interface FactItem {
