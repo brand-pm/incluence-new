@@ -87,7 +87,7 @@ const JURISDICTIONS: JCard[] = [
     desc: "High-prestige jurisdiction with advanced telecom infrastructure and strong international recognition. GSC licenses all gambling types under one permit.",
     cost: "From £25,000",
     timeline: "6–12 months",
-    route: "/gambling/isle-of-man",
+    route: "/licenses/gambling/isle-of-man",
   },
   {
     flag: "🇨🇷",
