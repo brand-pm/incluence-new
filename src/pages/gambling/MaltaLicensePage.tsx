@@ -6,31 +6,33 @@ import MicroParticles from "@/components/MicroParticles";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import PacketCanvas, { type PacketNode } from "@/components/PacketCanvas";
 
-/* ── Malta-centric map nodes (% positions within hero container) ── */
+/* ── Malta-centric map: Malta is center, other jurisdictions radiate outward ── */
 const MALTA_NODES: PacketNode[] = [
-  { id: "malta",     x: 50, y: 45, tier: 1 },
-  { id: "uk",        x: 38, y: 18, tier: 1 },
-  { id: "gibraltar",  x: 28, y: 55, tier: 2 },
-  { id: "cyprus",     x: 72, y: 42, tier: 1 },
-  { id: "curacao",    x: 12, y: 68, tier: 2 },
-  { id: "isle-of-man",x: 35, y: 12, tier: 2 },
-  { id: "costa-rica", x: 8,  y: 45, tier: 2 },
-  { id: "estonia",    x: 58, y: 10, tier: 2 },
-  { id: "uae",        x: 82, y: 58, tier: 1 },
-  { id: "singapore",  x: 90, y: 72, tier: 2 },
-  { id: "swiss",      x: 42, y: 30, tier: 2 },
-  { id: "luxembourg", x: 40, y: 25, tier: 2 },
+  // Malta — center-right of hero, where the map sits
+  { id: "malta",      x: 62, y: 48, tier: 1 },
+  // Surrounding jurisdictions — spread to edges
+  { id: "uk",         x: 42, y: 8,  tier: 1 },
+  { id: "gibraltar",  x: 35, y: 52, tier: 2 },
+  { id: "cyprus",     x: 88, y: 38, tier: 1 },
+  { id: "curacao",    x: 8,  y: 75, tier: 2 },
+  { id: "isle-of-man",x: 30, y: 15, tier: 2 },
+  { id: "estonia",    x: 55, y: 5,  tier: 2 },
+  { id: "uae",        x: 92, y: 65, tier: 1 },
+  { id: "singapore",  x: 95, y: 85, tier: 2 },
+  { id: "swiss",      x: 45, y: 28, tier: 2 },
+  { id: "costa-rica", x: 5,  y: 40, tier: 2 },
+  { id: "luxembourg", x: 38, y: 22, tier: 2 },
 ];
 
+/* All routes go TO/FROM malta — packets clearly originate from the island */
 const MALTA_ROUTES: [string, string][] = [
   ["malta", "uk"], ["malta", "gibraltar"], ["malta", "cyprus"],
-  ["malta", "curacao"], ["malta", "isle-of-man"], ["malta", "costa-rica"],
-  ["malta", "estonia"], ["malta", "uae"], ["malta", "singapore"],
-  ["malta", "swiss"], ["malta", "luxembourg"],
+  ["malta", "curacao"], ["malta", "isle-of-man"], ["malta", "estonia"],
+  ["malta", "uae"], ["malta", "singapore"], ["malta", "swiss"],
+  ["malta", "costa-rica"], ["malta", "luxembourg"],
+  // Return routes — packets also arrive back to Malta
   ["uk", "malta"], ["cyprus", "malta"], ["uae", "malta"],
-  ["singapore", "malta"], ["curacao", "malta"], ["estonia", "malta"],
-  ["uk", "isle-of-man"], ["uk", "gibraltar"], ["swiss", "luxembourg"],
-  ["cyprus", "uae"], ["uae", "singapore"],
+  ["singapore", "malta"], ["curacao", "malta"], ["costa-rica", "malta"],
 ];
 
 const steps = [
