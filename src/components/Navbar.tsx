@@ -387,64 +387,99 @@ const Navbar = () => {
             <div className="flex" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
 
               {/* LEFT — Service cards */}
-              <div className="flex-1" style={{ background: "#080808", padding: "24px 28px" }}>
+              <div className="flex-1" style={{ background: "#080808", padding: "0" }}>
                 <div
                   key={cat}
-                  className="grid grid-cols-2 gap-px"
-                  style={{ background: "rgba(255,255,255,0.04)", animation: "tabFade 0.2s ease-out" }}
+                  className="grid grid-cols-2"
+                  style={{ gap: 1, background: "rgba(255,255,255,0.06)", animation: "tabFade 0.2s ease-out" }}
                 >
-                  {currentItems.map((item, i) => (
-                    <button
-                      key={item.href}
-                      onClick={() => go(item.href)}
-                      className="relative bg-[#080808] overflow-hidden flex flex-col px-5 py-5 text-left cursor-pointer w-full border-0 group hover:bg-[rgba(68,76,231,0.04)] transition-colors duration-150"
-                      style={{ fontFamily: "inherit" }}
-                    >
-                      {/* Scan line on hover */}
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none overflow-hidden">
+                  {currentItems.map((item, i) => {
+                    const cardRef = (el: HTMLDivElement | null) => {
+                      if (!el) return;
+                      let timer: ReturnType<typeof setTimeout>;
+                      el.onmouseenter = () => {
+                        el.style.background = "#0d0d0d";
+                        el.classList.remove("scanning");
+                        void el.offsetWidth;
+                        el.classList.add("scanning");
+                        clearTimeout(timer);
+                        timer = setTimeout(() => {
+                          el.classList.remove("scanning");
+                          el.classList.add("scan-done");
+                        }, 700);
+                      };
+                      el.onmouseleave = () => {
+                        el.style.background = "#080808";
+                        el.classList.remove("scanning", "scan-done");
+                        clearTimeout(timer);
+                      };
+                    };
+                    return (
+                      <div
+                        key={item.href}
+                        ref={cardRef}
+                        onClick={() => go(item.href)}
+                        className="service-card group relative overflow-hidden cursor-pointer"
+                        style={{
+                          background: "#080808",
+                          padding: "32px 28px",
+                          transition: "background 0.3s, border-color 0.3s",
+                          backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.03) 1px, transparent 1px)",
+                          backgroundSize: "24px 24px",
+                        }}
+                      >
+                        <div className="scan-line" />
+
+                        {/* Bottom accent border */}
                         <div
-                          className="absolute top-0 left-0 w-1/4 h-full opacity-0 group-hover:opacity-100"
+                          className="absolute bottom-0 left-0 w-full h-[2px]"
                           style={{
-                            background: "linear-gradient(90deg, transparent, rgba(68,76,231,0.06), transparent)",
-                            animation: "scanline 1.5s ease-in-out infinite",
+                            background: "#444CE7", transform: "scaleX(0)", transformOrigin: "left",
+                            transition: "transform 0.35s ease",
+                          }}
+                          ref={(el) => {
+                            if (!el) return;
+                            const parent = el.parentElement!;
+                            parent.addEventListener("mouseenter", () => (el.style.transform = "scaleX(1)"));
+                            parent.addEventListener("mouseleave", () => (el.style.transform = "scaleX(0)"));
                           }}
                         />
-                      </div>
 
-                      {/* Bottom accent line */}
-                      <div className="absolute bottom-0 left-0 h-[1px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
+                        <div className="flex items-center justify-between relative z-10">
+                          <span style={{ fontSize: 11, fontWeight: 500, color: "#444CE7", letterSpacing: "0.1em" }}>
+                            /{String(i + 1).padStart(2, "0")}
+                          </span>
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A9590" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                            className="group-hover:rotate-[-45deg] transition-transform duration-300"
+                            style={{ transition: "transform 0.3s, stroke 0.3s" }}
+                          >
+                            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                          </svg>
+                        </div>
 
-                      {/* Number */}
-                      <span className="text-[10px] text-[#5A5550] tracking-[0.1em] mb-2">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
+                        <h3 className="relative z-10" style={{ fontSize: 16, fontWeight: 600, color: "#F0EBE0", marginTop: 28, marginBottom: 10, lineHeight: 1.3 }}>
+                          {item.label}
+                        </h3>
+                        <p className="relative z-10" style={{ fontSize: 12, color: "#9A9590", lineHeight: 1.7, marginBottom: 16 }}>
+                          {item.desc}
+                        </p>
 
-                      {/* Icon */}
-                      <div className="w-8 h-8 flex items-center justify-center border border-white/[0.08] bg-white/[0.03] mb-3 text-[#5A5550] group-hover:text-[#444CE7] group-hover:border-[#444CE7]/30 group-hover:bg-[#444CE7]/10 transition-all duration-200">
-                        {item.icon}
-                      </div>
-
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-[13px] font-semibold text-[#F0EBE0]">{item.label}</span>
-                        <span className="text-[#444CE7] text-[11px] opacity-0 group-hover:opacity-100 transition-opacity ml-2">→</span>
-                      </div>
-                      <span className="text-[11px] text-[#5A5550] leading-snug mb-3">{item.desc}</span>
-
-                      {/* Tag chips */}
-                      {item.tags && (
-                        <div className="flex flex-wrap gap-1 mt-auto">
+                        <div className="flex flex-wrap gap-1.5 relative z-10">
                           {item.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="text-[9px] text-[#5A5550] border border-white/[0.06] px-1.5 py-0.5"
+                              style={{
+                                fontSize: 11, color: "#5A5550", padding: "3px 8px",
+                                border: "1px solid rgba(255,255,255,0.08)",
+                              }}
                             >
                               {tag}
                             </span>
                           ))}
                         </div>
-                      )}
-                    </button>
-                  ))}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
