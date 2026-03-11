@@ -1,6 +1,8 @@
 const row1 = [
   "Blockchain", "FinTech", "E-Commerce", "Gambling & Gaming", "Forex Brokerage",
   "Crypto Exchange", "Digital Assets", "Online Payments", "Dating Platforms", "iGaming",
+  "VASP License", "EMI License", "PSP License", "Company Formation", "Tax Structuring",
+  "Bank Account Opening", "Merchant Account", "Fund Registration", "Compliance AML", "Legal Support",
 ];
 const row2 = [
   "VASP License", "EMI License", "PSP License", "Company Formation", "Tax Structuring",
