@@ -458,7 +458,7 @@ const MarketplacePage = () => {
       </section>
 
       {/* === CTA === */}
-      <section style={{ background: "#080808", padding: "80px 48px" }}>
+      <section id="marketplace-cta" style={{ background: "#080808", padding: "80px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <div style={{ maxWidth: 600 }}>
             <SectionTag>Get Started</SectionTag>
