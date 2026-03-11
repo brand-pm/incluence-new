@@ -498,57 +498,55 @@ const Navbar = () => {
 
               {/* RIGHT — Featured sidebar */}
               <div className="flex flex-col gap-3 flex-shrink-0" style={{ width: 280, background: "#0d0d0d", padding: "24px 20px" }}>
+                {cat === 'license' && hoveredItem && LICENSE_PREVIEWS[hoveredItem]?.jurisdictions?.length > 0 ? (
+                  <LicensePreviewPanel jurisdictions={LICENSE_PREVIEWS[hoveredItem].jurisdictions} go={go} />
+                ) : (
+                  <>
+                    {/* Ready Made Companies */}
+                    <button
+                      onClick={() => go("/marketplace")}
+                      className="relative flex-1 bg-[#0a0a0a] border border-white/[0.06] p-5 text-left cursor-pointer group hover:border-[#444CE7]/25 transition-all duration-200 overflow-hidden"
+                      style={{ fontFamily: "inherit" }}
+                    >
+                      <div className="absolute bottom-0 left-0 h-[1px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
+                      <div className="absolute top-0 right-0 w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute top-0 right-0 w-full h-[1px] bg-[#444CE7]/40" />
+                        <div className="absolute top-0 right-0 w-[1px] h-full bg-[#444CE7]/40" />
+                      </div>
+                      <div className="absolute" style={{ top: 16, right: 16 }}>
+                        <NodePulse />
+                      </div>
+                      <span
+                        className="inline-block text-[9px] text-[#444CE7] uppercase tracking-[0.1em] border border-[#444CE7]/30 px-2 py-0.5 mb-3"
+                        style={{ background: "rgba(68,76,231,0.08)" }}
+                      >
+                        Popular
+                      </span>
+                      <p className="text-[13px] font-semibold text-[#F0EBE0] mb-1.5 pr-6" style={{ margin: 0, marginBottom: 6 }}>Ready Made Companies</p>
+                      <p className="text-[11px] text-[#9A9590] leading-relaxed mb-3" style={{ margin: 0, marginBottom: 12 }}>47 companies in 12 jurisdictions. Transfer in 3 days.</p>
+                      <span className="text-[11px] text-[#444CE7]">Browse listings →</span>
+                    </button>
 
-                {/* Ready Made Companies */}
-                <button
-                  onClick={() => go("/marketplace")}
-                  className="relative flex-1 bg-[#0a0a0a] border border-white/[0.06] p-5 text-left cursor-pointer group hover:border-[#444CE7]/25 transition-all duration-200 overflow-hidden"
-                  style={{ fontFamily: "inherit" }}
-                >
-                  <div className="absolute bottom-0 left-0 h-[1px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
-
-                  {/* Corner accent */}
-                  <div className="absolute top-0 right-0 w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="absolute top-0 right-0 w-full h-[1px] bg-[#444CE7]/40" />
-                    <div className="absolute top-0 right-0 w-[1px] h-full bg-[#444CE7]/40" />
-                  </div>
-
-                  <div className="absolute" style={{ top: 16, right: 16 }}>
-                    <NodePulse />
-                  </div>
-
-                  <span
-                    className="inline-block text-[9px] text-[#444CE7] uppercase tracking-[0.1em] border border-[#444CE7]/30 px-2 py-0.5 mb-3"
-                    style={{ background: "rgba(68,76,231,0.08)" }}
-                  >
-                    Popular
-                  </span>
-                  <p className="text-[13px] font-semibold text-[#F0EBE0] mb-1.5 pr-6" style={{ margin: 0, marginBottom: 6 }}>Ready Made Companies</p>
-                  <p className="text-[11px] text-[#9A9590] leading-relaxed mb-3" style={{ margin: 0, marginBottom: 12 }}>47 companies in 12 jurisdictions. Transfer in 3 days.</p>
-                  <span className="text-[11px] text-[#444CE7]">Browse listings →</span>
-                </button>
-
-                {/* Free Consultation */}
-                <button
-                  onClick={() => go("/contact")}
-                  className="relative flex-1 bg-[#0a0a0a] border border-white/[0.06] p-5 text-left cursor-pointer group hover:border-[#444CE7]/25 transition-all duration-200 overflow-hidden"
-                  style={{ fontFamily: "inherit" }}
-                >
-                  <div className="absolute bottom-0 left-0 h-[1px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
-
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="relative">
-                      <div className="w-1.5 h-1.5 bg-[#22c55e]" />
-                      <div className="absolute inset-0 w-1.5 h-1.5 bg-[#22c55e]" style={{ animation: "pd 2s ease-out infinite" }} />
-                    </div>
-                    <style>{`@keyframes pd{0%{transform:scale(1);opacity:.5}100%{transform:scale(2.5);opacity:0}}`}</style>
-                    <span className="text-[9px] text-[#22c55e] uppercase tracking-[0.1em]">Available now</span>
-                  </div>
-
-                  <p className="text-[13px] font-semibold text-[#F0EBE0] mb-1.5" style={{ margin: 0, marginBottom: 6 }}>Free Consultation</p>
-                  <p className="text-[11px] text-[#9A9590] leading-relaxed mb-3" style={{ margin: 0, marginBottom: 12 }}>30-min call with a senior attorney. No obligation.</p>
-                  <span className="text-[11px] text-[#444CE7]">Book a slot →</span>
-                </button>
+                    {/* Free Consultation */}
+                    <button
+                      onClick={() => go("/contact")}
+                      className="relative flex-1 bg-[#0a0a0a] border border-white/[0.06] p-5 text-left cursor-pointer group hover:border-[#444CE7]/25 transition-all duration-200 overflow-hidden"
+                      style={{ fontFamily: "inherit" }}
+                    >
+                      <div className="absolute bottom-0 left-0 h-[1px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="relative" style={{ width: 6, height: 6 }}>
+                          <div className="absolute inset-0 bg-[#22c55e]" />
+                          <div className="absolute inset-0 bg-[#22c55e]" style={{ animation: "pd 2s ease-out infinite" }} />
+                        </div>
+                        <span className="text-[9px] text-[#22c55e] uppercase tracking-[0.1em]">Available now</span>
+                      </div>
+                      <p className="text-[13px] font-semibold text-[#F0EBE0] mb-1.5" style={{ margin: 0, marginBottom: 6 }}>Free Consultation</p>
+                      <p className="text-[11px] text-[#9A9590] leading-relaxed mb-3" style={{ margin: 0, marginBottom: 12 }}>30-min call with a senior attorney. No obligation.</p>
+                      <span className="text-[11px] text-[#444CE7]">Book a slot →</span>
+                    </button>
+                  </>
+                )}
               </div>
             </div>
 
