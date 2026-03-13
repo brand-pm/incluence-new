@@ -5,7 +5,7 @@ const CuracaoLicensePage = () => (
     breadcrumbs={[
       { label: "Incluence", href: "/" },
       { label: "Licenses", href: "/licenses" },
-      { label: "Gambling", href: "/licenses/gambling" },
+      { label: "Gambling", href: "/gamble-license" },
       { label: "Curaçao Gaming License" },
     ]}
     hero={{
