@@ -50,7 +50,7 @@ const JURISDICTIONS = [
   {
     reg: "CGA", badge: "Popular", name: "Curaçao",
     desc: "The fastest and most cost-effective entry point. One sub-license covers all gambling types. No paid-up capital requirement. Remote application possible.",
-    price: "From €15,000", timeline: "3–4 months", href: "/licenses/gambling/curacao",
+    price: "From €15,000", timeline: "3–4 months", href: "/curacao-gaming-license",
   },
   {
     reg: "GSC", badge: "Tier 1", name: "Isle of Man",
