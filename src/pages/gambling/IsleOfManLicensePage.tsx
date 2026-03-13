@@ -5,7 +5,7 @@ const IsleOfManLicensePage = () => (
     breadcrumbs={[
       { label: "Incluence", href: "/" },
       { label: "Licenses", href: "/licenses" },
-      { label: "Gambling", href: "/licenses/gambling" },
+      { label: "Gambling", href: "/gamble-license" },
       { label: "Isle of Man Gaming License" },
     ]}
     hero={{
