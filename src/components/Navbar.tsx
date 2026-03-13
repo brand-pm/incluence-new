@@ -113,7 +113,7 @@ const LicensePreviewPanel = ({ jurisdictions, go }: { jurisdictions: Jurisdictio
     ))}
     <div className="mt-4 pt-3 border-t border-white/[0.06]">
       <button
-        onClick={() => go('/licenses/gambling')}
+        onClick={() => go('/gamble-license')}
         className="text-[11px] text-[#444CE7] hover:underline cursor-pointer bg-transparent border-0"
         style={{ fontFamily: "inherit" }}
       >

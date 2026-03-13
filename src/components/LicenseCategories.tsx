@@ -26,7 +26,7 @@ const cards = [
   {
     num: "05", icon: TrendingUp, title: "Investment & Funds",
     desc: "Investment firm licenses, fund registration, asset management — CySEC, CIMA, FSA, Cayman, BVI",
-    count: "6 licenses available", href: "/services/funds",
+    count: "6 licenses available", href: "/offshore-investment-funds",
   },
 ];
 
