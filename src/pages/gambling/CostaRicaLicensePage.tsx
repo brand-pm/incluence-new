@@ -142,7 +142,7 @@ const CostaRicaLicensePage = () => (
     relatedTitle="Other gambling jurisdictions"
     related={[
       {
-        href: "/licenses/gambling/malta",
+        href: "/malta-gaming-license",
         flag: "🇲🇹",
         reg: "MGA",
         name: "Malta Gaming License",
