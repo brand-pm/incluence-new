@@ -59,16 +59,16 @@ const PILLS = [
 ];
 
 const TAG_LINKS: Record<string, string> = {
-  'Malta': '/licenses/gambling/malta',
-  'Curaçao': '/licenses/gambling/curacao',
-  'Gibraltar': '/licenses/gambling/isle-of-man',
-  'Cyprus': '/licenses/crypto',
-  'BVI': '/services/offshore',
-  'Estonia': '/licenses/crypto',
-  'Lithuania': '/licenses/emi',
-  'UAE': '/services/offshore',
-  'UK': '/licenses/emi',
-  'HK': '/services/offshore',
+  'Malta': '/malta-gaming-license',
+  'Curaçao': '/curacao-gaming-license',
+  'Gibraltar': '/gambling-license-of-the-isle-of-man',
+  'Cyprus': '/cryptocurrency-exchange-license',
+  'BVI': '/offshore-company-formation',
+  'Estonia': '/cryptocurrency-exchange-license',
+  'Lithuania': '/emi-license',
+  'UAE': '/offshore-company-formation',
+  'UK': '/emi-license',
+  'HK': '/offshore-company-formation',
 };
 
 interface JurisdictionPreview {
