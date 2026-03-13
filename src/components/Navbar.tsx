@@ -76,15 +76,15 @@ interface JurisdictionPreview {
 }
 
 const LICENSE_PREVIEWS: Record<string, { jurisdictions: JurisdictionPreview[] }> = {
-  '/licenses/gambling': { jurisdictions: [
-    { reg: 'MGA', name: 'Malta', badge: 'EU Regulated', price: 'From €25,000', timeline: '6–9 months', href: '/gambling/malta' },
-    { reg: 'CGA', name: 'Curaçao', badge: 'Popular', price: 'From €15,000', timeline: '3–4 months', href: '/gambling/curacao' },
-    { reg: 'GSC', name: 'Isle of Man', badge: 'Tier 1', price: 'From £25,000', timeline: '6–12 months', href: '/gambling/isle-of-man' },
-    { reg: 'Municipality', name: 'Costa Rica', badge: 'Offshore', price: 'From $15,000', timeline: '2–5 weeks', href: '/gambling/costa-rica' },
+  '/gamble-license': { jurisdictions: [
+    { reg: 'MGA', name: 'Malta', badge: 'EU Regulated', price: 'From €25,000', timeline: '6–9 months', href: '/malta-gaming-license' },
+    { reg: 'CGA', name: 'Curaçao', badge: 'Popular', price: 'From €15,000', timeline: '3–4 months', href: '/curacao-gaming-license' },
+    { reg: 'GSC', name: 'Isle of Man', badge: 'Tier 1', price: 'From £25,000', timeline: '6–12 months', href: '/gambling-license-of-the-isle-of-man' },
+    { reg: 'Municipality', name: 'Costa Rica', badge: 'Offshore', price: 'From $15,000', timeline: '2–5 weeks', href: '/gambling-license-in-costa-rica' },
   ]},
-  '/licenses/forex': { jurisdictions: [] },
-  '/licenses/crypto': { jurisdictions: [] },
-  '/licenses/emi': { jurisdictions: [] },
+  '/forex-license': { jurisdictions: [] },
+  '/cryptocurrency-exchange-license': { jurisdictions: [] },
+  '/emi-license': { jurisdictions: [] },
 };
 
 const LicensePreviewPanel = ({ jurisdictions, go }: { jurisdictions: JurisdictionPreview[]; go: (href: string) => void }) => (
