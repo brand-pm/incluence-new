@@ -11,7 +11,7 @@ const cards = [
   {
     num: "02", icon: Zap, title: "Crypto & Blockchain",
     desc: "VASP, exchange, custody, DeFi — EU regulated and offshore jurisdictions including Estonia, Lithuania, Poland",
-    count: "9 licenses available", href: "/licenses/crypto",
+    count: "9 licenses available", href: "/cryptocurrency-exchange-license",
   },
   {
     num: "03", icon: CreditCard, title: "EMI & PSP",
