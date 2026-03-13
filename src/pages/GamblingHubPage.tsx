@@ -60,7 +60,7 @@ const JURISDICTIONS = [
   {
     reg: "Municipality", badge: "Offshore", name: "Costa Rica",
     desc: "Data Processing license — fastest path to operation. No business plan, no financial reporting, income tax exempt for international operators.",
-    price: "From $15,000", timeline: "2–5 weeks", href: "/licenses/gambling/costa-rica",
+    price: "From $15,000", timeline: "2–5 weeks", href: "/gambling-license-in-costa-rica",
   },
 ];
 

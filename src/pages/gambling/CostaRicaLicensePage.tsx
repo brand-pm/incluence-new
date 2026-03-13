@@ -156,7 +156,7 @@ const CostaRicaLicensePage = () => (
         desc: "Fast, affordable offshore license. Sub-license available in 4–8 weeks. Widely recognized globally.",
       },
       {
-        href: "/licenses/gambling/isle-of-man",
+        href: "/gambling-license-of-the-isle-of-man",
         flag: "🇮🇲",
         reg: "GSC",
         name: "Isle of Man License",

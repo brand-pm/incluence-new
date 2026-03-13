@@ -115,7 +115,7 @@ const CostaRicaPage = () => {
                 <Link to="/contact">Get a Free Quote →</Link>
               </Button>
               <Button asChild variant="outline" className="border-[hsl(var(--border-default))] text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--text-primary))] hover:border-[hsl(var(--border-hover))] px-6 py-2.5 text-xs font-medium uppercase tracking-wider rounded-none">
-                <Link to="/licenses/gambling">View All Gambling Licenses</Link>
+                <Link to="/gamble-license">View All Gambling Licenses</Link>
               </Button>
             </div>
           </div>
