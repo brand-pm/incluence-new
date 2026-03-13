@@ -112,7 +112,7 @@ const HeroContent = () => (
 
       <div className="flex gap-2.5">
         <motion.div {...fade(0.7)}>
-          <Link to="/licenses/gambling" className="inline-flex items-center gap-1.5"
+          <Link to="/gamble-license" className="inline-flex items-center gap-1.5"
             style={{ background: "#444CE7", color: "#fff", padding: "10px 18px", fontSize: 10, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>
             Start project <ArrowRight size={11} />
           </Link>
