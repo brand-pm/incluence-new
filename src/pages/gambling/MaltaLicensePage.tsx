@@ -68,7 +68,7 @@ const MaltaLicensePage = () => (
   <LicensePageTemplate
     breadcrumbs={[
       { label: "Incluence", href: "/" },
-      { label: "Gamble license", href: "/licenses/gambling" },
+      { label: "Gamble license", href: "/gamble-license" },
       { label: "Malta Gaming license" },
     ]}
     hero={{
