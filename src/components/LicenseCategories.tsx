@@ -6,7 +6,7 @@ const cards = [
   {
     num: "01", icon: ShieldCheck, title: "Gambling & Gaming",
     desc: "MGA, Gibraltar, Curaçao, Estonia, Belize — online casino, sports betting, poker platforms",
-    count: "12 licenses available", href: "/licenses/gambling",
+    count: "12 licenses available", href: "/gamble-license",
   },
   {
     num: "02", icon: Zap, title: "Crypto & Blockchain",
