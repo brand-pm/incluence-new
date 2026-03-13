@@ -7,7 +7,7 @@ const CostaRicaLicensePage = () => (
   <LicensePageTemplate
     breadcrumbs={[
       { label: "Incluence", href: "/" },
-      { label: "Gamble license", href: "/licenses/gambling" },
+      { label: "Gamble license", href: "/gamble-license" },
       { label: "Gambling License in Costa Rica" },
     ]}
     hero={{
