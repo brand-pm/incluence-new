@@ -149,7 +149,7 @@ const CostaRicaLicensePage = () => (
         desc: "EU-regulated, 5-year license from Malta Gaming Authority. Gold standard for European market entry.",
       },
       {
-        href: "/licenses/gambling/curacao",
+        href: "/curacao-gaming-license",
         flag: "🇨🇼",
         reg: "CGA",
         name: "Curacao Gaming License",
