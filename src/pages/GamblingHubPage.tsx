@@ -45,22 +45,22 @@ const JURISDICTIONS = [
   {
     reg: "MGA", badge: "EU Regulated", name: "Malta",
     desc: "Gold standard for EU operators. MGA license opens access to European payment systems, banking, and player markets. Valid 5 years, renewable.",
-    price: "From €25,000", timeline: "6–9 months", href: "/licenses/gambling/malta",
+    price: "From €25,000", timeline: "6–9 months", href: "/malta-gaming-license",
   },
   {
     reg: "CGA", badge: "Popular", name: "Curaçao",
     desc: "The fastest and most cost-effective entry point. One sub-license covers all gambling types. No paid-up capital requirement. Remote application possible.",
-    price: "From €15,000", timeline: "3–4 months", href: "/licenses/gambling/curacao",
+    price: "From €15,000", timeline: "3–4 months", href: "/curacao-gaming-license",
   },
   {
     reg: "GSC", badge: "Tier 1", name: "Isle of Man",
     desc: "Tier-1 prestige license from the Gambling Supervision Commission. Covers all verticals under one permit. Trusted by top-tier operators worldwide.",
-    price: "From £25,000", timeline: "6–12 months", href: "/licenses/gambling/isle-of-man",
+    price: "From £25,000", timeline: "6–12 months", href: "/gambling-license-of-the-isle-of-man",
   },
   {
     reg: "Municipality", badge: "Offshore", name: "Costa Rica",
     desc: "Data Processing license — fastest path to operation. No business plan, no financial reporting, income tax exempt for international operators.",
-    price: "From $15,000", timeline: "2–5 weeks", href: "/licenses/gambling/costa-rica",
+    price: "From $15,000", timeline: "2–5 weeks", href: "/gambling-license-in-costa-rica",
   },
 ];
 

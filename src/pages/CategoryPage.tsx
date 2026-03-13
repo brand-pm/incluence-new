@@ -36,7 +36,7 @@ const CategoryPage = () => {
           <div className="flex items-center text-body-xs text-muted-foreground" style={{ gap: "var(--space-2)", marginBottom: "var(--space-6)" }}>
             <Link to="/" className="hover:text-gold transition-colors">Home</Link>
             <ChevronRight size={12} />
-            <Link to="/licenses/gambling" className="hover:text-gold transition-colors">Licenses</Link>
+            <Link to="/gamble-license" className="hover:text-gold transition-colors">Licenses</Link>
             <ChevronRight size={12} />
             <span className="text-foreground">Gambling & Gaming</span>
           </div>
@@ -77,7 +77,7 @@ const CategoryPage = () => {
 
           <div className="grid grid-cols-1 gap-px bg-border md:grid-cols-3">
             {filtered.map((j) => (
-              <Link key={j.country} to="/licenses/gambling/malta" className="card-hover bg-card block" style={cardPad}>
+              <Link key={j.country} to="/malta-gaming-license" className="card-hover bg-card block" style={cardPad}>
                 <div className="flex items-start justify-between" style={{ marginBottom: "var(--space-5)" }}>
                   <span className="text-display-md">{j.flag}</span>
                   <div className="flex" style={{ gap: "var(--space-1)" }}>

@@ -86,7 +86,7 @@ const CostaRicaPage = () => {
         <div className="max-w-[1280px] mx-auto text-[11px] text-[hsl(var(--text-muted))]">
           <Link to="/" className="hover:text-[hsl(var(--text-secondary))] transition-colors">Incluence</Link>
           <span className="mx-1.5">/</span>
-          <Link to="/licenses/gambling" className="hover:text-[hsl(var(--text-secondary))] transition-colors">Gambling Licenses</Link>
+          <Link to="/gamble-license" className="hover:text-[hsl(var(--text-secondary))] transition-colors">Gambling Licenses</Link>
           <span className="mx-1.5">/</span>
           <span className="text-[hsl(var(--text-primary))]">Costa Rica</span>
         </div>
@@ -115,7 +115,7 @@ const CostaRicaPage = () => {
                 <Link to="/contact">Get a Free Quote →</Link>
               </Button>
               <Button asChild variant="outline" className="border-[hsl(var(--border-default))] text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--text-primary))] hover:border-[hsl(var(--border-hover))] px-6 py-2.5 text-xs font-medium uppercase tracking-wider rounded-none">
-                <Link to="/licenses/gambling">View All Gambling Licenses</Link>
+                <Link to="/gamble-license">View All Gambling Licenses</Link>
               </Button>
             </div>
           </div>

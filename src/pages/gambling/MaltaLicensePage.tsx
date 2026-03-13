@@ -68,7 +68,7 @@ const MaltaLicensePage = () => (
   <LicensePageTemplate
     breadcrumbs={[
       { label: "Incluence", href: "/" },
-      { label: "Gamble license", href: "/licenses/gambling" },
+      { label: "Gamble license", href: "/gamble-license" },
       { label: "Malta Gaming license" },
     ]}
     hero={{
@@ -150,9 +150,9 @@ const MaltaLicensePage = () => (
     relatedTag="— Related"
     relatedTitle="Other gambling jurisdictions"
     related={[
-      { href: "/licenses/gambling/costa-rica", flag: "🇨🇷", reg: "Municipality", name: "Gambling License in Costa Rica", desc: "A Data Processing license allowing operators to legally organize online gambling. Fast and cost-effective entry." },
-      { href: "/licenses/gambling/isle-of-man", flag: "🇮🇲", reg: "GSC", name: "Gambling License of the Isle of Man", desc: "One of the most advanced telecommunications infrastructures. GSC licenses all gambling types under one permit." },
-      { href: "/licenses/gambling/curacao", flag: "🇨🇼", reg: "CGA", name: "Curacao Gaming License", desc: "Simple and business-friendly legislation. Low taxation, accessibility, and one of the shortest licensing timelines." },
+      { href: "/gambling-license-in-costa-rica", flag: "🇨🇷", reg: "Municipality", name: "Gambling License in Costa Rica", desc: "A Data Processing license allowing operators to legally organize online gambling. Fast and cost-effective entry." },
+      { href: "/gambling-license-of-the-isle-of-man", flag: "🇮🇲", reg: "GSC", name: "Gambling License of the Isle of Man", desc: "One of the most advanced telecommunications infrastructures. GSC licenses all gambling types under one permit." },
+      { href: "/curacao-gaming-license", flag: "🇨🇼", reg: "CGA", name: "Curacao Gaming License", desc: "Simple and business-friendly legislation. Low taxation, accessibility, and one of the shortest licensing timelines." },
     ]}
     contact={{
       tag: "— Get in Touch",

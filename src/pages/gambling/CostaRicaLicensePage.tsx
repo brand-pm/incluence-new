@@ -7,7 +7,7 @@ const CostaRicaLicensePage = () => (
   <LicensePageTemplate
     breadcrumbs={[
       { label: "Incluence", href: "/" },
-      { label: "Gamble license", href: "/licenses/gambling" },
+      { label: "Gamble license", href: "/gamble-license" },
       { label: "Gambling License in Costa Rica" },
     ]}
     hero={{
@@ -142,21 +142,21 @@ const CostaRicaLicensePage = () => (
     relatedTitle="Other gambling jurisdictions"
     related={[
       {
-        href: "/licenses/gambling/malta",
+        href: "/malta-gaming-license",
         flag: "🇲🇹",
         reg: "MGA",
         name: "Malta Gaming License",
         desc: "EU-regulated, 5-year license from Malta Gaming Authority. Gold standard for European market entry.",
       },
       {
-        href: "/licenses/gambling/curacao",
+        href: "/curacao-gaming-license",
         flag: "🇨🇼",
         reg: "CGA",
         name: "Curacao Gaming License",
         desc: "Fast, affordable offshore license. Sub-license available in 4–8 weeks. Widely recognized globally.",
       },
       {
-        href: "/licenses/gambling/isle-of-man",
+        href: "/gambling-license-of-the-isle-of-man",
         flag: "🇮🇲",
         reg: "GSC",
         name: "Isle of Man License",

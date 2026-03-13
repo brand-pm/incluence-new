@@ -31,7 +31,7 @@ const ServicePage = () => (
         <div className="flex items-center text-body-xs text-muted-foreground" style={{ gap: "var(--space-2)", marginBottom: "var(--space-6)" }}>
           <Link to="/" className="hover:text-gold transition-colors">Home</Link>
           <ChevronRight size={12} />
-          <Link to="/licenses/gambling" className="hover:text-gold transition-colors">Gambling Licenses</Link>
+          <Link to="/gamble-license" className="hover:text-gold transition-colors">Gambling Licenses</Link>
           <ChevronRight size={12} />
           <span className="text-foreground">Malta MGA</span>
         </div>
@@ -123,7 +123,7 @@ const ServicePage = () => (
             <ul style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
               {otherJurisdictions.map((j) => (
                 <li key={j.country}>
-                  <Link to="/licenses/gambling" className="flex justify-between text-body-sm hover:text-gold transition-colors">
+                  <Link to="/gamble-license" className="flex justify-between text-body-sm hover:text-gold transition-colors">
                     <span>{j.country}</span>
                     <span className="text-gold">{j.price}</span>
                   </Link>

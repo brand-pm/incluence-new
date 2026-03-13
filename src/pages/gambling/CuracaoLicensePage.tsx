@@ -5,7 +5,7 @@ const CuracaoLicensePage = () => (
     breadcrumbs={[
       { label: "Incluence", href: "/" },
       { label: "Licenses", href: "/licenses" },
-      { label: "Gambling", href: "/licenses/gambling" },
+      { label: "Gambling", href: "/gamble-license" },
       { label: "Curaçao Gaming License" },
     ]}
     hero={{
@@ -98,9 +98,9 @@ const CuracaoLicensePage = () => (
     relatedTag="— Related"
     relatedTitle="Other gambling jurisdictions"
     related={[
-      { href: "/licenses/gambling/malta", flag: "🇲🇹", reg: "MGA", name: "Malta Gaming License", desc: "EU gold standard. 5-year license, full access to European payment systems and player markets." },
-      { href: "/licenses/gambling/isle-of-man", flag: "🇮🇲", reg: "GSC", name: "Isle of Man License", desc: "Tier-1 prestige. Advanced telecom infrastructure, strong international recognition." },
-      { href: "/licenses/gambling/costa-rica", flag: "🇨🇷", reg: "Municipality", name: "Costa Rica License", desc: "Fastest entry. Data Processing license in 2–5 weeks. No capital requirements, tax-exempt offshore." },
+      { href: "/malta-gaming-license", flag: "🇲🇹", reg: "MGA", name: "Malta Gaming License", desc: "EU gold standard. 5-year license, full access to European payment systems and player markets." },
+      { href: "/gambling-license-of-the-isle-of-man", flag: "🇮🇲", reg: "GSC", name: "Isle of Man License", desc: "Tier-1 prestige. Advanced telecom infrastructure, strong international recognition." },
+      { href: "/gambling-license-in-costa-rica", flag: "🇨🇷", reg: "Municipality", name: "Costa Rica License", desc: "Fastest entry. Data Processing license in 2–5 weeks. No capital requirements, tax-exempt offshore." },
     ]}
     contact={{
       tag: "— Get in Touch",
