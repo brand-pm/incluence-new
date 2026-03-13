@@ -55,7 +55,7 @@ const JURISDICTIONS = [
   {
     reg: "GSC", badge: "Tier 1", name: "Isle of Man",
     desc: "Tier-1 prestige license from the Gambling Supervision Commission. Covers all verticals under one permit. Trusted by top-tier operators worldwide.",
-    price: "From £25,000", timeline: "6–12 months", href: "/licenses/gambling/isle-of-man",
+    price: "From £25,000", timeline: "6–12 months", href: "/gambling-license-of-the-isle-of-man",
   },
   {
     reg: "Municipality", badge: "Offshore", name: "Costa Rica",
