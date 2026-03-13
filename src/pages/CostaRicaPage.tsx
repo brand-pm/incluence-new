@@ -86,7 +86,7 @@ const CostaRicaPage = () => {
         <div className="max-w-[1280px] mx-auto text-[11px] text-[hsl(var(--text-muted))]">
           <Link to="/" className="hover:text-[hsl(var(--text-secondary))] transition-colors">Incluence</Link>
           <span className="mx-1.5">/</span>
-          <Link to="/licenses/gambling" className="hover:text-[hsl(var(--text-secondary))] transition-colors">Gambling Licenses</Link>
+          <Link to="/gamble-license" className="hover:text-[hsl(var(--text-secondary))] transition-colors">Gambling Licenses</Link>
           <span className="mx-1.5">/</span>
           <span className="text-[hsl(var(--text-primary))]">Costa Rica</span>
         </div>
