@@ -1,22 +1,27 @@
 import { Link } from "react-router-dom";
 
 const serviceLinks = [
-  { label: "Offshore Company Formation", href: "/services/offshore" },
-  { label: "Gambling License", href: "/licenses/gambling" },
-  { label: "Crypto Exchange License", href: "/licenses/crypto" },
-  { label: "Forex Broker License", href: "/licenses/forex" },
-  { label: "EMI License", href: "/licenses/emi" },
-  { label: "Investment Licenses", href: "/services/funds" },
-  { label: "Tax Structuring", href: "/services/tax" },
-  { label: "Opening a Foreign Bank Account", href: "/services/bank-accounts" },
-  { label: "AML / Compliance", href: "/services/legal" },
+  { label: "Offshore Company Formation", href: "/offshore-company-formation" },
+  { label: "Gambling License", href: "/gamble-license" },
+  { label: "Crypto Exchange License", href: "/cryptocurrency-exchange-license" },
+  { label: "Forex Broker License", href: "/forex-license" },
+  { label: "EMI License", href: "/emi-license" },
+  { label: "Investment Licenses", href: "/offshore-investment-funds" },
+  { label: "Tax Structuring", href: "/finance-reporting" },
+  { label: "Opening a Foreign Bank Account", href: "/accounts-bank" },
+  { label: "AML / Compliance", href: "/legal-business" },
 ];
 const jurisdictionLinks = [
   "Malta", "Gibraltar", "Cyprus", "Estonia", "United Kingdom", "Switzerland",
   "Hong Kong", "Singapore", "UAE", "Cayman Islands", "BVI", "Seychelles",
 ];
 const companyLinks = [
-  "About Us", "How We Work", "Marketplace", "Affiliate Program", "Blog", "Contact",
+  { label: "About Us", href: "/about-us" },
+  { label: "How We Work", href: "/about-us" },
+  { label: "Marketplace", href: "/marketplace" },
+  { label: "Affiliate Program", href: "/affiliate-program" },
+  { label: "Blog", href: "/" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const colHeading: React.CSSProperties = {
@@ -72,7 +77,7 @@ const Footer = () => (
         <div style={colHeading}>Company</div>
         <div className="flex flex-col" style={{ gap: 10 }}>
           {companyLinks.map((s) => (
-            <Link key={s} to="/" style={linkStyle} className="hover:!text-foreground">{s}</Link>
+            <Link key={s.label} to={s.href} style={linkStyle} className="hover:!text-foreground">{s.label}</Link>
           ))}
         </div>
       </div>
@@ -88,9 +93,9 @@ const Footer = () => (
     >
       <span style={{ fontSize: 12, color: "#5A5550" }}>© 2024 Incluence Ltd. All rights reserved.</span>
       <div className="flex gap-4" style={{ fontSize: 12 }}>
-        <Link to="/" style={{ color: "#5A5550", textDecoration: "none", transition: "color 0.2s" }} className="hover:!text-muted-foreground">Privacy Policy</Link>
+        <Link to="/privacy-policy" style={{ color: "#5A5550", textDecoration: "none", transition: "color 0.2s" }} className="hover:!text-muted-foreground">Privacy Policy</Link>
         <span style={{ color: "#5A5550" }}>·</span>
-        <Link to="/" style={{ color: "#5A5550", textDecoration: "none", transition: "color 0.2s" }} className="hover:!text-muted-foreground">Terms of Service</Link>
+        <Link to="/cookie-policy" style={{ color: "#5A5550", textDecoration: "none", transition: "color 0.2s" }} className="hover:!text-muted-foreground">Terms of Service</Link>
       </div>
     </div>
   </footer>
