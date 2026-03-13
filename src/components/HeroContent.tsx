@@ -198,7 +198,7 @@ const HeroContent = () => (
 
       {/* Buttons */}
       <motion.div className="flex gap-3.5" style={{ marginBottom: 32 }} {...fade(0.8)}>
-        <Link to="/licenses/gambling" className="inline-flex items-center gap-2"
+        <Link to="/gamble-license" className="inline-flex items-center gap-2"
           style={{ background: "#444CE7", color: "#fff", padding: "12px 24px", fontSize: 11, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none" }}>
           Start your project <ArrowRight size={13} />
         </Link>

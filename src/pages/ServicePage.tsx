@@ -123,7 +123,7 @@ const ServicePage = () => (
             <ul style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
               {otherJurisdictions.map((j) => (
                 <li key={j.country}>
-                  <Link to="/licenses/gambling" className="flex justify-between text-body-sm hover:text-gold transition-colors">
+                  <Link to="/gamble-license" className="flex justify-between text-body-sm hover:text-gold transition-colors">
                     <span>{j.country}</span>
                     <span className="text-gold">{j.price}</span>
                   </Link>
