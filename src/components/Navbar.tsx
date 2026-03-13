@@ -52,10 +52,10 @@ const NAV_DATA: Record<Category, { sublabel: string; items: { href: string; labe
 };
 
 const PILLS = [
-  { label: "Gambling · MGA", href: "/licenses/gambling" },
-  { label: "Estonia · VASP", href: "/licenses/crypto" },
-  { label: "UK · EMI", href: "/licenses/emi" },
-  { label: "BVI · Offshore", href: "/services/offshore" },
+  { label: "Gambling · MGA", href: "/gamble-license" },
+  { label: "Estonia · VASP", href: "/cryptocurrency-exchange-license" },
+  { label: "UK · EMI", href: "/emi-license" },
+  { label: "BVI · Offshore", href: "/offshore-company-formation" },
 ];
 
 const TAG_LINKS: Record<string, string> = {
