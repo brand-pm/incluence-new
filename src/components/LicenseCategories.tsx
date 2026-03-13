@@ -21,7 +21,7 @@ const cards = [
   {
     num: "04", icon: Building, title: "Company Formation",
     desc: "Offshore and onshore structures — BVI, Cayman, Seychelles, UK, HK, UAE Free Zone, Delaware",
-    count: "15 jurisdictions", href: "/services/offshore",
+    count: "15 jurisdictions", href: "/offshore-company-formation",
   },
   {
     num: "05", icon: TrendingUp, title: "Investment & Funds",
