@@ -45,7 +45,7 @@ const JURISDICTIONS = [
   {
     reg: "MGA", badge: "EU Regulated", name: "Malta",
     desc: "Gold standard for EU operators. MGA license opens access to European payment systems, banking, and player markets. Valid 5 years, renewable.",
-    price: "From €25,000", timeline: "6–9 months", href: "/licenses/gambling/malta",
+    price: "From €25,000", timeline: "6–9 months", href: "/malta-gaming-license",
   },
   {
     reg: "CGA", badge: "Popular", name: "Curaçao",
