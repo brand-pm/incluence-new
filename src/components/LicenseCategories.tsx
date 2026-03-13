@@ -16,7 +16,7 @@ const cards = [
   {
     num: "03", icon: CreditCard, title: "EMI & PSP",
     desc: "Electronic Money Institution and Payment Service Provider licenses — UK, Lithuania, Malta, Cyprus",
-    count: "8 licenses available", href: "/licenses/emi",
+    count: "8 licenses available", href: "/emi-license",
   },
   {
     num: "04", icon: Building, title: "Company Formation",
