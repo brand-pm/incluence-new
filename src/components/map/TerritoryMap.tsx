@@ -81,7 +81,7 @@ const MARKERS: Record<string, { coords: [number, number]; label: string }> = {
   BG: { coords: [23.32,  42.70], label: 'Sofia'       },
 }
 
-/* ── Fireflies canvas ─────────────────────────────────── */
+/* ── Fireflies canvas — full-screen, flies outward ────── */
 
 const Fireflies = ({
   originX, originY, count = 14
@@ -95,67 +95,77 @@ const Fireflies = ({
     let raf: number, W = 0, H = 0
 
     type FF = {
-      x: number; y: number; ox: number; oy: number
-      vx: number; vy: number; spd: number
-      maxD: number; returning: boolean
+      x: number; y: number
+      vx: number; vy: number
       trail: { x: number; y: number }[]
       alpha: number
+      spd: number
     }
     const flies: FF[] = []
 
     const spawn = (): FF => {
       const angle = Math.random() * Math.PI * 2
-      const spd = 0.3 + Math.random() * 1.1
-      const maxD = 60 + Math.random() * 160
+      const spd = 0.4 + Math.random() * 0.8
       return {
-        x: originX, y: originY,
-        ox: originX, oy: originY,
+        x: originX + (Math.random() - 0.5) * 20,
+        y: originY + (Math.random() - 0.5) * 20,
         vx: Math.cos(angle) * spd,
         vy: Math.sin(angle) * spd,
-        spd, maxD, returning: false,
-        trail: [], alpha: 0.5 + Math.random() * 0.5,
+        spd,
+        trail: [],
+        alpha: 0.4 + Math.random() * 0.5,
       }
     }
 
     const resize = () => {
       W = c.offsetWidth; H = c.offsetHeight
       c.width = W * dpr; c.height = H * dpr
-      ctx.scale(dpr, dpr)
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
 
+    // stagger initial spawns across the screen
     for (let i = 0; i < count; i++) {
       const f = spawn()
-      f.x = originX + (Math.random() - 0.5) * 40
-      f.y = originY + (Math.random() - 0.5) * 40
+      // scatter some already in-flight
+      const progress = Math.random() * 0.7
+      f.x = originX + f.vx * progress * 300
+      f.y = originY + f.vy * progress * 300
       flies.push(f)
     }
+
+    const isOutOfBounds = (f: FF) =>
+      f.x < -30 || f.x > W + 30 || f.y < -30 || f.y > H + 30
 
     const draw = () => {
       ctx.clearRect(0, 0, W, H)
 
-      for (const f of flies) {
+      for (let fi = 0; fi < flies.length; fi++) {
+        const f = flies[fi]
+
+        // slight drift for organic feel
+        f.vx += (Math.random() - 0.5) * 0.01
+        f.vy += (Math.random() - 0.5) * 0.01
+
+        f.x += f.vx
+        f.y += f.vy
+
         f.trail.unshift({ x: f.x, y: f.y })
-        if (f.trail.length > 10) f.trail.pop()
+        if (f.trail.length > 14) f.trail.pop()
 
-        const dist = Math.hypot(f.x - f.ox, f.y - f.oy)
-
-        if (!f.returning) {
-          f.x += f.vx; f.y += f.vy
-          if (dist >= f.maxD) {
-            f.returning = true
-            const back = Math.atan2(f.oy - f.y, f.ox - f.x)
-            f.vx = Math.cos(back) * f.spd * 0.8
-            f.vy = Math.sin(back) * f.spd * 0.8
-          }
-        } else {
-          f.x += f.vx; f.y += f.vy
-          if (dist < 4) {
-            Object.assign(f, spawn())
-          }
+        // when it leaves the screen, respawn from origin
+        if (isOutOfBounds(f)) {
+          flies[fi] = spawn()
+          continue
         }
 
+        // fade alpha based on distance from origin
+        const dist = Math.hypot(f.x - originX, f.y - originY)
+        const maxDist = Math.max(W, H) * 0.7
+        const fadedAlpha = f.alpha * Math.max(0, 1 - dist / maxDist)
+
+        // draw trail
         for (let i = 1; i < f.trail.length; i++) {
-          const a = ((1 - i / f.trail.length) * f.alpha * 0.6)
+          const a = (1 - i / f.trail.length) * fadedAlpha * 0.5
           ctx.beginPath()
           ctx.moveTo(f.trail[i - 1].x, f.trail[i - 1].y)
           ctx.lineTo(f.trail[i].x, f.trail[i].y)
@@ -164,14 +174,16 @@ const Fireflies = ({
           ctx.stroke()
         }
 
-        const g = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, 5)
-        g.addColorStop(0, `rgba(68,76,231,${f.alpha})`)
+        // glow dot
+        const g = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, 6)
+        g.addColorStop(0, `rgba(68,76,231,${fadedAlpha})`)
         g.addColorStop(1, 'rgba(68,76,231,0)')
-        ctx.beginPath(); ctx.arc(f.x, f.y, 5, 0, Math.PI * 2)
+        ctx.beginPath(); ctx.arc(f.x, f.y, 6, 0, Math.PI * 2)
         ctx.fillStyle = g; ctx.fill()
 
+        // bright core
         ctx.beginPath(); ctx.arc(f.x, f.y, 1.2, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(180,190,255,${f.alpha})`; ctx.fill()
+        ctx.fillStyle = `rgba(180,190,255,${fadedAlpha})`; ctx.fill()
       }
 
       raf = requestAnimationFrame(draw)
@@ -186,7 +198,7 @@ const Fireflies = ({
     <canvas
       ref={ref}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 0 }}
+      style={{ zIndex: 5 }}
     />
   )
 }
@@ -232,13 +244,10 @@ export const TerritoryMap = ({
   return (
     <div
       ref={wrapRef}
-      className={`absolute right-[5%] top-1/2 -translate-y-1/2 pointer-events-none z-[2] ${className}`}
-      style={{ width: '460px', height: '520px' }}
+      className={`absolute right-[5%] top-1/2 -translate-y-1/2 pointer-events-none ${className}`}
+      style={{ width: '460px', height: '520px', zIndex: 2 }}
     >
-      {marker && (
-        <Fireflies originX={origin.x} originY={origin.y} count={14} />
-      )}
-
+      {/* Map layer — below fireflies */}
       <ComposableMap
         projection="geoMercator"
         projectionConfig={proj}
@@ -299,6 +308,11 @@ export const TerritoryMap = ({
           </Marker>
         )}
       </ComposableMap>
+
+      {/* Fireflies layer — ABOVE map */}
+      {marker && (
+        <Fireflies originX={origin.x} originY={origin.y} count={14} />
+      )}
     </div>
   )
 }
