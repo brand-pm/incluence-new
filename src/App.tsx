@@ -83,9 +83,9 @@ const App = () => (
             <Route path="/gambling-license-cyprus" element={<PlaceholderPage title="Cyprus Gambling License" />} />
 
             {/* ── Forex detail ── */}
-            <Route path="/cyprus-forex-license" element={<PlaceholderPage title="Cyprus Forex License" />} />
+            <Route path="/cyprus-forex-license" element={<CyprusForexPage />} />
             <Route path="/forex-broker-licence-in-malta" element={<PlaceholderPage title="Malta Forex License" />} />
-            <Route path="/forex-broker-licence-in-vanuatu" element={<PlaceholderPage title="Vanuatu Forex License" />} />
+            <Route path="/forex-broker-licence-in-vanuatu" element={<VanuatuForexPage />} />
             <Route path="/forex-broker-licence-in-mauritius" element={<PlaceholderPage title="Mauritius Forex License" />} />
             <Route path="/forex-broker-licence-in-montenegro" element={<PlaceholderPage title="Montenegro Forex License" />} />
             <Route path="/forex-license-seychelles" element={<PlaceholderPage title="Seychelles Financial License" />} />
