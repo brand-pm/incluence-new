@@ -20,6 +20,8 @@ import ForexHubPage from "./pages/ForexHubPage";
 import CyprusForexPage from "./pages/CyprusForexPage";
 import VanuatuForexPage from "./pages/VanuatuForexPage";
 import MontenegroForexPage from "./pages/MontenegroForexPage";
+import MaltaForexPage from "./pages/MaltaForexPage";
+import MauritiusForexPage from "./pages/MauritiusForexPage";
 import CryptoHubPage from "./pages/CryptoHubPage";
 import EstoniaCryptoPage from "./pages/EstoniaCryptoPage";
 import LithuaniaCryptoPage from "./pages/LithuaniaCryptoPage";
@@ -88,9 +90,9 @@ const App = () => (
 
             {/* ── Forex detail ── */}
             <Route path="/cyprus-forex-license" element={<CyprusForexPage />} />
-            <Route path="/forex-broker-licence-in-malta" element={<PlaceholderPage title="Malta Forex License" />} />
+            <Route path="/forex-broker-licence-in-malta" element={<MaltaForexPage />} />
             <Route path="/forex-broker-licence-in-vanuatu" element={<VanuatuForexPage />} />
-            <Route path="/forex-broker-licence-in-mauritius" element={<PlaceholderPage title="Mauritius Forex License" />} />
+            <Route path="/forex-broker-licence-in-mauritius" element={<MauritiusForexPage />} />
             <Route path="/forex-broker-licence-in-montenegro" element={<MontenegroForexPage />} />
             <Route path="/forex-license-seychelles" element={<PlaceholderPage title="Seychelles Financial License" />} />
 
