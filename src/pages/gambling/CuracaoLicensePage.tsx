@@ -1,4 +1,5 @@
 import LicensePageTemplate from "@/components/LicensePageTemplate";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 
 const CuracaoLicensePage = () => (
   <LicensePageTemplate
