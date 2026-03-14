@@ -204,12 +204,10 @@ const OffshoreFormationPage = () => {
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">How Offshore Registration Works</h2>
           <div ref={containerRef} className="relative">
-            <ProcessFlowCanvas containerRef={containerRef} stepRefs={[s1, s2, s3, s4]} />
+            <ProcessFlowCanvas />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[rgba(255,255,255,0.06)] relative z-[2]">
-              {STEPS.map((step, i) => {
-                const refs = [s1, s2, s3, s4];
-                return (
-                  <div key={i} ref={refs[i]} className="bg-[#0d0d0d] p-7 group relative overflow-hidden">
+              {STEPS.map((step, i) => (
+                <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden">
                     <ScanSweep />
                     <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.1em] mb-3">{step.num}</span>
                     <h3 className="text-[15px] font-semibold text-[#F0EBE0] mb-2">{step.title}</h3>
