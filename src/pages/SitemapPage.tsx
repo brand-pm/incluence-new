@@ -65,7 +65,7 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Hong Kong Payment License", url: "/hong-kong-payment-system-license", status: "planned", category: "Payment" },
 
   // ── OFFSHORE ──
-  { title: "Offshore Company (Hub)", url: "/offshore-company-formation", status: "planned", category: "Offshore" },
+  { title: "Offshore Company (Hub)", url: "/offshore-company-formation", status: "done", category: "Offshore" },
   { title: "BVI Offshore", url: "/offshore-in-the-british-virgin-islands", status: "planned", category: "Offshore" },
   { title: "Cayman Islands Offshore", url: "/offshore-in-the-cayman-islands", status: "planned", category: "Offshore" },
   { title: "Seychelles Offshore", url: "/offshore-company-formation-in-seychelles", status: "planned", category: "Offshore" },
