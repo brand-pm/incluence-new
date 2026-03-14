@@ -29,6 +29,7 @@ import MaltaCryptoPage from "./pages/MaltaCryptoPage";
 import SwitzerlandCryptoPage from "./pages/SwitzerlandCryptoPage";
 import PolandCryptoPage from "./pages/PolandCryptoPage";
 import USACryptoPage from "./pages/USACryptoPage";
+import EmiHubPage from "./pages/EmiHubPage";
 
 const queryClient = new QueryClient();
 
@@ -67,7 +68,7 @@ const App = () => (
             <Route path="/gamble-license" element={<GamblingHubPage />} />
             <Route path="/forex-license" element={<ForexHubPage />} />
             <Route path="/cryptocurrency-exchange-license" element={<CryptoHubPage />} />
-            <Route path="/emi-license" element={<PlaceholderPage title="EMI License" />} />
+            <Route path="/emi-license" element={<EmiHubPage />} />
 
             {/* ── Service pages ── */}
             <Route path="/provider-payment-systems" element={<PlaceholderPage title="Payment Systems" />} />
