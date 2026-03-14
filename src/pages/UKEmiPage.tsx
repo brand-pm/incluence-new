@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Check, X } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
