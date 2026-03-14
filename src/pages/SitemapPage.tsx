@@ -16,10 +16,10 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Homepage", url: "/", status: "done", category: "Core" },
   { title: "About Us", url: "/about-us", status: "done", category: "Core" },
   { title: "Marketplace", url: "/marketplace", status: "done", category: "Core" },
-  { title: "Affiliate Program", url: "/affiliate-program", status: "planned", category: "Core" },
+  { title: "Affiliate Program", url: "/affiliate-program", status: "done", category: "Core" },
   { title: "Contact", url: "/contact", status: "done", category: "Core" },
-  { title: "Privacy Policy", url: "/privacy-policy", status: "planned", category: "Core" },
-  { title: "Cookie Policy", url: "/cookie-policy", status: "planned", category: "Core" },
+  { title: "Privacy Policy", url: "/privacy-policy", status: "done", category: "Core" },
+  { title: "Cookie Policy", url: "/cookie-policy", status: "done", category: "Core" },
 
   // ── GAMBLING ──
   { title: "Gambling License (Hub)", url: "/gamble-license", status: "done", category: "Gambling" },
