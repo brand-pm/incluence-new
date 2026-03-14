@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, ChevronRight, Check, X, Globe, Landmark, Users } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
+import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
 const useCounter = (target: number, duration = 1200) => {
   const [val, setVal] = useState(0);
@@ -271,17 +272,7 @@ const CyprusForexPage = () => {
         </div>
       </section>
 
-      <section style={{ background: "#111111" }}>
-        <div className="max-w-screen-xl mx-auto py-[72px] px-12">
-          <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— Related Licenses</span>
-          <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-12">Other Jurisdictions</h2>
-          <div className="grid grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
-            {RELATED.map((r, i) => (
-              <Link key={i} to={r.href} className="bg-[#111111] p-7 group relative overflow-hidden block"><CornerAccent /><ScanSweep /><div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-500" /><span className="text-[10px] text-[#444CE7]/60 uppercase tracking-[0.12em] block mb-2">{r.reg}</span><h3 className="text-[18px] font-light text-[#F0EBE0] mb-3">{r.name}</h3><p className="text-[13px] text-[#9A9590] leading-[1.7]">{r.desc}</p></Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RelatedJurisdictions items={RELATED} />
 
       <section style={{ background: "#080808" }}>
         <div className="max-w-screen-xl mx-auto py-[88px] px-12 grid grid-cols-12 gap-12">

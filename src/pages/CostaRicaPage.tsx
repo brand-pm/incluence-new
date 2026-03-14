@@ -6,6 +6,7 @@ import SectionTag from "@/components/SectionTag";
 import NodePulse from "@/components/NodePulse";
 import { FlagEmojiGroup } from "@/components/FlagEmoji";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
+import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -69,9 +70,9 @@ const FAQS = [
 ];
 
 const RELATED = [
-  { flag: "🇲🇹", jurisdiction: "Malta / MGA", badge: "EU Regulated", badgeColor: "text-[hsl(142_71%_45%)]", badgeBg: "bg-[hsl(142_71%_45%/0.1)]", badgeBorder: "border-[hsl(142_71%_45%/0.3)]", desc: "Gold standard for EU operators. Full access to European payment systems and banking.", cost: "From €25,000", timeline: "6–9 months", to: "/gambling/malta" },
-  { flag: "🇨🇼", jurisdiction: "Curaçao / CGA", badge: "Popular", badgeColor: "text-[hsl(var(--accent))]", badgeBg: "bg-[hsl(var(--accent-dim))]", badgeBorder: "border-[hsl(var(--accent-border))]", desc: "Fast and affordable offshore license. Widely accepted by payment providers globally.", cost: "From €15,000", timeline: "4–8 weeks", to: "/gambling/curacao" },
-  { flag: "🇬🇮", jurisdiction: "Gibraltar / GBGA", badge: "Tier 1", badgeColor: "text-[hsl(var(--accent))]", badgeBg: "bg-[hsl(var(--accent-dim))]", badgeBorder: "border-[hsl(var(--accent-border))]", desc: "High prestige license for serious operators. Strong banking and payments access.", cost: "From £25,000", timeline: "4–6 months", to: "/gambling/gibraltar" },
+  { href: "/malta-gaming-license", reg: "MGA", name: "Malta", desc: "EU gold standard. Full European market access. 6–9 months, from €25,000." },
+  { href: "/curacao-gaming-license", reg: "CGA", name: "Curaçao", desc: "Fast and affordable offshore license. Widely accepted by payment providers globally. 4–8 weeks, from €15,000." },
+  { href: "/gambling-license-gibraltar", reg: "GBGA", name: "Gibraltar", desc: "High prestige license for serious operators. Strong banking and payments access. 4–6 months, from £25,000." },
 ];
 
 /* ─── COMPONENT ───────────────────────────────────── */
@@ -286,35 +287,7 @@ const CostaRicaPage = () => {
         </div>
       </section>
 
-      {/* ── 7. RELATED LICENSES ───────────────────── */}
-      <section className="bg-[hsl(var(--bg-3))] py-[72px] px-12">
-        <div className="max-w-[1280px] mx-auto">
-          <SectionTag>RELATED LICENSES</SectionTag>
-          <h2 className="text-[clamp(28px,3vw,40px)] font-light text-[hsl(var(--text-primary))] mb-12">
-            Other popular gambling jurisdictions
-          </h2>
-          <div className="bg-[hsl(0_0%_100%/0.06)] grid grid-cols-3 gap-px">
-            {RELATED.map((r, i) => (
-              <Link
-                key={i}
-                to={r.to}
-                className="bg-[hsl(var(--bg-3))] p-7 group border-l-2 border-transparent hover:border-[hsl(var(--accent))] transition-all duration-200"
-              >
-                <div className="mb-3"><FlagEmojiGroup flag={r.flag} size={24} /></div>
-                <h3 className="text-[14px] font-semibold text-[hsl(var(--text-primary))] mb-2">{r.jurisdiction}</h3>
-                <span className={`inline-block text-[10px] uppercase tracking-widest px-2 py-0.5 border mb-3 ${r.badgeColor} ${r.badgeBg} ${r.badgeBorder}`}>
-                  {r.badge}
-                </span>
-                <p className="text-[12px] text-[hsl(var(--text-secondary))] leading-relaxed mb-4">{r.desc}</p>
-                <div className="flex items-center justify-between text-[11px] text-[hsl(var(--text-muted))]">
-                  <span>{r.cost}</span>
-                  <span>{r.timeline}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RelatedJurisdictions title="Other popular gambling jurisdictions" items={RELATED} />
 
       {/* ── 8. CONTACT CTA ────────────────────────── */}
       <section className="bg-[hsl(var(--bg-1))] py-24 px-12">

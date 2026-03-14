@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, Check, X } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
+import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
 const useCounter = (target: number, duration = 1200) => {
   const [val, setVal] = useState(0);
@@ -311,25 +312,7 @@ const EstoniaEmiPage = () => {
         </div>
       </section>
 
-      {/* RELATED */}
-      <section style={{ background: "#111111", padding: "72px 48px" }}>
-        <div className="max-w-screen-xl mx-auto">
-          <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Related</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Other EMI Jurisdictions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
-            {RELATED.map((r) => (
-              <Link to={r.href} key={r.name} className="bg-[#111111] p-7 group relative overflow-hidden block no-underline hover:bg-[#0f0f0f] transition-colors">
-                <CornerAccent /><ScanSweep />
-                <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-500" />
-                <span className="text-2xl mb-2 block">{r.flag}</span>
-                <span className="text-[11px] text-[#444CE7] font-semibold tracking-[0.08em] block mb-1">{r.reg}</span>
-                <span className="text-[18px] font-semibold text-[#F0EBE0] block mb-3">{r.name}</span>
-                <p className="text-[13px] text-[#9A9590] leading-relaxed">{r.desc}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RelatedJurisdictions tag="— Related" title="Other EMI Jurisdictions" items={RELATED} />
 
       {/* CTA FORM */}
       <section style={{ background: "#080808", padding: "88px 48px" }}>
