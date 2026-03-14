@@ -107,7 +107,7 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Czechia Company", url: "/company-registration-in-czechia", status: "planned", category: "Company Reg" },
 
   // ── READY-MADE ──
-  { title: "Ready-Made Companies (Hub)", url: "/buy-a-business-abroad", status: "planned", category: "Ready-Made" },
+  { title: "Ready-Made Companies (Hub)", url: "/buy-a-business-abroad", status: "done", category: "Ready-Made" },
   { title: "Ready-Made Offshore", url: "/ready-made-offshore-companies", status: "planned", category: "Ready-Made" },
   { title: "Hungary Ready-Made", url: "/ready-made-companies-in-hungary", status: "planned", category: "Ready-Made" },
   { title: "Estonia Ready-Made", url: "/buy-company-in-estonia", status: "planned", category: "Ready-Made" },
