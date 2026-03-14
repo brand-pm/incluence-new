@@ -95,7 +95,7 @@ const CostaRicaPage = () => {
       </section>
 
       {/* ── 2. HERO 2-COL ─────────────────────────── */}
-      <section className="bg-[hsl(var(--bg-1))] py-[72px] px-12">
+      <section className="bg-[hsl(var(--bg-1))] py-[72px] px-12 relative overflow-hidden">
         <div className="max-w-[1280px] mx-auto flex gap-12 items-start">
           <div className="flex-1">
             <SectionTag>GAMBLING LICENSE</SectionTag>
