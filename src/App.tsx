@@ -30,6 +30,8 @@ import SwitzerlandCryptoPage from "./pages/SwitzerlandCryptoPage";
 import PolandCryptoPage from "./pages/PolandCryptoPage";
 import USACryptoPage from "./pages/USACryptoPage";
 import EmiHubPage from "./pages/EmiHubPage";
+import LithuaniaEmiPage from "./pages/LithuaniaEmiPage";
+import UKEmiPage from "./pages/UKEmiPage";
 
 const queryClient = new QueryClient();
 
