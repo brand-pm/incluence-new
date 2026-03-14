@@ -75,6 +75,8 @@ const App = () => (
             <Route path="/curacao-gaming-license" element={<CuracaoLicensePage />} />
             <Route path="/gambling-license-of-the-isle-of-man" element={<IsleOfManLicensePage />} />
             <Route path="/gambling-license-in-costa-rica" element={<CostaRicaLicensePage />} />
+            <Route path="/gambling-license-gibraltar" element={<PlaceholderPage title="Gibraltar Gambling License" />} />
+            <Route path="/gambling-license-cyprus" element={<PlaceholderPage title="Cyprus Gambling License" />} />
 
             {/* ── Forex detail ── */}
             <Route path="/cyprus-forex-license" element={<PlaceholderPage title="Cyprus Forex License" />} />
