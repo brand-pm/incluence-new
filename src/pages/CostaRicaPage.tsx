@@ -70,9 +70,9 @@ const FAQS = [
 ];
 
 const RELATED = [
-  { flag: "🇲🇹", jurisdiction: "Malta / MGA", badge: "EU Regulated", badgeColor: "text-[hsl(142_71%_45%)]", badgeBg: "bg-[hsl(142_71%_45%/0.1)]", badgeBorder: "border-[hsl(142_71%_45%/0.3)]", desc: "Gold standard for EU operators. Full access to European payment systems and banking.", cost: "From €25,000", timeline: "6–9 months", to: "/gambling/malta" },
-  { flag: "🇨🇼", jurisdiction: "Curaçao / CGA", badge: "Popular", badgeColor: "text-[hsl(var(--accent))]", badgeBg: "bg-[hsl(var(--accent-dim))]", badgeBorder: "border-[hsl(var(--accent-border))]", desc: "Fast and affordable offshore license. Widely accepted by payment providers globally.", cost: "From €15,000", timeline: "4–8 weeks", to: "/gambling/curacao" },
-  { flag: "🇬🇮", jurisdiction: "Gibraltar / GBGA", badge: "Tier 1", badgeColor: "text-[hsl(var(--accent))]", badgeBg: "bg-[hsl(var(--accent-dim))]", badgeBorder: "border-[hsl(var(--accent-border))]", desc: "High prestige license for serious operators. Strong banking and payments access.", cost: "From £25,000", timeline: "4–6 months", to: "/gambling/gibraltar" },
+  { href: "/malta-gaming-license", reg: "MGA", name: "Malta", desc: "EU gold standard. Full European market access. 6–9 months, from €25,000." },
+  { href: "/curacao-gaming-license", reg: "CGA", name: "Curaçao", desc: "Fast and affordable offshore license. Widely accepted by payment providers globally. 4–8 weeks, from €15,000." },
+  { href: "/gambling-license-gibraltar", reg: "GBGA", name: "Gibraltar", desc: "High prestige license for serious operators. Strong banking and payments access. 4–6 months, from £25,000." },
 ];
 
 /* ─── COMPONENT ───────────────────────────────────── */
