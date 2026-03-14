@@ -20,6 +20,10 @@ import ForexHubPage from "./pages/ForexHubPage";
 import CyprusForexPage from "./pages/CyprusForexPage";
 import VanuatuForexPage from "./pages/VanuatuForexPage";
 import MontenegroForexPage from "./pages/MontenegroForexPage";
+import CryptoHubPage from "./pages/CryptoHubPage";
+import EstoniaCryptoPage from "./pages/EstoniaCryptoPage";
+import LithuaniaCryptoPage from "./pages/LithuaniaCryptoPage";
+import MaltaCryptoPage from "./pages/MaltaCryptoPage";
 
 const queryClient = new QueryClient();
 
@@ -57,7 +61,7 @@ const App = () => (
             {/* ── License category hubs ── */}
             <Route path="/gamble-license" element={<GamblingHubPage />} />
             <Route path="/forex-license" element={<ForexHubPage />} />
-            <Route path="/cryptocurrency-exchange-license" element={<PlaceholderPage title="Crypto & VASP License" />} />
+            <Route path="/cryptocurrency-exchange-license" element={<CryptoHubPage />} />
             <Route path="/emi-license" element={<PlaceholderPage title="EMI License" />} />
 
             {/* ── Service pages ── */}
@@ -91,11 +95,11 @@ const App = () => (
             <Route path="/forex-license-seychelles" element={<PlaceholderPage title="Seychelles Financial License" />} />
 
             {/* ── Crypto detail ── */}
-            <Route path="/cryptocurrency-exchange-license-in-estonia" element={<PlaceholderPage title="Estonia Crypto License" />} />
+            <Route path="/cryptocurrency-exchange-license-in-estonia" element={<EstoniaCryptoPage />} />
             <Route path="/cryptocurrency-exchange-license-in-the-usa" element={<PlaceholderPage title="USA Crypto License" />} />
             <Route path="/cryptocurrency-exchange-license-in-switzerland" element={<PlaceholderPage title="Switzerland Crypto License" />} />
-            <Route path="/cryptocurrency-license-in-malta" element={<PlaceholderPage title="Malta Crypto License" />} />
-            <Route path="/lithuania-crypto-license" element={<PlaceholderPage title="Lithuania Crypto License" />} />
+            <Route path="/cryptocurrency-license-in-malta" element={<MaltaCryptoPage />} />
+            <Route path="/lithuania-crypto-license" element={<LithuaniaCryptoPage />} />
             <Route path="/poland-crypto-license" element={<PlaceholderPage title="Poland Crypto License" />} />
 
             {/* ── EMI detail ── */}
