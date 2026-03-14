@@ -22,7 +22,7 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Cookie Policy", url: "/cookie-policy", status: "planned", category: "Core" },
 
   // ── GAMBLING ──
-  { title: "Gambling License (Hub)", url: "/gamble-license", status: "in-progress", category: "Gambling" },
+  { title: "Gambling License (Hub)", url: "/gamble-license", status: "done", category: "Gambling" },
   { title: "Malta Gaming License", url: "/malta-gaming-license", status: "in-progress", category: "Gambling" },
   { title: "Curaçao Gaming License", url: "/curacao-gaming-license", status: "planned", category: "Gambling" },
   { title: "Isle of Man Gambling License", url: "/gambling-license-of-the-isle-of-man", status: "planned", category: "Gambling" },
