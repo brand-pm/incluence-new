@@ -14,19 +14,19 @@ type SitemapEntry = {
 const SITEMAP_DATA: SitemapEntry[] = [
   // ── CORE ──
   { title: "Homepage", url: "/", status: "done", category: "Core" },
-  { title: "About Us", url: "/about-us", status: "planned", category: "Core" },
+  { title: "About Us", url: "/about-us", status: "done", category: "Core" },
   { title: "Marketplace", url: "/marketplace", status: "done", category: "Core" },
   { title: "Affiliate Program", url: "/affiliate-program", status: "planned", category: "Core" },
-  { title: "Contact", url: "/contact", status: "planned", category: "Core" },
+  { title: "Contact", url: "/contact", status: "done", category: "Core" },
   { title: "Privacy Policy", url: "/privacy-policy", status: "planned", category: "Core" },
   { title: "Cookie Policy", url: "/cookie-policy", status: "planned", category: "Core" },
 
   // ── GAMBLING ──
   { title: "Gambling License (Hub)", url: "/gamble-license", status: "done", category: "Gambling" },
-  { title: "Malta Gaming License", url: "/malta-gaming-license", status: "in-progress", category: "Gambling" },
-  { title: "Curaçao Gaming License", url: "/curacao-gaming-license", status: "planned", category: "Gambling" },
-  { title: "Isle of Man Gambling License", url: "/gambling-license-of-the-isle-of-man", status: "planned", category: "Gambling" },
-  { title: "Costa Rica Gambling License", url: "/gambling-license-in-costa-rica", status: "planned", category: "Gambling" },
+  { title: "Malta Gaming License", url: "/malta-gaming-license", status: "done", category: "Gambling" },
+  { title: "Curaçao Gaming License", url: "/curacao-gaming-license", status: "done", category: "Gambling" },
+  { title: "Isle of Man Gambling License", url: "/gambling-license-of-the-isle-of-man", status: "done", category: "Gambling" },
+  { title: "Costa Rica Gambling License", url: "/gambling-license-in-costa-rica", status: "done", category: "Gambling" },
 
   // ── FOREX ──
   { title: "Forex License (Hub)", url: "/forex-license", status: "planned", category: "Forex" },
