@@ -40,6 +40,7 @@ const App = () => (
           <Routes>
             {/* ── Global ── */}
             <Route path="/" element={<Index />} />
+            <Route path="/sitemap" element={<SitemapPage />} />
             <Route path="/marketplace" element={<MarketplacePage />} />
             <Route path="/about-us" element={<AboutPage />} />
             <Route path="/about" element={<AboutPage />} />
