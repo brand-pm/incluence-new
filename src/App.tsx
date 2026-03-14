@@ -90,7 +90,7 @@ const App = () => (
             <Route path="/legal-business" element={<LegalBusinessPage />} />
             <Route path="/finance-reporting" element={<TaxReportingPage />} />
             <Route path="/support-legal" element={<LegalSupportPage />} />
-            <Route path="/offshore-company-formation" element={<PlaceholderPage title="Offshore Company" />} />
+            <Route path="/offshore-company-formation" element={<OffshoreFormationPage />} />
             <Route path="/registration-of-companies-abroad" element={<PlaceholderPage title="Company Registration Abroad" />} />
             <Route path="/offshore-investment-funds" element={<PlaceholderPage title="Investment Funds" />} />
             <Route path="/residence-permit-abroad" element={<PlaceholderPage title="Residence Permit" />} />
