@@ -1,0 +1,350 @@
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { ChevronDown, ChevronRight, Check, X } from "lucide-react";
+import MicroParticles from "@/components/MicroParticles";
+import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
+
+const useCounter = (target: number, duration = 1200) => {
+  const [val, setVal] = useState(0);
+  useEffect(() => {
+    let start = 0; const step = target / (duration / 16);
+    const t = setInterval(() => { start += step; if (start >= target) { setVal(target); clearInterval(t); } else setVal(Math.floor(start)); }, 16);
+    return () => clearInterval(t);
+  }, [target]);
+  return val;
+};
+
+const ScanSweep = () => (<div className="absolute inset-0 overflow-hidden pointer-events-none"><div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700" style={{ background: "linear-gradient(90deg, transparent, rgba(68,76,231,0.04), transparent)" }} /></div>);
+const CornerAccent = () => (<div className="absolute top-0 right-0 pointer-events-none"><div className="w-[1px] h-4 bg-[#444CE7]/30 absolute top-0 right-0" /><div className="h-[1px] w-4 bg-[#444CE7]/30 absolute top-0 right-0" /></div>);
+
+const CLASSES = [
+  { cls: "Class 1", desc: "Investment advice, receiving & transmitting orders" },
+  { cls: "Class 2", desc: "Fund management, no exchange or proprietary trading" },
+  { cls: "Class 3", desc: "All operations except proprietary trading. Client funds permitted" },
+  { cls: "Class 4", desc: "All crypto operations including proprietary trading & client funds" },
+];
+
+const STEPS = [
+  { num: "01", title: "License Class Selection", body: "Choose the appropriate VFA license class based on your planned services — from investment advice (Class 1) to full proprietary trading with client funds (Class 4)." },
+  { num: "02", title: "Company Formation", body: "Register a Malta Private Limited Company. Minimum share capital €1,165 (20% paid immediately). Registered office in Malta mandatory." },
+  { num: "03", title: "Key Personnel", body: "Appoint minimum two directors, AML officer, risk manager, and auditor. All must meet MFSA's Fit & Proper requirements with documented financial sector experience." },
+  { num: "04", title: "Documentation Package", body: "Business plan, AML/KYC policies, organizational structure, IT infrastructure documentation, and full personnel qualification packages prepared for MFSA submission." },
+  { num: "05", title: "MFSA Application", body: "Submit complete VFA license application to the MFSA. Review period typically 6–9 months. We manage all correspondence and respond to regulator queries." },
+  { num: "06", title: "License Issued", body: "MFSA grants the VFA license with indefinite validity. Operations must commence within 6 months of license issuance. Ongoing annual fee and reporting obligations." },
+];
+
+const REQS = [
+  "Malta Private Limited Company with registered office in Malta",
+  "Minimum share capital €1,165 (20% paid immediately)",
+  "Minimum two directors — both must be Malta residents",
+  "Qualified AML Officer, risk manager, and auditor appointed",
+  "All key personnel meet MFSA Fit & Proper requirements",
+  "Passport copies and CVs for all directors and shareholders",
+  "Source of funds documentation for all principals",
+  "Detailed business plan covering all VFA services and markets",
+  "AML/KYC policy compliant with FIAU and EU directives",
+  "IT systems and cybersecurity framework documentation",
+  "Operations must commence within 6 months of license issuance",
+];
+
+const FACTS = [
+  ["Regulator", "Malta Financial Services Authority (MFSA)", ""],
+  ["Framework", "Virtual Financial Assets Act (VFA)", ""],
+  ["License classes", "4 (Class 1 to Class 4)", ""],
+  ["Min. capital", "€1,165 (20% paid up)", ""],
+  ["One-time fee", "€3,000 – €12,000 by class", ""],
+  ["Annual fee", "€2,750 – €25,000 by class", ""],
+  ["Timeline", "6–9 months", ""],
+  ["Starting from", "€25,000", "text-[#444CE7]"],
+  ["Validity", "Indefinite", "text-[#22c55e]"],
+];
+
+const PROS = [
+  "Four license classes — precise fit for any crypto business model",
+  "One of the world's first comprehensive VFA regulatory frameworks",
+  "Indefinite license validity — no expiry date",
+  "MFSA brand recognized globally by crypto institutional clients",
+  "Strong crypto and blockchain legal ecosystem in Malta",
+  "EU market access with established crypto-friendly banking",
+];
+const CONS = [
+  "Timeline 6–9 months — not for fast launches",
+  "Local directors and office in Malta required",
+  "Operations must start within 6 months of license issuance",
+  "Annual fees up to €25,000 for Class 4",
+  "MiCA transition may require additional MFSA authorization",
+  "Strict MFSA requirements for key personnel qualifications",
+];
+
+const FAQS = [
+  { q: "What are the four VFA license classes in Malta?", a: "Class 1: investment advice and order transmission. Class 2: fund management (no exchange/proprietary trading). Class 3: all operations except proprietary trading, client funds permitted. Class 4: all crypto operations including proprietary trading and holding client funds." },
+  { q: "How much does a Malta VFA license cost?", a: "One-time fees range from €3,000 (Class 1) to €12,000 (Class 4). Annual renewal fees range from €2,750 to €25,000 depending on class. Total service cost starting from €25,000 including company formation and legal support." },
+  { q: "How long is a Malta VFA license valid?", a: "The license is valid indefinitely — there is no expiry date. Annual fees must be paid to maintain validity, and the company must commence operations within 6 months of license issuance." },
+  { q: "Is a bank account required for a Malta crypto license?", a: "Yes — a corporate bank account is required to deposit the share capital. Malta has an established crypto-friendly banking ecosystem with several institutions experienced in VFA client onboarding." },
+  { q: "How long does it take to get a Malta crypto license?", a: "The MFSA review period is typically 6–9 months after application submission. Including company formation and document preparation, total timeline is 6–9 months from project start." },
+  { q: "How does MiCA affect Malta VFA licenses?", a: "MFSA is actively working on MiCA implementation. Existing VFA licenses will transition to MiCA-compliant CASP authorization. The MFSA's existing VFA framework closely maps to MiCA categories, making transition relatively smooth for current licensees." },
+];
+
+const RELATED = [
+  { href: "/lithuania-crypto-license", flag: "🇱🇹", reg: "FCIS", name: "Lithuania", desc: "Fastest EU VASP. MiCA-aligned. 1–3 months, from €10,000." },
+  { href: "/cryptocurrency-exchange-license-in-estonia", flag: "🇪🇪", reg: "FIU", name: "Estonia", desc: "0% tax retained earnings. Indefinite license. 3–6 months." },
+  { href: "/poland-crypto-license", flag: "🇵🇱", reg: "PFSA", name: "Poland", desc: "Fast EU VASP registration. 2–3 months, from €8,000." },
+];
+
+const MaltaCryptoPage = () => {
+  const [open, setOpen] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const s1 = useRef<HTMLDivElement>(null), s2 = useRef<HTMLDivElement>(null), s3 = useRef<HTMLDivElement>(null);
+  const s4 = useRef<HTMLDivElement>(null), s5 = useRef<HTMLDivElement>(null), s6 = useRef<HTMLDivElement>(null);
+  const stepRefs = [s1, s2, s3, s4, s5, s6];
+  const c1 = useCounter(25000);
+
+  useEffect(() => {
+    document.title = "Malta Cryptocurrency License VFA — 4-Class Crypto License | Incluence";
+    const setMeta = (n: string, c: string) => { let el = document.querySelector(`meta[name="${n}"]`) as HTMLMetaElement; if (!el) { el = document.createElement("meta"); el.name = n; document.head.appendChild(el); } el.content = c; };
+    const setProp = (p: string, c: string) => { let el = document.querySelector(`meta[property="${p}"]`) as HTMLMetaElement; if (!el) { el = document.createElement("meta"); el.setAttribute("property", p); document.head.appendChild(el); } el.content = c; };
+    setMeta("description", "Get a Malta VFA (Virtual Financial Assets) crypto license. 4 license classes from investment advice to full trading. From €25,000, 6–9 months. Incluence.");
+    setMeta("keywords", "Malta crypto license, VFA license Malta, MFSA crypto license, Malta cryptocurrency license, Malta blockchain license");
+    setProp("og:title", "Malta VFA Crypto License | Incluence");
+    setProp("og:url", "https://incluence.com/cryptocurrency-license-in-malta");
+    setProp("og:type", "website");
+    let can = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    if (!can) { can = document.createElement("link"); can.rel = "canonical"; document.head.appendChild(can); }
+    can.href = "https://incluence.com/cryptocurrency-license-in-malta";
+    const schema = { "@context": "https://schema.org", "@type": "Service", name: "Malta VFA Cryptocurrency License", description: "Legal assistance in obtaining a Malta VFA crypto license — 4 classes covering investment advice to proprietary trading.", provider: { "@type": "Organization", name: "Incluence", url: "https://incluence.com" }, areaServed: "Worldwide", url: "https://incluence.com/cryptocurrency-license-in-malta", offers: { "@type": "Offer", priceCurrency: "EUR", price: "25000" } };
+    const s = document.createElement("script"); s.type = "application/ld+json"; s.id = "malta-crypto-schema"; s.text = JSON.stringify(schema); document.head.appendChild(s);
+    return () => { document.querySelector("#malta-crypto-schema")?.remove(); can?.remove(); };
+  }, []);
+
+  return (
+    <div style={{ fontFamily: "Manrope, sans-serif" }}>
+      {/* BREADCRUMB */}
+      <div style={{ background: "#080808", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: "14px 48px" }}>
+        <div className="max-w-screen-xl mx-auto flex items-center gap-2 text-[12px]">
+          <Link to="/" className="text-[#5A5550] hover:text-[#9A9590] transition-colors no-underline">Incluence</Link>
+          <ChevronRight className="w-3 h-3 text-[#5A5550]" />
+          <Link to="/cryptocurrency-exchange-license" className="text-[#5A5550] hover:text-[#9A9590] transition-colors no-underline">Crypto License</Link>
+          <ChevronRight className="w-3 h-3 text-[#5A5550]" />
+          <span className="text-[#9A9590]">Malta Crypto License</span>
+        </div>
+      </div>
+
+      {/* HERO */}
+      <section className="relative overflow-hidden" style={{ background: "#080808", padding: "88px 48px", minHeight: 520 }}>
+        <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.045) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+        <div className="relative z-[1]"><MicroParticles /></div>
+        <svg className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[320px] h-[380px] pointer-events-none z-[2] opacity-[0.08]" viewBox="0 0 320 380" fill="none">
+          <path d="M60 160 L120 140 L200 135 L260 150 L270 170 L250 195 L180 210 L100 205 L55 185 Z" fill="#444CE7" fillOpacity="0.15" stroke="#444CE7" strokeOpacity="0.3" strokeWidth="0.5" />
+          <path d="M105 200 L90 220 L110 230 L125 215 Z" fill="#444CE7" fillOpacity="0.1" stroke="#444CE7" strokeOpacity="0.2" strokeWidth="0.5" />
+          <path d="M120 160 L220 165 M140 180 L240 175" stroke="#444CE7" strokeOpacity="0.1" strokeWidth="0.3" />
+          <circle cx="180" cy="170" r="4" fill="#444CE7" fillOpacity="0.6" />
+          <circle cx="180" cy="170" r="8" fill="none" stroke="#444CE7" strokeOpacity="0.3" strokeWidth="0.5" />
+          <text x="180" y="155" textAnchor="middle" fill="#444CE7" fillOpacity="0.5" fontSize="8" fontFamily="Manrope">Valletta</text>
+          <text x="180" y="190" textAnchor="middle" fill="#444CE7" fillOpacity="0.3" fontSize="6" fontFamily="Manrope">MFSA HQ</text>
+          <text x="160" y="270" textAnchor="middle" fill="#F0EBE0" fillOpacity="0.06" fontSize="28" fontFamily="Manrope" fontWeight="300">MT</text>
+          <text x="160" y="290" textAnchor="middle" fill="#444CE7" fillOpacity="0.15" fontSize="8" fontFamily="Manrope">EU · VFA</text>
+        </svg>
+
+        <div className="relative z-10 max-w-screen-xl mx-auto max-w-[600px]">
+          <div className="flex gap-3 mb-5">
+            <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Crypto License</span>
+            <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">EU · MFSA · VFA</span>
+          </div>
+          <h1 className="text-[clamp(36px,5vw,64px)] font-light text-[#F0EBE0] leading-[1.08] mb-6">
+            <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Malta</span> VFA License
+          </h1>
+          <p className="text-[15px] text-[#9A9590] leading-[1.85] mb-10">Malta's Virtual Financial Assets (VFA) framework offers four license classes — from investment advice to full proprietary trading with client funds. Issued by the MFSA and valid indefinitely, Malta VFA licenses provide broad EU market credibility for crypto exchanges, brokers and DeFi operators.</p>
+          <div className="flex gap-4 flex-wrap">
+            <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
+            <a href="#requirements" className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all inline-block">View Requirements</a>
+          </div>
+          <div className="mt-14 grid grid-cols-2 md:grid-cols-6 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+            {[
+              [`€${c1.toLocaleString()}+`, "Starting from", ""],
+              ["6–9 months", "Timeline", ""],
+              ["MFSA", "Regulator", "text-[#444CE7] font-semibold"],
+              ["4 classes", "License types", "text-[#444CE7]"],
+              ["Indefinite", "License validity", "text-[#22c55e]"],
+              ["EU", "Market access", ""],
+            ].map(([v, l, cls], i) => (
+              <div key={i} className="bg-[#080808] p-6 relative overflow-hidden group">
+                <ScanSweep />
+                <span className={`text-[24px] font-light text-[#F0EBE0] leading-none block ${cls}`}>{v}</span>
+                <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mt-2 block">{l}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DESCRIPTION */}
+      <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
+        <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-7">
+            <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About Malta VFA License</span>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Four License Classes for Every Crypto Business</h2>
+            <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
+              <p>Malta's Virtual Financial Assets Act (VFA) established one of the world's first comprehensive legal frameworks for crypto assets. The Malta Financial Services Authority (MFSA) issues four classes of VFA licenses, each authorizing progressively broader crypto service offerings.</p>
+              <p>Class 1 covers receiving and transmitting orders and investment advice. Class 2 adds fund management excluding exchange trading. Class 3 permits all operations except proprietary trading. Class 4 — the most comprehensive — covers all cryptocurrency operations including holding and controlling client funds.</p>
+              <p>All classes require a one-time license fee and annual renewal fee. One-time fees range from €3,000 to €12,000; annual fees from €2,750 to €25,000 depending on the class. Indefinite validity with annual fee maintenance makes Malta a cost-predictable long-term choice.</p>
+            </div>
+          </div>
+          <div className="lg:col-span-5 space-y-2">
+            {CLASSES.map((c) => (
+              <div key={c.cls} className="bg-[#080808] border border-white/[0.06] p-4 relative group overflow-hidden">
+                <CornerAccent /><ScanSweep />
+                <span className="text-[10px] text-[#444CE7] border border-[#444CE7]/30 px-2 py-0.5 uppercase tracking-[0.08em] inline-block mb-1">{c.cls}</span>
+                <p className="text-[12px] text-[#9A9590] leading-relaxed">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section style={{ background: "#111111", padding: "72px 48px" }}>
+        <div className="max-w-screen-xl mx-auto">
+          <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How to Obtain a Malta VFA License</h2>
+          <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-12">A 6-step process managed end-to-end. MFSA review is the longest phase — we prepare documentation to minimize delays.</p>
+          <div ref={containerRef} className="relative">
+            <ProcessFlowCanvas />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px relative z-10" style={{ background: "rgba(255,255,255,0.06)" }}>
+              {STEPS.map((step, i) => (
+                <div key={i} ref={stepRefs[i]} data-step className="bg-[#111111] p-7 relative overflow-hidden group">
+                  <ScanSweep />
+                  <span className="text-[11px] text-[#444CE7] font-mono tracking-[0.1em] block mb-3">{step.num}</span>
+                  <h3 className="text-[15px] font-semibold text-[#F0EBE0] mb-2">{step.title}</h3>
+                  <p className="text-[13px] text-[#9A9590] leading-relaxed">{step.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* REQUIREMENTS */}
+      <section id="requirements" style={{ background: "#0d0d0d", padding: "72px 48px" }}>
+        <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-7">
+            <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Requirements</span>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Documents & Eligibility</h2>
+            <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-8">MFSA requires comprehensive documentation for all VFA license classes. Higher classes carry stricter personnel and capital requirements.</p>
+            <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
+              {REQS.map((r, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="w-1 h-1 bg-[#444CE7]/40 mt-2 flex-shrink-0" />
+                  <span className="text-[13px] text-[#9A9590] leading-relaxed">{r}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="lg:col-span-5">
+            <div className="sticky top-[80px] bg-[#080808] border border-white/[0.06] p-8 group relative overflow-hidden">
+              <ScanSweep />
+              <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Key Facts</span>
+              <div className="divide-y divide-white/[0.05] mt-4">
+                {FACTS.map(([l, v, cls]) => (
+                  <div key={l} className="flex justify-between py-3">
+                    <span className="text-[13px] text-[#5A5550]">{l}</span>
+                    <span className={`text-[13px] text-[#F0EBE0] font-medium ${cls}`}>{v}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 pt-6 border-t border-white/[0.06]">
+                <Link to="/contact" className="block w-full text-center px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors">Get a Free Quote →</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROS & CONS */}
+      <section style={{ background: "#111111", padding: "72px 48px" }}>
+        <div className="max-w-screen-xl mx-auto">
+          <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Assessment</span>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Advantages & Limitations</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+            <div className="bg-[#111111] p-7">
+              <h3 className="text-[13px] text-[#22c55e] uppercase tracking-[0.08em] mb-5">Advantages</h3>
+              <div className="space-y-3">{PROS.map((p, i) => (<div key={i} className="flex items-start gap-3"><Check className="w-3.5 h-3.5 text-[#22c55e] mt-0.5 flex-shrink-0" /><span className="text-[13px] text-[#9A9590] leading-relaxed">{p}</span></div>))}</div>
+            </div>
+            <div className="bg-[#111111] p-7">
+              <h3 className="text-[13px] text-[#f59e0b] uppercase tracking-[0.08em] mb-5">Limitations</h3>
+              <div className="space-y-3">{CONS.map((c, i) => (<div key={i} className="flex items-start gap-3"><X className="w-3.5 h-3.5 text-[#f59e0b] mt-0.5 flex-shrink-0" /><span className="text-[13px] text-[#9A9590] leading-relaxed">{c}</span></div>))}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
+        <div className="max-w-screen-xl mx-auto">
+          <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Common Questions</h2>
+          <div className="max-w-[720px]">
+            {FAQS.map((f, i) => (
+              <div key={i} className="border-b border-white/[0.06]">
+                <button onClick={() => setOpen(open === i ? null : i)} className="flex justify-between items-center w-full py-5 cursor-pointer text-left bg-transparent border-0">
+                  <span className="text-[15px] text-[#F0EBE0] font-medium pr-6">{f.q}</span>
+                  <ChevronDown className={`w-4 h-4 text-[#5A5550] flex-shrink-0 transition-transform duration-200 ${open === i ? "rotate-180" : ""}`} />
+                </button>
+                {open === i && <p className="text-[13px] text-[#9A9590] leading-relaxed pb-5">{f.a}</p>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RELATED */}
+      <section style={{ background: "#111111", padding: "72px 48px" }}>
+        <div className="max-w-screen-xl mx-auto">
+          <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Related Licenses</span>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Other Crypto Jurisdictions</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+            {RELATED.map((r) => (
+              <Link to={r.href} key={r.name} className="bg-[#111111] p-7 group relative overflow-hidden block no-underline">
+                <CornerAccent /><ScanSweep />
+                <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-500" />
+                <span className="text-2xl mb-2 block">{r.flag}</span>
+                <span className="text-[11px] text-[#444CE7] font-semibold tracking-[0.08em] block mb-1">{r.reg}</span>
+                <span className="text-[18px] font-semibold text-[#F0EBE0] block mb-2">{r.name}</span>
+                <p className="text-[13px] text-[#9A9590] leading-relaxed">{r.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ background: "#080808", padding: "88px 48px" }}>
+        <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-5">
+            <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Apply for a Malta VFA License</h2>
+            <p className="text-[14px] text-[#9A9590] leading-[1.8]">Tell us about your crypto business. We'll recommend the right VFA class and manage the full MFSA licensing process.</p>
+          </div>
+          <div className="lg:col-span-7">
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={(e) => e.preventDefault()}>
+              {[["Full Name", "text"], ["Company Name", "text"], ["VFA Class (1/2/3/4)", "text"], ["Target Markets", "text"]].map(([label, type]) => (
+                <div key={label}>
+                  <label className="block text-[11px] text-[#5A5550] uppercase tracking-[0.08em] mb-2">{label}</label>
+                  <input type={type} className="w-full bg-transparent border border-white/[0.08] hover:border-white/20 focus:border-[#444CE7]/50 px-4 py-3 text-[14px] text-[#F0EBE0] outline-none transition-colors" />
+                </div>
+              ))}
+              <div className="col-span-1 md:col-span-2">
+                <label className="block text-[11px] text-[#5A5550] uppercase tracking-[0.08em] mb-2">Additional Details</label>
+                <textarea rows={4} className="w-full bg-transparent border border-white/[0.08] hover:border-white/20 focus:border-[#444CE7]/50 px-4 py-3 text-[14px] text-[#F0EBE0] outline-none transition-colors resize-none" placeholder="Additional details — crypto services, trading instruments, institutional vs retail..." />
+              </div>
+              <div className="col-span-1 md:col-span-2">
+                <button type="submit" className="px-8 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors duration-200 cursor-pointer border-0">Send Request →</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default MaltaCryptoPage;
