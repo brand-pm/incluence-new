@@ -1,5 +1,5 @@
 import LicensePageTemplate from "@/components/LicensePageTemplate";
-import FocusedWorldMap from "@/components/FocusedWorldMap";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 
 /* ── Page data ───────────────────────────────────────── */
 
