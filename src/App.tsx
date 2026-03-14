@@ -85,9 +85,9 @@ const App = () => (
 
             {/* ── Service pages ── */}
             <Route path="/provider-payment-systems" element={<PaymentSystemsPage />} />
-            <Route path="/legal-business" element={<PlaceholderPage title="Business Legitimization" />} />
-            <Route path="/finance-reporting" element={<PlaceholderPage title="Tax & Financial Reporting" />} />
-            <Route path="/support-legal" element={<PlaceholderPage title="Legal Support" />} />
+            <Route path="/legal-business" element={<LegalBusinessPage />} />
+            <Route path="/finance-reporting" element={<TaxReportingPage />} />
+            <Route path="/support-legal" element={<LegalSupportPage />} />
             <Route path="/offshore-company-formation" element={<PlaceholderPage title="Offshore Company" />} />
             <Route path="/registration-of-companies-abroad" element={<PlaceholderPage title="Company Registration Abroad" />} />
             <Route path="/offshore-investment-funds" element={<PlaceholderPage title="Investment Funds" />} />
