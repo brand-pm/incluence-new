@@ -30,6 +30,8 @@ import SwitzerlandCryptoPage from "./pages/SwitzerlandCryptoPage";
 import PolandCryptoPage from "./pages/PolandCryptoPage";
 import USACryptoPage from "./pages/USACryptoPage";
 import EmiHubPage from "./pages/EmiHubPage";
+import LithuaniaEmiPage from "./pages/LithuaniaEmiPage";
+import UKEmiPage from "./pages/UKEmiPage";
 
 const queryClient = new QueryClient();
 
@@ -111,8 +113,8 @@ const App = () => (
             {/* ── EMI detail ── */}
             <Route path="/emi-license-in-estonia" element={<PlaceholderPage title="Estonia EMI License" />} />
             <Route path="/e-money-license-malta" element={<PlaceholderPage title="Malta EMI License" />} />
-            <Route path="/e-money-license-uk" element={<PlaceholderPage title="UK EMI License" />} />
-            <Route path="/e-money-license-lithuania" element={<PlaceholderPage title="Lithuania EMI License" />} />
+            <Route path="/e-money-license-uk" element={<UKEmiPage />} />
+            <Route path="/e-money-license-lithuania" element={<LithuaniaEmiPage />} />
 
             {/* ── Payment systems detail ── */}
             <Route path="/payment-system-license-in-cyprus" element={<PlaceholderPage title="Cyprus Payment License" />} />

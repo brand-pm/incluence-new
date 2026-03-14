@@ -50,8 +50,8 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "EMI License (Hub)", url: "/emi-license", status: "done", category: "EMI" },
   { title: "Estonia EMI License", url: "/emi-license-in-estonia", status: "planned", category: "EMI" },
   { title: "Malta EMI License", url: "/e-money-license-malta", status: "planned", category: "EMI" },
-  { title: "UK EMI License", url: "/e-money-license-uk", status: "planned", category: "EMI" },
-  { title: "Lithuania EMI License", url: "/e-money-license-lithuania", status: "planned", category: "EMI" },
+  { title: "UK EMI License", url: "/e-money-license-uk", status: "done", category: "EMI" },
+  { title: "Lithuania EMI License", url: "/e-money-license-lithuania", status: "done", category: "EMI" },
 
   // ── PAYMENT SYSTEMS ──
   { title: "Payment Systems (Hub)", url: "/provider-payment-systems", status: "planned", category: "Payment" },
