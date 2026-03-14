@@ -61,7 +61,7 @@ const App = () => (
             {/* ── License category hubs ── */}
             <Route path="/gamble-license" element={<GamblingHubPage />} />
             <Route path="/forex-license" element={<ForexHubPage />} />
-            <Route path="/cryptocurrency-exchange-license" element={<PlaceholderPage title="Crypto & VASP License" />} />
+            <Route path="/cryptocurrency-exchange-license" element={<CryptoHubPage />} />
             <Route path="/emi-license" element={<PlaceholderPage title="EMI License" />} />
 
             {/* ── Service pages ── */}
