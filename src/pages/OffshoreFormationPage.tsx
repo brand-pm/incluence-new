@@ -93,10 +93,6 @@ const OffshoreFormationPage = () => {
   const c1 = useCounter(15);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const s1 = useRef<HTMLDivElement>(null);
-  const s2 = useRef<HTMLDivElement>(null);
-  const s3 = useRef<HTMLDivElement>(null);
-  const s4 = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.title = "Offshore Company Formation — Register Offshore Company | Incluence";
