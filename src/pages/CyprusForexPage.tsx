@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, ChevronRight, Check, X, Globe, Landmark, Users } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
+import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
 const useCounter = (target: number, duration = 1200) => {
   const [val, setVal] = useState(0);
