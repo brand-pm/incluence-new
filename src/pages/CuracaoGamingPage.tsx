@@ -182,7 +182,7 @@ const CuracaoGamingPage = () => {
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="z-[1] relative"><MicroParticles /></div>
 
-        <TerritoryMap iso="CW" markerLabel="Willemstad" subLabel="CGA HQ" />
+        <TerritoryMap iso="CW" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
           <div className="max-w-[600px]">

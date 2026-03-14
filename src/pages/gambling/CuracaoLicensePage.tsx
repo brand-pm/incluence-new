@@ -19,7 +19,7 @@ const CuracaoLicensePage = () => (
       cta1: "Get a Free Quote →",
       cta2: "View Requirements",
     }}
-    mapSvg={<TerritoryMap iso="CW" markerLabel="Willemstad" subLabel="CGA HQ" />}
+    mapSvg={<TerritoryMap iso="CW" />}
     facts={[
       { label: "Jurisdiction", value: "Curaçao", cls: "text-[#F0EBE0]" },
       { label: "Regulator", value: "CGA", cls: "text-[#444CE7] font-semibold" },

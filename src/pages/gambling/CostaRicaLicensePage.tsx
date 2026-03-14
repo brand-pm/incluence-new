@@ -23,7 +23,7 @@ const CostaRicaLicensePage = () => (
       heroOverlay:
         "linear-gradient(to right, #080808 45%, rgba(8,8,8,0.7) 65%, rgba(8,8,8,0) 100%)",
     }}
-    mapSvg={<TerritoryMap iso="CR" markerLabel="San José" subLabel="Municipality" />}
+    mapSvg={<TerritoryMap iso="CR" />}
     facts={[
       { label: "Jurisdiction", value: "Costa Rica", cls: "text-[#F0EBE0]" },
       { label: "Regulator", value: "Municipality", cls: "text-[#444CE7] font-semibold" },
