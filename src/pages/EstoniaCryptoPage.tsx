@@ -126,7 +126,7 @@ const EstoniaCryptoPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", padding: "88px 48px", minHeight: 520 }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.045) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="relative z-[1]"><MicroParticles /></div>
-        <TerritoryMap iso="EE" markerLabel="Tallinn" subLabel="FIU HQ" />
+        <TerritoryMap iso="EE" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto max-w-[600px]">
           <div className="flex gap-3 mb-5">

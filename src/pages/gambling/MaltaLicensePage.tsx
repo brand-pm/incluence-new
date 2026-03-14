@@ -20,7 +20,7 @@ const MaltaLicensePage = () => (
       cta1: "Get a Free Quote →",
       cta2: "View Requirements",
     }}
-    mapSvg={<TerritoryMap iso="MT" markerLabel="Valletta" subLabel="MGA HQ" />}
+    mapSvg={<TerritoryMap iso="MT" />}
     fireflies={{ originX: 72, originY: 48, count: 10 }}
     facts={[
       { label: "Jurisdiction", value: "Malta", cls: "text-[#F0EBE0]" },

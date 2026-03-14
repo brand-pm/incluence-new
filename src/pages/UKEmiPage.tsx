@@ -126,7 +126,7 @@ const UKEmiPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", padding: "88px 48px" }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.045) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="relative z-[1]"><MicroParticles /></div>
-        <TerritoryMap iso="GB" markerLabel="London" subLabel="FCA HQ" />
+        <TerritoryMap iso="GB" />
         <div className="relative z-10 max-w-screen-xl mx-auto">
           <div className="flex gap-3 mb-5">
             <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— EMI License</span>
