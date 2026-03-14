@@ -45,6 +45,9 @@ import LegalSupportPage from "./pages/LegalSupportPage";
 import ContractsPage from "./pages/ContractsPage";
 import OffshoreFormationPage from "./pages/OffshoreFormationPage";
 import BuyBusinessAbroadPage from "./pages/BuyBusinessAbroadPage";
+import BankAccountsHubPage from "./pages/BankAccountsHubPage";
+import ForeignBankAccountPage from "./pages/ForeignBankAccountPage";
+import OffshoreBankAccountPage from "./pages/OffshoreBankAccountPage";
 
 const queryClient = new QueryClient();
 
