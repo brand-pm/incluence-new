@@ -29,12 +29,12 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Costa Rica Gambling License", url: "/gambling-license-in-costa-rica", status: "done", category: "Gambling" },
 
   // ── FOREX ──
-  { title: "Forex License (Hub)", url: "/forex-license", status: "planned", category: "Forex" },
-  { title: "Cyprus Forex License", url: "/cyprus-forex-license", status: "planned", category: "Forex" },
+  { title: "Forex License (Hub)", url: "/forex-license", status: "done", category: "Forex" },
+  { title: "Cyprus Forex License", url: "/cyprus-forex-license", status: "done", category: "Forex" },
   { title: "Malta Forex License", url: "/forex-broker-licence-in-malta", status: "planned", category: "Forex" },
-  { title: "Vanuatu Forex License", url: "/forex-broker-licence-in-vanuatu", status: "planned", category: "Forex" },
+  { title: "Vanuatu Forex License", url: "/forex-broker-licence-in-vanuatu", status: "done", category: "Forex" },
   { title: "Mauritius Forex License", url: "/forex-broker-licence-in-mauritius", status: "planned", category: "Forex" },
-  { title: "Montenegro Forex License", url: "/forex-broker-licence-in-montenegro", status: "planned", category: "Forex" },
+  { title: "Montenegro Forex License", url: "/forex-broker-licence-in-montenegro", status: "done", category: "Forex" },
   { title: "Seychelles Financial License", url: "/forex-license-seychelles", status: "planned", category: "Forex" },
 
   // ── CRYPTO ──

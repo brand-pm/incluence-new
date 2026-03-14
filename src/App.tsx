@@ -16,6 +16,10 @@ import ContactPage from "./pages/ContactPage";
 import MarketplacePage from "./pages/MarketplacePage";
 import AIConsultant from "./components/ui/AIConsultant";
 import SitemapPage from "./pages/SitemapPage";
+import ForexHubPage from "./pages/ForexHubPage";
+import CyprusForexPage from "./pages/CyprusForexPage";
+import VanuatuForexPage from "./pages/VanuatuForexPage";
+import MontenegroForexPage from "./pages/MontenegroForexPage";
 
 const queryClient = new QueryClient();
 
@@ -52,7 +56,7 @@ const App = () => (
 
             {/* ── License category hubs ── */}
             <Route path="/gamble-license" element={<GamblingHubPage />} />
-            <Route path="/forex-license" element={<PlaceholderPage title="Forex License" />} />
+            <Route path="/forex-license" element={<ForexHubPage />} />
             <Route path="/cryptocurrency-exchange-license" element={<PlaceholderPage title="Crypto & VASP License" />} />
             <Route path="/emi-license" element={<PlaceholderPage title="EMI License" />} />
 
@@ -79,11 +83,11 @@ const App = () => (
             <Route path="/gambling-license-cyprus" element={<PlaceholderPage title="Cyprus Gambling License" />} />
 
             {/* ── Forex detail ── */}
-            <Route path="/cyprus-forex-license" element={<PlaceholderPage title="Cyprus Forex License" />} />
+            <Route path="/cyprus-forex-license" element={<CyprusForexPage />} />
             <Route path="/forex-broker-licence-in-malta" element={<PlaceholderPage title="Malta Forex License" />} />
-            <Route path="/forex-broker-licence-in-vanuatu" element={<PlaceholderPage title="Vanuatu Forex License" />} />
+            <Route path="/forex-broker-licence-in-vanuatu" element={<VanuatuForexPage />} />
             <Route path="/forex-broker-licence-in-mauritius" element={<PlaceholderPage title="Mauritius Forex License" />} />
-            <Route path="/forex-broker-licence-in-montenegro" element={<PlaceholderPage title="Montenegro Forex License" />} />
+            <Route path="/forex-broker-licence-in-montenegro" element={<MontenegroForexPage />} />
             <Route path="/forex-license-seychelles" element={<PlaceholderPage title="Seychelles Financial License" />} />
 
             {/* ── Crypto detail ── */}
