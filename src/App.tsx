@@ -43,6 +43,8 @@ import LegalBusinessPage from "./pages/LegalBusinessPage";
 import TaxReportingPage from "./pages/TaxReportingPage";
 import LegalSupportPage from "./pages/LegalSupportPage";
 import ContractsPage from "./pages/ContractsPage";
+import OffshoreFormationPage from "./pages/OffshoreFormationPage";
+import BuyBusinessAbroadPage from "./pages/BuyBusinessAbroadPage";
 
 const queryClient = new QueryClient();
 
@@ -88,11 +90,11 @@ const App = () => (
             <Route path="/legal-business" element={<LegalBusinessPage />} />
             <Route path="/finance-reporting" element={<TaxReportingPage />} />
             <Route path="/support-legal" element={<LegalSupportPage />} />
-            <Route path="/offshore-company-formation" element={<PlaceholderPage title="Offshore Company" />} />
+            <Route path="/offshore-company-formation" element={<OffshoreFormationPage />} />
             <Route path="/registration-of-companies-abroad" element={<PlaceholderPage title="Company Registration Abroad" />} />
             <Route path="/offshore-investment-funds" element={<PlaceholderPage title="Investment Funds" />} />
             <Route path="/residence-permit-abroad" element={<PlaceholderPage title="Residence Permit" />} />
-            <Route path="/buy-a-business-abroad" element={<PlaceholderPage title="Buy a Business Abroad" />} />
+            <Route path="/buy-a-business-abroad" element={<BuyBusinessAbroadPage />} />
             <Route path="/drafting-international-contracts" element={<ContractsPage />} />
             <Route path="/opening-a-merchant-account" element={<MerchantAccountPage />} />
             <Route path="/open-an-account-in-a-payment-system" element={<PlaceholderPage title="Payment System Account" />} />

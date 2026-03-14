@@ -65,7 +65,7 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Hong Kong Payment License", url: "/hong-kong-payment-system-license", status: "planned", category: "Payment" },
 
   // ── OFFSHORE ──
-  { title: "Offshore Company (Hub)", url: "/offshore-company-formation", status: "planned", category: "Offshore" },
+  { title: "Offshore Company (Hub)", url: "/offshore-company-formation", status: "done", category: "Offshore" },
   { title: "BVI Offshore", url: "/offshore-in-the-british-virgin-islands", status: "planned", category: "Offshore" },
   { title: "Cayman Islands Offshore", url: "/offshore-in-the-cayman-islands", status: "planned", category: "Offshore" },
   { title: "Seychelles Offshore", url: "/offshore-company-formation-in-seychelles", status: "planned", category: "Offshore" },
@@ -107,7 +107,7 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Czechia Company", url: "/company-registration-in-czechia", status: "planned", category: "Company Reg" },
 
   // ── READY-MADE ──
-  { title: "Ready-Made Companies (Hub)", url: "/buy-a-business-abroad", status: "planned", category: "Ready-Made" },
+  { title: "Ready-Made Companies (Hub)", url: "/buy-a-business-abroad", status: "done", category: "Ready-Made" },
   { title: "Ready-Made Offshore", url: "/ready-made-offshore-companies", status: "planned", category: "Ready-Made" },
   { title: "Hungary Ready-Made", url: "/ready-made-companies-in-hungary", status: "planned", category: "Ready-Made" },
   { title: "Estonia Ready-Made", url: "/buy-company-in-estonia", status: "planned", category: "Ready-Made" },
