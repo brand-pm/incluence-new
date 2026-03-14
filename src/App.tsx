@@ -37,6 +37,8 @@ import EstoniaEmiPage from "./pages/EstoniaEmiPage";
 import AffiliatePage from "./pages/AffiliatePage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import CookiePolicyPage from "./pages/CookiePolicyPage";
+import PaymentSystemsPage from "./pages/PaymentSystemsPage";
+import MerchantAccountPage from "./pages/MerchantAccountPage";
 
 const queryClient = new QueryClient();
 
