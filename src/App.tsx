@@ -34,6 +34,9 @@ import LithuaniaEmiPage from "./pages/LithuaniaEmiPage";
 import UKEmiPage from "./pages/UKEmiPage";
 import MaltaEmiPage from "./pages/MaltaEmiPage";
 import EstoniaEmiPage from "./pages/EstoniaEmiPage";
+import AffiliatePage from "./pages/AffiliatePage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import CookiePolicyPage from "./pages/CookiePolicyPage";
 
 const queryClient = new QueryClient();
 
