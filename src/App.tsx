@@ -16,6 +16,10 @@ import ContactPage from "./pages/ContactPage";
 import MarketplacePage from "./pages/MarketplacePage";
 import AIConsultant from "./components/ui/AIConsultant";
 import SitemapPage from "./pages/SitemapPage";
+import ForexHubPage from "./pages/ForexHubPage";
+import CyprusForexPage from "./pages/CyprusForexPage";
+import VanuatuForexPage from "./pages/VanuatuForexPage";
+import MontenegroForexPage from "./pages/MontenegroForexPage";
 
 const queryClient = new QueryClient();
 
