@@ -1,0 +1,437 @@
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { ChevronDown, ChevronRight, Check, X, Zap, Globe, Layers } from "lucide-react";
+import MicroParticles from "@/components/MicroParticles";
+import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
+
+const useCounter = (target: number, duration = 1200) => {
+  const [val, setVal] = useState(0);
+  useEffect(() => {
+    let start = 0;
+    const step = target / (duration / 16);
+    const t = setInterval(() => {
+      start += step;
+      if (start >= target) { setVal(target); clearInterval(t); }
+      else setVal(Math.floor(start));
+    }, 16);
+    return () => clearInterval(t);
+  }, [target]);
+  return val;
+};
+
+const STEPS = [
+  { num: "01", title: "Company Registration", body: "Register a Curaçao private limited liability company (NV or BV). We prepare all incorporation documents and handle local filings." },
+  { num: "02", title: "Local Representative", body: "Appoint a local representative — a resident of the Netherlands Antilles. Required by CGA. We arrange this through our network." },
+  { num: "03", title: "Document Collection", body: "Passport copies, proof of address, bank reference letter, criminal record certificate, software agreements and server placement diagram." },
+  { num: "04", title: "License Application", body: "Submit the complete application to the CGA. Authority review typically takes 2 weeks. We manage all follow-up correspondence." },
+  { num: "05", title: "License Issued", body: "CGA grants the sub-license. Valid for 1 year, renewable annually. Your operation can launch immediately after issuance." },
+];
+
+const REQS = [
+  "Passport copy (valid, full color scan)",
+  "Proof of residential address (utility bill or bank statement, max 3 months old)",
+  "Bank reference letter on official letterhead",
+  "Certificate of no criminal record",
+  "Company incorporation documents",
+  "Proof of website ownership for the online casino domain",
+  "Information about the gaming software to be used",
+  "Agreements with software and hardware providers",
+  "Physical server location diagram (server must be hosted in Curaçao)",
+  "Description of planned business activities",
+];
+
+const PROS = [
+  "No paid-up capital requirement — lowest barrier to entry",
+  "Single sub-license covers all gambling verticals",
+  "Fully remote application — no travel required",
+  "Crypto payments accepted by licensed operators",
+  "Corporate tax only 2% — highly competitive",
+  "No gross gaming revenue tax",
+  "No VAT on gambling services",
+  "3–4 month timeline — fastest major jurisdiction",
+];
+
+const CONS = [
+  "Renewed annually (vs 5-year Malta MGA license)",
+  "Less prestigious than EU-regulated licenses (MGA, UKGC)",
+  "Some payment processors prefer EU licenses",
+  "Local representative in Netherlands Antilles required",
+  "At least one physical server must be hosted in Curaçao",
+  "Restrictions on servicing Curaçao residents",
+];
+
+const FAQS = [
+  { q: "How long does it take to obtain a Curaçao gambling license?", a: "Company registration and CGA license issuance typically takes 3–4 months total. The CGA authority review after submission is approximately 2 weeks. Timeline depends on document preparation speed." },
+  { q: "Can I apply for a Curaçao license remotely?", a: "Yes — the entire process can be completed remotely. No physical presence is required at any stage. This makes Curaçao one of the most accessible jurisdictions globally." },
+  { q: "Does a Curaçao license cover all gambling types?", a: "Yes. One sub-license covers online casino, sports betting, poker, bingo, lotteries and other gambling verticals. No separate applications per game category are needed." },
+  { q: "Can licensed Curaçao operators accept crypto payments?", a: "Yes. Curaçao is one of the few jurisdictions that explicitly allows licensed operators to accept cryptocurrency payments from players." },
+  { q: "What documents are required for a Curaçao gambling license?", a: "Passport copy, proof of address, bank reference letter, criminal record certificate, company documents, website ownership proof, software provider agreements, and server location diagram." },
+  { q: "How much does a Curaçao gaming license cost?", a: "Starting from €15,000 for our full service. This includes company formation, local representative arrangement, document preparation, and CGA application. Exact cost depends on business specifics." },
+];
+
+const RELATED = [
+  { href: "/malta-gaming-license", reg: "MGA", name: "Malta", desc: "EU gold standard. Full European market access. 6–9 months, from €25,000." },
+  { href: "/gambling-license-of-the-isle-of-man", reg: "GSC", name: "Isle of Man", desc: "Tier-1 prestige. All verticals, strong reputation. 6–12 months." },
+  { href: "/gambling-license-in-costa-rica", reg: "Municipal", name: "Costa Rica", desc: "Fastest option. No business plan. 2–5 weeks, from $15,000." },
+];
+
+const ADVANTAGES = [
+  { Icon: Zap, title: "Fastest Timeline", body: "3–4 months from start to license. One of the shortest procedures globally — no lengthy regulator review queues." },
+  { Icon: Globe, title: "Crypto-Friendly", body: "Licensed operators can accept cryptocurrency payments from players worldwide. No restrictions on payment methods." },
+  { Icon: Layers, title: "All Verticals — One License", body: "Casino, sports betting, poker, bingo — all covered under a single sub-license. No additional permits required." },
+];
+
+const FACTS_TABLE = [
+  ["Regulator", "Curaçao Gaming Authority (CGA)", ""],
+  ["License type", "Sub-license (master license)", ""],
+  ["Validity", "1 year, renewable", ""],
+  ["Min. capital", "None required", "text-[#22c55e]"],
+  ["Timeline", "3–4 months", ""],
+  ["Starting from", "€15,000", "text-[#444CE7]"],
+  ["Coverage", "All gambling verticals", ""],
+  ["Presence", "100% remote", "text-[#22c55e]"],
+  ["Crypto", "Accepted", "text-[#22c55e]"],
+];
+
+/* ── Corner accent ── */
+const CornerAccent = () => (
+  <div className="absolute top-0 right-0 pointer-events-none">
+    <div className="w-[24px] h-[1px] bg-[#444CE7]/40" />
+    <div className="w-[1px] h-[24px] bg-[#444CE7]/40 ml-auto" />
+  </div>
+);
+
+/* ── Scan sweep ── */
+const ScanSweep = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#444CE7]/[0.03] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+  </div>
+);
+
+const CuracaoGamingPage = () => {
+  const [faqOpen, setFaqOpen] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const s1 = useRef<HTMLDivElement>(null);
+  const s2 = useRef<HTMLDivElement>(null);
+  const s3 = useRef<HTMLDivElement>(null);
+  const s4 = useRef<HTMLDivElement>(null);
+  const s5 = useRef<HTMLDivElement>(null);
+
+  const c1 = useCounter(15000);
+
+  useEffect(() => {
+    document.title = "Curaçao Gaming License CGA — Online Gambling License | Incluence";
+    const setMeta = (n: string, c: string) => {
+      let el = document.querySelector(`meta[name="${n}"]`) as HTMLMetaElement;
+      if (!el) { el = document.createElement("meta"); el.name = n; document.head.appendChild(el); }
+      el.content = c;
+    };
+    const setProp = (p: string, c: string) => {
+      let el = document.querySelector(`meta[property="${p}"]`) as HTMLMetaElement;
+      if (!el) { el = document.createElement("meta"); el.setAttribute("property", p); document.head.appendChild(el); }
+      el.content = c;
+    };
+    setMeta("description", "Get a Curaçao CGA gambling license — fastest and most affordable entry point. From €15,000, 3–4 months. Full remote process. Incluence legal support.");
+    setMeta("keywords", "Curacao gaming license, CGA license, Curacao gambling license, online casino Curacao, Curacao iGaming license");
+    setProp("og:title", "Curaçao Gaming License CGA | Incluence");
+    setProp("og:url", "https://incluence.com/curacao-gaming-license");
+    setProp("og:type", "website");
+
+    let can = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    if (!can) { can = document.createElement("link"); can.rel = "canonical"; document.head.appendChild(can); }
+    can.href = "https://incluence.com/curacao-gaming-license";
+
+    const schema = {
+      "@context": "https://schema.org", "@type": "Service",
+      name: "Curaçao Gaming License",
+      description: "Legal assistance in obtaining a Curaçao CGA gambling license for online casino, sports betting and all gambling verticals.",
+      provider: { "@type": "Organization", name: "Incluence", url: "https://incluence.com" },
+      areaServed: "Worldwide",
+      url: "https://incluence.com/curacao-gaming-license",
+      offers: { "@type": "Offer", priceCurrency: "EUR", price: "15000" },
+    };
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.id = "curacao-schema";
+    s.text = JSON.stringify(schema);
+    document.head.appendChild(s);
+    return () => { document.querySelector("#curacao-schema")?.remove(); can?.remove(); };
+  }, []);
+
+  const stepRefs = [s1, s2, s3, s4, s5];
+
+  return (
+    <div style={{ fontFamily: "Manrope, sans-serif" }}>
+      {/* ── BREADCRUMB ── */}
+      <section style={{ background: "#080808", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <nav className="max-w-screen-xl mx-auto py-3.5 px-12">
+          <div className="flex items-center gap-2 text-[11px]">
+            <Link to="/" className="text-[#5A5550] hover:text-[#9A9590] transition-colors">Incluence</Link>
+            <ChevronRight className="w-3 h-3 text-[#5A5550]" />
+            <Link to="/gamble-license" className="text-[#5A5550] hover:text-[#9A9590] transition-colors">Gambling License</Link>
+            <ChevronRight className="w-3 h-3 text-[#5A5550]" />
+            <span className="text-[#9A9590]">Curaçao Gaming License</span>
+          </div>
+        </nav>
+      </section>
+
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 520 }}>
+        <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
+        <div className="z-[1] relative"><MicroParticles /></div>
+
+        {/* Curaçao SVG Map */}
+        <svg className="absolute pointer-events-none z-[2]" style={{ right: "8%", top: "50%", transform: "translateY(-50%)", width: 320, height: 380 }} viewBox="0 0 200 240" fill="none">
+          <path d="M30 100 C35 85, 55 75, 80 72 C105 70, 135 74, 155 82 C168 88, 175 96, 172 106 C168 118, 155 125, 140 128 C120 132, 95 130, 70 126 C50 122, 35 115, 30 100Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
+          <ellipse cx="175" cy="135" rx="6" ry="4" fill="#141822" stroke="rgba(240,235,224,0.08)" strokeWidth="0.8" />
+          <path d="M60 90 L90 95 L120 88 L150 94" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
+          <g>
+            <circle cx="85" cy="98" r="3" fill="#444CE7" opacity="0.8" />
+            <circle cx="85" cy="98" r="6" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.3" />
+            <text x="65" y="115" fill="rgba(240,235,224,0.5)" fontSize="7" fontFamily="Manrope" fontWeight="400">Willemstad</text>
+            <text x="65" y="124" fill="rgba(68,76,231,0.5)" fontSize="5.5" fontFamily="Manrope" fontWeight="400">CGA HQ</text>
+          </g>
+          <text x="155" y="160" fill="rgba(240,235,224,0.08)" fontSize="18" fontFamily="Manrope" fontWeight="300">CW</text>
+          <text x="30" y="180" fill="rgba(240,235,224,0.06)" fontSize="8" fontFamily="Manrope" fontWeight="300">Caribbean</text>
+        </svg>
+
+        <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
+          <div className="max-w-[600px]">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Gambling License</span>
+              <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.12em]">Offshore · CGA</span>
+            </div>
+            <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1] mb-6">
+              <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Curaçao</span>
+              {" "}Gaming{"\n"}License
+            </h1>
+            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">
+              The fastest and most cost-effective entry point to the online gambling market. One sub-license covers all gambling verticals. Full remote process — no physical presence required. Crypto-friendly.
+            </p>
+            <div className="flex gap-4">
+              <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
+              <button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View Requirements</button>
+            </div>
+          </div>
+        </div>
+
+        {/* Facts Strip */}
+        <div className="max-w-screen-xl mx-auto px-12 pb-[88px]">
+          <div className="mt-14 grid grid-cols-6 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+            {[
+              [`€${c1.toLocaleString()}+`, "Starting from", ""],
+              ["3–4 months", "Timeline", ""],
+              ["1 year", "License validity", "text-[#9A9590]"],
+              ["CGA", "Regulator", "text-[#444CE7] font-semibold"],
+              ["Worldwide", "Market access", ""],
+              ["All verticals", "One license", "text-[#444CE7]"],
+            ].map(([value, label, cls], i) => (
+              <div key={i} className="bg-[#080808] p-6 relative overflow-hidden group">
+                <ScanSweep />
+                <span className={`text-[30px] font-light leading-none block ${cls || "text-[#F0EBE0]"}`}>{value}</span>
+                <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mt-2 block">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── DESCRIPTION ── */}
+      <section style={{ background: "#0d0d0d" }}>
+        <div className="max-w-screen-xl mx-auto py-[72px] px-12 grid grid-cols-12 gap-12">
+          <div className="col-span-7">
+            <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— About CGA License</span>
+            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">Why Curaçao is the Most Popular Starting Point</h2>
+            <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
+              <p>Curaçao hosts more online gambling companies than almost any other jurisdiction. This is driven by simple, business-friendly legislation and one of the most accessible licensing procedures in the world.</p>
+              <p>The key advantage is that a single Curaçao sub-license covers all gambling verticals — casino, sports betting, poker, and lotteries. There is no need to apply for separate licenses per product category.</p>
+              <p>Unlike most jurisdictions, Curaçao imposes no paid-up capital requirement, no mandatory business plan, and allows fully remote application. Online casino operators can also accept cryptocurrency payments, making this license particularly attractive for crypto-facing gambling businesses.</p>
+            </div>
+          </div>
+          <div className="col-span-5 space-y-3">
+            {ADVANTAGES.map((a, i) => (
+              <div key={i} className="bg-[#080808] border border-white/[0.06] p-5 group relative overflow-hidden">
+                <CornerAccent />
+                <ScanSweep />
+                <a.Icon className="w-5 h-5 text-[#444CE7] mb-3" />
+                <h3 className="text-[15px] font-medium text-[#F0EBE0] mb-2">{a.title}</h3>
+                <p className="text-[13px] text-[#9A9590] leading-[1.7]">{a.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROCESS ── */}
+      <section style={{ background: "#111111" }}>
+        <div className="max-w-screen-xl mx-auto py-[72px] px-12">
+          <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— Process</span>
+          <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-4">How to Obtain a Curaçao License</h2>
+          <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-12">A streamlined 5-step process managed entirely by our team. Physical presence not required at any stage.</p>
+
+          <div ref={containerRef} className="relative">
+            <ProcessFlowCanvas />
+            <div className="grid grid-cols-3 gap-px relative z-10" style={{ background: "rgba(255,255,255,0.06)" }}>
+              {STEPS.map((step, i) => (
+                <div key={i} ref={stepRefs[i]} data-step className="bg-[#111111] p-7 relative overflow-hidden group">
+                  <ScanSweep />
+                  <span className="text-[11px] text-[#444CE7]/60 uppercase tracking-[0.12em] block mb-3">{step.num}</span>
+                  <h3 className="text-[16px] font-medium text-[#F0EBE0] mb-2">{step.title}</h3>
+                  <p className="text-[13px] text-[#9A9590] leading-[1.7]">{step.body}</p>
+                </div>
+              ))}
+              <div className="bg-[#111111]" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── REQUIREMENTS ── */}
+      <section style={{ background: "#0d0d0d" }}>
+        <div className="max-w-screen-xl mx-auto py-[72px] px-12 grid grid-cols-12 gap-12">
+          <div className="col-span-7">
+            <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— Requirements</span>
+            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-4">Documents & Eligibility</h2>
+            <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-8">One of the lightest document requirements of any gambling jurisdiction. No business plan, no profit forecast, no software requirements — just basic KYC documentation.</p>
+            <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
+              {REQS.map((req, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="w-[5px] h-[5px] bg-[#444CE7]/40 mt-[7px] shrink-0" />
+                  <span className="text-[13px] text-[#9A9590] leading-[1.7]">{req}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="col-span-5">
+            <div className="sticky top-[80px] bg-[#080808] border border-white/[0.06] p-8 group relative overflow-hidden">
+              <ScanSweep />
+              {/* Pulse dot */}
+              <div className="absolute top-6 right-6">
+                <div className="relative" style={{ width: 8, height: 8 }}>
+                  <div className="absolute inset-0 bg-[#22c55e]" />
+                  <div className="absolute inset-0 bg-[#22c55e]" style={{ animation: "pd 2s ease-out infinite" }} />
+                </div>
+              </div>
+              <style>{`@keyframes pd{0%{transform:scale(1);opacity:.5}100%{transform:scale(2.5);opacity:0}}`}</style>
+              <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— Key Facts</span>
+              <div className="divide-y divide-white/[0.05] mt-4">
+                {FACTS_TABLE.map(([label, value, cls], i) => (
+                  <div key={i} className="flex justify-between py-3">
+                    <span className="text-[12px] text-[#5A5550]">{label}</span>
+                    <span className={`text-[12px] font-medium ${cls || "text-[#F0EBE0]"}`}>{value}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 pt-6 border-t border-white/[0.06]">
+                <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block w-full text-center">Get a Free Quote →</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROS & CONS ── */}
+      <section style={{ background: "#111111" }}>
+        <div className="max-w-screen-xl mx-auto py-[72px] px-12">
+          <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— Advantages & Limitations</span>
+          <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-12">Pros & Cons</h2>
+          <div className="grid grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+            <div className="bg-[#111111] p-8">
+              <h3 className="text-[14px] font-medium text-[#22c55e] uppercase tracking-[0.08em] mb-6">Advantages</h3>
+              <div className="space-y-3">
+                {PROS.map((p, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-[#22c55e] mt-0.5 shrink-0" />
+                    <span className="text-[13px] text-[#9A9590] leading-[1.7]">{p}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-[#111111] p-8">
+              <h3 className="text-[14px] font-medium text-[#ef4444] uppercase tracking-[0.08em] mb-6">Limitations</h3>
+              <div className="space-y-3">
+                {CONS.map((c, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <X className="w-4 h-4 text-[#ef4444] mt-0.5 shrink-0" />
+                    <span className="text-[13px] text-[#9A9590] leading-[1.7]">{c}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section style={{ background: "#0d0d0d" }}>
+        <div className="max-w-screen-xl mx-auto py-[72px] px-12">
+          <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— FAQ</span>
+          <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-12">Common Questions</h2>
+          <div className="max-w-[720px]">
+            {FAQS.map((f, i) => (
+              <div key={i} className="border-b border-white/[0.06]">
+                <button onClick={() => setFaqOpen(faqOpen === i ? null : i)} className="flex justify-between items-center w-full py-5 cursor-pointer text-left bg-transparent border-0" style={{ fontFamily: "inherit" }}>
+                  <span className="text-[14px] text-[#F0EBE0] font-medium pr-8">{f.q}</span>
+                  <ChevronDown className={`w-4 h-4 text-[#5A5550] shrink-0 transition-transform duration-200 ${faqOpen === i ? "rotate-180" : ""}`} />
+                </button>
+                {faqOpen === i && (
+                  <p className="text-[13px] text-[#9A9590] leading-[1.8] pb-5">{f.a}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── RELATED ── */}
+      <section style={{ background: "#111111" }}>
+        <div className="max-w-screen-xl mx-auto py-[72px] px-12">
+          <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— Related Licenses</span>
+          <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-12">Other Jurisdictions</h2>
+          <div className="grid grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+            {RELATED.map((r, i) => (
+              <Link key={i} to={r.href} className="bg-[#111111] p-7 group relative overflow-hidden block">
+                <CornerAccent />
+                <ScanSweep />
+                <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-500" />
+                <span className="text-[10px] text-[#444CE7]/60 uppercase tracking-[0.12em] block mb-2">{r.reg}</span>
+                <h3 className="text-[18px] font-light text-[#F0EBE0] mb-3">{r.name}</h3>
+                <p className="text-[13px] text-[#9A9590] leading-[1.7]">{r.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA FORM ── */}
+      <section style={{ background: "#080808" }}>
+        <div className="max-w-screen-xl mx-auto py-[88px] px-12 grid grid-cols-12 gap-12">
+          <div className="col-span-5">
+            <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— Get Started</span>
+            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">Apply for a Curaçao Gaming License</h2>
+            <p className="text-[14px] text-[#9A9590] leading-[1.8]">Tell us about your project. We'll handle everything — from company formation to license issuance. Full remote service.</p>
+          </div>
+          <div className="col-span-7">
+            <form onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-2 gap-4 mb-4">
+                {[["Full Name", "text"], ["Company Name", "text"], ["Gaming Verticals", "text"], ["Launch Timeline", "text"]].map(([label, type]) => (
+                  <div key={label}>
+                    <label className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em] block mb-2">{label}</label>
+                    <input type={type} className="w-full bg-[#0d0d0d] border border-white/[0.06] px-4 py-3 text-[13px] text-[#F0EBE0] focus:border-[#444CE7]/40 focus:outline-none transition-colors" style={{ fontFamily: "inherit" }} />
+                  </div>
+                ))}
+              </div>
+              <div className="mb-4">
+                <label className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em] block mb-2">Additional details — target markets, existing structure, crypto requirements...</label>
+                <textarea rows={4} className="w-full bg-[#0d0d0d] border border-white/[0.06] px-4 py-3 text-[13px] text-[#F0EBE0] focus:border-[#444CE7]/40 focus:outline-none transition-colors resize-none" style={{ fontFamily: "inherit" }} />
+              </div>
+              <button type="submit" className="px-8 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors duration-200 cursor-pointer border-0">Send Request →</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default CuracaoGamingPage;

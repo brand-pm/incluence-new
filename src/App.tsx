@@ -8,9 +8,9 @@ import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import GamblingHubPage from "./pages/GamblingHubPage";
 import MaltaLicensePage from "./pages/gambling/MaltaLicensePage";
-import CostaRicaLicensePage from "./pages/gambling/CostaRicaLicensePage";
-import CuracaoLicensePage from "./pages/gambling/CuracaoLicensePage";
-import IsleOfManLicensePage from "./pages/gambling/IsleOfManLicensePage";
+import CuracaoGamingPage from "./pages/CuracaoGamingPage";
+import IsleOfManGamingPage from "./pages/IsleOfManGamingPage";
+import CostaRicaGamingPage from "./pages/CostaRicaGamingPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import MarketplacePage from "./pages/MarketplacePage";
@@ -72,9 +72,9 @@ const App = () => (
 
             {/* ── Gambling license detail ── */}
             <Route path="/malta-gaming-license" element={<MaltaLicensePage />} />
-            <Route path="/curacao-gaming-license" element={<CuracaoLicensePage />} />
-            <Route path="/gambling-license-of-the-isle-of-man" element={<IsleOfManLicensePage />} />
-            <Route path="/gambling-license-in-costa-rica" element={<CostaRicaLicensePage />} />
+            <Route path="/curacao-gaming-license" element={<CuracaoGamingPage />} />
+            <Route path="/gambling-license-of-the-isle-of-man" element={<IsleOfManGamingPage />} />
+            <Route path="/gambling-license-in-costa-rica" element={<CostaRicaGamingPage />} />
             <Route path="/gambling-license-gibraltar" element={<PlaceholderPage title="Gibraltar Gambling License" />} />
             <Route path="/gambling-license-cyprus" element={<PlaceholderPage title="Cyprus Gambling License" />} />
 
