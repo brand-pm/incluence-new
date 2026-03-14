@@ -15,6 +15,7 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import MarketplacePage from "./pages/MarketplacePage";
 import AIConsultant from "./components/ui/AIConsultant";
+import SitemapPage from "./pages/SitemapPage";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
           <Routes>
             {/* ── Global ── */}
             <Route path="/" element={<Index />} />
+            <Route path="/sitemap" element={<SitemapPage />} />
             <Route path="/marketplace" element={<MarketplacePage />} />
             <Route path="/about-us" element={<AboutPage />} />
             <Route path="/about" element={<AboutPage />} />
