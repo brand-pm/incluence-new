@@ -45,6 +45,9 @@ import LegalSupportPage from "./pages/LegalSupportPage";
 import ContractsPage from "./pages/ContractsPage";
 import OffshoreFormationPage from "./pages/OffshoreFormationPage";
 import BuyBusinessAbroadPage from "./pages/BuyBusinessAbroadPage";
+import BankAccountsHubPage from "./pages/BankAccountsHubPage";
+import ForeignBankAccountPage from "./pages/ForeignBankAccountPage";
+import OffshoreBankAccountPage from "./pages/OffshoreBankAccountPage";
 
 const queryClient = new QueryClient();
 
@@ -188,9 +191,9 @@ const App = () => (
             <Route path="/ready-made-offshore-companies" element={<PlaceholderPage title="Offshore Ready-Made" />} />
 
             {/* ── Bank accounts ── */}
-            <Route path="/accounts-bank" element={<PlaceholderPage title="Foreign Bank Account" />} />
-            <Route path="/opening-a-foreign-bank-account" element={<PlaceholderPage title="Foreign Bank Account" />} />
-            <Route path="/opening-an-offshore-bank-account" element={<PlaceholderPage title="Offshore Bank Account" />} />
+            <Route path="/accounts-bank" element={<BankAccountsHubPage />} />
+            <Route path="/opening-a-foreign-bank-account" element={<ForeignBankAccountPage />} />
+            <Route path="/opening-an-offshore-bank-account" element={<OffshoreBankAccountPage />} />
             <Route path="/open-a-bank-account-in-cyprus" element={<PlaceholderPage title="Cyprus Bank Account" />} />
             <Route path="/open-a-bank-account-in-germany" element={<PlaceholderPage title="Germany Bank Account" />} />
             <Route path="/open-a-bank-account-in-luxembourg" element={<PlaceholderPage title="Luxembourg Bank Account" />} />

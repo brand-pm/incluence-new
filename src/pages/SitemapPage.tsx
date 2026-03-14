@@ -118,9 +118,9 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Switzerland Ready-Made", url: "/buying-a-company-in-switzerland", status: "planned", category: "Ready-Made" },
 
   // ── BANK ACCOUNTS ──
-  { title: "Bank Accounts (Hub)", url: "/accounts-bank", status: "planned", category: "Banking" },
-  { title: "Foreign Bank Account", url: "/opening-a-foreign-bank-account", status: "planned", category: "Banking" },
-  { title: "Offshore Bank Account", url: "/opening-an-offshore-bank-account", status: "planned", category: "Banking" },
+  { title: "Bank Accounts (Hub)", url: "/accounts-bank", status: "done", category: "Banking" },
+  { title: "Foreign Bank Account", url: "/opening-a-foreign-bank-account", status: "done", category: "Banking" },
+  { title: "Offshore Bank Account", url: "/opening-an-offshore-bank-account", status: "done", category: "Banking" },
   { title: "Cyprus Bank Account", url: "/open-a-bank-account-in-cyprus", status: "planned", category: "Banking" },
   { title: "Germany Bank Account", url: "/open-a-bank-account-in-germany", status: "planned", category: "Banking" },
   { title: "UK Bank Account", url: "/opening-a-bank-account-in-the-united-kingdom", status: "planned", category: "Banking" },
