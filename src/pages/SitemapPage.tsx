@@ -31,7 +31,7 @@ const SITEMAP_DATA: SitemapEntry[] = [
   // ── FOREX ──
   { title: "Forex License (Hub)", url: "/forex-license", status: "done", category: "Forex" },
   { title: "Cyprus Forex License", url: "/cyprus-forex-license", status: "done", category: "Forex" },
-  { title: "Malta Forex License", url: "/forex-broker-licence-in-malta", status: "planned", category: "Forex" },
+  { title: "Malta Forex License", url: "/forex-broker-licence-in-malta", status: "done", category: "Forex" },
   { title: "Vanuatu Forex License", url: "/forex-broker-licence-in-vanuatu", status: "done", category: "Forex" },
   { title: "Mauritius Forex License", url: "/forex-broker-licence-in-mauritius", status: "planned", category: "Forex" },
   { title: "Montenegro Forex License", url: "/forex-broker-licence-in-montenegro", status: "done", category: "Forex" },
