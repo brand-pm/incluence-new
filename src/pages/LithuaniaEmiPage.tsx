@@ -127,20 +127,7 @@ const LithuaniaEmiPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", padding: "88px 48px" }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.045) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="relative z-[1]"><MicroParticles /></div>
-        {/* Lithuania SVG map */}
-        <div className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[320px] h-[380px] pointer-events-none z-[2] hidden lg:block">
-          <svg viewBox="0 0 200 240" fill="none" className="w-full h-full">
-            <path d="M40 60 L85 45 L140 48 L165 65 L170 100 L160 140 L130 155 L90 158 L55 145 L35 115 L30 85 Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-            <path d="M30 175 L55 165 L65 175 L50 185 Z" fill="#141822" stroke="rgba(240,235,224,0.10)" strokeWidth="0.8" />
-            <path d="M60 80 L150 95 M100 50 L95 155" stroke="rgba(240,235,224,0.03)" strokeWidth="0.5" />
-            <circle cx="108" cy="98" r="5" fill="#444CE7"><animate attributeName="r" values="5;8;5" dur="2.5s" repeatCount="indefinite" /><animate attributeName="opacity" values="1;0.4;1" dur="2.5s" repeatCount="indefinite" /></circle>
-            <circle cx="108" cy="98" r="3" fill="#444CE7" />
-            <text x="112" y="110" fontSize="6" fill="rgba(240,235,224,0.25)" fontFamily="Manrope,sans-serif">Vilnius</text>
-            <text x="113" y="118" fontSize="5" fill="rgba(240,235,224,0.15)" fontFamily="Manrope,sans-serif">Bank of Lithuania</text>
-            <text x="100" y="55" fontSize="28" fill="rgba(240,235,224,0.04)" textAnchor="middle" fontFamily="Manrope,sans-serif" fontWeight="300">LT</text>
-            <text x="155" y="78" fontSize="5" fill="rgba(68,76,231,0.3)" fontFamily="Manrope,sans-serif">EU · Top 5</text>
-          </svg>
-        </div>
+        <TerritoryMap iso="LT" markerLabel="Vilnius" subLabel="Bank of Lithuania" />
         <div className="relative z-10 max-w-screen-xl mx-auto">
           <div className="flex gap-3 mb-5">
             <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— EMI License</span>

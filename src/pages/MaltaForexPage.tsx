@@ -149,20 +149,7 @@ const MaltaForexPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 520 }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="z-[1] relative"><MicroParticles /></div>
-        <svg className="absolute pointer-events-none z-[2]" style={{ right: "8%", top: "50%", transform: "translateY(-50%)", width: 340, height: 400 }} viewBox="0 0 220 260" fill="none">
-          <path d="M60 110 C65 100, 80 92, 100 90 C120 88, 145 92, 160 100 C172 107, 178 118, 170 128 C162 138, 145 142, 128 140 C115 138, 105 142, 92 140 C78 138, 65 128, 60 118Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-          <path d="M155 105 C162 100, 172 98, 176 102 C180 106, 178 112, 172 116 C166 120, 158 118, 155 114" fill="#141822" stroke="rgba(240,235,224,0.1)" strokeWidth="0.8" />
-          <ellipse cx="82" cy="128" rx="6" ry="4" fill="#141822" stroke="rgba(240,235,224,0.08)" strokeWidth="0.6" />
-          <path d="M80 105 L110 112 L140 106" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
-          <g>
-            <circle cx="118" cy="112" r="3" fill="#444CE7" opacity="0.8" />
-            <circle cx="118" cy="112" r="6" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.3" />
-            <text x="126" y="115" fill="rgba(240,235,224,0.5)" fontSize="7" fontFamily="Manrope" fontWeight="400">Valletta</text>
-            <text x="126" y="124" fill="rgba(68,76,231,0.5)" fontSize="5.5" fontFamily="Manrope" fontWeight="400">MFSA HQ</text>
-          </g>
-          <text x="85" y="180" fill="rgba(240,235,224,0.08)" fontSize="20" fontFamily="Manrope" fontWeight="300">MT</text>
-          <text x="155" y="170" fill="rgba(240,235,224,0.06)" fontSize="8" fontFamily="Manrope" fontWeight="300">EU</text>
-        </svg>
+        <TerritoryMap iso="MT" markerLabel="Valletta" subLabel="MFSA HQ" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
           <div className="max-w-[600px]">

@@ -1,66 +1,5 @@
 import LicensePageTemplate from "@/components/LicensePageTemplate";
-
-/* ── Malta-specific SVG map ──────────────────────────── */
-
-const MaltaMapSvg = (
-  <svg
-    className="absolute pointer-events-none z-[1]"
-    style={{ right: '18%', top: '50%', transform: 'translateY(-50%)', width: '420px', height: '520px' }}
-    viewBox="0 0 300 400" fill="none"
-  >
-    {/* === GOZO === */}
-    <path d="M65 55 C72 42, 88 35, 108 38 C125 40, 140 48, 148 60 C154 70, 152 82, 145 92 C138 100, 125 106, 110 108 C95 110, 78 106, 68 96 C58 86, 55 70, 65 55Z"
-      fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-    <path d="M85 50 L95 80 L75 95" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
-    <path d="M110 42 L108 75 L130 85" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
-    <circle cx="105" cy="72" r="2" fill="rgba(240,235,224,0.35)" />
-    <text x="80" y="68" fill="rgba(240,235,224,0.3)" fontSize="7" fontFamily="Manrope" fontWeight="400">Victoria</text>
-
-    {/* === COMINO === */}
-    <ellipse cx="140" cy="120" rx="10" ry="6" fill="#141822" stroke="rgba(240,235,224,0.1)" strokeWidth="0.8" />
-
-    {/* === MAIN MALTA ISLAND === */}
-    <path d="
-      M115 148 C120 140, 132 135, 148 132 C165 130, 182 132, 195 138
-      C208 144, 218 148, 225 155 C232 162, 238 168, 240 178
-      C243 190, 242 200, 238 212 C234 225, 228 235, 220 248
-      C215 258, 210 268, 200 278 C192 286, 182 292, 170 295
-      C158 298, 145 296, 135 290 C125 284, 118 275, 114 264
-      C110 252, 108 240, 110 228 C112 216, 115 205, 116 195
-      C117 182, 115 165, 115 148Z
-    " fill="#141822" stroke="rgba(240,235,224,0.15)" strokeWidth="1.2" />
-    <path d="M148 132 C142 125, 138 118, 142 114 C146 110, 155 112, 158 118 C160 124, 155 130, 148 132Z"
-      fill="#141822" stroke="rgba(240,235,224,0.1)" strokeWidth="0.8" />
-    <path d="M140 155 L165 180 L145 210" stroke="rgba(240,235,224,0.05)" strokeWidth="0.5" fill="none" />
-    <path d="M175 145 L180 185 L210 200" stroke="rgba(240,235,224,0.05)" strokeWidth="0.5" fill="none" />
-    <path d="M130 220 L165 230 L175 260" stroke="rgba(240,235,224,0.05)" strokeWidth="0.5" fill="none" />
-    <path d="M155 175 L195 190 L210 225" stroke="rgba(240,235,224,0.05)" strokeWidth="0.5" fill="none" />
-
-    {/* === CITY MARKERS === */}
-    <circle cx="205" cy="195" r="5" fill="#444CE7" opacity="0.9" />
-    <circle cx="205" cy="195" r="12" stroke="#444CE7" strokeWidth="1" fill="none" opacity="0.4">
-      <animate attributeName="r" values="12;22;12" dur="3s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="0.4;0.05;0.4" dur="3s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="205" cy="195" r="18" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.15">
-      <animate attributeName="r" values="18;30;18" dur="4s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="0.15;0;0.15" dur="4s" repeatCount="indefinite" />
-    </circle>
-    <text x="215" y="192" fill="#444CE7" fontSize="9" fontFamily="Manrope" fontWeight="600">Valletta</text>
-    <text x="215" y="203" fill="#444CE7" fontSize="7" fontFamily="Manrope" fontWeight="500" opacity="0.6">MGA HQ</text>
-
-    <circle cx="155" cy="195" r="2" fill="rgba(240,235,224,0.4)" />
-    <text x="135" y="190" fill="rgba(240,235,224,0.25)" fontSize="7" fontFamily="Manrope">Mdina</text>
-    <circle cx="195" cy="178" r="1.5" fill="rgba(240,235,224,0.3)" />
-    <text x="200" y="175" fill="rgba(240,235,224,0.2)" fontSize="6" fontFamily="Manrope">Sliema</text>
-    <circle cx="210" cy="248" r="1.5" fill="rgba(240,235,224,0.3)" />
-    <text x="216" y="252" fill="rgba(240,235,224,0.2)" fontSize="6.5" fontFamily="Manrope">Marsaskala</text>
-    <circle cx="185" cy="275" r="1.5" fill="rgba(240,235,224,0.3)" />
-    <text x="155" y="282" fill="rgba(240,235,224,0.2)" fontSize="6.5" fontFamily="Manrope">Birżebbuġa</text>
-
-    <text x="150" y="225" fill="rgba(240,235,224,0.08)" fontSize="28" fontFamily="Manrope" fontWeight="300" textAnchor="middle">Malta</text>
-  </svg>
-);
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 
 /* ── Page data ───────────────────────────────────────── */
 
@@ -81,7 +20,7 @@ const MaltaLicensePage = () => (
       cta1: "Get a Free Quote →",
       cta2: "View Requirements",
     }}
-    mapSvg={MaltaMapSvg}
+    mapSvg={<TerritoryMap iso="MT" markerLabel="Valletta" subLabel="MGA HQ" />}
     fireflies={{ originX: 72, originY: 48, count: 10 }}
     facts={[
       { label: "Jurisdiction", value: "Malta", cls: "text-[#F0EBE0]" },

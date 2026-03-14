@@ -182,20 +182,7 @@ const CuracaoGamingPage = () => {
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="z-[1] relative"><MicroParticles /></div>
 
-        {/* Curaçao SVG Map */}
-        <svg className="absolute pointer-events-none z-[2]" style={{ right: "8%", top: "50%", transform: "translateY(-50%)", width: 320, height: 380 }} viewBox="0 0 200 240" fill="none">
-          <path d="M30 100 C35 85, 55 75, 80 72 C105 70, 135 74, 155 82 C168 88, 175 96, 172 106 C168 118, 155 125, 140 128 C120 132, 95 130, 70 126 C50 122, 35 115, 30 100Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-          <ellipse cx="175" cy="135" rx="6" ry="4" fill="#141822" stroke="rgba(240,235,224,0.08)" strokeWidth="0.8" />
-          <path d="M60 90 L90 95 L120 88 L150 94" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
-          <g>
-            <circle cx="85" cy="98" r="3" fill="#444CE7" opacity="0.8" />
-            <circle cx="85" cy="98" r="6" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.3" />
-            <text x="65" y="115" fill="rgba(240,235,224,0.5)" fontSize="7" fontFamily="Manrope" fontWeight="400">Willemstad</text>
-            <text x="65" y="124" fill="rgba(68,76,231,0.5)" fontSize="5.5" fontFamily="Manrope" fontWeight="400">CGA HQ</text>
-          </g>
-          <text x="155" y="160" fill="rgba(240,235,224,0.08)" fontSize="18" fontFamily="Manrope" fontWeight="300">CW</text>
-          <text x="30" y="180" fill="rgba(240,235,224,0.06)" fontSize="8" fontFamily="Manrope" fontWeight="300">Caribbean</text>
-        </svg>
+        <TerritoryMap iso="CW" markerLabel="Willemstad" subLabel="CGA HQ" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
           <div className="max-w-[600px]">

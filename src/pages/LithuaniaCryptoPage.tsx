@@ -132,17 +132,7 @@ const LithuaniaCryptoPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", padding: "88px 48px", minHeight: 520 }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.045) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="relative z-[1]"><MicroParticles /></div>
-        <svg className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[320px] h-[380px] pointer-events-none z-[2] opacity-[0.08]" viewBox="0 0 320 380" fill="none">
-          <path d="M80 80 L180 70 L240 90 L260 130 L250 200 L220 260 L160 280 L100 270 L70 220 L60 150 Z" fill="#444CE7" fillOpacity="0.15" stroke="#444CE7" strokeOpacity="0.3" strokeWidth="0.5" />
-          <path d="M60 120 L40 140 L50 170 L70 160 Z" fill="#444CE7" fillOpacity="0.1" stroke="#444CE7" strokeOpacity="0.2" strokeWidth="0.5" />
-          <path d="M120 120 L200 140 M100 180 L220 200" stroke="#444CE7" strokeOpacity="0.1" strokeWidth="0.3" />
-          <circle cx="170" cy="170" r="4" fill="#444CE7" fillOpacity="0.6" />
-          <circle cx="170" cy="170" r="8" fill="none" stroke="#444CE7" strokeOpacity="0.3" strokeWidth="0.5" />
-          <text x="170" y="155" textAnchor="middle" fill="#444CE7" fillOpacity="0.5" fontSize="8" fontFamily="Manrope">Vilnius</text>
-          <text x="170" y="190" textAnchor="middle" fill="#444CE7" fillOpacity="0.3" fontSize="6" fontFamily="Manrope">FCIS HQ</text>
-          <text x="160" y="320" textAnchor="middle" fill="#F0EBE0" fillOpacity="0.06" fontSize="28" fontFamily="Manrope" fontWeight="300">LT</text>
-          <text x="160" y="340" textAnchor="middle" fill="#444CE7" fillOpacity="0.15" fontSize="8" fontFamily="Manrope">EU · MiCA</text>
-        </svg>
+        <TerritoryMap iso="LT" markerLabel="Vilnius" subLabel="FCIS HQ" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto max-w-[600px]">
           <div className="flex gap-3 mb-5">

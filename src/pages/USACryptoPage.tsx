@@ -147,27 +147,7 @@ const USACryptoPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 520 }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="z-[1] relative"><MicroParticles /></div>
-        <svg className="absolute pointer-events-none z-[2]" style={{ right: "5%", top: "50%", transform: "translateY(-50%)", width: 380, height: 360 }} viewBox="0 0 300 240" fill="none">
-          <path d="M30 80 C35 65, 55 50, 85 42 C115 34, 155 30, 195 35 C225 39, 250 50, 265 65 C275 75, 278 88, 270 100 C262 112, 245 120, 230 125 C215 130, 200 128, 185 132 C170 136, 155 142, 140 145 C125 148, 105 148, 85 142 C65 136, 48 125, 38 110 C28 95, 28 85, 30 80Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-          <path d="M230 125 C238 128, 245 135, 250 145 C255 155, 248 162, 240 158 C232 154, 230 140, 230 125Z" fill="#141822" stroke="rgba(240,235,224,0.1)" strokeWidth="0.8" />
-          <path d="M80 70 L120 60 L170 58 L220 65 L250 75" stroke="rgba(240,235,224,0.04)" strokeWidth="0.5" fill="none" />
-          <path d="M100 80 L100 120" stroke="rgba(240,235,224,0.03)" strokeWidth="0.3" />
-          <path d="M150 55 L150 130" stroke="rgba(240,235,224,0.03)" strokeWidth="0.3" />
-          <path d="M200 60 L200 125" stroke="rgba(240,235,224,0.03)" strokeWidth="0.3" />
-          <g>
-            <circle cx="215" cy="85" r="3" fill="#444CE7" opacity="0.8" />
-            <circle cx="215" cy="85" r="6" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.3" />
-            <circle cx="215" cy="85" r="10" stroke="#444CE7" strokeWidth="0.3" fill="none" opacity="0.15" />
-          </g>
-          <g><circle cx="230" cy="72" r="2" fill="rgba(240,235,224,0.3)" /></g>
-          <g><circle cx="245" cy="145" r="2" fill="rgba(240,235,224,0.2)" /></g>
-          <g><circle cx="80" cy="80" r="2" fill="rgba(240,235,224,0.2)" /></g>
-          <text x="220" y="80" fill="rgba(240,235,224,0.5)" fontSize="5.5" fontFamily="Manrope" fontWeight="400">Washington DC</text>
-          <text x="220" y="88" fill="rgba(68,76,231,0.5)" fontSize="4.5" fontFamily="Manrope" fontWeight="400">FinCEN HQ</text>
-          <text x="234" y="68" fill="rgba(240,235,224,0.25)" fontSize="5" fontFamily="Manrope" fontWeight="300">New York</text>
-          <text x="80" y="185" fill="rgba(240,235,224,0.08)" fontSize="22" fontFamily="Manrope" fontWeight="300">USA</text>
-          <text x="210" y="175" fill="rgba(240,235,224,0.06)" fontSize="8" fontFamily="Manrope" fontWeight="300">Federal</text>
-        </svg>
+        <TerritoryMap iso="US" markerLabel="Washington DC" subLabel="FinCEN HQ" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
           <div className="max-w-[600px]">

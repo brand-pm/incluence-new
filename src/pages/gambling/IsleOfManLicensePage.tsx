@@ -19,7 +19,7 @@ const IsleOfManLicensePage = () => (
       cta1: "Get a Free Quote →",
       cta2: "View Requirements",
     }}
-    mapSvg={null}
+    mapSvg={<TerritoryMap iso="IM" markerLabel="Douglas" subLabel="GSC HQ" />}
     facts={[
       { label: "Jurisdiction", value: "Isle of Man", cls: "text-[#F0EBE0]" },
       { label: "Regulator", value: "GSC", cls: "text-[#444CE7] font-semibold" },
