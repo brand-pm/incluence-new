@@ -67,9 +67,9 @@ const App = () => (
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/licenses" element={<PlaceholderPage title="All Licenses" />} />
-            <Route path="/privacy-policy" element={<PlaceholderPage title="Privacy Policy" />} />
-            <Route path="/cookie-policy" element={<PlaceholderPage title="Cookie Policy" />} />
-            <Route path="/affiliate-program" element={<PlaceholderPage title="Affiliate Program" />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+            <Route path="/affiliate-program" element={<AffiliatePage />} />
 
             {/* ── License category hubs ── */}
             <Route path="/gamble-license" element={<GamblingHubPage />} />

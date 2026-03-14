@@ -138,7 +138,7 @@ const AffiliatePage = () => {
           }}
         />
         <div className="pointer-events-none absolute inset-0 z-[1]">
-          <MicroParticles count={20} opacity={0.15} />
+          <MicroParticles />
         </div>
 
         <div className="relative z-10 max-w-screen-xl mx-auto grid grid-cols-12 gap-12 items-center">
