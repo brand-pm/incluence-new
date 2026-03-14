@@ -39,6 +39,10 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import CookiePolicyPage from "./pages/CookiePolicyPage";
 import PaymentSystemsPage from "./pages/PaymentSystemsPage";
 import MerchantAccountPage from "./pages/MerchantAccountPage";
+import LegalBusinessPage from "./pages/LegalBusinessPage";
+import TaxReportingPage from "./pages/TaxReportingPage";
+import LegalSupportPage from "./pages/LegalSupportPage";
+import ContractsPage from "./pages/ContractsPage";
 
 const queryClient = new QueryClient();
 
