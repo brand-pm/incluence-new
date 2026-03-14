@@ -213,8 +213,7 @@ const OffshoreFormationPage = () => {
                     <h3 className="text-[15px] font-semibold text-[#F0EBE0] mb-2">{step.title}</h3>
                     <p className="text-[13px] text-[#9A9590] leading-relaxed">{step.body}</p>
                   </div>
-                );
-              })}
+              ))}
             </div>
           </div>
         </div>
