@@ -48,8 +48,8 @@ const SITEMAP_DATA: SitemapEntry[] = [
 
   // ── EMI ──
   { title: "EMI License (Hub)", url: "/emi-license", status: "done", category: "EMI" },
-  { title: "Estonia EMI License", url: "/emi-license-in-estonia", status: "planned", category: "EMI" },
-  { title: "Malta EMI License", url: "/e-money-license-malta", status: "planned", category: "EMI" },
+  { title: "Estonia EMI License", url: "/emi-license-in-estonia", status: "done", category: "EMI" },
+  { title: "Malta EMI License", url: "/e-money-license-malta", status: "done", category: "EMI" },
   { title: "UK EMI License", url: "/e-money-license-uk", status: "done", category: "EMI" },
   { title: "Lithuania EMI License", url: "/e-money-license-lithuania", status: "done", category: "EMI" },
 
