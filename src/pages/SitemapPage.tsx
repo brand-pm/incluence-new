@@ -38,11 +38,11 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Seychelles Financial License", url: "/forex-license-seychelles", status: "planned", category: "Forex" },
 
   // ── CRYPTO ──
-  { title: "Crypto License (Hub)", url: "/cryptocurrency-exchange-license", status: "planned", category: "Crypto" },
-  { title: "Estonia Crypto License", url: "/cryptocurrency-exchange-license-in-estonia", status: "planned", category: "Crypto" },
-  { title: "Lithuania Crypto License", url: "/lithuania-crypto-license", status: "planned", category: "Crypto" },
+  { title: "Crypto License (Hub)", url: "/cryptocurrency-exchange-license", status: "done", category: "Crypto" },
+  { title: "Estonia Crypto License", url: "/cryptocurrency-exchange-license-in-estonia", status: "done", category: "Crypto" },
+  { title: "Lithuania Crypto License", url: "/lithuania-crypto-license", status: "done", category: "Crypto" },
   { title: "Switzerland Crypto License", url: "/cryptocurrency-exchange-license-in-switzerland", status: "planned", category: "Crypto" },
-  { title: "Malta Crypto License", url: "/cryptocurrency-license-in-malta", status: "planned", category: "Crypto" },
+  { title: "Malta Crypto License", url: "/cryptocurrency-license-in-malta", status: "done", category: "Crypto" },
   { title: "Poland Crypto License", url: "/poland-crypto-license", status: "planned", category: "Crypto" },
   { title: "USA Crypto License", url: "/cryptocurrency-exchange-license-in-the-usa", status: "planned", category: "Crypto" },
 

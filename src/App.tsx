@@ -95,11 +95,11 @@ const App = () => (
             <Route path="/forex-license-seychelles" element={<PlaceholderPage title="Seychelles Financial License" />} />
 
             {/* ── Crypto detail ── */}
-            <Route path="/cryptocurrency-exchange-license-in-estonia" element={<PlaceholderPage title="Estonia Crypto License" />} />
+            <Route path="/cryptocurrency-exchange-license-in-estonia" element={<EstoniaCryptoPage />} />
             <Route path="/cryptocurrency-exchange-license-in-the-usa" element={<PlaceholderPage title="USA Crypto License" />} />
             <Route path="/cryptocurrency-exchange-license-in-switzerland" element={<PlaceholderPage title="Switzerland Crypto License" />} />
-            <Route path="/cryptocurrency-license-in-malta" element={<PlaceholderPage title="Malta Crypto License" />} />
-            <Route path="/lithuania-crypto-license" element={<PlaceholderPage title="Lithuania Crypto License" />} />
+            <Route path="/cryptocurrency-license-in-malta" element={<MaltaCryptoPage />} />
+            <Route path="/lithuania-crypto-license" element={<LithuaniaCryptoPage />} />
             <Route path="/poland-crypto-license" element={<PlaceholderPage title="Poland Crypto License" />} />
 
             {/* ── EMI detail ── */}
