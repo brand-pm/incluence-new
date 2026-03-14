@@ -470,36 +470,11 @@ const LicensePageTemplate = ({
         </div>
       </section>
 
-      {/* ── RELATED ── */}
-      <section className="bg-[#111111] py-[72px] px-12">
-        <div className="max-w-screen-xl mx-auto">
-          <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">
-            {relatedTag}
-          </span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-14">
-            {relatedTitle}
-          </h2>
-          <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
-            {related.map((c) => (
-              <div
-                key={c.name}
-                onClick={() => navigate(c.href)}
-                className="bg-[#111111] p-7 cursor-pointer group relative overflow-hidden"
-              >
-                <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
-                <span className="block mb-4"><FlagEmojiGroup flag={c.flag} size={24} /></span>
-                <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] block mb-1">
-                  {c.reg}
-                </span>
-                <h3 className="text-[16px] font-semibold text-[#F0EBE0] mb-2">
-                  {c.name}
-                </h3>
-                <p className="text-[13px] text-[#9A9590]">{c.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RelatedJurisdictions
+        tag={relatedTag}
+        title={relatedTitle}
+        items={related.map((c) => ({ href: c.href, reg: c.reg, name: c.name, desc: c.desc }))}
+      />
 
       {/* ── CONTACT CTA ── */}
       <section className="bg-[#080808] py-24 px-12">
