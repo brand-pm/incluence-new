@@ -90,7 +90,7 @@ const App = () => (
             <Route path="/residence-permit-abroad" element={<PlaceholderPage title="Residence Permit" />} />
             <Route path="/buy-a-business-abroad" element={<PlaceholderPage title="Buy a Business Abroad" />} />
             <Route path="/drafting-international-contracts" element={<PlaceholderPage title="International Contracts" />} />
-            <Route path="/opening-a-merchant-account" element={<PlaceholderPage title="Merchant Account" />} />
+            <Route path="/opening-a-merchant-account" element={<MerchantAccountPage />} />
             <Route path="/open-an-account-in-a-payment-system" element={<PlaceholderPage title="Payment System Account" />} />
 
             {/* ── Gambling license detail ── */}
