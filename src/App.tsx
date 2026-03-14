@@ -20,6 +20,10 @@ import ForexHubPage from "./pages/ForexHubPage";
 import CyprusForexPage from "./pages/CyprusForexPage";
 import VanuatuForexPage from "./pages/VanuatuForexPage";
 import MontenegroForexPage from "./pages/MontenegroForexPage";
+import CryptoHubPage from "./pages/CryptoHubPage";
+import EstoniaCryptoPage from "./pages/EstoniaCryptoPage";
+import LithuaniaCryptoPage from "./pages/LithuaniaCryptoPage";
+import MaltaCryptoPage from "./pages/MaltaCryptoPage";
 
 const queryClient = new QueryClient();
 
