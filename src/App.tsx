@@ -80,7 +80,7 @@ const App = () => (
             <Route path="/emi-license" element={<EmiHubPage />} />
 
             {/* ── Service pages ── */}
-            <Route path="/provider-payment-systems" element={<PlaceholderPage title="Payment Systems" />} />
+            <Route path="/provider-payment-systems" element={<PaymentSystemsPage />} />
             <Route path="/legal-business" element={<PlaceholderPage title="Business Legitimization" />} />
             <Route path="/finance-reporting" element={<PlaceholderPage title="Tax & Financial Reporting" />} />
             <Route path="/support-legal" element={<PlaceholderPage title="Legal Support" />} />
