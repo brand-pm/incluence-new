@@ -7,6 +7,7 @@ import NodePulse from "@/components/NodePulse";
 import { FlagEmojiGroup } from "@/components/FlagEmoji";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
