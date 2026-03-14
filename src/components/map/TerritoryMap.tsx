@@ -4,7 +4,7 @@ import {
 } from 'react-simple-maps'
 
 const GEO_URL =
-  'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
+  'https://cdn.jsdelivr.net/npm/visionscarto-world-atlas@0.1.0/world/110m.json'
 
 const ISO_CODES: Record<string, number> = {
   MT: 470, CW: 531, IM: 833, CR: 188, GI: 292, CY: 196,
@@ -15,11 +15,50 @@ const ISO_CODES: Record<string, number> = {
   TR: 792, IE: 372, CA: 124, BG: 100,
 }
 
+/* Territories with no geometry in the TopoJSON source */
+const NO_SHAPE = new Set(['IM', 'GI', 'KY', 'BVI', 'VC'])
+
+/* Neighbor country codes to show as faint context */
+const NEIGHBORS: Record<string, number[]> = {
+  CY: [792, 422, 376],              // Turkey, Lebanon, Israel
+  MT: [380, 788, 434],              // Italy, Tunisia, Libya
+  ME: [191, 688, 705, 8, 807],      // Croatia, Serbia, Slovenia, Albania, N.Macedonia
+  EE: [440, 246, 616],              // Latvia, Finland, Poland
+  LT: [440, 616, 112, 643],         // Latvia, Poland, Belarus, Russia
+  GI: [724, 504],                   // Spain, Morocco
+  IM: [826, 372],                   // UK, Ireland
+  CW: [862, 630, 332],              // Venezuela, Puerto Rico, Haiti
+  CH: [276, 380, 40, 250],          // Germany, Italy, Austria, France
+  PT: [724],                        // Spain
+  HU: [40, 703, 804, 642, 191, 688, 705], // Austria, Slovakia, Ukraine, Romania, Croatia, Serbia, Slovenia
+  DE: [616, 203, 40, 756, 250, 442, 56, 528, 208], // Poland, Czech, Austria, Switzerland, France, Luxembourg, Belgium, Netherlands, Denmark
+  TR: [268, 51, 364, 368, 760, 196], // Georgia, Armenia, Iran, Iraq, Syria, Cyprus
+  GB: [372],                        // Ireland
+  IE: [826],                        // UK
+  SE: [578, 246, 208],              // Norway, Finland, Denmark
+  PL: [276, 203, 703, 804, 112, 440, 643], // Germany, Czech, Slovakia, Ukraine, Belarus, Latvia, Russia
+  AE: [512, 682],                   // Oman, Saudi Arabia
+  CR: [591, 558],                   // Panama, Nicaragua
+  PA: [170, 188],                   // Colombia, Costa Rica
+  US: [124, 484],                   // Canada, Mexico
+  CA: [840],                        // USA
+  NG: [562, 148, 120, 204],         // Niger, Chad, Cameroon, Benin
+  BG: [642, 792, 300, 688, 807],    // Romania, Turkey, Greece, Serbia, N.Macedonia
+  VU: [540],                        // New Caledonia
+  MU: [],
+  SC: [],
+  BZ: [320, 484],                   // Guatemala, Mexico
+  PH: [],
+  HK: [156],                        // China
+  SG: [458],                        // Malaysia
+  LU: [276, 250, 56],               // Germany, France, Belgium
+}
+
 const PROJ: Record<string, { scale: number; center: [number, number] }> = {
   MT: { scale: 22000, center: [14.5,  35.9]  },
   CY: { scale: 5500,  center: [33.2,  35.0]  },
   GI: { scale: 90000, center: [-5.4,  36.1]  },
-  IM: { scale: 10000, center: [-4.5,  54.2]  },
+  IM: { scale: 6000,  center: [-4.5,  54.2]  },
   CW: { scale: 14000, center: [-69.0, 12.1]  },
   ME: { scale: 5000,  center: [19.3,  42.8]  },
   LU: { scale: 10000, center: [6.1,   49.6]  },
@@ -123,10 +162,8 @@ const Fireflies = ({
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
 
-    // stagger initial spawns across the screen
     for (let i = 0; i < count; i++) {
       const f = spawn()
-      // scatter some already in-flight
       const progress = Math.random() * 0.7
       f.x = originX + f.vx * progress * 300
       f.y = originY + f.vy * progress * 300
@@ -141,29 +178,22 @@ const Fireflies = ({
 
       for (let fi = 0; fi < flies.length; fi++) {
         const f = flies[fi]
-
-        // slight drift for organic feel
         f.vx += (Math.random() - 0.5) * 0.01
         f.vy += (Math.random() - 0.5) * 0.01
-
         f.x += f.vx
         f.y += f.vy
-
         f.trail.unshift({ x: f.x, y: f.y })
         if (f.trail.length > 14) f.trail.pop()
 
-        // when it leaves the screen, respawn from origin
         if (isOutOfBounds(f)) {
           flies[fi] = spawn()
           continue
         }
 
-        // fade alpha based on distance from origin
         const dist = Math.hypot(f.x - originX, f.y - originY)
         const maxDist = Math.max(W, H) * 0.7
         const fadedAlpha = f.alpha * Math.max(0, 1 - dist / maxDist)
 
-        // draw trail
         for (let i = 1; i < f.trail.length; i++) {
           const a = (1 - i / f.trail.length) * fadedAlpha * 0.5
           ctx.beginPath()
@@ -174,14 +204,12 @@ const Fireflies = ({
           ctx.stroke()
         }
 
-        // glow dot
         const g = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, 6)
         g.addColorStop(0, `rgba(68,76,231,${fadedAlpha})`)
         g.addColorStop(1, 'rgba(68,76,231,0)')
         ctx.beginPath(); ctx.arc(f.x, f.y, 6, 0, Math.PI * 2)
         ctx.fillStyle = g; ctx.fill()
 
-        // bright core
         ctx.beginPath(); ctx.arc(f.x, f.y, 1.2, 0, Math.PI * 2)
         ctx.fillStyle = `rgba(180,190,255,${fadedAlpha})`; ctx.fill()
       }
@@ -203,6 +231,39 @@ const Fireflies = ({
   )
 }
 
+/* ── Marker SVG (shared between map and fallback) ─────── */
+
+const MarkerSVG = ({ markerLabel, subLabel }: { markerLabel?: string; subLabel?: string }) => (
+  <>
+    <circle r={18} stroke="#444CE7" strokeWidth={0.5} fill="none" opacity={0.15}>
+      <animate attributeName="r" values="18;30;18" dur="4s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.15;0;0.15" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle r={12} stroke="#444CE7" strokeWidth={1} fill="none" opacity={0.4}>
+      <animate attributeName="r" values="12;22;12" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.4;0.05;0.4" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle r={5} fill="#444CE7" opacity={0.9} />
+    <circle r={2} fill="#B4BEFF" opacity={0.9} />
+    {markerLabel && (
+      <text
+        textAnchor="start" x={14} y={-4}
+        fill="#444CE7" fontSize={9} fontFamily="Manrope" fontWeight={600}
+      >
+        {markerLabel}
+      </text>
+    )}
+    {subLabel && (
+      <text
+        textAnchor="start" x={14} y={8}
+        fill="#444CE7" fontSize={7} fontFamily="Manrope" fontWeight={500} opacity={0.6}
+      >
+        {subLabel}
+      </text>
+    )}
+  </>
+)
+
 /* ── Main component ───────────────────────────────────── */
 
 interface TerritoryMapProps {
@@ -218,6 +279,8 @@ export const TerritoryMap = ({
   const proj = PROJ[iso] ?? { scale: 2000, center: [0, 30] as [number, number] }
   const marker = MARKERS[iso]
   const targetCode = ISO_CODES[iso]
+  const neighborCodes = NEIGHBORS[iso] ?? []
+  const neighborSet = new Set(neighborCodes.map(String))
   const wrapRef = useRef<HTMLDivElement>(null)
 
   const getPixelOrigin = () => {
@@ -241,13 +304,65 @@ export const TerritoryMap = ({
     return () => window.removeEventListener('resize', update)
   }, [iso])
 
+  /* ── NO_SHAPE fallback: pulsing rings + marker, no geography ── */
+  if (NO_SHAPE.has(iso)) {
+    return (
+      <div
+        ref={wrapRef}
+        className={`absolute right-[5%] top-1/2 -translate-y-1/2 pointer-events-none ${className}`}
+        style={{ width: '460px', height: '520px', zIndex: 2 }}
+      >
+        {/* Show neighbor countries as context */}
+        <ComposableMap
+          projection="geoMercator"
+          projectionConfig={proj}
+          width={460}
+          height={520}
+          style={{ width: '100%', height: '100%', position: 'relative', zIndex: 1 }}
+        >
+          <Geographies geography={GEO_URL}>
+            {({ geographies }) =>
+              geographies.map(geo => {
+                const isNeighbor = neighborSet.has(String(geo.id))
+                return (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    fill={isNeighbor ? '#0a0f1a' : 'transparent'}
+                    stroke={isNeighbor ? 'rgba(255,255,255,0.06)' : 'rgba(240,235,224,0.02)'}
+                    strokeWidth={isNeighbor ? 0.8 : 0.2}
+                    style={{
+                      default: { outline: 'none' },
+                      hover: { outline: 'none' },
+                      pressed: { outline: 'none' },
+                    }}
+                  />
+                )
+              })
+            }
+          </Geographies>
+
+          {marker && (
+            <Marker coordinates={marker.coords}>
+              <MarkerSVG markerLabel={markerLabel} subLabel={subLabel} />
+            </Marker>
+          )}
+        </ComposableMap>
+
+        {marker && (
+          <Fireflies originX={origin.x} originY={origin.y} count={14} />
+        )}
+      </div>
+    )
+  }
+
+  /* ── Standard render with geography ── */
   return (
     <div
       ref={wrapRef}
       className={`absolute right-[5%] top-1/2 -translate-y-1/2 pointer-events-none ${className}`}
       style={{ width: '460px', height: '520px', zIndex: 2 }}
     >
-      {/* Map layer — below fireflies */}
       <ComposableMap
         projection="geoMercator"
         projectionConfig={proj}
@@ -258,14 +373,28 @@ export const TerritoryMap = ({
         <Geographies geography={GEO_URL}>
           {({ geographies }) =>
             geographies.map(geo => {
-              const isTarget = String(geo.id) === String(targetCode)
+              const geoId = String(geo.id)
+              const isTarget = geoId === String(targetCode)
+              const isNeighbor = neighborSet.has(geoId)
               return (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={isTarget ? '#141822' : 'transparent'}
-                  stroke={isTarget ? 'rgba(240,235,224,0.15)' : 'rgba(240,235,224,0.03)'}
-                  strokeWidth={isTarget ? 1.2 : 0.3}
+                  fill={
+                    isTarget ? '#141822' :
+                    isNeighbor ? '#0a0f1a' :
+                    'transparent'
+                  }
+                  stroke={
+                    isTarget ? 'rgba(240,235,224,0.15)' :
+                    isNeighbor ? 'rgba(255,255,255,0.05)' :
+                    'rgba(240,235,224,0.02)'
+                  }
+                  strokeWidth={
+                    isTarget ? 1.2 :
+                    isNeighbor ? 0.6 :
+                    0.2
+                  }
                   style={{
                     default: { outline: 'none' },
                     hover: { outline: 'none' },
@@ -279,37 +408,11 @@ export const TerritoryMap = ({
 
         {marker && (
           <Marker coordinates={marker.coords}>
-            <circle r={18} stroke="#444CE7" strokeWidth={0.5} fill="none" opacity={0.15}>
-              <animate attributeName="r" values="18;30;18" dur="4s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.15;0;0.15" dur="4s" repeatCount="indefinite" />
-            </circle>
-            <circle r={12} stroke="#444CE7" strokeWidth={1} fill="none" opacity={0.4}>
-              <animate attributeName="r" values="12;22;12" dur="3s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.4;0.05;0.4" dur="3s" repeatCount="indefinite" />
-            </circle>
-            <circle r={5} fill="#444CE7" opacity={0.9} />
-            <circle r={2} fill="#B4BEFF" opacity={0.9} />
-            {markerLabel && (
-              <text
-                textAnchor="start" x={14} y={-4}
-                fill="#444CE7" fontSize={9} fontFamily="Manrope" fontWeight={600}
-              >
-                {markerLabel}
-              </text>
-            )}
-            {subLabel && (
-              <text
-                textAnchor="start" x={14} y={8}
-                fill="#444CE7" fontSize={7} fontFamily="Manrope" fontWeight={500} opacity={0.6}
-              >
-                {subLabel}
-              </text>
-            )}
+            <MarkerSVG markerLabel={markerLabel} subLabel={subLabel} />
           </Marker>
         )}
       </ComposableMap>
 
-      {/* Fireflies layer — ABOVE map */}
       {marker && (
         <Fireflies originX={origin.x} originY={origin.y} count={14} />
       )}
