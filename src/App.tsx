@@ -105,7 +105,7 @@ const App = () => (
             <Route path="/cryptocurrency-exchange-license-in-switzerland" element={<SwitzerlandCryptoPage />} />
             <Route path="/cryptocurrency-license-in-malta" element={<MaltaCryptoPage />} />
             <Route path="/lithuania-crypto-license" element={<LithuaniaCryptoPage />} />
-            <Route path="/poland-crypto-license" element={<PlaceholderPage title="Poland Crypto License" />} />
+            <Route path="/poland-crypto-license" element={<PolandCryptoPage />} />
 
             {/* ── EMI detail ── */}
             <Route path="/emi-license-in-estonia" element={<PlaceholderPage title="Estonia EMI License" />} />

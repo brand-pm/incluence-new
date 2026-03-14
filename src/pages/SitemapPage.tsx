@@ -41,10 +41,10 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Crypto License (Hub)", url: "/cryptocurrency-exchange-license", status: "done", category: "Crypto" },
   { title: "Estonia Crypto License", url: "/cryptocurrency-exchange-license-in-estonia", status: "done", category: "Crypto" },
   { title: "Lithuania Crypto License", url: "/lithuania-crypto-license", status: "done", category: "Crypto" },
-  { title: "Switzerland Crypto License", url: "/cryptocurrency-exchange-license-in-switzerland", status: "planned", category: "Crypto" },
+  { title: "Switzerland Crypto License", url: "/cryptocurrency-exchange-license-in-switzerland", status: "done", category: "Crypto" },
   { title: "Malta Crypto License", url: "/cryptocurrency-license-in-malta", status: "done", category: "Crypto" },
-  { title: "Poland Crypto License", url: "/poland-crypto-license", status: "planned", category: "Crypto" },
-  { title: "USA Crypto License", url: "/cryptocurrency-exchange-license-in-the-usa", status: "planned", category: "Crypto" },
+  { title: "Poland Crypto License", url: "/poland-crypto-license", status: "done", category: "Crypto" },
+  { title: "USA Crypto License", url: "/cryptocurrency-exchange-license-in-the-usa", status: "done", category: "Crypto" },
 
   // ── EMI ──
   { title: "EMI License (Hub)", url: "/emi-license", status: "planned", category: "EMI" },
