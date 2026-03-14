@@ -26,6 +26,9 @@ import CryptoHubPage from "./pages/CryptoHubPage";
 import EstoniaCryptoPage from "./pages/EstoniaCryptoPage";
 import LithuaniaCryptoPage from "./pages/LithuaniaCryptoPage";
 import MaltaCryptoPage from "./pages/MaltaCryptoPage";
+import SwitzerlandCryptoPage from "./pages/SwitzerlandCryptoPage";
+import PolandCryptoPage from "./pages/PolandCryptoPage";
+import USACryptoPage from "./pages/USACryptoPage";
 
 const queryClient = new QueryClient();
 
