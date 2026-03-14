@@ -43,6 +43,8 @@ import LegalBusinessPage from "./pages/LegalBusinessPage";
 import TaxReportingPage from "./pages/TaxReportingPage";
 import LegalSupportPage from "./pages/LegalSupportPage";
 import ContractsPage from "./pages/ContractsPage";
+import OffshoreFormationPage from "./pages/OffshoreFormationPage";
+import BuyBusinessAbroadPage from "./pages/BuyBusinessAbroadPage";
 
 const queryClient = new QueryClient();
 
