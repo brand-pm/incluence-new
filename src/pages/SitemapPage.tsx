@@ -155,10 +155,10 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Slovakia Residence", url: "/residence-permit-in-slovakia", status: "planned", category: "Residence" },
 
   // ── LEGAL ──
-  { title: "Business Legitimization", url: "/legal-business", status: "planned", category: "Legal" },
-  { title: "Tax & Financial Reporting", url: "/finance-reporting", status: "planned", category: "Legal" },
-  { title: "Legal Support", url: "/support-legal", status: "planned", category: "Legal" },
-  { title: "International Contracts", url: "/drafting-international-contracts", status: "planned", category: "Legal" },
+  { title: "Business Legitimization", url: "/legal-business", status: "done", category: "Legal" },
+  { title: "Tax & Financial Reporting", url: "/finance-reporting", status: "done", category: "Legal" },
+  { title: "Legal Support", url: "/support-legal", status: "done", category: "Legal" },
+  { title: "International Contracts", url: "/drafting-international-contracts", status: "done", category: "Legal" },
 ];
 
 const STATUS_FILTERS: { label: string; value: string }[] = [

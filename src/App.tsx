@@ -39,6 +39,10 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import CookiePolicyPage from "./pages/CookiePolicyPage";
 import PaymentSystemsPage from "./pages/PaymentSystemsPage";
 import MerchantAccountPage from "./pages/MerchantAccountPage";
+import LegalBusinessPage from "./pages/LegalBusinessPage";
+import TaxReportingPage from "./pages/TaxReportingPage";
+import LegalSupportPage from "./pages/LegalSupportPage";
+import ContractsPage from "./pages/ContractsPage";
 
 const queryClient = new QueryClient();
 
@@ -81,15 +85,15 @@ const App = () => (
 
             {/* ── Service pages ── */}
             <Route path="/provider-payment-systems" element={<PaymentSystemsPage />} />
-            <Route path="/legal-business" element={<PlaceholderPage title="Business Legitimization" />} />
-            <Route path="/finance-reporting" element={<PlaceholderPage title="Tax & Financial Reporting" />} />
-            <Route path="/support-legal" element={<PlaceholderPage title="Legal Support" />} />
+            <Route path="/legal-business" element={<LegalBusinessPage />} />
+            <Route path="/finance-reporting" element={<TaxReportingPage />} />
+            <Route path="/support-legal" element={<LegalSupportPage />} />
             <Route path="/offshore-company-formation" element={<PlaceholderPage title="Offshore Company" />} />
             <Route path="/registration-of-companies-abroad" element={<PlaceholderPage title="Company Registration Abroad" />} />
             <Route path="/offshore-investment-funds" element={<PlaceholderPage title="Investment Funds" />} />
             <Route path="/residence-permit-abroad" element={<PlaceholderPage title="Residence Permit" />} />
             <Route path="/buy-a-business-abroad" element={<PlaceholderPage title="Buy a Business Abroad" />} />
-            <Route path="/drafting-international-contracts" element={<PlaceholderPage title="International Contracts" />} />
+            <Route path="/drafting-international-contracts" element={<ContractsPage />} />
             <Route path="/opening-a-merchant-account" element={<MerchantAccountPage />} />
             <Route path="/open-an-account-in-a-payment-system" element={<PlaceholderPage title="Payment System Account" />} />
 
