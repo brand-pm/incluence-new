@@ -1,4 +1,5 @@
 import LicensePageTemplate from "@/components/LicensePageTemplate";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 
 const CuracaoLicensePage = () => (
   <LicensePageTemplate
@@ -18,7 +19,7 @@ const CuracaoLicensePage = () => (
       cta1: "Get a Free Quote →",
       cta2: "View Requirements",
     }}
-    mapSvg={null}
+    mapSvg={<TerritoryMap iso="CW" markerLabel="Willemstad" subLabel="CGA HQ" />}
     facts={[
       { label: "Jurisdiction", value: "Curaçao", cls: "text-[#F0EBE0]" },
       { label: "Regulator", value: "CGA", cls: "text-[#444CE7] font-semibold" },

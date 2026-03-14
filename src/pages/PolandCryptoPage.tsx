@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronRight, Check, X } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
@@ -151,22 +152,7 @@ const PolandCryptoPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 520 }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="z-[1] relative"><MicroParticles /></div>
-        <svg className="absolute pointer-events-none z-[2]" style={{ right: "8%", top: "50%", transform: "translateY(-50%)", width: 340, height: 380 }} viewBox="0 0 220 260" fill="none">
-          <path d="M40 60 C45 55, 65 48, 90 45 C115 42, 145 45, 168 52 C180 56, 185 65, 182 80 C179 95, 170 110, 175 125 C180 140, 178 155, 165 165 C152 175, 130 180, 108 178 C86 176, 65 170, 52 158 C39 146, 35 130, 38 110 C41 90, 38 75, 40 60Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-          <path d="M60 80 L100 75 L140 80 L170 90" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
-          <g>
-            <circle cx="120" cy="145" r="3" fill="#444CE7" opacity="0.8" />
-            <circle cx="120" cy="145" r="6" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.3" />
-            <circle cx="120" cy="145" r="10" stroke="#444CE7" strokeWidth="0.3" fill="none" opacity="0.15" />
-          </g>
-          <g><circle cx="130" cy="85" r="2" fill="rgba(240,235,224,0.3)" /></g>
-          <g><circle cx="100" cy="130" r="2" fill="rgba(240,235,224,0.2)" /></g>
-          <text x="128" y="142" fill="rgba(240,235,224,0.5)" fontSize="6" fontFamily="Manrope" fontWeight="400">Katowice</text>
-          <text x="128" y="150" fill="rgba(68,76,231,0.5)" fontSize="5" fontFamily="Manrope" fontWeight="400">Tax Authority</text>
-          <text x="136" y="83" fill="rgba(240,235,224,0.25)" fontSize="5" fontFamily="Manrope" fontWeight="300">Warsaw·KNF</text>
-          <text x="60" y="210" fill="rgba(240,235,224,0.08)" fontSize="20" fontFamily="Manrope" fontWeight="300">PL</text>
-          <text x="150" y="200" fill="rgba(240,235,224,0.06)" fontSize="8" fontFamily="Manrope" fontWeight="300">EU · MiCA</text>
-        </svg>
+        <TerritoryMap iso="PL" markerLabel="Warsaw" subLabel="KNF" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
           <div className="max-w-[600px]">

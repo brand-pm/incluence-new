@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronRight, Check, X } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
@@ -134,17 +135,7 @@ const MaltaCryptoPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", padding: "88px 48px", minHeight: 520 }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.045) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="relative z-[1]"><MicroParticles /></div>
-        <svg className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[320px] h-[380px] pointer-events-none z-[2] opacity-[0.08]" viewBox="0 0 320 380" fill="none">
-          <path d="M60 160 L120 140 L200 135 L260 150 L270 170 L250 195 L180 210 L100 205 L55 185 Z" fill="#444CE7" fillOpacity="0.15" stroke="#444CE7" strokeOpacity="0.3" strokeWidth="0.5" />
-          <path d="M105 200 L90 220 L110 230 L125 215 Z" fill="#444CE7" fillOpacity="0.1" stroke="#444CE7" strokeOpacity="0.2" strokeWidth="0.5" />
-          <path d="M120 160 L220 165 M140 180 L240 175" stroke="#444CE7" strokeOpacity="0.1" strokeWidth="0.3" />
-          <circle cx="180" cy="170" r="4" fill="#444CE7" fillOpacity="0.6" />
-          <circle cx="180" cy="170" r="8" fill="none" stroke="#444CE7" strokeOpacity="0.3" strokeWidth="0.5" />
-          <text x="180" y="155" textAnchor="middle" fill="#444CE7" fillOpacity="0.5" fontSize="8" fontFamily="Manrope">Valletta</text>
-          <text x="180" y="190" textAnchor="middle" fill="#444CE7" fillOpacity="0.3" fontSize="6" fontFamily="Manrope">MFSA HQ</text>
-          <text x="160" y="270" textAnchor="middle" fill="#F0EBE0" fillOpacity="0.06" fontSize="28" fontFamily="Manrope" fontWeight="300">MT</text>
-          <text x="160" y="290" textAnchor="middle" fill="#444CE7" fillOpacity="0.15" fontSize="8" fontFamily="Manrope">EU · VFA</text>
-        </svg>
+        <TerritoryMap iso="MT" markerLabel="Valletta" subLabel="MFSA HQ" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto max-w-[600px]">
           <div className="flex gap-3 mb-5">

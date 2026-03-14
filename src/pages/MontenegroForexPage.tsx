@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronRight, Check, X, Globe, Clock, TrendingUp } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
@@ -95,13 +96,7 @@ const MontenegroForexPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 520 }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="z-[1] relative"><MicroParticles /></div>
-        <svg className="absolute pointer-events-none z-[2]" style={{ right: "8%", top: "50%", transform: "translateY(-50%)", width: 300, height: 360 }} viewBox="0 0 200 240" fill="none">
-          <path d="M40 90 C48 75, 65 68, 85 65 C105 62, 128 66, 145 75 C158 82, 165 92, 160 104 C155 116, 142 122, 128 125 C112 128, 95 126, 80 120 C65 114, 50 105, 40 90Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-          <path d="M60 80 L90 88 L120 82 L145 90" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
-          <g><circle cx="100" cy="92" r="3" fill="#444CE7" opacity="0.8" /><circle cx="100" cy="92" r="6" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.3" /><text x="108" y="95" fill="rgba(240,235,224,0.5)" fontSize="7" fontFamily="Manrope" fontWeight="400">Podgorica</text><text x="108" y="104" fill="rgba(68,76,231,0.5)" fontSize="5.5" fontFamily="Manrope" fontWeight="400">SEC HQ</text></g>
-          <text x="50" y="160" fill="rgba(240,235,224,0.08)" fontSize="20" fontFamily="Manrope" fontWeight="300">ME</text>
-          <text x="130" y="155" fill="rgba(240,235,224,0.06)" fontSize="8" fontFamily="Manrope" fontWeight="300">EU candidate</text>
-        </svg>
+        <TerritoryMap iso="ME" markerLabel="Podgorica" subLabel="SEC HQ" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
           <div className="max-w-[600px]">

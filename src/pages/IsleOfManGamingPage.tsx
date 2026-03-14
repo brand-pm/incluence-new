@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronRight, Check, X, Shield, Landmark, Crown } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
@@ -176,19 +177,7 @@ const IsleOfManGamingPage = () => {
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="z-[1] relative"><MicroParticles /></div>
 
-        {/* Isle of Man SVG */}
-        <svg className="absolute pointer-events-none z-[2]" style={{ right: "8%", top: "50%", transform: "translateY(-50%)", width: 300, height: 360 }} viewBox="0 0 180 260" fill="none">
-          <path d="M60 40 C68 28, 82 22, 100 20 C118 18, 135 24, 145 35 C155 46, 158 62, 155 80 C152 98, 145 115, 138 130 C132 142, 128 155, 125 168 C122 180, 118 192, 110 200 C102 208, 90 212, 78 210 C66 208, 55 200, 48 188 C42 176, 40 162, 42 148 C44 132, 48 118, 50 105 C52 90, 54 76, 55 62 C56 50, 57 44, 60 40Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-          <path d="M70 60 L95 90 L85 130 L100 160" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
-          <path d="M110 40 L105 80 L120 120" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
-          <g>
-            <circle cx="100" cy="105" r="3" fill="#444CE7" opacity="0.8" />
-            <circle cx="100" cy="105" r="6" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.3" />
-            <text x="108" y="108" fill="rgba(240,235,224,0.5)" fontSize="7" fontFamily="Manrope" fontWeight="400">Douglas</text>
-            <text x="108" y="117" fill="rgba(68,76,231,0.5)" fontSize="5.5" fontFamily="Manrope" fontWeight="400">GSC HQ</text>
-          </g>
-          <text x="120" y="200" fill="rgba(240,235,224,0.08)" fontSize="20" fontFamily="Manrope" fontWeight="300">IOM</text>
-        </svg>
+        <TerritoryMap iso="IM" markerLabel="Douglas" subLabel="GSC HQ" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
           <div className="max-w-[600px]">

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Check, X } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
@@ -127,19 +128,7 @@ const EstoniaEmiPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", padding: "88px 48px" }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.045) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="relative z-[1]"><MicroParticles /></div>
-        {/* Estonia SVG map */}
-        <svg className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[340px] h-[380px] pointer-events-none z-[2] opacity-[0.08] hidden lg:block" viewBox="0 0 340 380" fill="none">
-          <path d="M60 160 L100 130 L160 120 L220 110 L280 120 L300 140 L290 170 L260 190 L200 200 L140 210 L80 200 L50 180 Z" fill="#444CE7" fillOpacity="0.15" stroke="#444CE7" strokeOpacity="0.3" strokeWidth="0.5" />
-          <path d="M40 170 L30 200 L50 210 L70 195 L50 180 Z" fill="#444CE7" fillOpacity="0.1" stroke="#444CE7" strokeOpacity="0.2" strokeWidth="0.5" />
-          <path d="M60 140 L50 160 L80 165 L90 145 Z" fill="#444CE7" fillOpacity="0.1" stroke="#444CE7" strokeOpacity="0.2" strokeWidth="0.5" />
-          <path d="M100 140 L200 130 M150 160 L250 155" stroke="#444CE7" strokeOpacity="0.1" strokeWidth="0.3" />
-          <circle cx="260" cy="140" r="4" fill="#444CE7" fillOpacity="0.6" />
-          <circle cx="260" cy="140" r="8" fill="none" stroke="#444CE7" strokeOpacity="0.3" strokeWidth="0.5" />
-          <text x="260" y="125" textAnchor="middle" fill="#444CE7" fillOpacity="0.5" fontSize="8" fontFamily="Manrope">Tallinn</text>
-          <text x="260" y="158" textAnchor="middle" fill="#444CE7" fillOpacity="0.3" fontSize="6" fontFamily="Manrope">Finantsinspektsioon</text>
-          <text x="170" y="240" textAnchor="middle" fill="#F0EBE0" fillOpacity="0.06" fontSize="28" fontFamily="Manrope" fontWeight="300">EE</text>
-          <text x="170" y="260" textAnchor="middle" fill="#444CE7" fillOpacity="0.15" fontSize="8" fontFamily="Manrope">EU · 0% Tax</text>
-        </svg>
+        <TerritoryMap iso="EE" markerLabel="Tallinn" subLabel="Finantsinspektsioon" />
         <div className="relative z-10 max-w-screen-xl mx-auto">
           <div className="flex gap-3 mb-5">
             <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— EMI License</span>

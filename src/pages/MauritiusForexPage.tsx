@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronRight, Check, X, TrendingUp, ShieldCheck, Clock } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
@@ -143,20 +144,7 @@ const MauritiusForexPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 520 }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="z-[1] relative"><MicroParticles /></div>
-        <svg className="absolute pointer-events-none z-[2]" style={{ right: "8%", top: "50%", transform: "translateY(-50%)", width: 280, height: 360 }} viewBox="0 0 200 240" fill="none">
-          <text x="30" y="30" fill="rgba(240,235,224,0.06)" fontSize="10" fontFamily="Manrope" fontWeight="300">INDIAN OCEAN</text>
-          <path d="M70 100 C75 88, 90 80, 110 78 C130 76, 148 82, 155 92 C162 102, 158 115, 148 122 C138 129, 120 132, 105 130 C90 128, 75 118, 70 108Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-          <ellipse cx="170" cy="118" rx="8" ry="5" fill="#141822" stroke="rgba(240,235,224,0.08)" strokeWidth="0.6" />
-          <path d="M85 95 L110 100 L135 94" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
-          <g>
-            <circle cx="105" cy="100" r="3" fill="#444CE7" opacity="0.8" />
-            <circle cx="105" cy="100" r="6" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.3" />
-            <text x="113" y="103" fill="rgba(240,235,224,0.5)" fontSize="7" fontFamily="Manrope" fontWeight="400">Port Louis</text>
-            <text x="113" y="112" fill="rgba(68,76,231,0.5)" fontSize="5.5" fontFamily="Manrope" fontWeight="400">FSC HQ</text>
-          </g>
-          <text x="55" y="175" fill="rgba(240,235,224,0.08)" fontSize="20" fontFamily="Manrope" fontWeight="300">MU</text>
-          <text x="140" y="165" fill="rgba(240,235,224,0.06)" fontSize="8" fontFamily="Manrope" fontWeight="300">Offshore</text>
-        </svg>
+        <TerritoryMap iso="MU" markerLabel="Port Louis" subLabel="FSC HQ" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
           <div className="max-w-[600px]">

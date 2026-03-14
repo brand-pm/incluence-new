@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronRight, Check, X, Globe, Landmark, Users } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
@@ -145,19 +146,7 @@ const CyprusForexPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 520 }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="z-[1] relative"><MicroParticles /></div>
-        <svg className="absolute pointer-events-none z-[2]" style={{ right: "8%", top: "50%", transform: "translateY(-50%)", width: 340, height: 400 }} viewBox="0 0 220 260" fill="none">
-          <path d="M40 110 C45 95, 60 82, 80 76 C100 70, 125 72, 148 80 C165 86, 178 96, 185 108 C192 120, 190 132, 180 140 C170 148, 155 152, 140 148 C128 144, 120 140, 108 142 C96 144, 85 150, 72 148 C58 146, 45 136, 40 120Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-          <path d="M185 108 C195 102, 205 100, 210 105 C215 110, 212 118, 205 122 C198 126, 190 124, 185 118" fill="#141822" stroke="rgba(240,235,224,0.1)" strokeWidth="0.8" />
-          <path d="M70 90 L100 100 L130 92 L160 100" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
-          <g>
-            <circle cx="110" cy="105" r="3" fill="#444CE7" opacity="0.8" />
-            <circle cx="110" cy="105" r="6" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.3" />
-            <text x="118" y="108" fill="rgba(240,235,224,0.5)" fontSize="7" fontFamily="Manrope" fontWeight="400">Nicosia</text>
-            <text x="118" y="117" fill="rgba(68,76,231,0.5)" fontSize="5.5" fontFamily="Manrope" fontWeight="400">CySEC HQ</text>
-          </g>
-          <text x="60" y="185" fill="rgba(240,235,224,0.08)" fontSize="20" fontFamily="Manrope" fontWeight="300">CY</text>
-          <text x="150" y="175" fill="rgba(240,235,224,0.06)" fontSize="8" fontFamily="Manrope" fontWeight="300">EU</text>
-        </svg>
+        <TerritoryMap iso="CY" markerLabel="Nicosia" subLabel="CySEC HQ" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
           <div className="max-w-[600px]">

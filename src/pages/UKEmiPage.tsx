@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Check, X } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
@@ -125,23 +126,7 @@ const UKEmiPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", padding: "88px 48px" }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.045) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="relative z-[1]"><MicroParticles /></div>
-        {/* UK SVG map */}
-        <div className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[280px] h-[360px] pointer-events-none z-[2] hidden lg:block">
-          <svg viewBox="0 0 180 240" fill="none" className="w-full h-full">
-            <path d="M65 28 L88 22 L108 30 L115 55 L112 88 L118 115 L108 148 L88 168 L65 172 L48 158 L40 130 L42 95 L48 65 L55 40 Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-            <path d="M65 28 L58 18 L72 12 L88 22" fill="#141822" stroke="rgba(240,235,224,0.10)" strokeWidth="0.8" />
-            <path d="M28 88 L45 82 L52 92 L40 100 Z" fill="#141822" stroke="rgba(240,235,224,0.09)" strokeWidth="0.7" />
-            <path d="M50 105 L100 102 M78 28 L76 165" stroke="rgba(240,235,224,0.03)" strokeWidth="0.5" />
-            <circle cx="92" cy="142" r="5" fill="#444CE7"><animate attributeName="r" values="5;8;5" dur="2.5s" repeatCount="indefinite" /><animate attributeName="opacity" values="1;0.4;1" dur="2.5s" repeatCount="indefinite" /></circle>
-            <circle cx="92" cy="142" r="3" fill="#444CE7" />
-            <circle cx="75" cy="65" r="2" fill="rgba(240,235,224,0.3)" />
-            <text x="96" y="154" fontSize="6" fill="rgba(240,235,224,0.25)" fontFamily="Manrope,sans-serif">London</text>
-            <text x="97" y="162" fontSize="5" fill="rgba(240,235,224,0.15)" fontFamily="Manrope,sans-serif">FCA HQ</text>
-            <text x="78" y="28" fontSize="28" fill="rgba(240,235,224,0.04)" textAnchor="middle" fontFamily="Manrope,sans-serif" fontWeight="300">UK</text>
-            <line x1="92" y1="137" x2="92" y2="25" stroke="rgba(68,76,231,0.08)" strokeWidth="0.5" strokeDasharray="3,5" />
-            <text x="96" y="21" fontSize="5" fill="rgba(68,76,231,0.3)" fontFamily="Manrope,sans-serif">Tier 1</text>
-          </svg>
-        </div>
+        <TerritoryMap iso="GB" markerLabel="London" subLabel="FCA HQ" />
         <div className="relative z-10 max-w-screen-xl mx-auto">
           <div className="flex gap-3 mb-5">
             <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— EMI License</span>

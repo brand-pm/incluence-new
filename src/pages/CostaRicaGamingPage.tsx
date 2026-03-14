@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronRight, Check, X, Clock, DollarSign, FileX } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
@@ -173,18 +174,7 @@ const CostaRicaGamingPage = () => {
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="z-[1] relative"><MicroParticles /></div>
 
-        {/* Costa Rica SVG */}
-        <svg className="absolute pointer-events-none z-[2]" style={{ right: "8%", top: "50%", transform: "translateY(-50%)", width: 320, height: 380 }} viewBox="0 0 200 240" fill="none">
-          <path d="M25 95 C30 82, 42 74, 58 70 C75 66, 95 68, 112 72 C128 76, 142 82, 155 90 C165 96, 172 104, 175 114 C178 124, 176 134, 168 142 C160 150, 148 154, 135 155 C120 156, 105 152, 92 148 C78 144, 65 138, 52 130 C40 122, 30 112, 25 95Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-          <path d="M55 85 L85 95 L115 88 L145 96" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
-          <g>
-            <circle cx="95" cy="100" r="3" fill="#444CE7" opacity="0.8" />
-            <circle cx="95" cy="100" r="6" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.3" />
-            <text x="75" y="120" fill="rgba(240,235,224,0.5)" fontSize="7" fontFamily="Manrope" fontWeight="400">San José</text>
-            <text x="75" y="129" fill="rgba(68,76,231,0.5)" fontSize="5.5" fontFamily="Manrope" fontWeight="400">Municipality</text>
-          </g>
-          <text x="145" y="175" fill="rgba(240,235,224,0.08)" fontSize="18" fontFamily="Manrope" fontWeight="300">CR</text>
-        </svg>
+        <TerritoryMap iso="CR" markerLabel="San José" subLabel="Municipality" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
           <div className="max-w-[600px]">

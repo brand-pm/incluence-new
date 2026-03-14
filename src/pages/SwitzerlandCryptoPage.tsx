@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronRight, Check, X } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
+import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
@@ -148,31 +149,7 @@ const SwitzerlandCryptoPage = () => {
       <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 520 }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="z-[1] relative"><MicroParticles /></div>
-        <svg className="absolute pointer-events-none z-[2]" style={{ right: "8%", top: "50%", transform: "translateY(-50%)", width: 340, height: 380 }} viewBox="0 0 220 240" fill="none">
-          <path d="M50 120 C52 105, 60 90, 75 82 C90 74, 110 70, 130 72 C150 74, 168 82, 178 95 C188 108, 185 122, 175 132 C165 142, 148 148, 130 150 C112 152, 90 148, 75 140 C60 132, 50 126, 50 120Z" fill="#141822" stroke="rgba(240,235,224,0.12)" strokeWidth="1" />
-          <path d="M70 98 C85 88, 105 85, 125 88 C145 91, 160 98, 170 108" stroke="rgba(240,235,224,0.06)" strokeWidth="0.5" fill="none" />
-          <path d="M62 125 C65 120, 72 118, 78 122 C84 126, 80 132, 74 134 C68 136, 62 130, 62 125Z" fill="#141822" stroke="rgba(240,235,224,0.08)" strokeWidth="0.6" />
-          <g>
-            <circle cx="142" cy="108" r="3" fill="#444CE7" opacity="0.8" />
-            <circle cx="142" cy="108" r="6" stroke="#444CE7" strokeWidth="0.5" fill="none" opacity="0.3" />
-            <circle cx="142" cy="108" r="10" stroke="#444CE7" strokeWidth="0.3" fill="none" opacity="0.15" />
-          </g>
-          <g>
-            <circle cx="108" cy="112" r="2" fill="rgba(240,235,224,0.3)" />
-          </g>
-          <g>
-            <circle cx="160" cy="100" r="2" fill="rgba(240,235,224,0.2)" />
-          </g>
-          <g>
-            <circle cx="72" cy="118" r="2" fill="rgba(240,235,224,0.2)" />
-          </g>
-          <text x="148" y="105" fill="rgba(240,235,224,0.5)" fontSize="6" fontFamily="Manrope" fontWeight="400">Zug</text>
-          <text x="148" y="113" fill="rgba(68,76,231,0.5)" fontSize="5" fontFamily="Manrope" fontWeight="400">Crypto Valley</text>
-          <text x="96" y="125" fill="rgba(240,235,224,0.25)" fontSize="5" fontFamily="Manrope" fontWeight="300">Bern·FINMA</text>
-          <text x="155" y="95" fill="rgba(240,235,224,0.2)" fontSize="5" fontFamily="Manrope" fontWeight="300">Zürich</text>
-          <text x="60" y="175" fill="rgba(240,235,224,0.08)" fontSize="20" fontFamily="Manrope" fontWeight="300">CH</text>
-          <text x="150" y="170" fill="rgba(240,235,224,0.06)" fontSize="8" fontFamily="Manrope" fontWeight="300">Tier 1</text>
-        </svg>
+        <TerritoryMap iso="CH" markerLabel="Zug" subLabel="Crypto Valley" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
           <div className="max-w-[600px]">
