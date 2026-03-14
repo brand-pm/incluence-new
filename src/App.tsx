@@ -20,6 +20,8 @@ import ForexHubPage from "./pages/ForexHubPage";
 import CyprusForexPage from "./pages/CyprusForexPage";
 import VanuatuForexPage from "./pages/VanuatuForexPage";
 import MontenegroForexPage from "./pages/MontenegroForexPage";
+import MaltaForexPage from "./pages/MaltaForexPage";
+import MauritiusForexPage from "./pages/MauritiusForexPage";
 import CryptoHubPage from "./pages/CryptoHubPage";
 import EstoniaCryptoPage from "./pages/EstoniaCryptoPage";
 import LithuaniaCryptoPage from "./pages/LithuaniaCryptoPage";
