@@ -54,8 +54,8 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Lithuania EMI License", url: "/e-money-license-lithuania", status: "done", category: "EMI" },
 
   // ── PAYMENT SYSTEMS ──
-  { title: "Payment Systems (Hub)", url: "/provider-payment-systems", status: "planned", category: "Payment" },
-  { title: "Merchant Account", url: "/opening-a-merchant-account", status: "planned", category: "Payment" },
+  { title: "Payment Systems (Hub)", url: "/provider-payment-systems", status: "done", category: "Payment" },
+  { title: "Merchant Account", url: "/opening-a-merchant-account", status: "done", category: "Payment" },
   { title: "Payment System Account", url: "/open-an-account-in-a-payment-system", status: "planned", category: "Payment" },
   { title: "Cyprus Payment License", url: "/payment-system-license-in-cyprus", status: "planned", category: "Payment" },
   { title: "Lithuania Payment License", url: "/payment-system-license-in-lithuania", status: "planned", category: "Payment" },
