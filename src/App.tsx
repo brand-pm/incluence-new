@@ -26,6 +26,9 @@ import CryptoHubPage from "./pages/CryptoHubPage";
 import EstoniaCryptoPage from "./pages/EstoniaCryptoPage";
 import LithuaniaCryptoPage from "./pages/LithuaniaCryptoPage";
 import MaltaCryptoPage from "./pages/MaltaCryptoPage";
+import SwitzerlandCryptoPage from "./pages/SwitzerlandCryptoPage";
+import PolandCryptoPage from "./pages/PolandCryptoPage";
+import USACryptoPage from "./pages/USACryptoPage";
 
 const queryClient = new QueryClient();
 
@@ -98,11 +101,11 @@ const App = () => (
 
             {/* ── Crypto detail ── */}
             <Route path="/cryptocurrency-exchange-license-in-estonia" element={<EstoniaCryptoPage />} />
-            <Route path="/cryptocurrency-exchange-license-in-the-usa" element={<PlaceholderPage title="USA Crypto License" />} />
-            <Route path="/cryptocurrency-exchange-license-in-switzerland" element={<PlaceholderPage title="Switzerland Crypto License" />} />
+            <Route path="/cryptocurrency-exchange-license-in-the-usa" element={<USACryptoPage />} />
+            <Route path="/cryptocurrency-exchange-license-in-switzerland" element={<SwitzerlandCryptoPage />} />
             <Route path="/cryptocurrency-license-in-malta" element={<MaltaCryptoPage />} />
             <Route path="/lithuania-crypto-license" element={<LithuaniaCryptoPage />} />
-            <Route path="/poland-crypto-license" element={<PlaceholderPage title="Poland Crypto License" />} />
+            <Route path="/poland-crypto-license" element={<PolandCryptoPage />} />
 
             {/* ── EMI detail ── */}
             <Route path="/emi-license-in-estonia" element={<PlaceholderPage title="Estonia EMI License" />} />
