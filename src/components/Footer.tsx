@@ -22,6 +22,7 @@ const companyLinks = [
   { label: "Affiliate Program", href: "/affiliate-program" },
   { label: "Blog", href: "/" },
   { label: "Contact", href: "/contact" },
+  { label: "Site Map", href: "/sitemap" },
 ];
 
 const colHeading: React.CSSProperties = {
