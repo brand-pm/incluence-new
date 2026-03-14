@@ -15,6 +15,7 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import MarketplacePage from "./pages/MarketplacePage";
 import AIConsultant from "./components/ui/AIConsultant";
+import SitemapPage from "./pages/SitemapPage";
 
 const queryClient = new QueryClient();
 
