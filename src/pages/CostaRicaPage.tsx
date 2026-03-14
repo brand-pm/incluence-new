@@ -96,7 +96,8 @@ const CostaRicaPage = () => {
 
       {/* ── 2. HERO 2-COL ─────────────────────────── */}
       <section className="bg-[hsl(var(--bg-1))] py-[72px] px-12 relative overflow-hidden">
-        <div className="max-w-[1280px] mx-auto flex gap-12 items-start">
+        <TerritoryMap iso="CR" markerLabel="San José" subLabel="Municipality" />
+        <div className="max-w-[1280px] mx-auto flex gap-12 items-start relative z-10">
           <div className="flex-1">
             <SectionTag>GAMBLING LICENSE</SectionTag>
             <h1 className="font-light text-[clamp(32px,4vw,52px)] text-[hsl(var(--text-primary))] mb-6 leading-tight">
