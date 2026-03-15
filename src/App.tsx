@@ -95,8 +95,8 @@ const App = () => (
             <Route path="/support-legal" element={<LegalSupportPage />} />
             <Route path="/offshore-company-formation" element={<OffshoreFormationPage />} />
             <Route path="/registration-of-companies-abroad" element={<PlaceholderPage title="Company Registration Abroad" />} />
-            <Route path="/offshore-investment-funds" element={<PlaceholderPage title="Investment Funds" />} />
-            <Route path="/residence-permit-abroad" element={<PlaceholderPage title="Residence Permit" />} />
+            <Route path="/offshore-investment-funds" element={<InvestmentFundsPage />} />
+            <Route path="/residence-permit-abroad" element={<ResidencePermitPage />} />
             <Route path="/buy-a-business-abroad" element={<BuyBusinessAbroadPage />} />
             <Route path="/drafting-international-contracts" element={<ContractsPage />} />
             <Route path="/opening-a-merchant-account" element={<MerchantAccountPage />} />
