@@ -58,6 +58,10 @@ import UKPSPPage from "./pages/UKPSPPage";
 import DenmarkPaymentPage from "./pages/DenmarkPaymentPage";
 import CzechPaymentPage from "./pages/CzechPaymentPage";
 import HongKongPaymentPage from "./pages/HongKongPaymentPage";
+import BVIPage from "./pages/BVIPage";
+import CaymanPage from "./pages/CaymanPage";
+import SeychellesOffPage from "./pages/SeychellesOffPage";
+import CuracaoOffPage from "./pages/CuracaoOffPage";
 
 const queryClient = new QueryClient();
 
