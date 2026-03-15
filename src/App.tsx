@@ -51,6 +51,9 @@ import OffshoreBankAccountPage from "./pages/OffshoreBankAccountPage";
 import InvestmentFundsPage from "./pages/InvestmentFundsPage";
 import HedgeFundPage from "./pages/HedgeFundPage";
 import ResidencePermitPage from "./pages/ResidencePermitPage";
+import PaymentSystemAccountPage from "./pages/PaymentSystemAccountPage";
+import CyprusPaymentLicensePage from "./pages/CyprusPaymentLicensePage";
+import LithuaniaPaymentLicensePage from "./pages/LithuaniaPaymentLicensePage";
 
 const queryClient = new QueryClient();
 
@@ -103,7 +106,7 @@ const App = () => (
             <Route path="/buy-a-business-abroad" element={<BuyBusinessAbroadPage />} />
             <Route path="/drafting-international-contracts" element={<ContractsPage />} />
             <Route path="/opening-a-merchant-account" element={<MerchantAccountPage />} />
-            <Route path="/open-an-account-in-a-payment-system" element={<PlaceholderPage title="Payment System Account" />} />
+            <Route path="/open-an-account-in-a-payment-system" element={<PaymentSystemAccountPage />} />
 
             {/* ── Gambling license detail ── */}
             <Route path="/malta-gaming-license" element={<MaltaLicensePage />} />
@@ -136,8 +139,8 @@ const App = () => (
             <Route path="/e-money-license-lithuania" element={<LithuaniaEmiPage />} />
 
             {/* ── Payment systems detail ── */}
-            <Route path="/payment-system-license-in-cyprus" element={<PlaceholderPage title="Cyprus Payment License" />} />
-            <Route path="/payment-system-license-in-lithuania" element={<PlaceholderPage title="Lithuania Payment License" />} />
+            <Route path="/payment-system-license-in-cyprus" element={<CyprusPaymentLicensePage />} />
+            <Route path="/payment-system-license-in-lithuania" element={<LithuaniaPaymentLicensePage />} />
             <Route path="/psp-system-uk" element={<PlaceholderPage title="UK PSP License" />} />
             <Route path="/payment-system-license-in-denmark" element={<PlaceholderPage title="Denmark Payment License" />} />
             <Route path="/czech-payment-system-license" element={<PlaceholderPage title="Czech Payment License" />} />
