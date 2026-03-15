@@ -54,6 +54,10 @@ import ResidencePermitPage from "./pages/ResidencePermitPage";
 import PaymentSystemAccountPage from "./pages/PaymentSystemAccountPage";
 import CyprusPaymentLicensePage from "./pages/CyprusPaymentLicensePage";
 import LithuaniaPaymentLicensePage from "./pages/LithuaniaPaymentLicensePage";
+import UKPSPPage from "./pages/UKPSPPage";
+import DenmarkPaymentPage from "./pages/DenmarkPaymentPage";
+import CzechPaymentPage from "./pages/CzechPaymentPage";
+import HongKongPaymentPage from "./pages/HongKongPaymentPage";
 
 const queryClient = new QueryClient();
 
@@ -141,10 +145,10 @@ const App = () => (
             {/* ── Payment systems detail ── */}
             <Route path="/payment-system-license-in-cyprus" element={<CyprusPaymentLicensePage />} />
             <Route path="/payment-system-license-in-lithuania" element={<LithuaniaPaymentLicensePage />} />
-            <Route path="/psp-system-uk" element={<PlaceholderPage title="UK PSP License" />} />
-            <Route path="/payment-system-license-in-denmark" element={<PlaceholderPage title="Denmark Payment License" />} />
-            <Route path="/czech-payment-system-license" element={<PlaceholderPage title="Czech Payment License" />} />
-            <Route path="/hong-kong-payment-system-license" element={<PlaceholderPage title="Hong Kong Payment License" />} />
+            <Route path="/psp-system-uk" element={<UKPSPPage />} />
+            <Route path="/payment-system-license-in-denmark" element={<DenmarkPaymentPage />} />
+            <Route path="/czech-payment-system-license" element={<CzechPaymentPage />} />
+            <Route path="/hong-kong-payment-system-license" element={<HongKongPaymentPage />} />
 
             {/* ── Offshore detail ── */}
             <Route path="/offshore-in-the-british-virgin-islands" element={<PlaceholderPage title="BVI Offshore" />} />
