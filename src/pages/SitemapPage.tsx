@@ -146,7 +146,7 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Switzerland Fund", url: "/registration-of-investment-funds-in-switzerland", status: "planned", category: "Funds" },
 
   // ── RESIDENCE ──
-  { title: "Residence Permit (Hub)", url: "/residence-permit-abroad", status: "planned", category: "Residence" },
+  { title: "Residence Permit (Hub)", url: "/residence-permit-abroad", status: "done", category: "Residence" },
   { title: "Portugal Residence", url: "/residence-permit-in-portugal", status: "planned", category: "Residence" },
   { title: "Dubai Residence", url: "/residence-permit-in-dubai", status: "planned", category: "Residence" },
   { title: "Lithuania Residence", url: "/residence-permit-in-lithuania", status: "planned", category: "Residence" },

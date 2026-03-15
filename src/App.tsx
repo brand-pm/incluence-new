@@ -210,7 +210,7 @@ const App = () => (
             <Route path="/open-an-account-in-liechtenstein" element={<PlaceholderPage title="Liechtenstein Bank Account" />} />
 
             {/* ── Investment funds ── */}
-            <Route path="/open-a-hedge-fund" element={<PlaceholderPage title="Hedge Fund" />} />
+            <Route path="/open-a-hedge-fund" element={<HedgeFundPage />} />
             <Route path="/open-an-investment-fund-in-luxembourg" element={<PlaceholderPage title="Luxembourg Fund" />} />
             <Route path="/open-an-investment-fund-in-estonia" element={<PlaceholderPage title="Estonia Fund" />} />
             <Route path="/registration-of-investment-funds-in-malta" element={<PlaceholderPage title="Malta Fund" />} />
