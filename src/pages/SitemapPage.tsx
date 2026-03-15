@@ -70,11 +70,11 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Cayman Islands Offshore", url: "/offshore-in-the-cayman-islands", status: "done", category: "Offshore" },
   { title: "Seychelles Offshore", url: "/offshore-company-formation-in-seychelles", status: "done", category: "Offshore" },
   { title: "Curaçao Offshore", url: "/offshore-company-formation-in-curacao", status: "done", category: "Offshore" },
-  { title: "Costa Rica Offshore", url: "/offshore-costa-rica", status: "planned", category: "Offshore" },
-  { title: "Panama Offshore", url: "/panama-company-formation", status: "planned", category: "Offshore" },
-  { title: "Isle of Man Offshore", url: "/offshore-in-the-isle-of-man", status: "planned", category: "Offshore" },
-  { title: "St Vincent Offshore", url: "/offshore-company-formation-in-st-vincent-and-the-grenadines", status: "planned", category: "Offshore" },
-  { title: "Cyprus Offshore", url: "/cyprus-offshore-company-formation", status: "planned", category: "Offshore" },
+  { title: "Costa Rica Offshore", url: "/offshore-costa-rica", status: "done", category: "Offshore" },
+  { title: "Panama Offshore", url: "/panama-company-formation", status: "done", category: "Offshore" },
+  { title: "Isle of Man Offshore", url: "/offshore-in-the-isle-of-man", status: "done", category: "Offshore" },
+  { title: "St Vincent Offshore", url: "/offshore-company-formation-in-st-vincent-and-the-grenadines", status: "done", category: "Offshore" },
+  { title: "Cyprus Offshore", url: "/cyprus-offshore-company-formation", status: "done", category: "Offshore" },
 
   // ── COMPANY REGISTRATION ──
   { title: "Company Registration (Hub)", url: "/registration-of-companies-abroad", status: "planned", category: "Company Reg" },

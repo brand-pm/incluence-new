@@ -162,13 +162,13 @@ const App = () => (
             {/* ── Offshore detail ── */}
             <Route path="/offshore-in-the-british-virgin-islands" element={<BVIPage />} />
             <Route path="/offshore-in-the-cayman-islands" element={<CaymanPage />} />
-            <Route path="/offshore-in-the-isle-of-man" element={<PlaceholderPage title="Isle of Man Offshore" />} />
-            <Route path="/offshore-costa-rica" element={<PlaceholderPage title="Costa Rica Offshore" />} />
+            <Route path="/offshore-in-the-isle-of-man" element={<IOMOffPage />} />
+            <Route path="/offshore-costa-rica" element={<CostaRicaOffPage />} />
             <Route path="/offshore-company-formation-in-curacao" element={<CuracaoOffPage />} />
             <Route path="/offshore-company-formation-in-seychelles" element={<SeychellesOffPage />} />
-            <Route path="/panama-company-formation" element={<PlaceholderPage title="Panama Offshore" />} />
-            <Route path="/offshore-company-formation-in-st-vincent-and-the-grenadines" element={<PlaceholderPage title="St Vincent Offshore" />} />
-            <Route path="/cyprus-offshore-company-formation" element={<PlaceholderPage title="Cyprus Offshore" />} />
+            <Route path="/panama-company-formation" element={<PanamaOffPage />} />
+            <Route path="/offshore-company-formation-in-st-vincent-and-the-grenadines" element={<StVincentOffPage />} />
+            <Route path="/cyprus-offshore-company-formation" element={<CyprusOffPage />} />
 
             {/* ── Company registration detail ── */}
             <Route path="/open-a-company-in-estonia" element={<PlaceholderPage title="Estonia Company" />} />
