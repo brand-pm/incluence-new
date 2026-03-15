@@ -62,6 +62,11 @@ import BVIPage from "./pages/BVIPage";
 import CaymanPage from "./pages/CaymanPage";
 import SeychellesOffPage from "./pages/SeychellesOffPage";
 import CuracaoOffPage from "./pages/CuracaoOffPage";
+import CostaRicaOffPage from "./pages/CostaRicaOffPage";
+import PanamaOffPage from "./pages/PanamaOffPage";
+import IOMOffPage from "./pages/IOMOffPage";
+import StVincentOffPage from "./pages/StVincentOffPage";
+import CyprusOffPage from "./pages/CyprusOffPage";
 
 const queryClient = new QueryClient();
 
