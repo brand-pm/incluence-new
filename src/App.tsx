@@ -106,7 +106,7 @@ const App = () => (
             <Route path="/buy-a-business-abroad" element={<BuyBusinessAbroadPage />} />
             <Route path="/drafting-international-contracts" element={<ContractsPage />} />
             <Route path="/opening-a-merchant-account" element={<MerchantAccountPage />} />
-            <Route path="/open-an-account-in-a-payment-system" element={<PlaceholderPage title="Payment System Account" />} />
+            <Route path="/open-an-account-in-a-payment-system" element={<PaymentSystemAccountPage />} />
 
             {/* ── Gambling license detail ── */}
             <Route path="/malta-gaming-license" element={<MaltaLicensePage />} />
