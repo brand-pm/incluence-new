@@ -137,8 +137,8 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Liechtenstein Bank Account", url: "/open-an-account-in-liechtenstein", status: "planned", category: "Banking" },
 
   // ── FUNDS ──
-  { title: "Investment Funds (Hub)", url: "/offshore-investment-funds", status: "planned", category: "Funds" },
-  { title: "Hedge Fund", url: "/open-a-hedge-fund", status: "planned", category: "Funds" },
+  { title: "Investment Funds (Hub)", url: "/offshore-investment-funds", status: "done", category: "Funds" },
+  { title: "Hedge Fund", url: "/open-a-hedge-fund", status: "done", category: "Funds" },
   { title: "Luxembourg Fund", url: "/open-an-investment-fund-in-luxembourg", status: "planned", category: "Funds" },
   { title: "Estonia Fund", url: "/open-an-investment-fund-in-estonia", status: "planned", category: "Funds" },
   { title: "Malta Fund", url: "/registration-of-investment-funds-in-malta", status: "planned", category: "Funds" },
