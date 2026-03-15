@@ -51,6 +51,9 @@ import OffshoreBankAccountPage from "./pages/OffshoreBankAccountPage";
 import InvestmentFundsPage from "./pages/InvestmentFundsPage";
 import HedgeFundPage from "./pages/HedgeFundPage";
 import ResidencePermitPage from "./pages/ResidencePermitPage";
+import PaymentSystemAccountPage from "./pages/PaymentSystemAccountPage";
+import CyprusPaymentLicensePage from "./pages/CyprusPaymentLicensePage";
+import LithuaniaPaymentLicensePage from "./pages/LithuaniaPaymentLicensePage";
 
 const queryClient = new QueryClient();
 
