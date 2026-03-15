@@ -139,8 +139,8 @@ const App = () => (
             <Route path="/e-money-license-lithuania" element={<LithuaniaEmiPage />} />
 
             {/* ── Payment systems detail ── */}
-            <Route path="/payment-system-license-in-cyprus" element={<PlaceholderPage title="Cyprus Payment License" />} />
-            <Route path="/payment-system-license-in-lithuania" element={<PlaceholderPage title="Lithuania Payment License" />} />
+            <Route path="/payment-system-license-in-cyprus" element={<CyprusPaymentLicensePage />} />
+            <Route path="/payment-system-license-in-lithuania" element={<LithuaniaPaymentLicensePage />} />
             <Route path="/psp-system-uk" element={<PlaceholderPage title="UK PSP License" />} />
             <Route path="/payment-system-license-in-denmark" element={<PlaceholderPage title="Denmark Payment License" />} />
             <Route path="/czech-payment-system-license" element={<PlaceholderPage title="Czech Payment License" />} />

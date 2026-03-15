@@ -56,9 +56,9 @@ const SITEMAP_DATA: SitemapEntry[] = [
   // ── PAYMENT SYSTEMS ──
   { title: "Payment Systems (Hub)", url: "/provider-payment-systems", status: "done", category: "Payment" },
   { title: "Merchant Account", url: "/opening-a-merchant-account", status: "done", category: "Payment" },
-  { title: "Payment System Account", url: "/open-an-account-in-a-payment-system", status: "planned", category: "Payment" },
-  { title: "Cyprus Payment License", url: "/payment-system-license-in-cyprus", status: "planned", category: "Payment" },
-  { title: "Lithuania Payment License", url: "/payment-system-license-in-lithuania", status: "planned", category: "Payment" },
+  { title: "Payment System Account", url: "/open-an-account-in-a-payment-system", status: "done", category: "Payment" },
+  { title: "Cyprus Payment License", url: "/payment-system-license-in-cyprus", status: "done", category: "Payment" },
+  { title: "Lithuania Payment License", url: "/payment-system-license-in-lithuania", status: "done", category: "Payment" },
   { title: "UK PSP License", url: "/psp-system-uk", status: "planned", category: "Payment" },
   { title: "Denmark Payment License", url: "/payment-system-license-in-denmark", status: "planned", category: "Payment" },
   { title: "Czech Payment License", url: "/czech-payment-system-license", status: "planned", category: "Payment" },
