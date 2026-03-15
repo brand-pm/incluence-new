@@ -66,10 +66,10 @@ const SITEMAP_DATA: SitemapEntry[] = [
 
   // ── OFFSHORE ──
   { title: "Offshore Company (Hub)", url: "/offshore-company-formation", status: "done", category: "Offshore" },
-  { title: "BVI Offshore", url: "/offshore-in-the-british-virgin-islands", status: "planned", category: "Offshore" },
-  { title: "Cayman Islands Offshore", url: "/offshore-in-the-cayman-islands", status: "planned", category: "Offshore" },
-  { title: "Seychelles Offshore", url: "/offshore-company-formation-in-seychelles", status: "planned", category: "Offshore" },
-  { title: "Curaçao Offshore", url: "/offshore-company-formation-in-curacao", status: "planned", category: "Offshore" },
+  { title: "BVI Offshore", url: "/offshore-in-the-british-virgin-islands", status: "done", category: "Offshore" },
+  { title: "Cayman Islands Offshore", url: "/offshore-in-the-cayman-islands", status: "done", category: "Offshore" },
+  { title: "Seychelles Offshore", url: "/offshore-company-formation-in-seychelles", status: "done", category: "Offshore" },
+  { title: "Curaçao Offshore", url: "/offshore-company-formation-in-curacao", status: "done", category: "Offshore" },
   { title: "Costa Rica Offshore", url: "/offshore-costa-rica", status: "planned", category: "Offshore" },
   { title: "Panama Offshore", url: "/panama-company-formation", status: "planned", category: "Offshore" },
   { title: "Isle of Man Offshore", url: "/offshore-in-the-isle-of-man", status: "planned", category: "Offshore" },

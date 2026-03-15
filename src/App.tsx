@@ -58,6 +58,10 @@ import UKPSPPage from "./pages/UKPSPPage";
 import DenmarkPaymentPage from "./pages/DenmarkPaymentPage";
 import CzechPaymentPage from "./pages/CzechPaymentPage";
 import HongKongPaymentPage from "./pages/HongKongPaymentPage";
+import BVIPage from "./pages/BVIPage";
+import CaymanPage from "./pages/CaymanPage";
+import SeychellesOffPage from "./pages/SeychellesOffPage";
+import CuracaoOffPage from "./pages/CuracaoOffPage";
 
 const queryClient = new QueryClient();
 
@@ -151,12 +155,12 @@ const App = () => (
             <Route path="/hong-kong-payment-system-license" element={<HongKongPaymentPage />} />
 
             {/* ── Offshore detail ── */}
-            <Route path="/offshore-in-the-british-virgin-islands" element={<PlaceholderPage title="BVI Offshore" />} />
-            <Route path="/offshore-in-the-cayman-islands" element={<PlaceholderPage title="Cayman Islands Offshore" />} />
+            <Route path="/offshore-in-the-british-virgin-islands" element={<BVIPage />} />
+            <Route path="/offshore-in-the-cayman-islands" element={<CaymanPage />} />
             <Route path="/offshore-in-the-isle-of-man" element={<PlaceholderPage title="Isle of Man Offshore" />} />
             <Route path="/offshore-costa-rica" element={<PlaceholderPage title="Costa Rica Offshore" />} />
-            <Route path="/offshore-company-formation-in-curacao" element={<PlaceholderPage title="Curaçao Offshore" />} />
-            <Route path="/offshore-company-formation-in-seychelles" element={<PlaceholderPage title="Seychelles Offshore" />} />
+            <Route path="/offshore-company-formation-in-curacao" element={<CuracaoOffPage />} />
+            <Route path="/offshore-company-formation-in-seychelles" element={<SeychellesOffPage />} />
             <Route path="/panama-company-formation" element={<PlaceholderPage title="Panama Offshore" />} />
             <Route path="/offshore-company-formation-in-st-vincent-and-the-grenadines" element={<PlaceholderPage title="St Vincent Offshore" />} />
             <Route path="/cyprus-offshore-company-formation" element={<PlaceholderPage title="Cyprus Offshore" />} />
