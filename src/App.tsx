@@ -54,6 +54,10 @@ import ResidencePermitPage from "./pages/ResidencePermitPage";
 import PaymentSystemAccountPage from "./pages/PaymentSystemAccountPage";
 import CyprusPaymentLicensePage from "./pages/CyprusPaymentLicensePage";
 import LithuaniaPaymentLicensePage from "./pages/LithuaniaPaymentLicensePage";
+import UKPSPPage from "./pages/UKPSPPage";
+import DenmarkPaymentPage from "./pages/DenmarkPaymentPage";
+import CzechPaymentPage from "./pages/CzechPaymentPage";
+import HongKongPaymentPage from "./pages/HongKongPaymentPage";
 
 const queryClient = new QueryClient();
 
