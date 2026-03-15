@@ -48,6 +48,9 @@ import BuyBusinessAbroadPage from "./pages/BuyBusinessAbroadPage";
 import BankAccountsHubPage from "./pages/BankAccountsHubPage";
 import ForeignBankAccountPage from "./pages/ForeignBankAccountPage";
 import OffshoreBankAccountPage from "./pages/OffshoreBankAccountPage";
+import InvestmentFundsPage from "./pages/InvestmentFundsPage";
+import HedgeFundPage from "./pages/HedgeFundPage";
+import ResidencePermitPage from "./pages/ResidencePermitPage";
 
 const queryClient = new QueryClient();
 
@@ -95,8 +98,8 @@ const App = () => (
             <Route path="/support-legal" element={<LegalSupportPage />} />
             <Route path="/offshore-company-formation" element={<OffshoreFormationPage />} />
             <Route path="/registration-of-companies-abroad" element={<PlaceholderPage title="Company Registration Abroad" />} />
-            <Route path="/offshore-investment-funds" element={<PlaceholderPage title="Investment Funds" />} />
-            <Route path="/residence-permit-abroad" element={<PlaceholderPage title="Residence Permit" />} />
+            <Route path="/offshore-investment-funds" element={<InvestmentFundsPage />} />
+            <Route path="/residence-permit-abroad" element={<ResidencePermitPage />} />
             <Route path="/buy-a-business-abroad" element={<BuyBusinessAbroadPage />} />
             <Route path="/drafting-international-contracts" element={<ContractsPage />} />
             <Route path="/opening-a-merchant-account" element={<MerchantAccountPage />} />
@@ -210,7 +213,7 @@ const App = () => (
             <Route path="/open-an-account-in-liechtenstein" element={<PlaceholderPage title="Liechtenstein Bank Account" />} />
 
             {/* ── Investment funds ── */}
-            <Route path="/open-a-hedge-fund" element={<PlaceholderPage title="Hedge Fund" />} />
+            <Route path="/open-a-hedge-fund" element={<HedgeFundPage />} />
             <Route path="/open-an-investment-fund-in-luxembourg" element={<PlaceholderPage title="Luxembourg Fund" />} />
             <Route path="/open-an-investment-fund-in-estonia" element={<PlaceholderPage title="Estonia Fund" />} />
             <Route path="/registration-of-investment-funds-in-malta" element={<PlaceholderPage title="Malta Fund" />} />
