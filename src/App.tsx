@@ -48,6 +48,9 @@ import BuyBusinessAbroadPage from "./pages/BuyBusinessAbroadPage";
 import BankAccountsHubPage from "./pages/BankAccountsHubPage";
 import ForeignBankAccountPage from "./pages/ForeignBankAccountPage";
 import OffshoreBankAccountPage from "./pages/OffshoreBankAccountPage";
+import InvestmentFundsPage from "./pages/InvestmentFundsPage";
+import HedgeFundPage from "./pages/HedgeFundPage";
+import ResidencePermitPage from "./pages/ResidencePermitPage";
 
 const queryClient = new QueryClient();
 
