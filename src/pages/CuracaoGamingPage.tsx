@@ -213,7 +213,7 @@ const CuracaoGamingPage = () => {
                 ['Validity', '1 year, renewable'],
                 ['Min. capital', 'None required'],
                 ['Timeline', '3–4 months'],
-                ['Starting from', '€15,000'],
+                ['Starting from', 'On request'],
                 ['Coverage', 'All gambling verticals'],
                 ['Presence', '100% remote'],
                 ['Crypto', 'Accepted'],
