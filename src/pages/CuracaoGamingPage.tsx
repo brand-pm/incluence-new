@@ -87,12 +87,12 @@ const FACTS_TABLE = [
   ["Regulator", "Curaçao Gaming Authority (CGA)", ""],
   ["License type", "Sub-license (master license)", ""],
   ["Validity", "1 year, renewable", ""],
-  ["Min. capital", "None required", "text-[#22c55e]"],
+  ["Min. capital", "None required", ""],
   ["Timeline", "3–4 months", ""],
-  ["Starting from", "€15,000", "text-[#444CE7]"],
+  ["Starting from", "On request", ""],
   ["Coverage", "All gambling verticals", ""],
-  ["Presence", "100% remote", "text-[#22c55e]"],
-  ["Crypto", "Accepted", "text-[#22c55e]"],
+  ["Presence", "100% remote", ""],
+  ["Crypto", "Accepted", ""],
 ];
 
 /* ── Corner accent ── */
