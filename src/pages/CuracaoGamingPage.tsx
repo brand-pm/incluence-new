@@ -22,11 +22,11 @@ const useCounter = (target: number, duration = 1200) => {
 };
 
 const STEPS = [
-  { num: "01", title: "Company Registration", body: "Register a Curaçao private limited liability company (NV or BV). We prepare all incorporation documents and handle local filings." },
-  { num: "02", title: "Local Representative", body: "Appoint a local representative — a resident of the Netherlands Antilles. Required by CGA. We arrange this through our network." },
-  { num: "03", title: "Document Collection", body: "Passport copies, proof of address, bank reference letter, criminal record certificate, software agreements and server placement diagram." },
-  { num: "04", title: "License Application", body: "Submit the complete application to the CGA. Authority review typically takes 2 weeks. We manage all follow-up correspondence." },
-  { num: "05", title: "License Issued", body: "CGA grants the sub-license. Valid for 1 year, renewable annually. Your operation can launch immediately after issuance." },
+  { num: "01", title: "Company Registration", body: "Register a private limited liability company (NV or BV) in Curaçao. This is the required legal form for obtaining a gaming license." },
+  { num: "02", title: "Local Representative", body: "Appoint a resident of the Netherlands Antilles as local representative — required by the CGA. We arrange this through our network." },
+  { num: "03", title: "Document Collection", body: "Passport copy, proof of residential address, bank reference letter, certificate of no criminal record — all documents max 3 months old." },
+  { num: "04", title: "License Application", body: "Submit the complete application to the relevant Curaçao authority. Review typically takes 2 weeks. We manage all follow-up correspondence." },
+  { num: "05", title: "License Issued", body: "Receive your Curaçao gaming sub-license, valid for 1 year with annual renewal. Your operation can launch immediately after issuance." },
 ];
 
 const REQS = [
@@ -43,32 +43,31 @@ const REQS = [
 ];
 
 const PROS = [
-  "No paid-up capital requirement — lowest barrier to entry",
-  "Single sub-license covers all gambling verticals",
-  "Fully remote application — no travel required",
-  "Crypto payments accepted by licensed operators",
-  "Corporate tax only 2% — highly competitive",
-  "No gross gaming revenue tax",
-  "No VAT on gambling services",
-  "3–4 month timeline — fastest major jurisdiction",
+  "Low corporate tax rates — 2% on gambling revenue",
+  "Online casino operators can accept cryptocurrency payments",
+  "One of the shortest timelines for obtaining a license",
+  "One sub-license covers all gambling activity types",
+  "Financial reporting at the discretion of the business owner",
+  "The gambling license can be obtained fully remotely",
+  "No paid-up capital requirement",
 ];
 
 const CONS = [
-  "Renewed annually (vs 5-year Malta MGA license)",
-  "Less prestigious than EU-regulated licenses (MGA, UKGC)",
-  "Some payment processors prefer EU licenses",
+  "License renewed annually (vs 5-year MGA license)",
+  "Less prestigious than EU-regulated licenses",
+  "Some payment processors prefer EU-regulated operators",
   "Local representative in Netherlands Antilles required",
   "At least one physical server must be hosted in Curaçao",
   "Restrictions on servicing Curaçao residents",
 ];
 
 const FAQS = [
-  { q: "How long does it take to obtain a Curaçao gambling license?", a: "Company registration and CGA license issuance typically takes 3–4 months total. The CGA authority review after submission is approximately 2 weeks. Timeline depends on document preparation speed." },
-  { q: "Can I apply for a Curaçao license remotely?", a: "Yes — the entire process can be completed remotely. No physical presence is required at any stage. This makes Curaçao one of the most accessible jurisdictions globally." },
-  { q: "Does a Curaçao license cover all gambling types?", a: "Yes. One sub-license covers online casino, sports betting, poker, bingo, lotteries and other gambling verticals. No separate applications per game category are needed." },
-  { q: "Can licensed Curaçao operators accept crypto payments?", a: "Yes. Curaçao is one of the few jurisdictions that explicitly allows licensed operators to accept cryptocurrency payments from players." },
-  { q: "What documents are required for a Curaçao gambling license?", a: "Passport copy, proof of address, bank reference letter, criminal record certificate, company documents, website ownership proof, software provider agreements, and server location diagram." },
-  { q: "How much does a Curaçao gaming license cost?", a: "Starting from €15,000 for our full service. This includes company formation, local representative arrangement, document preparation, and CGA application. Exact cost depends on business specifics." },
+  { q: "How long does it take to obtain a Curaçao gambling license?", a: "Company registration and obtaining a gambling license in Curaçao typically takes 3–4 months." },
+  { q: "Can I apply for a Curaçao license remotely?", a: "Yes. The gambling license can be obtained remotely — physical presence is not required at any stage." },
+  { q: "Does a Curaçao license cover all gambling types?", a: "Yes. One sub-license in Curaçao is enough to conduct any type of gambling activity — casino, sports betting, poker, and lotteries." },
+  { q: "Can licensed Curaçao operators accept crypto payments?", a: "Yes. Online casino operators licensed in Curaçao can accept cryptocurrency payments from players." },
+  { q: "What documents are required for a Curaçao gambling license?", a: "You will need to provide: a copy of passport; proof of residential address; bank reference letter; certificate of no criminal record. Additionally: company incorporation documents, proof of website ownership, information about gaming software, agreements with software and hardware providers, server placement diagram, and description of planned business activities." },
+  { q: "How much does a Curaçao gaming license cost?", a: "The cost of a Curaçao gambling license is determined individually after discussing your requirements. Contact our specialists for an exact quote." },
 ];
 
 const RELATED = [
@@ -196,7 +195,7 @@ const CuracaoGamingPage = () => {
                 {" "}Gaming{"\n"}License
               </h1>
               <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">
-                The fastest and most cost-effective entry point to the online gambling market. One sub-license covers all gambling verticals. Full remote process — no physical presence required. Crypto-friendly.
+                Curacao hosts many companies operating in the gambling industry. This is explained by simple, business-friendly legislation regulating gaming activities. Additional factors include accessibility and low taxation — making the Curaçao gaming license highly attractive for online casino operators.
               </p>
               <div className="flex gap-4">
                 <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
