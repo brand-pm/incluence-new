@@ -22,11 +22,11 @@ const useCounter = (target: number, duration = 1200) => {
 };
 
 const STEPS = [
-  { num: "01", title: "Company Registration", body: "Register a Curaçao private limited liability company (NV or BV). We prepare all incorporation documents and handle local filings." },
-  { num: "02", title: "Local Representative", body: "Appoint a local representative — a resident of the Netherlands Antilles. Required by CGA. We arrange this through our network." },
-  { num: "03", title: "Document Collection", body: "Passport copies, proof of address, bank reference letter, criminal record certificate, software agreements and server placement diagram." },
-  { num: "04", title: "License Application", body: "Submit the complete application to the CGA. Authority review typically takes 2 weeks. We manage all follow-up correspondence." },
-  { num: "05", title: "License Issued", body: "CGA grants the sub-license. Valid for 1 year, renewable annually. Your operation can launch immediately after issuance." },
+  { num: "01", title: "Company Registration", body: "Register a private limited liability company (NV or BV) in Curaçao. This is the required legal form for obtaining a gaming license." },
+  { num: "02", title: "Local Representative", body: "Appoint a resident of the Netherlands Antilles as local representative — required by the CGA. We arrange this through our network." },
+  { num: "03", title: "Document Collection", body: "Passport copy, proof of residential address, bank reference letter, certificate of no criminal record — all documents max 3 months old." },
+  { num: "04", title: "License Application", body: "Submit the complete application to the relevant Curaçao authority. Review typically takes 2 weeks. We manage all follow-up correspondence." },
+  { num: "05", title: "License Issued", body: "Receive your Curaçao gaming sub-license, valid for 1 year with annual renewal. Your operation can launch immediately after issuance." },
 ];
 
 const REQS = [
