@@ -242,11 +242,20 @@ const CuracaoGamingPage = () => {
                 ["CGA", "Regulator"],
                 ["All verticals", "One license"],
               ].map(([value, label], i) => (
-                <div key={i} className="bg-[#080808] flex flex-col justify-center px-8 h-[100px] border-r border-white/[0.06] last:border-r-0 min-w-0 relative overflow-hidden group">
-                  <ScanSweep />
-                  <span className="text-[20px] font-light text-[#F0EBE0] whitespace-nowrap leading-tight">{value}</span>
-                  <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mt-1.5 whitespace-nowrap">{label}</span>
+              <div key={i} className="bg-[#080808] flex flex-col justify-center px-8 h-[100px] border-r border-white/[0.06] last:border-r-0 min-w-0 relative overflow-hidden group"
+                style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.04) 1px, transparent 1px)", backgroundSize: "24px 24px" }}>
+                {/* Scan sweep sized to cell */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#444CE7]/[0.05] to-transparent -translate-y-full group-hover:translate-y-full transition-transform duration-600" />
                 </div>
+                {/* Corner accent */}
+                <div className="absolute top-0 right-0 pointer-events-none">
+                  <div className="w-[16px] h-[1px] bg-[#444CE7]/30" />
+                  <div className="w-[1px] h-[16px] bg-[#444CE7]/30 ml-auto" />
+                </div>
+                <span className="text-[20px] font-light text-[#F0EBE0] whitespace-nowrap leading-tight relative z-[1]">{value}</span>
+                <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mt-1.5 whitespace-nowrap relative z-[1]">{label}</span>
+              </div>
               ))}
             </div>
           </div>
