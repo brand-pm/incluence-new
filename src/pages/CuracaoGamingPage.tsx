@@ -62,12 +62,12 @@ const CONS = [
 ];
 
 const FAQS = [
-  { q: "How long does it take to obtain a Curaçao gambling license?", a: "Company registration and CGA license issuance typically takes 3–4 months total. The CGA authority review after submission is approximately 2 weeks. Timeline depends on document preparation speed." },
-  { q: "Can I apply for a Curaçao license remotely?", a: "Yes — the entire process can be completed remotely. No physical presence is required at any stage. This makes Curaçao one of the most accessible jurisdictions globally." },
-  { q: "Does a Curaçao license cover all gambling types?", a: "Yes. One sub-license covers online casino, sports betting, poker, bingo, lotteries and other gambling verticals. No separate applications per game category are needed." },
-  { q: "Can licensed Curaçao operators accept crypto payments?", a: "Yes. Curaçao is one of the few jurisdictions that explicitly allows licensed operators to accept cryptocurrency payments from players." },
-  { q: "What documents are required for a Curaçao gambling license?", a: "Passport copy, proof of address, bank reference letter, criminal record certificate, company documents, website ownership proof, software provider agreements, and server location diagram." },
-  { q: "How much does a Curaçao gaming license cost?", a: "Starting from €15,000 for our full service. This includes company formation, local representative arrangement, document preparation, and CGA application. Exact cost depends on business specifics." },
+  { q: "How long does it take to obtain a Curaçao gambling license?", a: "Company registration and obtaining a gambling license in Curaçao typically takes 3–4 months." },
+  { q: "Can I apply for a Curaçao license remotely?", a: "Yes. The gambling license can be obtained remotely — physical presence is not required at any stage." },
+  { q: "Does a Curaçao license cover all gambling types?", a: "Yes. One sub-license in Curaçao is enough to conduct any type of gambling activity — casino, sports betting, poker, and lotteries." },
+  { q: "Can licensed Curaçao operators accept crypto payments?", a: "Yes. Online casino operators licensed in Curaçao can accept cryptocurrency payments from players." },
+  { q: "What documents are required for a Curaçao gambling license?", a: "You will need to provide: a copy of passport; proof of residential address; bank reference letter; certificate of no criminal record. Additionally: company incorporation documents, proof of website ownership, information about gaming software, agreements with software and hardware providers, server placement diagram, and description of planned business activities." },
+  { q: "How much does a Curaçao gaming license cost?", a: "The cost of a Curaçao gambling license is determined individually after discussing your requirements. Contact our specialists for an exact quote." },
 ];
 
 const RELATED = [
