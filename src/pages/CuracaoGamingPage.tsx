@@ -358,17 +358,19 @@ const CuracaoGamingPage = () => {
           <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— FAQ</span>
           <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-12">Common Questions</h2>
           <div className="max-w-[720px]">
-            {FAQS.map((f, i) => (
-              <div key={i} className="border-b border-white/[0.06]">
-                <button onClick={() => setFaqOpen(faqOpen === i ? null : i)} className="flex justify-between items-center w-full py-5 cursor-pointer text-left bg-transparent border-0" style={{ fontFamily: "inherit" }}>
-                  <span className="text-[14px] text-[#F0EBE0] font-medium pr-8">{f.q}</span>
-                  <ChevronDown className={`w-4 h-4 text-[#5A5550] shrink-0 transition-transform duration-200 ${faqOpen === i ? "rotate-180" : ""}`} />
-                </button>
-                {faqOpen === i && (
-                  <p className="text-[13px] text-[#9A9590] leading-[1.8] pb-5">{f.a}</p>
-                )}
-              </div>
-            ))}
+            <div className="flex flex-col gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+              {FAQS.map((f, i) => (
+                <div key={i} className="bg-[#0d0d0d]">
+                  <button onClick={() => setFaqOpen(faqOpen === i ? null : i)} className="flex justify-between items-center w-full py-5 px-5 cursor-pointer text-left bg-transparent border-0" style={{ fontFamily: "inherit" }}>
+                    <span className="text-[14px] text-[#F0EBE0] font-medium pr-8">{f.q}</span>
+                    <ChevronDown className={`w-4 h-4 text-[#5A5550] shrink-0 transition-transform duration-200 ${faqOpen === i ? "rotate-180" : ""}`} />
+                  </button>
+                  {faqOpen === i && (
+                    <p className="text-[13px] text-[#9A9590] leading-[1.8] pb-5 px-5">{f.a}</p>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
