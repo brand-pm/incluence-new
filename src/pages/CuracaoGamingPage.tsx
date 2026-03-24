@@ -43,14 +43,13 @@ const REQS = [
 ];
 
 const PROS = [
-  "No paid-up capital requirement — lowest barrier to entry",
-  "Single sub-license covers all gambling verticals",
-  "Fully remote application — no travel required",
-  "Crypto payments accepted by licensed operators",
-  "Corporate tax only 2% — highly competitive",
-  "No gross gaming revenue tax",
-  "No VAT on gambling services",
-  "3–4 month timeline — fastest major jurisdiction",
+  "Low corporate tax rates — 2% on gambling revenue",
+  "Online casino operators can accept cryptocurrency payments",
+  "One of the shortest timelines for obtaining a license",
+  "One sub-license covers all gambling activity types",
+  "Financial reporting at the discretion of the business owner",
+  "The gambling license can be obtained fully remotely",
+  "No paid-up capital requirement",
 ];
 
 const CONS = [
