@@ -213,7 +213,7 @@ const CuracaoGamingPage = () => {
                 ['Validity', '1 year, renewable'],
                 ['Min. capital', 'None required'],
                 ['Timeline', '3–4 months'],
-                ['Starting from', '€15,000'],
+                ['Starting from', 'On request'],
                 ['Coverage', 'All gambling verticals'],
                 ['Presence', '100% remote'],
                 ['Crypto', 'Accepted'],
@@ -229,7 +229,8 @@ const CuracaoGamingPage = () => {
 
         {/* Facts Strip */}
         <div className="max-w-screen-xl mx-auto px-12">
-          <div className="border-t border-white/[0.06] py-8 grid grid-cols-6 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+          <div className="border-t border-b border-white/[0.06] py-8">
+          <div className="grid grid-cols-6 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             {[
               [`€${c1.toLocaleString()}+`, "Starting from", ""],
               ["3–4 months", "Timeline", ""],
@@ -244,6 +245,7 @@ const CuracaoGamingPage = () => {
                 <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mt-2 block">{label}</span>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </section>
