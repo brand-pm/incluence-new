@@ -246,6 +246,7 @@ const CuracaoGamingPage = () => {
               </div>
             ))}
           </div>
+          </div>
         </div>
       </section>
 
