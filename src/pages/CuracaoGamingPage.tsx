@@ -53,9 +53,9 @@ const PROS = [
 ];
 
 const CONS = [
-  "Renewed annually (vs 5-year Malta MGA license)",
-  "Less prestigious than EU-regulated licenses (MGA, UKGC)",
-  "Some payment processors prefer EU licenses",
+  "License renewed annually (vs 5-year MGA license)",
+  "Less prestigious than EU-regulated licenses",
+  "Some payment processors prefer EU-regulated operators",
   "Local representative in Netherlands Antilles required",
   "At least one physical server must be hosted in Curaçao",
   "Restrictions on servicing Curaçao residents",
