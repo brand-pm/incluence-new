@@ -229,7 +229,8 @@ const CuracaoGamingPage = () => {
 
         {/* Facts Strip */}
         <div className="max-w-screen-xl mx-auto px-12">
-          <div className="border-t border-white/[0.06] py-8 grid grid-cols-6 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+          <div className="border-t border-b border-white/[0.06] py-8">
+          <div className="grid grid-cols-6 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             {[
               [`€${c1.toLocaleString()}+`, "Starting from", ""],
               ["3–4 months", "Timeline", ""],
