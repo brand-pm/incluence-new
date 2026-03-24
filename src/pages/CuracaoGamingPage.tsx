@@ -203,26 +203,31 @@ const CuracaoGamingPage = () => {
                 <button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View Requirements</button>
               </div>
             </div>
-            <div className="border border-white/[0.08] bg-[#0d0d0d] w-full lg:w-[300px] shrink-0 self-start">
-              <div className="border-b border-white/[0.06] px-5 py-3">
-                <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em]">Key Facts</span>
-              </div>
-              {[
-                ['Regulator', 'CGA'],
-                ['License type', 'Sub-license'],
-                ['Validity', '1 year, renewable'],
-                ['Min. capital', 'None required'],
-                ['Timeline', '3–4 months'],
-                ['Starting from', 'On request'],
-                ['Coverage', 'All gambling verticals'],
-                ['Presence', '100% remote'],
-                ['Crypto', 'Accepted'],
-              ].map(([label, value]) => (
-                <div key={label} className="flex items-center justify-between px-5 py-2.5 border-b border-white/[0.04] last:border-0">
-                  <span className="text-[11px] text-[#5A5550]">{label}</span>
-                  <span className="text-[12px] text-[#F0EBE0] font-medium text-right">{value}</span>
-                </div>
-              ))}
+            {/* HERO VISUAL — Curaçao */}
+            <div className="hidden lg:flex items-center justify-center w-full lg:w-[420px] shrink-0">
+              <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-[400px] opacity-90">
+                <defs>
+                  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="1"/>
+                  </pattern>
+                </defs>
+                <rect width="400" height="300" fill="url(#grid)" />
+                <path d="M 60 160 C 80 140 120 130 160 135 C 200 140 240 128 280 132 C 310 135 330 145 340 155 C 350 165 345 178 330 182 C 310 187 280 180 250 178 C 220 176 190 182 160 180 C 130 178 100 175 80 172 C 65 170 55 168 60 160 Z" fill="rgba(68, 76, 231, 0.12)" stroke="rgba(68, 76, 231, 0.4)" strokeWidth="1.5" />
+                <circle cx="198" cy="155" r="4" fill="#444CE7" />
+                <circle cx="198" cy="155" r="8" fill="rgba(68, 76, 231, 0.2)" />
+                <circle cx="198" cy="155" r="14" fill="rgba(68, 76, 231, 0.08)" />
+                <text x="212" y="150" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="Manrope, sans-serif" letterSpacing="0.05em">WILLEMSTAD</text>
+                <rect x="148" y="195" width="104" height="36" fill="rgba(68, 76, 231, 0.08)" stroke="rgba(68, 76, 231, 0.25)" strokeWidth="1" />
+                <text x="200" y="210" fill="#444CE7" fontSize="11" fontFamily="Manrope, sans-serif" fontWeight="600" textAnchor="middle" letterSpacing="0.12em">CGA</text>
+                <text x="200" y="224" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.08em">CURAÇAO GAMING AUTHORITY</text>
+                <line x1="40" y1="155" x2="148" y2="213" stroke="rgba(68, 76, 231, 0.15)" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="360" y1="155" x2="252" y2="213" stroke="rgba(68, 76, 231, 0.15)" strokeWidth="1" strokeDasharray="4 4" />
+                <path d="M 20 20 L 20 35 M 20 20 L 35 20" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+                <path d="M 380 20 L 380 35 M 380 20 L 365 20" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+                <path d="M 20 280 L 20 265 M 20 280 L 35 280" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+                <path d="M 380 280 L 380 265 M 380 280 L 365 280" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+                <text x="200" y="275" fill="rgba(255,255,255,0.15)" fontSize="9" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.1em">12°N · 69°W · DUTCH CARIBBEAN</text>
+              </svg>
             </div>
           </div>
         </div>
