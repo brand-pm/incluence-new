@@ -196,7 +196,7 @@ const CuracaoGamingPage = () => {
                 {" "}Gaming{"\n"}License
               </h1>
               <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">
-                The fastest and most cost-effective entry point to the online gambling market. One sub-license covers all gambling verticals. Full remote process — no physical presence required. Crypto-friendly.
+                Curacao hosts many companies operating in the gambling industry. This is explained by simple, business-friendly legislation regulating gaming activities. Additional factors include accessibility and low taxation — making the Curaçao gaming license highly attractive for online casino operators.
               </p>
               <div className="flex gap-4">
                 <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
