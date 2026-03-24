@@ -71,9 +71,9 @@ const FAQS = [
 ];
 
 const RELATED = [
-  { href: "/malta-gaming-license", reg: "MGA", name: "Malta", desc: "EU gold standard. Full European market access. 6–9 months, from €25,000." },
+  { href: "/malta-gaming-license", reg: "MGA", name: "Malta", desc: "EU gold standard. Full European market access. 6–9 months." },
   { href: "/gambling-license-of-the-isle-of-man", reg: "GSC", name: "Isle of Man", desc: "Tier-1 prestige. All verticals, strong reputation. 6–12 months." },
-  { href: "/gambling-license-in-costa-rica", reg: "Municipal", name: "Costa Rica", desc: "Fastest option. No business plan. 2–5 weeks, from $15,000." },
+  { href: "/gambling-license-in-costa-rica", reg: "Municipal", name: "Costa Rica", desc: "Fastest option. No business plan. 2–5 weeks." },
 ];
 
 const ADVANTAGES = [
