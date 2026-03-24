@@ -295,15 +295,14 @@ const CuracaoGamingPage = () => {
             <ProcessFlowCanvas />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-px relative z-10" style={{ background: "rgba(255,255,255,0.06)" }}>
               {STEPS.map((step, i) => (
-                <div key={i} ref={stepRefs[i]} data-step className="bg-[#111111] p-7 relative overflow-hidden group">
-                  <ScanSweep />
-                  <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#444CE7] group-hover:w-full transition-all duration-300" />
+                <div key={i} ref={stepRefs[i]} data-step className="bg-[#080808] p-6 relative group">
                   <span className="text-[11px] text-[#444CE7]/60 uppercase tracking-[0.12em] block mb-3">{step.num}</span>
                   <h3 className="text-[16px] font-medium text-[#F0EBE0] mb-2">{step.title}</h3>
                   <p className="text-[13px] text-[#9A9590] leading-[1.7]">{step.body}</p>
+                  <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#444CE7] group-hover:w-full transition-all duration-300" />
                 </div>
               ))}
-              <div className="bg-[#111111]" />
+              <div className="bg-[#080808]" />
             </div>
           </div>
         </div>
