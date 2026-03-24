@@ -56,7 +56,6 @@ const RelatedJurisdictions = ({
             className="block p-7 group relative overflow-hidden no-underline transition-colors hover:bg-[#0f0f0f]"
             style={{ background: bg }}
           >
-            <CornerAccent />
             <ScanSweep />
             {/* bottom accent */}
             <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-500" />
