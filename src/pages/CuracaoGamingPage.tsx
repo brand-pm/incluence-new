@@ -185,28 +185,51 @@ const CuracaoGamingPage = () => {
         <TerritoryMap iso="CW" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
-          <div className="max-w-[600px]">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Gambling License</span>
-              <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.12em]">Offshore · CGA</span>
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
+            <div className="max-w-[580px]">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Gambling License</span>
+                <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.12em]">Offshore · CGA</span>
+              </div>
+              <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1] mb-6">
+                <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Curaçao</span>
+                {" "}Gaming{"\n"}License
+              </h1>
+              <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">
+                The fastest and most cost-effective entry point to the online gambling market. One sub-license covers all gambling verticals. Full remote process — no physical presence required. Crypto-friendly.
+              </p>
+              <div className="flex gap-4">
+                <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
+                <button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View Requirements</button>
+              </div>
             </div>
-            <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1] mb-6">
-              <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Curaçao</span>
-              {" "}Gaming{"\n"}License
-            </h1>
-            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">
-              The fastest and most cost-effective entry point to the online gambling market. One sub-license covers all gambling verticals. Full remote process — no physical presence required. Crypto-friendly.
-            </p>
-            <div className="flex gap-4">
-              <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
-              <button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View Requirements</button>
+            <div className="border border-white/[0.08] bg-[#0d0d0d] w-full lg:w-[300px] shrink-0 self-start">
+              <div className="border-b border-white/[0.06] px-5 py-3">
+                <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em]">Key Facts</span>
+              </div>
+              {[
+                ['Regulator', 'CGA'],
+                ['License type', 'Sub-license'],
+                ['Validity', '1 year, renewable'],
+                ['Min. capital', 'None required'],
+                ['Timeline', '3–4 months'],
+                ['Starting from', '€15,000'],
+                ['Coverage', 'All gambling verticals'],
+                ['Presence', '100% remote'],
+                ['Crypto', 'Accepted'],
+              ].map(([label, value]) => (
+                <div key={label} className="flex items-center justify-between px-5 py-2.5 border-b border-white/[0.04] last:border-0">
+                  <span className="text-[11px] text-[#5A5550]">{label}</span>
+                  <span className="text-[12px] text-[#F0EBE0] font-medium text-right">{value}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Facts Strip */}
-        <div className="max-w-screen-xl mx-auto px-12 pb-[88px]">
-          <div className="mt-14 grid grid-cols-6 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+        <div className="max-w-screen-xl mx-auto px-12">
+          <div className="border-t border-white/[0.06] py-8 grid grid-cols-6 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             {[
               [`€${c1.toLocaleString()}+`, "Starting from", ""],
               ["3–4 months", "Timeline", ""],
