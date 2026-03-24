@@ -234,27 +234,24 @@ const CuracaoGamingPage = () => {
         {/* Facts Strip */}
         <div className="max-w-screen-xl mx-auto px-12">
           <div className="border-t border-b border-white/[0.06]">
-            <div className="max-w-[860px] mx-auto grid grid-cols-4 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+            <div className="max-w-[1200px] mx-auto grid grid-cols-4">
               {[
-                ["3–4 months", "Timeline"],
-                ["1 year", "License validity"],
-                ["CGA", "Regulator"],
-                ["All verticals", "One license"],
-              ].map(([value, label], i) => (
-              <div key={i} className="bg-[#080808] flex flex-col justify-center px-8 h-[100px] border-r border-white/[0.06] last:border-r-0 min-w-0 relative overflow-hidden group"
-                style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.04) 1px, transparent 1px)", backgroundSize: "24px 24px" }}>
-                {/* Scan sweep sized to cell */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#444CE7]/[0.05] to-transparent -translate-y-full group-hover:translate-y-full transition-transform duration-600" />
+                ['3–4 months', 'TIMELINE'],
+                ['1 year', 'LICENSE VALIDITY'],
+                ['CGA', 'REGULATOR'],
+                ['All verticals', 'ONE LICENSE'],
+              ].map(([value, label]) => (
+                <div
+                  key={label}
+                  className="flex flex-col items-center justify-center py-8 border-r border-white/[0.06] last:border-r-0"
+                >
+                  <span className="text-[22px] font-light text-[#F0EBE0] whitespace-nowrap">
+                    {value}
+                  </span>
+                  <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mt-2">
+                    {label}
+                  </span>
                 </div>
-                {/* Corner accent */}
-                <div className="absolute top-0 right-0 pointer-events-none">
-                  <div className="w-[16px] h-[1px] bg-[#444CE7]/30" />
-                  <div className="w-[1px] h-[16px] bg-[#444CE7]/30 ml-auto" />
-                </div>
-                <span className="text-[20px] font-light text-[#F0EBE0] whitespace-nowrap leading-tight relative z-[1]">{value}</span>
-                <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mt-1.5 whitespace-nowrap relative z-[1]">{label}</span>
-              </div>
               ))}
             </div>
           </div>
