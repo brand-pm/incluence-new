@@ -234,23 +234,21 @@ const CuracaoGamingPage = () => {
 
         {/* Facts Strip */}
         <div className="max-w-screen-xl mx-auto px-12">
-          <div className="border-t border-b border-white/[0.06] py-8">
-          <div className="grid grid-cols-6 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
-            {[
-              [`€${c1.toLocaleString()}+`, "Starting from", ""],
-              ["3–4 months", "Timeline", ""],
-              ["1 year", "License validity", "text-[#9A9590]"],
-              ["CGA", "Regulator", "text-[#444CE7] font-semibold"],
-              ["Worldwide", "Market access", ""],
-              ["All verticals", "One license", "text-[#444CE7]"],
-            ].map(([value, label, cls], i) => (
-              <div key={i} className="bg-[#080808] p-6 relative overflow-hidden group">
-                <ScanSweep />
-                <span className={`text-[30px] font-light leading-none block ${cls || "text-[#F0EBE0]"}`}>{value}</span>
-                <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mt-2 block">{label}</span>
-              </div>
-            ))}
-          </div>
+          <div className="border-t border-b border-white/[0.06]">
+            <div className="max-w-[860px] mx-auto grid grid-cols-4 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+              {[
+                ["3–4 months", "Timeline"],
+                ["1 year", "License validity"],
+                ["CGA", "Regulator"],
+                ["All verticals", "One license"],
+              ].map(([value, label], i) => (
+                <div key={i} className="bg-[#080808] flex flex-col justify-center px-8 h-[100px] border-r border-white/[0.06] last:border-r-0 min-w-0 relative overflow-hidden group">
+                  <ScanSweep />
+                  <span className="text-[20px] font-light text-[#F0EBE0] whitespace-nowrap leading-tight">{value}</span>
+                  <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mt-1.5 whitespace-nowrap">{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
