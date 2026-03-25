@@ -26,7 +26,7 @@ const GamblingHubPage = () => (
       {
         regulator: 'CGA',
         name: 'Curaçao',
-        description: 'Fastest and most cost-effective entry point. One sub-license covers all gambling types. Remote application possible.',
+        description: 'Curaçao hosts many companies operating in the gambling industry — explained by simple, business-friendly legislation and low taxation. Highly attractive for online casino operators.',
         timeline: '3–4 months',
         badge: 'Most Popular',
         href: '/curacao-gaming-license',
