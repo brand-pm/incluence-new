@@ -337,6 +337,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (p) => {
       </section>
 
       {/* ── PROS & CONS ── */}
+      {(p.advantages?.length || p.limitations?.length) && (
       <section style={{ background: "#111111" }}>
         <div className="max-w-screen-xl mx-auto py-[72px] px-12">
           <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— Advantages & Limitations</span>
@@ -345,7 +346,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (p) => {
             <div className="bg-[#111111] p-8">
               <h3 className="text-[14px] font-medium text-[#22c55e] uppercase tracking-[0.08em] mb-6">Advantages</h3>
               <div className="space-y-3">
-                {p.advantages.map((item, i) => (
+                {(p.advantages ?? []).map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <Check className="w-4 h-4 text-[#22c55e] mt-0.5 shrink-0" />
                     <span className="text-[13px] text-[#9A9590] leading-[1.7]">{item}</span>
@@ -356,7 +357,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (p) => {
             <div className="bg-[#111111] p-8">
               <h3 className="text-[14px] font-medium text-[#ef4444] uppercase tracking-[0.08em] mb-6">Limitations</h3>
               <div className="space-y-3">
-                {p.limitations.map((item, i) => (
+                {(p.limitations ?? []).map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <X className="w-4 h-4 text-[#ef4444] mt-0.5 shrink-0" />
                     <span className="text-[13px] text-[#9A9590] leading-[1.7]">{item}</span>
@@ -367,6 +368,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (p) => {
           </div>
         </div>
       </section>
+      )}
 
       {/* ── FAQ ── */}
       <section style={{ background: "#0d0d0d" }}>
