@@ -685,7 +685,7 @@ const Navbar = () => {
               {/* RIGHT — Featured sidebar */}
               <div className="flex flex-col gap-3 flex-shrink-0" style={{ width: 280, background: "#0d0d0d", padding: "24px 20px" }}>
                 {cat === 'license' && hoveredItem && LICENSE_PREVIEWS[hoveredItem]?.jurisdictions?.length > 0 ? (
-                  <LicensePreviewPanel jurisdictions={LICENSE_PREVIEWS[hoveredItem].jurisdictions} go={go} />
+                  <LicensePreviewPanel jurisdictions={LICENSE_PREVIEWS[hoveredItem].jurisdictions} hubHref={hoveredItem} go={go} />
                 ) : (
                   <>
                     {/* Ready Made Companies */}
