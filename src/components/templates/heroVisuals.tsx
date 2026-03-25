@@ -242,4 +242,128 @@ export const SeychellesForexHeroVisual = () => (
     <CornerMarks />
     <text x="200" y="275" fill="rgba(255,255,255,0.15)" fontSize="9" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.1em">4°S · 55°E · INDIAN OCEAN</text>
   </Wrapper>
+
+/* ═══════════════════════════════════════════════════════════
+   CRYPTO CATEGORY
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Estonia (Crypto) ── */
+export const EstoniaCryptoHeroVisual = () => (
+  <Wrapper>
+    <GridPattern id="ee-cr-grid" />
+    <rect width="400" height="300" fill="url(#ee-cr-grid)" />
+    <path d="M 80 115 C 100 100 140 92 180 95 C 220 98 260 105 300 110 C 325 113 340 120 338 130 C 336 140 318 148 295 150 C 270 152 240 148 210 145 C 180 142 150 148 120 145 C 95 142 78 135 76 128 C 74 122 76 118 80 115 Z" fill="rgba(68,76,231,0.12)" stroke="rgba(68,76,231,0.4)" strokeWidth="1.5" />
+    <circle cx="260" cy="125" r="4" fill="#444CE7" />
+    <circle cx="260" cy="125" r="8" fill="rgba(68,76,231,0.2)" />
+    <circle cx="260" cy="125" r="14" fill="rgba(68,76,231,0.08)" />
+    <text x="275" y="120" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="Manrope, sans-serif" letterSpacing="0.05em">TALLINN</text>
+    <rect x="148" y="195" width="104" height="36" fill="rgba(68,76,231,0.08)" stroke="rgba(68,76,231,0.25)" strokeWidth="1" />
+    <text x="200" y="210" fill="#444CE7" fontSize="11" fontFamily="Manrope, sans-serif" fontWeight="600" textAnchor="middle" letterSpacing="0.12em">FIU</text>
+    <text x="200" y="224" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.06em">FINANCIAL INTELLIGENCE UNIT</text>
+    <line x1="50" y1="125" x2="148" y2="213" stroke="rgba(68,76,231,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+    <line x1="350" y1="125" x2="252" y2="213" stroke="rgba(68,76,231,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+    <CornerMarks />
+    <text x="200" y="275" fill="rgba(255,255,255,0.15)" fontSize="9" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.1em">59°N · 24°E · EUROPEAN UNION</text>
+  </Wrapper>
+);
+
+/* ── USA (Crypto) ── */
+export const USACryptoHeroVisual = () => (
+  <Wrapper>
+    <GridPattern id="us-cr-grid" />
+    <rect width="400" height="300" fill="url(#us-cr-grid)" />
+    <path d="M 40 90 C 60 80 100 75 150 78 C 200 81 250 82 300 88 C 340 92 370 100 375 112 C 378 124 365 135 340 142 C 315 148 280 155 245 160 C 210 165 175 162 140 158 C 105 154 70 148 50 138 C 35 130 30 118 35 108 C 38 98 40 92 40 90 Z" fill="rgba(68,76,231,0.12)" stroke="rgba(68,76,231,0.4)" strokeWidth="1.5" />
+    <circle cx="295" cy="118" r="4" fill="#444CE7" />
+    <circle cx="295" cy="118" r="8" fill="rgba(68,76,231,0.2)" />
+    <circle cx="295" cy="118" r="14" fill="rgba(68,76,231,0.08)" />
+    <text x="310" y="113" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="Manrope, sans-serif" letterSpacing="0.05em">WASHINGTON</text>
+    <rect x="138" y="195" width="124" height="36" fill="rgba(68,76,231,0.08)" stroke="rgba(68,76,231,0.25)" strokeWidth="1" />
+    <text x="200" y="210" fill="#444CE7" fontSize="11" fontFamily="Manrope, sans-serif" fontWeight="600" textAnchor="middle" letterSpacing="0.12em">FinCEN</text>
+    <text x="200" y="224" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.06em">FINANCIAL CRIMES ENFORCEMENT</text>
+    <line x1="50" y1="118" x2="138" y2="213" stroke="rgba(68,76,231,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+    <line x1="350" y1="118" x2="262" y2="213" stroke="rgba(68,76,231,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+    <CornerMarks />
+    <text x="200" y="275" fill="rgba(255,255,255,0.15)" fontSize="9" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.1em">38°N · 77°W · NORTH AMERICA</text>
+  </Wrapper>
+);
+
+/* ── Switzerland (Crypto) ── */
+export const SwitzerlandCryptoHeroVisual = () => (
+  <Wrapper>
+    <GridPattern id="ch-cr-grid" />
+    <rect width="400" height="300" fill="url(#ch-cr-grid)" />
+    <path d="M 110 105 C 130 90 170 82 210 85 C 250 88 285 98 305 112 C 318 122 315 138 298 148 C 278 158 250 162 220 160 C 190 158 160 150 140 140 C 122 132 108 122 105 115 C 103 110 106 107 110 105 Z" fill="rgba(68,76,231,0.12)" stroke="rgba(68,76,231,0.4)" strokeWidth="1.5" />
+    <circle cx="220" cy="125" r="4" fill="#444CE7" />
+    <circle cx="220" cy="125" r="8" fill="rgba(68,76,231,0.2)" />
+    <circle cx="220" cy="125" r="14" fill="rgba(68,76,231,0.08)" />
+    <text x="235" y="120" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="Manrope, sans-serif" letterSpacing="0.05em">BERN</text>
+    <rect x="138" y="195" width="124" height="36" fill="rgba(68,76,231,0.08)" stroke="rgba(68,76,231,0.25)" strokeWidth="1" />
+    <text x="200" y="210" fill="#444CE7" fontSize="11" fontFamily="Manrope, sans-serif" fontWeight="600" textAnchor="middle" letterSpacing="0.12em">FINMA</text>
+    <text x="200" y="224" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.06em">FINANCIAL MARKET SUPERVISORY AUTH.</text>
+    <line x1="50" y1="125" x2="138" y2="213" stroke="rgba(68,76,231,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+    <line x1="350" y1="125" x2="262" y2="213" stroke="rgba(68,76,231,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+    <CornerMarks />
+    <text x="200" y="275" fill="rgba(255,255,255,0.15)" fontSize="9" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.1em">46°N · 7°E · CRYPTO VALLEY</text>
+  </Wrapper>
+);
+
+/* ── Malta (Crypto) ── */
+export const MaltaCryptoHeroVisual = () => (
+  <Wrapper>
+    <GridPattern id="mt-cr-grid" />
+    <rect width="400" height="300" fill="url(#mt-cr-grid)" />
+    <path d="M 160 120 C 175 108 210 100 240 105 C 265 110 280 122 285 138 C 290 155 278 170 260 175 C 240 180 215 178 195 172 C 175 166 158 155 155 140 C 153 130 155 125 160 120 Z" fill="rgba(68,76,231,0.12)" stroke="rgba(68,76,231,0.4)" strokeWidth="1.5" />
+    <path d="M 145 95 C 155 88 175 86 185 92 C 192 96 190 106 182 110 C 172 114 152 112 148 105 C 145 100 143 98 145 95 Z" fill="rgba(68,76,231,0.12)" stroke="rgba(68,76,231,0.4)" strokeWidth="1" />
+    <circle cx="230" cy="135" r="4" fill="#444CE7" />
+    <circle cx="230" cy="135" r="8" fill="rgba(68,76,231,0.2)" />
+    <circle cx="230" cy="135" r="14" fill="rgba(68,76,231,0.08)" />
+    <text x="244" y="130" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="Manrope, sans-serif" letterSpacing="0.05em">VALLETTA</text>
+    <rect x="148" y="200" width="104" height="36" fill="rgba(68,76,231,0.08)" stroke="rgba(68,76,231,0.25)" strokeWidth="1" />
+    <text x="200" y="215" fill="#444CE7" fontSize="11" fontFamily="Manrope, sans-serif" fontWeight="600" textAnchor="middle" letterSpacing="0.12em">MFSA</text>
+    <text x="200" y="229" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.06em">VFA FRAMEWORK</text>
+    <line x1="60" y1="135" x2="148" y2="218" stroke="rgba(68,76,231,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+    <line x1="340" y1="135" x2="252" y2="218" stroke="rgba(68,76,231,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+    <CornerMarks />
+    <text x="200" y="275" fill="rgba(255,255,255,0.15)" fontSize="9" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.1em">35°N · 14°E · BLOCKCHAIN ISLAND</text>
+  </Wrapper>
+);
+
+/* ── Lithuania (Crypto) ── */
+export const LithuaniaCryptoHeroVisual = () => (
+  <Wrapper>
+    <GridPattern id="lt-cr-grid" />
+    <rect width="400" height="300" fill="url(#lt-cr-grid)" />
+    <path d="M 110 90 C 135 78 175 72 215 78 C 255 84 285 95 300 112 C 310 125 305 142 288 155 C 268 168 240 175 210 172 C 180 169 150 160 130 148 C 115 138 105 125 103 112 C 102 100 105 94 110 90 Z" fill="rgba(68,76,231,0.12)" stroke="rgba(68,76,231,0.4)" strokeWidth="1.5" />
+    <circle cx="245" cy="118" r="4" fill="#444CE7" />
+    <circle cx="245" cy="118" r="8" fill="rgba(68,76,231,0.2)" />
+    <circle cx="245" cy="118" r="14" fill="rgba(68,76,231,0.08)" />
+    <text x="260" y="113" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="Manrope, sans-serif" letterSpacing="0.05em">VILNIUS</text>
+    <rect x="148" y="200" width="104" height="36" fill="rgba(68,76,231,0.08)" stroke="rgba(68,76,231,0.25)" strokeWidth="1" />
+    <text x="200" y="215" fill="#444CE7" fontSize="11" fontFamily="Manrope, sans-serif" fontWeight="600" textAnchor="middle" letterSpacing="0.12em">FCIS</text>
+    <text x="200" y="229" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.06em">FINANCIAL CRIME INVESTIGATION</text>
+    <line x1="60" y1="118" x2="148" y2="218" stroke="rgba(68,76,231,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+    <line x1="340" y1="118" x2="252" y2="218" stroke="rgba(68,76,231,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+    <CornerMarks />
+    <text x="200" y="275" fill="rgba(255,255,255,0.15)" fontSize="9" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.1em">54°N · 25°E · EUROPEAN UNION</text>
+  </Wrapper>
+);
+
+/* ── Poland (Crypto) ── */
+export const PolandCryptoHeroVisual = () => (
+  <Wrapper>
+    <GridPattern id="pl-cr-grid" />
+    <rect width="400" height="300" fill="url(#pl-cr-grid)" />
+    <path d="M 100 85 C 130 72 175 68 220 72 C 265 76 300 88 318 105 C 330 118 325 135 308 148 C 288 162 258 170 225 172 C 192 174 158 168 132 158 C 110 148 95 135 92 120 C 90 108 94 95 100 85 Z" fill="rgba(68,76,231,0.12)" stroke="rgba(68,76,231,0.4)" strokeWidth="1.5" />
+    <circle cx="235" cy="115" r="4" fill="#444CE7" />
+    <circle cx="235" cy="115" r="8" fill="rgba(68,76,231,0.2)" />
+    <circle cx="235" cy="115" r="14" fill="rgba(68,76,231,0.08)" />
+    <text x="250" y="110" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="Manrope, sans-serif" letterSpacing="0.05em">WARSAW</text>
+    <rect x="128" y="200" width="144" height="36" fill="rgba(68,76,231,0.08)" stroke="rgba(68,76,231,0.25)" strokeWidth="1" />
+    <text x="200" y="215" fill="#444CE7" fontSize="11" fontFamily="Manrope, sans-serif" fontWeight="600" textAnchor="middle" letterSpacing="0.12em">MIN. OF FINANCE</text>
+    <text x="200" y="229" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.06em">VASP REGISTRY</text>
+    <line x1="50" y1="115" x2="128" y2="218" stroke="rgba(68,76,231,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+    <line x1="350" y1="115" x2="272" y2="218" stroke="rgba(68,76,231,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+    <CornerMarks />
+    <text x="200" y="275" fill="rgba(255,255,255,0.15)" fontSize="9" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.1em">52°N · 21°E · EUROPEAN UNION</text>
+  </Wrapper>
 );
