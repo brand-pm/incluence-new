@@ -57,8 +57,8 @@ interface LicenseDetailPageProps {
   requirementsIntro: string;
   requirements: string[];
   keyFacts: KeyFactItem[];
-  advantages: string[];
-  limitations: string[];
+  advantages?: string[];
+  limitations?: string[];
   faq: FAQItem[];
   related: RelatedLicense[];
   formTitle: string;
