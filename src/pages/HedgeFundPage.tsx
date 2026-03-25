@@ -33,40 +33,40 @@ const STATS = [
 ];
 
 const USE_CASES = [
-  { title: "Third-Party Fund Management", body: "Effective management of assets of private individuals and institutional investors." },
-  { title: "Asset Protection", body: "Protection of personal assets through a regulated offshore or EU investment structure." },
-  { title: "Capital Raising", body: "Raising capital from private individuals and professional investors under a regulated framework." },
-  { title: "Ownership Confidentiality", body: "Ensuring confidentiality of ownership of foreign companies and investment portfolios." },
+  { title: "Third-Party Fund Management", body: "Effective management of third-party funds." },
+  { title: "Asset Protection", body: "Protection of personal assets." },
+  { title: "Capital Raising", body: "Raising capital from private individuals and professional investors." },
+  { title: "Ownership Confidentiality", body: "Ensuring confidentiality of ownership of foreign companies, and more." },
 ];
 
 const STEPS = [
-  { num: "01", title: "Consultation with Registrar", body: "Our team has many years of experience registering funds in different countries. During consultation, you'll learn what documents are required in the given jurisdiction. Our specialists handle all these procedures." },
-  { num: "02", title: "Selecting a Management Company", body: "Done in two ways: by hiring a professional trustee or engaging an existing company. We assist with identifying and vetting suitable options." },
-  { num: "03", title: "Finding a Guarantor", body: "Often a bank plays this role. This requires experience in attracting guarantors, qualifications, and negotiation skills. We handle this on your behalf." },
-  { num: "04", title: "Finding a Broker", body: "Required to operate in securities, commodity, and currency markets. Our specialists find a licensed broker and perform all legal checks." },
-  { num: "05", title: "Attracting Investors", body: "Finding those who will entrust their capital to your hedge fund is the main purpose of creating it. We can recommend PR and marketing experts who understand processes within hedge funds." },
+  { num: "01", title: "Consultation with a Registrar", body: "Our team has many years of experience registering funds in different countries, so during the consultation you'll learn what documents are required in a given jurisdiction and how to prepare them. Our specialists handle all these procedures for you." },
+  { num: "02", title: "Selecting a Management Company", body: "This can be done in two ways: by hiring a professional trustee or engaging an existing company." },
+  { num: "03", title: "Finding a Guarantor", body: "Often a bank plays this role. This requires experience in attracting guarantors, sufficient qualifications, and negotiation skills. To make the process easier, we handle this on your behalf." },
+  { num: "04", title: "Finding a Broker", body: "This is necessary to operate in securities markets as well as commodity and currency markets. Our specialists will find a licensed broker and perform all legal checks." },
+  { num: "05", title: "Attracting Investors", body: "Finding those who will entrust their capital to your hedge fund is the main purpose of creating it. To attract investors, we can recommend PR and marketing experts who understand the processes within hedge funds." },
 ];
 
 const FAQS = [
-  { q: "What is a hedge fund in simple terms?", a: "A hedge fund is an investment fund focused on maximizing profit while minimizing risk. Most often, hedge funds invest in securities." },
-  { q: "What are the conditions for opening a hedge fund?", a: "Choose the country of registration, type of hedge fund, and conditions of its operation. After defining key elements, appoint specialists to key positions (broker, auditor, guarantor), prepare documents, and submit the registration application." },
-  { q: "In which countries do you help open hedge funds?", a: "We assist with hedge fund registration worldwide, including in the EU (Czech Republic, Estonia, Latvia, Malta), offshore jurisdictions (BVI, Cayman Islands, Bahamas), and other locations." },
-  { q: "Why create a hedge fund?", a: "Hedge funds provide additional opportunities for generating profit through investment or investment management. They are used for managing third-party funds, protecting personal assets, raising capital, and ensuring ownership confidentiality." },
+  { q: "Hedge Fund in Simple Terms", a: "A hedge fund is an investment fund focused on maximizing profit while minimizing risk. Most often, hedge funds invest in securities." },
+  { q: "What are the conditions for opening a hedge fund?", a: "To open a hedge fund, you must choose the country of registration, type of hedge fund, and conditions of its operation. After defining these key elements, you need to appoint specialists to key positions (broker, auditor, guarantor), prepare documents, and submit the registration application." },
+  { q: "In which countries do we help open hedge funds?", a: "We assist with hedge fund registration worldwide, including in the EU (Czech Republic, Estonia, Latvia, Malta), offshore jurisdictions (BVI, Cayman Islands, Bahamas), and other locations." },
+  { q: "Why do you need a hedge fund?", a: "Hedge funds provide additional opportunities for generating profit through investment or investment management." },
 ];
 
 const OFFSHORE_LIST = ["Cayman Islands", "BVI", "Belize", "Mauritius", "Bahamas"];
 const EU_LIST = ["Czech Republic", "Estonia", "Latvia", "Malta"];
 
 const BASIC_DOCS = [
-  "High-resolution scan of international passport",
-  "Full residential address including city/town",
-  "Police clearance certificate",
+  "A high-resolution scan of your international passport",
+  "Your full residential address, including city/town",
+  "A police clearance certificate",
 ];
 const OFFSHORE_DOCS = [
-  "Memorandum of the company",
-  "Articles of association",
-  "Investment management agreement",
-  "Securities purchase agreement",
+  "A memorandum",
+  "The company's articles of association",
+  "An investment management agreement",
+  "A securities purchase agreement, and more",
 ];
 
 const HedgeFundPage = () => {
@@ -128,7 +128,7 @@ const HedgeFundPage = () => {
             Open a <span className="bg-gradient-to-r from-[#444CE7] to-[#6E7BF7] bg-clip-text text-transparent">Hedge Fund</span>
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
-            A hedge fund is a private investment vehicle focused on maximizing profit while minimizing risk. Such funds are used for effective management of third-party funds, protection of personal assets, and raising capital from private individuals and professional investors. On average, registration takes 1.5–2 months.
+            A hedge fund is a private investment vehicle for specific investors. Such funds are generally not subject to strict regulation and are not accessible to a wide range of individuals. At the same time, hedge funds are often used for effective management of third-party funds, protection of personal assets, raising capital from private individuals and professional investors, ensuring confidentiality of ownership of foreign companies, and more.
           </p>
           <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">
             Discuss the Project →
@@ -153,7 +153,7 @@ const HedgeFundPage = () => {
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Use Cases</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Why Create a Hedge Fund</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[500px] leading-[1.8]">
-            Hedge funds are generally not subject to strict regulation and are not accessible to a wide range of individuals. They serve several specific purposes:
+            A hedge fund is a private investment vehicle for specific investors. Such funds are generally not subject to strict regulation and are not accessible to a wide range of individuals. At the same time, hedge funds are often used for:
           </p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-4 gap-px">
             {USE_CASES.map(u => (
@@ -181,7 +181,7 @@ const HedgeFundPage = () => {
                 <div className="relative z-10">
                   <div className="text-[16px] font-semibold text-[#F0EBE0] mb-3">Offshore Jurisdictions</div>
                   <p className="text-[13px] text-[#9A9590] leading-[1.85] mb-4">
-                    The most common option for hedge funds. Cayman Islands, Belize, Mauritius and similar jurisdictions are popular because registration procedures there are simplified. Generally more lenient requirements, and opening and maintaining a fund is often cheaper than in Europe or the United States. In some cases you don't need to visit in person.
+                    The most common option is offshore jurisdictions — Cayman Islands, Belize, Mauritius, etc. These jurisdictions are popular for hedge funds, so registration procedures there are simplified. Generally more lenient requirements, and opening and maintaining a fund there is often cheaper than in Europe or the United States. In some cases, you don't need to visit the country in person.
                   </p>
                   <div className="space-y-1">
                     {OFFSHORE_LIST.map(j => (
@@ -200,7 +200,7 @@ const HedgeFundPage = () => {
                 <div className="relative z-10">
                   <div className="text-[16px] font-semibold text-[#F0EBE0] mb-3">EU Jurisdictions</div>
                   <p className="text-[13px] text-[#9A9590] leading-[1.85] mb-4">
-                    If you are interested in Europe, our specialists will explain the specific features of various EU countries where funds can be registered. This allows you to attract European investors who may not be keen on offshore jurisdictions but are willing to work with European hedge funds. The choice of country determines registration requirements, costs, and timelines.
+                    If you are interested in Europe, they will explain the specific features of various EU countries where funds can be registered. This allows you to attract European investors who may not be keen on offshore jurisdictions but are willing to work with European hedge funds. The choice of country determines the registration requirements, costs, and timelines.
                   </p>
                   <div className="space-y-1">
                     {EU_LIST.map(j => (
@@ -223,7 +223,7 @@ const HedgeFundPage = () => {
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Registration Process</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How Hedge Fund Registration Works</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[480px] leading-[1.8]">
-            The registration process may vary depending on the country, but these are the common steps required in most jurisdictions.
+            The fund registration process may vary depending on the country, but there are several common steps you will need to follow when opening a hedge fund.
           </p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
             {STEPS.map(s => (
@@ -248,7 +248,7 @@ const HedgeFundPage = () => {
           <div className="grid grid-cols-12 gap-12">
             <div className="col-span-7">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">
-                Requirements differ across jurisdictions, but general rules apply. You will typically need at minimum:
+                Requirements differ across jurisdictions, but some general rules apply. You will typically need at least the following documents:
               </p>
               <div className="space-y-3 mb-6">
                 {BASIC_DOCS.map(d => (
@@ -258,7 +258,7 @@ const HedgeFundPage = () => {
                   </div>
                 ))}
               </div>
-              <p className="text-[14px] text-[#F0EBE0] font-semibold mt-6 mb-3">For Offshore Jurisdictions, Additionally:</p>
+              <p className="text-[14px] text-[#F0EBE0] font-semibold mt-6 mb-3">If you are interested in setting up a hedge fund in an offshore jurisdiction, additional documents may be required, such as:</p>
               <div className="space-y-3">
                 {OFFSHORE_DOCS.map(d => (
                   <div key={d} className="flex items-start gap-2">
@@ -268,7 +268,7 @@ const HedgeFundPage = () => {
                 ))}
               </div>
               <p className="text-[12px] text-[#5A5550] italic mt-4">
-                Note: the above are basic documents only. Additional paperwork may be necessary depending on jurisdiction and circumstances.
+                Please note that the above are just the basic documents. Depending on the chosen jurisdiction and other circumstances, additional paperwork may be necessary. For guidance, we recommend consulting our managers.
               </p>
             </div>
             <div className="col-span-5">
@@ -278,10 +278,10 @@ const HedgeFundPage = () => {
                   <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Cost & Timeline</span>
                   <p className="text-[14px] font-semibold text-[#F0EBE0] mb-3">How Much Does It Cost?</p>
                   <p className="text-[13px] text-[#9A9590] leading-relaxed mb-4">
-                    There is no universal answer since each fund is unique. In offshore jurisdictions, minimum capital requirements are lower than in the US or EU. Account for taxes and additional expenses including accounting, auditing, administrative support, and government fees.
+                    There is no universal answer, since each fund is unique. In offshore jurisdictions, minimum capital requirements are lower than in the US or EU, but you must also account for taxes and additional expenses when establishing a fund. For example, hedge funds often require various services such as accounting, auditing, administrative support, and more. In addition, you must pay government fees, which vary depending on the jurisdiction of registration.
                   </p>
                   <p className="text-[13px] text-[#9A9590] leading-relaxed">
-                    On average, registration takes 1.5–2 months, but timelines may vary. Please clarify during consultation.
+                    If you want precise information on the cost of opening a hedge fund, our managers are always ready to assist. We provide comprehensive consulting and legal services, prepare and process all necessary documents, and register the fund in the jurisdiction of your choice. On average, registration takes 1.5–2 months, but timelines may vary. Please clarify during consultation.
                   </p>
                   <Link to="/contact" className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">
                     Discuss the Project →

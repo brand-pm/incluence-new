@@ -71,11 +71,10 @@ const CONS = [
 ];
 
 const FAQS = [
-  { q: "What are the conditions for a Malta EMI license?", a: "You need a Malta Limited company, €350,000 authorized capital at an MFSA-approved bank, qualified directors passing Fit & Proper assessment, a qualified MLRO, comprehensive AML/KYC policy compliant with FIAU standards, and a full application submitted to the MFSA." },
-  { q: "What documents are required?", a: "Company statutory documents, passport copies and CVs for all principals, detailed business plan covering all payment services, AML/KYC policy, IT systems description, client fund safeguarding arrangements, source of funds evidence, and criminal record certificates." },
-  { q: "How long does a Malta EMI license take?", a: "MFSA review is typically 6–9 months after submission. Including company formation and documentation preparation, total timeline is 6–12 months from project start." },
-  { q: "What is the effective tax rate for Malta EMI companies?", a: "Malta's tax refund system reduces the effective corporate tax rate to approximately 5% for qualifying companies with non-resident shareholders — the lowest effective rate in the EU for EMI operations." },
-  { q: "Does a Malta EMI license cover all EU countries?", a: "Yes. Under EU Directive 2015/2366, a Malta EMI license grants full passporting rights across all 27 EU member states under a single MFSA authorization." },
+  { q: "What are the conditions for obtaining an EMI license in Malta?", a: "In order to obtain an EMI license in Malta, it is necessary to prepare a business plan, AML policy and other documents, register a company, hire specialists for mandatory positions (director, AML officer, etc.). Integral elements for obtaining a license are a bank account and contributed authorized capital." },
+  { q: "What documents are required to obtain an EMI license in Malta?", a: "In order to obtain an EMI license in Malta, you must provide: the company's statutory documents, copies of passports and resumes of its participants, business plan, AML policy and other documents. The exact list of documents, depending on the characteristics of future activities you can find out from the specialists of our company." },
+  { q: "What is the cost of EMI licensing in Malta?", a: "The final cost of obtaining a license for a payment system in Malta is depends on the various factors (region of operation of the future payment system, planned turnover, etc.). You can find out the exact cost of obtaining a payment system license in Malta by contacting our specialists." },
+  { q: "What are the terms of obtaining an EMI license in Malta?", a: "The terms for obtaining an EMI license in Malta depend on the speed of submission of documents by the company's participants, the necessity of searching for employees, speed of opening an account and deposit the authorized capital, as well as of the consideration of the application by the regulator. Estimated term for obtaining a license - 6 months." },
 ];
 
 const RELATED = [
@@ -137,7 +136,7 @@ const MaltaEmiPage = () => {
             <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Malta</span> EMI License
           </h1>
           <p className="text-[15px] text-[#9A9590] leading-[1.85] max-w-[500px] mb-10">
-            The Republic of Malta ranks in the top three countries globally by number of EMI licenses issued. MFSA actively promotes the FinTech sector and offers a single European passport — one license covers all EU member states. Combined with Malta's favorable ~5% effective corporate tax rate, this makes it the most tax-efficient EU option for licensed payment institutions.
+            The Republic of Malta is one of the top three countries by the number of issued EMI licenses. Increased interest in this jurisdiction and the status of e money license Malta is caused by certain factors, among which are the single European passport, tax preferences, loyal attitude to foreign investors, and all-round active government support to suppliers and users of financial services.
           </p>
           <div className="flex gap-4 flex-wrap">
             <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
@@ -169,9 +168,9 @@ const MaltaEmiPage = () => {
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About Malta EMI</span>
             <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Top-3 Global EMI Hub with EU Passport</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>Malta is one of the top three countries worldwide by number of EMI licenses issued. The government's loyal attitude toward foreign investors, single European passport, favorable tax preferences, and the MFSA's all-round active support for FinTech suppliers and users have made Malta a leading destination for payment institutions.</p>
-              <p>The Malta Financial Services Authority governs EMI licensing under EU Directive 2015/2366. An MFSA EMI license grants access to the single European payment area — your company can issue e-money and provide payment services across all EU member states under one authorization.</p>
-              <p>Malta's unique tax refund system results in an effective corporate tax rate of approximately 5% for qualifying companies — the lowest in the EU. Combined with the EU single passport, Malta is the most tax-efficient EU option for EMI companies targeting European markets.</p>
+              <p>The Republic of Malta is one of the top three countries by the number of issued EMI licenses. Increased interest in this jurisdiction and the status of e money license Malta is caused by certain factors, among which are the single European passport, tax preferences, loyal attitude to foreign investors, and all-round active government support to suppliers and users of financial services.</p>
+              <p>Electronic Money Institution or EMI is a license allowing one to manage/operate such an asset as electronic money. In particular, permission is required to operate payment systems and arrange payments via electronic wallets. An EMI license also gives the right to issue e-money. E-money, or electronic money, is an alternative to cash. It is assets stored electronically and on an electronic medium. Like physical money, it can be used for trade, exchange, and various payment transactions (transfers).</p>
+              <p>EMI licensing implies the submission of a corresponding application in the official form to the designated regulatory authority. In Malta, the Malta Financial Services Authority is responsible for licensing (authorization) and supervision of financial institutions. Rules on the operation of companies-holders of e money license Malta shall be governed by the EU directives and regulations of MFSA.</p>
             </div>
           </div>
           <div className="lg:col-span-5 space-y-3">

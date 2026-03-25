@@ -61,7 +61,7 @@ const KEY_POINTS = [
 const FAQS = [
   { q: "What are the requirements for opening a payment system account?", a: "The exact conditions depend on the chosen payment system. Typically, company and participant details, activity information, personal documents, corporate documents, and verification are required." },
   { q: "Can a payment system account be opened online?", a: "Yes, most payment systems allow online account opening." },
-  { q: "Which payment systems do you work with?", a: "We work with payment systems registered in the EU, USA, UK, Hong Kong, Singapore, and other countries. We can select the best system for your company, currencies, and payment regions." },
+  { q: "Which payment systems do we work with?", a: "We work with payment systems registered in the EU, USA, UK, Hong Kong, Singapore, and other countries. We can select the best system for your company, currencies, and payment regions." },
   { q: "Is a bank account required to open a payment system account?", a: "Usually, no. Payment system accounts can be opened independently of a bank account, though having one may simplify and speed up the process. Some systems rarely require a bank account at the time of application." },
 ];
 

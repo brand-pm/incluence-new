@@ -15,7 +15,7 @@ const IsleOfManLicensePage = () => (
       titleAccent: "Isle of Man",
       titleRest: "Gaming\nLicense",
       description:
-        "The Gambling Supervision Commission (GSC) handles licensing of companies wishing to provide gambling services on the Isle of Man. The unique feature is that business owners need to prepare just one package of documents to obtain the right to legally provide any gambling services — online casinos, lotteries, sports betting, poker networks, and more.",
+        "The unique feature of licensing on the Isle of Man is that business owners need to prepare just one package of documents to obtain the right to legally provide any gambling services: online casinos, lotteries, and so on. If another company operates under the same brand, it only requires a sublicense.",
       cta1: "Get a Free Quote →",
       cta2: "View Requirements",
     }}
@@ -58,7 +58,7 @@ const IsleOfManLicensePage = () => (
     requirements={{
       title: "What is required for licensing",
       intro:
-        "On average, applications are reviewed within 10–12 weeks, although the process may take longer if errors are made or documents are missing. By contacting our specialists, you will receive full assistance in obtaining an Isle of Man gambling license with minimal risk of refusal.",
+        "On average, applications are reviewed within 10–12 weeks, although the process may take longer if errors are made or documents are missing. By contacting our specialists, you will receive full assistance in obtaining an Isle of Man gambling license in the shortest possible time and with minimal risk of refusal. We prepare all documentation, take into account the specifics of your business, and handle all bureaucratic procedures related to licensing.",
       docsTitle: "Key requirements",
       docs: [
         "The entire registration procedure must take place on the island, which will also serve as the company's place of incorporation",
@@ -87,7 +87,7 @@ const IsleOfManLicensePage = () => (
       { q: "How to open an online casino on the Isle of Man?", a: "To open an online casino on the Isle of Man, you need to prepare a business plan, register a company, obtain a license, set up the technical infrastructure, and open a bank account. Proper documentation and a well-prepared license application are crucial. These processes should be entrusted to professionals." },
       { q: "What is the timeframe for obtaining a gambling license on the Isle of Man?", a: "A gambling license on the Isle of Man can typically be obtained within 3–4 months." },
       { q: "What documents are required to obtain a gambling license on the Isle of Man?", a: "To obtain an Isle of Man gambling license, you need to submit: copies of passports and proof of address of company directors and shareholders; documents confirming the experience and financial standing of company members; the company's constitutional documents; technical documentation; company policies." },
-      { q: "What is the cost of obtaining a gambling license on the Isle of Man?", a: "The final cost of a gambling license on the Isle of Man depends on various factors. To find out the exact cost for your business, consult our specialists." },
+      { q: "What is the cost of obtaining a gambling license on the Isle of Man?", a: "The final cost of a gambling license on the Isle of Man depends on various factors (the range of services offered, number of domains, etc.). To find out the exact cost for your business, consult our specialists." },
     ]}
     relatedTag="— Related"
     relatedTitle="Other gambling jurisdictions"

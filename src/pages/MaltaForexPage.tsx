@@ -73,12 +73,10 @@ const CONS = [
   "Not suitable for rapid launch timelines",
 ];
 const FAQS = [
-  { q: "What are the requirements for obtaining a Forex license in Malta?", a: "Register a Malta investment company, appoint qualified directors and compliance officers, deposit authorized capital, prepare AML policy and business plan, then submit an application to the MFSA. The license must be actively maintained after issuance." },
-  { q: "What documents are required to obtain a Malta forex license?", a: "Company statutory documents, business plan, AML/KYC policy, internal procedures, organizational structure, CVs and passport copies of all directors and shareholders, source of funds documentation, IT infrastructure description, and personnel qualification evidence." },
-  { q: "How long does it take to obtain a Malta forex license?", a: "MFSA application review typically takes 3–5 months after submission. Including company formation and document preparation, total timeline is 5–7 months from project start." },
-  { q: "What is the effective corporate tax rate in Malta for forex brokers?", a: "Malta's standard corporate tax rate is 35%, but the tax refund system (available to non-resident shareholders) results in an effective rate of approximately 5% — the lowest in the EU for qualifying investment firms." },
-  { q: "Does a Malta forex license cover all EU countries?", a: "Yes. Under MiFID II passporting rights, an MFSA-licensed investment firm can provide investment services across all 27 EU member states without additional local registration." },
-  { q: "Can non-EU residents own a Malta investment firm?", a: "Yes. Non-EU residents can own and operate a Malta investment firm. Key management positions typically require persons with documented financial sector experience, but residency in Malta is not always required for shareholders." },
+  { q: "What are the requirements for obtaining a Forex license in Malta?", a: "In order to obtain a forex license in Malta, it is necessary to register a company, prepare policies, technical documentation and other documents. After opening an account and depositing the authorized capital, submit an application to the regulator. It is necessary to show the activity of the company in order to avoid its cancellation after obtaining a license." },
+  { q: "What documents are required to obtain a Forex license in Malta?", a: "In order to obtain a forex license in Malta, the following documents are required: the company's statutory documents, business plan, AML policy, rules for using the resource, confirmation of the identity and experience of the company's participants, technical documentation." },
+  { q: "How long will it take to get a Forex license in Malta?", a: "Obtaining a forex license in Malta can take 5-7 months." },
+  { q: "How much does an investment license in Malta cost?", a: "The final cost of obtaining an investment license in Malta is depends on the various factors (the exact list of future services, the region of work, etc.). You can find out the exact cost of obtaining an investment license in Malta by contacting our specialists." },
 ];
 const RELATED = [
   { href: "/cyprus-forex-license", reg: "CySEC", name: "Cyprus", desc: "Most popular EU forex license. MiFID II passporting, 12.5% corp. tax. 6–9 months." },

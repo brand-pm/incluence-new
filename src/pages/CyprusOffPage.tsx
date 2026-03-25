@@ -8,19 +8,22 @@ const FAQS = [
   { q: 'What is the minimum share capital required for a Cyprus company?', a: 'The standard minimum is €1, but most choose €1,000 for flexibility.' },
   { q: 'How long does it take to register an offshore company in Cyprus?', a: 'Incorporation usually takes 7–10 business days, depending on name approval and documentation.' },
   { q: 'Is a local director required for a Cyprus offshore company?', a: 'Not mandatory, but strongly recommended to strengthen tax residency and access Cyprus tax benefits.' },
-  { q: 'What are the corporate tax rates in Cyprus for offshore companies?', a: 'The standard corporate tax rate is 12.5%, one of the lowest in the EU.' },
+  { q: 'What are the corporate tax rates in Cyprus for offshore companies?', a: 'The standard corporate tax Cyprus rate is 12.5%, one of the lowest in the EU.' },
   { q: 'Can I open a bank account in Cyprus remotely for my company?', a: 'Yes, many banks allow remote procedures, provided documents and KYC checks are properly prepared.' },
-  { q: 'Is Cyprus considered an offshore jurisdiction by the OECD?', a: 'No, Cyprus is a fully compliant European Union member with a reputable jurisdiction.' },
-  { q: 'Can a non-resident be a shareholder in a Cyprus company?', a: 'Absolutely — offshore registration in Cyprus allows 100% foreign ownership.' },
+  { q: 'What are the annual maintenance fees for a Cyprus company?', a: 'Costs vary but typically include government fees, auditing, and professional services.' },
+  { q: 'Is Cyprus considered an offshore jurisdiction by the OECD?', a: 'No, Cyprus is a fully compliant European Union member with a reputable Cypriot jurisdiction.' },
+  { q: 'What documents are needed to open a company in Cyprus?', a: 'Passports, proof of address, CVs, and proof of source of funds are standard.' },
+  { q: 'Are there any confidentiality benefits with a Cyprus offshore company?', a: 'Yes, while beneficial owners are disclosed to authorities, data is not public.' },
+  { q: 'Can a non-resident be a shareholder in a Cyprus company?', a: 'Absolutely — offshore registration Cyprus allows 100% foreign ownership.' },
 ];
 
 const STEPS = [
   { num: '01', title: 'Company Name Approval', body: 'Submit a unique company name for review by the Cyprus Registrar of Companies.' },
-  { num: '02', title: 'Document Preparation', body: 'Drafting of the Memorandum and Articles of Association and all other required legal documents. Full responsibility for preparation and compliance with Cypriot law.' },
-  { num: '03', title: 'Submission & Incorporation', body: 'Filing documents with the Registrar and paying relevant government fees.' },
-  { num: '04', title: 'Appoint Directors & Secretary', body: 'At least one director and one secretary required. Nominee services available for directors, shareholders, and secretary.' },
-  { num: '05', title: 'Registered Office', body: 'Every company must maintain a registered office address in Cyprus. We provide this as part of the service.' },
-  { num: '06', title: 'Certificate of Incorporation', body: 'Official confirmation issued, usually within 7–10 business days. Company fully incorporated and operational.' },
+  { num: '02', title: 'Document Preparation', body: 'Drafting of the Memorandum and Articles of Association and all other required legal documents. Incluence takes full responsibility for preparing and structuring these documents in compliance with Cypriot law.' },
+  { num: '03', title: 'Submission & Incorporation', body: 'Filing documents with the Registrar and paying the relevant government fees.' },
+  { num: '04', title: 'Appointment of Directors & Secretary', body: 'At least one director and one secretary are required. Nominee services are available. If you need nominee services for directors, shareholders, or secretary, Incluence can arrange this in line with all legal and regulatory requirements.' },
+  { num: '05', title: 'Registered Office in Cyprus', body: 'Every company must maintain a registered office address in Cyprus.' },
+  { num: '06', title: 'Issuance of Certificate of Incorporation', body: 'Official confirmation of your company formation in Cyprus, usually within 7–10 business days.' },
 ];
 
 const CyprusOffPage = () => {
@@ -69,30 +72,30 @@ const CyprusOffPage = () => {
   ];
 
   const BENEFITS = [
-    { title: 'EU Membership', body: 'Cyprus is a fully compliant EU jurisdiction — ideal for international business setup and EU company registration. Not on any blacklist.' },
-    { title: '12.5% Corporate Tax', body: 'One of the lowest corporate tax rates in the EU. Applies to worldwide income for tax-resident companies.' },
-    { title: '60+ Double Taxation Treaties', body: 'Over 60 DTTs offer protection against dual taxation — including UK, Germany, India, and China. Optimize international structures and reduce tax leakage.' },
-    { title: 'No Withholding Tax', body: 'No withholding tax on dividends, royalties, and interest paid to non-residents.' },
-    { title: 'IP BOX Regime', body: 'Profits from qualifying intellectual property enjoy an effective tax rate of just 2.5% — one of the most competitive IP regimes in Europe.' },
-    { title: 'Asset Protection', body: 'Offshore company formation in Cyprus ensures confidentiality and safeguards global assets. Beneficial owners disclosed to authorities, not public.' },
+    { title: 'EU Membership', body: 'Cyprus is a fully compliant EU jurisdiction, making it ideal for international business setup and EU company registration.' },
+    { title: 'Favorable Corporate Tax', body: 'The corporate tax Cyprus rate is just 12.5%.' },
+    { title: 'Double Taxation Treaties', body: 'Over 60 DTTs offer protection against dual taxation.' },
+    { title: 'No Withholding Tax', body: 'On dividends, royalties, and interest to non-residents.' },
+    { title: 'IP BOX Regime', body: 'Profits from qualifying intellectual property enjoy an effective tax rate of just 2.5%.' },
+    { title: 'Asset Protection', body: 'Offshore company formation in Cyprus ensures confidentiality and safeguards global assets.' },
   ];
 
   const TAX_ITEMS = [
-    { title: 'Corporate Tax', body: '12.5% on worldwide income for tax-resident companies.' },
-    { title: 'VAT', body: '19% standard. Reduced rates: 9% and 5% on specific goods/services.' },
-    { title: 'Withholding Tax', body: 'None on dividends, interest, or royalties paid to non-residents.' },
-    { title: 'IP BOX', body: 'Qualifying IP profits at 2.5% effective rate.' },
-    { title: 'Tax Residency', body: 'Company is a Cypriot tax resident if management and control are exercised in Cyprus.' },
-    { title: 'DTTs', body: '60+ countries — UK, Germany, India, China and more.' },
+    { title: 'Corporate Income Tax', body: '12.5% on worldwide income for tax-resident companies.' },
+    { title: 'VAT', body: 'Standard rate at 19%, with reduced rates (9% and 5%) on specific goods and services.' },
+    { title: 'No Withholding Taxes', body: 'On dividends, interest, or royalties paid to non-residents.' },
+    { title: 'IP Box Regime', body: 'Profits from qualifying intellectual property enjoy an effective tax rate of just 2.5%.' },
+    { title: 'Tax Residency', body: 'A company is considered a Cypriot tax resident if management and control are exercised in Cyprus.' },
+    { title: 'Double Taxation Treaties', body: 'Cyprus has signed double taxation treaties (DTTs) with over 60 countries, including the UK, Germany, India, and China.' },
   ];
 
   const BANK_ITEMS = [
-    { title: 'Multi-Currency', body: 'Operate in EUR, USD, GBP, and other major currencies for international trade.' },
-    { title: 'EU Banking', body: 'Benefit from the transparency and oversight of EU member banking system.' },
-    { title: 'Digital Tools', body: 'Secure online banking, mobile access, instant SWIFT/SEPA transfers.' },
-    { title: 'Remote Opening', body: 'Remote account opening is possible in many Cypriot banks — no physical presence required.' },
-    { title: 'Enhanced Reputation', body: "A Cyprus bank account strengthens your company's international profile." },
-    { title: 'Compliance Guidance', body: 'We guide you through due diligence, document preparation, and bank selection.' },
+    { title: 'Multi-Currency Access', body: 'Operate in EUR, USD, GBP, and other major currencies, supporting international trade.' },
+    { title: 'EU Banking Reliability', body: 'Benefit from the transparency and strict oversight of the European Union member banking system.' },
+    { title: 'Digital Banking Tools', body: 'Secure online banking platforms, mobile access, and instant SWIFT/SEPA transfers.' },
+    { title: 'Confidentiality with Compliance', body: 'Cyprus banks safeguard client data while fully adhering to international transparency and AML standards.' },
+    { title: 'Enhanced Reputation', body: "Having a bank account in Cyprus strengthens your company's international profile, facilitating cooperation with counterparties worldwide." },
+    { title: 'Remote Opening', body: 'Remote account opening is possible in many Cypriot banks, allowing international entrepreneurs to register an offshore company in Cyprus and manage finances without physical presence.' },
   ];
 
   return (
@@ -121,7 +124,7 @@ const CyprusOffPage = () => {
             <span className="bg-gradient-to-r from-[#444CE7] to-[#818CF8] bg-clip-text text-transparent">Cyprus</span> Offshore<br />Company Formation
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[520px] mb-10 leading-[1.8]">
-            Cyprus offshore company registration is popular among international investors due to its strategic location, solid legal foundation, and low taxation. As a fully compliant EU jurisdiction, Cyprus offers 12.5% corporate tax, over 60 double taxation treaties, no withholding tax on dividends to non-residents, and an IP BOX regime at 2.5% effective rate.
+            Cyprus offshore company registration is popular among international investors due to its strategic location, solid legal foundation, and low taxation. Businesses benefit from EU Membership, favorable corporate tax at just 12.5%, over 60 double taxation treaties, no withholding tax on dividends, royalties, and interest to non-residents, and asset protection through offshore company formation in Cyprus.
           </p>
           <div className="flex items-center gap-4 flex-wrap">
             <Link to="/contact" className="btn-primary">Register Cyprus Company →</Link>
@@ -180,7 +183,7 @@ const CyprusOffPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-4 block">Process</span>
           <h2 className="text-[clamp(28px,3.5vw,42px)] font-light text-[#F0EBE0] mb-4">Cyprus Offshore Company Formation Process</h2>
-          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[480px] leading-relaxed">Setting up your offshore company in Cyprus is straightforward with Incluence. Full compliance with Cypriot regulations, AML requirements, and EU standards. 7–10 business days.</p>
+          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[480px] leading-relaxed">Setting up your offshore company registration in Cyprus is straightforward with Incluence. Our team ensures full compliance with Cypriot regulations, anti-money laundering (AML) requirements, and EU standards.</p>
           <div ref={containerRef} className="relative">
             <ProcessFlowCanvas />
             <div className="grid grid-cols-3 gap-px bg-[rgba(255,255,255,0.06)] relative z-10">
@@ -223,11 +226,11 @@ const CyprusOffPage = () => {
               <span className="section-tag mb-4 block">Annual Obligations</span>
               <p className="text-[13px] font-semibold text-[#F0EBE0] mb-4">Ongoing Compliance</p>
               <div className="space-y-3">
-                {['Annual Returns — filed with Registrar of Companies', 'Audited Financial Statements — mandatory under Cypriot law', 'Tax Filings — corporate tax submissions, possible VAT registration', 'Substance & AML Obligations'].map((s, i) => (
+                {['Annual Returns — Filed with the Registrar of Companies', 'Audited Financial Statements — Mandatory under Cypriot law, even for small companies', 'Tax Filings — Corporate tax submissions and possible VAT registration', 'Substance & AML Obligations — Demonstrating genuine presence and compliance with AML regulations'].map((s, i) => (
                   <div key={i} className="flex items-start gap-3"><div className="w-1.5 h-1.5 bg-[#444CE7] mt-1.5 flex-shrink-0" /><span className="text-[12px] text-[#9A9590]">{s}</span></div>
                 ))}
               </div>
-              <p className="text-[11px] text-[#5A5550] mt-4 italic">Resident director/secretary often recommended to strengthen tax residency and access Cyprus tax benefits.</p>
+              <p className="text-[11px] text-[#5A5550] mt-4 italic">Resident Director/Secretary — Often recommended to strengthen tax residency and access Cyprus tax benefits. Incluence provides full support with compliance, accounting, and substance services.</p>
               <Link to="/contact" className="btn-primary w-full text-center block mt-6">Register Cyprus Company →</Link>
             </div>
           </div>
@@ -239,7 +242,7 @@ const CyprusOffPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-4 block">Banking</span>
           <h2 className="text-[clamp(28px,3.5vw,42px)] font-light text-[#F0EBE0] mb-4">Opening a Cyprus Offshore Bank Account</h2>
-          <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-relaxed">A crucial element of Cyprus offshore company formation. Without it, your company will lack operational capacity and tax residency support.</p>
+          <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-relaxed">A crucial element of Cyprus offshore company formation is the successful opening of a Cyprus offshore bank account. Without it, your company will lack operational capacity and tax residency support.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
             {BANK_ITEMS.map((b, i) => (
               <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden service-card">

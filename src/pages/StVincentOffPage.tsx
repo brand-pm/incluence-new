@@ -4,10 +4,10 @@ import { ChevronDown } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
 
 const FAQS = [
-  { q: 'How much does it cost to register an offshore company in St. Vincent and the Grenadines?', a: 'Various factors affect the final cost. Contact our specialists to find out the exact cost of registering a company in St. Vincent and the Grenadines.' },
-  { q: 'Is it possible to register an offshore in St. Vincent and the Grenadines online?', a: 'Offshore in Saint Vincent and the Grenadines can be registered remotely through a local representative.' },
-  { q: 'What documents are required to register an offshore company in St. Vincent and the Grenadines?', a: 'Copies of passports and confirmation of the address of company participants, as well as two letters of recommendation. Additionally, completed registration forms including information on the source of funds for the creation of the company.' },
-  { q: 'What is the timeline for opening an offshore in St. Vincent and the Grenadines?', a: 'Registration of a company in Saint Vincent and the Grenadines can be completed in 2 weeks if all documents are prepared and payment is made in advance.' },
+  { q: 'How much does it cost to register an Offshore company in St. Vincent and the Grenadines?', a: 'Various factors affect the final cost of the offshore company formation in St. Vincent and the Grenadines. You can find out the exact cost of registering a company in St. Vincent and the Grenadines by contacting our specialists.' },
+  { q: 'Is it possible to register an offshore Offshore in St. Vincent and the Grenadines online?', a: 'Offshore in Saint Vincent and the Grenadines can be registered remotely through a local representative.' },
+  { q: 'What documents are required to register an Offshore company in St. Vincent and the Grenadines?', a: 'In order to register an offshore company in Saint Vincent and the Grenadines, you should submit copies of passports and confirmation of the address of company participants, as well as two letters of recommendation. In addition, it is necessary to submit completed registration forms, including information on the source of funds for the creation of the company.' },
+  { q: 'What is the timeline for opening an Offshore St. Vincent and the Grenadines?', a: 'Registration of a company in Saint Vincent and the Grenadines can be completed in 2 weeks if all documents are prepared and payment is made in advance.' },
 ];
 
 const StVincentOffPage = () => {
@@ -91,7 +91,7 @@ const StVincentOffPage = () => {
             Offshore Company<br /><span className="bg-gradient-to-r from-[#444CE7] to-[#818CF8] bg-clip-text text-transparent">St Vincent & Grenadines</span>
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[520px] mb-10 leading-[1.8]">
-            Saint Vincent and the Grenadines is an independent state in the Caribbean islands. It attracts business people with favorable taxation for non-residents, loyal legislation, and additional features related to international business activities. Company registration can be completed in 2 weeks.
+            Saint Vincent and the Grenadines is an independent state in the Caribbean islands. It attracts business people with favorable taxation for non-residents, loyal legislation, and some additional features related to international business activities.
           </p>
           <div className="flex items-center gap-4 flex-wrap">
             <Link to="/contact" className="btn-primary">Register Company →</Link>

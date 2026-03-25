@@ -71,11 +71,10 @@ const CONS = [
 ];
 
 const FAQS = [
-  { q: "What does an Estonia EMI license authorize?", a: "An Estonian EMI license authorizes your company to issue its own electronic currency, provide payment services to clients, create and maintain payment systems, open and manage e-wallets, and carry out related financial operations under EU Directive 2015/2366." },
-  { q: "What are the requirements for an Estonia EMI license?", a: "You need an Estonian OÜ with registered office, €350,000 authorized capital at an approved institution, qualified directors, a qualified MLRO, comprehensive AML/KYC policy compliant with EU AMLD and Estonian AML Act, and a full application to Finantsinspektsioon." },
-  { q: "What documents are required?", a: "Company statutory documents, detailed business plan, AML/KYC policy, technical security measures documentation, passport copies and CVs for all principals, source of funds evidence, and criminal record certificates." },
-  { q: "How long does it take to get an Estonia EMI license?", a: "Finantsinspektsioon review is typically 6–9 months after submission. Including company formation and documentation preparation, total timeline is 6–12 months from project start." },
-  { q: "Can I manage the company via e-Residency?", a: "Yes. Estonia's e-Residency program allows founders to manage the company fully remotely — sign documents digitally, file reports, and handle administrative tasks from anywhere in the world without traveling to Estonia." },
+  { q: "What are the requirements for obtaining an EMI license in Estonia?", a: "To obtain an EMI license in Estonia, you must prepare a business plan, AML policy, and other documents, register a company, and hire professionals for mandatory positions (director, AML officer, etc.). Essential elements also include a bank account and paid share capital." },
+  { q: "What documents are required to obtain an EMI license in Estonia?", a: "To obtain an EMI license in Estonia, you must provide: the company's statutory documents, copies of passports and CVs of its participants, a business plan, AML policy, and other documents. The exact list of required documents will depend on the specifics of your future activity, and can be clarified with our specialists." },
+  { q: "What is the cost of obtaining an EMI license in Estonia?", a: "The final cost of obtaining an EMI license in Estonia depends on various factors (the region of the future payment system's operations, projected turnover, etc.). You can find out the exact cost of obtaining an EMI license in Estonia by consulting our specialists." },
+  { q: "What are the timelines for obtaining an EMI license in Estonia?", a: "The timelines depend on how quickly company participants provide documents, whether staff must be hired, opening a bank account, contributing share capital, and the regulator's review of the application. The approximate timeframe for obtaining a license is 6 months." },
 ];
 
 const RELATED = [
@@ -138,7 +137,7 @@ const EstoniaEmiPage = () => {
             <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Estonia</span> EMI License
           </h1>
           <p className="text-[15px] text-[#9A9590] leading-[1.85] max-w-[500px] mb-10">
-            An Estonian EMI license grants the legal right to issue your own electronic currency, provide payment services to clients, create and maintain payment systems — and carry out related financial operations under EU Directive 2015/2366. Combined with Estonia's 0% corporate tax on retained earnings and e-Residency, it is the most tax-efficient EU EMI option.
+            By obtaining this permit, you will be legally entitled to: issue your own electronic currency; provide various payment services to clients; create and maintain payment systems; carry out other services related to the company's operations (including those not directly connected to electronic money).
           </p>
           <div className="flex gap-4 flex-wrap">
             <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
@@ -170,9 +169,9 @@ const EstoniaEmiPage = () => {
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About Estonia EMI</span>
             <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Issue E-Money with 0% Tax on Retained Earnings</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>By obtaining an Estonian EMI license, your company is legally authorized to: issue its own electronic currency; provide various payment services to clients; create and maintain payment systems; and carry out other services related to the company's operations, including those not directly connected to electronic money.</p>
-              <p>Estonia's Finantsinspektsioon supervises EMI licensing under EU PSD2 and the Electronic Money Directive. A licensed Estonian company gains full EU passporting rights and SEPA access — operating across all EU member states under a single authorization.</p>
-              <p>The defining advantage is Estonia's 0% corporate income tax on retained earnings — tax is only triggered when profits are distributed as dividends. For a growing payment institution reinvesting revenue into operations, this is a significant structural advantage. The e-Residency program additionally allows founders to manage the company fully remotely from anywhere.</p>
+              <p>By obtaining this permit, you will be legally entitled to: issue your own electronic currency; provide various payment services to clients; create and maintain payment systems; carry out other services related to the company's operations (including those not directly connected to electronic money).</p>
+              <p>All applicants must meet several conditions set for this type of licensing. Specifically, you must: register a company in Estonia; provide proof of a share capital of at least €350,000; prepare a relatively large package of documents required for licensing: company charter, business plan, description of technical security measures for funds, and others.</p>
+              <p>You can clarify the full list of documents required to obtain an electronic money license in Estonia during a consultation call. We will also provide detailed information regarding the requirements and conditions that apply to your specific company. Contact us if you want to quickly and easily obtain a license for a company engaged in issuing and servicing electronic money. We will provide legal advice, handle document preparation, and assist at every stage of the licensing process.</p>
             </div>
           </div>
           <div className="lg:col-span-5 space-y-3">

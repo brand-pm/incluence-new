@@ -43,27 +43,25 @@ const STEPS = [
 ];
 
 const REQS = [
-  "Company incorporated in licensing jurisdiction with registered office",
-  "Minimum authorized capital €350,000 (EU) / £350,000 (UK) deposited",
-  "Minimum three directors with documented financial sector experience",
-  "AML/Compliance Officer (MLRO) appointed — local, qualified",
-  "Comprehensive AML/KYC policy aligned with EU AMLD and FATF",
-  "HR policy and procedures ensuring business model sustainability",
-  "Technical security measures for funds protection documented",
-  "Passport copies and CVs for all directors and shareholders",
-  "Source of funds and wealth documentation for all principals",
-  "Certificate of no criminal record for all principals",
-  "All shareholders must be over 18 years of age",
+  "The company's shareholders must be over 18 years of age",
+  "There must be no restrictions imposed by the regulatory authorities of the country in which the licensing takes place",
+  "The company must have a registered office in the territory of the state in which the EMI license is issued",
+  "The beneficiary has experience in conducting activities related to the field of payment services or those similar to it",
+  "Has no unpaid taxes and debts",
+  "Has evidence of the source of funds and general wealth",
+  "Does not have a criminal record",
+  "Has a bank account",
+  "The firm must have at least three directors who, together with the shareholders, must have experience in the financial sector",
+  "Having a comprehensive human resource policy as well as procedures needed to ensure the business model",
+  "Payment of share capital, the amount of which depends on the company's turnover, region of operation, and the nature of the services to be provided",
   "Annual renewal fee — amount varies by jurisdiction",
 ];
 
 const FAQS = [
-  { q: "What is an EMI license and who needs it?", a: "An EMI license is required for any company issuing electronic money, operating e-wallets, or providing payment services under EU Directive 2015/2366 (PSD2). Essential for neobanks, payment gateways, e-wallet providers, and remittance services." },
-  { q: "Which countries offer EMI licenses?", a: "Most popular: Lithuania (top-5 globally), United Kingdom (FCA — most recognized), Malta (top-3 globally), Estonia (0% tax on retained earnings). We also assist with Czech Republic, Cyprus, Netherlands, Singapore and others." },
-  { q: "What is the minimum capital for an EMI license?", a: "For EU EMI licenses, minimum authorized capital is €350,000. For UK FCA EMI, £350,000 is required. Capital must be deposited at a regulator-approved bank before application submission." },
-  { q: "How long does it take to obtain an EMI license?", a: "6–12 months for EU jurisdictions (Lithuania, Malta, Estonia) and 12–18 months for UK FCA. Depends on documentation readiness, staff hiring speed, bank account opening, and regulator workload." },
-  { q: "What does an EMI license allow?", a: "Issue electronic money, open and manage client e-wallets, provide payment services (transfers, card issuing, payment initiation), create payment systems, and carry out related financial operations." },
-  { q: "What documents are required for an EMI license?", a: "Company statutory documents, passport copies and CVs, business plan, AML/KYC policy, technical security description, HR policy, proof of capital deposit. Exact list varies by jurisdiction." },
+  { q: "What are the conditions for obtaining an EMI license?", a: "In order to obtain an EMI license, it is necessary to prepare a business plan, AML policy and other documents, register a company, hire specialists for mandatory positions (director, AML officer, etc.). Integral elements for obtaining a license are a bank account and contributed authorized capital." },
+  { q: "In which countries do we offer EMI licensing?", a: "Our lawyers have many years' experience in registering EMI companies around the world. Among the most popular countries for obtaining an EMI license are Lithuania, Great Britain, Czech Republic, Cyprus, Bulgaria, Netherlands, Estonia, Malta, Singapore, Hong Kong, New Zealand." },
+  { q: "Why do I need an E-Money license?", a: "The E-Money Issuer license is needed for a business providing payment services, as well as issuing its own electronic money." },
+  { q: "What documents are required to obtain an EMI license?", a: "In order to obtain an EMI license, you must provide: the company's statutory documents, copies of passports and resumes of its participants, business plan, AML policy and other documents. The exact list of documents, depending on the characteristics of future activities and the country of registration you can find out from the specialists of our company." },
 ];
 
 const ScanSweep = () => (
@@ -122,7 +120,7 @@ const EmiHubPage = () => {
             <br /><span className="text-[#F0EBE0]">Electronic Money Institution</span>
           </h1>
           <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[520px] mb-10">
-            An EMI license authorizes your company to issue electronic money, open and manage e-wallets for clients, provide payment services, and create payment systems. Required under EU Directive 2015/2366 for any fintech operating in the electronic payments space. We obtain licenses in Lithuania, UK, Malta, Estonia and 10+ jurisdictions.
+            Electronic money is increasingly being used in domestic and international transactions. Compared to any other forms of payment, they have several benefits. An EMI license authorizes your company to issue electronic money, open and manage e-wallets for clients, provide payment services, and create payment systems. Our managers are always ready to give you a piece of advice on the implementation and licensing of this payment system.
           </p>
           <div className="flex gap-4 flex-wrap">
             <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Consultation →</Link>
@@ -150,7 +148,7 @@ const EmiHubPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Licensed Activities</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What an EMI License Authorizes</h2>
-          <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[600px] mb-14">Electronic money is an alternative to cash — assets stored electronically used for trade, exchange, and payments. An EMI license grants the legal right to operate in this space.</p>
+          <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[600px] mb-14">Electronic money is increasingly being used in domestic and international transactions. No need to exchange such money. Several currencies can be kept in electronic wallets and accounts. Funds can be used remotely. Money transfers are usually instant. Electronic money is protected against fraud, theft, change of face value, and so on.</p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             {ACTIVITIES.map((a, i) => (
               <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden">
@@ -224,7 +222,7 @@ const EmiHubPage = () => {
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Requirements</span>
             <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Core EMI Requirements</h2>
-            <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-8">EMI licensing requires thorough due diligence — 3–6 months average review. Requirements are strict but transparent.</p>
+            <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-8">The process of obtaining a license is quite complicated and can also vary from jurisdiction to jurisdiction. Owners of any company applying for an EMI license are subject to thorough due diligence. On average, it takes three to six months, but the terms can vary.</p>
             <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
               {REQS.map((r, i) => (
                 <div key={i} className="flex items-start gap-3">

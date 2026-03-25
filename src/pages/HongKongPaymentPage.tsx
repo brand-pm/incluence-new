@@ -93,11 +93,10 @@ const FACTS_STRIP = [
 ];
 
 const FAQS = [
-  { q: "What are the requirements for obtaining a payment system license in Hong Kong?", a: "You must prepare a business plan, AML policy, and other documents, register a company, and hire specialists for mandatory positions (director, AML officer, etc.). An account in a local Hong Kong bank and contributed authorized capital are integral elements for obtaining the license." },
-  { q: "What is the best payment system in Hong Kong?", a: "When choosing a payment system, consider its license, service coverage regions, and acceptable payment methods. Also ensure the payment system's requirements match your company's characteristics (country of registration, residency of participants, etc.). Tariffs offered by the payment system also play an important role." },
-  { q: "How long is a payment system license valid in Hong Kong?", a: "Money Service Operators (MSO) license is valid for two years. Stored Value Facilities (SVF) license is indefinite with timely renewal required." },
-  { q: "What is the cost of a payment system license in Hong Kong?", a: "The final cost depends on various factors (exact list of future services, region of operation, etc.). Contact our specialists to find out the exact cost of obtaining a payment system license in Hong Kong." },
-  { q: "What is the difference between SVF and MSO licenses in Hong Kong?", a: "SVF (Stored Value Facility) is valid for 5–10 years and has a higher initial fee — suited for larger operators. MSO (Money Service Operator) is valid for 2 years and requires renewal before expiry — more accessible and commonly used by money changers and remittance services." },
+  { q: "What are the requirements for obtaining a payment system license in Hong Kong?", a: "In order to obtain a payment system license in Hong Kong, it is necessary to prepare a business plan, AML policy and other documents, register a company, hire specialists for mandatory positions (director, AML officer, etc.). Integral elements for obtaining a license are an account in the local bank and contributed authorized capital." },
+  { q: "What is the best payment system in Hong Kong?", a: "When choosing a payment system, it is necessary to take into account its license, service coverage regions, and acceptable payment methods. Also, it is necessary to take into account the compliance of the requirements of the payment system with the characteristics of the company (country of registration, residence of its participants, etc.). The tariffs offered by the payment system also play an important role." },
+  { q: "How long is a payment system license valid in Hong Kong?", a: "Money Service Operators (MSO) license is valid for two years. Stored Value Facilities (SVF) license is a termless lisence with timely renewal." },
+  { q: "What is the cost of processing a payment system license in Hong Kong?", a: "The final cost of obtaining a payment system license in Hong Kong is influenced by various factors (the exact list of future services, the region of work, etc.). You can find out the exact cost of obtaining a payment system license in Hong Kong by contacting our specialists." },
 ];
 
 const HongKongPaymentPage = () => {
@@ -168,7 +167,7 @@ const HongKongPaymentPage = () => {
             <span className="bg-gradient-to-r from-[#444CE7] to-[#6E7BF7] bg-clip-text text-transparent">Hong Kong</span> Payment<br />System License
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
-            Setting up a currency and money transfer business in Hong Kong requires a license from the Department of Customs and Excise. Two license types are available: SVF (Stored Value Facility) valid 5–10 years, and MSO (Money Service Operator) valid 2 years with renewal. Hong Kong is Asia's premier financial hub for international payment operations.
+            If you are interested in setting up a currency and money transfer business in Hong Kong, you must first obtain a license to operate in the financial sector. Such permits are issued by the Department of Customs and Excise. The list of services provided by any operator in Hong Kong includes a wide range of operations, including currency exchange, various money transfers, and many others. Often, a payment system (PS) is registered in the form of a company with the legal form LTD.
           </p>
           <div className="flex items-center gap-4">
             <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">Get a Free Quote →</Link>

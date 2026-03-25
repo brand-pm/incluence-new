@@ -20,10 +20,10 @@ const ScanSweep = () => (<div className="absolute inset-0 overflow-hidden pointe
 const CornerAccent = () => (<div className="absolute top-0 right-0 pointer-events-none"><div className="w-[1px] h-4 bg-[#444CE7]/30 absolute top-0 right-0" /><div className="h-[1px] w-4 bg-[#444CE7]/30 absolute top-0 right-0" /></div>);
 
 const CLASSES = [
-  { cls: "Class 1", desc: "Investment advice, receiving & transmitting orders" },
-  { cls: "Class 2", desc: "Fund management, no exchange or proprietary trading" },
-  { cls: "Class 3", desc: "All operations except proprietary trading. Client funds permitted" },
-  { cls: "Class 4", desc: "All crypto operations including proprietary trading & client funds" },
+  { cls: "Class 1", desc: "Receiving and transmitting orders, providing investment advice regarding Virtual Financial Assets (VFAs)" },
+  { cls: "Class 2", desc: "Operations with funds, excluding exchange trading or proprietary trading" },
+  { cls: "Class 3", desc: "Any operations except exchange and proprietary trading. Holding and controlling client funds is permitted" },
+  { cls: "Class 4", desc: "All cryptocurrency operations, including those involving client funds" },
 ];
 
 const STEPS = [
@@ -36,17 +36,12 @@ const STEPS = [
 ];
 
 const REQS = [
-  "Malta Private Limited Company with registered office in Malta",
-  "Minimum share capital €1,165 (20% paid immediately)",
-  "Minimum two directors — both must be Malta residents",
-  "Qualified AML Officer, risk manager, and auditor appointed",
-  "All key personnel meet MFSA Fit & Proper requirements",
-  "Passport copies and CVs for all directors and shareholders",
-  "Source of funds documentation for all principals",
-  "Detailed business plan covering all VFA services and markets",
-  "AML/KYC policy compliant with FIAU and EU directives",
-  "IT systems and cybersecurity framework documentation",
-  "Operations must commence within 6 months of license issuance",
+  "Register a legal entity in the form of a Private Limited Liability Company",
+  "Minimum share capital of €1,165, of which 20% must be paid immediately",
+  "A rented office in Malta is mandatory",
+  "The company must employ at least two directors, an AML officer, a risk manager, and an auditor",
+  "Prepare the documentation required for submission to the MFSA",
+  "The exact list of documents may vary — contact our specialists for a detailed consultation",
 ];
 
 const FACTS = [
@@ -79,12 +74,10 @@ const CONS = [
 ];
 
 const FAQS = [
-  { q: "What are the four VFA license classes in Malta?", a: "Class 1: investment advice and order transmission. Class 2: fund management (no exchange/proprietary trading). Class 3: all operations except proprietary trading, client funds permitted. Class 4: all crypto operations including proprietary trading and holding client funds." },
-  { q: "How much does a Malta VFA license cost?", a: "One-time fees range from €3,000 (Class 1) to €12,000 (Class 4). Annual renewal fees range from €2,750 to €25,000 depending on class. Total service cost starting from €25,000 including company formation and legal support." },
-  { q: "How long is a Malta VFA license valid?", a: "The license is valid indefinitely — there is no expiry date. Annual fees must be paid to maintain validity, and the company must commence operations within 6 months of license issuance." },
-  { q: "Is a bank account required for a Malta crypto license?", a: "Yes — a corporate bank account is required to deposit the share capital. Malta has an established crypto-friendly banking ecosystem with several institutions experienced in VFA client onboarding." },
-  { q: "How long does it take to get a Malta crypto license?", a: "The MFSA review period is typically 6–9 months after application submission. Including company formation and document preparation, total timeline is 6–9 months from project start." },
-  { q: "How does MiCA affect Malta VFA licenses?", a: "MFSA is actively working on MiCA implementation. Existing VFA licenses will transition to MiCA-compliant CASP authorization. The MFSA's existing VFA framework closely maps to MiCA categories, making transition relatively smooth for current licensees." },
+  { q: "How much does it cost to obtain a cryptocurrency exchange license in Malta?", a: "The final cost of obtaining a cryptocurrency exchange license in Malta depends on various factors (the exact list of future services, the region of operation of the exchange, etc.). You can find out the exact cost by consulting our specialists." },
+  { q: "Is a bank account required to obtain a cryptocurrency license in Malta?", a: "A bank account is required to deposit the share capital." },
+  { q: "How long does it take to obtain a cryptocurrency license in Malta?", a: "The timeframe for obtaining a cryptocurrency license depends on how quickly all the necessary steps are completed, how fast a bank account is opened by payment institutions, and how quickly the regulator reviews the application. The review period can take 6–9 months." },
+  { q: "What is the validity period of a cryptocurrency license in Malta?", a: "A cryptocurrency exchange license in Malta is indefinite. However, periodic reports must be submitted, and the company must adapt to regulatory changes. The company must commence operations within six months of receiving the license." },
 ];
 
 const RELATED = [
@@ -143,9 +136,9 @@ const MaltaCryptoPage = () => {
             <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">EU · MFSA · VFA</span>
           </div>
           <h1 className="text-[clamp(36px,5vw,64px)] font-light text-[#F0EBE0] leading-[1.08] mb-6">
-            <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Malta</span> VFA License
+            <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Cryptocurrency License</span> in Malta
           </h1>
-          <p className="text-[15px] text-[#9A9590] leading-[1.85] mb-10">Malta's Virtual Financial Assets (VFA) framework offers four license classes — from investment advice to full proprietary trading with client funds. Issued by the MFSA and valid indefinitely, Malta VFA licenses provide broad EU market credibility for crypto exchanges, brokers and DeFi operators.</p>
+          <p className="text-[15px] text-[#9A9590] leading-[1.85] mb-10">If you are interested in licensing a Maltese company, you should first determine the class of license. Each class authorizes specific services, and the complexity of obtaining the required permit depends on it. There are four classes of cryptocurrency licenses in Malta.</p>
           <div className="flex gap-4 flex-wrap">
             <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
             <a href="#requirements" className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all inline-block">View Requirements</a>
@@ -174,11 +167,11 @@ const MaltaCryptoPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About Malta VFA License</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Four License Classes for Every Crypto Business</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Types of Cryptocurrency Licenses in Malta</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>Malta's Virtual Financial Assets Act (VFA) established one of the world's first comprehensive legal frameworks for crypto assets. The Malta Financial Services Authority (MFSA) issues four classes of VFA licenses, each authorizing progressively broader crypto service offerings.</p>
-              <p>Class 1 covers receiving and transmitting orders and investment advice. Class 2 adds fund management excluding exchange trading. Class 3 permits all operations except proprietary trading. Class 4 — the most comprehensive — covers all cryptocurrency operations including holding and controlling client funds.</p>
-              <p>All classes require a one-time license fee and annual renewal fee. One-time fees range from €3,000 to €12,000; annual fees from €2,750 to €25,000 depending on the class. Indefinite validity with annual fee maintenance makes Malta a cost-predictable long-term choice.</p>
+              <p>If you are interested in licensing a Maltese company, you should first determine the class of license. Each class authorizes specific services, and the complexity of obtaining the required permit depends on it. There are four classes of cryptocurrency licenses in Malta.</p>
+              <p>Class 1: Receiving and transmitting orders, providing investment advice regarding Virtual Financial Assets (VFAs). Class 2: Operations with funds, excluding exchange trading or proprietary trading. Class 3: Any operations except exchange and proprietary trading, holding and controlling client funds is permitted. Class 4: All cryptocurrency operations, including those involving client funds.</p>
+              <p>The licensing cost directly depends on the class. Payment is made in two parts — a one-time fee and an annual fee required to renew the license. One-time fees range from €3,000 to €12,000, while annual fees range from €2,750 to €25,000.</p>
             </div>
           </div>
           <div className="lg:col-span-5 space-y-2">

@@ -32,9 +32,9 @@ const setMeta = (n: string, c: string) => { let el = document.querySelector(`met
 const setProp = (p: string, c: string) => { let el = document.querySelector(`meta[property="${p}"]`) as HTMLMetaElement; if (!el) { el = document.createElement("meta"); el.setAttribute("property", p); document.head.appendChild(el); } el.content = c; };
 
 const FAQS = [
-  { q: "How much does it cost to register a company in the British Virgin Islands?", a: "The final cost depends on various factors. Contact our specialists to find out the exact cost of company registration in the BVI." },
+  { q: "How much does it cost to register a company in the British Virgin Islands?", a: "The final cost of registering a company in the British Virgin Islands depends on various factors. You can find out the exact cost of company registration in the BVI by contacting our specialists." },
   { q: "Can an offshore in the British Virgin Islands be registered online?", a: "An offshore company in the British Virgin Islands can be registered remotely through a local representative." },
-  { q: "What documents are required to register a company in the British Virgin Islands?", a: "You must submit copies of passports and proof of address of the company participants, as well as letters of recommendation." },
+  { q: "What documents are required to register a company in the British Virgin Islands?", a: "To register a company in the British Virgin Islands, you must submit copies of passports and proof of address of the company's participants, as well as letters of recommendation." },
   { q: "How long does it take to open an offshore in the British Virgin Islands?", a: "An offshore company in the British Virgin Islands can be opened within 2 weeks after providing all documents and making the payment." },
 ];
 
@@ -101,10 +101,11 @@ const BVIPage = () => {
             <span className="bg-gradient-to-r from-[#444CE7] to-[#6366f1] bg-clip-text text-transparent">British Virgin Islands</span>
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
-            One of the reasons why entrepreneurs choose the British Virgin Islands is
-            offshore and the benefits it provides: financial stability and complete absence
-            of taxation. BVI offshores are an optimal option for asset storage, accumulation,
-            investments, exports, and other business activities.
+            One of the reasons why entrepreneurs are interested in the British Virgin Islands is
+            offshore and the benefits it provides to business owners. Speaking of the advantages
+            of the British Virgin Islands (BVI), the main aspects are financial stability and
+            complete absence of taxation. All this makes BVI offshores an optimal option for
+            asset storage, accumulation, investments, exports, and other business activities.
           </p>
           <div className="flex gap-4">
             <Link to="/contact" className="btn-primary">Register BVI Company →</Link>

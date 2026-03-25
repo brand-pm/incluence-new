@@ -71,11 +71,10 @@ const CONS = [
 ];
 
 const FAQS = [
-  { q: "What are the conditions for a Lithuania EMI license?", a: "You need a Lithuanian UAB with minimum 3 directors holding payment sector experience, €350,000 authorized capital deposited at an approved bank, a qualified MLRO, comprehensive AML/KYC policy, and a full application submitted to the Bank of Lithuania." },
-  { q: "What documents are required?", a: "Company statutory documents, passport copies and CVs for all principals, detailed business plan, AML/KYC policy, technical security measures documentation, HR policy, proof of capital deposit, and source of funds evidence." },
-  { q: "How long does it take to get a Lithuania EMI license?", a: "The Bank of Lithuania review period is typically 6–9 months after submission. Including company formation and document preparation, total timeline is 6–12 months from project start." },
-  { q: "What is the difference between EMI and Small EMI (SEMI)?", a: "A full EMI license has no volume restrictions and requires €350,000 minimum capital. A Small EMI (SEMI) requires lower capital but limits outstanding e-money to €5 million. SEMI is suitable for startups and lower-volume operators." },
-  { q: "Does a Lithuania EMI license give EU passporting?", a: "Yes. Under EU Directive 2015/2366, a Lithuania EMI license grants passporting rights across all 27 EU member states plus SEPA access covering 36 countries for euro transfers." },
+  { q: "What are the conditions for obtaining an EMI license in Lithuania?", a: "In order to obtain an EMI license in Lithuania, it is necessary to prepare a business plan, AML policy and other documents, register a company, hire specialists for mandatory positions (director, AML officer, etc.). Integral elements for obtaining a license are a bank account and contributed authorized capital." },
+  { q: "What documents are required to obtain an EMI license in Lithuania?", a: "In order to obtain an EMI license in Lithuania, you must provide: the company's statutory documents, copies of passports and resumes of its participants, business plan, AML policy and other documents. The exact list of documents, depending on the characteristics of future activities you can find out from the specialists of our company." },
+  { q: "What is the cost of EMI licensing in Lithuania?", a: "The final cost of obtaining a license for a payment system in Lithuania is depends on the various factors (region of operation of the future payment system, planned turnover, etc.). You can find out the exact cost of obtaining a payment system license in Lithuania by contacting our specialists." },
+  { q: "What are the terms of obtaining an EMI license in Lithuania?", a: "The terms for obtaining an EMI license in Lithuania depend on the speed of submission of documents by the company's participants, the necessity of searching for employees, speed of opening an account and deposit the authorized capital, as well as of the consideration of the application by the regulator. Estimated term for obtaining a license - 6 months." },
 ];
 
 const RELATED = [
@@ -137,7 +136,7 @@ const LithuaniaEmiPage = () => {
             <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Lithuania</span> EMI License
           </h1>
           <p className="text-[15px] text-[#9A9590] leading-[1.85] max-w-[500px] mb-10">
-            Lithuania ranks among the top five countries globally by number of EMI licenses issued. Regulated by the Bank of Lithuania, an EMI license here grants SEPA access across 36 countries, full EU passporting rights, and positions your company in Europe's fastest-growing fintech hub.
+            Financial institutions planning to provide services related to the issuance and turnover of electronic money in the European Union must have an EMI license. One of the most attractive countries for FinTech entrepreneurship is the Republic of Lithuania, which has been among the top five countries in terms of the number of issued permits for several years in a row.
           </p>
           <div className="flex gap-4 flex-wrap">
             <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
@@ -169,9 +168,8 @@ const LithuaniaEmiPage = () => {
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About Lithuania EMI</span>
             <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Top-5 Global EMI Hub</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>Financial institutions planning to provide electronic money services in the EU must hold an EMI license under EU Directive 2015/2366. Lithuania is among the top five countries globally by number of EMI licenses issued — a testament to its business-friendly regulatory environment and the Bank of Lithuania's transparent approach.</p>
-              <p>A Lithuania EMI license grants full EU passporting rights — your company can provide payment services across all EU member states under a single authorization. SEPA membership covers 36 countries for cost-effective euro payment transfers. Lithuania also offers two license types: full EMI and Small EMI (SEMI) for lower-volume operators.</p>
-              <p>Lithuania's fintech ecosystem is among Europe's strongest — with a deep pool of compliance professionals, experienced AML officers, and fintech-friendly banking partners. English-language communication with the Bank of Lithuania makes the process accessible for international applicants.</p>
+              <p>Financial institutions planning to provide services related to the issuance and turnover of electronic money in the European Union must have an EMI license. This is a requirement of the EU directive 2015/2366. An EMI (Electronic Money Institution) license is a legal document issued by a designated regulatory authority.</p>
+              <p>One of the most attractive countries for FinTech entrepreneurship is the Republic of Lithuania, which has been among the top five countries in terms of the number of issued permits for several years in a row. Firms here can obtain two types of licenses related to electronic money, including EMI. The regulation of e-money licensing is the responsibility of the state-owned Bank of Lithuania.</p>
             </div>
           </div>
           <div className="lg:col-span-5 space-y-3">

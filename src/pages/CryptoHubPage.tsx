@@ -69,13 +69,10 @@ const REQS = [
 ];
 
 const FAQS = [
-  { q: "What is a VASP license and who needs it?", a: "A VASP (Virtual Asset Service Provider) license is official authorization to offer cryptocurrency services — exchange, custody, wallet management, and transaction mediation. Any company offering these services to EU clients must be licensed under MiCA or national VASP frameworks." },
-  { q: "Which EU jurisdiction is best for a crypto license?", a: "Lithuania is the fastest (1–3 months) and most MiCA-aligned. Estonia offers 0% corporate tax on retained earnings and e-residency compatibility. Malta has four license classes for full VFA service coverage. We recommend based on your specific business model." },
-  { q: "What does MiCA mean for my crypto business?", a: "The EU's Markets in Crypto-Assets Regulation (MiCA) requires all companies offering crypto services to EU clients to hold a CASP (Crypto Asset Service Provider) authorization. Obtaining a Lithuanian or Estonian VASP license now positions you for smooth MiCA transition and EU-wide passporting." },
-  { q: "How long does it take to get a crypto license in the EU?", a: "Lithuania: 1–3 months. Poland: 2–3 months. Estonia: 3–6 months. Malta: 6–9 months. Switzerland: 6–12 months. We provide realistic timelines upfront based on your documentation readiness." },
-  { q: "What is the minimum capital for an EU crypto license?", a: "Under MiCA, exchange operators require €125,000 minimum capital. Custodial wallet operators require €150,000. Some jurisdictions (Lithuania UAB incorporation) require only €2,500 for company formation, but the regulatory capital must be deposited separately." },
-  { q: "Can a non-EU resident obtain a crypto license in Lithuania or Estonia?", a: "Yes — non-residents can fully own and operate a Lithuanian UAB or Estonian OÜ. A local AML Officer and registered address are required. Estonia additionally offers e-Residency for remote company management." },
-  { q: "What ongoing obligations come with a VASP license?", a: "Regular AML/CTF reporting to the financial regulator, transaction monitoring, suspicious activity reports (SARs), annual compliance audits, record keeping for 8 years, and adaptation to MiCA updates." },
+  { q: "What are the conditions for obtaining a license to exchange cryptocurrencies?", a: "In order to obtain a license for the exchange of cryptocurrencies, it is necessary to select the country of registration and obtaining a license, prepare an AML policy, business plan and other documents, hire the necessary key persons (director, AML officer, etc.). If you have all the documents, you need to correctly submit an application to the regulator. After submitting the application, you need to promptly and correctly answer additional questions. The process of obtaining a license is better to entrust to professionals." },
+  { q: "In which countries do we propose to make a license to exchange cryptocurrencies?", a: "We assist with obtaining crypto licenses all over the world. We help to choose the country of registration according to the regions of future activity, the wishes of customers, types of services, etc. Among the countries for obtaining a license are Lithuania, Estonia, Poland, Bulgaria, Singapore, the USA and others." },
+  { q: "Why do I need a license to exchange cryptocurrencies?", a: "The crypto license is needed to provide services for the exchange of fiat currency for cryptocurrency, one cryptocurrency for another, cryptocurrency for fiat, as well as opening crypto wallets." },
+  { q: "What documents are required to obtain a license to exchange cryptocurrencies?", a: "In order to obtain a license for the exchange of cryptocurrencies, you must provide: the company's statutory documents, copies of passports and resumes of its participants, business plan, AML policy and other documents. The exact list of documents, depending on the characteristics of future activities, you can find out from the specialists of our company." },
 ];
 
 const ScanSweep = () => (
@@ -130,10 +127,10 @@ const CryptoHubPage = () => {
         <div className="relative z-10 max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-5">— Licensing</span>
           <h1 className="text-[clamp(36px,5vw,64px)] font-light text-[#F0EBE0] leading-[1.08] mb-6">
-            <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Crypto</span> & VASP{"\n"}License
+            <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Cryptocurrency</span> exchange{"\n"}license
           </h1>
           <p className="text-[15px] text-[#9A9590] leading-[1.85] max-w-[540px] mb-10">
-            A crypto exchange license (VASP — Virtual Asset Service Provider) authorizes your company to offer fiat-to-crypto exchange, crypto-to-crypto trading, custodial wallets, and transaction mediation. We help you obtain MiCA-ready EU licenses and offshore VASP registrations across 10+ jurisdictions.
+            The incluence company provides the following types of services in such areas as international tax planning, asset protection, registration of foreign companies and their maintenance, etc.
           </p>
           <div className="flex gap-4 flex-wrap">
             <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Consultation →</Link>

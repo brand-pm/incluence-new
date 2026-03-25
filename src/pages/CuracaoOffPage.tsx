@@ -11,10 +11,10 @@ const setMeta = (n: string, c: string) => { let el = document.querySelector(`met
 const setProp = (p: string, c: string) => { let el = document.querySelector(`meta[property="${p}"]`) as HTMLMetaElement; if (!el) { el = document.createElement("meta"); el.setAttribute("property", p); document.head.appendChild(el); } el.content = c; };
 
 const FAQS = [
-  { q: "How much does it cost to register a company in Curaçao?", a: "The final cost is influenced by the type of activity, number of participants, and other factors. Contact our specialists to find out the exact cost of registering a company in Curaçao." },
-  { q: "Is it possible to register an offshore in Curaçao online?", a: "A company in Curaçao can be registered remotely with the assistance of local representatives." },
-  { q: "What documents are required to register a company in Curaçao?", a: "Copies of passports and confirmation of the address of the company participants, plus completed registration forms." },
-  { q: "How long is the registration period for opening an offshore in Curaçao?", a: "A company in Curaçao can be registered in up to 2 weeks." },
+  { q: "How much does it cost to register a company in Curacao?", a: "The final cost of registering a company in Curacao is influenced by the type of activity, the number of participants and other factors. You can find out the exact cost of registering a company in Curacao by contacting our specialists." },
+  { q: "Is it possible to register offshore on Curacao online?", a: "A company in Curacao can be registered remotely with the assistance of local representatives." },
+  { q: "What documents are required to register a company in Curacao?", a: "In order to register a company in Curacao, you should submit copies of passports and confirmation of the address of the company's participants. You should also submit completed registration forms." },
+  { q: "How long is the registration period for opening an offshore in Curacao?", a: "A company in Curacao can be registered for up to 2 weeks." },
 ];
 
 const CuracaoOffPage = () => {
@@ -72,7 +72,7 @@ const CuracaoOffPage = () => {
             Offshore Company<br />Formation in <span className="bg-gradient-to-r from-[#444CE7] to-[#6366f1] bg-clip-text text-transparent">Curaçao</span>
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
-            Curaçao is a Caribbean island belonging to the Netherlands, notable for favorable conditions for registering a foreign company. The key sectors of the economy are tourism, trade, and gambling. The easy procedure of obtaining gambling licenses, the absence of currency exchange control, and a stable fast-growing economy attract foreign businessmen and investors.
+            If you are looking for a jurisdiction notable for favorable conditions for registering a foreign company, pay attention to Curacao. It is an island in the Caribbean Sea, which belongs to the Netherlands. The key sectors of the economy are tourism, trade, and gambling. The easy procedure of obtaining gambling licenses, the absence of currency exchange control, and a stable and fast-growing economy are among the advantages that attract foreign businessmen and investors to start a business Curacao.
           </p>
           <div className="flex gap-4">
             <Link to="/contact" className="btn-primary">Register Curaçao Company →</Link>

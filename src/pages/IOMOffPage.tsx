@@ -4,10 +4,10 @@ import { ChevronDown } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
 
 const FAQS = [
-  { q: 'How much does it cost to register a company in the Isle of Man?', a: 'The final cost depends on the type of activity, the number of participants, and other factors. Contact our specialists to find out the exact cost.' },
+  { q: 'How much does it cost to register a company in the Isle of Man?', a: 'The final cost of company registration in the Isle of Man depends on the type of activity, the number of participants, and other factors. You can find out the exact cost of registering a company in the Isle of Man by consulting our specialists.' },
   { q: 'Can an offshore in the Isle of Man be registered online?', a: 'An offshore in the Isle of Man can be registered remotely through local representatives.' },
-  { q: 'What documents are required to register a company in the Isle of Man?', a: "Copies of participants' passports, proof of address, and letters of recommendation." },
-  { q: 'Where to open an offshore account in the Isle of Man?', a: "We select banks based on the country of company registration, the residency of beneficiaries and directors, expected turnover, required currencies, and payment regions. The bank's reputation and fees are also considered. Contact our specialists to find the most suitable option for your company." },
+  { q: 'What documents are required to register a company in the Isle of Man?', a: "To register a company in the Isle of Man, you need to provide copies of the participants' passports, proof of address, and letters of recommendation." },
+  { q: 'Where to open an offshore account in the Isle of Man?', a: "We select banks based on the country of company registration, the residency of beneficiaries and directors, expected turnover, required currencies, and payment regions. The bank's reputation and fees are also considered. To find the most suitable option for your company, please contact our specialists." },
 ];
 
 const IOMOffPage = () => {
@@ -49,7 +49,7 @@ const IOMOffPage = () => {
   ];
 
   const TAX_DETAILS = [
-    { title: '0% Corporate Tax (Non-Residents)', body: 'The corporate tax rate for non-resident legal entities is 0%. The maximum rate of 18% applies only to trusts. For standard offshore companies the effective tax rate is zero.' },
+    { title: '0% Corporate Tax (Non-Residents)', body: 'All companies registered here must pay corporate income tax. The maximum rate is 18%, but this applies only to trusts. In other cases, the corporate tax rate for non-resident legal entities is 0%.' },
     { title: 'VAT at 17.5%', body: 'VAT is charged only on the import and export of goods, and services provided by a local company in EU countries. Standard rate 17.5%.' },
     { title: 'No Capital Gains Tax', body: 'There is no capital gains or transfer tax — no additional cost on the sale of assets, shares, or other capital instruments.' },
     { title: 'No Stamp Duty', body: 'No stamp duty on company documents, share transfers, or property instruments. Reduces transactional costs significantly.' },
@@ -94,7 +94,7 @@ const IOMOffPage = () => {
             Offshore in the<br /><span className="bg-gradient-to-r from-[#444CE7] to-[#818CF8] bg-clip-text text-transparent">Isle of Man</span>
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[520px] mb-10 leading-[1.8]">
-            Exceptional political stability, business-friendly taxation, and extensive opportunities for profitable business — all this makes the Isle of Man an attractive choice. Not part of the UK or the EU, yet providing numerous benefits. The Isle of Man conducts its own tax policy, independent of the UK. Corporate tax rate for non-resident legal entities: 0%.
+            Exceptional political stability, business-friendly taxation, and extensive opportunities for profitable business — all this makes the Isle of Man an attractive choice for entrepreneurs and investors. In essence, the Isle of Man is not part of the United Kingdom or the European Union, yet it provides business owners with numerous benefits. This is also due to the fact that the Isle of Man conducts its own tax policy, which is independent of the one currently in force in the UK.
           </p>
           <div className="flex items-center gap-4 flex-wrap">
             <Link to="/contact" className="btn-primary">Register IOM Company →</Link>
@@ -117,7 +117,7 @@ const IOMOffPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-4 block">Taxation</span>
           <h2 className="text-[clamp(28px,3.5vw,42px)] font-light text-[#F0EBE0] mb-4">Isle of Man: Offshore Zone and Corporate Taxation</h2>
-          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">All companies registered here are subject to taxation depending on the legal form. The most popular option among foreign entrepreneurs is a Limited Liability Company (LLC).</p>
+          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">All companies registered in this jurisdiction are subject to certain taxation, depending on the legal form of the enterprise and several other factors. The most popular option among foreign entrepreneurs is a Limited Liability Company (LLC).</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
             {TAX_DETAILS.map((a, i) => (
               <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden service-card">
@@ -137,11 +137,11 @@ const IOMOffPage = () => {
           <div className="col-span-7">
             <span className="section-tag mb-4 block">Company Structure</span>
             <h2 className="text-[clamp(28px,3.5vw,42px)] font-light text-[#F0EBE0] mb-6">What You Need to Know Before Registering</h2>
-            <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">You can open an offshore company in the Isle of Man only by complying with certain requirements regarding local company structures. Under the latest legislative changes, a company must have at least one shareholder. The management must include at least two directors, who may only be natural persons. The company structure must also include a secretary — this position may be held by a legal entity.</p>
-            <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">Please note that information about directors and shareholders is publicly available. Third parties have free access to this data.</p>
+            <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">If you are interested in the Isle of Man, you can open an offshore company here only by complying with certain requirements regarding local company structures. For example, under the latest legislative changes, a company must have at least one shareholder. The management must include at least two directors, who may only be natural persons. The company structure must also include a secretary, although this position may be held by a legal entity.</p>
+            <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">Please note that information about directors and shareholders is publicly available. This means third parties have free access to this data.</p>
             <h3 className="text-[14px] font-semibold text-[#F0EBE0] mb-4">Key Points</h3>
             <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
-              {['Company names may be in any language — must use Latin characters and include English translation', 'The founder can be either a natural or a legal person', 'No requirements for minimum paid-up share capital', 'Company must have a registered office in the Isle of Man', 'Secretary does not need to be a resident', 'No requirements for preparing financial statements (LLCs)', 'Joint-stock companies must undergo mandatory audit and submit financial statements'].map((d, i) => (
+              {['Company names may be in any language, provided they use Latin characters and include a translation into English', 'The founder can be either a natural or a legal person', 'There are no requirements regarding paid-up share capital', 'The company must have a registered office in the Isle of Man', 'The secretary does not need to be a resident', 'There are no requirements for preparing financial statements', 'Joint-stock companies, however, must undergo a mandatory audit and submit financial statements to the regulatory authorities'].map((d, i) => (
                 <div key={i} className="flex items-start gap-3"><div className="w-1.5 h-1.5 bg-[#444CE7] mt-1.5 flex-shrink-0" /><span className="text-[13px] text-[#9A9590] leading-relaxed">{d}</span></div>
               ))}
             </div>

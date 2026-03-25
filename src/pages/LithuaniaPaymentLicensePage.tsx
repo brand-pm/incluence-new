@@ -39,24 +39,24 @@ function useCounter(target: number, ms = 1600) {
 }
 
 const BENEFITS = [
-  { title: "SEPA Access", body: "Full access to SEPA payment rails — send and receive euro payments across all 36 SEPA countries with minimal fees and fast settlement." },
-  { title: "Apply Before Company", body: "Unique advantage: you can apply for the license before forming a company in Lithuania. This saves time and reduces upfront costs." },
-  { title: "Lowest EU Fees", body: "Lithuania offers some of the lowest regulatory and operational fees in the EU for payment institutions — making it attractive for startups." },
-  { title: "EU Passport", body: "A Lithuanian PI license grants passporting rights across the entire European Union under a single authorization." },
-  { title: "Fast-Growing Fintech Hub", body: "Lithuania is one of Europe's fastest-growing fintech hubs with a supportive regulator and a thriving ecosystem of payment companies." },
-  { title: "Bank of Lithuania Support", body: "The Bank of Lithuania provides a dedicated fintech liaison and clear guidance throughout the licensing process." },
+  { title: "SEPA Access", body: "A payment system license in Lithuania allows participation in SEPA (Single Euro Payments Area). In this zone, the distinction between domestic and international EUR payments is eliminated, improving the efficiency of cross-border transactions." },
+  { title: "Apply Before Company", body: "Another notable advantage is the ability to apply for a license without initially creating a company. If the license is granted, the applicant must register the appropriate legal entity within 6 months." },
+  { title: "Lowest EU Fees", body: "Corporate tax, state duties, and mandatory annual fees are among the lowest in the EU. There are no municipal charges." },
+  { title: "Payment Instruments", body: "A licensed PS gains the right to issue various payment instruments, process money transfers, carry out different types of payment operations, and provide clients with IBAN accounts." },
+  { title: "SWIFT Integration", body: "Accept payments from international accounts within the SWIFT system, and much more." },
+  { title: "Straightforward Procedure", body: "A relatively straightforward licensing procedure. Usually, obtaining a license takes about 3 months; if extended, up to 6 months." },
 ];
 
 const REQS = [
-  "Initial authorized capital of at least €350,000 (for full PI license)",
-  "Detailed business plan covering three years of operations",
+  "Minimum share capital — from EUR 350,000",
+  "Availability of documents confirming the source of funds",
+  "No restrictions imposed by Lithuanian or EU regulators",
+  "A physical office located in Lithuania",
+  "Business plan and company structure description",
   "AML/CFT policy and internal control procedures",
-  "Description of planned payment services and target markets",
   "IT infrastructure and security measures documentation",
   "Professional qualifications of directors and key personnel",
   "Shareholders and UBO (Ultimate Beneficial Owner) disclosure",
-  "Risk management framework and procedures",
-  "Outsourcing arrangements documentation (if applicable)",
   "Compliance officer and money laundering reporting officer appointment",
 ];
 
@@ -80,11 +80,10 @@ const PROCESS = [
 ];
 
 const FAQS = [
-  { q: "What types of payment licenses are available in Lithuania?", a: "Lithuania offers full Payment Institution (PI) licenses and Small Payment Institution (SPI) licenses. Full PI requires €350,000 capital and allows unlimited turnover. SPI requires €20,000–€125,000 and has turnover restrictions but is faster to obtain." },
-  { q: "Can I apply for a license before forming a company?", a: "Yes, Lithuania uniquely allows applicants to submit a license application before incorporating a company. This saves significant time and allows parallel processing." },
-  { q: "How long does the licensing process take?", a: "The standard timeline is 3–6 months from application submission. Pre-application consultation with the Bank of Lithuania can be arranged before formal submission." },
-  { q: "What is the cost of obtaining a payment license in Lithuania?", a: "The total cost includes the authorized capital requirement (€350,000 for full PI), state fees, legal and consulting fees, and ongoing compliance costs. Contact us for an exact quote based on your specific situation." },
-  { q: "Is a personal visit to Lithuania required?", a: "Not always. Many steps can be handled remotely. However, some interactions with the Bank of Lithuania may require in-person meetings depending on the complexity of your application." },
+  { q: "What are the requirements for obtaining a payment system license in Lithuania?", a: "To obtain a payment system license in Lithuania, you must prepare a business plan, AML policy, and other documents, register a company, and hire specialists for mandatory positions (director, AML officer, etc.). A bank account and paid-up share capital are also essential elements for obtaining the license." },
+  { q: "Which payment system in Lithuania is best to choose?", a: "When choosing a payment system, it is necessary to consider its license, service coverage regions, and available payment methods. The system must also match the company's characteristics (country of registration, residency of participants, etc.). The tariffs offered by the payment system are also an important factor." },
+  { q: "How long is a payment system license valid in Lithuania?", a: "If all requirements for maintaining the company are met, the license is indefinite. However, it may be revoked in case of prolonged inactivity and/or violations of operational rules." },
+  { q: "What is the cost of obtaining a payment system license in Lithuania?", a: "The final cost of obtaining a payment system license in Lithuania depends on various factors (the target region of the payment system, projected turnover, etc.). You can find out the exact cost by consulting our specialists." },
 ];
 
 const FACTS_STRIP = [
@@ -163,7 +162,7 @@ const LithuaniaPaymentLicensePage = () => {
             <span className="bg-gradient-to-r from-[#444CE7] to-[#6E7BF7] bg-clip-text text-transparent">Lithuania</span> Payment<br />System License
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
-            Lithuania is one of Europe's fastest-growing fintech hubs with a supportive regulator. Get a payment system license with SEPA access, lowest EU fees, and the unique ability to apply before forming a company. Full EU passporting rights under a single authorization.
+            Obtaining a PS license in Lithuania offers advantages for business owners: a relatively straightforward licensing procedure, corporate tax and state duties among the lowest in the EU, no municipal charges, and a payment system license that allows participation in SEPA (Single Euro Payments Area). Full EU passporting rights under a single authorization.
           </p>
           <div className="flex items-center gap-4">
             <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">Get a Free Quote →</Link>

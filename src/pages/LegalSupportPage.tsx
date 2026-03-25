@@ -56,15 +56,15 @@ const LegalSupportPage = () => {
 
   const STATS_ROW1 = [
     { val: "12 yrs", label: "Finance & Banking" },
-    { val: "5 yrs", label: "Corporate & International Law" },
-    { val: "5 yrs", label: "Payment Systems & Transactions" },
+    { val: "5 yrs", label: "Corporate Law, International Legal and Business Consulting" },
+    { val: "5 yrs", label: "Payment Systems and International Transactions" },
     { val: "100+", label: "Companies Registered" },
   ];
   const STATS_ROW2 = [
     { val: "200+", label: "Bank Accounts Opened" },
-    { val: "50+", label: "Resolved Banking Cases" },
-    { val: ">€10M", label: "Returned or Saved" },
-    { val: "5 yrs", label: "Insurance Law" },
+    { val: "50+", label: "Successful Cases of Resolving Problems with Banks, Exchanges and Tax Authorities" },
+    { val: ">10M EUR", label: "Returned to Clients or Saved with Our Help" },
+    { val: "5 yrs", label: "Insurance" },
   ];
 
   return (

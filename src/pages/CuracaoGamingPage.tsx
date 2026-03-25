@@ -8,7 +8,7 @@ const CuracaoGamingPage = () => (
     categoryHref="/gamble-license"
     titleAccent="Curaçao"
     titleRest="Gaming License"
-    description="Curacao hosts many companies operating in the gambling industry. This is explained by simple, business-friendly legislation regulating gaming activities. Additional factors include accessibility and low taxation — making the Curaçao gaming license highly attractive for online casino operators."
+    description="Curaçao hosts many companies operating in the gambling industry. This is explained by simple and business-friendly legislation regulating gaming activities. Additional factors include accessibility and low taxation. All of this makes the Curaçao gaming license highly attractive for online casino operators, opening wide opportunities for successful business in the gambling sector."
     heroVisual={<CuracaoHeroVisual />}
     seo={{
       title: "Curaçao Gaming License CGA — Online Gambling License | Incluence",
@@ -27,9 +27,9 @@ const CuracaoGamingPage = () => (
     aboutTag="ABOUT CGA LICENSE"
     aboutTitle="Why Curaçao is the Most Popular Starting Point"
     aboutParagraphs={[
-      "Curaçao hosts more online gambling companies than almost any other jurisdiction. This is driven by simple, business-friendly legislation and one of the most accessible licensing procedures in the world.",
-      "The key advantage is that a single Curaçao sub-license covers all gambling verticals — casino, sports betting, poker, and lotteries. There is no need to apply for separate licenses per product category.",
-      "Unlike most jurisdictions, Curaçao imposes no paid-up capital requirement, no mandatory business plan, and allows fully remote application. Online casino operators can also accept cryptocurrency payments.",
+      "Obtaining a gaming license in Curaçao is advantageous for several reasons: Low corporate tax rates; Online casino operators can accept cryptocurrency payments; One of the shortest timelines for obtaining a license; Only one sub-license in Curaçao is enough to conduct any type of gambling activity; Financial reporting is at the discretion of the business owner; The gambling license can be obtained remotely — physical presence is not required; There is no requirement for paid-up capital.",
+      "A licensed gambling business complies with laws, allowing operators to contribute to a transparent and fair industry. The license also enables online casino owners to open commercial accounts, which are unavailable to unlicensed operators.",
+      "Each operator undergoes audits, which enhances the casino's reputation among players. Licensed businesses attract payment systems and software providers, most of whom cooperate only with legally operating online casinos.",
     ]}
     benefits={[
       { icon: <Zap className="w-5 h-5" />, title: "Fastest Timeline", description: "3–4 months from start to license. One of the shortest procedures globally — no lengthy regulator review queues." },
@@ -45,18 +45,18 @@ const CuracaoGamingPage = () => (
       { number: "04", title: "License Application", description: "Submit the complete application to the relevant Curaçao authority. Review typically takes 2 weeks. We manage all follow-up correspondence." },
       { number: "05", title: "License Issued", description: "Receive your Curaçao gaming sub-license, valid for 1 year with annual renewal. Your operation can launch immediately after issuance." },
     ]}
-    requirementsIntro="One of the lightest document requirements of any gambling jurisdiction. No business plan, no profit forecast — just basic KYC documentation."
+    requirementsIntro="To obtain a casino license in Curaçao, the necessary documentation must be provided. At the time of submission, all documents except the passport copy must be no older than 3 months."
     requirements={[
-      "Passport copy (valid, full color scan)",
-      "Proof of residential address (utility bill or bank statement, max 3 months old)",
-      "Bank reference letter on official letterhead",
+      "Copy of passport",
+      "Proof of residential address",
+      "Bank reference letter",
       "Certificate of no criminal record",
       "Company incorporation documents",
-      "Proof of website ownership for the online casino domain",
-      "Information about the gaming software to be used",
+      "Proof of ownership of the chosen website for the online casino",
+      "Information about the software to be used for casino games",
       "Agreements with software and hardware providers",
-      "Physical server location diagram (server must be hosted in Curaçao)",
-      "Description of planned business activities",
+      "Diagram of physical equipment placement",
+      "Detailed information about planned business activities",
     ]}
     keyFacts={[
       { label: "Regulator", value: "Curaçao Gaming Authority (CGA)" },
@@ -70,13 +70,13 @@ const CuracaoGamingPage = () => (
       { label: "Crypto", value: "Accepted" },
     ]}
     advantages={[
-      "Low corporate tax rates — 2% on gambling revenue",
+      "Low corporate tax rates",
       "Online casino operators can accept cryptocurrency payments",
       "One of the shortest timelines for obtaining a license",
-      "One sub-license covers all gambling activity types",
-      "Financial reporting at the discretion of the business owner",
-      "The gambling license can be obtained fully remotely",
-      "No paid-up capital requirement",
+      "Only one sub-license in Curaçao is enough to conduct any type of gambling activity",
+      "Financial reporting is at the discretion of the business owner",
+      "The gambling license can be obtained remotely — physical presence is not required",
+      "There is no requirement for paid-up capital",
     ]}
     limitations={[
       "License renewed annually (vs 5-year MGA license)",
@@ -87,12 +87,10 @@ const CuracaoGamingPage = () => (
       "Restrictions on servicing Curaçao residents",
     ]}
     faq={[
-      { question: "How long does it take to obtain a Curaçao gambling license?", answer: "Company registration and obtaining a gambling license in Curaçao typically takes 3–4 months." },
-      { question: "Can I apply for a Curaçao license remotely?", answer: "Yes. The gambling license can be obtained remotely — physical presence is not required at any stage." },
-      { question: "Does a Curaçao license cover all gambling types?", answer: "Yes. One sub-license in Curaçao is enough to conduct any type of gambling activity — casino, sports betting, poker, and lotteries." },
-      { question: "Can licensed Curaçao operators accept crypto payments?", answer: "Yes. Online casino operators licensed in Curaçao can accept cryptocurrency payments from players." },
-      { question: "What documents are required for a Curaçao gambling license?", answer: "You will need to provide: a copy of passport; proof of residential address; bank reference letter; certificate of no criminal record. Additionally: company incorporation documents, proof of website ownership, information about gaming software, agreements with software and hardware providers, server placement diagram, and description of planned business activities." },
-      { question: "How much does a Curaçao gaming license cost?", answer: "The cost of a Curaçao gambling license is determined individually after discussing your requirements. Contact our specialists for an exact quote." },
+      { question: "How to open an online casino in Curacao?", answer: "To open an online casino in Curacao, you must prepare a business plan, register a company, obtain a license, set up technical infrastructure, and open a bank account. Proper preparation of documentation and correct submission of the license application are crucial, and these processes should be entrusted to professionals." },
+      { question: "How long does it take to obtain a Curacao gambling license?", answer: "Company registration and obtaining a gambling license in Curacao typically takes 3–4 months." },
+      { question: "What documents are required for a Curacao gambling license?", answer: "To obtain a Curacao gambling license, you must submit: copies of passports and proof of address for directors and shareholders; documents confirming the experience and financial status of company participants; company incorporation documents; technical documentation; company policies." },
+      { question: "What is the cost of obtaining a gambling license in Curacao?", answer: "The final cost depends on various factors (services offered, number of domains, etc.). To get the exact cost, contact our specialists." },
     ]}
     related={[
       { regulator: "MGA", name: "Malta", description: "EU gold standard. Full European market access. 6–9 months.", href: "/malta-gaming-license" },

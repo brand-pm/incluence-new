@@ -46,19 +46,19 @@ const CornerAccent = () => (
 const FAQS = [
   {
     q: "What is a payment system?",
-    a: "A payment system is a licensed company providing financial services — specifically money transfer services. To provide payment system services, a company must obtain an appropriate license in the country of registration and, if necessary, in the regions where it plans to operate.",
+    a: "The payment system is a licensed company providing financial services - money transfer services. In order to be able to provide payment system services, a company must obtain an appropriate license in the country of registration and if necessary in the regions in which it is planned to provide services.",
   },
   {
-    q: "In which payment systems do you open accounts?",
-    a: "We select payment systems based on the company's country of registration, residency of beneficiaries and directors, planned turnover, required currencies, and payment regions. We also consider the payment system's reputation and rates. We open accounts in various secure payment systems worldwide — EU countries, Asia, USA and others.",
+    q: "In which payment systems do we open an account?",
+    a: "We select payment systems taking into account the country of registration of the company, residence of beneficiaries and directors, planned turnover, required currencies and payment regions. When choosing a payment system, its reputation and rates are also taken into account. We open accounts in various secure payment systems around the world (EU countries, Asia, USA, etc.). In order to select the most optimal option for your company, please contact our specialists.",
   },
   {
     q: "Why are payment systems needed?",
-    a: "Payment systems are needed to transfer funds in settlements between individuals and legal entities — to top up phones, pay utility bills, pay for goods online and offline. Both classical monetary units (dollar, euro, pound) and electronic money issued by the payment system itself (quasi-currency) can be used.",
+    a: "Payment systems are needed to transfer funds as part of mutual settlements between individuals and legal entities, top up phones, pay utility bills, pay for goods on the Internet and offline stores, etc. In this case, both classical monetary units (dollar, euro, pound sterling) and electronic money issued by the payment system itself (quasi-currency) can be used.",
   },
   {
-    q: "What are the conditions for opening an account in a payment system?",
-    a: "To open an account, you must submit KYC and AML forms, the company's statutory documents, and personal documents of directors and beneficiaries. The payment system may additionally request partner agreements and other information. Key persons may need to pass verification.",
+    q: "What are the conditions for opening an account in payment systems?",
+    a: "In order to open an account in payment systems, it is necessary to fill out and submit KYC and AML forms, the company's statutory documents and personal documents of directors and beneficiaries. The payment system may additionally request agreements with partners and other information. The company's key persons may need to pass verification for successful account opening.",
   },
 ];
 

@@ -71,12 +71,10 @@ const CONS = [
   "Not suitable for EU-only operators — EU clients require EU licenses",
 ];
 const FAQS = [
-  { q: "What licenses are required to operate a crypto exchange in the USA?", a: "At minimum: FinCEN MSB (Money Services Business) registration for all crypto businesses, and state-level Money Transmitter Licenses for fiat-to-crypto exchange in most states. New York additionally requires a BitLicense. We identify the optimal state-by-state strategy for your operations." },
-  { q: "What is the difference between an MSB license and a Money Transmitter License?", a: "FinCEN MSB registration is a federal requirement covering crypto-to-crypto transactions and general money services. A Money Transmitter License (MTL) is a state-level license required for fiat-to-crypto exchange operations. Most operators need both." },
-  { q: "What is a BitLicense and when is it required?", a: "A BitLicense is New York State's specific cryptocurrency license — the most rigorous in the US. It is required for any company engaging in virtual currency business activity with New York residents. Annual renewal fees can reach $300,000 or more." },
-  { q: "How long does it take to obtain a US crypto license?", a: "FinCEN MSB registration is relatively quick — 1–2 months. State Money Transmitter Licenses take 3–6 months per state. BitLicense (New York) can take 12–18 months. Total timeline depends on the number of states and license types targeted." },
-  { q: "Is the cryptocurrency license in the USA perpetual?", a: "FinCEN MSB registration is perpetual but requires annual reporting. State MTLs are typically annual and require renewal with updated financial statements and compliance documentation." },
-  { q: "Can a non-US resident obtain a US crypto license?", a: "Yes. Non-residents can own a US company and obtain federal FinCEN MSB registration. State MTL requirements vary — some states accept non-resident applicants, others require US resident principals. We advise on the optimal structure for international founders." },
+  { q: "How much does it cost to obtain a cryptocurrency exchange license in the USA?", a: "The final cost of obtaining a cryptocurrency exchange license in the USA depends on several factors (state of registration, list of services, operating region, etc.). To find out the exact cost, please consult our specialists." },
+  { q: "Is a bank account required to obtain a cryptocurrency license in the USA?", a: "Yes, to obtain a cryptocurrency license in the USA, you must open a bank account to deposit the share capital. This account will also be necessary for further business operations." },
+  { q: "How long does it take to obtain a cryptocurrency license in the USA?", a: "The process of obtaining a cryptocurrency license in the USA can take about six months." },
+  { q: "What is the validity period of a cryptocurrency license in the USA?", a: "A cryptocurrency exchange license in the USA is perpetual. However, companies must periodically file reports and adapt to new regulations." },
 ];
 const RELATED = [
   { href: "/lithuania-crypto-license", reg: "FCIS", name: "Lithuania", desc: "Fastest EU VASP. MiCA-ready. 1–3 months, from €10,000." },
@@ -156,9 +154,9 @@ const USACryptoPage = () => {
               <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.12em]">Federal · FinCEN · State Licenses</span>
             </div>
             <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1] mb-6">
-              <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>USA</span>{" "}Crypto License
+              <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Cryptocurrency Exchange License</span>{" "}in the USA
             </h1>
-            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">The United States has a multi-layer crypto licensing framework — federal FinCEN registration plus state-level Money Transmitter Licenses or BitLicense (New York). Federal MSB registration covers crypto-to-crypto transactions; a Money Transmitter License is required for fiat-to-crypto exchange. Perpetual license validity with annual reporting obligations.</p>
+            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">The existence of a legal framework imposes certain requirements on crypto exchanges and other companies conducting digital currency transactions. Such organizations must register as financial service providers, obtain the relevant license — a BitLicense, and report certain transactions to U.S. regulators.</p>
             <div className="flex gap-4">
               <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
               <button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View Requirements</button>
@@ -179,11 +177,11 @@ const USACryptoPage = () => {
         <div className="max-w-screen-xl mx-auto py-[72px] px-12 grid grid-cols-12 gap-12">
           <div className="col-span-7">
             <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— About USA Crypto Licensing</span>
-            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">Federal + State: A Two-Layer Framework</h2>
+            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">Main Information about Cryptocurrency Exchange Licensing in the USA</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>The US crypto licensing framework operates on two levels — federal and state. At the federal level, the Financial Crimes Enforcement Network (FinCEN) oversees companies engaged in cryptocurrency transactions. All crypto businesses must register as Money Services Businesses (MSBs) with FinCEN and comply with federal AML/CTF reporting requirements.</p>
-              <p>At the state level, requirements vary significantly. Most states require a Money Transmitter License (MTL) for fiat-to-crypto exchange operations, with minimum balance requirements ranging from $1,000 to $1 million depending on the state. New York requires a BitLicense — the most rigorous state-level crypto authorization in the US.</p>
-              <p>One major advantage of US licensing: once licensed, the company can more easily establish operations in other countries that recognize US crypto licenses — and banking relationships for non-US operations become significantly easier to establish.</p>
+              <p>The existence of a legal framework imposes certain requirements on crypto exchanges and other companies conducting digital currency transactions. In particular, such organizations must: register as financial service providers; obtain the relevant license — a BitLicense; report certain transactions to U.S. regulators — as part of anti-money laundering, counter-terrorism financing, and tax compliance measures. Income from cryptocurrency transactions is taxed as capital gains — up to 20%.</p>
+              <p>The U.S. financial regulator — FinCEN — oversees the licensing of companies engaged in cryptocurrency transactions. Licenses may be federal or local (within individual states). To operate on a nationwide level, the license must be renewed annually, with renewal fees reaching $300,000 or more. One advantage entrepreneurs gain after licensing is the ability to legalize operations in other countries.</p>
+              <p>When considering licensing, note that in addition to federal requirements, each state has its own stance on digital currencies. The same applies to minimum share capital, taxation specifics, and other factors. In most states, beneficiaries are required to maintain a certain minimum balance — from $1,000 up to $1 million USD. However, in Georgia, this requirement is not legislated at all. To navigate these nuances and quickly obtain a crypto exchange license in the U.S., contact our firm.</p>
             </div>
           </div>
           <div className="col-span-5 space-y-3">

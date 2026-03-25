@@ -8,7 +8,7 @@ const IsleOfManGamingPage = () => (
     categoryHref="/gamble-license"
     titleAccent="Isle of Man"
     titleRest="Gaming License"
-    description="A Tier-1 prestige gambling license from the Gambling Supervision Commission. One document package covers all gambling verticals — casino, lottery, sports betting, poker networks. Trusted by top-tier operators worldwide."
+    description="The unique feature of licensing on the Isle of Man is that business owners need to prepare just one package of documents to obtain the right to legally provide any gambling services: online casinos, lotteries, and so on. If another company operates under the same brand, it only requires a sublicense."
     heroVisual={<IsleOfManHeroVisual />}
     seo={{
       title: "Isle of Man Gambling License GSC — iGaming License | Incluence",
@@ -29,9 +29,8 @@ const IsleOfManGamingPage = () => (
     aboutTag="ABOUT GSC LICENSE"
     aboutTitle="Why the Isle of Man Stands Out"
     aboutParagraphs={[
-      "The Isle of Man is not part of the UK or the European Union, yet it benefits from the UK government's favorable attitude toward the gambling industry. The Gambling Supervision Commission (GSC) is the licensing authority — known for its pragmatic regulatory approach and business-friendly environment.",
-      "The unique feature of Isle of Man licensing is that a single package of documents grants the right to operate all gambling services — online casinos, lotteries, sports betting, bookmaking, poker networks and betting exchanges. If another company operates under the same brand, only a sublicense is required.",
-      "The Isle of Man license is recognized by tier-1 banks, major payment processors and software providers worldwide, making it one of the most operationally powerful licenses available outside the EU.",
+      "The unique feature of licensing on the Isle of Man is that business owners need to prepare just one package of documents to obtain the right to legally provide any gambling services: online casinos, lotteries, and so on. If another company operates under the same brand, it only requires a sublicense.",
+      "The UK government has a favorable attitude toward the gambling industry, which makes the Isle of Man license increasingly attractive to entrepreneurs each year. A business-friendly environment and pragmatic regulatory approach are key advantages that attract entrepreneurs from all over the world.",
     ]}
     benefits={[
       { icon: <Shield className="w-5 h-5" />, title: "Single License — All Verticals", description: "One document package covers every gambling vertical. No additional applications per game type." },
@@ -48,19 +47,13 @@ const IsleOfManGamingPage = () => (
       { number: "05", title: "GSC Application", description: "Application submitted to the Gambling Supervision Commission. Review period typically 10–12 weeks. We manage all correspondence." },
       { number: "06", title: "License Issued", description: "GSC grants the license. Your operation may commence immediately. Ongoing compliance support and annual renewal included." },
     ]}
-    requirementsIntro="Comprehensive requirements reflecting the license's Tier-1 status. We prepare the full documentation package on your behalf."
+    requirementsIntro="Licensing of companies registered in this jurisdiction and wishing to provide gambling services is handled by the Gambling Supervision Commission (GSC). This supervisory authority grants licenses for various types of gambling. Specifically, it legalizes: land-based casinos; online casinos and lotteries; bookmaking companies; betting exchanges; poker networks and many other services."
     requirements={[
-      "Company must be incorporated on the Isle of Man (mandatory)",
-      "Minimum two directors — both must be Isle of Man residents",
-      "Bank accounts must be opened within Isle of Man jurisdiction only",
-      "Passport copies and proof of address for all principals",
-      "CVs and professional backgrounds of all key personnel",
-      "Source of funds and financial standing documentation",
-      "Detailed business plan covering all proposed gambling activities",
-      "AML/KYC policy compliant with GSC requirements",
-      "Independent laboratory certification of all RNGs and gaming tools",
-      "Player deposit protection mechanism in place",
-      "Physical registered office on the island",
+      "The entire registration procedure must take place on the island, which will also serve as the company's place of incorporation",
+      "The company is permitted to open bank accounts only within this jurisdiction",
+      "The company structure must include two directors, appointed by the founders. These positions, as well as that of the company representative, must be filled by Isle of Man residents",
+      "Player deposits must always be protected",
+      "An independent lab must certify all online slots, games, random number generators, and similar tools",
     ]}
     keyFacts={[
       { label: "Regulator", value: "Gambling Supervision Commission (GSC)" },
@@ -89,12 +82,10 @@ const IsleOfManGamingPage = () => (
       "Independent lab certification required for all RNGs",
     ]}
     faq={[
-      { question: "What is the timeframe for an Isle of Man gambling license?", answer: "GSC application review is typically 10–12 weeks after submission. Including company formation and document preparation, total timeline is 6–12 months." },
-      { question: "Why must directors be Isle of Man residents?", answer: "The GSC requires genuine local governance. Both directors must be island residents to ensure regulatory accountability and company substance on the island." },
-      { question: "Can I bank outside the Isle of Man with this license?", answer: "No. Licensed companies are required to maintain bank accounts exclusively within the Isle of Man jurisdiction. We assist with local bank account opening." },
-      { question: "Does one license cover all gambling types?", answer: "Yes — one document package from the GSC covers online casinos, lotteries, sports betting, bookmaking, poker networks and betting exchanges. Subbrands only require a sublicense." },
-      { question: "What documents are required for an Isle of Man gambling license?", answer: "Company incorporation documents, passport copies and CVs for all directors and shareholders, source of funds documentation, business plan, AML policy, technical documentation, and independent RNG certification." },
-      { question: "How much does an Isle of Man gambling license cost?", answer: "Starting from £25,000 for our full service including company formation, director arrangements, document preparation, and GSC application. Contact us for an exact breakdown." },
+      { question: "How to open an online casino on the Isle of Man?", answer: "To open an online casino on the Isle of Man, you need to prepare a business plan, register a company, obtain a license, set up the technical infrastructure, and open a bank account. Proper documentation and a well-prepared license application are crucial. These processes should be entrusted to professionals." },
+      { question: "What is the timeframe for obtaining a gambling license on the Isle of Man?", answer: "A gambling license on the Isle of Man can typically be obtained within 3–4 months." },
+      { question: "What documents are required to obtain a gambling license on the Isle of Man?", answer: "To obtain an Isle of Man gambling license, you need to submit: - copies of passports and proof of address of company directors and shareholders; - documents confirming the experience and financial standing of company members; - the company's constitutional documents; - technical documentation; - company policies." },
+      { question: "What is the cost of obtaining a gambling license on the Isle of Man?", answer: "The final cost of a gambling license on the Isle of Man depends on various factors (the range of services offered, number of domains, etc.). To find out the exact cost for your business, consult our specialists." },
     ]}
     related={[
       { regulator: "MGA", name: "Malta", description: "EU gold standard. Full European market access. 6–9 months.", href: "/malta-gaming-license" },

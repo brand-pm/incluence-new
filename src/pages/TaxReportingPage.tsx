@@ -42,19 +42,19 @@ const TaxReportingPage = () => {
   }, []);
 
   const SERVICES = [
-    { num: "/01", title: "Financial Statements", body: "Separate and consolidated financial statements. Preparing quality financial statements in accordance with local and international accounting standards." },
-    { num: "/02", title: "Tax Returns", body: "Preparation and timely filing of tax returns across all operating jurisdictions. Controlling deadlines at every stage of the process." },
-    { num: "/03", title: "VAT", body: "VAT registration, preparation and filing of VAT declarations. Advisory on VAT obligations in different jurisdictions." },
+    { num: "/01", title: "Separate and Consolidated Financial Statements", body: "Preparing quality financial statements in accordance with local and international accounting standards." },
+    { num: "/02", title: "Tax Returns", body: "Preparation and timely filing of tax returns across all operating jurisdictions." },
+    { num: "/03", title: "VAT", body: "VAT registration, preparation and filing of VAT declarations." },
     { num: "/04", title: "Strategic Tax Planning", body: "Developing tax-efficient corporate structures for your business. Planning for your specific business model and target markets." },
     { num: "/05", title: "Tax Authority Representation", body: "Representing your business before tax authorities. Resolving disputes and responding to regulatory inquiries on your behalf." },
     { num: "/06", title: "Daily Tax Consulting", body: "Ongoing tax consulting to support daily business decisions and ensure compliance with evolving tax legislation." },
   ];
 
   const STEPS = [
-    { num: "01", title: "Discussing Your Inquiry", body: "Contacting you at your convenience and discussing the task at hand — the scope, jurisdictions, reporting periods, and requirements." },
-    { num: "02", title: "Determining the Current State", body: "Analyzing your company's financial and accounting documents for the reporting period — reviewing existing records and identifying gaps." },
-    { num: "03", title: "Considering the Jurisdiction", body: "Preparing a roadmap stating requirements, deadlines, and financial statement types according to the laws of the particular jurisdiction." },
-    { num: "04", title: "Preparing and Filing", body: "Preparing and submitting documents to the public authorities of the country of operation. Deadline control throughout the process." },
+    { num: "01", title: "Discussing Your Inquiry", body: "Contacting you at your convenience, and discussing the task at hand." },
+    { num: "02", title: "Determining the Current State of Affairs", body: "Analyzing your company's financial and accounting documents for the reporting period." },
+    { num: "03", title: "Considering the Jurisdiction", body: "Preparing a roadmap stating requirements, deadlines and financial statement types according to laws of the particular jurisdiction." },
+    { num: "04", title: "Preparing and Filing Financial Statements with Public Authorities", body: "Preparing and submitting documents to public authorities of the country of operation." },
   ];
 
   return (

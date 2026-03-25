@@ -123,7 +123,7 @@ const CostaRicaLicensePage = () => (
     faqs={[
       {
         q: "How to open an online casino in Costa Rica?",
-        a: "To open an online casino in Costa Rica, you need to prepare a business plan, register a company, obtain a license, set up the technical infrastructure, and open a bank account. The entire documentation must be prepared carefully. These processes are best entrusted to professionals.",
+        a: "To open an online casino in Costa Rica, you need to prepare a business plan, register a company, obtain a license, set up the technical infrastructure, and open a bank account. The entire documentation must be prepared carefully, and the license application submitted correctly. These processes are best entrusted to professionals.",
       },
       {
         q: "What are the timeframes for obtaining a gambling license in Costa Rica?",
@@ -135,7 +135,7 @@ const CostaRicaLicensePage = () => (
       },
       {
         q: "What is the cost of obtaining a gambling license in Costa Rica?",
-        a: "The final cost depends on various factors. You can find out the exact cost by contacting our specialists.",
+        a: "The final cost of obtaining a gambling license in Costa Rica depends on various factors (list of services offered, number of domains, etc.). You can find out the exact cost by contacting our specialists.",
       },
     ]}
     relatedTag="— Related"

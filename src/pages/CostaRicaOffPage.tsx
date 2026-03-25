@@ -4,10 +4,10 @@ import { ChevronDown } from "lucide-react";
 import MicroParticles from "@/components/MicroParticles";
 
 const FAQS = [
-  { q: 'How much does it cost to register a company in Costa Rica?', a: "The final cost depends on the type of activity, the number of participants, and other factors. Contact our specialists to find out the exact cost." },
+  { q: 'How much does it cost to register a company in Costa Rica?', a: "The final cost of company registration in Costa Rica depends on the type of activity, the number of participants, and other factors. To find out the exact cost, please contact our specialists." },
   { q: 'Can I register an offshore company in Costa Rica online?', a: 'An offshore company in Costa Rica can be registered remotely with the help of local representatives.' },
-  { q: 'What documents are required to register a company in Costa Rica?', a: "Copies of participants' passports, proof of address, and letters of recommendation." },
-  { q: 'Where can I open an offshore account in Costa Rica?', a: "We select banks based on the company's country of registration, residency of beneficiaries and directors, expected turnover, required currencies, and payment regions. We also take into account the bank's reputation and fees. Contact our specialists to select the best option for your company." },
+  { q: 'What documents are required to register a company in Costa Rica?', a: "To register a company in Costa Rica, you must submit copies of participants' passports, proof of address, and letters of recommendation." },
+  { q: 'Where can I open an offshore account in Costa Rica?', a: "We select banks based on the country of company registration, residency of beneficiaries and directors, expected turnover, required currencies, and payment regions. We also take into account the bank's reputation and fees. To select the best option for your company, please contact our specialists." },
 ];
 
 const CostaRicaOffPage = () => {
@@ -50,20 +50,20 @@ const CostaRicaOffPage = () => {
 
   const ADVANTAGES = [
     { title: 'Territorial Taxation', body: 'Taxes are paid only on income earned within Costa Rica. Non-resident entrepreneurs can register a company, conduct trade outside the jurisdiction, and significantly reduce the tax burden on their business.' },
-    { title: 'No Residents Required', body: 'A company may have no residents at all — there are no legislative restrictions for such firms. Completely flexible ownership structure.' },
-    { title: 'Highest FDI in Latin America', body: 'The level of foreign investment attraction is the highest in Latin America. The country quickly stabilized its economy after the global crisis and ensured consistent growth.' },
-    { title: 'Ready-Made Available', body: 'Entrepreneurs can purchase an already established business that has gone through all bureaucratic procedures, registration, and has no liabilities to third parties.' },
+    { title: 'No Residents Required', body: 'If you decide to open an offshore company, Costa Rica is a good option for several reasons. For example, a company may have no residents at all, and there are no legislative restrictions for such firms.' },
+    { title: 'Highest FDI in Latin America', body: 'The country not only quickly stabilized its economy after the global crisis but also ensured its growth. Today, international investors are interested in investing in Costa Rica, and the level of foreign investment attraction is the highest in Latin America.' },
+    { title: 'Ready-Made Available', body: 'Entrepreneurs can either register a company from scratch or purchase an already established business. In the second case, you can count on a firm that has already gone through all bureaucratic procedures, registration, and has no liabilities to third parties.' },
     { title: 'Favorable Business Climate', body: 'Costa Rica is characterized by stability in economic, political, and social areas — making it one of the most reliable Central American jurisdictions for business.' },
     { title: 'Multiple Legal Forms', body: 'Choose from LLC (Sociedad Limitada), SAA (public joint-stock company), and other legal forms when setting up an offshore structure.' },
   ];
 
   const LLC_FEATURES = [
-    { title: 'Limited Liability', body: "Shareholders' liability is limited to their contributions to share capital." },
-    { title: 'Min. 1 Director', body: 'At least one director and at least two shareholders required.' },
-    { title: 'Quotas Not Shares', body: 'Shares are not used in LLC structures — instead, quotas are applied.' },
-    { title: 'No Residents Required', body: 'The company may have no resident participants at all.' },
-    { title: 'Bank Account Note', body: 'To open a bank account in Costa Rica, there must be a resident in the company structure.' },
-    { title: 'Public Register', body: 'Costa Rica now has a public register of beneficial owners — shareholders cannot rely on full confidentiality.' },
+    { title: 'Limited Liability', body: "Shareholders' liability is limited to their contributions to the share capital." },
+    { title: 'Min. 1 Director', body: 'There must be at least one director and at least two shareholders.' },
+    { title: 'Quotas Not Shares', body: 'Shares are not used; instead, quotas are applied.' },
+    { title: 'No Residents Required', body: 'A company may have no residents at all, and there are no legislative restrictions for such firms.' },
+    { title: 'Bank Account Note', body: 'Entrepreneurs should keep in mind that to open a bank account in this country, there must be a resident in the company structure.' },
+    { title: 'Public Register', body: 'Costa Rica now has a public register of beneficial owners. Because of this, shareholders cannot rely on confidentiality, even if the company is offshore and conducts business outside the country.' },
   ];
 
   const KEY_FACTS = [
@@ -104,7 +104,7 @@ const CostaRicaOffPage = () => {
             Offshore{' '}<span className="bg-gradient-to-r from-[#444CE7] to-[#818CF8] bg-clip-text text-transparent">Costa Rica</span>
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[520px] mb-10 leading-[1.8]">
-            Costa Rica has a favorable business climate with stability in economic, political, and social areas. Offshore companies here are called that for a reason: they do not pay taxes while operating outside the country. This is due to the territorial taxation system — taxes are paid only on income earned within Costa Rica.
+            Some of the most attractive countries for entrepreneurs are those characterized by stability in various areas, particularly economic, political, and social. Additional advantages include favorable conditions such as taxation benefits. Offshore companies in Costa Rica are called that for a reason: they do not pay taxes while operating. This is due to the territorial taxation system. Taxes are paid only on income earned within Costa Rica.
           </p>
           <div className="flex items-center gap-4 flex-wrap">
             <Link to="/contact" className="btn-primary">Register Costa Rica Company →</Link>
@@ -172,7 +172,7 @@ const CostaRicaOffPage = () => {
           <div className="col-span-7">
             <span className="section-tag mb-4 block">Requirements</span>
             <h2 className="text-[clamp(28px,3.5vw,42px)] font-light text-[#F0EBE0] mb-4">Documents Required for Costa Rica Registration</h2>
-            <p className="text-[14px] text-[#9A9590] mb-8 leading-relaxed">We provide full support at every stage. For a new company we handle all accompanying procedures, prepare documents, and submit them to regulatory authorities.</p>
+            <p className="text-[14px] text-[#9A9590] mb-8 leading-relaxed">We also provide full support at every stage of the process, and if you decide to open a new company, we will handle all accompanying procedures, prepare the documents, and submit them to the regulatory authorities of Costa Rica.</p>
             <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
               {["Copies of participants' passports", 'Proof of address for all participants', 'Letters of recommendation', 'Completed registration forms', 'For bank account: at least one resident in company structure required'].map((d, i) => (
                 <div key={i} className="flex items-start gap-3">

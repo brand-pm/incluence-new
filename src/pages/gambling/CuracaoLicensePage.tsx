@@ -15,7 +15,7 @@ const CuracaoLicensePage = () => (
       titleAccent: "Curaçao",
       titleRest: "Gaming\nLicense",
       description:
-        "Curaçao hosts many companies operating in the gambling industry. Simple and business-friendly legislation, low taxation, and no paid-up capital requirement make the CGA license one of the most accessible entry points for online casino operators worldwide. One sub-license covers all gambling types.",
+        "Curaçao hosts many companies operating in the gambling industry. This is explained by simple and business-friendly legislation regulating gaming activities. Additional factors include accessibility and low taxation. All of this makes the Curaçao gaming license highly attractive for online casino operators, opening wide opportunities for successful business in the gambling sector.",
       cta1: "Get a Free Quote →",
       cta2: "View Requirements",
     }}
@@ -58,7 +58,7 @@ const CuracaoLicensePage = () => (
     requirements={{
       title: "What is required for licensing",
       intro:
-        "Curaçao operates a two-tier licensing model: a Master License held by a CGA-approved entity, and a Sub-License issued under it. Most operators obtain a sub-license, which covers all gambling types under a single permit.\n\nTo obtain a casino license in Curaçao, the following personal documents must be provided. At the time of submission, all documents except the passport copy must be no older than 3 months.",
+        "To obtain a casino license in Curaçao, the necessary documentation must be provided. At the time of submission, all documents except the passport copy must be no older than 3 months.",
       docsTitle: "Personal documents",
       docs: [
         "Copy of passport",
@@ -66,11 +66,11 @@ const CuracaoLicensePage = () => (
         "Bank reference letter",
         "Certificate of no criminal record",
       ],
-      additionalText: "In addition to personal documents, the following corporate and technical documentation is required:",
+      additionalText: "Additionally, to obtain a casino license in Curaçao, the following are required:",
       notRequiredTitle: "Corporate & technical documents",
       notRequired: [
         "Company incorporation documents",
-        "Proof of ownership of the chosen website domain",
+        "Proof of ownership of the chosen website for the online casino",
         "Information about the software to be used for casino games",
         "Agreements with software and hardware providers",
         "Diagram of physical equipment placement",
@@ -91,10 +91,10 @@ const CuracaoLicensePage = () => (
         "We prepare and verify all documents. You provide basic information — we handle the rest.",
     }}
     faqs={[
-      { q: "How to open an online casino in Curaçao?", a: "To open an online casino in Curaçao, you must prepare a business plan, register a company, obtain a license, set up technical infrastructure, and open a bank account. Proper preparation of documentation and correct submission of the license application are crucial. These processes should be entrusted to professionals." },
-      { q: "How long does it take to obtain a Curaçao gambling license?", a: "Company registration and obtaining a gambling license in Curaçao typically takes 3–4 months." },
-      { q: "What documents are required for a Curaçao gambling license?", a: "To obtain a Curaçao gambling license, you need to provide: a passport copy; proof of address, bank reference letter, and certificate of no criminal record (all no older than 3 months); plus company incorporation documents, domain ownership proof, software agreements, equipment diagram, and a description of planned business activities." },
-      { q: "What is the cost of a Curaçao gambling license?", a: "The cost depends on the type of license (master or sub-license) and the scope of services. Contact our specialists to receive an accurate quote based on your specific situation." },
+      { q: "How to open an online casino in Curacao?", a: "To open an online casino in Curacao, you must prepare a business plan, register a company, obtain a license, set up technical infrastructure, and open a bank account. Proper preparation of documentation and correct submission of the license application are crucial, and these processes should be entrusted to professionals." },
+      { q: "How long does it take to obtain a Curacao gambling license?", a: "Company registration and obtaining a gambling license in Curacao typically takes 3–4 months." },
+      { q: "What documents are required for a Curacao gambling license?", a: "To obtain a Curacao gambling license, you must submit: copies of passports and proof of address for directors and shareholders; documents confirming the experience and financial status of company participants; company incorporation documents; technical documentation; company policies." },
+      { q: "What is the cost of obtaining a gambling license in Curacao?", a: "The final cost depends on various factors (services offered, number of domains, etc.). To get the exact cost, contact our specialists." },
     ]}
     relatedTag="— Related"
     relatedTitle="Other gambling jurisdictions"

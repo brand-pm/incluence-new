@@ -8,7 +8,7 @@ const CostaRicaGamingPage = () => (
     categoryHref="/gamble-license"
     titleAccent="Costa Rica"
     titleRest="Gambling License"
-    description="The fastest path to legal gambling operations. A Data Processing license issued by the local municipality — no business plan, no capital requirements, no financial reporting. Operational in 2–5 weeks. Income tax exempt for international operators."
+    description="The Data Processing license is issued by the local municipality, and to apply, you only need to have an office in the country and hire a legal representative. If the enterprise is foreign-owned, this position must be filled by a Costa Rican resident."
     heroVisual={<CostaRicaHeroVisual />}
     seo={{
       title: "Costa Rica Gambling License — Fastest Online Casino License | Incluence",
@@ -29,9 +29,12 @@ const CostaRicaGamingPage = () => (
     aboutTag="ABOUT COSTA RICA LICENSE"
     aboutTitle="The Fastest Offshore Gambling License"
     aboutParagraphs={[
-      "The Costa Rica Data Processing license is issued by the local municipality rather than a national regulator. This means significantly fewer requirements compared to other jurisdictions and a process that can be completed in as little as 2–5 weeks.",
-      "The state imposes only one condition: the company's activities must not target Costa Rican residents. For international operators this is a non-issue — you simply operate elsewhere. No business plan, no profit forecast, no anti-gambling addiction measures, no software requirements.",
-      "A major financial advantage: if the operator serves any country except Costa Rica, the government treats the company as self-regulated and therefore exempt from income tax. This makes Costa Rica one of the most tax-efficient gambling jurisdictions available.",
+      "The Data Processing license is issued by the local municipality, and to apply, you only need to have an office in the country and hire a legal representative. If the enterprise is foreign-owned, this position must be filled by a Costa Rican resident.",
+      "The state does not require what is usually requested in other jurisdictions for licensing: No business plan is needed; No profit plan requirements; No measures required regarding gambling addiction prevention; No requirements related to software; No financial reporting or mandatory bank accounts, etc.",
+      "There are also no requirements for a large initial capital. However, to obtain a gambling license in Costa Rica, at least 25% of the issued share capital must be paid during company registration.",
+      "If you want to operate in the gambling sector, Costa Rica imposes only one condition: the company's activities must not target the country or its residents. This is because Costa Rican residents are prohibited from using such online operators' services. The restriction also applies to the equipment needed for online operations — it must be physically located outside of Costa Rica.",
+      "When applying for a license, business owners must pay a one-time fee of $15,000 and then pay $1,500 quarterly for renewal. An additional advantage is that if the operator offers services in any country in the world except Costa Rica, from the government's perspective such a company is considered self-regulated and therefore exempt from income tax.",
+      "If you are interested in a gambling license, Costa Rica issues this permit within 2–5 weeks. You can simplify and speed up the procedure by contacting our specialists. We will handle the entire licensing process, after which you can start operating in the online gambling sector as a licensed operator.",
     ]}
     benefits={[
       { icon: <Clock className="w-5 h-5" />, title: "2–5 Week Timeline", description: "The fastest major gambling license available. Municipal issuance bypasses lengthy national regulator review processes." },
@@ -46,7 +49,7 @@ const CostaRicaGamingPage = () => (
       { number: "03", title: "License Application", description: "Submit the Data Processing license application to the local municipality. One-time fee of $15,000 payable at submission." },
       { number: "04", title: "License Issued", description: "Municipality issues the license. Process typically 2–5 weeks. Quarterly renewal fee of $1,500 applies. Full operations can commence immediately." },
     ]}
-    requirementsIntro="The lightest requirements of any gambling jurisdiction. No business plan, no software certification — just basic company and KYC documentation."
+    requirementsIntro="The Data Processing license is issued by the local municipality, and to apply, you only need to have an office in the country and hire a legal representative. If the enterprise is foreign-owned, this position must be filled by a Costa Rican resident."
     requirements={[
       "Company incorporation in Costa Rica (SA or LLC)",
       "Physical office address in Costa Rica",
@@ -87,12 +90,10 @@ const CostaRicaGamingPage = () => (
       "Annual validity requires consistent renewal management",
     ]}
     faq={[
-      { question: "How fast can I get a Costa Rica gambling license?", answer: "The municipal license is typically issued within 2–5 weeks of application submission. This makes it the fastest major gambling license available globally." },
-      { question: "Is income tax payable on a Costa Rica gambling license?", answer: "No. If your operation serves players outside Costa Rica, the government classifies the company as self-regulated and fully exempt from income tax on international revenue." },
-      { question: "Do I need a business plan for a Costa Rica license?", answer: "No. Unlike Malta, Curaçao or Isle of Man licenses, Costa Rica requires no business plan, no profit forecast, no responsible gaming measures, and no software documentation." },
-      { question: "Can I accept players from any country?", answer: "Yes, from any country except Costa Rica. Serving Costa Rican residents is prohibited. All other markets are unrestricted." },
-      { question: "What are the ongoing costs after license issuance?", answer: "A quarterly renewal fee of $1,500 is the main ongoing cost. Annual total renewal: $6,000. There are no revenue-based taxes for international operators." },
-      { question: "Is a Costa Rica license accepted by payment processors?", answer: "Some payment processors accept it, others require EU-regulated licenses. For tier-1 PSPs and banks, we recommend pairing a Costa Rica license with an EU entity structure." },
+      { question: "How to open an online casino in Costa Rica?", answer: "To open an online casino in Costa Rica, you need to prepare a business plan, register a company, obtain a license, set up the technical infrastructure, and open a bank account. The entire documentation must be prepared carefully, and the license application submitted correctly. These processes are best entrusted to professionals." },
+      { question: "What are the timeframes for obtaining a gambling license in Costa Rica?", answer: "A Costa Rican gambling license can be obtained within 2–4 months." },
+      { question: "What documents are required to obtain a gambling license in Costa Rica?", answer: "To obtain a gambling license in Costa Rica, you need to submit: – copies of passports and proof of address of company directors and shareholders; – documents confirming the experience and financial standing of company participants; – company's founding documents; – technical documentation; – company policies." },
+      { question: "What is the cost of obtaining a gambling license in Costa Rica?", answer: "The final cost of obtaining a gambling license in Costa Rica depends on various factors (list of services offered, number of domains, etc.). You can find out the exact cost by contacting our specialists." },
     ]}
     related={[
       { regulator: "MGA", name: "Malta", description: "EU gold standard. Full European market access. 6–9 months.", href: "/malta-gaming-license" },

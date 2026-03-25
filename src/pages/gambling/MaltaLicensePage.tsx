@@ -68,10 +68,10 @@ const MaltaLicensePage = () => (
       { label: "Local employees", value: "Required" },
     ]}
     faq={[
-      { question: "How to open an online casino in Malta?", answer: "In order to open an online casino in Malta, you need to prepare a business plan, register a company, obtain a license, set up a technical base and open a bank account. You should carefully prepare all the documentation and correctly apply for a license. These processes should be entrusted to professionals." },
+      { question: "How to open an online casino in Malta?", answer: "In order to open an online casino in Malta, you need to prepare a business plan, register a company, obtain a license, set up a technical base and open a bank account. You should carefully prepare all the documentation and correctly apply for a license for the online casino creation. These processes should be entrusted to professionals." },
       { question: "What are the terms of registration of a gaming license in Malta?", answer: "The company registration and the gambling license obtaining in Malta takes about 6 months." },
-      { question: "What documents are required to obtain a gaming license in Malta?", answer: "In order to obtain a gambling license in Malta, you must submit: copies of passports and confirmation of the address of directors and shareholders; documents confirming the experience and well-being of company participants; statutory documents; technical documentation; company policies." },
-      { question: "What is the cost of obtaining a gambling license in Malta?", answer: "Various factors affect the final cost of obtaining a license for a gambling business in Malta. You can find out the exact cost by contacting our specialists." },
+      { question: "What documents are required to obtain a gaming license in Malta?", answer: "In order to obtain a gambling license in Malta, you must submit: - copies of passports and confirmation of the address of directors and shareholders of the company; - documents confirming the experience and well-being of the company's participants; - statutory documents of the company; - technical documentation; - company policies." },
+      { question: "What is the cost of obtaining a gambling license in Malta?", answer: "Various factors (the list of services offered, the number of domains, etc.) affect the final cost of obtaining a license for a gambling business in Malta. You can find out the exact cost of obtaining a license for a gambling business in Malta by contacting our specialists." },
     ]}
     related={[
       { regulator: "CGA", name: "Curaçao", description: "Simple and business-friendly legislation. Low taxation, one of the shortest licensing timelines.", href: "/curacao-gaming-license" },

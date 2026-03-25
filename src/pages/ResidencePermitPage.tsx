@@ -33,27 +33,27 @@ const STATS = [
 ];
 
 const PATHWAYS = [
-  { num: "01", title: "Investment", body: "Many countries offer residence permits through investment programs. A foreigner invests a certain amount in the national economy or purchases real estate. As a rule, invested funds cannot be withdrawn for several years. Violation of this condition leads to revocation of the permit." },
-  { num: "02", title: "Business", body: "Financially independent foreigners may acquire a company or start their own business in the chosen country. If they pay taxes properly and create jobs, chances of obtaining a residence permit increase significantly. Requirements vary by country — for example, some require creating a minimum number of jobs." },
-  { num: "03", title: "Employment", body: "If a foreign company is willing to hire a migrant, this provides grounds for a residence permit. The employer must sign an employment contract clearly outlining work conditions. Such permits are usually issued for 1 year and can be renewed multiple times as long as employment continues." },
-  { num: "04", title: "Family Reunification", body: "If a migrant's spouse or close relatives live in a certain country, they can apply based on family reunification. The migrant must prove the relationship (marriage or birth certificate) and may need to prove financial dependency. There are many other ways to obtain a residence permit — contact us for details." },
+  { num: "01", title: "Investment", body: "Many countries offer residence permits through investment programs. The essence of such programs is that a foreigner invests a certain amount in the national economy or buys real estate within the country. As a rule, invested funds cannot be withdrawn for several years. Otherwise, the residence permit will be revoked. In the case of real estate, some countries also require that the investor actually reside in the purchased property. Violation of this condition may also lead to cancellation of the permit." },
+  { num: "02", title: "Business", body: "Financially independent foreigners may acquire a company in the chosen country or start their own business. If they pay taxes properly and create jobs, their chances of obtaining a residence permit abroad increase significantly. It's important to note that requirements vary by country. For example, in Romania, an entrepreneur must create at least 15 jobs to qualify for a residence permit. All these nuances are taken into account by our experts, who can provide personal consultation and assistance with obtaining a residence permit abroad." },
+  { num: "03", title: "Employment", body: "If a foreign company is willing to hire a migrant, this provides grounds for obtaining a residence permit. In such cases, the employer must sign an employment contract clearly outlining the conditions of work. Usually, such permits are issued for 1 year, but they can be renewed multiple times as long as the person remains employed. Residence permits abroad can also be issued to migrants who come for seasonal work." },
+  { num: "04", title: "Family Reunification", body: "If a migrant's spouse or close relatives live in a certain country, they can apply for a residence permit based on family reunification. In this case, the migrant must prove the relationship, e.g., by providing a marriage or birth certificate. They may also need to prove financial dependence on relatives or, conversely, that family members depend on them financially. There are many other ways to obtain a residence permit abroad. Contact Incluence experts for detailed information about each option." },
 ];
 
 const BENEFITS = [
-  "Study at educational institutions of the chosen country",
-  "Legally work in local companies",
-  "Open own business or register as a private entrepreneur",
-  "Receive allowances, social benefits, and legal protection",
-  "Access public and private healthcare on equal terms with citizens",
-  "Legally reside and move freely within the country",
+  "Study at educational institutions of the chosen country.",
+  "Legally work in local companies.",
+  "Open their own business or register as a private entrepreneur.",
+  "Receive allowances, social benefits, and legal protection.",
+  "Access public and private healthcare services on equal terms with citizens.",
+  "Legally reside and move freely within the country for the entire duration of the permit.",
 ];
 
 const DOCS = [
-  "National and/or international passport",
-  "Proof of grounds (university enrollment, employment contract, property purchase agreement, etc.)",
-  "Police clearance certificate",
-  "Medical examination results — tests confirming absence of infectious diseases",
-  "In some cases: certificates confirming absence of certain mental illnesses",
+  "National and/or international passport.",
+  "Proof of grounds for obtaining a residence permit (e.g., a university enrollment letter, employment contract, property purchase agreement, etc.).",
+  "Police clearance certificate.",
+  "Medical examination results. Usually, tests confirming the absence of infectious diseases such as tuberculosis are required.",
+  "In some cases, certificates confirming the absence of certain mental illnesses are also necessary.",
 ];
 
 const TIMELINE = [
@@ -65,10 +65,10 @@ const TIMELINE = [
 
 const FAQS = [
   { q: "What ways exist to obtain a residence permit abroad?", a: "The most common ways are: investment in the national economy or real estate, starting a business, employment with a local company, family reunification with relatives already residing in the country, and study at a local educational institution. Contact us for details on each option." },
-  { q: "What is the difference between a temporary and permanent residence permit?", a: "A temporary residence permit is issued for a specific period depending on immigration grounds. A permanent residence permit is issued indefinitely — migrants only renew their card every 5 years without reapplying. Most foreigners first obtain temporary residence and then apply for permanent status." },
-  { q: "What rights does a residence permit abroad provide?", a: "A residence permit grants nearly the same civil rights as citizenship — the right to study, work, open a business, receive social benefits, access healthcare, and move freely within the country. The only restrictions are: no voting rights and no government positions." },
-  { q: "What documents are required for a residence permit abroad?", a: "At minimum: national/international passport, proof of the grounds for residence (employment contract, enrollment letter, investment proof, etc.), police clearance certificate, medical examination results. Documents usually require notarization and translation. The exact list varies by country." },
-  { q: "How long does the residence permit process take?", a: "Case review typically takes about 1 month. The permit itself can take up to 6 months to issue. Exact timeframes depend on the country and must be clarified individually during consultation." },
+  { q: "What is the difference between a temporary and permanent residence permit?", a: "A temporary residence permit is issued to foreigners for a period that may vary depending on the country's requirements and immigration grounds. A permanent residence permit is issued indefinitely. Migrants only need to renew their card every 5 years. They don't have to reapply for a residence permit. Most foreigners first obtain a temporary residence permit, with which they must live in the country for some time, e.g., 3–5 years. After this period, they can apply for permanent status." },
+  { q: "What rights does a residence permit abroad provide?", a: "There are many benefits available to residence permit holders abroad. This permit grants foreigners nearly the same civil rights as citizens. The only restrictions are: they cannot vote or hold government positions. With a residence permit abroad, migrants can study at educational institutions, legally work in local companies, open their own business, receive allowances, social benefits, and legal protection, and access public and private healthcare services on equal terms with citizens." },
+  { q: "What documents are required for a residence permit abroad?", a: "At minimum: national and/or international passport, proof of grounds for obtaining a residence permit (e.g., a university enrollment letter, employment contract, property purchase agreement, etc.), police clearance certificate, medical examination results. Usually, tests confirming the absence of infectious diseases such as tuberculosis are required. Documents must be notarized or certified at the embassy of the chosen country. They must also be translated into the relevant foreign language depending on the destination country." },
+  { q: "How long does the residence permit process take?", a: "Case review usually takes about 1 month, while the residence permit itself can take up to 6 months to issue. The exact timeframes depend on the country and must be clarified individually." },
 ];
 
 const ResidencePermitPage = () => {
@@ -155,7 +155,7 @@ const ResidencePermitPage = () => {
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Pathways</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How to Obtain a Residence Permit Abroad</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-[1.8]">
-            There are several ways to obtain a residence permit abroad, each with its advantages and requirements. By meeting the conditions, a foreigner can legalize their stay in the chosen country.
+            There are several ways to obtain a residence permit abroad, each with its advantages and requirements. By meeting the conditions, a foreigner can legalize their stay in the chosen country. Below are some of the most common options.
           </p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-2 gap-px">
             {PATHWAYS.map(p => (
@@ -183,7 +183,7 @@ const ResidencePermitPage = () => {
               <div className="relative z-10">
                 <div className="text-[17px] font-semibold text-[#F0EBE0] mb-3">Temporary Residence Permit</div>
                 <p className="text-[14px] text-[#9A9590] leading-[1.85]">
-                  Issued to foreigners for a period that varies depending on the country's requirements and immigration grounds. Most often, foreigners first obtain a temporary residence permit, with which they must live in the country for 3–5 years. After this period, they can apply for permanent residence.
+                  Issued to foreigners for a period that may vary depending on the country's requirements and immigration grounds. Most often, foreigners first obtain a temporary residence permit, with which they must live in the country for some time, e.g., 3–5 years. After this period, they can apply to the local migration authority for a permanent residence permit.
                 </p>
               </div>
             </div>
@@ -192,7 +192,7 @@ const ResidencePermitPage = () => {
               <div className="relative z-10">
                 <div className="text-[17px] font-semibold text-[#F0EBE0] mb-3">Permanent Residence Permit</div>
                 <p className="text-[14px] text-[#9A9590] leading-[1.85]">
-                  Issued indefinitely. Migrants only need to renew their card every 5 years — they don't need to reapply. After obtaining permanent residence, a migrant may also become eligible to apply for citizenship.
+                  Issued indefinitely. Migrants only need to renew their card every 5 years. They don't have to reapply for a residence permit. Later, they may also become eligible to apply for citizenship.
                 </p>
               </div>
             </div>
@@ -206,7 +206,7 @@ const ResidencePermitPage = () => {
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— What It Provides</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Why Obtain a Residence Permit Abroad</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-[1.8]">
-            A residence permit grants foreigners nearly the same civil rights as citizens. The only restrictions are: they cannot vote or hold government positions.
+            There are many benefits available to residence permit holders abroad. This permit grants foreigners nearly the same civil rights as citizens. The only restrictions are: they cannot vote or hold government positions.
           </p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
             {BENEFITS.map(b => (
@@ -230,7 +230,7 @@ const ResidencePermitPage = () => {
           <div className="grid grid-cols-12 gap-12">
             <div className="col-span-7">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">
-                To apply for a residence permit abroad, a set of documents must be prepared. The list varies depending on the chosen country. At a minimum, applicants are usually required to provide:
+                To apply for a residence permit abroad, a set of documents must be prepared. The list may vary depending on the chosen country. At a minimum, applicants are usually required to provide:
               </p>
               <div className="space-y-3">
                 {DOCS.map(d => (
@@ -241,7 +241,7 @@ const ResidencePermitPage = () => {
                 ))}
               </div>
               <p className="text-[13px] text-[#5A5550] mt-4 italic">
-                As a rule, documents must be notarized or certified at the embassy of the chosen country and translated into the relevant foreign language.
+                As a rule, documents must be notarized or certified at the embassy of the chosen country. They must also be translated into the relevant foreign language depending on the destination country.
               </p>
             </div>
             <div className="col-span-5">
@@ -257,7 +257,7 @@ const ResidencePermitPage = () => {
                       </div>
                     ))}
                   </div>
-                  <p className="text-[12px] text-[#5A5550] italic mt-4">Exact timelines depend on country — clarify individually</p>
+                  <p className="text-[12px] text-[#5A5550] italic mt-4">The exact timeframes depend on the country and must be clarified individually.</p>
                   <Link to="/contact" className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">
                     Discuss the Project →
                   </Link>

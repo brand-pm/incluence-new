@@ -7,15 +7,15 @@ const CornerAccent = () => (<span className="pointer-events-none absolute top-0 
 const DOT_GRID = { backgroundImage: "radial-gradient(rgba(68,76,231,0.045) 1px, transparent 1px)", backgroundSize: "28px 28px" };
 
 const BENEFITS = [
-  { title: "Accessibility & Flexibility", body: "Manage the account and conduct financial transactions regardless of location — through online banking at any time." },
-  { title: "Confidentiality", body: "The account is highly protected from third parties. Banks do not disclose client information and provide a high level of asset security." },
-  { title: "Payment Operations", body: "Offshore companies can open accounts that enable full payment operations for international business transactions." },
+  { title: "Accessibility & Flexibility", body: "The main reason to open an offshore bank account is the accessibility and flexibility of the products. Clients can manage their accounts and conduct financial transactions regardless of location, for example, using online banking." },
+  { title: "Confidentiality", body: "Confidentiality of personal data is one of the main reasons individuals and companies choose offshore accounts: the account is highly protected from third parties. Banks do not disclose client information and provide a high level of asset security." },
+  { title: "Payment Operations", body: "Companies registered in offshore jurisdictions can open accounts that enable them to conduct payment operations." },
 ];
 
 const CRITERIA = [
-  "Convenient internet banking — manage the account remotely",
-  "Currency selection — including non-standard currencies if needed",
-  "Accessible opening procedure — clear requirements, minimal burden",
+  "Convenient operations. Online banking should be available, allowing remote account management for quick resolution of urgent matters.",
+  "Currency choice. Not all offshore accounts can be opened in the desired currency, especially if it's not USD or EUR but less common currencies.",
+  "Simple opening procedures. Sometimes opening an offshore account involves numerous requirements regarding documents and client compliance.",
 ];
 
 const OffshoreBankAccountPage = () => {
@@ -56,7 +56,7 @@ const OffshoreBankAccountPage = () => {
             Opening an <span className="bg-gradient-to-r from-[#444CE7] to-[#6366F1] bg-clip-text text-transparent">Offshore</span><br />Bank Account
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
-            Today, companies registered in offshore jurisdictions can open accounts that enable them to conduct payment operations. Clients' personal data is kept confidential. We select optimal banks, prepare documents, and handle the full submission process with minimal client involvement.
+            Today, companies registered in offshore jurisdictions can open accounts that enable them to conduct payment operations. Clients' personal data is kept confidential, and anyone can open an offshore account. However, it is important to note that banks' requirements for corporate clients and individuals can vary significantly.
           </p>
           <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
         </div>
@@ -66,8 +66,8 @@ const OffshoreBankAccountPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Benefits</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Opening an Offshore Account: Benefits</h2>
-          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[500px] leading-relaxed">Partnering with an offshore bank provides entrepreneurs with a wide range of benefits. The main reasons to open an offshore bank account are accessibility, flexibility, and confidentiality.</p>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Opening an Account for an Offshore Company: Benefits</h2>
+          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[500px] leading-relaxed">Partnering with an offshore bank provides entrepreneurs with a wide range of benefits.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {BENEFITS.map((b, i) => (
               <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden">
@@ -87,9 +87,9 @@ const OffshoreBankAccountPage = () => {
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">How to Open an Offshore Account</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
-              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Each bank sets specific requirements for clients. If you want to open an offshore account at a particular bank, consult our specialists. If necessary, we will help you choose a jurisdiction that meets your requirements.</p>
-              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">An offshore account can only be opened after preparing and submitting: apostilled original corporate documents; notarized copies of passports for the beneficiary and account manager; proof of income sources for the participants and the company; proof of actual residence for each shareholder and director.</p>
-              <p className="text-[14px] text-[#9A9590] leading-[1.85]">This is the minimum set of documents required for legal entities. Opening accounts in offshore banks may have additional requirements. If the bank requests additional documents, they must be prepared and submitted. Otherwise, the offshore account cannot be opened.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Each bank sets specific requirements for clients. If you want to open an offshore account at a particular bank, consult our specialists. If necessary, we will help you choose a jurisdiction that meets your requirements and conditions.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">An offshore account can only be opened after preparing and submitting: apostilled original corporate documents; notarized copies of passports for the beneficiary and account manager; proof of income sources for the participants and the company as a whole; proof of actual residence for each shareholder and director (e.g., utility bill).</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85]">This is the minimum set of documents required for legal entities, as opening accounts in offshore banks may have additional requirements. For example, if the bank requests additional documents, they must be prepared and submitted. Otherwise, the offshore account cannot be opened.</p>
             </div>
             <div className="md:col-span-5">
               <div className="bg-[#080808] border border-white/[0.06] p-7 group relative overflow-hidden">
@@ -123,13 +123,13 @@ const OffshoreBankAccountPage = () => {
             <div className="md:col-span-8">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Having a bank account for an offshore company offers many advantages, making this service popular. However, there is no guarantee that the account will be opened. The decision is made solely by bank staff, who carefully review all documents and assess potential risks.</p>
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Moreover, a bank may close an existing account without explanation, usually if the offshore company conducts illegal business or operates without required licenses.</p>
-              <p className="text-[14px] text-[#9A9590] leading-[1.85]">To increase the chances of successfully opening an offshore account, careful preparation is required. Incluence specialists can suggest alternative banks if this improves the likelihood of account approval. Our specialists will select optimal options and handle document preparation and submission. Your involvement will be minimal.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85]">To increase the chances of successfully opening an offshore account, careful preparation is required. Incluence specialists can suggest alternative banks if this improves the likelihood of account approval. If you want to open an offshore account efficiently, our specialists will select optimal options and handle document preparation and submission. Your involvement will be minimal, except in situations where client identification is required by the bank.</p>
             </div>
             <div className="md:col-span-4">
               <div className="bg-[#080808] border border-[#444CE7]/20 p-6 group relative overflow-hidden">
                 <ScanSweep />
                 <p className="text-[13px] font-semibold text-[#F0EBE0] mb-2">Can an Offshore Account Be Opened Online?</p>
-                <p className="text-[13px] text-[#9A9590] leading-relaxed">Currently, very few banks allow remote account registration. If you want to open an offshore account online, the list of available options is significantly reduced. Contact our managers — they will help you open an offshore account online and select a suitable country.</p>
+                <p className="text-[13px] text-[#9A9590] leading-relaxed">Currently, very few banks allow remote account registration. If you want to open an offshore account online, the list of available options is significantly reduced. For detailed consultation, contact our company managers, who will help you open an offshore account online and select a suitable country.</p>
               </div>
             </div>
           </div>

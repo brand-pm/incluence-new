@@ -72,12 +72,10 @@ const CONS = [
   "Annual CySEC fees and audited financial statements required",
 ];
 const FAQS = [
-  { q: "What is a CySEC license and what does it allow?", a: "A CySEC (Cyprus Securities and Exchange Commission) license authorizes a Cyprus Investment Firm to provide investment services across the EU under MiFID II. This includes forex brokerage, portfolio management, investment advice, and other financial services." },
-  { q: "Does a CySEC license cover all EU countries?", a: "Yes. Under MiFID II passporting rights, a CySEC-licensed CIF can offer investment services in all 27 EU member states without obtaining additional local licenses. This is the primary reason Cyprus is the most popular EU forex jurisdiction." },
-  { q: "What is the minimum capital for a Cyprus forex license?", a: "For a CIF providing order execution and dealing on own account, the minimum authorized capital is €125,000. For firms also providing portfolio management, it is €200,000. Capital must be deposited at a Cyprus-based bank." },
-  { q: "How long does it take to obtain a CySEC license?", a: "CySEC application review typically takes 3–6 months after submission. Including company formation and document preparation, total timeline is 6–9 months." },
-  { q: "Can non-EU residents own a Cyprus investment firm?", a: "Yes. Non-EU residents can own and operate a Cyprus Investment Firm. However, key management positions (CEO, compliance officer) typically require persons with EU residency and documented financial sector experience." },
-  { q: "What ongoing obligations come with a CySEC license?", a: "Annual audited financial statements, quarterly regulatory reporting to CySEC, ongoing AML/KYC compliance, annual license fees, and mandatory professional indemnity insurance for certain service categories." },
+  { q: "What are the requirements for obtaining a Forex license in Cyprus?", a: "In order to obtain a forex license in Cyprus, it is necessary to register a company, prepare policies, technical documentation and other documents. After opening an account and depositing the authorized capital, submit an application to the regulator. After obtaining a license, it is necessary to show the activity of the company in order to avoid its cancellation." },
+  { q: "What documents are required to obtain a Forex license in Cyprus?", a: "In order to obtain a forex license in Cyprus, the following documents are required: the company's statutory documents, business plan, AML policy, rules for using the resource, confirmation of the identity and experience of the company's participants, technical documentation." },
+  { q: "How long will it take to get a Forex license in Cyprus?", a: "Obtaining a forex license in Cyprus can take up to half a year. The term of obtaining is affected by the speed of preparation of documents and consideration of the application by the regulator." },
+  { q: "How much does an investment license in Cyprus cost?", a: "The final cost of obtaining an investment license in Cyprus is influenced by various factors (the exact list of future services, the region of work, etc.). You can find out the exact cost of obtaining an investment license in Cyprus by contacting our specialists." },
 ];
 const RELATED = [
   { href: "/forex-broker-licence-in-malta", reg: "MFSA", name: "Malta", desc: "EU MiFID II license. 5–7 months, favorable tax structure." },
@@ -157,7 +155,7 @@ const CyprusForexPage = () => {
             <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1] mb-6">
               <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Cyprus</span>{" "}Forex License
             </h1>
-            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">The most popular EU forex broker license. CySEC authorization under MiFID II grants full passporting rights across all 27 EU member states, access to European banking infrastructure, and the credibility required by tier-1 payment processors and institutional clients.</p>
+            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">Forex license Cyprus: Advantages, conditions, and registration requirements. If a Forex broker is planning to expand activities in the European Union, Cyprus is usually chosen for this purpose. It is one of the most suitable jurisdictions because it is possible to obtain the Cyprus Securities and Exchange Commission (CySEC) license there.</p>
             <div className="flex gap-4">
               <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
               <button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View Requirements</button>
@@ -179,9 +177,8 @@ const CyprusForexPage = () => {
             <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— About CySEC License</span>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">Why Cyprus is the Top Choice for EU Forex Brokers</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>Cyprus is the most widely chosen EU jurisdiction for Forex broker licensing. The Cyprus Securities and Exchange Commission (CySEC) operates under the MiFID II directive, which means a CySEC license is passported across all 27 EU member states — no additional local licenses required.</p>
-              <p>Beyond EU market access, Cyprus offers one of the most competitive corporate tax environments in Europe at 12.5%, combined with a mature financial services ecosystem, experienced legal and compliance professionals, and strong banking relationships specifically built for investment firms.</p>
-              <p>CySEC-regulated brokers gain immediate trust from clients, institutional partners, and tier-1 payment processors who require EU-regulated counterparties for onboarding.</p>
+              <p>If a Forex broker is planning to expand activities in the European Union, Cyprus is usually chosen for this purpose. It is one of the most suitable jurisdictions because it is possible to obtain the Cyprus Securities and Exchange Commission (CySEC) license there. It allows brokers to legally operate, take customer deposits, and perform other legal actions in the territory of any EU member state.</p>
+              <p>If you are interested in such a financial license, Cyprus is a rational choice, but the process requires careful preparation. Submitting an application is a matter that should be approached with certain knowledge as well as meeting a number of strict requirements and conditions. Otherwise, there is a risk of being rejected for licensing.</p>
             </div>
           </div>
           <div className="col-span-5 space-y-3">

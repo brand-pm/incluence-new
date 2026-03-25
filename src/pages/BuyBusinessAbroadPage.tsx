@@ -22,17 +22,17 @@ const DOT_GRID = {
 };
 
 const FAQS = [
-  { q: "How much does it cost to buy a ready-made company?", a: "The final cost depends on the country of incorporation, the period of existence, the presence of previous activities and accounts, and other factors. Contact our specialists for an exact quote." },
-  { q: "Is it possible to buy a ready-made business online?", a: "Detailed conditions for re-registration depend on the legislation of the country of registration. Typically, companies are re-registered by local representatives on the basis of a power of attorney. In some countries, the company can be transferred through a local representative based on scanned documents." },
-  { q: "In which countries do you help with the purchase of a ready-made company?", a: "We assist with the purchase of ready-made companies around the world, including EU countries, European non-EU countries, Asian countries, USA, Australia and Oceania, offshore." },
-  { q: "How long does it take to buy a ready-made company?", a: "The duration depends on the state of the company, the country of registration, and the characteristics of new and old participants. Usually, re-registration takes up to 1 month." },
+  { q: "How much will it cost to buy a ready-made company?", a: "The final cost of a ready-made company is influenced by the country of incorporation, the period of existence, the presence of previous activities and accounts, and other factors. You can find out the exact cost of a ready-made company by contacting our specialists." },
+  { q: "Is it possible to buy a ready-made business online?", a: "Detailed conditions for re-registration of a company depend on the legislation of the country of registration. Typically, companies are re-registered by local representatives on the basis of a power of attorney. Also, the company can be re-registered during a personal visit to the registrar in the desired country. In some countries, the company can be transferred through the local representative by scanned documents." },
+  { q: "In which countries do we help with the purchase of a ready-made company?", a: "We assist with the purchase of ready-made companies around the world, including EU countries, European non-EU countries, Asian countries, USA, Australia and Oceania, offshore." },
+  { q: "How long does it take to buy a ready-made company?", a: "The duration of the process of a ready-made company purchase depends on the state of the company, the country of registration and the characteristics of new and old participants. Usually the duration of re-registration takes up to 1 month." },
 ];
 
 const STEPS = [
-  { num: "01", title: "Define Requirements", body: "Determine the form of ownership, country and region of incorporation, presence or absence of turnover, licenses held, and other specific requirements for the target company." },
+  { num: "01", title: "Define Requirements", body: "You choose the form of ownership, the country and region of incorporation, the presence or absence of turnover, and so on. After that, our specialists will find a suitable option for you." },
   { num: "02", title: "We Find Options", body: "Our specialists find a suitable company matching your requirements. We have clients and partners who are looking for buyers for their companies across all major jurisdictions." },
   { num: "03", title: "Due Diligence", body: "The company is checked for debts to government agencies including tax, as well as the presence of receivables and payables. Full compliance report provided before purchase." },
-  { num: "04", title: "Re-registration", body: "Re-registration is typically handled by local representatives on the basis of a power of attorney. In some countries the transfer can be done using scanned documents. Duration: up to 1 month." },
+  { num: "04", title: "Re-registration", body: "Re-registration is typically handled by local representatives on the basis of a power of attorney. Also, the company can be re-registered during a personal visit to the registrar in the desired country. In some countries, the company can be transferred through the local representative by scanned documents. Duration: up to 1 month." },
 ];
 
 const BuyBusinessAbroadPage = () => {
@@ -77,7 +77,7 @@ const BuyBusinessAbroadPage = () => {
             Buy a <span className="bg-gradient-to-r from-[#444CE7] to-[#6366F1] bg-clip-text text-transparent">Ready-Made</span><br />Company Abroad
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[520px] mb-10 leading-[1.8]">
-            It is not always possible to quickly register a company from scratch — the difficulties that arise can greatly delay the procedure. By deciding to buy a business abroad, the entrepreneur avoids many of the problems common to creating a new legal entity. A ready-made company has already gone through all registration stages and received the necessary licenses.
+            Thanks to the constant development of the economy and various technologies, new business opportunities open up before business people almost every day. It is enough to implement them promptly to get a certain profit. As a rule, when a business model is successfully tested within one country, entrepreneurs strive to occupy a niche in the international market before their competitors do so.
           </p>
           <div className="flex gap-3">
             <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
@@ -109,15 +109,16 @@ const BuyBusinessAbroadPage = () => {
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">When It May Be Necessary to Buy a Business Abroad</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
-              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">The process of entering the international market is always accompanied by dealing with legal issues. A popular one is opening a new company in the chosen country — it is not always possible to quickly register a company from scratch, and difficulties can greatly delay the procedure. It is also worth mentioning opening a bank account, which sometimes takes many months.</p>
-              <p className="text-[14px] text-[#9A9590] leading-[1.85]">By buying a business abroad, you save time that you can profitably spend on implementing various business processes. A ready-made company with history is often preferred by banks and opens doors that fresh registrations cannot.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">The process of entering the international market is always accompanied by dealing with all sorts of legal issues. A popular one is opening a new company in the chosen country. The thing is that it is not always possible to quickly register a company "from scratch," and the difficulties that arise can greatly delay the procedure. It is also worth mentioning the opening of a new bank account since this process sometimes takes many months.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">By deciding to buy a business abroad, the entrepreneur avoids many problems and difficulties common to the creation of a new legal entity. A ready-made company has already gone through all the stages of registration, has received the necessary licenses for work in a particular field, and so on.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85]">By buying a business abroad, you save time that you can profitably spend on the implementation of various business processes.</p>
             </div>
             <div className="md:col-span-5">
               <div className="bg-[#080808] border border-white/[0.06] p-7 group relative overflow-hidden">
                 <ScanSweep />
                 <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Key Advantage</span>
                 <p className="text-[14px] text-[#F0EBE0] font-medium mb-3">Start Operating Immediately</p>
-                <p className="text-[13px] text-[#9A9590] leading-relaxed">If you decide to buy a business abroad with no liabilities and some reputation in the market, contact us for the purchase and sale transaction and subsequent re-registration. We will do everything necessary so you can start your business quickly.</p>
+                <p className="text-[13px] text-[#9A9590] leading-relaxed">If you decide to buy a business abroad with no liabilities and some reputation in the market, contact us for the purchase and sale transaction and the subsequent re-registration of the company. We will do everything necessary so that you can start your business quickly and make a profit from the activity of your company.</p>
               </div>
             </div>
           </div>
@@ -129,17 +130,16 @@ const BuyBusinessAbroadPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Benefits by Jurisdiction</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What Benefits Can You Get</h2>
-          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Depending on the chosen jurisdiction, an entrepreneur can expect specific advantages. In particular, various countries can offer:</p>
+          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Depending on the chosen jurisdiction, an entrepreneur can expect certain advantages in the process of doing business. In particular, various countries around the world can offer the businessman:</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-2 gap-px">
             <div className="bg-[#111111] p-8 group relative overflow-hidden">
               <CornerAccent /><ScanSweep />
-              <h3 className="text-[14px] font-semibold text-[#F0EBE0] mb-4">Offshore / Non-EU Jurisdictions</h3>
+              <h3 className="text-[14px] font-semibold text-[#F0EBE0] mb-4">Offshore / Non-EU Jurisdictions — Benefits</h3>
               <div className="space-y-3">
                 {[
-                  "Loyal taxation and tax benefits if certain legal requirements are met",
-                  "Confidentiality of business ownership — closed registries, non-disclosure",
-                  "Remote management tools with minimum accounting and audit requirements",
-                  "Non-resident benefits — tax exemption if business is not conducted locally",
+                  "Loyal taxation and tax benefits if certain legal requirements are met. One of the latter is that the entrepreneur will not conduct business in the country of incorporation of the firm.",
+                  "Confidentiality of business ownership. For example, closed registries, non-disclosure of information by employees of the firm, and so on.",
+                  "Various tools for the remote management of business processes, as well as minimum requirements for accounting records, audits, and so on.",
                 ].map((t, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-[#444CE7] mt-1.5 flex-shrink-0" />
@@ -150,14 +150,14 @@ const BuyBusinessAbroadPage = () => {
             </div>
             <div className="bg-[#111111] p-8 group relative overflow-hidden">
               <CornerAccent /><ScanSweep />
-              <h3 className="text-[14px] font-semibold text-[#F0EBE0] mb-4">European Union (EU) Jurisdictions</h3>
+              <h3 className="text-[14px] font-semibold text-[#F0EBE0] mb-4">European Union (EU) Jurisdictions — Benefits</h3>
               <div className="space-y-3">
                 {[
-                  "Reliability, protection of private property",
-                  "Stability in political and economic spheres",
-                  "Relatively low level of corruption",
-                  "Absence of government pressure on business",
-                  "Access to a single currency — easier EU market entry",
+                  "Reliability, protection of private property.",
+                  "Stability in the political and economic spheres.",
+                  "Relatively low level of corruption.",
+                  "Absence of pressure on business from the government and regulatory bodies.",
+                  "Availability of a single currency, which makes it easier for businessmen to enter the EU market.",
                 ].map((t, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-[#444CE7] mt-1.5 flex-shrink-0" />
@@ -195,8 +195,8 @@ const BuyBusinessAbroadPage = () => {
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Requirements After Re-registration</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
-              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">Please note that after re-registering ownership, the company can begin conducting business only under certain conditions and legal requirements. This primarily concerns the minimum number of directors and shareholders, the presence of an accountant, the lease of an office in the territory of the chosen country, and more.</p>
-              <p className="text-[14px] text-[#9A9590] leading-[1.85]">In case of non-compliance, regulatory authorities may suspend the company's activities and, in some cases, deprive it of its license or start a liquidation process. We advise on all ongoing compliance requirements as part of our service.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">Please note that after re-registering ownership, the company can begin conducting business only under certain conditions and legal requirements. First of all, it concerns the minimum number of directors and shareholders, the presence of an accountant, the lease of an office in the territory of the chosen country, and more.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85]">In case of non-compliance with such requirements, regulatory authorities may suspend the activities of the company and, in some cases, even deprive it of its license or start the process of liquidation. To avoid this, seek professional legal advice from our experts.</p>
             </div>
             <div className="md:col-span-5">
               <div className="bg-[#080808] border border-white/[0.06] p-7 group relative overflow-hidden">

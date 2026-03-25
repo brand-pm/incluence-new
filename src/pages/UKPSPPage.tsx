@@ -62,10 +62,10 @@ const FACTS_STRIP = [
 ];
 
 const FAQS = [
-  { q: "What are the requirements for obtaining a payment system license in the UK?", a: "You must prepare a business plan, AML policy, and other documents, register a company, and hire specialists for mandatory positions (director, AML officer, etc.). A bank account and contributed authorized capital are integral elements for obtaining the license." },
-  { q: "What is the best payment system in the UK?", a: "When choosing a payment system, consider its license, service coverage regions, and acceptable payment methods. Also ensure the payment system's requirements match your company's characteristics (country of registration, residency of participants, etc.). Tariffs offered by the payment system also play an important role." },
-  { q: "How long is a payment system license valid in the UK?", a: "The license is indefinite in case of compliance with all company maintenance conditions. However, the license can be canceled in cases of prolonged inactivity and/or violations of operational rules." },
-  { q: "What is the cost of obtaining a payment system license in the UK?", a: "The final cost depends on various factors (region of operation, planned turnover, etc.). Contact our specialists to find out the exact cost of obtaining a payment system license in the UK." },
+  { q: "What are the requirements for obtaining a payment system license in the UK?", a: "In order to obtain a payment system license in the UK, it is necessary to prepare a business plan, AML policy and other documents, register a company, hire specialists for mandatory positions (director, AML officer, etc.). Integral elements for obtaining a license are a bank account and contributed authorized capital." },
+  { q: "What is the best payment system in the UK?", a: "When choosing a payment system, it is necessary to take into account its license, service coverage regions, and acceptable payment methods. Also, it is necessary to take into account the compliance of the requirements of the payment system with the characteristics of the company (country of registration, residence of its participants, etc.). The tariffs offered by the payment system also play an important role." },
+  { q: "How long is a payment system license valid in the UK?", a: "The license is termless in case of compliance with all the conditions of the company's maintenance. But the license can be canceled in case of a long absence of activity and / or violation of the rules of functioning." },
+  { q: "What is the cost of obtaining a payment system license in the UK?", a: "The final cost of obtaining a license for a payment system in the UK is influenced by various factors (region of operation of the future payment system, planned turnover, etc.). You can find out the exact cost of obtaining a payment system license in the UK by contacting our specialists." },
 ];
 
 const UKMap = () => (
@@ -152,7 +152,7 @@ const UKPSPPage = () => {
             <span className="bg-gradient-to-r from-[#444CE7] to-[#6E7BF7] bg-clip-text text-transparent">UK</span> PSP License<br />AEMI Authorization
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
-            In the UK, the licensing of payment systems is carried out by the FCA. By obtaining an AEMI license, the company will be able to work in any country, open IBAN accounts, obtain the status of a member of SWIFT, SEPA, and so on. The FCA-regulated license is the most globally recognized payment institution authorization available.
+            In the UK, the licensing of payment systems (PS) is carried out by certain regulatory bodies, in particular, the FCA. They can provide business owners with a special license — AEMI. Having received such permission, the company will be able to work in any country, open IBAN accounts, obtain the status of a member of SWIFT, SEPA, and so on.
           </p>
           <div className="flex items-center gap-4">
             <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">Get a Free Quote →</Link>

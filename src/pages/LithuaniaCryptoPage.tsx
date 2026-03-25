@@ -20,26 +20,26 @@ const ScanSweep = () => (<div className="absolute inset-0 overflow-hidden pointe
 const CornerAccent = () => (<div className="absolute top-0 right-0 pointer-events-none"><div className="w-[1px] h-4 bg-[#444CE7]/30 absolute top-0 right-0" /><div className="h-[1px] w-4 bg-[#444CE7]/30 absolute top-0 right-0" /></div>);
 
 const STEPS = [
-  { num: "01", title: "UAB Incorporation", body: "Register a Lithuanian Private Limited Company (UAB). Minimum share capital €2,500 for incorporation — separate from the €125,000 regulatory capital under MiCA." },
-  { num: "02", title: "AML Officer Appointment", body: "Appoint a qualified local MLRO (AML Officer) — this is the most critical step. FCIS checks experience, certifications (ACAMS), and genuine employment. Nominal appointments are rejected." },
-  { num: "03", title: "AML/KYC Framework", body: "Develop AML/CFT procedures aligned with EU 5th/6th AML Directives. Implement transaction monitoring software and sanctions screening — FCIS expects technical proof, not just written policies." },
-  { num: "04", title: "Capital & Banking", body: "Open corporate account at a Lithuanian bank or EU EMI. Deposit regulatory capital. Banking is challenging — we facilitate onboarding through our fintech banking network." },
-  { num: "05", title: "Business Plan & Documentation", body: "Professional, data-driven business plan covering services, target markets, financial projections, IT systems, and risk management. Generic plans risk rejection or delay." },
-  { num: "06", title: "FCIS Application", body: "Submit complete application to the Financial Crime Investigation Service. Regulators frequently request clarifications — professional, prompt responses are critical to approval speed." },
-  { num: "07", title: "License Issued", body: "FCIS approves and issues the VASP license. Company registered in the Lithuanian VASP register. MiCA transition roadmap and ongoing compliance support included." },
+  { num: "01", title: "Company Formation (UAB Incorporation)", body: "Incorporation of a Private Limited Liability Company (UAB). Minimum share capital: EUR 2,500 for incorporation (not the regulatory capital)." },
+  { num: "02", title: "Corporate Documentation", body: "Drafting company statutes, shareholder agreements, and director appointments. Preparation of AML/KYC internal rules and policies." },
+  { num: "03", title: "AML/KYC Framework Implementation", body: "Appointing a qualified MLRO. Demonstrating integration of compliance technology (KYC providers, transaction monitoring)." },
+  { num: "04", title: "Application Submission", body: "Filing with the Financial Crime Investigation Service (FCIS) and other competent authorities. Submission includes all corporate documents, AML policies, MLRO CV, financial plan." },
+  { num: "05", title: "Regulatory Review & Q&A", body: "Regulators frequently request clarifications. Companies must respond professionally and promptly; poor-quality responses often delay approvals." },
+  { num: "06", title: "Bank Account Opening", body: "Opening corporate and operational accounts in Lithuania or within the EU. Banking is often the most challenging part — Lithuanian banks are selective, but EMIs and specialized fintech banks across the EU can be viable alternatives." },
+  { num: "07", title: "License Approval & Ongoing Compliance", body: "Once approved, the company is entered into the Lithuanian Register of Legal Entities as a licensed VASP. Ongoing duties: Regular AML reporting, audits, updating policies, and maintaining local presence." },
 ];
 
 const REQS = [
-  "Lithuanian UAB company with registered office address",
-  "Minimum regulatory capital €125,000 (MiCA standard for exchange operators)",
-  "Local MLRO (AML Officer) with documented FCIS-facing experience — mandatory",
-  "AML/KYC policy including Customer Due Diligence, EDD, and sanctions screening",
-  "Transaction monitoring system — technical implementation required (not just policy)",
-  "Bank or EMI account at Lithuania-approved financial institution",
-  "Passport copies, CVs, apostilled criminal record certificates for all principals",
-  "Fit & Proper documentation — no criminal record, no regulatory sanctions",
-  "Professional, detailed business plan with 3–5 year financial projections",
-  "IT infrastructure documentation including cybersecurity measures",
+  "Minimum share capital EUR 125,000 for exchange operators (MiCA standard); historically EUR 50,000–75,000 for wallet operators",
+  "AML/KYC policies including Customer Due Diligence (CDD) and Enhanced Due Diligence (EDD) for high-risk clients",
+  "Transaction monitoring systems capable of detecting suspicious activity in real time",
+  "Sanctions screening against EU and UN lists",
+  "Resident AML Officer (MLRO) appointed with documented experience and certifications (e.g., ACAMS)",
+  "Registered physical or virtual office in Lithuania — regulators increasingly prefer substance",
+  "Fit & Proper checks for all significant shareholders and executives — no criminal record, no regulatory sanctions",
+  "Apostilled police clearances and bank reference letters for credibility",
+  "Detailed business plan including service portfolio, target markets, financial projections (3–5 years), and risk management",
+  "IT systems, security, and outsourcing arrangements documented",
   "Source of funds and wealth documentation for all shareholders",
 ];
 
@@ -71,16 +71,16 @@ const CONS = [
 ];
 
 const FAQS = [
-  { q: "What is the minimum share capital for a Lithuanian VASP?", a: "UAB formation requires €2,500 minimum share capital. However, under MiCA (effective 2025), exchange operators need €125,000 and custodial wallet operators need €150,000 in regulatory capital deposited separately." },
-  { q: "How long does it take to get a Lithuania crypto license?", a: "Total timeline is 1–3 months from company formation to license issuance. FCIS review after submission is typically 4–6 weeks. Speed depends heavily on document quality and MLRO appointment." },
-  { q: "Can a non-resident obtain a Lithuanian VASP license?", a: "Yes — non-residents can fully own and operate a Lithuanian UAB. However, a local MLRO (AML Officer) with genuine FCIS-facing experience and a registered office in Lithuania are mandatory requirements." },
-  { q: "What are the main license types in Lithuania?", a: "Two types: Virtual Currency Exchange Operator License (for fiat-crypto, crypto-crypto, OTC, payment gateways) and Depository Wallet Operator License (for custodial services). Most companies obtain both simultaneously." },
-  { q: "Is a physical office in Lithuania required?", a: "A registered legal address is required but a physical office with staff is not mandatory. However, the MLRO must be genuinely employed (not nominal) and available for FCIS communication." },
-  { q: "What is the role of the AML Officer (MLRO)?", a: "The MLRO is responsible for AML/CFT compliance, suspicious transaction reporting, staff training, and direct communication with FCIS. Must have documented experience, ideally ACAMS certification. FCIS rejects nominal or unqualified appointments." },
-  { q: "How does MiCA affect Lithuanian VASP licenses?", a: "Lithuanian VASPs will transition to CASP (Crypto Asset Service Provider) authorization under MiCA. The Lithuanian framework already maps closely to MiCA categories. Capital requirements increase to €125K for exchanges, €150K for custody." },
-  { q: "What are the ongoing compliance requirements?", a: "Transaction monitoring, suspicious activity reports to FCIS, annual AML policy reviews, staff training, record-keeping for 8 years, regulatory reporting, and adaptation to MiCA updates as they are implemented." },
-  { q: "Can a Lithuanian license be used across the EU?", a: "Currently, Lithuanian VASP licenses are recognized nationally. Under MiCA (once passporting activates), a Lithuanian CASP license will cover all 27 EU member states — making early licensing strategically valuable." },
-  { q: "What services does the license cover?", a: "Exchange license: fiat-to-crypto, crypto-to-crypto, OTC trading, payment gateway services. Wallet license: custodial storage, key management, institutional custody. Both together cover the full spectrum of crypto services." },
+  { q: "What is the minimum share capital required for a crypto license in Lithuania?", a: "The minimum share capital is €2,500, which must be fully paid before registration. No special capital requirements apply beyond that for licensing." },
+  { q: "How long does it take to obtain a crypto exchange license in Lithuania?", a: "The typical timeframe is 4 to 6 weeks, depending on document readiness, UBO background checks, and authority workload." },
+  { q: "Can a non-resident obtain a crypto license in Lithuania?", a: "Yes, non-residents can fully own and operate a Lithuanian crypto company. However, a local AML Officer and company address are required." },
+  { q: "What are the main types of crypto licenses in Lithuania?", a: "There are two licenses: Crypto Exchange License — for converting fiat to crypto and vice versa. Crypto Wallet/Custodian License — for holding or managing crypto assets on behalf of clients." },
+  { q: "Is a physical office required to get a crypto license in Lithuania?", a: "While a registered local address is mandatory, a staffed physical office is not required unless dictated by the business model or substance requirements." },
+  { q: "What is the role of an AML Officer in Lithuania?", a: "The AML Officer (MLRO) ensures internal compliance with AML/CFT regulations, reports to FIU, and acts as the point of contact for authorities." },
+  { q: "How does MiCA regulation affect Lithuanian crypto licenses?", a: "MiCA will harmonize crypto regulation across the EU. Current Lithuanian licenses may need to transition into MiCA-compliant VASP authorizations by 2026." },
+  { q: "Are there any ongoing compliance requirements for crypto companies in Lithuania?", a: "Yes — including transaction monitoring, regular AML training, suspicious activity reporting, and annual compliance reviews." },
+  { q: "Can a Lithuanian crypto license be used to operate across the EU?", a: "Yes. Under MiCA and EU passporting principles, compliant Lithuanian VASPs will be able to operate in all EEA countries once MiCA takes effect." },
+  { q: "What services does a crypto exchange license in Lithuania cover?", a: "It allows for buying/selling crypto for fiat, executing client orders, and potentially offering crypto-to-crypto conversions depending on business scope." },
 ];
 
 const RELATED = [
@@ -140,9 +140,9 @@ const LithuaniaCryptoPage = () => {
             <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">EU · FCIS · MiCA Ready</span>
           </div>
           <h1 className="text-[clamp(36px,5vw,64px)] font-light text-[#F0EBE0] leading-[1.08] mb-6">
-            <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Lithuania</span> VASP License
+            <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Lithuania</span> Crypto Exchange License with Incluence Expert Support
           </h1>
-          <p className="text-[15px] text-[#9A9590] leading-[1.85] mb-10">The fastest EU VASP jurisdiction — 1–3 months from company formation to licensed crypto exchange. Two license types: Exchange Operator and Depository Wallet. MiCA-aligned framework with full EU passporting rights under the new regulation.</p>
+          <p className="text-[15px] text-[#9A9590] leading-[1.85] mb-10">A crypto exchange license in Lithuania grants companies the legal status to provide a wide range of Virtual Asset Service Provider (VASP) activities under the supervision of Lithuanian regulators. This license is highly valued within the European Union, particularly as Lithuania is positioning itself as one of the leading crypto-friendly jurisdictions in the region.</p>
           <div className="flex gap-4 flex-wrap">
             <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
             <a href="#requirements" className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all inline-block">View Requirements</a>
@@ -171,18 +171,18 @@ const LithuaniaCryptoPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About Lithuania VASP</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">The Fastest MiCA-Ready EU VASP Jurisdiction</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Understanding the Crypto Exchange License in Lithuania</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>Lithuania has become the most popular EU jurisdiction for cryptocurrency service providers — ranking among Europe's top fintech hubs. The Financial Crime Investigation Service (FCIS) oversees VASP licensing, and Lithuania's framework already closely aligns with the EU's MiCA regulation that took full effect in 2025.</p>
-              <p>Two license types are available: the Virtual Currency Exchange Operator License for fiat-crypto exchange, crypto-to-crypto trading, OTC desks and payment gateways; and the Depository Wallet Operator License for custodial wallet services and institutional custody. Most companies obtain both simultaneously for full operational coverage.</p>
-              <p>Under MiCA, Lithuanian VASPs will transition to CASP (Crypto Asset Service Provider) authorization — with EU passporting rights across all 27 member states. Companies licensed in Lithuania today are the best positioned for this transition.</p>
+              <p>A crypto exchange license in Lithuania grants companies the legal status to provide a wide range of Virtual Asset Service Provider (VASP) activities under the supervision of Lithuanian regulators. Licensed activities include: Fiat-to-Crypto Exchange, Crypto-to-Crypto Exchange, Custodial Wallet Services, and Transaction Mediation.</p>
+              <p>Two main institutions oversee crypto activities in Lithuania: the Financial Crimes Investigation Service (FCIS) — the primary authority for supervising VASPs, and the Bank of Lithuania — which plays a key role in shaping financial market policies, payment systems, and the integration of crypto with traditional financial services.</p>
+              <p>Choosing Lithuania for your crypto license comes with several advantages: EU/EEA Market Access, Regulatory Certainty with a transparent framework aligned with EU directives, Investor and Client Trust, and a Strong Fintech Ecosystem — Lithuania ranks among Europe's top fintech hubs.</p>
             </div>
           </div>
           <div className="lg:col-span-5 space-y-3">
             {[
-              ["1–3 Month Process", "The fastest major EU VASP license. With proper document preparation, FCIS can issue the license within 4–6 weeks of application submission."],
-              ["Two License Types", "Exchange Operator + Depository Wallet — obtain both simultaneously for complete crypto service coverage including trading, OTC, and custody."],
-              ["MiCA Transition Ready", "Lithuanian VASP framework directly maps to MiCA's CASP categories. Early licensees gain EU passporting advantage when MiCA passporting activates."],
+              ["EU/EEA Market Access", "Operate across the entire EU single market after MiCA passporting. Regulatory certainty with a transparent framework aligned with EU directives."],
+              ["Two License Types", "Virtual Currency Exchange Operator License for fiat-crypto, crypto-crypto, OTC, payment gateways. Depository Wallet Operator License for custodial services. Most companies obtain both."],
+              ["Strong Fintech Ecosystem", "Lithuania ranks among Europe's top fintech hubs, providing a collaborative environment for startups. Investor and client trust from a licensed company signals compliance and credibility."],
             ].map(([t, b]) => (
               <div key={t} className="bg-[#080808] border border-white/[0.06] p-5 group relative overflow-hidden">
                 <CornerAccent /><ScanSweep />

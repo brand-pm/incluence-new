@@ -33,44 +33,40 @@ const ScanSweep = () => (
 );
 
 const JURISDICTIONS = [
-  { reg: "CySEC", name: "Cyprus", badge: "EU Regulated", desc: "If a Forex broker is planning to expand activities in the EU, Cyprus is the most suitable jurisdiction. The CySEC license allows brokers to legally operate and take customer deposits across all EU member states.", timeline: "6–9 months", href: "/cyprus-forex-license" },
-  { reg: "MFSA", name: "Malta", badge: "EU Regulated", desc: "Obtaining a forex license in Malta takes 5–7 months. Requires company registration, policies, technical documentation, and authorized capital deposit.", timeline: "5–7 months", href: "/forex-broker-licence-in-malta" },
-  { reg: "VFSC", name: "Vanuatu", badge: "Offshore", desc: "The VFSC has established the most favorable conditions for licensing companies. A Vanuatu Forex license can fall into one of three classes, each providing different privileges and advantages.", timeline: "2–3 months", href: "/forex-broker-licence-in-vanuatu" },
-  { reg: "SEC", name: "Montenegro", badge: "Emerging", desc: "A license provides a Forex broker with access to professional stock markets and gives the legal right to conduct trading operations. A guarantee of reliability for traders and investors.", timeline: "4–7 months", href: "/forex-broker-licence-in-montenegro" },
-  { reg: "FSC", name: "Mauritius", badge: "Offshore", desc: "Companies registered in Mauritius can apply for a license to operate legally with options, securities, and futures. The FSC regulates the non-banking financial services sector.", timeline: "3–6 months", href: "/forex-broker-licence-in-mauritius" },
+  { reg: "CySEC", name: "Cyprus", badge: "EU Regulated", desc: "If a Forex broker is planning to expand activities in the European Union, Cyprus is usually chosen for this purpose. It is one of the most suitable jurisdictions because it is possible to obtain the Cyprus Securities and Exchange Commission (CySEC) license there. It allows brokers to legally operate, take customer deposits, and perform other legal actions in the territory of any EU member state.", timeline: "6–9 months", href: "/cyprus-forex-license" },
+  { reg: "MFSA", name: "Malta", badge: "EU Regulated", desc: "In order to obtain a forex license in Malta, it is necessary to register a company, prepare policies, technical documentation and other documents. After opening an account and depositing the authorized capital, submit an application to the regulator. Obtaining a forex license in Malta can take 5-7 months.", timeline: "5–7 months", href: "/forex-broker-licence-in-malta" },
+  { reg: "VFSC", name: "Vanuatu", badge: "Offshore", desc: "Forex licensing requires the applicant to comply with certain requirements and conditions and submit a set of documents. Business owners choose Vanuatu for obtaining such a license as the Financial Services Commission (VFSC) has established the most favorable conditions for licensing companies in this jurisdiction. The regulatory authority may grant a license of one of three classes, each of which provides business owners with certain privileges and advantages.", timeline: "2–3 months", href: "/forex-broker-licence-in-vanuatu" },
+  { reg: "SEC", name: "Montenegro", badge: "Emerging", desc: "One of the important factors for clients who choose a Forex broker is the availability of an appropriate license — official permission from the financial regulator (or a special financial commission). A license provides a Forex broker with access to professional stock markets and gives the legal right to conduct trading operations. For traders and investors, a license is a guarantee of reliability and a good reputation of a broker.", timeline: "4–7 months", href: "/forex-broker-licence-in-montenegro" },
+  { reg: "FSC", name: "Mauritius", badge: "Offshore", desc: "If you decide to do business in the financial or capital markets, you must have a license to operate even in offshore jurisdictions. Companies registered in Mauritius can apply for a license that allows them to operate legally with options, securities, and futures. It is also the document that authorizes companies to trade in foreign exchange markets.", timeline: "3–6 months", href: "/forex-broker-licence-in-mauritius" },
   { reg: "FSAS", name: "Seychelles", badge: "Offshore", desc: "Relatively low financial costs for registration. Quick processing of license applications — around 3 months. Required share capital 50,000 USD. Corporate tax rate only 1.5%.", timeline: "2–3 months", href: "/forex-license-seychelles" },
 ];
 
 const STEPS = [
-  { num: "01", title: "Jurisdiction Selection", body: "We analyze your target client base, trading instruments, capital available, and desired market access to recommend the optimal jurisdiction." },
-  { num: "02", title: "Company Formation", body: "Incorporate the legal entity with correct structure — directors, shareholders, registered office, and compliance officers as required by local law." },
-  { num: "03", title: "Bank Account & Capital", body: "Open a corporate account at a regulator-approved bank. Deposit the required authorized capital (minimum €100K for EU, lower for offshore)." },
-  { num: "04", title: "Documentation Package", body: "Prepare the full package: business plan, organizational structure, AML/KYC policies, internal procedures, and personnel qualification proofs." },
-  { num: "05", title: "Regulator Submission", body: "Submit application to the financial regulator. We manage all follow-up queries, additional document requests, and compliance correspondence." },
-  { num: "06", title: "License Issued", body: "Regulator approves the license. Full corporate package delivered with ongoing compliance support and annual reporting assistance." },
+  { num: "01", title: "Document Preparation", body: "Preparation of a package of documents for the registration of a legal entity." },
+  { num: "02", title: "Company Establishment", body: "Establishment of a Forex company to provide brokerage services." },
+  { num: "03", title: "Bank Accounts & Capital", body: "Opening bank accounts to pay the authorized capital and carry out financial transfers." },
+  { num: "04", title: "Licensing Application", body: "Applying for Forex licensing and support of this process." },
+  { num: "05", title: "Regulator Review", body: "As a rule, it takes 3-4 months to get a Forex broker license, but in some cases, the procedure may last up to 9 months or even longer." },
+  { num: "06", title: "License Issued", body: "Regulator approves the license. Just submit an application, and we will take care of the licensing process, reducing your involvement in the procedure to a minimum." },
 ];
 
 const REQS = [
-  "Minimum authorized capital — from $15,000 (offshore) to €730,000 (EU full)",
-  "Qualified directors and compliance officers with financial sector experience",
-  "AML/KYC officer appointed with relevant qualifications",
-  "Registered office in the licensing jurisdiction",
-  "Business plan with detailed description of trading activities and instruments",
-  "AML/KYC policy compliant with FATF and local regulations",
-  "Internal control and risk management procedures",
-  "Passport copies and CVs for all directors and shareholders",
-  "Source of funds documentation for all principals",
-  "Organizational structure chart with roles and responsibilities",
-  "Payment of state licensing fees before application submission",
+  "The size of the authorized capital of the company that receives a license must be no less than 100 thousand USD",
+  "Registration of a Forex company must imply the presence of certain employees (directors, accountants, AML officers) in the number required in accordance with the legislative acts of the specific country",
+  "The license for investment activity implies payment of all state fees. This must be done before applying for licensing",
+  "A Memorandum of Association or a resolution",
+  "Articles of Association of the company",
+  "Business plan",
+  "A description of the organizational structure",
+  "Proof of paid-up authorized capital",
+  "A list of shareholders and their shares in the company",
 ];
 
 const FAQS = [
-  { q: "What is a Forex broker license and why is it needed?", a: "A forex broker license is official permission from a financial regulator to operate as an investment company — accepting client deposits, executing trades and providing financial services. Without it, operating as a broker is illegal in most jurisdictions and exposes you to serious penalties." },
-  { q: "Which jurisdictions do you offer for forex licensing?", a: "Cyprus (CySEC), Malta (MFSA), Vanuatu (VFSC), Montenegro (SEC), Mauritius (FSC), and Seychelles (FSA). We recommend the best fit based on your target client markets, capital available, and trading instruments." },
-  { q: "How long does it take to obtain a forex license?", a: "Timeline varies significantly: offshore licenses (Vanuatu, Seychelles) take 2–3 months; EU licenses (CySEC, MFSA) take 6–9 months. We provide realistic timelines upfront based on your specific situation." },
-  { q: "What is the minimum capital required for a forex license?", a: "Capital requirements range from $15,000–$50,000 for offshore jurisdictions up to €730,000 for a full EU MiFID II license. Most brokers start with Cyprus CySEC (€125,000 minimum) or Vanuatu ($50,000 minimum)." },
-  { q: "What documents are required to apply for a forex license?", a: "Company statutory documents, business plan, AML/KYC policy, organizational structure chart, CVs and passport copies of directors and shareholders, source of funds documentation, and technical documentation." },
-  { q: "Can a foreign company obtain a forex license?", a: "Yes. Most jurisdictions allow non-residents to apply. In some cases local directors or a registered office are required — we arrange both as part of our full service." },
+  { q: "What are the requirements for obtaining a Forex license?", a: "In order to obtain a forex license, it is necessary to register a company, prepare policies, technical documentation and other documents. After opening an account and depositing the authorized capital it is necessary to submit an application to the regulator. After obtaining a license, it is necessary to demonstrate the activity of the company in order to avoid its cancellation." },
+  { q: "In which countries do we help with obtaining an investment license?", a: "Our lawyers have many years' experience in obtaining investment licenses. Among the most popular countries for obtaining an investment license are Cyprus, Lithuania, Malta, Montenegro, Vanuatu, Mauritius, Labuan, Seychelles." },
+  { q: "What is the cost of an investment license?", a: "The final cost of obtaining an investment license is influenced by various factors (the country of registration of the company, the exact list of future services, the region of operation, etc.). You can find out the exact cost of obtaining an investment license by contacting our specialists." },
+  { q: "What documents are required to obtain an investment license?", a: "In order to obtain an investment license, the following documents are required: statutory documents of the company, business plan, AML policy, rules for using the resource, confirmation of the identity and experience of company members, technical documentation." },
 ];
 
 const ForexHubPage = () => {
@@ -134,7 +130,7 @@ const ForexHubPage = () => {
             {" "}Broker License
           </h1>
           <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[520px] mb-8">
-            A Forex broker license enables your company to legally operate in currency and investment markets, accept client deposits, and provide trading services across multiple jurisdictions. We handle the full licensing process — from jurisdiction selection to regulator approval.
+            The incluence company provides the following types of services in such areas as international tax planning, asset protection, registration of foreign companies and their maintenance, etc.
           </p>
           <div className="flex gap-4">
             <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Consultation →</Link>
@@ -196,7 +192,7 @@ const ForexHubPage = () => {
         <div className="max-w-screen-xl mx-auto py-[72px] px-12">
           <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— About Forex Licensing</span>
           <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-4">What a Forex License Enables</h2>
-          <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[600px] mb-12">In most jurisdictions, Forex broker activities are classified as investment services and require official licensing from financial regulators.</p>
+          <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[600px] mb-12">In many countries worldwide, the activities of Forex brokers are qualified as "investment services." In this regard, Forex companies must obtain a special license, which is issued by relevant regulatory authorities. In the EU, licenses are issued by different authorities in strict compliance with the MIFID (The Markets in Financial Instruments Directive).</p>
 
           <div className="grid grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             {[
@@ -244,7 +240,7 @@ const ForexHubPage = () => {
           <div className="col-span-7">
             <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— Requirements</span>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-4">Minimum Requirements</h2>
-            <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-8">Requirements vary by jurisdiction but share a common baseline. EU licenses require stricter compliance; offshore licenses are more accessible. We prepare everything.</p>
+            <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-8">An investment company whose activities are related to the Forex market must comply with certain requirements. They vary depending on the country where you wish to obtain the Forex license.</p>
             <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
               {REQS.map((req, i) => (
                 <div key={i} className="flex items-start gap-3">

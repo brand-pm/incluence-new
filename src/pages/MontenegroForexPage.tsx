@@ -40,10 +40,10 @@ const REQS = [
 const PROS = ["EU candidate country — growing credibility with financial partners", "Straightforward regulatory process — predictable timeline", "Lower cost vs full EU licensing", "Recognized by growing number of payment processors", "Good stepping stone toward CySEC or MFSA license"];
 const CONS = ["Not yet an EU member — limited passporting rights", "Less recognized than CySEC or MFSA globally", "Some institutional partners require EU-regulated counterparty", "Developing regulatory framework — ongoing changes"];
 const FAQS = [
-  { q: "Is Montenegro an EU member state?", a: "Montenegro is an EU candidate country — actively negotiating accession. Its regulatory framework is increasingly aligned with EU standards, giving its licenses growing credibility among international financial partners." },
-  { q: "How long does a Montenegro forex license take?", a: "Application preparation takes 1–2 months and SEC review typically 3–5 months, making the total timeline 4–7 months — one of the most predictable in the region." },
-  { q: "Can I use a Montenegro license as a stepping stone to EU licensing?", a: "Yes. Many brokers start with Montenegro to establish operations and build a track record, then upgrade to a full CySEC or MFSA license for EU MiFID II passporting." },
-  { q: "What is the minimum capital for a Montenegro forex license?", a: "Capital requirements depend on the specific license type and investment services offered. Contact us for a detailed breakdown tailored to your business model." },
+  { q: "What are the requirements for obtaining a Forex license in Montenegro?", a: "In order to obtain a forex license in Montenegro, it is necessary to register a company, prepare policies, technical documentation and other documents. After opening an account and depositing the authorized capital, submit an application to the regulator. After obtaining a license, it is necessary to show the activity of the company in order to avoid its cancellation." },
+  { q: "What documents are required to obtain a Forex license in Montenegro?", a: "In order to obtain a forex license in Montenegro, the following documents are required: the company's statutory documents, business plan, AML policy, rules for using the resource, confirmation of the identity and experience of the company's participants, technical documentation." },
+  { q: "How long will it take to get a Forex license in Montenegro?", a: "The term for preparing an application for a forex license in Montenegro is 1-2 months, and the term for its consideration by the regulator is 3-5 months." },
+  { q: "How much does an investment license in Montenegro cost?", a: "The final cost of obtaining an investment license in Montenegro is depends on the various factors (the exact list of future services, the region of work, etc.). You can find out the exact cost of obtaining an investment license in Montenegro by contacting our specialists." },
 ];
 const RELATED = [
   { href: "/cyprus-forex-license", reg: "CySEC", name: "Cyprus", desc: "EU MiFID II passporting. 6–9 months, from €35,000." },
@@ -102,7 +102,7 @@ const MontenegroForexPage = () => {
           <div className="max-w-[600px]">
             <div className="flex items-center gap-3 mb-6"><span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Forex License</span><span className="text-[11px] text-[#5A5550] uppercase tracking-[0.12em]">Emerging · SEC Montenegro</span></div>
             <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1] mb-6"><span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Montenegro</span>{" "}Forex License</h1>
-            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">An investment broker license from Montenegro's Securities Exchange Commission. A competitive EU candidate country with a straightforward regulatory process, favorable conditions, and growing acceptance among international broker networks.</p>
+            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">One of the important factors for clients who choose a Forex broker is the availability of an appropriate license — official permission from the financial regulator (or a special financial commission). A license provides a Forex broker with access to professional stock markets and gives the legal right to conduct trading operations. For traders and investors, a license is a guarantee of reliability and a good reputation of a broker.</p>
             <div className="flex gap-4"><Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link><button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View Requirements</button></div>
           </div>
         </div>
@@ -121,9 +121,8 @@ const MontenegroForexPage = () => {
             <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— About Montenegro License</span>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">An Emerging Jurisdiction for Forex Brokers</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>Montenegro is an EU candidate country with a securities regulatory framework overseen by the Securities Exchange Commission (SEC). A forex broker license here provides a legitimate operational base with lower barriers than full EU licensing.</p>
-              <p>One of the key advantages of Montenegro licensing is the straightforward regulatory process compared to EU jurisdictions like Cyprus or Malta. Application preparation takes 1–2 months and SEC review 3–5 months, making the total timeline one of the most predictable in the region.</p>
-              <p>A Montenegro forex license is recognized by a growing number of payment providers and liquidity partners, making it a practical stepping stone for brokers planning to eventually upgrade to a full CySEC or MFSA license.</p>
+              <p>One of the important factors for clients who choose a Forex broker is the availability of an appropriate license — official permission from the financial regulator (or a special financial commission). A license provides a Forex broker with access to professional stock markets and gives the legal right to conduct trading operations.</p>
+              <p>For traders and investors, a license is a guarantee of reliability and a good reputation of a broker.</p>
             </div>
           </div>
           <div className="col-span-5 space-y-3">

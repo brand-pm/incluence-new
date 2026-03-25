@@ -11,10 +11,10 @@ const setMeta = (n: string, c: string) => { let el = document.querySelector(`met
 const setProp = (p: string, c: string) => { let el = document.querySelector(`meta[property="${p}"]`) as HTMLMetaElement; if (!el) { el = document.createElement("meta"); el.setAttribute("property", p); document.head.appendChild(el); } el.content = c; };
 
 const FAQS = [
-  { q: "How do I check the company registration in Seychelles?", a: "Statutory documents with a register mark serve as confirmation of registration. With registry access, the registration can be verified. However, the Seychelles registry is not available for viewing by ordinary visitors." },
+  { q: "How do I check the company registration in Seychelles?", a: "The statutory documents with a register mark are used as a confirmation of the registration of the company. Also, having access to the registry, you can check the fact of the registration. But the Seychelles registry is not available for viewing by ordinary visitors." },
   { q: "Is it possible to register an offshore in Seychelles online?", a: "Offshore in the Seychelles can be registered remotely with the assistance of a local representative." },
-  { q: "What documents are required to register a company in the Seychelles?", a: "Copies of passports and confirmation of the address of company participants, as well as reference letters for beneficiaries." },
-  { q: "Where to open an offshore bank account in the Seychelles?", a: "It is possible to open a local bank account for a Seychelles company under certain conditions. Some offshore banks also open accounts for such companies. Contact our specialists to select the most suitable bank for your company." },
+  { q: "What documents are required to register a company in the Seychelles?", a: "In order to register a company in the Seychelles, it is necessary to submit copies of passports and confirmation of the address of company participants, as well as reference letters for beneficiaries." },
+  { q: "Where to open an offshore bank account in the Seychelles?", a: "It is possible to open a local bank account for a Seychelles company subject to certain conditions. Also, some offshore banks open accounts for such companies. In order to select a bank for a certain company, you should contact the experts." },
 ];
 
 const SeychellesOffPage = () => {
@@ -73,7 +73,7 @@ const SeychellesOffPage = () => {
             Offshore Company<br />Formation in <span className="bg-gradient-to-r from-[#444CE7] to-[#6366f1] bg-clip-text text-transparent">Seychelles</span>
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
-            Seychelles is a favorable jurisdiction with minimal company maintenance costs. Entrepreneurs can set up an efficient business structure with reliable asset protection — this offshore zone is characterized by stability in political and administrative spheres. The government retains the policy of supporting offshore businesses.
+            Seychelles is a favorable jurisdiction with minimal company maintenance costs. Entrepreneurs can set up and develop an efficient business structure with reliable asset protection here as this offshore zone is characterized by stability in political and administrative spheres. The government retains the policy of supporting offshore businesses, which is an additional advantage for entrepreneurs.
           </p>
           <div className="flex gap-4">
             <Link to="/contact" className="btn-primary">Register Seychelles Company →</Link>
@@ -92,7 +92,7 @@ const SeychellesOffPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— Why Seychelles</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Seychelles: A Favorable Offshore Zone</h2>
-          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Seychelles offshore companies are available in several organizational and legal forms. You can both register a new company and buy a ready-made business to start operating in the shortest possible time.</p>
+          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Today, offshore companies in Seychelles are available to business people in several organizational and legal forms. In addition, one can both register a company in Seychelles and buy a ready-made business in Seychelles to start operating in the shortest possible time.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
             {[
               ["Minimal Maintenance Costs","Seychelles is characterized by minimal company maintenance costs — one of the most cost-efficient offshore jurisdictions globally."],

@@ -46,29 +46,31 @@ const ContractsPage = () => {
     "The contract must respect the legal rights and interests of all parties",
     "Provisions must not violate applicable laws and regulations",
     "All parties' obligations must be enforceable",
-    "The contract must be free of \"legal traps\" — ambiguous wording, undefined terms",
+    "The contract must be free of \"legal traps\" — ambiguous or vague wording, undefined terms, etc., which can jeopardize the deal and the planned economic project",
   ];
 
   const SECTIONS = [
     { title: "Contract Information", body: "Date and place of execution" },
     { title: "Preamble", body: "Full official details of all parties involved" },
-    { title: "Subject of the Contract", body: "Actions defining the transaction type and object" },
-    { title: "Goods/Services Details", body: "Name, category, specifications, quantities, units" },
-    { title: "Delivery Terms", body: "Transport type, location, deadlines and conditions" },
-    { title: "Price", body: "Total cost considering insurance, transport, storage costs" },
+    { title: "Subject of the Contract", body: "Actions defining the type of transaction (sale, purchase, services) and the object (goods, services, work)" },
+    { title: "Goods/Services Details", body: "Name, category, grade, specifications, processing technology, quantities, and units of measurement, including packaging type" },
+    { title: "Delivery Terms", body: "Transport type, location, deadlines, and other conditions" },
+    { title: "Price", body: "Total cost of goods/services (unit price included), considering insurance, transportation, storage, delivery costs, etc. Parties can choose the currency" },
     { title: "Payment Terms", body: "Methods of payment and settlement procedures" },
-    { title: "Guarantees", body: "Seller obligations, claims procedures, warranty duration" },
-    { title: "Acceptance Terms", body: "Procedures, conditions, deadlines for transfer" },
-    { title: "Packaging & Labeling", body: "Details on packaging, labeling and dimensions" },
-    { title: "Force Majeure", body: "Unforeseen circumstances and contract termination terms" },
-    { title: "Dispute Resolution", body: "Pre-trial and judicial dispute settlement procedures" },
+    { title: "Guarantees", body: "Seller obligations during the warranty period, procedures for claims, warranty duration" },
+    { title: "Acceptance Terms", body: "Procedures, conditions, deadlines, and required documentation for transferring goods/services" },
+    { title: "Packaging and Labeling", body: "Details on packaging, labeling, and dimensions" },
+    { title: "Force Majeure", body: "Description of unforeseen circumstances and the maximum period after which parties may terminate the contract due to impossibility of performance" },
+    { title: "Penalties", body: "Terms for imposing sanctions to protect parties' interests in case of non-performance" },
+    { title: "Dispute Resolution", body: "Procedures and conditions for settling pre-trial and judicial disputes" },
+    { title: "Party Details", body: "Complete information of each party, including legal address, location, and payment details" },
   ];
 
   const FAQS = [
     { q: "What is the cost of drafting international contracts?", a: "The final cost depends on the complexity of the contract and the number of hours required to prepare it. You can get an exact quote by contacting our specialists." },
-    { q: "How long does it take to draft an international contract?", a: "Preparation time depends on the type, scope, and number of clauses. Usually it takes several hours, but additional time may be needed to agree on terms between the parties." },
-    { q: "How to conclude an international contract?", a: "Before concluding a contract, define its subject, terms, and parties' interests. After preparing the draft, it should be agreed upon by all parties. Once all parties agree on the content, the contract can be signed." },
-    { q: "What experience do your lawyers have?", a: "Our lawyers have extensive practical experience in international law and contract work. We prepare contracts of any type and complexity, covering all aspects of protected contractual relationships." },
+    { q: "How long does it take to draft an international contract?", a: "The preparation time depends on the type, scope, and number of clauses, among other factors. Usually, it takes several hours, but additional time may be needed to agree on terms between the parties." },
+    { q: "How to conclude an international contract?", a: "Before concluding a contract, define its subject, terms, and parties' interests. After preparing the draft, it should be agreed upon. Once all parties agree on the content, the contract can be signed." },
+    { q: "What experience do your lawyers have?", a: "Our lawyers have extensive practical experience in international law and contract work. We can prepare contracts of any type and complexity while covering all aspects of protected contractual relationships." },
   ];
 
   return (
@@ -104,8 +106,8 @@ const ContractsPage = () => {
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">What Is an International Contract</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
-              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">An international contract is an agreement concluded between two or more parties located in different countries. Such agreements typically concern the sale or supply of goods, performance of work, provision of services, and similar transactions.</p>
-              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Drafting an international agreement requires a specific structure and proper formulation of each clause. Failure to do so can lead to problems with goods delivery, fund transfers, customs clearance, and more.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">An international contract is an agreement concluded between two or more parties located in different countries. Such agreements typically concern the sale or supply of goods, performance of work, provision of services, and similar transactions. An international contract is a fundamental document for any cross-border deal.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Drafting an international agreement requires a specific structure in the document and proper formulation of each clause. Failure to do so can lead to problems with goods delivery, fund transfers, customs clearance, and more.</p>
               <h3 className="text-[14px] font-semibold text-[#F0EBE0] mb-4">Key Principles</h3>
               <div className="space-y-3">
                 {PRINCIPLES.map((p, i) => (
@@ -121,7 +123,7 @@ const ContractsPage = () => {
                 {SCAN_SWEEP}
                 <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Our Approach</span>
                 <p className="text-[14px] text-[#F0EBE0] font-medium mb-3">Tailored to Your Transaction</p>
-                <p className="text-[13px] text-[#9A9590] leading-relaxed">We provide services tailored to the specifics of your transaction and legal requirements. Our lawyers have extensive practical experience in international law and contract work — we can prepare contracts of any type and complexity.</p>
+                <p className="text-[13px] text-[#9A9590] leading-relaxed">You can order the drafting of international contracts from our specialists. We provide services tailored to the specifics of your transaction and legal requirements. For detailed consultation, contact our company managers.</p>
                 <Link to="/contact" className="block w-full text-center bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors mt-6">Discuss the Project →</Link>
               </div>
             </div>
@@ -134,7 +136,7 @@ const ContractsPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Required Sections</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Structure of an International Contract</h2>
-          <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-relaxed">Every international economic contract should include these sections. Properly detailing them ensures smooth processing by banks and government authorities.</p>
+          <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-relaxed">Every international economic contract should include specific sections. Properly detailing them ensures smooth processing by banks and government authorities.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {SECTIONS.map((s, i) => (
               <div key={i} className="bg-[#111111] p-6 group relative overflow-hidden">

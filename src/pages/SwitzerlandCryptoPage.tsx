@@ -73,12 +73,10 @@ const CONS = [
   "Ongoing FINMA reporting and compliance obligations",
 ];
 const FAQS = [
-  { q: "What types of crypto licenses are available in Switzerland?", a: "Four types: Banking License (deposit-taking and payments), Investment Fund License (asset management), FinTech License (lighter-touch payment processing), and DLT Trading System License (blockchain-based trading platforms). We help select the right type for your business model." },
-  { q: "How long does it take to obtain a Switzerland crypto license?", a: "Company registration and FINMA license approval in Switzerland typically takes 5–7 months. FINMA is thorough in its review, and timeline depends on documentation readiness and business complexity." },
-  { q: "Is a Switzerland crypto license valid indefinitely?", a: "Yes. The license is issued without a fixed expiry date. However, companies must submit periodic reports to FINMA and adapt to regulatory changes as they occur." },
-  { q: "Is a bank account required for a Swiss crypto license?", a: "Yes. A corporate bank account is required for authorized capital deposit. Switzerland has strict banking standards — companies must be properly structured and compliant to successfully open an account at a Swiss bank." },
-  { q: "Why is Zug known as Crypto Valley?", a: "Zug in Switzerland attracted hundreds of blockchain and crypto companies starting around 2013–2014, creating a dense ecosystem of crypto firms, investors, legal professionals and technology providers. This concentration makes it the world's most developed blockchain jurisdiction." },
-  { q: "Can non-Swiss residents own a Swiss crypto company?", a: "Yes. Non-residents can own and operate a Swiss AG or GmbH. A local registered office is required, and management must have relevant professional experience. We handle company formation and FINMA application for international clients." },
+  { q: "How much will it cost to obtain a license to exchange cryptocurrencies in Switzerland?", a: "The final cost of obtaining a license for the exchange of cryptocurrencies in Switzerland is depends on the various factors (the exact list of future services, the region where the future exchanger will operate, etc.). You can find out the exact cost of obtaining a license for the exchange of cryptocurrencies in Switzerland by contacting our specialists." },
+  { q: "Is a bank account necessary to obtain a cryptocurrency license in Switzerland?", a: "In order to obtain a cryptocurrency license in Switzerland, opening an account for initial capital contribution is mandatory. Also, an account will be required for further commercial activities." },
+  { q: "How long will it take to get a cryptocurrency license in Switzerland?", a: "The company registration and the crypto license obtaining in Switzerland takes about 5-7 months." },
+  { q: "How long is the cryptocurrency license valid in Switzerland?", a: "The license for the exchange of cryptocurrencies in Switzerland is termless. But periodically you need to submit reports and adapt the company under new changes." },
 ];
 const RELATED = [
   { href: "/lithuania-crypto-license", reg: "FCIS", name: "Lithuania", desc: "Fastest EU VASP. MiCA-ready. 1–3 months, from €10,000." },
@@ -158,9 +156,9 @@ const SwitzerlandCryptoPage = () => {
               <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.12em]">Tier 1 · FINMA · Crypto Valley</span>
             </div>
             <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1] mb-6">
-              <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Switzerland</span>{" "}Crypto License
+              <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Cryptocurrency exchange license</span>{" "}in Switzerland
             </h1>
-            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">Switzerland recognized cryptocurrency as a legally tradeable asset back in 2014 — making it a global pioneer. Today it is home to Crypto Valley in Zug and supervised by FINMA, one of the world's most respected financial authorities. Four license types cover every crypto business model: Banking, Investment Fund, FinTech, and DLT Trading System.</p>
+            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">Switzerland is not only one of the world's financial centers but also a pioneer in the development of the crypto business. Back in 2014, the Confederation fixed the legal status of non-fiat currencies. Cryptocurrency in Switzerland is considered an asset that can be exchanged and used for various commercial activities.</p>
             <div className="flex gap-4">
               <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
               <button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View License Types</button>
@@ -181,11 +179,10 @@ const SwitzerlandCryptoPage = () => {
         <div className="max-w-screen-xl mx-auto py-[72px] px-12 grid grid-cols-12 gap-12">
           <div className="col-span-7">
             <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— About Switzerland Crypto</span>
-            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">The World's Most Respected Crypto Jurisdiction</h2>
+            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">Crypto Exchange License Switzerland</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>Switzerland is not only one of the world's financial centers but also a pioneer in cryptocurrency regulation. Back in 2014, the Swiss Confederation legally recognized non-fiat currencies, launching the active development of the digital asset market — and establishing what became known as Crypto Valley in the canton of Zug.</p>
-              <p>Cryptocurrency in Switzerland is treated as a legally tradeable asset that can be used for commercial activities including ICOs, exchanges, custodial services, and institutional trading. The Swiss Financial Market Supervisory Authority (FINMA) supervises all licensed entities, providing the highest tier of global credibility.</p>
-              <p>Four license categories are available depending on your crypto business model: a Banking License for deposit-taking and payment services, an Investment Fund License for asset management, a FinTech License for lighter-touch payment processing, and the DLT Trading System License for blockchain-based trading platforms. Indefinite validity — reports and regulatory updates required.</p>
+              <p>Switzerland is not only one of the world's financial centers but also a pioneer in the development of the crypto business. Back in 2014, the Confederation fixed the legal status of non-fiat currencies. The legal recognition of crypto assets launched the active development of the financial market trading in digital currencies.</p>
+              <p>Cryptocurrency in Switzerland is considered an asset that can be exchanged and used for various commercial activities. To work with cryptocurrency, including as ICOs or crypto-exchangers, you must obtain a Swiss Crypto license. There are several types of licenses depending on the chosen field of activity: Banking license, Investment fund license, FinTech license, and DLT trading system license.</p>
             </div>
           </div>
           <div className="col-span-5 space-y-2">

@@ -34,25 +34,24 @@ const ScanSweep = () => (
 );
 
 const STEPS = [
-  { num: "01", title: "Company Incorporation (Sp. z o.o.)", body: "Register a Polish Spółka z ograniczoną odpowiedzialnością (Sp. z o.o.) — equivalent to an LLC. Draft articles of association, appoint directors, register with KRS and obtain REGON and NIP numbers." },
-  { num: "02", title: "PESEL & ePUAP Registration", body: "Directors and UBOs must obtain a PESEL number (Polish personal ID) and register an ePUAP trusted profile for secure digital communication with government authorities. Required for application submission." },
-  { num: "03", title: "AML/KYC Framework Development", body: "Prepare AML/CTF policies, internal compliance procedures, KYC documentation, and a three-year business plan. Appoint an AML Compliance Officer (MLRO). Regulators scrutinize both documentation quality and operational readiness." },
-  { num: "04", title: "Ministry of Finance Application", body: "Submit formal VASP registration application to the Ministry of Finance. Application must be precise and complete — Polish authorities review both organizational structure and AML framework robustness." },
-  { num: "05", title: "Registration Approved", body: "Ministry of Finance enters the company into the official VASP register. Indefinite registration enables lawful crypto services in Poland and, under MiCA, across the EU. Ongoing compliance support included." },
+  { num: "01", title: "Company Incorporation", body: "Establishing a Polish legal entity, typically a limited liability company (Spółka z ograniczoną odpowiedzialnością or Sp. z o.o.). Drafting and notarizing articles of association, appointing management board members, registering with the National Court Register (KRS) and obtaining REGON and NIP." },
+  { num: "02", title: "PESEL and ePUAP Registration", body: "Designated representatives (e.g., directors or UBOs) must obtain a PESEL number (Polish personal identification number) and register for an ePUAP trusted profile. These credentials are essential for secure digital communication with government authorities." },
+  { num: "03", title: "Regulatory Documentation Preparation", body: "Preparing AML and CTF policies tailored to virtual asset activities, internal compliance procedures and control mechanisms, identification and verification documents for directors and beneficial owners, and a comprehensive business plan." },
+  { num: "04", title: "Application Submission to the Ministry of Finance", body: "Once all documentation is complete, the formal application for VASP registration is submitted to the Ministry of Finance. The application must be precise and fully compliant to avoid delays or rejections." },
+  { num: "05", title: "Regulatory Review and Final Approval", body: "The Ministry conducts a thorough evaluation of the application, assessing both the formal criteria and the substantive readiness of the applicant. Upon satisfactory review, the applicant is officially entered into the VASP register." },
 ];
 const REQS = [
-  "Polish Sp. z o.o. company incorporated and registered with KRS",
-  "Registered address in Poland (physical or virtual office)",
-  "PESEL number and ePUAP profile for directors and UBOs",
-  "Minimum share capital: PLN 5,000 (approx. €1,200) for basic VASP activities",
-  "AML Compliance Officer (MLRO) appointed — mandatory",
-  "Comprehensive AML/KYC policy and internal compliance procedures",
-  "Transaction monitoring system — technical implementation required",
-  "Three-year business plan with financial projections and risk strategy",
-  "Passport copies and CVs for all directors and beneficial owners",
-  "Clean criminal record for all directors and UBOs",
-  "Proof of professional knowledge or experience in crypto/finance/IT",
-  "All UBOs declared and identity-verified",
+  "Legal entity form: Spółka z ograniczoną odpowiedzialnością (Sp. z o.o.), equivalent to a limited liability company",
+  "Registered address: A physical office or service address in Poland is required",
+  "Minimum share capital PLN 5,000–10,000 for basic VASP activities; PLN 50,000+ for custody/brokerage",
+  "At least one director with relevant financial or compliance experience",
+  "Appointment of an AML Compliance Officer (MLRO) is mandatory",
+  "Managers must have a clean criminal record and demonstrate professional competence",
+  "All UBOs (Ultimate Beneficial Owners) must be declared and vetted",
+  "AML/KYC procedures — customer identification, risk assessment, transaction monitoring",
+  "Internal control mechanisms documented in a compliance manual, aligned with EU AML directives",
+  "Three-year business plan including financial projections, compliance strategies, and risk management policies",
+  "Reporting obligations — suspicious activity must be reported to the General Inspector of Financial Information (GIIF)",
 ];
 const PROS = [
   "One of the most affordable EU crypto licenses — from €4,000",
@@ -72,16 +71,16 @@ const CONS = [
   "Annual ongoing compliance obligations",
 ];
 const FAQS = [
-  { q: "Is a crypto license required in Poland for all crypto activities?", a: "Yes. Any company providing virtual asset services to Polish clients — including exchange, custody, brokerage, transfer, and advisory — must be registered in the VASP register maintained by the Ministry of Finance. Operating without registration is a regulatory offense subject to administrative penalties." },
-  { q: "What is the minimum share capital for a Poland crypto license?", a: "The minimum share capital for a Sp. z o.o. is PLN 5,000 (approximately €1,200). This is one of the lowest capital requirements for any EU crypto jurisdiction, making Poland particularly accessible for startups." },
-  { q: "How long does it take to obtain a crypto license in Poland?", a: "The full process — from company incorporation to VASP registration — typically takes 2–5 months. Timeline depends on document preparation speed and Ministry of Finance workload." },
-  { q: "What are the key requirements for VASP registration in Poland?", a: "A Polish Sp. z o.o. company, PESEL and ePUAP registration for directors, comprehensive AML/KYC policy, appointed MLRO, three-year business plan, clean criminal records, and proof of professional crypto/finance experience." },
-  { q: "Does a Polish crypto license allow operations across the EU?", a: "Currently, Polish VASP registration authorizes operations within Poland. Under MiCA, once fully implemented, Polish-registered CASPs will gain EU-wide passporting rights. Companies licensed now are positioned for this transition." },
-  { q: "What is the role of MiCA in Poland's crypto licensing?", a: "MiCA (Markets in Crypto-Assets) is the EU-wide crypto regulation that took effect in December 2024. Poland's VASP framework is aligned with MiCA, meaning current registrations will transition to CASP authorization with EU passporting rights." },
-  { q: "Can I apply for a Poland crypto license remotely?", a: "Yes. The entire process can be completed remotely using power of attorney. Company incorporation, KRS registration, PESEL application, and Ministry of Finance submission can all be handled without physical travel to Poland." },
-  { q: "What types of crypto services are covered by the Polish license?", a: "Crypto-to-fiat exchange, fiat-to-crypto exchange, crypto-to-crypto exchange, custodial wallet services, brokerage and intermediary services, wallet-to-wallet transfer services, and crypto investment advisory." },
-  { q: "What are the ongoing compliance obligations after getting the license?", a: "Regular AML/CTF reporting to the General Inspector of Financial Information (GIIF), transaction monitoring, suspicious activity reporting, annual compliance reviews, record keeping, and adaptation to MiCA regulatory updates." },
-  { q: "What is the tax rate for crypto businesses in Poland?", a: "Standard CIT is 19%. Small taxpayers with annual revenue below EUR 2 million qualify for a reduced 9% CIT rate. VAT does not apply to cryptocurrency exchange transactions. Capital gains on crypto are taxed at a flat 19%." },
+  { q: "Is a crypto license required in Poland for all crypto activities?", a: "Yes. Any business providing services such as exchange, custody, or mediation involving virtual assets must be registered as a Virtual Asset Service Provider (VASP) under the Polish AML Act. Operating without registration is a regulatory offense subject to penalties." },
+  { q: "What is the minimum share capital for a Poland crypto license?", a: "There is no specific capital threshold for VASP registration. A limited liability company (Sp. z o.o.) may be incorporated with PLN 5,000 (approx. EUR 1,100). However, in preparation for MiCA, companies offering custodial or exchange services are advised to maintain higher capitalization to meet future EU-wide requirements." },
+  { q: "How long does it take to obtain a crypto license in Poland?", a: "On average, the process takes 2–5 months depending on the readiness of corporate documents, AML procedures, and the efficiency of filings with the Ministry of Finance." },
+  { q: "What are the key requirements for VASP registration in Poland?", a: "The main requirements include: Incorporation of a Polish company; Appointment of a local management board member (can be non-resident, but must have a clean record); Development and approval of AML/KYC policies; Appointment of an AML Officer (MLRO); Clean criminal record for directors and beneficial owners; Proof of professional knowledge or experience in crypto/finance/IT." },
+  { q: "Does a Polish crypto license allow operations across the EU?", a: "Currently, VASP registration in Poland is valid only within Poland. However, once MiCA is fully implemented (2024–2025), Polish-registered VASPs will be able to passport their services across the entire EU under a single authorization framework." },
+  { q: "What is the role of MiCA in Poland's crypto licensing?", a: "MiCA introduces a unified EU-wide licensing regime for crypto companies, harmonizing rules across member states. For Polish VASPs, this means: Stricter governance and capital requirements; Enhanced consumer protection; Easier access to the EU market once licensed." },
+  { q: "Can I apply for a Poland crypto license remotely?", a: "Yes. Company incorporation and VASP registration can be completed entirely remotely with power of attorney. Incluence assists with the full process, including preparation of notarized and apostilled documents." },
+  { q: "What types of crypto services are covered by the Polish license?", a: "The VASP license covers the following activities: Exchange of crypto to fiat and vice versa; Exchange of crypto-to-crypto; Custody of cryptographic keys (wallet services); Operation of trading platforms; Mediation in crypto transactions." },
+  { q: "What are the ongoing compliance obligations after getting the license?", a: "Polish VASPs must: Implement continuous AML/KYC monitoring; Submit annual reports to regulators; Undergo audits where applicable; Update internal policies in line with regulatory changes; Pay annual state and compliance fees." },
+  { q: "What is the tax rate for crypto businesses in Poland?", a: "The standard corporate income tax (CIT) rate is 19%. However, small taxpayers with annual revenue below EUR 2 million may qualify for a reduced rate of 9%. VAT generally does not apply to cryptocurrency exchange transactions (based on EU Court of Justice ruling, Case C-264/14)." },
 ];
 const RELATED = [
   { href: "/lithuania-crypto-license", reg: "FCIS", name: "Lithuania", desc: "Fastest EU VASP. MiCA-ready. 1–3 months, from €10,000." },
@@ -89,9 +88,9 @@ const RELATED = [
   { href: "/cryptocurrency-exchange-license-in-switzerland", reg: "FINMA", name: "Switzerland", desc: "Tier-1 FINMA. Crypto Valley. 5–7 months, from €50,000." },
 ];
 const ADVANTAGES = [
-  { title: "2–5 Month Process", body: "One of the fastest EU VASP registrations. Fewer bureaucratic hurdles than Western European alternatives. Full remote process with power of attorney." },
-  { title: "9% Reduced Corp. Tax", body: "Small taxpayers with annual revenue below EUR 2 million qualify for a 9% CIT rate — significantly below the EU average. VAT does not apply to crypto exchange transactions." },
-  { title: "MiCA Transition Ready", body: "Polish VASP registration aligns with MiCA's CASP framework. Licensed companies today are positioned for EU-wide passporting once MiCA passporting activates in 2025–2026." },
+  { title: "EU Market Access", body: "Seamless ability to operate across the European Union under MiCA equivalence. Growing domestic market — Poland is one of the fastest-growing crypto markets in Central Europe." },
+  { title: "Straightforward Registration", body: "Fewer bureaucratic hurdles than in Germany, France, or Spain. Suitable for startups and scalable for institutional-level operations. Moderate supervision with a practical, business-friendly approach." },
+  { title: "Investor Confidence", body: "Regulatory oversight boosts trust among clients, partners, and investors. MiCA-aligned framework giving entrepreneurs both regulatory stability today and EU-wide recognition tomorrow." },
 ];
 const FACTS_TABLE: [string, string, string][] = [
   ["Regulator", "Ministry of Finance (VASP Register)", ""],
@@ -161,9 +160,9 @@ const PolandCryptoPage = () => {
               <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.12em]">EU · MiCA Ready · VASP</span>
             </div>
             <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1] mb-6">
-              <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Poland</span>{" "}VASP License
+              <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Poland Crypto License:</span>{" "}VASP Registration with Incluence
             </h1>
-            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">Poland's VASP registration is one of the most cost-efficient and accessible EU crypto licensing pathways. Governed by the Ministry of Finance and aligned with MiCA, it covers exchange, custody, brokerage, transfer, and advisory services. Typical timeline: 2–5 months. Indefinite registration. 9% reduced corporate tax for qualifying companies.</p>
+            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">A Poland crypto license refers to official authorization for businesses dealing in virtual assets. VASP registration allows a company to lawfully conduct activities involving virtual currencies and their interaction with fiat money. Poland is directly aligned with EU financial regulations and actively preparing for the MiCA framework.</p>
             <div className="flex gap-4">
               <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
               <button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View Requirements</button>
@@ -184,11 +183,11 @@ const PolandCryptoPage = () => {
         <div className="max-w-screen-xl mx-auto py-[72px] px-12 grid grid-cols-12 gap-12">
           <div className="col-span-7">
             <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— About Poland VASP</span>
-            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">Cost-Efficient MiCA-Ready EU Crypto Registration</h2>
+            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">Understanding the Poland Crypto License (VASP / CASP)</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>A Poland crypto license — officially called VASP (Virtual Asset Service Provider) registration — is official authorization for businesses dealing in virtual assets. Poland is one of the fastest-growing crypto markets in Central Europe, and its regulatory framework is directly aligned with the EU's MiCA regulation that took full effect in December 2024.</p>
-              <p>The following services require VASP registration in Poland: crypto-to-fiat and fiat-to-crypto exchange, crypto-to-crypto exchange, custodial wallet services, brokerage and intermediary services, transfer services between wallets, and crypto investment advisory. Operating without registration is a regulatory offense subject to administrative penalties.</p>
-              <p>Poland offers a straightforward registration process with fewer bureaucratic hurdles than Germany, France, or Spain — combined with investor confidence from regulatory oversight, and a clear MiCA transition pathway for EU-wide passporting once fully implemented.</p>
+              <p>A Poland crypto license refers to official authorization for businesses dealing in virtual assets. Initially, providers registered as Virtual Asset Service Providers (VASPs) via the Tax Administration in Katowice. However, with the full implementation of MiCA — effective December 30, 2024 — Poland now requires a Crypto-Asset Service Provider (CASP) license instead.</p>
+              <p>The following services require VASP authorization in Poland: crypto exchange services, custody services, brokerage services, transfer services, and advisory or portfolio management services. Operating without VASP registration may lead to administrative penalties and legal risks.</p>
+              <p>Poland is directly aligned with EU financial regulations and actively preparing for the MiCA framework. The Polish Financial Supervision Authority (KNF) sets supervisory standards applicable to crypto businesses. Poland has already positioned itself to smoothly transition into MiCA, giving entrepreneurs both regulatory stability today and EU-wide recognition tomorrow.</p>
             </div>
           </div>
           <div className="col-span-5 space-y-3">

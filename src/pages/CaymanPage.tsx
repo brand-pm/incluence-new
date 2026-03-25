@@ -11,10 +11,10 @@ const setMeta = (n: string, c: string) => { let el = document.querySelector(`met
 const setProp = (p: string, c: string) => { let el = document.querySelector(`meta[property="${p}"]`) as HTMLMetaElement; if (!el) { el = document.createElement("meta"); el.setAttribute("property", p); document.head.appendChild(el); } el.content = c; };
 
 const FAQS = [
-  { q: "How much does company registration in the Cayman Islands cost?", a: "The final cost depends on various factors. Contact our specialists for an exact quote." },
+  { q: "How much does company registration in the Cayman Islands cost?", a: "The final cost of company registration in the Cayman Islands depends on various factors. To get the exact cost, please contact our specialists." },
   { q: "Can an offshore company in the Cayman Islands be registered online?", a: "An offshore company in the Cayman Islands can be registered remotely through a local representative." },
-  { q: "What documents are required to register a company in the Cayman Islands?", a: "Copies of passports and proof of address of all participants, recommendation letters, and a company registration application. A notarized copy of the international passport is required." },
-  { q: "Where to open an offshore account in the Cayman Islands?", a: "We select banks based on the company's country of registration, residency of beneficiaries and directors, planned turnover, required currencies, and payment regions. Bank reputation and tariffs are also taken into account. Contact our specialists for the most suitable option." },
+  { q: "What documents are required to register a company in the Cayman Islands?", a: "To register a company in the Cayman Islands, you need to provide copies of passports and proof of address of the company participants, as well as recommendation letters." },
+  { q: "Where to open an offshore account in the Cayman Islands?", a: "We select banks based on the company's country of registration, residency of beneficiaries and directors, planned turnover, required currencies, and payment regions. Bank reputation and tariffs are also taken into account. For the most suitable option for your company, please contact our specialists." },
 ];
 
 const CaymanPage = () => {
@@ -92,13 +92,13 @@ const CaymanPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— Advantages</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Cayman Islands: Why Entrepreneurs Choose This Jurisdiction</h2>
-          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">The Cayman Islands are popular among entrepreneurs for several reasons that make it one of the world's most favored offshore jurisdictions.</p>
+          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">The Cayman Islands are popular among entrepreneurs for several reasons.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
             {[
-              ["Zero Tax","Companies are exempt from corporate income and capital gains taxes. Companies registered as Exempt Companies can obtain a tax exemption certificate valid for up to 20 years."],
-              ["Bearer Shares Allowed","Bearer shares are permitted in the Cayman Islands — providing an additional layer of confidentiality for company ownership structures."],
-              ["No Currency Control","No currency exchange control. Complete freedom to manage funds in any currency without restrictions or reporting requirements."],
-              ["High Confidentiality","Closed register of directors and shareholders. Company ownership information is not publicly accessible, providing maximum privacy."],
+              ["Zero Tax","Companies are exempt from corporate income and capital gains taxes. Legal entities can obtain a tax exemption certificate valid for up to 20 years. This benefit is available to firms registered as an Exempt Company."],
+              ["Bearer Shares Allowed","Bearer shares are allowed in the Cayman Islands — providing an additional layer of confidentiality for company ownership structures."],
+              ["No Currency Control","No currency control. Complete freedom to manage funds in any currency without restrictions or reporting requirements."],
+              ["High Confidentiality","Closed register of directors and shareholders. High confidentiality — company ownership information is not publicly accessible."],
               ["Investment Funds","Possibility to register investment companies and funds — one of the world's most popular jurisdictions for hedge funds and private equity structures."],
               ["No Financial Reporting","No financial reporting requirements for Exempt Companies. Minimal administrative burden for registered offshore entities."],
             ].map(([t,b],i)=>(

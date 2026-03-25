@@ -22,19 +22,19 @@ const CornerAccent = () => (
 const FAQS = [
   {
     q: "What is a merchant account?",
-    a: "A merchant account is an account opened in a payment system or bank to accept online payments. Unlike a traditional bank account, it allows receiving numerous small payments via the website at lower commission rates. The main payment method is credit/debit card payments — used for mobile services, airline tickets, online store products, and more.",
+    a: "A merchant account is an account opened in a payment system or bank to accept online payments. Unlike a traditional bank account, a merchant account allows receiving numerous small payments via the website at lower commission rates for both sender and receiver. The main payment method is credit/debit card payments. Merchant accounts are used for payments for mobile services, airline tickets, online store products, etc.",
   },
   {
     q: "What is required to open a merchant account?",
-    a: "Select a payment system based on required currencies, payment methods, and covered regions. Required documents include company incorporation documents, processing history (if available), and completed application forms. After submission, promptly respond to compliance inquiries from the payment system.",
+    a: "To open an account, you must select a payment system considering currencies, payment methods, and covered regions. Required documents include company incorporation documents, processing history (if available), and properly completed application forms. After submission, it's essential to respond correctly to compliance inquiries from the payment system.",
   },
   {
     q: "How much does it cost to open a merchant account?",
-    a: "The final cost depends on company residency, shareholders' residency, business activities, processing history, and other factors. Contact our specialists for an exact cost estimate for your specific company.",
+    a: "The final cost depends on company residency, shareholders' residency, business activities, processing history, and other factors. To know the exact cost for your company, please contact our specialists.",
   },
   {
-    q: "How long does it take to open a merchant account?",
-    a: "The timeframe depends on document submission speed, desired currencies, regions, payment methods, card types, and payment system rules. Typically, the review takes 1–4 weeks.",
+    q: "What is the timeframe for opening a merchant account?",
+    a: "The timeframe depends on how quickly required documents are submitted, desired currencies, regions, payment methods, card types, and payment system rules. Typically, the review takes 1–4 weeks.",
   },
 ];
 

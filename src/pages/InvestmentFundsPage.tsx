@@ -31,16 +31,16 @@ const JURISDICTIONS = [
 ];
 
 const REQUIREMENTS = [
-  { title: "Business Plan & Policies", body: "Prepare a detailed business plan and internal fund policies including investment strategy, risk management, and investor conditions." },
-  { title: "Legal Entity Registration", body: "Register a legal entity in the chosen jurisdiction. The fund structure depends on the country and type of fund — SPV, LP, or other forms." },
-  { title: "Bank Account & Capital", body: "Open an account and, if necessary, deposit authorized capital. The fund must approve conditions for attracting participants." },
-  { title: "Fund Manager Qualification", body: "Confirm that the fund manager has sufficient experience. The manager must demonstrate professional qualifications and track record." },
+  { title: "Business Plan & Policies", body: "Prepare business plan and policies." },
+  { title: "Legal Entity Registration", body: "Register a legal entity, if necessary." },
+  { title: "Bank Account & Capital", body: "Open an account and deposit authorized capital, confirm that the fund manager has sufficient experience." },
+  { title: "Fund Manager & Participants", body: "The Fund must approve the conditions for attracting participants. All new participants must be registered in accordance with the rules of the fund and under the legislation of the country of registration." },
 ];
 
 const FAQS = [
-  { q: "In which countries do you help to open an investment fund?", a: "Our specialists help with opening investment funds worldwide, including Luxembourg, Liechtenstein, Estonia, Czech Republic, Switzerland, Malta, Seychelles, Bahamas." },
-  { q: "Why create an investment fund?", a: "Investment funds are created to accumulate assets of individuals and legal entities for subsequent joint investment in order to make a profit. They also provide effective management of third-party funds and asset protection." },
-  { q: "What are the requirements for opening an investment fund?", a: "Prepare a business plan and policies, register a legal entity, open an account and deposit authorized capital if required, confirm the fund manager's experience. The fund must approve conditions for attracting participants. All new participants must be registered in accordance with fund rules and local legislation." },
+  { q: "In which countries we help to open an investment fund?", a: "Our specialists help with the opening of investment funds around the world, including Luxembourg, Liechtenstein, Estonia, Czech Republic, Switzerland, Malta, Seychelles, Bahamas." },
+  { q: "Why do I need an investment fund?", a: "Investment funds are created to accumulate assets of individuals and legal entities for subsequent joint investment in order to make a profit." },
+  { q: "What are the requirements for opening an investment fund?", a: "In order to create an investment fund, it is necessary to prepare business plan and policies, register a legal entity, if necessary, open an account and deposit authorized capital, confirm that the fund manager has sufficient experience. The Fund must approve the conditions for attracting participants. All new participants must be registered in accordance with the rules of the fund and under the legislation of the country of registration." },
 ];
 
 const STATS = [
@@ -109,7 +109,7 @@ const InvestmentFundsPage = () => {
             <span className="bg-gradient-to-r from-[#444CE7] to-[#6E7BF7] bg-clip-text text-transparent">Offshore</span> Investment<br />Fund Registration
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
-            Investment funds are created to accumulate assets of individuals and legal entities for subsequent joint investment in order to make a profit. We assist with fund registration worldwide — from offshore jurisdictions to EU-regulated frameworks.
+            The incluence company provides the following types of services in such areas as international tax planning, asset protection, registration of foreign companies and their maintenance, etc.
           </p>
           <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">
             Discuss the Project →
@@ -134,7 +134,7 @@ const InvestmentFundsPage = () => {
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Available Jurisdictions</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Where We Register Investment Funds</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[500px] leading-[1.8]">
-            We help with opening investment funds around the world. Choice depends on target investors, regulatory requirements, and tax goals.
+            Our specialists help with the opening of investment funds around the world, including Luxembourg, Liechtenstein, Estonia, Czech Republic, Switzerland, Malta, Seychelles, Bahamas.
           </p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-4 gap-px">
             {JURISDICTIONS.map(j => (
@@ -153,7 +153,7 @@ const InvestmentFundsPage = () => {
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Requirements</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What Is Required to Open an Investment Fund</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[500px] leading-[1.8]">
-            To create an investment fund, several core requirements must be met. All new participants must be registered in accordance with the rules of the fund and the legislation of the country of registration.
+            In order to create an investment fund, it is necessary to prepare business plan and policies, register a legal entity, if necessary, open an account and deposit authorized capital, confirm that the fund manager has sufficient experience. The Fund must approve the conditions for attracting participants. All new participants must be registered in accordance with the rules of the fund and under the legislation of the country of registration.
           </p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-2 gap-px">
             {REQUIREMENTS.map(r => (

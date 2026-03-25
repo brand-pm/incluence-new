@@ -49,10 +49,10 @@ const DOT_GRID = {
 };
 
 const FAQS = [
-  { q: "How much does it cost to open an offshore company?", a: "The final cost depends on the country of registration, nature of activity, and other factors. Contact our specialists for an exact quote for your chosen jurisdiction." },
-  { q: "What is needed to open an offshore company?", a: "To register an offshore company, you must submit copies of passports and address confirmation of all company participants, as well as letters of recommendation for the beneficiaries." },
-  { q: "How does offshore company registration work?", a: "Submit copies of documents and registration forms. Indicate the contacts of the local representative and the registration address. The registrar will issue statutory documents within a week after completing the registration procedure." },
-  { q: "How to choose the right foreign bank for an offshore company?", a: "We select banks taking into account the country of registration, residence of beneficiaries and directors, planned turnover, required currencies and payment regions. We also consider the bank's reputation and rates. Contact our specialists to select the most suitable option." },
+  { q: "How much does it cost to open a company in an offshore zone?", a: "The final cost of opening a company in an offshore zone is influenced by various factors (country of registration, nature of activity, etc.). You can find out the exact cost of opening a company in an offshore zone by contacting our specialists." },
+  { q: "What does it take to open an offshore?", a: "In order to register an offshore company, it is necessary to submit copies of passports and confirmation of the address of the company's participants, as well as letters of recommendation for the beneficiaries." },
+  { q: "How does the registration of an offshore company work?", a: "In order to register an offshore company, you must submit copies of documents and registration forms. Indicate the contacts of the local representative and the registration address. The registrar will issue the statutory documents within a week after the end of registration of an offshore company." },
+  { q: "How to choose the right foreign bank for offshore company?", a: "We select banks taking into account the country of registration of the company, residence of beneficiaries and directors, planned turnover, required currencies and regions of payments. When selecting a bank, its reputation and rates are also taken into account. In order to select the most optimal option for your company, please contact our specialists." },
 ];
 
 const JURISDICTIONS = [
@@ -65,19 +65,19 @@ const JURISDICTIONS = [
 ];
 
 const ADVANTAGES = [
-  { title: "Accessibility & Flexibility", body: "Manage the account and make financial transactions regardless of location — through online banking at any time from anywhere in the world." },
-  { title: "Confidentiality", body: "Confidentiality of personal data is one of the main reasons individuals and companies choose offshore. The bank account is as protected as possible from third parties. Banks do not disclose confidential information." },
-  { title: "Asset Security", body: "Offshore structures provide a high level of asset security. Banks ensure strong protection of client assets and financial information." },
+  { title: "Accessibility & Flexibility", body: "Customers can manage the account and make financial transactions regardless of location, for example, through online banking." },
+  { title: "Confidentiality", body: "Confidentiality of personal data is one of the main reasons individuals and companies choose offshore: the bank account is as protected as possible from third parties. Banks do not disclose confidential information about their clients and ensure a high level of asset security." },
+  { title: "Asset Security", body: "Banks ensure a high level of asset security. Offshore structures provide strong protection of client assets and financial information." },
   { title: "Tax Efficiency", body: "Most offshore jurisdictions offer zero or minimal corporate taxation. Business owners retain significantly more profits for reinvestment." },
   { title: "Simple Accounting", body: "Minimal requirements for accounting records, audits, and financial reporting compared to onshore jurisdictions. Less administrative burden." },
   { title: "Remote Management", body: "Various tools for remote management of business processes. Offshore companies can be fully managed from anywhere in the world." },
 ];
 
 const STEPS = [
-  { num: "01", title: "Prepare Documents", body: "Apostilled original corporate documents. Notarized copies of passports of the beneficiary and account manager. Confirmation of income sources. Proof of actual residence address for each shareholder and director." },
+  { num: "01", title: "Prepare Documents", body: "Apostilled original corporate documents. Notarized copies of the passports of the beneficiary and the account manager. Confirmation of the sources of income of the participants and the company as a whole. Confirmation of the actual residence address of each shareholder and director." },
   { num: "02", title: "Submit to Registrar", body: "Submit copies of documents and registration forms. Indicate the contacts of the local representative and the registration address." },
-  { num: "03", title: "Company Incorporated", body: "The registrar issues statutory documents within a week after completing registration. Certificate of incorporation issued with full corporate documents." },
-  { num: "04", title: "Open Bank Account", body: "Open an offshore company bank account at a suitable institution. We recommend banks with convenient internet banking, currency selection, and easy opening procedures." },
+  { num: "03", title: "Company Incorporated", body: "The registrar will issue the statutory documents within a week after the end of registration of an offshore company." },
+  { num: "04", title: "Open Bank Account", body: "You can set up an offshore company account only after preparing and submitting the required documents. Additional requirements may apply depending on the bank." },
 ];
 
 const DOCS = [
@@ -132,7 +132,7 @@ const OffshoreFormationPage = () => {
             <span className="bg-gradient-to-r from-[#444CE7] to-[#6366F1] bg-clip-text text-transparent">Offshore</span> Company<br />Formation
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[520px] mb-10 leading-[1.8]">
-            Companies registered in offshore jurisdictions can open accounts for payment operations, protect assets with maximum confidentiality, and structure international business efficiently. Personal data remains confidential — any person can open an offshore account. We handle registration in 15+ offshore jurisdictions worldwide.
+            Today, companies registered in offshore jurisdictions can open an account that enables firms to conduct payment transactions. Personal data of customers are not disclosed, and any person can open an offshore account. However, please note that the requirements of banks for corporate clients and individuals can vary greatly.
           </p>
           <div className="flex gap-3">
             <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
@@ -162,7 +162,7 @@ const OffshoreFormationPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Advantages</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Benefits of Offshore Company Registration</h2>
-          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Cooperation with an offshore bank and holding an offshore company structure provides significant advantages for international business.</p>
+          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Cooperation with an offshore bank provides the businessman with plenty of benefits. First and foremost, it is recommended to open an offshore bank account because of the accessibility and flexibility of products.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {ADVANTAGES.map((a, i) => (
               <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden">
@@ -222,8 +222,8 @@ const OffshoreFormationPage = () => {
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Choosing the Right Offshore Bank</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
-              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Once you have decided on the jurisdiction, you should be careful when choosing the right bank. Today, very few banks offer fully remote registration. If you want to open an offshore account online, the list of suitable offers will be significantly reduced.</p>
-              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">We recommend opening an offshore company account in banks that offer convenient internet banking, the required currencies, and an accessible opening procedure. Note that application review may take longer during busy compliance periods.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Once you have decided on the jurisdiction, you should be careful when choosing the right bank. We recommend opening an offshore company account in banks that offer convenient working methods, selection of a certain currency, and an easy opening procedure.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">Today, very few banks offer clients to register remotely. If you want account creation offshore online, the list of suitable offers will be significantly reduced. Please contact our managers for detailed consultations.</p>
               <div className="space-y-3">
                 {[
                   { title: "Internet Banking", body: "Manage the account remotely at all times" },

@@ -74,10 +74,10 @@ const KEY_FACTS = [
 ];
 
 const FAQS = [
-  { q: "What are the requirements for obtaining a payment system license in Cyprus?", a: "You must prepare a business plan, AML policy, and other documents, register a company in Cyprus, and hire specialists for mandatory positions (director, AML officer, etc.). A bank account and paid-up share capital of at least €350,000 are essential." },
-  { q: "Which payment system in Cyprus is best to choose?", a: "When choosing a payment system, consider its license, service coverage regions, and acceptable payment methods. Ensure the payment system's requirements match your company's characteristics (country of incorporation, residency of participants, etc.). Tariffs also play an important role." },
+  { q: "What are the requirements for obtaining a payment system license in Cyprus?", a: "To obtain a payment system license in Cyprus, you must prepare a business plan, AML policy, and other documents, register a company, and hire specialists for mandatory positions (director, AML officer, etc.). Essential elements for obtaining a license include a bank account and paid-up share capital." },
+  { q: "Which payment system in Cyprus is best to choose?", a: "When choosing a payment system, it is necessary to consider its license, service coverage regions, and acceptable payment methods. You must also ensure that the payment system's requirements match your company's characteristics (country of incorporation, residency of its participants, etc.). The tariffs offered by the payment system also play an important role." },
   { q: "How long is a payment system license in Cyprus valid?", a: "If all company maintenance requirements are met, the license is perpetual. However, the license may be revoked if the company remains inactive for a long time and/or violates operating rules." },
-  { q: "What is the cost of obtaining a payment system license in Cyprus?", a: "The final cost depends on various factors (exact list of future services, region of operation, etc.). Contact our specialists to find out the exact cost for your company." },
+  { q: "What is the cost of obtaining a payment system license in Cyprus?", a: "The final cost of obtaining a payment system license in Cyprus depends on various factors (exact list of future services, region of operation, etc.). To find out the exact cost for your company, please contact our specialists." },
 ];
 
 const FACTS_STRIP = [
@@ -156,7 +156,7 @@ const CyprusPaymentLicensePage = () => {
             <span className="bg-gradient-to-r from-[#444CE7] to-[#6E7BF7] bg-clip-text text-transparent">Cyprus</span> Payment<br />System License
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
-            A payment institution license in Cyprus is a permit that allows a company to provide payment services across the entire European Union. Regulated by the Cyprus Securities Commission. No capital gains tax, relatively low corporate income tax, and full EU market access under a single license.
+            A payment institution license in Cyprus is a permit that allows a company to provide services across the European Union. All PS opened in Cyprus are regulated by the Securities Commission, which closely monitors that legal entities comply with all legal requirements. No capital gains tax, relatively low corporate income tax, and full EU market access under a single license.
           </p>
           <div className="flex items-center gap-4">
             <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">Get a Free Quote →</Link>

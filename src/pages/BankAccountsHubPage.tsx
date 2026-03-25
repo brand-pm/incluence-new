@@ -27,43 +27,43 @@ const CornerAccent = () => (<span className="pointer-events-none absolute top-0 
 const DOT_GRID = { backgroundImage: "radial-gradient(rgba(68,76,231,0.045) 1px, transparent 1px)", backgroundSize: "28px 28px" };
 
 const ADVANTAGES = [
-  { title: "High Interest Rates", body: "Deposit accounts at foreign banks often offer higher interest rates than domestic institutions." },
-  { title: "Secure Asset Storage", body: "Foreign banks provide secure storage of assets with strong legal protection and regulatory oversight." },
-  { title: "Confidentiality", body: "Confidentiality of personal data — many jurisdictions provide strong banking secrecy protections." },
-  { title: "Investment Access", body: "Broad investment opportunities in securities, real estate, and other high-return assets via private investment accounts." },
-  { title: "International Transactions", body: "Conduct international financial transactions and trade with clients in different countries efficiently." },
-  { title: "Payment System Access", body: "We also open accounts in various payment systems registered in the EU, USA, UK, Hong Kong, Singapore and other countries." },
+  { title: "High Interest Rates", body: "High interest rates on deposits." },
+  { title: "Secure Asset Storage", body: "Secure storage of assets." },
+  { title: "Confidentiality", body: "Confidentiality of personal data." },
+  { title: "Investment Access", body: "Broad investment opportunities in securities, real estate, and other high-return assets." },
+  { title: "International Transactions", body: "Foreign bank accounts allow business people to conduct international financial transactions and trade transactions with clients." },
+  { title: "Jurisdiction Selection", body: "To open a foreign bank account, you should select the jurisdiction responsibly." },
 ];
 
 const ACCOUNT_TYPES = [
-  { title: "Current Account", body: "Required for commercial activities, personal expenses and income. The main account for day-to-day business operations." },
-  { title: "Card Account", body: "Required for credit card holders — records all card transactions. Needed before a bank card can be issued." },
-  { title: "Deposit Account", body: "Designed for long-term storage of funds to obtain tangible income through interest payments." },
-  { title: "Private Investment Account", body: "Used for long-term investments in securities, bonds, and other financial instruments." },
+  { title: "Current Account", body: "Opening a current account abroad is necessary for commercial activities, as well as personal expenses and income of the account holder." },
+  { title: "Card Account", body: "Future credit card holders must open such bank accounts abroad because they will be used to record the corresponding transactions on such a card." },
+  { title: "Deposit Account", body: "Designed for the long-term storage of funds for obtaining a tangible income." },
+  { title: "Private Investment Account", body: "Private investment cards are used for long-term investments in securities." },
   { title: "Brokerage Account", body: "Required for companies providing brokerage services in the securities market." },
   { title: "Payment System Account", body: "Accounts in EU, US, UK and Asian payment systems — often easier to open than traditional bank accounts." },
 ];
 
 const STEPS = [
-  { num: "01", title: "First Contact", body: "Contacting you at your convenience and discussing the task at hand — target jurisdiction, account type, currencies, and business specifics." },
-  { num: "02", title: "Determining Your Needs", body: "Selecting a bank considering the jurisdiction, quality of banking services, the bank's requirements, and the specifics of your company's activities." },
-  { num: "03", title: "Handling the Paperwork", body: "Preparing all documents necessary to open a bank account — corporate documents, personal documents, source of funds confirmation, and more." },
-  { num: "04", title: "Submitting and Following Through", body: "Submitting the account opening application and following it through to completion. Responding promptly to bank queries." },
+  { num: "01", title: "First Contact", body: "Contacting you at your convenience, and discussing the task at hand." },
+  { num: "02", title: "Determining Your Needs", body: "Selecting a bank considering the jurisdiction, quality of banking services and the bank's requirements." },
+  { num: "03", title: "Handling the Paperwork", body: "Handling the paperwork necessary to open a bank account." },
+  { num: "04", title: "Submitting and Following Through", body: "Submitting an account opening application and following it through." },
 ];
 
 const DOCS = [
-  "Corporate documents package",
-  "Information about business, beneficiaries, account manager",
-  "Identity confirmation — beneficiary and account manager",
-  "Company activities description — products, partners, expected turnover",
-  "Proof of residential address — beneficiary and account manager",
+  "A package of corporate documents",
+  "A certain amount of information about the business, beneficiaries, and account manager, who is determined by the bank on an individual basis",
+  "Confirmation of the identity of the beneficiary and the account manager, if it is not the same person",
+  "A concise description of the company's activities, including products, business partners, expected turnover on the account, etc.",
+  "Proof of the residence address of the beneficiary and the account manager",
 ];
 
 const FAQS = [
-  { q: "In which countries do you help to open a bank account?", a: "We assist with accounts opening all over the world: in EU countries, European non-EU countries, Asia, USA, Canada, offshore jurisdictions." },
-  { q: "Can I open a bank account abroad online?", a: "Due to the gradual tightening of legislation, banks usually open accounts only after a personal visit by the beneficiary and/or director. Online opening is allowed in rare cases. At the same time, payment system accounts can often be opened online." },
-  { q: "Which payment systems do you work with?", a: "We work with various payment systems registered in the EU, USA, UK, Hong Kong, Singapore and other countries. We select the payment system based on your company's specifics, available currencies, payment regions, and other factors." },
-  { q: "Is it necessary to have a bank account to open a payment system account?", a: "Usually, payment system accounts are opened independently of having a bank account. However, having a bank account and business history can speed up and simplify the process. Some payment systems require a bank account at the time of review, but this is rare." },
+  { q: "In which countries do we help to open a bank account?", a: "We assist with accounts opening all over the world: in EU countries, European non-EU countries, Asia, USA, Canada, offshore." },
+  { q: "Can I buy a bank account online?", a: "Due to the gradual tightening of legislation, banks usually open accounts only after a personal visit to the bank's representative office by the beneficiary and / or the director of the company. Online opening is allowed in rare cases. At the same time, an account can be opened online in payment systems." },
+  { q: "How long does it take to open a bank account?", a: "The duration and features of opening a bank account depends on the characteristics of the company and the rules of a particular bank. Usually the opening process takes from 2 months." },
+  { q: "How much does it cost to open a bank account in foreign banks?", a: "The exact cost depends on the country of registration of the company, the type of activity, the residency of its participants and the selected bank. You can find out the exact cost of opening an account for your company from our specialists." },
 ];
 
 const BankAccountsHubPage = () => {
@@ -108,7 +108,7 @@ const BankAccountsHubPage = () => {
             Opening Bank &<br /><span className="bg-gradient-to-r from-[#444CE7] to-[#6366F1] bg-clip-text text-transparent">Payment System</span> Accounts
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[520px] mb-10 leading-[1.8]">
-            Opening bank and payment system accounts abroad, providing assistance in account maintenance. If you plan to use banking services in foreign jurisdictions, you should carefully choose a bank to ensure comfortable financial and tax conditions. We handle selection, documents, and submission on your behalf.
+            Opening bank and payment system accounts, providing assistance in account maintenance. If you plan to use banking services in foreign jurisdictions, you should carefully choose a bank to ensure comfortable financial and tax conditions. As a rule, a foreign bank account is required for businessmen who plan to do business with foreign partners.
           </p>
           <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
 
@@ -129,7 +129,7 @@ const BankAccountsHubPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Advantages</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Why Open a Foreign Bank Account</h2>
-          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Foreign bank accounts provide their owners with many advantages, which may vary depending on the selected jurisdiction. A foreign bank account is required for businessmen who plan to do business with foreign partners.</p>
+          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Foreign bank accounts provide their owners with many other advantages, which may vary depending on the selected jurisdiction.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {ADVANTAGES.map((a, i) => (
               <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden">
@@ -165,7 +165,7 @@ const BankAccountsHubPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Our Process</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How We Open a Foreign Bank Account</h2>
-          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[480px] leading-relaxed">Controlling meeting of the deadlines at every stage. Four steps from first contact to activated account.</p>
+          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[480px] leading-relaxed">Controlling meeting the deadlines at every stage.</p>
           <div ref={containerRef} className="relative">
             <ProcessFlowCanvas />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[rgba(255,255,255,0.06)] relative z-[2]">
@@ -189,9 +189,9 @@ const BankAccountsHubPage = () => {
           <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">What You Need to Know About Due Diligence</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
-              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">If the bank values its reputation, it is obliged to conduct preliminary customer verification. This procedure is called Due Diligence — collecting information and analyzing it to make a final decision on cooperation with a particular client.</p>
-              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">In some cases, banks can conduct Due Diligence remotely, but in most cases, the customer must be present in person. You will not be able to open a foreign bank account if the bank assesses financial, legal, or other risks as high.</p>
-              <p className="text-[14px] text-[#9A9590] leading-[1.85]">Keep in mind that foreign bank accounts cannot be opened with 100% probability — the bank makes the final decision. Cooperating with our qualified specialists, you can be sure that the risk of denial will be minimized. We take care of most procedures, document preparation, and all legal formalities.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Today, entrepreneurs can open a foreign bank account online, but not all banks provide such an option. This is largely due to the fact that if the bank values its reputation, it is obliged to conduct preliminary customer verification. So, if you want to open a foreign bank account, you will need to go through a procedure called Due Diligence. In some cases, banks can do it remotely, but in most cases, the customer must be present in person.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">You won't be able to open a foreign bank account if the bank assesses financial, legal, and other risks as high. You will not be able to open a foreign bank account online if it requires your personal presence to conduct Due Diligence. In this case, a preliminary remote assessment may be possible, but you cannot directly open a bank account abroad online in such a situation.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85]">Keep in mind that foreign bank accounts cannot be opened with 100% probability as the bank makes the final decision based on its unspoken rules. So, opening a foreign bank account always implies a risk of rejection. Cooperating with the qualified specialists of our company, you can be sure that the risk of denial will be minimized. With us, you can easily open a foreign bank account as we will take care of most procedures, preparation and execution of documents, as well as all legal formalities.</p>
             </div>
             <div className="md:col-span-5">
               <div className="bg-[#080808] border border-white/[0.06] p-7 group relative overflow-hidden">
@@ -206,7 +206,7 @@ const BankAccountsHubPage = () => {
                     </div>
                   ))}
                 </div>
-                <p className="text-[12px] text-[#5A5550] mt-4 italic">This is the minimum list. Most situations require additional documents.</p>
+                <p className="text-[12px] text-[#5A5550] mt-4 italic">If you have decided to open a foreign bank account, please contact our specialists because the above list includes only basic requirements. In most situations, opening foreign bank accounts requires many other documents, so this procedure should be entrusted to professionals.</p>
                 <Link to="/contact" className="block w-full text-center bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors mt-6">Discuss the Project →</Link>
               </div>
             </div>

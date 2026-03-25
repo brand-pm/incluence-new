@@ -70,12 +70,10 @@ const CONS = [
 ];
 
 const FAQS = [
-  { q: "Why do companies choose Estonia for crypto licensing?", a: "Estonia offers 0% tax on retained earnings, indefinite license validity, e-Residency compatibility for remote management, and a well-established regulatory framework. It was one of the first EU countries to regulate crypto services." },
-  { q: "Is a bank account mandatory for an Estonia crypto license?", a: "Yes. An account at an FIU-approved Estonian bank or EU EMI is required to deposit authorized capital. Banking is often the most challenging part of the process — Estonian banks are selective, but EU-based EMIs are increasingly viable alternatives." },
-  { q: "How long is an Estonian crypto license valid?", a: "The license has indefinite validity. No annual renewal is required, though ongoing compliance obligations — including AML reporting, transaction monitoring, and policy updates — must be maintained continuously." },
-  { q: "Can I manage my Estonian company remotely?", a: "Yes — Estonia's e-Residency program allows founders to manage their OÜ fully online from anywhere in the world. You can sign documents digitally, file reports remotely, and run operations without visiting Estonia." },
-  { q: "How does MiCA affect existing Estonian crypto licenses?", a: "Under MiCA, existing Estonian VASP licenses will need to transition to CASP (Crypto Asset Service Provider) authorization. Companies should budget for capital increase to €125,000 for exchange operators. We assist with MiCA transition planning." },
-  { q: "What are the main ongoing compliance obligations?", a: "Transaction monitoring, suspicious activity reporting (SARs) to the FIU, annual AML policy reviews, record-keeping for 8 years, and adaptation to MiCA regulatory updates." },
+  { q: "Why do I need a license to exchange cryptocurrencies in Estonia?", a: "In order to carry out crypto-currency services (exchange fiat-to-cryptocurrency, crypto-to-fiat, crypto-to-crypto, opening crypto-wallets), Estonian companies must obtain an appropriate license." },
+  { q: "Is a bank account necessary to obtain a cryptocurrency license in Estonia?", a: "In order to obtain a cryptocurrency license, opening an account in a payment system or bank authorized in Estonia is mandatory. The company must deposit the authorized capital into this account. Also, an account will be required for further commercial activities." },
+  { q: "How long will it take to get a cryptocurrency license in Estonia?", a: "The terms for obtaining a cryptocurrency license depend on the promptness of all necessary actions, the speed of opening an account by payment institutions, the speed of consideration of the company's application by the regulator. The review period may take six months." },
+  { q: "What is the validity period of a cryptocurrency license in Estonia?", a: "The license for the exchange of cryptocurrencies is termless. But periodically you need to submit reports and adapt the company under new changes." },
 ];
 
 const RELATED = [
@@ -134,9 +132,9 @@ const EstoniaCryptoPage = () => {
             <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">EU · FIU · E-Residency</span>
           </div>
           <h1 className="text-[clamp(36px,5vw,64px)] font-light text-[#F0EBE0] leading-[1.08] mb-6">
-            <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Estonia</span> Crypto Exchange License
+            <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Cryptocurrency exchange license</span> in Estonia
           </h1>
-          <p className="text-[15px] text-[#9A9590] leading-[1.85] mb-10">A pioneer EU crypto jurisdiction with a 0% corporate tax on retained earnings and full e-Residency compatibility. Estonia's Financial Intelligence Unit (FIU) issues exchange and custodial wallet licenses with indefinite validity — and a 3–6 month process fully manageable remotely.</p>
+          <p className="text-[15px] text-[#9A9590] leading-[1.85] mb-10">Many companies whose activities imply working with crypto wallets and cryptocurrency exchanges give preference to Estonia for licensing. In this small country, you can profitably launch a cryptocurrency exchange, in particular, due to the minimum rate of corporate income tax — 0%.</p>
           <div className="flex gap-4 flex-wrap">
             <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
             <a href="#requirements" className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all inline-block">View Requirements</a>
@@ -165,11 +163,10 @@ const EstoniaCryptoPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About Estonia VASP</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Why Crypto Companies Choose Estonia</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Estonia Crypto Exchange License</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>Estonia was one of the first EU countries to create a legal framework for cryptocurrency service providers. Companies licensed here by the Financial Intelligence Unit (FIU) can legally offer fiat-to-crypto exchange, crypto-to-crypto trading, and custodial wallet services to clients worldwide.</p>
-              <p>The standout advantage is Estonia's 0% corporate income tax on retained earnings — tax is only triggered when profits are distributed as dividends. Combined with the e-Residency program, this makes Estonia uniquely accessible to international founders who can manage their company fully remotely.</p>
-              <p>Estonian crypto licenses have indefinite validity — no annual renewal required — making it one of the most cost-effective long-term licensing solutions in the EU. The FIU review period typically runs 3–6 months depending on document readiness.</p>
+              <p>Many companies whose activities imply working with crypto wallets and cryptocurrency exchanges give preference to Estonia for licensing. In this small country, you can profitably launch a cryptocurrency exchange, in particular, due to the minimum rate of corporate income tax — 0%.</p>
+              <p>Estonia crypto exchange license is a mandatory permission document. All business owners working in this field must obtain it to legally provide their services.</p>
             </div>
           </div>
           <div className="lg:col-span-5 space-y-3">

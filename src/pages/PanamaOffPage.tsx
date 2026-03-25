@@ -24,7 +24,8 @@ const FAQS = [
   { q: 'How long does it take to register a company in Panama?', a: 'Typically, 3 to 5 business days, assuming all documents are in order.' },
   { q: 'Do I need to be in Panama to register a company?', a: 'No, the process can be completed remotely via a registered agent.' },
   { q: 'What is the minimum capital requirement to start a company in Panama?', a: 'There is no legal minimum; USD 1 paid-up capital is sufficient.' },
-  { q: 'How much does it cost to register a company in Panama?', a: 'Government and professional fees typically start from €1,500.' },
+  { q: 'What is a Company Secretary and why do I need one?', a: "Panama doesn't mandate it, but having a local representative ensures proper legal compliance." },
+  { q: 'How much does it cost to register a company in Panama?', a: 'Government and professional fees typically start from 1500 euro.' },
   { q: 'What documents are required for a foreigner to register a company?', a: 'Passport copy, proof of address, Articles of Incorporation, and director/shareholder details.' },
   { q: 'Can I open a corporate bank account in Panama as a non-resident?', a: 'Yes, but it may require in-person visits and strict due diligence. We can assist.' },
 ];
@@ -81,12 +82,12 @@ const PanamaOffPage = () => {
   ];
 
   const REQUIREMENTS = [
-    { title: 'Shareholders', body: 'Just one shareholder required — individual or corporate entity. No local shareholder required. We provide nominee services for privacy.' },
-    { title: 'Directors', body: 'At least three directors required. No residency requirement. Nominee director services available through our network.' },
-    { title: 'Registered Address', body: 'A registered address in Panama is mandatory. We offer prestigious Panama City addresses as part of service packages.' },
-    { title: 'No Min. Capital', body: 'No legal minimum capital requirement. Most companies opt for authorized capital of USD 10,000, with only USD 1 paid-up at formation.' },
-    { title: 'Company Secretary', body: 'Not legally required in Panama, but highly recommended. Our local representatives ensure ongoing compliance and handle filings.' },
-    { title: 'Remote Process', body: 'Fully remote process — from incorporation to banking. No need to visit Panama. Multilingual support (English, Russian, Ukrainian).' },
+    { title: 'Shareholders', body: 'Your company needs just one shareholder, who can be an individual or a corporate entity—no local shareholder required. Want to protect your privacy? We provide nominee director services to keep your name out of the public registry while you retain full control.' },
+    { title: 'Directors', body: "You'll need at least three directors, but there's no residency requirement. With our network of trusted professionals, you never need to worry about meeting these formalities—we supply everything you need." },
+    { title: 'Registered Office Address', body: "A registered address in Panama is mandatory for incorporation. But don't stress about securing office space—we offer prestigious Panama City business addresses as part of our service packages." },
+    { title: 'Minimum Share Capital', body: 'There is no legal minimum capital requirement. Most companies opt for an authorized capital of USD 10,000, with only USD 1 paid-up at formation. This structure provides you with flexibility and credibility without tying up your funds.' },
+    { title: 'Company Secretary', body: 'While Panama does not legally require a Company Secretary, having one is a best practice—and we highly recommend it. Our local representatives ensure your company stays fully compliant year-round, handle filings, minutes, and regulatory notices.' },
+    { title: 'Remote Process', body: 'Fully remote process—from incorporation to banking. Over 10 years of experience in international company formations. Multilingual support (English, Russian, Ukrainian).' },
   ];
 
   return (
@@ -115,7 +116,7 @@ const PanamaOffPage = () => {
             <span className="bg-gradient-to-r from-[#444CE7] to-[#818CF8] bg-clip-text text-transparent">Panama</span> Company<br />Formation
           </h1>
           <p className="text-[15px] text-[#9A9590] max-w-[520px] mb-10 leading-[1.8]">
-            Panama uses a territorial taxation system — only income earned within Panama is subject to local taxes. Foreign-sourced income is fully tax-exempt, even if received into a Panamanian bank account. This makes Panama a prime jurisdiction for international trading companies, holding structures, and location-independent businesses. Incorporation packages start from €1,500.
+            Panama uses a territorial taxation system—one of the key advantages for international entrepreneurs. Only income earned within Panama is subject to local taxes. Foreign-sourced income is fully tax-exempt, even if received into a Panamanian bank account. This makes Panama a prime jurisdiction for international trading companies, holding structures, and location-independent businesses.
           </p>
           <div className="flex items-center gap-4 flex-wrap">
             <Link to="/contact" className="btn-primary">Start Registration →</Link>
@@ -138,7 +139,7 @@ const PanamaOffPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-4 block">Legal Structures</span>
           <h2 className="text-[clamp(28px,3.5vw,42px)] font-light text-[#F0EBE0] mb-4">Types of Companies in Panama</h2>
-          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Foreign investors in Panama have several entity options. Selecting the right structure is critical for compliance and profitability.</p>
+          <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Foreign investors in Panama have several entity options to choose from, each with its unique benefits and requirements. Selecting the appropriate structure is a critical first step in ensuring your business complies with local laws while maximizing efficiency and profitability.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-2 gap-px">
             {/* S.A. */}
             <div className="bg-[#0d0d0d] p-8 group relative overflow-hidden service-card">
@@ -146,8 +147,8 @@ const PanamaOffPage = () => {
               <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#444CE7]/30" />
               <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#444CE7]/0 group-hover:bg-[#444CE7]/40 transition-colors" />
               <span className="text-[10px] text-[#444CE7] border border-[#444CE7]/30 px-2 py-0.5 mb-3 inline-block uppercase tracking-[0.08em]">Most Popular</span>
-              <h3 className="text-[18px] font-semibold text-[#F0EBE0] mb-3">Sociedad Anónima (S.A.)</h3>
-              <p className="text-[13px] text-[#9A9590] leading-[1.85]">The most common structure for both local and foreign investors. Offers limited liability for shareholders, a separate legal personality, no restrictions on foreign ownership, minimum three directors (can be foreigners), minimum one shareholder, and flexibility in business activities. The preferred choice for startups, SMEs, and international entrepreneurs.</p>
+              <h3 className="text-[18px] font-semibold text-[#F0EBE0] mb-3">Private Limited Company (Sociedad Anónima)</h3>
+              <p className="text-[13px] text-[#9A9590] leading-[1.85]">The most common structure in Panama for both local and foreign investors. This entity offers limited liability for shareholders, a separate legal personality, no restrictions on foreign ownership, minimum of three directors (can be foreigners), minimum of one shareholder, and flexibility in business activities. It is the preferred choice for startups, SMEs, and international entrepreneurs.</p>
             </div>
             {/* Foundation */}
             <div className="bg-[#0d0d0d] p-8 group relative overflow-hidden service-card">
@@ -155,7 +156,7 @@ const PanamaOffPage = () => {
               <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#444CE7]/30" />
               <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#444CE7]/0 group-hover:bg-[#444CE7]/40 transition-colors" />
               <h3 className="text-[18px] font-semibold text-[#F0EBE0] mb-3">Panama Foundation</h3>
-              <p className="text-[13px] text-[#9A9590] leading-[1.85]">Popular offshore structure for asset protection, estate planning, and wealth management. While not a trading company, a Panama Foundation can own shares, real estate, and intellectual property. No shareholders required, high level of confidentiality, no local taxation on foreign-sourced income, flexible structure managed by a Council. Ideal for holding and family office structures.</p>
+              <p className="text-[13px] text-[#9A9590] leading-[1.85]">A popular offshore structure for asset protection, estate planning, and wealth management. While not a trading company, a Panama Foundation can own shares, real estate, and intellectual property. Benefits include no shareholders required, high level of confidentiality, no local taxation on foreign-sourced income, flexible structure managed by a Council. Ideal for holding and family office structures.</p>
             </div>
           </div>
         </div>
@@ -167,8 +168,8 @@ const PanamaOffPage = () => {
           <div className="col-span-7">
             <span className="section-tag mb-4 block">Taxation</span>
             <h2 className="text-[clamp(28px,3.5vw,42px)] font-light text-[#F0EBE0] mb-6">Panama's Territorial Tax System</h2>
-            <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">Panama uses a territorial taxation system — one of the key advantages for international entrepreneurs. Only income earned within Panama is subject to local taxes. Foreign-sourced income is fully tax-exempt, even if received into a Panamanian bank account.</p>
-            <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">If your company conducts business within Panama, you will be required to file annual corporate tax returns, pay corporate tax on local income (currently 25%), and maintain proper accounting records. We provide full tax advisory and annual compliance services to keep your company fully compliant.</p>
+            <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">Panama uses a territorial taxation system—one of the key advantages for international entrepreneurs. What does this mean for your business? Only income earned within Panama is subject to local taxes. Foreign-sourced income is fully tax-exempt, even if received into a Panamanian bank account.</p>
+            <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">This makes Panama a prime jurisdiction for international trading companies, holding structures, and location-independent businesses. However, if your company conducts business within Panama, you will be required to file annual corporate tax returns, pay corporate tax on local income (currently 25%), and maintain proper accounting records. We provide full tax advisory and annual compliance services to keep your company fully compliant.</p>
             <div className="bg-[#080808] border border-white/[0.06] p-6 mt-2">
               <p className="text-[13px] font-semibold text-[#F0EBE0] mb-3">Our Additional Offerings</p>
               <div className="space-y-2">
@@ -201,7 +202,7 @@ const PanamaOffPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-4 block">Requirements</span>
           <h2 className="text-[clamp(28px,3.5vw,42px)] font-light text-[#F0EBE0] mb-4">Requirements for Panama Company Formation</h2>
-          <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-relaxed">Panamanian legislation is refreshingly flexible for international business owners. We handle every aspect of the process.</p>
+          <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-relaxed">Setting up your company in Panama is more than just ticking boxes—it's about establishing a strong and fully compliant foundation for your future success. We handle every aspect of the process, ensuring that all legal and regulatory requirements are seamlessly met on your behalf.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
             {REQUIREMENTS.map((r, i) => (
               <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden service-card">
@@ -241,13 +242,13 @@ const PanamaOffPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-4 block">Banking</span>
           <h2 className="text-[clamp(28px,3.5vw,42px)] font-light text-[#F0EBE0] mb-4">Opening a Corporate Bank Account in Panama</h2>
-          <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-relaxed">Opening a corporate bank account in Panama is a strategic move — but it requires careful navigation of compliance requirements. Our bank account assistance service starts from €3,000.</p>
+          <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-relaxed">Opening a corporate bank account in Panama can be a highly strategic move—but it requires careful navigation of compliance requirements. We simplify the process for you, working directly with trusted banking institutions and guiding you from start to finish.</p>
           <div className="grid grid-cols-12 gap-12">
             <div className="col-span-7">
-              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Many banks in Panama still require a personal visit from at least one director or shareholder. We will advise on the best options based on your location and structure. Our local experience and strong relationships with financial institutions make the process smooth, fast, and predictable.</p>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Please note: Many banks in Panama still require a personal visit from at least one director or shareholder. We will advise on the best options based on your location and structure. With our local experience and strong relationships with financial institutions, your account opening process becomes smooth, fast, and predictable.</p>
               <h3 className="text-[14px] font-semibold text-[#F0EBE0] mb-4">Documents Required</h3>
               <div className="space-y-2">
-                {['Passport copies and proof of address for directors, shareholders, UBO', 'Certificate of Incorporation and company documents', 'Business plan or description of activities', 'Source of funds documentation'].map((d, i) => (
+                {['Passport copies and proof of address for directors and shareholders, UBO', 'Certificate of Incorporation and company documents', 'Business plan or a description of activities', 'Source of funds'].map((d, i) => (
                   <div key={i} className="flex items-start gap-3"><div className="w-1.5 h-1.5 bg-[#444CE7] mt-1.5 flex-shrink-0" /><span className="text-[13px] text-[#9A9590]">{d}</span></div>
                 ))}
               </div>
@@ -257,7 +258,7 @@ const PanamaOffPage = () => {
                 <div className="scan-line" />
                 <span className="section-tag mb-2 block">Bank Account Service</span>
                 <p className="text-[18px] font-light text-[#F0EBE0] mb-2">From €3,000</p>
-                <p className="text-[13px] text-[#9A9590] leading-relaxed mb-4">End-to-end coordination with selected Panamanian bank. Preparation and pre-approval of all required documents. KYC support and compliance guidance. Scheduling of bank meetings or remote onboarding where available.</p>
+                <p className="text-[13px] text-[#9A9590] leading-relaxed mb-4">Our bank account assistance service starts from €3,000 and includes end-to-end coordination with the selected Panamanian bank, preparation and pre-approval of all required documents, KYC support and compliance guidance, scheduling of bank meetings or remote onboarding (where available).</p>
                 <Link to="/contact" className="btn-primary w-full text-center block mt-4">Get Bank Account Support →</Link>
               </div>
             </div>

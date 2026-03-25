@@ -70,11 +70,10 @@ const CONS = [
 ];
 
 const FAQS = [
-  { q: "What are the conditions for a UK FCA EMI license?", a: "You need a UK Limited company, directors who pass FCA Fit & Proper checks, £350,000 minimum capital at an FCA-approved bank, a qualified MLRO, AML policy compliant with UK Money Laundering Regulations, client fund safeguarding arrangements, and a comprehensive FCA application." },
-  { q: "What documents are required?", a: "Company statutory documents, detailed business plan, AML/KYC policy, IT infrastructure and cybersecurity documentation, CVs and passport copies for all key personnel, source of funds evidence, and business continuity plan." },
-  { q: "How long does it take to get a UK EMI license?", a: "12–18 months total. The FCA review period is typically 9–12 months after application submission. Including company formation and document preparation, expect 12–18 months from project start." },
-  { q: "Does a UK EMI have EU passporting after Brexit?", a: "No. Post-Brexit, UK FCA EMI licenses are not passported into the EU. To serve EU clients, you need a separate EU-licensed entity — typically in Lithuania, Malta, or Estonia. We can structure a dual-entity setup." },
-  { q: "What payment rails does a UK EMI access?", a: "Faster Payments (instant UK transfers), BACS (batch processing for salaries and direct debits), CHAPS (same-day high-value transfers), and SWIFT for international transactions. This is the most complete payment rail access available under any single EMI license." },
+  { q: "What are the conditions for obtaining an EMI license in the UK?", a: "In order to obtain an EMI license in the UK, it is necessary to prepare a business plan, AML policy and other documents, register a company, hire specialists for mandatory positions (director, AML officer, etc.). Integral elements for obtaining a license are a bank account and contributed authorized capital." },
+  { q: "What documents are required to obtain an EMI license in the UK?", a: "In order to obtain an EMI license in the UK, you must provide: the company's statutory documents, copies of passports and resumes of its participants, business plan, AML policy and other documents. The exact list of documents, depending on the characteristics of future activities you can find out from the specialists of our company." },
+  { q: "What is the cost of EMI licensing in UK?", a: "The final cost of obtaining a license for a payment system in the UK is depends on the various factors (region of operation of the future payment system, planned turnover, etc.). You can find out the exact cost of obtaining a payment system license in the UK by contacting our specialists." },
+  { q: "What are the terms of obtaining an EMI license in the UK?", a: "The terms for obtaining an EMI license in the UK depend on the speed of submission of documents by the company's participants, the necessity of searching for employees, speed of opening an account and depositing the authorized capital, as well as of the consideration of the application by the regulator. Estimated term for obtaining a license - 6 months." },
 ];
 
 const RELATED = [
@@ -136,7 +135,7 @@ const UKEmiPage = () => {
             <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>UK</span> EMI License
           </h1>
           <p className="text-[15px] text-[#9A9590] leading-[1.85] max-w-[500px] mb-10">
-            The United Kingdom continues to be one of the top jurisdictions globally for EMI licensing. An FCA-authorized EMI is the most internationally recognized e-money license — preferred by institutional partners, correspondent banks, and enterprise clients worldwide. Access to Faster Payments, BACS, CHAPS and SWIFT.
+            The United Kingdom continues to be one of the top jurisdictions for obtaining an EMI (Electronic Money Institution) financial license. Please note that this permission is a prerequisite for legal activities related to the growing popularity of electronic payments.
           </p>
           <div className="flex gap-4 flex-wrap">
             <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
@@ -168,9 +167,7 @@ const UKEmiPage = () => {
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About UK FCA EMI</span>
             <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">The World's Most Recognized E-Money License</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>The UK's Financial Conduct Authority (FCA) is one of the world's most respected financial regulators. An FCA EMI authorization is the most globally recognized e-money license — opening doors with institutional banking partners, prime brokers, and enterprise clients who require Tier-1 regulatory credentials.</p>
-              <p>A UK EMI license grants access to the UK's core payment infrastructure: Faster Payments (instant transfers), BACS (batch processing), CHAPS (same-day high-value transfers), and SWIFT for international transactions. This payment rail access is unmatched by any other jurisdiction.</p>
-              <p>The FCA application process is the most thorough of any EMI jurisdiction — 12–18 months, with stringent fit-and-proper checks, capital adequacy assessment, and IT systems review. This rigor is precisely why an FCA EMI carries such global weight with banking and payment partners.</p>
+              <p>The United Kingdom continues to be one of the top jurisdictions for obtaining an EMI (Electronic Money Institution) financial license. Please note that this permission is a prerequisite for legal activities related to the growing popularity of electronic payments.</p>
             </div>
           </div>
           <div className="lg:col-span-5 space-y-3">

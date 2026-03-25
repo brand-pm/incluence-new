@@ -90,10 +90,10 @@ const FACTS_STRIP = [
 ];
 
 const FAQS = [
-  { q: "What are the requirements for obtaining a payment system license in Denmark?", a: "You must prepare a business plan, AML policy, and other documents, register a joint-stock company in Denmark with a physical office, and hire specialists for mandatory positions (director, AML officer, etc.). A bank account and paid-in share capital of approximately €350,000 are essential elements for obtaining the license." },
-  { q: "Which payment system in Denmark is best to choose?", a: "When choosing a payment system, consider its license, service coverage regions, and permissible payment methods. Also ensure the system's requirements match your company's characteristics (country of incorporation, residency of participants, etc.). Tariffs offered by the payment system also play a significant role." },
+  { q: "What are the requirements for obtaining a payment system license in Denmark?", a: "To obtain a payment system license in Denmark, you must prepare a business plan, AML policy, and other documents, register a company, and hire specialists for mandatory positions (director, AML officer, etc.). A bank account and paid-in share capital are essential elements for obtaining the license." },
+  { q: "Which payment system in Denmark is best to choose?", a: "When choosing a payment system, it is necessary to consider its license, service coverage regions, and permissible payment methods. It is also important to ensure that the system's requirements match the company's characteristics (country of incorporation, residency of participants, etc.). The tariffs offered by the payment system also play a significant role." },
   { q: "How long is a payment system license valid in Denmark?", a: "If all company maintenance requirements are met, the license is indefinite. However, it may be revoked in cases of prolonged inactivity and/or violations of operational rules." },
-  { q: "What is the cost of obtaining a payment system license in Denmark?", a: "The final cost depends on various factors (region of operation, projected turnover, etc.). Contact our specialists to find out the exact cost." },
+  { q: "What is the cost of obtaining a payment system license in Denmark?", a: "The final cost of obtaining a payment system license in Denmark depends on various factors (region of operation of the future payment system, projected turnover, etc.). You can find out the exact cost by consulting our specialists." },
 ];
 
 const DenmarkPaymentPage = () => {

@@ -41,11 +41,10 @@ const REQS = [
 const PROS = ["One of the fastest offshore forex licenses — 2–3 months", "Low minimum capital — $50,000 vs €125K+ for EU licenses", "0% tax on foreign-sourced income", "Three license classes — choose instruments precisely", "Lower operational costs vs EU-regulated jurisdictions", "No ongoing revenue-based taxes"];
 const CONS = ["Physical office in Vanuatu required", "Less prestigious than EU-regulated alternatives", "Some EU/US payment processors may decline Vanuatu-licensed brokers", "Not suitable for brokers targeting exclusively EU retail clients", "License must be actively maintained — dormant licenses revoked"];
 const FAQS = [
-  { q: "What are the three VFSC license classes?", a: "Class A covers bonds, loans, certificates of deposit and debt instruments. Class B covers options and futures contracts. Class C — the broadest — covers precious metals, commodities, equities, and securities-based contracts including forex." },
-  { q: "Is a physical office in Vanuatu required?", a: "Yes. A physical office in Vanuatu is mandatory for the license application. We can arrange a serviced office through our local network as part of our full service offering." },
-  { q: "How long does a Vanuatu forex license take?", a: "From company incorporation to VFSC license issuance typically takes 2–3 months. VFSC review after submission is usually 4–8 weeks." },
-  { q: "What is the minimum capital for a VFSC license?", a: "The minimum authorized capital is $50,000 USD, significantly lower than EU alternatives. Capital must be deposited at a bank and evidenced to the VFSC at application." },
-  { q: "Can I operate globally with a Vanuatu forex license?", a: "Yes — the VFSC license covers global operations. However, some jurisdictions (particularly EU member states) may require local licensing for retail client services targeting their residents." },
+  { q: "What are the requirements for obtaining a Forex license in Vanuatu?", a: "In order to obtain a forex license in Vanuatu, you need to register a company, rent an office, prepare policies, technical documentation and other documents. After opening an account and depositing the authorized capital it is necessary to submit an application to the regulator. After obtaining a license it is necessary to show the activity of the company in order to avoid its cancellation." },
+  { q: "What documents are required to obtain a Forex license in Vanuatu?", a: "In order to obtain Vanuatu Forex license, the following documents are required: statutory documents of the company, business plan, AML policy, rules for using the resource, confirmation of the identity and experience of company members, technical documentation." },
+  { q: "How long will it take to get a Forex license in Vanuatu?", a: "Obtaining a forex license in Vanuatu may take about six months. The time of obtaining is affected by the speed of preparation of documents and consideration of the application by the regulator." },
+  { q: "How much is an investment license in Vanuatu cost?", a: "The final cost of obtaining an investment license in Vanuatu is influenced by various factors (the exact list of future services, the region of work, etc.). You can find out the exact cost of obtaining an investment license in Vanuatu by contacting our specialists." },
 ];
 const RELATED = [
   { href: "/cyprus-forex-license", reg: "CySEC", name: "Cyprus", desc: "EU MiFID II passporting. 6–9 months, from €35,000." },
@@ -107,7 +106,7 @@ const VanuatuForexPage = () => {
           <div className="max-w-[600px]">
             <div className="flex items-center gap-3 mb-6"><span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Forex License</span><span className="text-[11px] text-[#5A5550] uppercase tracking-[0.12em]">Offshore · VFSC</span></div>
             <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1] mb-6"><span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Vanuatu</span>{" "}Forex License</h1>
-            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">The Vanuatu Financial Services Commission (VFSC) offers three license classes covering forex, futures, commodities, precious metals and securities. One of the most accessible offshore forex licenses with a fast 2–3 month process and low capital requirements.</p>
+            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">Forex licensing requires the applicant to comply with certain requirements and conditions and submit a set of documents. Business owners choose Vanuatu for obtaining such a license as the Financial Services Commission (VFSC) has established the most favorable conditions for licensing companies in this jurisdiction.</p>
             <div className="flex gap-4"><Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link><button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View Requirements</button></div>
           </div>
         </div>
@@ -126,9 +125,8 @@ const VanuatuForexPage = () => {
             <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— About VFSC License</span>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">Three License Classes for Every Broker Type</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
-              <p>The Vanuatu Financial Services Commission (VFSC) has established one of the most favorable licensing environments for forex brokers globally. The three-tier license structure allows operators to choose the precise scope of financial instruments they wish to offer.</p>
-              <p>Class A covers bonds, loans and debt instruments. Class B covers options and futures contracts. Class C — the most comprehensive — covers precious metals, commodities, equities, and securities-based contracts, making it the preferred choice for full-service forex brokers.</p>
-              <p>With a $50,000 minimum capital requirement and a 2–3 month timeline, Vanuatu offers the fastest and most accessible pathway to legal forex brokerage operations for startups and established firms alike.</p>
+              <p>The regulatory authority may grant a license of one of three classes, each of which provides business owners with certain privileges and advantages. A Vanuatu Forex license can fall into one of the following categories:</p>
+              <p>A — access to certificates of deposit, bonds, loans, and debt stocks. B — authorization to deal with options and futures, including futures contracts. C — opportunity to work with precious metals, commodities, shares, as well as contracts providing the possibility to purchase securities.</p>
             </div>
           </div>
           <div className="col-span-5 space-y-3">
