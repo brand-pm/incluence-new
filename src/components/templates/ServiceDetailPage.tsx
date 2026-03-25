@@ -192,46 +192,12 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
       </div>
 
       {/* ── HERO ── */}
-      <section className="bg-[#080808] py-[80px] px-6 md:px-12 relative overflow-hidden min-h-[420px]">
+      <section className="bg-[#080808] py-[64px] px-6 md:px-12 relative overflow-hidden">
         <NoiseOverlay />
         <div className="max-w-screen-xl mx-auto relative z-10">
-          <div className={heroVisual ? "grid grid-cols-12 gap-8 items-center" : ""}>
-            <div className={heroVisual ? "col-span-7" : "max-w-[680px]"}>
-              <div className="flex items-center gap-3 mb-5">
-                <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">
-                  — Service
-                </span>
-              </div>
-
-              <h1 className="text-[clamp(32px,4vw,52px)] font-light text-[#F0EBE0] leading-tight mb-5">
-                {title}
-              </h1>
-
-              <p className="text-[15px] text-[#9A9590] leading-relaxed mb-10 max-w-[560px]">
-                {description}
-              </p>
-
-              <div className="flex gap-3 flex-wrap">
-                <Link
-                  to="/contact"
-                  className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors border-0 cursor-pointer inline-flex items-center gap-2"
-                >
-                  Get a Free Quote →
-                </Link>
-                <Link
-                  to="/contact"
-                  className="px-7 py-3 bg-transparent text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] border border-white/15 hover:border-white/35 transition-all cursor-pointer inline-flex items-center"
-                >
-                  Discuss the Project
-                </Link>
-              </div>
-            </div>
-            {heroVisual && (
-              <div className="col-span-5 flex justify-center">
-                {heroVisual}
-              </div>
-            )}
-          </div>
+          <h1 className="text-[clamp(32px,4vw,52px)] font-light text-[#F0EBE0] leading-tight">
+            {title}
+          </h1>
         </div>
       </section>
 
