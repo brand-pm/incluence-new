@@ -5,7 +5,7 @@ const GamblingHubPage = () => (
     categoryTag="LICENSING"
     titleAccent="Gambling"
     titleRest="License"
-    description="Obtain an online gambling license in the right jurisdiction for your business. We handle the full process — from jurisdiction selection to license issuance."
+    description="The full-fledged operation of an online casino implies the obligatory availability of a gaming license. This document ensures the financial stability of the business and security for the owner, as well as allows the legal development of gaming projects and the provision of appropriate services to customers."
     stats={[
       { value: '6+',     label: 'JURISDICTIONS AVAILABLE' },
       { value: '2 wk',   label: 'FASTEST LICENSE' },
@@ -76,23 +76,18 @@ const GamblingHubPage = () => (
     requirementsTitle="What You'll Need"
     requirementsIntro="Requirements vary by jurisdiction but share a common core. We prepare the full documentation package on your behalf — you only provide personal documents."
     requirements={[
-      'Passport copies and proof of address — all directors and shareholders',
-      'Documents confirming financial standing and source of funds',
-      'Company statutory documents',
+      'Copies of passports and proof of address — all directors and shareholders of the company',
+      'Documents confirming the experience and financial standing of company participants',
+      'Statutory documents of the company',
+      'Technical documentation',
+      'Company policies (AML/KYC, Responsible Gaming)',
       'Detailed business plan and description of gaming activities',
-      'AML/KYC policy compliant with local and international legislation',
-      'Technical documentation and RNG certificates',
-      'Responsible Gaming policy published on the platform',
-      'Registered office in jurisdiction (we assist with setup)',
-      'Proof of authorized capital deposit',
     ]}
     faq={[
-      { question: 'What conditions are required to obtain a gaming license?', answer: 'Requirements vary by jurisdiction. Generally you need a registered local company, a business plan, AML/KYC policy, technical documentation, and personal documents for all directors and shareholders.' },
-      { question: 'Which jurisdictions do you work with for gambling licenses?', answer: 'We work with Malta (MGA), Curaçao (CGA), Isle of Man (GSC), Costa Rica, Gibraltar (GBGA), Cyprus, and several other jurisdictions globally.' },
-      { question: 'How long does it take to obtain a gambling license?', answer: 'Timeline varies: Costa Rica — 2–5 weeks; Curaçao — 3–4 months; Malta, Gibraltar, Cyprus — 6–12 months.' },
-      { question: 'What documents are required for a gambling license application?', answer: 'Passport copies, proof of address, bank reference letters, criminal record certificates, company documents, technical documentation, AML policy, and business plan.' },
-      { question: 'Can a foreign company apply for a gambling license?', answer: 'Yes. Most jurisdictions allow foreign nationals to register a local company and obtain a license. We handle the full process remotely.' },
-      { question: 'How much does a gambling license cost?', answer: 'Costs vary by jurisdiction and scope of services. Contact our specialists for an exact quote tailored to your business requirements.' },
+      { question: 'What are the conditions for obtaining a gaming license?', answer: 'In order to obtain a gambling license, you need to prepare a business plan, register a company, apply for a license, set up a technical base and open a bank account. You must carefully prepare all the documentation and correctly apply for a license. These processes should be entrusted to professionals.' },
+      { question: 'In which countries do you help obtain a gambling license?', answer: 'We work with different regions such as Malta, Curaçao, Costa Rica, Estonia, Isle of Man and others. To register a gambling business, it is necessary to take into account the list of future games, the region of activity, and other factors. We will select the country of registration taking into account the characteristics of your business.' },
+      { question: 'What are the terms for obtaining a gambling license?', answer: 'The term depends on the chosen country of registration, business features, the chosen license class and other factors. It usually takes up to six months to register a company and obtain a license.' },
+      { question: 'What documents are required to obtain a gaming license?', answer: 'You must submit: copies of passports and proof of address of directors and shareholders; documents confirming the experience and financial standing of company participants; statutory documents; technical documentation; company policies.' },
     ]}
     formTitle="Ready to Apply for a Gambling License?"
     formSubtitle="Tell us about your project and we'll identify the best jurisdiction, timeline and cost structure for your business. Response within 24 hours."

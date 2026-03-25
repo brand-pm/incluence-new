@@ -17,7 +17,7 @@ const CostaRicaLicensePage = () => (
       titleRest: "Gambling License in",
       accentPosition: "end",
       description:
-        "Costa Rica offers a unique regulatory model: no traditional gambling license exists. Online operators use a Data Processing License issued by the local municipality, allowing them to legally process internet bets worldwide — with no mandatory business plan, no financial reporting, and no capital requirements beyond share capital.",
+        "The Data Processing license in Costa Rica is issued by the local municipality. To apply, you only need to have an office in the country and hire a legal representative. No business plan required, no profit plan requirements, no software requirements, no financial reporting. The license is issued within 2–5 weeks.",
       cta1: "Get a Free Quote →",
       cta2: "View Requirements",
       heroOverlay:
@@ -29,7 +29,7 @@ const CostaRicaLicensePage = () => (
       { label: "Regulator", value: "Municipality", cls: "text-[#444CE7] font-semibold" },
       { label: "License type", value: "Data Processing", cls: "text-[#F0EBE0]" },
       { label: "Timeline", value: "2–4 months", cls: "text-[#F0EBE0]" },
-      { label: "Cost", value: "from $15,000", cls: "text-[#F0EBE0]" },
+      { label: "License fee", value: "$15,000 one-time", cls: "text-[#F0EBE0]" },
       { label: "Renewal", value: "$1,500 / quarter", cls: "text-[#9A9590] italic" },
     ]}
     process={{
@@ -86,7 +86,7 @@ const CostaRicaLicensePage = () => (
     requirements={{
       title: "What is required for licensing",
       intro:
-        "The Data Processing license is issued by the local municipality. To apply, you only need to have an office in the country and hire a legal representative. If the enterprise is foreign-owned, this position must be filled by a Costa Rican resident.",
+        "The Data Processing license is issued by the local municipality, and to apply, you only need to have an office in the country and hire a legal representative. If the enterprise is foreign-owned, this position must be filled by a Costa Rican resident.",
       notRequiredTitle: "What's NOT required",
       notRequired: [
         "No business plan is needed",
@@ -96,25 +96,25 @@ const CostaRicaLicensePage = () => (
         "No financial reporting or mandatory bank accounts",
       ],
       additionalText:
-        "There are no requirements for a large initial capital. However, at least 25% of the issued share capital must be paid during company registration. The company's activities must not target Costa Rica or its residents — operators are prohibited from accepting bets from Costa Rican residents, and equipment must be physically located outside of Costa Rica.",
+        "There are no requirements for a large initial capital. However, at least 25% of the issued share capital must be paid during company registration. One important condition: the company's activities must not target Costa Rica or its residents. Equipment needed for online operations must be physically located outside of Costa Rica.",
       docsTitle: "Documents required",
       docs: [
-        "Copies of passports and proof of address of company directors and shareholders",
-        "Documents confirming the experience and financial standing of company participants",
+        "Office in Costa Rica",
+        "Legal representative — Costa Rican resident (for foreign-owned companies)",
+        "At least 25% of issued share capital must be paid during company registration",
+        "One-time license fee of $15,000",
+        "Quarterly renewal fee of $1,500",
+        "Copies of passports and proof of address of directors and shareholders",
         "Company's founding documents",
-        "Technical documentation",
-        "Company policies",
-        "Proof of registered office in Costa Rica",
-        "Appointment of local legal representative",
+        "Technical documentation and company policies",
       ],
       checklistDocs: [
         "Passport copies — directors & shareholders",
         "Address confirmation — directors & shareholders",
-        "Experience & financial standing documentation",
         "Company founding documents",
         "Technical documentation",
         "Company policies",
-        "Proof of registered office",
+        "Proof of registered office in Costa Rica",
         "Local legal representative appointment",
       ],
       checklistNote:
@@ -123,7 +123,7 @@ const CostaRicaLicensePage = () => (
     faqs={[
       {
         q: "How to open an online casino in Costa Rica?",
-        a: "To open an online casino in Costa Rica, you need to prepare a business plan, register a company, obtain a license, set up the technical infrastructure, and open a bank account. The entire documentation must be prepared carefully, and the license application submitted correctly. These processes are best entrusted to professionals.",
+        a: "To open an online casino in Costa Rica, you need to prepare a business plan, register a company, obtain a license, set up the technical infrastructure, and open a bank account. The entire documentation must be prepared carefully. These processes are best entrusted to professionals.",
       },
       {
         q: "What are the timeframes for obtaining a gambling license in Costa Rica?",
@@ -135,7 +135,7 @@ const CostaRicaLicensePage = () => (
       },
       {
         q: "What is the cost of obtaining a gambling license in Costa Rica?",
-        a: "The final cost of obtaining a gambling license in Costa Rica depends on various factors (list of services offered, number of domains, etc.). You can find out the exact cost by contacting our specialists.",
+        a: "The final cost depends on various factors. You can find out the exact cost by contacting our specialists.",
       },
     ]}
     relatedTag="— Related"
