@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { USABankVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /opening-an-account-in-the-pay-pal-payment-system
 const PAGE_DATA = {
@@ -41,6 +43,8 @@ const OpeningAnAccountInThePayPalPaymentSystemPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
+    heroVisual={<USABankVisual />}
+
   />
 );
 

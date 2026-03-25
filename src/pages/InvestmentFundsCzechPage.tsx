@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { CzechFundVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /registration-of-investment-funds-in-czech
 const PAGE_DATA = {
@@ -37,6 +39,8 @@ const InvestmentFundsCzechPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
+    heroVisual={<CzechFundVisual />}
+
   />
 );
 

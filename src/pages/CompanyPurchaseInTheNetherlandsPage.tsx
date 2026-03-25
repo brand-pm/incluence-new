@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { NetherlandsCompanyVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /company-purchase-in-the-netherlands
 const CompanyPurchaseInTheNetherlandsPage = () => (
@@ -53,6 +55,8 @@ const CompanyPurchaseInTheNetherlandsPage = () => (
         answer: "Yes, a company in the Netherlands can be purchased remotely via power of attorney or by visiting the Netherlands in person.",
       },
     ]}
+    heroVisual={<NetherlandsCompanyVisual />}
+
   />
 );
 

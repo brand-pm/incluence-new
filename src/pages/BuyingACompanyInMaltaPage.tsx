@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { MaltaCompanyVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /buying-a-company-in-malta
 const BuyingACompanyInMaltaPage = () => (
@@ -47,6 +49,8 @@ const BuyingACompanyInMaltaPage = () => (
         answer: "A company in Malta can be re-registered remotely by proxy or in person when visiting Malta.",
       },
     ]}
+    heroVisual={<MaltaCompanyVisual />}
+
   />
 );
 

@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { PolandCompanyVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /buying-a-company-in-poland
 const BuyingACompanyInPolandPage = () => (
@@ -57,6 +59,8 @@ const BuyingACompanyInPolandPage = () => (
         answer: "A company in Poland can be purchased remotely by proxy or by visiting Poland.",
       },
     ]}
+    heroVisual={<PolandCompanyVisual />}
+
   />
 );
 

@@ -5,6 +5,8 @@ import NodePulse from "./NodePulse";
 
 type Category = "license" | "payment" | "intl" | "offshore";
 
+interface NavTag { label: string; href?: string }
+
 const CATS: { id: Category; label: string; Icon: typeof Shield }[] = [
   { id: "license", Icon: Shield, label: "License" },
   { id: "payment", Icon: CreditCard, label: "Provider payment systems" },
@@ -12,64 +14,153 @@ const CATS: { id: Category; label: string; Icon: typeof Shield }[] = [
   { id: "offshore", Icon: Building2, label: "Offshore" },
 ];
 
-const NAV_DATA: Record<Category, { sublabel: string; items: { href: string; label: string; desc: string; icon: JSX.Element; tags: string[] }[] }> = {
+const NAV_DATA: Record<Category, { sublabel: string; items: { href: string; label: string; desc: string; icon: JSX.Element; tags: NavTag[] }[] }> = {
   license: {
     sublabel: "— LICENSING",
     items: [
-      { href: "/gamble-license", label: "Gambling License", desc: "Casino, sports betting & poker", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="0"/><circle cx="12" cy="12" r="3"/></svg>, tags: ["Malta", "Curaçao", "Gibraltar", "+9"] },
-      { href: "/forex-license", label: "Forex License", desc: "EU & offshore brokerage", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>, tags: ["Cyprus", "BVI", "Estonia", "+6"] },
-      { href: "/cryptocurrency-exchange-license", label: "Crypto / VASP", desc: "Exchange, custody & DeFi", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 16.793l-1.86-11.04"/></svg>, tags: ["Estonia", "Lithuania", "UAE", "+5"] },
-      { href: "/emi-license", label: "EMI License", desc: "E-money & SEPA access", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="0"/><line x1="2" y1="10" x2="22" y2="10"/></svg>, tags: ["UK", "Lithuania", "Malta", "+3"] },
+      { href: "/gamble-license", label: "Gambling License", desc: "Casino, sports betting & poker", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="0"/><circle cx="12" cy="12" r="3"/></svg>, tags: [
+        { label: "Malta", href: "/malta-gaming-license" },
+        { label: "Curaçao", href: "/curacao-gaming-license" },
+        { label: "Isle of Man", href: "/gambling-license-of-the-isle-of-man" },
+        { label: "Costa Rica", href: "/gambling-license-in-costa-rica" },
+      ]},
+      { href: "/forex-license", label: "Forex License", desc: "EU & offshore brokerage", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>, tags: [
+        { label: "Cyprus", href: "/cyprus-forex-license" },
+        { label: "Malta", href: "/forex-broker-licence-in-malta" },
+        { label: "Vanuatu", href: "/forex-broker-licence-in-vanuatu" },
+        { label: "Mauritius", href: "/forex-broker-licence-in-mauritius" },
+        { label: "Montenegro", href: "/forex-broker-licence-in-montenegro" },
+        { label: "Seychelles", href: "/forex-license-seychelles" },
+      ]},
+      { href: "/cryptocurrency-exchange-license", label: "Crypto / VASP", desc: "Exchange, custody & DeFi", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 16.793l-1.86-11.04"/></svg>, tags: [
+        { label: "Estonia", href: "/cryptocurrency-exchange-license-in-estonia" },
+        { label: "Lithuania", href: "/lithuania-crypto-license" },
+        { label: "Switzerland", href: "/cryptocurrency-exchange-license-in-switzerland" },
+        { label: "Malta", href: "/cryptocurrency-license-in-malta" },
+        { label: "Poland", href: "/poland-crypto-license" },
+        { label: "USA", href: "/cryptocurrency-exchange-license-in-the-usa" },
+      ]},
+      { href: "/emi-license", label: "EMI License", desc: "E-money & SEPA access", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="0"/><line x1="2" y1="10" x2="22" y2="10"/></svg>, tags: [
+        { label: "Estonia", href: "/emi-license-in-estonia" },
+        { label: "Malta", href: "/e-money-license-malta" },
+        { label: "UK", href: "/e-money-license-uk" },
+        { label: "Lithuania", href: "/e-money-license-lithuania" },
+      ]},
     ],
   },
   payment: {
     sublabel: "— PROVIDER PAYMENT SYSTEMS",
     items: [
-      { href: "/provider-payment-systems", label: "Payment Systems", desc: "Full PSP registration", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="0"/><line x1="2" y1="10" x2="22" y2="10"/></svg>, tags: ["PSP", "SEPA", "SWIFT"] },
-      { href: "/accounts-bank", label: "Bank Accounts", desc: "Corporate accounts in 20+ countries", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>, tags: ["EU", "Asia", "Offshore"] },
-      { href: "/opening-a-merchant-account", label: "Merchant Account", desc: "PSP connections & processing", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>, tags: ["Visa", "MC", "Crypto"] },
+      { href: "/provider-payment-systems", label: "Payment Systems", desc: "Full PSP registration & licensing", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="0"/><line x1="2" y1="10" x2="22" y2="10"/></svg>, tags: [
+        { label: "Cyprus", href: "/payment-system-license-in-cyprus" },
+        { label: "Lithuania", href: "/payment-system-license-in-lithuania" },
+        { label: "UK PSP", href: "/psp-system-uk" },
+        { label: "Denmark", href: "/payment-system-license-in-denmark" },
+        { label: "Czech", href: "/czech-payment-system-license" },
+        { label: "Hong Kong", href: "/hong-kong-payment-system-license" },
+      ]},
+      { href: "/accounts-bank", label: "Bank Accounts", desc: "Corporate accounts in 20+ countries", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>, tags: [
+        { label: "Cyprus", href: "/open-a-bank-account-in-cyprus" },
+        { label: "Germany", href: "/open-a-bank-account-in-germany" },
+        { label: "UK", href: "/opening-a-bank-account-in-the-united-kingdom" },
+        { label: "Switzerland", href: "/open-bank-account-as-foreigner-in-switzerland" },
+        { label: "USA", href: "/open-bank-account-as-foreigner-in-usa" },
+        { label: "+15", href: "/accounts-bank" },
+      ]},
+      { href: "/opening-a-merchant-account", label: "Merchant Account", desc: "PSP connections & card processing", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>, tags: [
+        { label: "Visa" },
+        { label: "MC" },
+        { label: "Crypto" },
+      ]},
+      { href: "/open-an-account-in-a-payment-system", label: "Payment System Account", desc: "Wise, PayPal, Payoneer & more", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>, tags: [
+        { label: "Wise", href: "/opening-an-account-in-the-wise-payment-system" },
+        { label: "PayPal", href: "/opening-an-account-in-the-pay-pal-payment-system" },
+        { label: "Payoneer", href: "/opening-an-account-in-the-payoneer-payment-system" },
+        { label: "Revolut", href: "/opening-an-account-in-revolut" },
+      ]},
     ],
   },
   intl: {
     sublabel: "— INTERNATIONAL OPERATION",
     items: [
-      { href: "/legal-business", label: "Business Legitimization", desc: "Legal structures & compliance", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>, tags: ["Compliance", "AML", "KYC"] },
-      { href: "/finance-reporting", label: "Tax & Reporting", desc: "Tax planning & transfer pricing", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>, tags: ["Transfer pricing", "CFC"] },
-      { href: "/support-legal", label: "Legal Support", desc: "Ongoing counsel & contracts", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>, tags: ["Contracts", "Disputes"] },
+      { href: "/registration-of-companies-abroad", label: "Company Registration", desc: "28+ jurisdictions worldwide", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>, tags: [
+        { label: "Estonia", href: "/open-a-company-in-estonia" },
+        { label: "UK", href: "/register-company-in-uk" },
+        { label: "UAE", href: "/register-company-in-uae" },
+        { label: "Singapore", href: "/register-company-in-singapore" },
+        { label: "Hong Kong", href: "/register-company-in-hong-kong" },
+        { label: "+23", href: "/registration-of-companies-abroad" },
+      ]},
+      { href: "/buy-a-business-abroad", label: "Ready-Made Companies", desc: "Buy & start immediately", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>, tags: [
+        { label: "Estonia", href: "/buy-company-in-estonia" },
+        { label: "Malta", href: "/buying-a-company-in-malta" },
+        { label: "Cyprus", href: "/purchase-of-a-company-in-cyprus" },
+        { label: "England", href: "/purchase-a-company-in-england" },
+        { label: "+15", href: "/buy-a-business-abroad" },
+      ]},
+      { href: "/offshore-investment-funds", label: "Investment Funds", desc: "Fund registration & management", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>, tags: [
+        { label: "Luxembourg", href: "/open-an-investment-fund-in-luxembourg" },
+        { label: "Estonia", href: "/open-an-investment-fund-in-estonia" },
+        { label: "Malta", href: "/registration-of-investment-funds-in-malta" },
+        { label: "Czech", href: "/registration-of-investment-funds-in-czech" },
+        { label: "Switzerland", href: "/registration-of-investment-funds-in-switzerland" },
+      ]},
+      { href: "/residence-permit-abroad", label: "Residence Permit", desc: "Residency by investment", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>, tags: [
+        { label: "Portugal", href: "/residence-permit-in-portugal" },
+        { label: "Dubai", href: "/residence-permit-in-dubai" },
+        { label: "Cyprus", href: "/residence-permit-in-cyprus" },
+        { label: "Lithuania", href: "/residence-permit-in-lithuania" },
+        { label: "Hungary", href: "/residence-permit-in-hungary" },
+        { label: "Slovakia", href: "/residence-permit-in-slovakia" },
+      ]},
+      { href: "/legal-business", label: "Legal & Compliance", desc: "Business legitimization & AML", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>, tags: [
+        { label: "Tax", href: "/finance-reporting" },
+        { label: "Legal Support", href: "/support-legal" },
+        { label: "Contracts", href: "/drafting-international-contracts" },
+      ]},
+      { href: "/finance-reporting", label: "Tax & Reporting", desc: "Tax planning & transfer pricing", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>, tags: [
+        { label: "Transfer pricing" },
+        { label: "CFC" },
+      ]},
     ],
   },
   offshore: {
     sublabel: "— OFFSHORE",
     items: [
-      { href: "/offshore-company-formation", label: "Offshore Company", desc: "BVI, Cayman, Seychelles, UAE", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>, tags: ["BVI", "Cayman", "Seychelles"] },
-      { href: "/registration-of-companies-abroad", label: "Company Registration", desc: "40+ jurisdictions", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>, tags: ["UK", "UAE", "HK", "+37"] },
-      { href: "/offshore-investment-funds", label: "Investment Funds", desc: "Fund registration & management", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>, tags: ["CySEC", "CIMA", "FSA"] },
-      { href: "/residence-permit-abroad", label: "Residence Permit", desc: "Residency by investment", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>, tags: ["UAE", "Portugal", "Malta"] },
-      { href: "/buy-a-business-abroad", label: "Buy a Business", desc: "International acquisitions", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>, tags: ["EU", "Asia", "Offshore"] },
-      { href: "/drafting-international-contracts", label: "Int'l Contracts", desc: "Cross-border drafting & review", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>, tags: ["Cross-border", "M&A"] },
+      { href: "/offshore-company-formation", label: "Offshore Company", desc: "Tax-efficient structures worldwide", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>, tags: [
+        { label: "BVI", href: "/offshore-in-the-british-virgin-islands" },
+        { label: "Cayman", href: "/offshore-in-the-cayman-islands" },
+        { label: "Seychelles", href: "/offshore-company-formation-in-seychelles" },
+        { label: "Curaçao", href: "/offshore-company-formation-in-curacao" },
+        { label: "Panama", href: "/panama-company-formation" },
+        { label: "+4", href: "/offshore-company-formation" },
+      ]},
+      { href: "/ready-made-offshore-companies", label: "Ready-Made Offshore", desc: "Pre-registered offshore entities", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>, tags: [
+        { label: "Costa Rica", href: "/offshore-costa-rica" },
+        { label: "Isle of Man", href: "/offshore-in-the-isle-of-man" },
+        { label: "St Vincent", href: "/offshore-company-formation-in-st-vincent-and-the-grenadines" },
+        { label: "Cyprus", href: "/cyprus-offshore-company-formation" },
+      ]},
+      { href: "/opening-a-foreign-bank-account", label: "Offshore Banking", desc: "Foreign & offshore accounts", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>, tags: [
+        { label: "Foreign", href: "/opening-a-foreign-bank-account" },
+        { label: "Offshore", href: "/opening-an-offshore-bank-account" },
+        { label: "Luxembourg", href: "/open-a-bank-account-in-luxembourg" },
+        { label: "Andorra", href: "/open-a-bank-account-in-andorra" },
+      ]},
+      { href: "/open-a-hedge-fund", label: "Hedge Funds", desc: "Fund setup & administration", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>, tags: [
+        { label: "Hedge Fund", href: "/open-a-hedge-fund" },
+        { label: "Luxembourg", href: "/open-an-investment-fund-in-luxembourg" },
+      ]},
     ],
   },
 };
 
 const PILLS = [
-  { label: "Gambling · MGA", href: "/gamble-license" },
-  { label: "Estonia · VASP", href: "/cryptocurrency-exchange-license" },
-  { label: "UK · EMI", href: "/emi-license" },
-  { label: "BVI · Offshore", href: "/offshore-company-formation" },
+  { label: "Gambling · MGA", href: "/malta-gaming-license" },
+  { label: "Estonia · VASP", href: "/cryptocurrency-exchange-license-in-estonia" },
+  { label: "UK · EMI", href: "/e-money-license-uk" },
+  { label: "BVI · Offshore", href: "/offshore-in-the-british-virgin-islands" },
 ];
-
-const TAG_LINKS: Record<string, string> = {
-  'Malta': '/malta-gaming-license',
-  'Curaçao': '/curacao-gaming-license',
-  'Gibraltar': '/gambling-license-of-the-isle-of-man',
-  'Cyprus': '/cryptocurrency-exchange-license',
-  'BVI': '/offshore-company-formation',
-  'Estonia': '/cryptocurrency-exchange-license',
-  'Lithuania': '/emi-license',
-  'UAE': '/offshore-company-formation',
-  'UK': '/emi-license',
-  'HK': '/offshore-company-formation',
-};
 
 interface JurisdictionPreview {
   reg: string; name: string; badge: string; price: string; timeline: string; href: string;
@@ -82,12 +173,81 @@ const LICENSE_PREVIEWS: Record<string, { jurisdictions: JurisdictionPreview[] }>
     { reg: 'GSC', name: 'Isle of Man', badge: 'Tier 1', price: 'From £25,000', timeline: '6–12 months', href: '/gambling-license-of-the-isle-of-man' },
     { reg: 'Municipality', name: 'Costa Rica', badge: 'Offshore', price: 'From $15,000', timeline: '2–5 weeks', href: '/gambling-license-in-costa-rica' },
   ]},
-  '/forex-license': { jurisdictions: [] },
-  '/cryptocurrency-exchange-license': { jurisdictions: [] },
-  '/emi-license': { jurisdictions: [] },
+  '/forex-license': { jurisdictions: [
+    { reg: 'CySEC', name: 'Cyprus', badge: 'EU Regulated', price: 'From €30,000', timeline: '6–12 months', href: '/cyprus-forex-license' },
+    { reg: 'MFSA', name: 'Malta', badge: 'EU MiFID', price: 'From €25,000', timeline: '6–9 months', href: '/forex-broker-licence-in-malta' },
+    { reg: 'VFSC', name: 'Vanuatu', badge: 'Offshore', price: 'From $20,000', timeline: '3–4 months', href: '/forex-broker-licence-in-vanuatu' },
+    { reg: 'FSC', name: 'Mauritius', badge: 'Offshore', price: 'From $15,000', timeline: '3–6 months', href: '/forex-broker-licence-in-mauritius' },
+  ]},
+  '/cryptocurrency-exchange-license': { jurisdictions: [
+    { reg: 'FIU', name: 'Estonia', badge: 'EU VASP', price: 'From €15,000', timeline: '2–4 months', href: '/cryptocurrency-exchange-license-in-estonia' },
+    { reg: 'FNTT', name: 'Lithuania', badge: 'EU VASP', price: 'From €10,000', timeline: '1–3 months', href: '/lithuania-crypto-license' },
+    { reg: 'FINMA', name: 'Switzerland', badge: 'Premium', price: 'From CHF 50,000', timeline: '4–8 months', href: '/cryptocurrency-exchange-license-in-switzerland' },
+    { reg: 'MFSA', name: 'Malta', badge: 'EU MiCA', price: 'From €25,000', timeline: '6–9 months', href: '/cryptocurrency-license-in-malta' },
+  ]},
+  '/emi-license': { jurisdictions: [
+    { reg: 'FCA', name: 'UK', badge: 'Tier 1', price: 'From £30,000', timeline: '6–12 months', href: '/e-money-license-uk' },
+    { reg: 'Bank of Lithuania', name: 'Lithuania', badge: 'EU Passporting', price: 'From €15,000', timeline: '3–6 months', href: '/e-money-license-lithuania' },
+    { reg: 'MFSA', name: 'Malta', badge: 'EU Passporting', price: 'From €20,000', timeline: '4–8 months', href: '/e-money-license-malta' },
+    { reg: 'FIU', name: 'Estonia', badge: 'EU Digital', price: 'From €15,000', timeline: '3–6 months', href: '/emi-license-in-estonia' },
+  ]},
+  '/provider-payment-systems': { jurisdictions: [
+    { reg: 'CBC', name: 'Cyprus', badge: 'EU PSD2', price: 'From €20,000', timeline: '6–9 months', href: '/payment-system-license-in-cyprus' },
+    { reg: 'Bank of Lithuania', name: 'Lithuania', badge: 'EU Passporting', price: 'From €12,000', timeline: '3–6 months', href: '/payment-system-license-in-lithuania' },
+    { reg: 'FCA', name: 'UK PSP', badge: 'Tier 1', price: 'From £25,000', timeline: '6–12 months', href: '/psp-system-uk' },
+    { reg: 'CNB', name: 'Czech Republic', badge: 'EU', price: 'From €15,000', timeline: '4–8 months', href: '/czech-payment-system-license' },
+  ]},
+  '/accounts-bank': { jurisdictions: [
+    { reg: 'CBC', name: 'Cyprus', badge: 'EU', price: 'From €2,000', timeline: '2–4 weeks', href: '/open-a-bank-account-in-cyprus' },
+    { reg: 'BaFin', name: 'Germany', badge: 'EU', price: 'From €1,500', timeline: '2–3 weeks', href: '/open-a-bank-account-in-germany' },
+    { reg: 'FINMA', name: 'Switzerland', badge: 'Premium', price: 'From CHF 5,000', timeline: '3–6 weeks', href: '/open-bank-account-as-foreigner-in-switzerland' },
+    { reg: 'FCA', name: 'UK', badge: 'Tier 1', price: 'From £1,500', timeline: '2–4 weeks', href: '/opening-a-bank-account-in-the-united-kingdom' },
+  ]},
+  '/registration-of-companies-abroad': { jurisdictions: [
+    { reg: 'e-Residency', name: 'Estonia', badge: 'EU Digital', price: 'From €1,500', timeline: '1–2 weeks', href: '/open-a-company-in-estonia' },
+    { reg: 'Companies House', name: 'UK', badge: 'Tier 1', price: 'From £1,000', timeline: '1–3 days', href: '/register-company-in-uk' },
+    { reg: 'ACRA', name: 'Singapore', badge: 'Asia Hub', price: 'From $2,000', timeline: '1–2 weeks', href: '/register-company-in-singapore' },
+    { reg: 'DED', name: 'UAE', badge: 'Tax Free', price: 'From $5,000', timeline: '1–2 weeks', href: '/register-company-in-uae' },
+  ]},
+  '/buy-a-business-abroad': { jurisdictions: [
+    { reg: 'RIK', name: 'Estonia', badge: 'EU Ready', price: 'From €3,000', timeline: '3–5 days', href: '/buy-company-in-estonia' },
+    { reg: 'MBR', name: 'Malta', badge: 'EU', price: 'From €5,000', timeline: '1–2 weeks', href: '/buying-a-company-in-malta' },
+    { reg: 'DRCOR', name: 'Cyprus', badge: 'EU', price: 'From €4,000', timeline: '1–2 weeks', href: '/purchase-of-a-company-in-cyprus' },
+    { reg: 'Companies House', name: 'England', badge: 'Tier 1', price: 'From £3,000', timeline: '3–5 days', href: '/purchase-a-company-in-england' },
+  ]},
+  '/offshore-investment-funds': { jurisdictions: [
+    { reg: 'CSSF', name: 'Luxembourg', badge: 'EU UCITS', price: 'From €30,000', timeline: '3–6 months', href: '/open-an-investment-fund-in-luxembourg' },
+    { reg: 'FIU', name: 'Estonia', badge: 'EU', price: 'From €10,000', timeline: '2–4 months', href: '/open-an-investment-fund-in-estonia' },
+    { reg: 'MFSA', name: 'Malta', badge: 'EU AIFMD', price: 'From €20,000', timeline: '3–6 months', href: '/registration-of-investment-funds-in-malta' },
+    { reg: 'CNB', name: 'Czech Republic', badge: 'EU', price: 'From €12,000', timeline: '2–4 months', href: '/registration-of-investment-funds-in-czech' },
+  ]},
+  '/residence-permit-abroad': { jurisdictions: [
+    { reg: 'SEF', name: 'Portugal', badge: 'Golden Visa', price: 'From €250,000', timeline: '6–12 months', href: '/residence-permit-in-portugal' },
+    { reg: 'ICA', name: 'Dubai', badge: 'Tax Free', price: 'From $5,000', timeline: '2–4 weeks', href: '/residence-permit-in-dubai' },
+    { reg: 'CRMD', name: 'Cyprus', badge: 'EU', price: 'From €30,000', timeline: '2–3 months', href: '/residence-permit-in-cyprus' },
+    { reg: 'Migration Dept', name: 'Lithuania', badge: 'EU', price: 'From €5,000', timeline: '2–4 months', href: '/residence-permit-in-lithuania' },
+  ]},
+  '/offshore-company-formation': { jurisdictions: [
+    { reg: 'FSC', name: 'BVI', badge: 'Classic Offshore', price: 'From $1,500', timeline: '1–3 days', href: '/offshore-in-the-british-virgin-islands' },
+    { reg: 'CIMA', name: 'Cayman Islands', badge: 'Premium', price: 'From $5,000', timeline: '1–2 weeks', href: '/offshore-in-the-cayman-islands' },
+    { reg: 'FSA', name: 'Seychelles', badge: 'Popular', price: 'From $1,200', timeline: '1–3 days', href: '/offshore-company-formation-in-seychelles' },
+    { reg: 'CBoC', name: 'Curaçao', badge: 'Caribbean', price: 'From $2,000', timeline: '1–2 weeks', href: '/offshore-company-formation-in-curacao' },
+  ]},
+  '/ready-made-offshore-companies': { jurisdictions: [
+    { reg: 'Municipality', name: 'Costa Rica', badge: 'Offshore', price: 'From $3,000', timeline: '3–5 days', href: '/offshore-costa-rica' },
+    { reg: 'FSA', name: 'Isle of Man', badge: 'Crown', price: 'From £4,000', timeline: '3–5 days', href: '/offshore-in-the-isle-of-man' },
+    { reg: 'FSA', name: 'St Vincent', badge: 'Caribbean', price: 'From $2,500', timeline: '3–5 days', href: '/offshore-company-formation-in-st-vincent-and-the-grenadines' },
+    { reg: 'DRCOR', name: 'Cyprus', badge: 'EU', price: 'From €4,000', timeline: '3–5 days', href: '/cyprus-offshore-company-formation' },
+  ]},
+  '/opening-a-foreign-bank-account': { jurisdictions: [
+    { reg: 'CSSF', name: 'Luxembourg', badge: 'EU Premium', price: 'From €3,000', timeline: '3–6 weeks', href: '/open-a-bank-account-in-luxembourg' },
+    { reg: 'AFA', name: 'Andorra', badge: 'Private', price: 'From €2,000', timeline: '2–4 weeks', href: '/open-a-bank-account-in-andorra' },
+    { reg: 'FMA', name: 'Liechtenstein', badge: 'Premium', price: 'From CHF 5,000', timeline: '3–6 weeks', href: '/open-an-account-in-liechtenstein' },
+    { reg: 'FSA', name: 'Saint Lucia', badge: 'Offshore', price: 'From $2,000', timeline: '2–3 weeks', href: '/open-a-bank-account-in-saint-lucia' },
+  ]},
 };
 
-const LicensePreviewPanel = ({ jurisdictions, go }: { jurisdictions: JurisdictionPreview[]; go: (href: string) => void }) => (
+const LicensePreviewPanel = ({ jurisdictions, hubHref, go }: { jurisdictions: JurisdictionPreview[]; hubHref: string; go: (href: string) => void }) => (
   <div style={{ animation: "tabFade 0.2s ease-out" }}>
     <span className="block text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-4">— Jurisdictions</span>
     {jurisdictions.map((j) => (
@@ -113,7 +273,7 @@ const LicensePreviewPanel = ({ jurisdictions, go }: { jurisdictions: Jurisdictio
     ))}
     <div className="mt-4 pt-3 border-t border-white/[0.06]">
       <button
-        onClick={() => go('/gamble-license')}
+        onClick={() => go(hubHref)}
         className="text-[11px] text-[#444CE7] hover:underline cursor-pointer bg-transparent border-0"
         style={{ fontFamily: "inherit" }}
       >
@@ -159,7 +319,7 @@ const Navbar = () => {
   }, []);
 
   const closeMenu = useCallback(() => {
-    closeTimer.current = setTimeout(() => setMenuOpen(false), 120);
+    closeTimer.current = setTimeout(() => setMenuOpen(false), 280);
   }, []);
 
   const cancelClose = useCallback(() => {
@@ -495,7 +655,7 @@ const Navbar = () => {
                         key={item.href}
                         ref={cardRef}
                         onClick={() => go(item.href)}
-                        onMouseEnter={() => { if (cat === 'license') setHoveredItem(item.href); }}
+                        onMouseEnter={() => setHoveredItem(item.href)}
                         onMouseLeave={() => setHoveredItem(null)}
                         className="service-card group relative overflow-hidden cursor-pointer"
                         style={{
@@ -542,31 +702,30 @@ const Navbar = () => {
                           {item.desc}
                         </p>
 
-                        <div className="flex flex-wrap gap-1.5 relative z-10">
+                        <div className="flex flex-wrap gap-2 relative z-10 mt-2">
                           {item.tags.map((tag) => {
-                            const tagHref = TAG_LINKS[tag];
-                            return tagHref ? (
+                            return tag.href ? (
                               <button
-                                key={tag}
-                                onClick={(e) => { e.stopPropagation(); go(tagHref); }}
-                                className="bg-transparent cursor-pointer hover:border-[#444CE7]/40 hover:text-[#9A9590] transition-all duration-150"
+                                key={tag.label}
+                                onClick={(e) => { e.stopPropagation(); go(tag.href!); }}
+                                className="bg-transparent cursor-pointer hover:border-[#444CE7]/60 hover:text-[#F0EBE0] hover:bg-[#444CE7]/10 transition-all duration-150"
                                 style={{
-                                  fontSize: 11, color: "#5A5550", padding: "3px 8px",
-                                  border: "1px solid rgba(255,255,255,0.08)",
+                                  fontSize: 12, color: "#9A9590", padding: "5px 12px",
+                                  border: "1px solid rgba(255,255,255,0.1)",
                                   fontFamily: "inherit",
                                 }}
                               >
-                                {tag}
+                                {tag.label}
                               </button>
                             ) : (
                               <span
-                                key={tag}
+                                key={tag.label}
                                 style={{
-                                  fontSize: 11, color: "#5A5550", padding: "3px 8px",
+                                  fontSize: 12, color: "#5A5550", padding: "5px 12px",
                                   border: "1px solid rgba(255,255,255,0.08)",
                                 }}
                               >
-                                {tag}
+                                {tag.label}
                               </span>
                             );
                           })}
@@ -579,8 +738,8 @@ const Navbar = () => {
 
               {/* RIGHT — Featured sidebar */}
               <div className="flex flex-col gap-3 flex-shrink-0" style={{ width: 280, background: "#0d0d0d", padding: "24px 20px" }}>
-                {cat === 'license' && hoveredItem && LICENSE_PREVIEWS[hoveredItem]?.jurisdictions?.length > 0 ? (
-                  <LicensePreviewPanel jurisdictions={LICENSE_PREVIEWS[hoveredItem].jurisdictions} go={go} />
+                {hoveredItem && LICENSE_PREVIEWS[hoveredItem]?.jurisdictions?.length > 0 ? (
+                  <LicensePreviewPanel jurisdictions={LICENSE_PREVIEWS[hoveredItem].jurisdictions} hubHref={hoveredItem} go={go} />
                 ) : (
                   <>
                     {/* Ready Made Companies */}
@@ -661,7 +820,7 @@ const Navbar = () => {
                     <div className="absolute inset-0 bg-[#22c55e]" />
                     <div className="absolute inset-0 bg-[#22c55e] animate-ping" style={{ opacity: 0.4 }} />
                   </div>
-                  <span className="text-[10px] text-[#5A5550]">26 jurisdictions live</span>
+                  <span className="text-[10px] text-[#5A5550]">181 pages live</span>
                 </div>
 
                 <button

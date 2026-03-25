@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { USABankVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /open-bank-account-as-foreigner-in-usa
 const PAGE_DATA = {
@@ -34,6 +36,8 @@ const OpenBankAccountInUsaPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
+    heroVisual={<USABankVisual />}
+
   />
 );
 

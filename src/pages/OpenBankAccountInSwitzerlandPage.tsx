@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { SwitzerlandBankVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /open-bank-account-as-foreigner-in-switzerland
 const PAGE_DATA = {
@@ -35,6 +37,8 @@ const OpenBankAccountInSwitzerlandPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
+    heroVisual={<SwitzerlandBankVisual />}
+
   />
 );
 

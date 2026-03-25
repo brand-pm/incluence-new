@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { CyprusResidenceVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /residence-permit-in-cyprus
 const PAGE_DATA = {
@@ -48,6 +50,8 @@ const ResidencePermitInCyprusPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
+    heroVisual={<CyprusResidenceVisual />}
+
   />
 );
 
