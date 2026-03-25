@@ -180,11 +180,7 @@ const ForexHubPage = () => {
                 </div>
                 <p className="text-[13px] text-[#9A9590] leading-relaxed flex-1 mb-6">{j.desc}</p>
                 <div className="border-t border-white/[0.06] pt-4 flex justify-between items-end">
-                  <div>
-                    <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.08em] block mb-1">Starting from</span>
-                    <span className="text-[16px] font-semibold text-[#F0EBE0]">{j.price}</span>
-                  </div>
-                  <div className="text-right">
+                  <div className="text-right ml-auto">
                     <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.08em] block mb-1">Timeline</span>
                     <span className="text-[13px] text-[#9A9590]">{j.timeline}</span>
                   </div>
