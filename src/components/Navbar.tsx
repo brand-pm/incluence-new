@@ -191,6 +191,60 @@ const LICENSE_PREVIEWS: Record<string, { jurisdictions: JurisdictionPreview[] }>
     { reg: 'MFSA', name: 'Malta', badge: 'EU Passporting', price: 'From €20,000', timeline: '4–8 months', href: '/e-money-license-malta' },
     { reg: 'FIU', name: 'Estonia', badge: 'EU Digital', price: 'From €15,000', timeline: '3–6 months', href: '/emi-license-in-estonia' },
   ]},
+  '/provider-payment-systems': { jurisdictions: [
+    { reg: 'CBC', name: 'Cyprus', badge: 'EU PSD2', price: 'From €20,000', timeline: '6–9 months', href: '/payment-system-license-in-cyprus' },
+    { reg: 'Bank of Lithuania', name: 'Lithuania', badge: 'EU Passporting', price: 'From €12,000', timeline: '3–6 months', href: '/payment-system-license-in-lithuania' },
+    { reg: 'FCA', name: 'UK PSP', badge: 'Tier 1', price: 'From £25,000', timeline: '6–12 months', href: '/psp-system-uk' },
+    { reg: 'CNB', name: 'Czech Republic', badge: 'EU', price: 'From €15,000', timeline: '4–8 months', href: '/czech-payment-system-license' },
+  ]},
+  '/accounts-bank': { jurisdictions: [
+    { reg: 'CBC', name: 'Cyprus', badge: 'EU', price: 'From €2,000', timeline: '2–4 weeks', href: '/open-a-bank-account-in-cyprus' },
+    { reg: 'BaFin', name: 'Germany', badge: 'EU', price: 'From €1,500', timeline: '2–3 weeks', href: '/open-a-bank-account-in-germany' },
+    { reg: 'FINMA', name: 'Switzerland', badge: 'Premium', price: 'From CHF 5,000', timeline: '3–6 weeks', href: '/open-bank-account-as-foreigner-in-switzerland' },
+    { reg: 'FCA', name: 'UK', badge: 'Tier 1', price: 'From £1,500', timeline: '2–4 weeks', href: '/opening-a-bank-account-in-the-united-kingdom' },
+  ]},
+  '/registration-of-companies-abroad': { jurisdictions: [
+    { reg: 'e-Residency', name: 'Estonia', badge: 'EU Digital', price: 'From €1,500', timeline: '1–2 weeks', href: '/open-a-company-in-estonia' },
+    { reg: 'Companies House', name: 'UK', badge: 'Tier 1', price: 'From £1,000', timeline: '1–3 days', href: '/register-company-in-uk' },
+    { reg: 'ACRA', name: 'Singapore', badge: 'Asia Hub', price: 'From $2,000', timeline: '1–2 weeks', href: '/register-company-in-singapore' },
+    { reg: 'DED', name: 'UAE', badge: 'Tax Free', price: 'From $5,000', timeline: '1–2 weeks', href: '/register-company-in-uae' },
+  ]},
+  '/buy-a-business-abroad': { jurisdictions: [
+    { reg: 'RIK', name: 'Estonia', badge: 'EU Ready', price: 'From €3,000', timeline: '3–5 days', href: '/buy-company-in-estonia' },
+    { reg: 'MBR', name: 'Malta', badge: 'EU', price: 'From €5,000', timeline: '1–2 weeks', href: '/buying-a-company-in-malta' },
+    { reg: 'DRCOR', name: 'Cyprus', badge: 'EU', price: 'From €4,000', timeline: '1–2 weeks', href: '/purchase-of-a-company-in-cyprus' },
+    { reg: 'Companies House', name: 'England', badge: 'Tier 1', price: 'From £3,000', timeline: '3–5 days', href: '/purchase-a-company-in-england' },
+  ]},
+  '/offshore-investment-funds': { jurisdictions: [
+    { reg: 'CSSF', name: 'Luxembourg', badge: 'EU UCITS', price: 'From €30,000', timeline: '3–6 months', href: '/open-an-investment-fund-in-luxembourg' },
+    { reg: 'FIU', name: 'Estonia', badge: 'EU', price: 'From €10,000', timeline: '2–4 months', href: '/open-an-investment-fund-in-estonia' },
+    { reg: 'MFSA', name: 'Malta', badge: 'EU AIFMD', price: 'From €20,000', timeline: '3–6 months', href: '/registration-of-investment-funds-in-malta' },
+    { reg: 'CNB', name: 'Czech Republic', badge: 'EU', price: 'From €12,000', timeline: '2–4 months', href: '/registration-of-investment-funds-in-czech' },
+  ]},
+  '/residence-permit-abroad': { jurisdictions: [
+    { reg: 'SEF', name: 'Portugal', badge: 'Golden Visa', price: 'From €250,000', timeline: '6–12 months', href: '/residence-permit-in-portugal' },
+    { reg: 'ICA', name: 'Dubai', badge: 'Tax Free', price: 'From $5,000', timeline: '2–4 weeks', href: '/residence-permit-in-dubai' },
+    { reg: 'CRMD', name: 'Cyprus', badge: 'EU', price: 'From €30,000', timeline: '2–3 months', href: '/residence-permit-in-cyprus' },
+    { reg: 'Migration Dept', name: 'Lithuania', badge: 'EU', price: 'From €5,000', timeline: '2–4 months', href: '/residence-permit-in-lithuania' },
+  ]},
+  '/offshore-company-formation': { jurisdictions: [
+    { reg: 'FSC', name: 'BVI', badge: 'Classic Offshore', price: 'From $1,500', timeline: '1–3 days', href: '/offshore-in-the-british-virgin-islands' },
+    { reg: 'CIMA', name: 'Cayman Islands', badge: 'Premium', price: 'From $5,000', timeline: '1–2 weeks', href: '/offshore-in-the-cayman-islands' },
+    { reg: 'FSA', name: 'Seychelles', badge: 'Popular', price: 'From $1,200', timeline: '1–3 days', href: '/offshore-company-formation-in-seychelles' },
+    { reg: 'CBoC', name: 'Curaçao', badge: 'Caribbean', price: 'From $2,000', timeline: '1–2 weeks', href: '/offshore-company-formation-in-curacao' },
+  ]},
+  '/ready-made-offshore-companies': { jurisdictions: [
+    { reg: 'Municipality', name: 'Costa Rica', badge: 'Offshore', price: 'From $3,000', timeline: '3–5 days', href: '/offshore-costa-rica' },
+    { reg: 'FSA', name: 'Isle of Man', badge: 'Crown', price: 'From £4,000', timeline: '3–5 days', href: '/offshore-in-the-isle-of-man' },
+    { reg: 'FSA', name: 'St Vincent', badge: 'Caribbean', price: 'From $2,500', timeline: '3–5 days', href: '/offshore-company-formation-in-st-vincent-and-the-grenadines' },
+    { reg: 'DRCOR', name: 'Cyprus', badge: 'EU', price: 'From €4,000', timeline: '3–5 days', href: '/cyprus-offshore-company-formation' },
+  ]},
+  '/opening-a-foreign-bank-account': { jurisdictions: [
+    { reg: 'CSSF', name: 'Luxembourg', badge: 'EU Premium', price: 'From €3,000', timeline: '3–6 weeks', href: '/open-a-bank-account-in-luxembourg' },
+    { reg: 'AFA', name: 'Andorra', badge: 'Private', price: 'From €2,000', timeline: '2–4 weeks', href: '/open-a-bank-account-in-andorra' },
+    { reg: 'FMA', name: 'Liechtenstein', badge: 'Premium', price: 'From CHF 5,000', timeline: '3–6 weeks', href: '/open-an-account-in-liechtenstein' },
+    { reg: 'FSA', name: 'Saint Lucia', badge: 'Offshore', price: 'From $2,000', timeline: '2–3 weeks', href: '/open-a-bank-account-in-saint-lucia' },
+  ]},
 };
 
 const LicensePreviewPanel = ({ jurisdictions, hubHref, go }: { jurisdictions: JurisdictionPreview[]; hubHref: string; go: (href: string) => void }) => (
