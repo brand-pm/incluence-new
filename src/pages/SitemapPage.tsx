@@ -146,6 +146,14 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Andorra Bank Account", url: "/open-a-bank-account-in-andorra", status: "planned", category: "Banking" },
   { title: "Saint Lucia Bank Account", url: "/open-a-bank-account-in-saint-lucia", status: "planned", category: "Banking" },
   { title: "Liechtenstein Bank Account", url: "/open-an-account-in-liechtenstein", status: "planned", category: "Banking" },
+  { title: "Account at Banque de Luxembourg", url: "/opening-an-account-at-banque-de-luxembourg", status: "planned", category: "Banking" },
+  { title: "Account at MKB Bank Hungary", url: "/opening-an-account-at-mkb-bank-hungary", status: "planned", category: "Banking" },
+  { title: "Account in Barclays Bank", url: "/opening-an-account-in-barclays-bank", status: "planned", category: "Banking" },
+  { title: "Account in HSBC Bank", url: "/opening-an-account-in-hsbc-bank", status: "planned", category: "Banking" },
+  { title: "Account in Revolut", url: "/opening-an-account-in-revolut", status: "planned", category: "Banking" },
+  { title: "Account in PayPal", url: "/opening-an-account-in-the-pay-pal-payment-system", status: "planned", category: "Banking" },
+  { title: "Account in Payoneer", url: "/opening-an-account-in-the-payoneer-payment-system", status: "planned", category: "Banking" },
+  { title: "Account in Wise", url: "/opening-an-account-in-the-wise-payment-system", status: "planned", category: "Banking" },
 
   // ── FUNDS ──
   { title: "Investment Funds (Hub)", url: "/offshore-investment-funds", status: "done", category: "Funds" },
