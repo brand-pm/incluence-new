@@ -34,7 +34,7 @@ const GamblingHubPage = () => (
       {
         regulator: 'GSC',
         name: 'Isle of Man',
-        description: 'Tier-1 prestige license from the Gambling Supervision Commission. Covers all verticals under one permit.',
+        description: 'Applications reviewed within 10–12 weeks. Full assistance in obtaining the license in the shortest possible time with minimal risk of refusal.',
         timeline: '6–12 months',
         href: '/gambling-license-of-the-isle-of-man',
       },
