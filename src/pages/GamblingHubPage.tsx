@@ -46,14 +46,6 @@ const GamblingHubPage = () => (
         badge: 'Offshore',
         href: '/gambling-license-in-costa-rica',
       },
-      {
-        regulator: 'CySEC / NGA',
-        name: 'Cyprus',
-        description: 'National Gaming Authority license. Full EU market access. Favorable tax regime for licensed gaming companies.',
-        timeline: '6–9 months',
-        badge: 'EU Member',
-        href: '/gambling-license-cyprus',
-      },
     ]}
     processTitle="From Selection to License"
     processSubtitle="Fully managed. You focus on your business while we navigate the regulatory process end-to-end."
