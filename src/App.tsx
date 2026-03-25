@@ -22,6 +22,7 @@ import VanuatuForexPage from "./pages/VanuatuForexPage";
 import MontenegroForexPage from "./pages/MontenegroForexPage";
 import MaltaForexPage from "./pages/MaltaForexPage";
 import MauritiusForexPage from "./pages/MauritiusForexPage";
+import SeychellesForexPage from "./pages/SeychellesForexPage";
 import CryptoHubPage from "./pages/CryptoHubPage";
 import EstoniaCryptoPage from "./pages/EstoniaCryptoPage";
 import LithuaniaCryptoPage from "./pages/LithuaniaCryptoPage";
@@ -102,6 +103,12 @@ import { OpenABankAccountInLuxembourgPage } from "./pages/OpenABankAccountInLuxe
 import { OpenABankAccountInPolandPage } from "./pages/OpenABankAccountInPolandPage";
 import { OpenABankAccountInSaintLuciaPage } from "./pages/OpenABankAccountInSaintLuciaPage";
 import { OpenABankAccountInTurkeyPage } from "./pages/OpenABankAccountInTurkeyPage";
+import { OpenABankAccountInCyprusPage } from "./pages/OpenABankAccountInCyprusPage";
+import { OpenABankAccountInGermanyPage } from "./pages/OpenABankAccountInGermanyPage";
+import { OpenBankAccountInSwitzerlandPage } from "./pages/OpenBankAccountInSwitzerlandPage";
+import { OpenBankAccountInUsaPage } from "./pages/OpenBankAccountInUsaPage";
+import { OpenABankAccountInUkPage } from "./pages/OpenABankAccountInUkPage";
+import { OpenABankAccountInHungaryPage } from "./pages/OpenABankAccountInHungaryPage";
 import { OpenACompanyInEstoniaPage } from "./pages/OpenACompanyInEstoniaPage";
 import { OpenACompanyInThailandPage } from "./pages/OpenACompanyInThailandPage";
 import { OpenAnAccountInLiechtensteinPage } from "./pages/OpenAnAccountInLiechtensteinPage";
@@ -139,6 +146,11 @@ import { ResidencePermitInPortugalPage } from "./pages/ResidencePermitInPortugal
 import { ResidencePermitInSlovakiaPage } from "./pages/ResidencePermitInSlovakiaPage";
 import { StartingABusinessInHungaryPage } from "./pages/StartingABusinessInHungaryPage";
 import { StartingABusinessInMontenegroPage } from "./pages/StartingABusinessInMontenegroPage";
+import { OpenInvestmentFundInLuxembourgPage } from "./pages/OpenInvestmentFundInLuxembourgPage";
+import { OpenInvestmentFundInEstoniaPage } from "./pages/OpenInvestmentFundInEstoniaPage";
+import { InvestmentFundsMaltaPage } from "./pages/InvestmentFundsMaltaPage";
+import { InvestmentFundsCzechPage } from "./pages/InvestmentFundsCzechPage";
+import { InvestmentFundsSwitzerlandPage } from "./pages/InvestmentFundsSwitzerlandPage";
 
 const queryClient = new QueryClient();
 
@@ -206,7 +218,7 @@ const App = () => (
             <Route path="/forex-broker-licence-in-vanuatu" element={<VanuatuForexPage />} />
             <Route path="/forex-broker-licence-in-mauritius" element={<MauritiusForexPage />} />
             <Route path="/forex-broker-licence-in-montenegro" element={<MontenegroForexPage />} />
-            <Route path="/forex-license-seychelles" element={<PlaceholderPage title="Seychelles Financial License" />} />
+            <Route path="/forex-license-seychelles" element={<SeychellesForexPage />} />
 
             {/* Crypto detail */}
             <Route path="/cryptocurrency-exchange-license-in-estonia" element={<EstoniaCryptoPage />} />
@@ -299,13 +311,13 @@ const App = () => (
             <Route path="/accounts-bank" element={<BankAccountsHubPage />} />
             <Route path="/opening-a-foreign-bank-account" element={<ForeignBankAccountPage />} />
             <Route path="/opening-an-offshore-bank-account" element={<OffshoreBankAccountPage />} />
-            <Route path="/open-a-bank-account-in-cyprus" element={<PlaceholderPage title="Cyprus Bank Account" />} />
-            <Route path="/open-a-bank-account-in-germany" element={<PlaceholderPage title="Germany Bank Account" />} />
+            <Route path="/open-a-bank-account-in-cyprus" element={<OpenABankAccountInCyprusPage />} />
+            <Route path="/open-a-bank-account-in-germany" element={<OpenABankAccountInGermanyPage />} />
             <Route path="/open-a-bank-account-in-luxembourg" element={<OpenABankAccountInLuxembourgPage />} />
-            <Route path="/open-bank-account-as-foreigner-in-switzerland" element={<PlaceholderPage title="Switzerland Bank Account" />} />
-            <Route path="/open-bank-account-as-foreigner-in-usa" element={<PlaceholderPage title="USA Bank Account" />} />
-            <Route path="/opening-a-bank-account-in-the-united-kingdom" element={<PlaceholderPage title="UK Bank Account" />} />
-            <Route path="/open-a-bank-account-in-hungary" element={<PlaceholderPage title="Hungary Bank Account" />} />
+            <Route path="/open-bank-account-as-foreigner-in-switzerland" element={<OpenBankAccountInSwitzerlandPage />} />
+            <Route path="/open-bank-account-as-foreigner-in-usa" element={<OpenBankAccountInUsaPage />} />
+            <Route path="/opening-a-bank-account-in-the-united-kingdom" element={<OpenABankAccountInUkPage />} />
+            <Route path="/open-a-bank-account-in-hungary" element={<OpenABankAccountInHungaryPage />} />
             <Route path="/open-a-bank-account-in-bulgaria" element={<OpenABankAccountInBulgariaPage />} />
             <Route path="/open-a-bank-account-in-gibraltar" element={<OpenABankAccountInGibraltarPage />} />
             <Route path="/open-a-bank-account-in-turkey" element={<OpenABankAccountInTurkeyPage />} />
@@ -324,11 +336,11 @@ const App = () => (
 
             {/* Investment funds */}
             <Route path="/open-a-hedge-fund" element={<HedgeFundPage />} />
-            <Route path="/open-an-investment-fund-in-luxembourg" element={<PlaceholderPage title="Luxembourg Fund" />} />
-            <Route path="/open-an-investment-fund-in-estonia" element={<PlaceholderPage title="Estonia Fund" />} />
-            <Route path="/registration-of-investment-funds-in-malta" element={<PlaceholderPage title="Malta Fund" />} />
-            <Route path="/registration-of-investment-funds-in-czech" element={<PlaceholderPage title="Czech Fund" />} />
-            <Route path="/registration-of-investment-funds-in-switzerland" element={<PlaceholderPage title="Switzerland Fund" />} />
+            <Route path="/open-an-investment-fund-in-luxembourg" element={<OpenInvestmentFundInLuxembourgPage />} />
+            <Route path="/open-an-investment-fund-in-estonia" element={<OpenInvestmentFundInEstoniaPage />} />
+            <Route path="/registration-of-investment-funds-in-malta" element={<InvestmentFundsMaltaPage />} />
+            <Route path="/registration-of-investment-funds-in-czech" element={<InvestmentFundsCzechPage />} />
+            <Route path="/registration-of-investment-funds-in-switzerland" element={<InvestmentFundsSwitzerlandPage />} />
 
             {/* Residence permits */}
             <Route path="/residence-permit-in-portugal" element={<ResidencePermitInPortugalPage />} />
