@@ -239,7 +239,7 @@ export const HubPage: React.FC<HubPageProps> = (p) => {
               <span className="text-[10px] text-[#444CE7] uppercase tracking-[0.12em] mb-4 block">
                 — GET STARTED
               </span>
-              <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] tracking-[-0.02em] mb-4">{p.formTitle}</h2>
+              <h2 className="text-[clamp(22px,2.5vw,30px)] font-light text-[#F0EBE0] tracking-[-0.02em] mb-4">{p.formTitle}</h2>
               <p className="text-[14px] text-[#9A9590] leading-relaxed">{p.formSubtitle}</p>
             </div>
             <div className="lg:col-span-7">
