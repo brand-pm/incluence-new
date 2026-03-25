@@ -5,6 +5,9 @@ import MicroParticles from "@/components/MicroParticles";
 import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
+import { CyprusForexHeroVisual } from "@/components/templates/heroVisuals";
+import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
+import RelatedJurisdictions from "@/components/RelatedJurisdictions";
 
 const useCounter = (target: number, duration = 1200) => {
   const [val, setVal] = useState(0);
