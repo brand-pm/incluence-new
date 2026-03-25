@@ -38,6 +38,122 @@ const NoiseOverlay = () => (
   />
 );
 
+/* ── Body text parser ─────────────────────────────────── */
+/* Detects numbered items (1. …), dash/bullet lines, and plain paragraphs.
+   Returns React nodes preserving the original text exactly. */
+
+const BACKGROUNDS = ['#0d0d0d', '#111111', '#080808'];
+
+const parseBody = (body: string) => {
+  const lines = body.split('\n');
+  const elements: React.ReactNode[] = [];
+  let currentList: { type: 'numbered' | 'bullet'; items: string[] } | null = null;
+  let idx = 0;
+
+  const flushList = () => {
+    if (!currentList) return;
+    const listItems = currentList.items;
+    const isBullet = currentList.type === 'bullet';
+    elements.push(
+      <ul key={`list-${idx++}`} className={`space-y-2 my-4 ${isBullet ? 'pl-0' : 'pl-0'}`}>
+        {listItems.map((item, i) => (
+          <li key={i} className="flex items-start gap-3 text-[14px] text-[#9A9590] leading-[1.85]">
+            {isBullet ? (
+              <span className="w-[3px] h-[3px] bg-[#444CE7] mt-[10px] shrink-0" />
+            ) : (
+              <span className="text-[#444CE7] text-[12px] font-medium mt-[2px] shrink-0 w-5">
+                {item.match(/^(\d+)\./)?.[1]}.
+              </span>
+            )}
+            <span>{isBullet ? item : item.replace(/^\d+\.\s*/, '')}</span>
+          </li>
+        ))}
+      </ul>
+    );
+    currentList = null;
+  };
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+
+    // Empty line = paragraph break
+    if (!trimmed) {
+      flushList();
+      continue;
+    }
+
+    // Numbered list item (1. Something)
+    if (/^\d+\.\s/.test(trimmed)) {
+      if (currentList?.type !== 'numbered') {
+        flushList();
+        currentList = { type: 'numbered', items: [] };
+      }
+      currentList.items.push(trimmed);
+      continue;
+    }
+
+    // Subheading-like bold lines (short lines ending without period, likely headings within body)
+    // These are lines that serve as sub-section titles
+    if (trimmed.length < 120 && !trimmed.endsWith('.') && !trimmed.endsWith(':') && !trimmed.startsWith('-') && !/^\d/.test(trimmed) && lines.indexOf(line) > 0) {
+      flushList();
+      // Check if next line exists and is longer (body text follows)
+      const lineIdx = lines.indexOf(line);
+      const nextLine = lines[lineIdx + 1]?.trim();
+      if (nextLine && nextLine.length > trimmed.length) {
+        elements.push(
+          <h4 key={`subhead-${idx++}`} className="text-[14px] font-semibold text-[#F0EBE0] mt-6 mb-2 flex items-center gap-2">
+            <NodePulse />
+            {trimmed}
+          </h4>
+        );
+        continue;
+      }
+    }
+
+    // Bullet-like line (starts with dash, bullet, or similar)
+    const bulletMatch = trimmed.match(/^[-–—•]\s*(.*)/);
+    if (bulletMatch) {
+      if (currentList?.type !== 'bullet') {
+        flushList();
+        currentList = { type: 'bullet', items: [] };
+      }
+      currentList.items.push(bulletMatch[1]);
+      continue;
+    }
+
+    // Lines ending with colon or semicolon that contain list-like items separated by ; or .
+    // These are inline lists from the source data
+    if (trimmed.includes(';') && !trimmed.endsWith('.')) {
+      flushList();
+      const parts = trimmed.split(';').map(s => s.trim()).filter(Boolean);
+      if (parts.length > 2) {
+        elements.push(
+          <ul key={`inline-list-${idx++}`} className="space-y-2 my-4">
+            {parts.map((part, i) => (
+              <li key={i} className="flex items-start gap-3 text-[14px] text-[#9A9590] leading-[1.85]">
+                <span className="w-[3px] h-[3px] bg-[#444CE7] mt-[10px] shrink-0" />
+                <span>{part.replace(/[.;]$/, '')}</span>
+              </li>
+            ))}
+          </ul>
+        );
+        continue;
+      }
+    }
+
+    // Regular paragraph
+    flushList();
+    elements.push(
+      <p key={`p-${idx++}`} className="text-[14px] text-[#9A9590] leading-[1.85] mb-4">
+        {trimmed}
+      </p>
+    );
+  }
+
+  flushList();
+  return elements;
+};
+
 /* ── Main Component ───────────────────────────────────── */
 
 const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
@@ -110,54 +226,50 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
         </div>
       </section>
 
-      {/* ── CONTENT SECTIONS (gap-px grid) ── */}
-      {sections.length > 0 && (
-        <section className="bg-[#111111] py-[72px] px-6 md:px-12">
-          <div className="max-w-screen-xl mx-auto">
-            <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">
-              — Overview
-            </span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-2">
-              Details & Process
-            </h2>
-            <p className="text-[15px] text-[#9A9590] mb-14 max-w-[480px]">
-              Everything you need to know about this service.
-            </p>
+      {/* ── CONTENT SECTIONS (adaptive full-width) ── */}
+      {sections.map((sec, i) => {
+        const bg = BACKGROUNDS[i % BACKGROUNDS.length];
+        return (
+          <motion.section
+            key={i}
+            className="py-[56px] px-6 md:px-12 relative"
+            style={{ backgroundColor: bg }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.5 }}
+          >
+            {/* Dot-grid background */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-40"
+              style={{
+                backgroundImage:
+                  'radial-gradient(circle, rgba(68,76,231,0.045) 1px, transparent 1px)',
+                backgroundSize: '28px 28px',
+              }}
+            />
 
-            <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-2 gap-px">
-              {sections.map((sec, i) => (
-                <motion.div
-                  key={i}
-                  className="bg-[#111111] p-7"
-                  style={{
-                    backgroundImage:
-                      'radial-gradient(circle, rgba(68,76,231,0.03) 1px, transparent 1px)',
-                    backgroundSize: '24px 24px',
-                  }}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{
-                    duration: 0.4,
-                    delay: i * 0.07,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                  }}
-                >
+            <div className="max-w-screen-xl mx-auto relative z-10">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+                {/* Left: section number + heading */}
+                <div className="md:col-span-4">
                   <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] block mb-3">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="text-[15px] font-semibold text-[#F0EBE0] mb-2">
+                  <h2 className="text-[clamp(20px,2.5vw,28px)] font-light text-[#F0EBE0] leading-[1.3] sticky top-24">
                     {sec.heading}
-                  </h3>
-                  <p className="text-[13px] text-[#9A9590] leading-relaxed whitespace-pre-line">
-                    {sec.body}
-                  </p>
-                </motion.div>
-              ))}
+                  </h2>
+                </div>
+
+                {/* Right: body content */}
+                <div className="md:col-span-8">
+                  {parseBody(sec.body)}
+                </div>
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          </motion.section>
+        );
+      })}
 
       {/* ── REQUIREMENTS ── */}
       {requirements.length > 0 && (
