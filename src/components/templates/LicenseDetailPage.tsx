@@ -202,53 +202,13 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (p) => {
         <div className="absolute inset-0 z-[1] pointer-events-none" style={{ background: "linear-gradient(to right, #080808 40%, rgba(8,8,8,0.85) 60%, rgba(8,8,8,0.3) 100%)" }} />
         <div className="z-[2] relative"><MicroParticles /></div>
 
-        <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
-            <div className="max-w-[580px]">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— {p.categoryLabel}</span>
-              </div>
-              <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1] mb-6">
-                <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                  {p.titleAccent}
-                </span>{" "}
-                {p.titleRest}
-              </h1>
-              <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">
-                {p.description}
-              </p>
-              <div className="flex gap-4">
-                <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">
-                  Get a Free Quote →
-                </Link>
-                <button
-                  onClick={() => document.getElementById("requirements")?.scrollIntoView({ behavior: "smooth" })}
-                  className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer"
-                >
-                  View Requirements
-                </button>
-              </div>
-            </div>
-
-            {/* Hero visual */}
-            <div className="hidden lg:flex items-center justify-center w-full lg:w-[480px] shrink-0">
-              {p.heroVisual}
-            </div>
-          </div>
-        </div>
-
-        {/* Stats Strip */}
-        <div className="max-w-screen-xl mx-auto px-12">
-          <div className="border-t border-b border-white/[0.06]">
-            <div className="max-w-[1200px] mx-auto grid" style={{ gridTemplateColumns: `repeat(${p.stats.length}, 1fr)` }}>
-              {p.stats.map((s, i) => (
-                <div key={i} className="flex flex-col items-center justify-center py-8 border-r border-white/[0.06] last:border-r-0">
-                  <span className="text-[22px] font-light text-[#F0EBE0] whitespace-nowrap">{s.value}</span>
-                  <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mt-2">{s.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="relative z-10 max-w-screen-xl mx-auto py-[64px] px-12">
+          <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1]">
+            <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              {p.titleAccent}
+            </span>{" "}
+            {p.titleRest}
+          </h1>
         </div>
       </section>
 
