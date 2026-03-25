@@ -155,18 +155,23 @@ const PolandCryptoPage = () => {
         <TerritoryMap iso="PL" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
-          <div className="max-w-[600px]">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Crypto License</span>
-              <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.12em]">EU · MiCA Ready · VASP</span>
+          <div className="grid grid-cols-12 gap-8 items-center">
+            <div className="col-span-7">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Crypto License</span>
+                <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.12em]">EU · MiCA Ready · VASP</span>
+              </div>
+              <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1] mb-6">
+                <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Poland Crypto License:</span>{" "}VASP Registration with Incluence
+              </h1>
+              <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">A Poland crypto license refers to official authorization for businesses dealing in virtual assets. VASP registration allows a company to lawfully conduct activities involving virtual currencies and their interaction with fiat money. Poland is directly aligned with EU financial regulations and actively preparing for the MiCA framework.</p>
+              <div className="flex gap-4">
+                <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
+                <button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View Requirements</button>
+              </div>
             </div>
-            <h1 className="text-[clamp(36px,5vw,56px)] font-light text-[#F0EBE0] leading-[1.1] mb-6">
-              <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Poland Crypto License:</span>{" "}VASP Registration with Incluence
-            </h1>
-            <p className="text-[15px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-8">A Poland crypto license refers to official authorization for businesses dealing in virtual assets. VASP registration allows a company to lawfully conduct activities involving virtual currencies and their interaction with fiat money. Poland is directly aligned with EU financial regulations and actively preparing for the MiCA framework.</p>
-            <div className="flex gap-4">
-              <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
-              <button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View Requirements</button>
+            <div className="col-span-5 flex justify-center">
+              <PolandCryptoHeroVisual />
             </div>
           </div>
         </div>
