@@ -385,7 +385,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (p) => {
         <div className="max-w-screen-xl mx-auto py-[88px] px-12 grid grid-cols-12 gap-12">
           <div className="col-span-5">
             <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em] block mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">{p.formTitle}</h2>
+            <h2 className="text-[clamp(22px,2.5vw,30px)] font-light text-[#F0EBE0] leading-[1.2] mb-6">{p.formTitle}</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">{p.formSubtitle}</p>
           </div>
           <div className="col-span-7">
