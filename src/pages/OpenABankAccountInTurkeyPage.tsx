@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { TurkeyBankVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /open-a-bank-account-in-turkey
 const PAGE_DATA = {
@@ -45,6 +47,8 @@ const OpenABankAccountInTurkeyPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
+    heroVisual={<TurkeyBankVisual />}
+
   />
 );
 

@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { SlovakiaResidenceVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /residence-permit-in-slovakia
 const PAGE_DATA = {
@@ -47,6 +49,8 @@ const ResidencePermitInSlovakiaPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
+    heroVisual={<SlovakiaResidenceVisual />}
+
   />
 );
 

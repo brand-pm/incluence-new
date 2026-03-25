@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { HongKongCompanyVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /buy-ready-made-company-in-hong-kong
 const BuyReadyMadeCompanyInHongKongPage = () => (
@@ -38,6 +40,8 @@ const BuyReadyMadeCompanyInHongKongPage = () => (
         answer: "A company in Hong Kong can be re-registered remotely through a local secretary.",
       },
     ]}
+    heroVisual={<HongKongCompanyVisual />}
+
   />
 );
 
