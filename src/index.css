@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── DESIGN SYSTEM: zero border-radius everywhere ── */
+*, *::before, *::after { border-radius: 0 !important; }
+
 @layer base {
   :root {
     /* ── BRAND PALETTE ─────────────────────────────── */
