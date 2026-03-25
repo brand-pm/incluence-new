@@ -28,6 +28,48 @@ const pickText = (...sources: (string | null | undefined)[]): string => {
   return valid.sort((a, b) => b.length - a.length)[0];
 };
 
+/** Get first sentence for hero subtitle */
+const firstSentence = (text: string): string => {
+  if (!text) return "";
+  const match = text.match(/^(.+?[.!?])\s/);
+  if (match && match[1].length > 30) return match[1];
+  if (text.length <= 160) return text;
+  return text.slice(0, 160).replace(/\s+\S*$/, "") + "…";
+};
+
+/** Highlight numbers, percentages, currencies, time periods */
+const highlightText = (text: string): React.ReactNode => {
+  if (!text) return null;
+  const parts = text.split(/((?:\$|€|£)?\d[\d.,]*\s*(?:%|percent|years?|months?|weeks?|days?|hours?)|\d[\d.,]*\s*(?:EUR|USD|GBP)|\b\d{1,2}\s*(?:–|-)\s*\d{1,2}\s*(?:months?|weeks?))/gi);
+  if (parts.length <= 1) return text;
+  return parts.map((part, i) => {
+    if (i % 2 === 1) return <span key={i} className="text-[#F0EBE0] font-semibold">{part}</span>;
+    return part;
+  });
+};
+
+/** Check if text starts same as another (dedup) */
+const startsLike = (a: string, b: string, minLen = 50): boolean => {
+  if (!a || !b) return false;
+  return a.slice(0, minLen).trim() === b.slice(0, minLen).trim();
+};
+
+/** Check if paragraph has list-like content */
+const isListContent = (text: string): boolean => {
+  const semicolons = (text.match(/;/g) || []).length;
+  if (semicolons >= 2) return true;
+  const dashLines = (text.match(/\n-\s/g) || []).length;
+  if (dashLines >= 2) return true;
+  return false;
+};
+
+/** Split list text into items */
+const splitListItems = (text: string): string[] => {
+  if (text.includes(";")) return text.split(/;\s*/).map(s => s.trim()).filter(Boolean);
+  if (text.includes("\n-")) return text.split(/\n-\s*/).map(s => s.trim()).filter(Boolean);
+  return [text];
+};
+
 const Tag = ({ children }: { children: React.ReactNode }) => (
   <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— {children}</span>
 );
@@ -49,6 +91,42 @@ const Skeleton = () => (
   </div>
 );
 
+/* ── SECTION BODY RENDERER ── */
+const SectionBody: React.FC<{ body: string }> = ({ body }) => {
+  if (isListContent(body)) {
+    const items = splitListItems(body);
+    // If the first item looks like an intro sentence, render it separately
+    const firstIsIntro = items[0] && items[0].length > 80 && !items[0].includes(":");
+    return (
+      <div>
+        {firstIsIntro && (
+          <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-4">{highlightText(items[0])}</p>
+        )}
+        <div className="space-y-2.5 pl-1">
+          {(firstIsIntro ? items.slice(1) : items).map((item, i) => (
+            <div key={i} className="flex items-start gap-3">
+              <div className="w-[5px] h-[5px] bg-[#444CE7]/40 mt-[7px] shrink-0" />
+              <span className="text-[13px] text-[#9A9590] leading-[1.7]">{highlightText(item)}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // Regular body text — split into paragraphs by double newlines
+  const paragraphs = body.split(/\n\n+/).filter(Boolean);
+  return (
+    <div className="space-y-4">
+      {paragraphs.map((para, i) => (
+        <p key={i} className="text-[14px] text-[#9A9590] leading-[1.85]">{highlightText(para)}</p>
+      ))}
+    </div>
+  );
+};
+
+/* ── MAIN COMPONENT ── */
+
 const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
   const fallback = {
     title: props.title,
@@ -61,15 +139,26 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
   const d = (data || fallback) as typeof fallback;
   const title = d.title || fallback.title;
 
-  // For description: prefer Sanity sections[0].body if Sanity description is truncated
+  // Full description: prefer sections body if description is truncated
   const sanityDesc = d.description || "";
   const fallbackDesc = fallback.description || "";
   const sectionBody = d.sections?.[0]?.body || "";
-  const description = pickText(sanityDesc, sectionBody, fallbackDesc);
+  const fullDescription = pickText(sanityDesc, sectionBody, fallbackDesc);
+
+  // Hero only gets first sentence
+  const heroDesc = firstSentence(fullDescription);
 
   const sections = pick(d.sections, fallback.sections);
   const requirements = pick(d.requirements, fallback.requirements);
   const faq = pick(d.faq, fallback.faq);
+
+  // Deduplicate: if sections[0].body starts same as description, skip section body
+  const dedupedSections = sections.map((sec, i) => {
+    if (i === 0 && startsLike(sec.body, fullDescription)) {
+      return { ...sec, body: "" }; // Will be hidden
+    }
+    return sec;
+  }).filter(sec => sec.body.trim().length > 0 || sec.heading.trim().length > 0);
 
   const [openFaq, setOpenFaq] = useState<number[]>([]);
   const toggleFaq = (i: number) => setOpenFaq((prev) => prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]);
@@ -80,6 +169,9 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
 
   if (isLoading) return <Skeleton />;
   if (isError) return <div className="min-h-screen bg-[#080808] flex items-center justify-center text-[#9A9590]" style={{ fontFamily: "Manrope, sans-serif" }}>Failed to load page data.</div>;
+
+  // Alternating backgrounds for sections
+  const sectionBgs = ["#111111", "#0d0d0d"];
 
   return (
     <div style={{ fontFamily: "Manrope, sans-serif" }}>
@@ -95,8 +187,8 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
         </nav>
       </section>
 
-      {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 480 }}>
+      {/* ── HERO — first sentence only ── */}
+      <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 420 }}>
         <NoiseOverlay />
         <div className="relative z-10 max-w-screen-xl mx-auto py-[80px] px-12">
           <div className="max-w-[600px]">
@@ -106,7 +198,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
             <h1 className="text-[clamp(32px,4vw,52px)] font-light text-[#F0EBE0] leading-tight mb-5">
               {title}
             </h1>
-            <p className="text-[15px] text-[#9A9590] leading-relaxed mb-10 max-w-[520px]">{description}</p>
+            <p className="text-[15px] text-[#9A9590] leading-relaxed mb-10 max-w-[520px]">{heroDesc}</p>
             <Link to="/contact" className="inline-block px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors">
               Discuss the Project →
             </Link>
@@ -114,49 +206,44 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
         </div>
       </section>
 
-      {/* ── CONTENT SECTIONS — only if data exists ── */}
-      {sections.length > 0 && (
+      {/* ── ABOUT — full description block (not duplicated in sections) ── */}
+      {fullDescription && fullDescription.length > 0 && (
         <section style={{ background: "#111111" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto">
-            <Tag>What's Included</Tag>
-            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-3">Service Overview</h2>
-            <p className="text-[14px] text-[#9A9590] leading-relaxed max-w-[520px] mb-14">Everything you need to know about this service and what we deliver.</p>
-
-            {sections.length === 1 ? (
-              /* Single section — full width, no grid */
-              <div className="max-w-[800px]">
-                <h3 className="text-[15px] font-semibold text-[#F0EBE0] mb-3">{sections[0].heading}</h3>
-                <p className="text-[14px] text-[#9A9590] leading-[1.85] whitespace-pre-line">{sections[0].body}</p>
-              </div>
-            ) : (
-              /* Multiple sections — gap-px grid */
-              <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
-                {sections.map((sec, i) => (
-                  <div key={i} className="bg-[#111111] p-7 group relative overflow-hidden">
-                    <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] mb-4 block">{String(i + 1).padStart(2, "0")}</span>
-                    <h3 className="text-[15px] font-semibold text-[#F0EBE0] mb-2">{sec.heading}</h3>
-                    <p className="text-[13px] text-[#9A9590] leading-relaxed whitespace-pre-line">{sec.body}</p>
-                    <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
-                  </div>
-                ))}
-              </div>
-            )}
+            <Tag>Overview</Tag>
+            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-6">About This Service</h2>
+            <div className="max-w-[800px]">
+              <p className="text-[14px] text-[#9A9590] leading-[1.85]">{highlightText(fullDescription)}</p>
+            </div>
           </div>
         </section>
       )}
 
-      {/* ── REQUIREMENTS — only if data exists ── */}
+      {/* ── CONTENT SECTIONS — each as its own visual block ── */}
+      {dedupedSections.filter(s => s.body).map((sec, i) => (
+        <section key={i} style={{ background: sectionBgs[(i + 1) % 2] }} className="py-[72px] px-12">
+          <div className="max-w-screen-xl mx-auto">
+            <h3 className="text-[18px] font-semibold text-[#F0EBE0] mb-6">
+              <span className="text-[#444CE7] mr-2">▸</span>{sec.heading}
+            </h3>
+            <div className="max-w-[800px]">
+              <SectionBody body={sec.body} />
+            </div>
+          </div>
+        </section>
+      ))}
+
+      {/* ── REQUIREMENTS ── */}
       {requirements.length > 0 && (
         <section style={{ background: "#0d0d0d" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto">
             <Tag>Requirements</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-14">What You'll Need</h2>
-            <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-2 gap-px">
+            <div className="max-w-[800px] space-y-3">
               {requirements.map((req, i) => (
-                <div key={i} className="bg-[#0d0d0d] p-7 flex items-start gap-3 group relative overflow-hidden">
+                <div key={i} className="flex items-start gap-3">
                   <div className="w-[5px] h-[5px] bg-[#444CE7]/40 mt-[7px] shrink-0" />
-                  <span className="text-[13px] text-[#9A9590] leading-[1.7]">{req}</span>
-                  <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
+                  <span className="text-[13px] text-[#9A9590] leading-[1.7]">{highlightText(req)}</span>
                 </div>
               ))}
             </div>
@@ -185,7 +272,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
         </div>
       </section>
 
-      {/* ── FAQ — only if data exists ── */}
+      {/* ── FAQ ── */}
       {faq.length > 0 && (
         <section style={{ background: "#0d0d0d" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto">
@@ -199,7 +286,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
                     <ChevronDown className={`w-4 h-4 text-[#5A5550] shrink-0 transition-transform duration-300 ${openFaq.includes(i) ? "rotate-180" : ""}`} />
                   </button>
                   {openFaq.includes(i) && (
-                    <p className="text-[13px] text-[#9A9590] leading-[1.85] pb-5 whitespace-pre-line">{item.answer}</p>
+                    <p className="text-[13px] text-[#9A9590] leading-[1.85] pb-5">{highlightText(item.answer.replace(/\n+---\s*$/, ""))}</p>
                   )}
                 </div>
               ))}

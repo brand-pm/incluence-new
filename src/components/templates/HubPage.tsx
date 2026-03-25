@@ -49,6 +49,17 @@ const pickText = (...sources: (string | null | undefined)[]): string => {
   return valid.sort((a, b) => b.length - a.length)[0];
 };
 
+/** Highlight numbers, percentages, currencies, and time periods */
+const highlightText = (text: string): React.ReactNode => {
+  if (!text) return null;
+  const parts = text.split(/((?:\$|€|£)?\d[\d.,]*\s*(?:%|percent|years?|months?|weeks?|days?|hours?)|\d[\d.,]*\s*(?:EUR|USD|GBP)|\b\d{1,2}\s*(?:–|-)\s*\d{1,2}\s*(?:months?|weeks?))/gi);
+  if (parts.length <= 1) return text;
+  return parts.map((part, i) => {
+    if (i % 2 === 1) return <span key={i} className="text-[#F0EBE0] font-semibold">{part}</span>;
+    return part;
+  });
+};
+
 const Tag = ({ children }: { children: React.ReactNode }) => (
   <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— {children}</span>
 );
@@ -76,6 +87,33 @@ const badgeClass = (badge?: string) => {
   if (b.includes("popular") || b.includes("fast")) return "border-[#22c55e]/30 text-[#22c55e] bg-[#22c55e]/5";
   if (b.includes("offshore") || b.includes("fintech")) return "border-[#f59e0b]/30 text-[#f59e0b] bg-[#f59e0b]/5";
   return "border-[#444CE7]/30 text-[#6172F3] bg-[#444CE7]/10";
+};
+
+/** Smart paragraph renderer for requirements text blocks */
+const RequirementsParagraph: React.FC<{ text: string; index: number }> = ({ text, index }) => {
+  // Split on sentences that end with a period followed by a capital letter
+  // to create readable blocks
+  const sentences = text.split(/(?<=\.)\s+(?=[A-Z])/).filter(Boolean);
+
+  // Check if paragraph has inline list items (items separated by periods that look like list items)
+  const hasListItems = sentences.length > 3;
+
+  return (
+    <div className={`py-6 ${index > 0 ? "border-t border-white/[0.06]" : ""}`}>
+      {hasListItems ? (
+        <div className="space-y-3">
+          {sentences.map((sentence, si) => (
+            <div key={si} className="flex items-start gap-3">
+              <div className="w-[5px] h-[5px] bg-[#444CE7]/40 mt-[7px] shrink-0" />
+              <span className="text-[14px] text-[#9A9590] leading-[1.85]">{highlightText(sentence)}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-[14px] text-[#9A9590] leading-[1.85]">{highlightText(text)}</p>
+      )}
+    </div>
+  );
 };
 
 export const HubPage: React.FC<HubPageProps> = (props) => {
@@ -125,11 +163,11 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
         </div>
       </section>
 
-      {/* ── STATS STRIP — only if stats exist ── */}
+      {/* ── STATS STRIP ── */}
       {p.stats.length > 0 && (
         <div className="bg-[rgba(255,255,255,0.06)] grid gap-px" style={{ gridTemplateColumns: `repeat(${p.stats.length}, 1fr)` }}>
           {p.stats.map((s, i) => (
-            <div key={i} className="bg-[#080808] p-7 group relative overflow-hidden cursor-default">
+            <div key={i} className="bg-[#111111] p-7 group relative overflow-hidden cursor-default">
               <span className="text-[32px] font-light text-[#444CE7] leading-none block mb-2">{s.value}</span>
               <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.1em]">{s.label}</span>
               <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
@@ -138,7 +176,7 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
         </div>
       )}
 
-      {/* ── JURISDICTION CARDS — only if data exists ── */}
+      {/* ── JURISDICTION CARDS ── */}
       {p.jurisdictions.length > 0 && (
         <section id="jurisdictions" style={{ background: "#0d0d0d" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto">
@@ -161,14 +199,12 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
                     {j.description.split(/\.\s+/).filter(Boolean).slice(0, 3).map((sentence, si) => (
                       <div key={si} className="flex gap-2">
                         <div className="w-1 h-1 bg-[#444CE7] mt-2 flex-shrink-0" />
-                        <span className="text-[13px] text-[#9A9590]">{sentence.replace(/\.$/, "")}</span>
+                        <span className="text-[13px] text-[#9A9590]">{highlightText(sentence.replace(/\.$/, ""))}</span>
                       </div>
                     ))}
                   </div>
                   {j.timeline && (
-                    <div className="flex items-center justify-between mt-auto">
-                      <span className="border border-[#444CE7]/30 text-[#444CE7] text-[11px] px-3 py-1">{j.timeline}</span>
-                    </div>
+                    <span className="inline-block border border-[#444CE7]/30 text-[#444CE7] text-[11px] px-3 py-1">{j.timeline}</span>
                   )}
                   <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
                 </Link>
@@ -178,37 +214,36 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── PROCESS — only if steps exist ── */}
-      {p.steps.length > 0 && (
+      {/* ── REQUIREMENTS — rich text blocks ── */}
+      {p.requirements.length > 0 && (
         <section style={{ background: "#111111" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto">
-            <Tag>Process</Tag>
-            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-3">{p.processTitle}</h2>
-            <p className="text-[14px] text-[#9A9590] leading-relaxed max-w-[520px] mb-14">{p.processSubtitle}</p>
-            <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
-              {p.steps.map((step, i) => (
-                <div key={i} className="bg-[#111111] p-7 group relative overflow-hidden">
-                  <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] block mb-3">{step.number}</span>
-                  <h3 className="text-[15px] font-semibold text-[#F0EBE0] mb-2">{step.title}</h3>
-                  <p className="text-[13px] text-[#9A9590] leading-relaxed">{step.description}</p>
-                  <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
-                </div>
+            <Tag>Requirements</Tag>
+            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-3">{p.requirementsTitle || "General Requirements"}</h2>
+            <div className="max-w-[800px]">
+              {p.requirements.map((para, i) => (
+                <RequirementsParagraph key={i} text={para} index={i} />
               ))}
             </div>
           </div>
         </section>
       )}
 
-      {/* ── REQUIREMENTS — only if data exists ── */}
-      {p.requirements.length > 0 && (
-        <section style={{ background: "#111111" }} className="py-[72px] px-12">
+      {/* ── PROCESS ── */}
+      {p.steps.length > 0 && (
+        <section style={{ background: "#0d0d0d" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto">
-            <Tag>Requirements</Tag>
-            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-3">{p.requirementsTitle || "General Requirements"}</h2>
-            <p className="text-[14px] text-[#9A9590] leading-relaxed max-w-[520px] mb-10">{p.requirementsIntro ? "" : ""}</p>
-            <div className="max-w-[800px] space-y-6">
-              {p.requirements.map((para, i) => (
-                <p key={i} className="text-[14px] text-[#9A9590] leading-[1.85] whitespace-pre-line">{para}</p>
+            <Tag>Process</Tag>
+            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-3">{p.processTitle}</h2>
+            <p className="text-[14px] text-[#9A9590] leading-relaxed max-w-[520px] mb-14">{p.processSubtitle}</p>
+            <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
+              {p.steps.map((step, i) => (
+                <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden">
+                  <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] block mb-3">{step.number}</span>
+                  <h3 className="text-[15px] font-semibold text-[#F0EBE0] mb-2">{step.title}</h3>
+                  <p className="text-[13px] text-[#9A9590] leading-relaxed">{step.description}</p>
+                  <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
+                </div>
               ))}
             </div>
           </div>
@@ -236,7 +271,7 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
         </div>
       </section>
 
-      {/* ── FAQ — only if data exists ── */}
+      {/* ── FAQ ── */}
       {p.faq.length > 0 && (
         <section style={{ background: "#111111" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto">
@@ -250,7 +285,7 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
                     <ChevronDown className={`w-4 h-4 text-[#5A5550] shrink-0 transition-transform duration-300 ${openFaq.includes(i) ? "rotate-180" : ""}`} />
                   </button>
                   {openFaq.includes(i) && (
-                    <p className="text-[13px] text-[#9A9590] leading-[1.85] pb-5 whitespace-pre-line">{item.answer}</p>
+                    <p className="text-[13px] text-[#9A9590] leading-[1.85] pb-5">{highlightText(item.answer.replace(/\n+---\s*$/, ""))}</p>
                   )}
                 </div>
               ))}

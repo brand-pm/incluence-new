@@ -49,8 +49,6 @@ const pick = <T,>(...sources: (T[] | null | undefined)[]): T[] => {
   return [];
 };
 
-/** Pick the best description text. If the first source looks truncated (doesn't
- *  end with sentence-ending punctuation), prefer a longer alternative. */
 const pickText = (...sources: (string | null | undefined)[]): string => {
   const valid = sources.filter((s): s is string => Boolean(s && s.length > 0));
   if (valid.length === 0) return "";
@@ -58,6 +56,85 @@ const pickText = (...sources: (string | null | undefined)[]): string => {
   if (complete) return complete;
   return valid.sort((a, b) => b.length - a.length)[0];
 };
+
+/* ── SMART TEXT UTILITIES ── */
+
+/** Truncate text to ~160 chars at the nearest sentence boundary */
+const heroSubtitle = (text: string): string => {
+  if (!text) return "";
+  if (text.length <= 180) return text;
+  // Find sentence end before 180
+  const cut = text.slice(0, 180);
+  const lastDot = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("? "), cut.lastIndexOf("! "));
+  if (lastDot > 80) return text.slice(0, lastDot + 1);
+  return cut.replace(/\s+\S*$/, "") + "…";
+};
+
+/** Highlight numbers, percentages, currencies, and time periods in body text */
+const highlightText = (text: string): React.ReactNode => {
+  if (!text) return null;
+  // Split on patterns we want to highlight
+  const parts = text.split(/((?:\$|€|£)?\d[\d.,]*\s*(?:%|percent|years?|months?|weeks?|days?|hours?)|\d[\d.,]*\s*(?:EUR|USD|GBP)|\b\d{1,2}\s*(?:–|-)\s*\d{1,2}\s*(?:months?|weeks?))/gi);
+  if (parts.length <= 1) return text;
+  return parts.map((part, i) => {
+    if (i % 2 === 1) {
+      return <span key={i} className="text-[#F0EBE0] font-semibold">{part}</span>;
+    }
+    return part;
+  });
+};
+
+/** Classify a paragraph by content */
+type ParagraphType = "intro" | "requirements" | "costs" | "timeline" | "body";
+
+const classifyParagraph = (text: string): ParagraphType => {
+  const lower = text.toLowerCase();
+  if (/\brequir|must\b|need to|obligat|shall\b|condition/i.test(lower)) return "requirements";
+  if (/\$|€|£|fee|cost|tax|price|payment|capital/i.test(lower)) return "costs";
+  if (/\bweek|\bmonth|\bday|\btimeline|duration|period|deadline/i.test(lower)) return "timeline";
+  return "body";
+};
+
+/** Check if paragraph contains list-like content (semicolons, dashes, bullets) */
+const isListParagraph = (text: string): boolean => {
+  // If it has 3+ items separated by semicolons or line-break + dash
+  const semicolons = (text.match(/;/g) || []).length;
+  if (semicolons >= 2) return true;
+  const dashLines = (text.match(/\n-\s/g) || []).length;
+  if (dashLines >= 2) return true;
+  return false;
+};
+
+/** Split a list-like paragraph into items */
+const splitListItems = (text: string): string[] => {
+  // Try semicolons first
+  if (text.includes(";")) {
+    return text.split(/;\s*/).map(s => s.trim()).filter(Boolean);
+  }
+  // Try newline-dashes
+  if (text.includes("\n-")) {
+    return text.split(/\n-\s*/).map(s => s.trim()).filter(Boolean);
+  }
+  return [text];
+};
+
+/** Check if a paragraph starts with a heading-like pattern */
+const extractSubHeading = (text: string): { heading: string; body: string } | null => {
+  // "Title:" or "**Title**" patterns
+  const match = text.match(/^(?:\*\*(.+?)\*\*|([A-Z][^.]{3,50}):)\s*([\s\S]+)/);
+  if (match) {
+    return { heading: match[1] || match[2], body: match[3] };
+  }
+  return null;
+};
+
+/** Check if text starts the same as another (deduplication) */
+const startsLike = (a: string, b: string, minLen = 50): boolean => {
+  if (!a || !b) return false;
+  return a.slice(0, minLen).trim() === b.slice(0, minLen).trim();
+};
+
+/* ── SHARED UI ATOMS ── */
 
 const Tag = ({ children }: { children: React.ReactNode }) => (
   <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— {children}</span>
@@ -80,11 +157,52 @@ const Skeleton = () => (
   </div>
 );
 
+/* ── SMART PARAGRAPH RENDERER ── */
+
+const SmartParagraph: React.FC<{ text: string; type: ParagraphType }> = ({ text, type }) => {
+  const subHeading = extractSubHeading(text);
+  const isList = isListParagraph(subHeading ? subHeading.body : text);
+  const bodyText = subHeading ? subHeading.body : text;
+
+  // Type-specific accent
+  const typeIndicator = type === "requirements"
+    ? <span className="text-[10px] text-[#444CE7]/60 uppercase tracking-[0.1em] mb-2 block">Requirements</span>
+    : type === "costs"
+    ? <span className="text-[10px] text-[#f59e0b]/60 uppercase tracking-[0.1em] mb-2 block">Costs & Fees</span>
+    : type === "timeline"
+    ? <span className="text-[10px] text-[#22c55e]/60 uppercase tracking-[0.1em] mb-2 block">Timeline</span>
+    : null;
+
+  return (
+    <div className="py-6 border-b border-white/[0.06] last:border-b-0">
+      {typeIndicator}
+      {subHeading && (
+        <h3 className="text-[15px] font-semibold text-[#F0EBE0] mb-3">
+          <span className="text-[#444CE7] mr-2">▸</span>{subHeading.heading}
+        </h3>
+      )}
+      {isList ? (
+        <div className="space-y-2.5 pl-1">
+          {splitListItems(bodyText).map((item, i) => (
+            <div key={i} className="flex items-start gap-3">
+              <div className="w-[5px] h-[5px] bg-[#444CE7]/40 mt-[7px] shrink-0" />
+              <span className="text-[13px] text-[#9A9590] leading-[1.7]">{highlightText(item)}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-[14px] text-[#9A9590] leading-[1.85]">{highlightText(bodyText)}</p>
+      )}
+    </div>
+  );
+};
+
+/* ── MAIN COMPONENT ── */
+
 export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
   const { data, isLoading, isError } = useLicensePage(props.slug || "", props);
   const raw = (data || {}) as Partial<LicenseDetailPageProps>;
 
-  // Merge Sanity data with hardcoded props, preferring Sanity when non-empty
   const p = {
     ...props,
     ...raw,
@@ -101,11 +219,21 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
     heroVisual: props.heroVisual,
   };
 
-  // Description: if Sanity description is truncated, use aboutParagraphs[0] instead
+  // ── DESCRIPTION DEDUP ──
+  // Full text comes from aboutParagraphs. Hero only gets a short subtitle.
   const sanityDesc = raw.description || "";
   const propsDesc = props.description || "";
   const aboutFirst = p.aboutParagraphs?.[0] || "";
-  const heroDescription = pickText(sanityDesc, aboutFirst, propsDesc);
+  const fullDescription = pickText(sanityDesc, aboutFirst, propsDesc);
+  const heroDesc = heroSubtitle(fullDescription);
+
+  // Deduplicate: if aboutParagraphs[0] starts same as description, skip it
+  const dedupedParagraphs = p.aboutParagraphs.filter((para, i) => {
+    if (i === 0 && startsLike(para, fullDescription)) return false;
+    return true;
+  });
+  // If all paragraphs were deduped, use the full description as the body content
+  const bodyParagraphs = dedupedParagraphs.length > 0 ? dedupedParagraphs : (fullDescription ? [fullDescription] : []);
 
   const [openFaq, setOpenFaq] = useState<number[]>([]);
   const toggleFaq = (i: number) => setOpenFaq((prev) => prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]);
@@ -129,7 +257,6 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
   const formTextareaLabel = p.formTextareaLabel || "Additional details — target markets, existing structure, requirements...";
   const formButtonText = p.formButtonText || "SEND REQUEST →";
 
-  // Facts: prefer keyFacts, then stats mapped to same shape
   const facts = p.keyFacts.length > 0
     ? p.keyFacts
     : p.stats.length > 0
@@ -152,8 +279,8 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </nav>
       </section>
 
-      {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 560 }}>
+      {/* ── HERO — short subtitle only ── */}
+      <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 480 }}>
         <NoiseOverlay />
         <div className="relative z-10 max-w-screen-xl mx-auto py-[80px] px-12">
           <div className="max-w-[600px]">
@@ -164,20 +291,20 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
             <h1 className="text-[clamp(32px,4vw,52px)] font-light text-[#F0EBE0] leading-tight mb-5">
               <span className="text-[#444CE7]">{p.titleAccent}</span>{" "}{p.titleRest}
             </h1>
-            <p className="text-[15px] text-[#9A9590] leading-relaxed mb-10 max-w-[520px]">{heroDescription}</p>
+            <p className="text-[15px] text-[#9A9590] leading-relaxed mb-10 max-w-[520px]">{heroDesc}</p>
             <div className="flex gap-3">
               <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors">
                 Get a Free Quote →
               </Link>
-              <button onClick={() => document.getElementById("requirements")?.scrollIntoView({ behavior: "smooth" })} className="px-7 py-3 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] border border-white/15 hover:border-white/35 transition-all bg-transparent cursor-pointer" style={{ fontFamily: "inherit" }}>
-                View Requirements
+              <button onClick={() => document.getElementById("about-section")?.scrollIntoView({ behavior: "smooth" })} className="px-7 py-3 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] border border-white/15 hover:border-white/35 transition-all bg-transparent cursor-pointer" style={{ fontFamily: "inherit" }}>
+                Learn More
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── FACTS STRIP — only render if we have data ── */}
+      {/* ── FACTS STRIP ── */}
       {facts.length > 0 && (
         <div className="bg-[rgba(255,255,255,0.06)] grid gap-px" style={{ gridTemplateColumns: `repeat(${Math.min(facts.length, 6)}, 1fr)` }}>
           {facts.slice(0, 6).map((f, i) => (
@@ -190,22 +317,31 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </div>
       )}
 
-      {/* ── ABOUT (aboutParagraphs) ── */}
-      {p.aboutParagraphs.length > 0 && (
-        <section style={{ background: "#111111" }} className="py-[72px] px-12">
+      {/* ── ABOUT — smart paragraph rendering ── */}
+      {bodyParagraphs.length > 0 && (
+        <section id="about-section" style={{ background: "#111111" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto">
             <Tag>{p.aboutTag || "About"}</Tag>
-            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-8">{p.aboutTitle || `About ${p.titleAccent} ${p.titleRest}`}</h2>
-            <div className="max-w-[720px] space-y-6">
-              {p.aboutParagraphs.map((para, i) => (
-                <p key={i} className="text-[14px] text-[#9A9590] leading-[1.85] whitespace-pre-line">{para}</p>
-              ))}
+            <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-4">{p.aboutTitle || `About ${p.titleAccent} ${p.titleRest}`}</h2>
+
+            {/* Intro: first paragraph, always full width */}
+            <div className="max-w-[800px] mb-8">
+              <p className="text-[14px] text-[#9A9590] leading-[1.85]">{highlightText(bodyParagraphs[0])}</p>
             </div>
+
+            {/* Remaining paragraphs: smart classified rendering */}
+            {bodyParagraphs.length > 1 && (
+              <div className="max-w-[800px]">
+                {bodyParagraphs.slice(1).map((para, i) => (
+                  <SmartParagraph key={i} text={para} type={classifyParagraph(para)} />
+                ))}
+              </div>
+            )}
           </div>
         </section>
       )}
 
-      {/* ── PROCESS — only if steps exist ── */}
+      {/* ── PROCESS ── */}
       {p.steps.length > 0 && (
         <section style={{ background: "#0d0d0d" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto">
@@ -226,20 +362,19 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── REQUIREMENTS — only if data exists ── */}
+      {/* ── REQUIREMENTS ── */}
       {p.requirements.length > 0 && (
         <section id="requirements" style={{ background: "#111111" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
             <div className="col-span-7">
               <Tag>Requirements</Tag>
               <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-4">Documents & Eligibility</h2>
-              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-8">{p.requirementsIntro}</p>
-              <h3 className="text-[14px] font-semibold text-[#F0EBE0] mb-4">Required Documents</h3>
+              <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-8">{highlightText(p.requirementsIntro)}</p>
               <div className="border-l border-[#444CE7]/20 pl-5 space-y-3">
                 {p.requirements.map((req, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="w-[5px] h-[5px] bg-[#444CE7]/40 mt-[7px] shrink-0" />
-                    <span className="text-[13px] text-[#9A9590] leading-[1.7]">{req}</span>
+                    <span className="text-[13px] text-[#9A9590] leading-[1.7]">{highlightText(req)}</span>
                   </div>
                 ))}
               </div>
@@ -251,7 +386,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
                   {facts.map((f, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <Check className="w-4 h-4 text-[#444CE7] mt-0.5 flex-shrink-0" />
-                      <span className="text-[13px] text-[#9A9590]">{f.label}: {f.value}</span>
+                      <span className="text-[13px] text-[#9A9590]">{f.label}: <span className="text-[#F0EBE0] font-medium">{f.value}</span></span>
                     </div>
                   ))}
                 </div>
@@ -266,7 +401,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── PROS & CONS — only if data exists ── */}
+      {/* ── PROS & CONS ── */}
       {(p.advantages.length > 0 || p.limitations.length > 0) && (
         <section style={{ background: "#0d0d0d" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto">
@@ -279,7 +414,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
                   {p.advantages.map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <Check className="w-4 h-4 text-[#22c55e] mt-0.5 shrink-0" />
-                      <span className="text-[13px] text-[#9A9590] leading-[1.7]">{item}</span>
+                      <span className="text-[13px] text-[#9A9590] leading-[1.7]">{highlightText(item)}</span>
                     </div>
                   ))}
                 </div>
@@ -290,7 +425,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
                   {p.limitations.map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <X className="w-4 h-4 text-[#f59e0b] mt-0.5 shrink-0" />
-                      <span className="text-[13px] text-[#9A9590] leading-[1.7]">{item}</span>
+                      <span className="text-[13px] text-[#9A9590] leading-[1.7]">{highlightText(item)}</span>
                     </div>
                   ))}
                 </div>
@@ -300,7 +435,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── FAQ — only if data exists ── */}
+      {/* ── FAQ ── */}
       {p.faq.length > 0 && (
         <section style={{ background: "#0d0d0d" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto">
@@ -314,7 +449,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
                     <ChevronDown className={`w-4 h-4 text-[#5A5550] shrink-0 transition-transform duration-300 ${openFaq.includes(i) ? "rotate-180" : ""}`} />
                   </button>
                   {openFaq.includes(i) && (
-                    <p className="text-[13px] text-[#9A9590] leading-[1.85] pb-5 whitespace-pre-line">{item.answer}</p>
+                    <p className="text-[13px] text-[#9A9590] leading-[1.85] pb-5">{highlightText(item.answer.replace(/\n+---\s*$/, ""))}</p>
                   )}
                 </div>
               ))}
@@ -323,7 +458,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── RELATED — only if data exists ── */}
+      {/* ── RELATED ── */}
       {p.related.length > 0 && (
         <section style={{ background: "#111111" }} className="py-[72px] px-12">
           <div className="max-w-screen-xl mx-auto">
