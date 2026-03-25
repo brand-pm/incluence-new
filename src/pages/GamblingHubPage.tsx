@@ -18,7 +18,7 @@ const GamblingHubPage = () => (
       {
         regulator: 'MGA',
         name: 'Malta',
-        description: 'Gold standard for EU operators. Full access to European payment systems and banking. Valid 5 years, renewable.',
+        description: 'Malta is a state with one of the most well-regulated systems of gambling activities. The MGA directly licenses gambling entities. License issued for five years, renewable.',
         timeline: '6–9 months',
         badge: 'EU Regulated',
         href: '/malta-gaming-license',
@@ -26,7 +26,7 @@ const GamblingHubPage = () => (
       {
         regulator: 'CGA',
         name: 'Curaçao',
-        description: 'Fastest and most cost-effective entry point. One sub-license covers all gambling types. Remote application possible.',
+        description: 'Curaçao hosts many companies operating in the gambling industry — explained by simple, business-friendly legislation and low taxation. Highly attractive for online casino operators.',
         timeline: '3–4 months',
         badge: 'Most Popular',
         href: '/curacao-gaming-license',
@@ -34,14 +34,14 @@ const GamblingHubPage = () => (
       {
         regulator: 'GSC',
         name: 'Isle of Man',
-        description: 'Tier-1 prestige license from the Gambling Supervision Commission. Covers all verticals under one permit.',
+        description: 'Applications reviewed within 10–12 weeks. Full assistance in obtaining the license in the shortest possible time with minimal risk of refusal.',
         timeline: '6–12 months',
         href: '/gambling-license-of-the-isle-of-man',
       },
       {
         regulator: 'Municipality',
         name: 'Costa Rica',
-        description: 'Data Processing license — fastest path to operation. No business plan required. Income tax exempt for international operators.',
+        description: 'Data Processing license issued by the local municipality. No business plan needed, no profit plan requirements, no software requirements, no financial reporting.',
         timeline: '2–5 weeks',
         badge: 'Offshore',
         href: '/gambling-license-in-costa-rica',
