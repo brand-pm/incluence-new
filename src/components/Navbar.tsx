@@ -193,7 +193,7 @@ const LICENSE_PREVIEWS: Record<string, { jurisdictions: JurisdictionPreview[] }>
   ]},
 };
 
-const LicensePreviewPanel = ({ jurisdictions, go }: { jurisdictions: JurisdictionPreview[]; go: (href: string) => void }) => (
+const LicensePreviewPanel = ({ jurisdictions, hubHref, go }: { jurisdictions: JurisdictionPreview[]; hubHref: string; go: (href: string) => void }) => (
   <div style={{ animation: "tabFade 0.2s ease-out" }}>
     <span className="block text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-4">— Jurisdictions</span>
     {jurisdictions.map((j) => (
@@ -219,7 +219,7 @@ const LicensePreviewPanel = ({ jurisdictions, go }: { jurisdictions: Jurisdictio
     ))}
     <div className="mt-4 pt-3 border-t border-white/[0.06]">
       <button
-        onClick={() => go('/gamble-license')}
+        onClick={() => go(hubHref)}
         className="text-[11px] text-[#444CE7] hover:underline cursor-pointer bg-transparent border-0"
         style={{ fontFamily: "inherit" }}
       >
