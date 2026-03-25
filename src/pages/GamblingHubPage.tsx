@@ -41,7 +41,7 @@ const GamblingHubPage = () => (
       {
         regulator: 'Municipality',
         name: 'Costa Rica',
-        description: 'Data Processing license — fastest path to operation. No business plan required. Income tax exempt for international operators.',
+        description: 'Data Processing license issued by the local municipality. No business plan needed, no profit plan requirements, no software requirements, no financial reporting.',
         timeline: '2–5 weeks',
         badge: 'Offshore',
         href: '/gambling-license-in-costa-rica',

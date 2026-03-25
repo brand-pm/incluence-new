@@ -20,12 +20,12 @@ const useCounter = (target: number, duration = 1200) => {
 };
 
 const JURISDICTIONS = [
-  { reg: "FCIS", name: "Lithuania", badge: "EU · MiCA Ready", desc: "Most popular EU VASP jurisdiction. Exchange + custodial wallet licenses. MiCA-aligned framework. Fast 1–3 month process. EU passporting under MiCA.", price: "From €10,000", timeline: "1–3 months", href: "/lithuania-crypto-license" },
-  { reg: "FIU", name: "Estonia", badge: "EU · E-Residency", desc: "Pioneer EU crypto jurisdiction. 0% corporate tax on retained earnings. E-Residency compatible. Indefinite license validity.", price: "From €8,000", timeline: "3–6 months", href: "/cryptocurrency-exchange-license-in-estonia" },
-  { reg: "MFSA", name: "Malta", badge: "EU · 4 Classes", desc: "Four-tier VFA license system from Class 1 to Class 4. Full coverage from investment advice to proprietary trading. Issued by MFSA.", price: "From €25,000", timeline: "6–9 months", href: "/cryptocurrency-license-in-malta" },
-  { reg: "PFSA", name: "Poland", badge: "EU · VASP", desc: "Fast-growing EU crypto hub. VASP registration with Polish Financial Supervision Authority. MiCA transition pathway in place.", price: "From €8,000", timeline: "2–3 months", href: "/poland-crypto-license" },
-  { reg: "FINMA", name: "Switzerland", badge: "Tier 1", desc: 'Tier-1 global crypto jurisdiction — the "Crypto Valley." FINMA-supervised license. DLT framework covers exchanges, custody and trading.', price: "From €50,000", timeline: "6–12 months", href: "/cryptocurrency-exchange-license-in-switzerland" },
-  { reg: "FinCEN", name: "USA", badge: "Federal · MSB", desc: "Federal MSB/BitLicense registration. Operate legally across US states. Required for companies serving US clients or handling USD transactions.", price: "From $30,000", timeline: "4–8 months", href: "/cryptocurrency-exchange-license-in-the-usa" },
+  { reg: "FIU", name: "Estonia", badge: "EU · E-Residency", desc: "Estonia offers relatively simple and quick company registration, favorable taxation, and enjoys investor and partner trust. One of the first EU countries to regulate crypto.", price: "From €8,000", timeline: "3–6 months", href: "/cryptocurrency-exchange-license-in-estonia" },
+  { reg: "FCIS", name: "Lithuania", badge: "EU · MiCA Ready", desc: "Fast-track crypto licensing in Lithuania. One of the most progressive FinTech jurisdictions in the EU with a streamlined registration process.", price: "From €10,000", timeline: "1–3 months", href: "/lithuania-crypto-license" },
+  { reg: "FINMA", name: "Switzerland", badge: "Tier 1", desc: "Reliable banking system, stable currency, multiple double taxation treaties. Swiss crypto companies enjoy high reputation among investors and partners.", price: "From €50,000", timeline: "6–12 months", href: "/cryptocurrency-exchange-license-in-switzerland" },
+  { reg: "MFSA", name: "Malta", badge: "EU · 4 Classes", desc: "Malta is one of the first countries in the world to provide a regulatory framework for blockchain and cryptocurrency companies — the 'Blockchain Island'.", price: "From €25,000", timeline: "6–9 months", href: "/cryptocurrency-license-in-malta" },
+  { reg: "PFSA", name: "Poland", badge: "EU · VASP", desc: "Poland offers a regulated environment for cryptocurrency exchange companies. Registration in the Polish Virtual Asset Register required.", price: "From €8,000", timeline: "2–3 months", href: "/poland-crypto-license" },
+  { reg: "FinCEN", name: "USA", badge: "Federal · MSB", desc: "Cryptocurrency exchange licensing in the USA requires compliance with state-level Money Transmitter Licenses and federal FinCEN registration.", price: "From $30,000", timeline: "4–8 months", href: "/cryptocurrency-exchange-license-in-the-usa" },
 ];
 
 const ACTIVITIES = [

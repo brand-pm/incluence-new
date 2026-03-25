@@ -20,10 +20,10 @@ const useCounter = (target: number, duration = 1200) => {
 };
 
 const JURISDICTIONS = [
-  { reg: "Bank of Lithuania", name: "Lithuania", badge: "EU · Top 5", desc: "Top-5 globally by EMI licenses issued. SEPA access across 36 countries, strong fintech ecosystem, full EU passporting.", price: "From €350,000", timeline: "6–12 months", href: "/e-money-license-lithuania" },
-  { reg: "FCA", name: "United Kingdom", badge: "Tier 1", desc: "FCA-authorized EMI — most globally recognized e-money license. Access to Faster Payments, BACS, CHAPS and SWIFT. Preferred by institutional partners.", price: "From £350,000", timeline: "12–18 months", href: "/e-money-license-uk" },
-  { reg: "MFSA", name: "Malta", badge: "EU · Top 3", desc: "Top-3 globally by EMI licenses issued. Single European passport covers all EU member states. MFSA actively supports FinTech sector.", price: "From €350,000", timeline: "6–12 months", href: "/e-money-license-malta" },
-  { reg: "Finantsinspektsioon", name: "Estonia", badge: "EU · 0% Tax", desc: "0% corporate tax on retained earnings. Issue own electronic currency, provide payment services. E-Residency compatible.", price: "From €350,000", timeline: "6–12 months", href: "/emi-license-in-estonia" },
+  { reg: "Finantsinspektsioon", name: "Estonia", badge: "EU · 0% Tax", desc: "By obtaining an EMI permit in Estonia, you are legally entitled to issue electronic currency, provide payment services to clients, create and maintain payment systems.", price: "From €350,000", timeline: "6–12 months", href: "/emi-license-in-estonia" },
+  { reg: "MFSA", name: "Malta", badge: "EU · Top 3", desc: "Malta is one of the top three countries by number of issued EMI licenses. Single European passport, tax preferences, and loyal attitude to foreign investors.", price: "From €350,000", timeline: "6–12 months", href: "/e-money-license-malta" },
+  { reg: "FCA", name: "United Kingdom", badge: "Tier 1", desc: "The United Kingdom continues to be one of the top jurisdictions for obtaining an EMI license — a prerequisite for legal activities related to electronic payments.", price: "From £350,000", timeline: "12–18 months", href: "/e-money-license-uk" },
+  { reg: "Bank of Lithuania", name: "Lithuania", badge: "EU · Top 5", desc: "Lithuania has been among the top five countries by number of issued EMI permits for several years. The Bank of Lithuania regulates e-money licensing. One of the most attractive countries for FinTech.", price: "From €350,000", timeline: "6–12 months", href: "/e-money-license-lithuania" },
 ];
 
 const ACTIVITIES = [
