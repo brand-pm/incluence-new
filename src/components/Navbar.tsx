@@ -648,16 +648,16 @@ const Navbar = () => {
                           {item.desc}
                         </p>
 
-                        <div className="flex flex-wrap gap-1.5 relative z-10">
+                        <div className="flex flex-wrap gap-2 relative z-10 mt-2">
                           {item.tags.map((tag) => {
                             return tag.href ? (
                               <button
                                 key={tag.label}
                                 onClick={(e) => { e.stopPropagation(); go(tag.href!); }}
-                                className="bg-transparent cursor-pointer hover:border-[#444CE7]/40 hover:text-[#9A9590] transition-all duration-150"
+                                className="bg-transparent cursor-pointer hover:border-[#444CE7]/60 hover:text-[#F0EBE0] hover:bg-[#444CE7]/10 transition-all duration-150"
                                 style={{
-                                  fontSize: 11, color: "#5A5550", padding: "3px 8px",
-                                  border: "1px solid rgba(255,255,255,0.08)",
+                                  fontSize: 12, color: "#9A9590", padding: "5px 12px",
+                                  border: "1px solid rgba(255,255,255,0.1)",
                                   fontFamily: "inherit",
                                 }}
                               >
@@ -667,7 +667,7 @@ const Navbar = () => {
                               <span
                                 key={tag.label}
                                 style={{
-                                  fontSize: 11, color: "#5A5550", padding: "3px 8px",
+                                  fontSize: 12, color: "#5A5550", padding: "5px 12px",
                                   border: "1px solid rgba(255,255,255,0.08)",
                                 }}
                               >
