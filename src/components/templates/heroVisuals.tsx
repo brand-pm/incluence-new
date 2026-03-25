@@ -242,6 +242,7 @@ export const SeychellesForexHeroVisual = () => (
     <CornerMarks />
     <text x="200" y="275" fill="rgba(255,255,255,0.15)" fontSize="9" fontFamily="Manrope, sans-serif" textAnchor="middle" letterSpacing="0.1em">4°S · 55°E · INDIAN OCEAN</text>
   </Wrapper>
+);
 
 /* ═══════════════════════════════════════════════════════════
    CRYPTO CATEGORY
