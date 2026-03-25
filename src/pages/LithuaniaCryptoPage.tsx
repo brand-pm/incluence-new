@@ -5,6 +5,7 @@ import MicroParticles from "@/components/MicroParticles";
 import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
+import { LithuaniaCryptoHeroVisual } from "@/components/templates/heroVisuals";
 
 const useCounter = (target: number, duration = 1200) => {
   const [val, setVal] = useState(0);
@@ -134,18 +135,25 @@ const LithuaniaCryptoPage = () => {
         <div className="relative z-[1]"><MicroParticles /></div>
         <TerritoryMap iso="LT" />
 
-        <div className="relative z-10 max-w-screen-xl mx-auto max-w-[600px]">
-          <div className="flex gap-3 mb-5">
-            <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Crypto License</span>
-            <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">EU · FCIS · MiCA Ready</span>
-          </div>
-          <h1 className="text-[clamp(36px,5vw,64px)] font-light text-[#F0EBE0] leading-[1.08] mb-6">
-            <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Lithuania</span> Crypto Exchange License with Incluence Expert Support
-          </h1>
-          <p className="text-[15px] text-[#9A9590] leading-[1.85] mb-10">A crypto exchange license in Lithuania grants companies the legal status to provide a wide range of Virtual Asset Service Provider (VASP) activities under the supervision of Lithuanian regulators. This license is highly valued within the European Union, particularly as Lithuania is positioning itself as one of the leading crypto-friendly jurisdictions in the region.</p>
-          <div className="flex gap-4 flex-wrap">
-            <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
-            <a href="#requirements" className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all inline-block">View Requirements</a>
+        <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
+          <div className="grid grid-cols-12 gap-8 items-center">
+            <div className="col-span-7">
+              <div className="flex gap-3 mb-5">
+                <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Crypto License</span>
+                <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">EU · FCIS · MiCA Ready</span>
+              </div>
+              <h1 className="text-[clamp(36px,5vw,64px)] font-light text-[#F0EBE0] leading-[1.08] mb-6">
+                <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Lithuania</span> Crypto Exchange License with Incluence Expert Support
+              </h1>
+              <p className="text-[15px] text-[#9A9590] leading-[1.85] mb-10">A crypto exchange license in Lithuania grants companies the legal status to provide a wide range of Virtual Asset Service Provider (VASP) activities under the supervision of Lithuanian regulators. This license is highly valued within the European Union, particularly as Lithuania is positioning itself as one of the leading crypto-friendly jurisdictions in the region.</p>
+              <div className="flex gap-4 flex-wrap">
+                <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
+                <a href="#requirements" className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all inline-block">View Requirements</a>
+              </div>
+            </div>
+            <div className="col-span-5 flex justify-center">
+              <LithuaniaCryptoHeroVisual />
+            </div>
           </div>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-6 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             {[
