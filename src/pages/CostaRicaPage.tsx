@@ -73,7 +73,7 @@ const FAQS = [
 const RELATED = [
   { href: "/malta-gaming-license", reg: "MGA", name: "Malta", desc: "EU gold standard. Full European market access. 6–9 months, from €25,000." },
   { href: "/curacao-gaming-license", reg: "CGA", name: "Curaçao", desc: "Fast and affordable offshore license. Widely accepted by payment providers globally. 4–8 weeks, from €15,000." },
-  { href: "/gambling-license-gibraltar", reg: "GBGA", name: "Gibraltar", desc: "High prestige license for serious operators. Strong banking and payments access. 4–6 months, from £25,000." },
+  { href: "/gambling-license-of-the-isle-of-man", reg: "GSC", name: "Isle of Man", desc: "Tier 1 jurisdiction with global reputation. Strong regulatory framework. 6–12 months, from £25,000." },
 ];
 
 /* ─── COMPONENT ───────────────────────────────────── */
