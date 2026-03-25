@@ -131,18 +131,25 @@ const MaltaCryptoPage = () => {
         <div className="relative z-[1]"><MicroParticles /></div>
         <TerritoryMap iso="MT" />
 
-        <div className="relative z-10 max-w-screen-xl mx-auto max-w-[600px]">
-          <div className="flex gap-3 mb-5">
-            <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Crypto License</span>
-            <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">EU · MFSA · VFA</span>
-          </div>
-          <h1 className="text-[clamp(36px,5vw,64px)] font-light text-[#F0EBE0] leading-[1.08] mb-6">
-            <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Cryptocurrency License</span> in Malta
-          </h1>
-          <p className="text-[15px] text-[#9A9590] leading-[1.85] mb-10">If you are interested in licensing a Maltese company, you should first determine the class of license. Each class authorizes specific services, and the complexity of obtaining the required permit depends on it. There are four classes of cryptocurrency licenses in Malta.</p>
-          <div className="flex gap-4 flex-wrap">
-            <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
-            <a href="#requirements" className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all inline-block">View Requirements</a>
+        <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
+          <div className="grid grid-cols-12 gap-8 items-center">
+            <div className="col-span-7">
+              <div className="flex gap-3 mb-5">
+                <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— Crypto License</span>
+                <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">EU · MFSA · VFA</span>
+              </div>
+              <h1 className="text-[clamp(36px,5vw,64px)] font-light text-[#F0EBE0] leading-[1.08] mb-6">
+                <span style={{ background: "linear-gradient(135deg,#444CE7 0%,#6172F3 50%,#818CF8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Cryptocurrency License</span> in Malta
+              </h1>
+              <p className="text-[15px] text-[#9A9590] leading-[1.85] mb-10">If you are interested in licensing a Maltese company, you should first determine the class of license. Each class authorizes specific services, and the complexity of obtaining the required permit depends on it. There are four classes of cryptocurrency licenses in Malta.</p>
+              <div className="flex gap-4 flex-wrap">
+                <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Quote →</Link>
+                <a href="#requirements" className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all inline-block">View Requirements</a>
+              </div>
+            </div>
+            <div className="col-span-5 flex justify-center">
+              <MaltaCryptoHeroVisual />
+            </div>
           </div>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-6 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             {[
