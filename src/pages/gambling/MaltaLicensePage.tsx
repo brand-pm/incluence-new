@@ -8,7 +8,7 @@ const MaltaLicensePage = () => (
     categoryHref="/gamble-license"
     titleAccent="Malta"
     titleRest="Gaming License"
-    description="Malta is a state with one of the most well-regulated systems of gambling activities. This is largely due to the government's loyalty to the gambling business and the presence of a gambling organization — the MGA. This official government agency not only regulates gambling activities but also directly licenses gambling entities. The license is issued by the MGA to the applicant for five years."
+    description="Gaming license Malta: Peculiarities of licensing"
     heroVisual={<MaltaHeroVisual />}
     seo={{
       title: "Malta Gaming License MGA — Online Gambling License | Incluence",
