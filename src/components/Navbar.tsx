@@ -601,7 +601,7 @@ const Navbar = () => {
                         key={item.href}
                         ref={cardRef}
                         onClick={() => go(item.href)}
-                        onMouseEnter={() => { if (cat === 'license') setHoveredItem(item.href); }}
+                        onMouseEnter={() => setHoveredItem(item.href)}
                         onMouseLeave={() => setHoveredItem(null)}
                         className="service-card group relative overflow-hidden cursor-pointer"
                         style={{
