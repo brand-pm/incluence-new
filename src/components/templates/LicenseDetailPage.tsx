@@ -46,6 +46,7 @@ interface LicenseDetailPageProps {
   titleRest: string;
   description: string;
   heroVisual: React.ReactNode;
+  heroImage?: string;
   stats: StatItem[];
   aboutTag: string;
   aboutTitle: string;
@@ -188,7 +189,18 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (p) => {
       {/* ── HERO ── */}
       <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 520 }}>
         <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle,rgba(68,76,231,0.045) 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
-        <div className="z-[1] relative"><MicroParticles /></div>
+        {p.heroImage && (
+          <div
+            className="absolute inset-0 z-0 pointer-events-none opacity-35"
+            style={{
+              backgroundImage: `url(${p.heroImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center right",
+            }}
+          />
+        )}
+        <div className="absolute inset-0 z-[1] pointer-events-none" style={{ background: "linear-gradient(to right, #080808 40%, rgba(8,8,8,0.85) 60%, rgba(8,8,8,0.3) 100%)" }} />
+        <div className="z-[2] relative"><MicroParticles /></div>
 
         <div className="relative z-10 max-w-screen-xl mx-auto py-[88px] px-12">
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">

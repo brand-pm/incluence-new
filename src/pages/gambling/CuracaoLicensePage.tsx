@@ -1,5 +1,6 @@
 import LicensePageTemplate from "@/components/LicensePageTemplate";
 import { TerritoryMap } from "@/components/map/TerritoryMap";
+import heroImg from "@/assets/hero-curacao-gaming.jpg";
 
 const CuracaoLicensePage = () => (
   <LicensePageTemplate
@@ -20,6 +21,7 @@ const CuracaoLicensePage = () => (
       cta2: "View Requirements",
     }}
     mapSvg={<TerritoryMap iso="CW" />}
+    heroImage={heroImg}
     facts={[
       { label: "Jurisdiction", value: "Curaçao", cls: "text-[#F0EBE0]" },
       { label: "Regulator", value: "CGA", cls: "text-[#444CE7] font-semibold" },

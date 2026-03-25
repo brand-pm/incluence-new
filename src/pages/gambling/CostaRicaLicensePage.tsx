@@ -1,5 +1,6 @@
 import LicensePageTemplate from "@/components/LicensePageTemplate";
 import { TerritoryMap } from "@/components/map/TerritoryMap";
+import heroImg from "@/assets/hero-costa-rica-gaming.jpg";
 
 /* ── Page data ───────────────────────────────────────── */
 
@@ -24,6 +25,7 @@ const CostaRicaLicensePage = () => (
         "linear-gradient(to right, #080808 45%, rgba(8,8,8,0.7) 65%, rgba(8,8,8,0) 100%)",
     }}
     mapSvg={<TerritoryMap iso="CR" />}
+    heroImage={heroImg}
     facts={[
       { label: "Jurisdiction", value: "Costa Rica", cls: "text-[#F0EBE0]" },
       { label: "Regulator", value: "Municipality", cls: "text-[#444CE7] font-semibold" },
