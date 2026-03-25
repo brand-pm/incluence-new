@@ -116,6 +116,17 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Malta Ready-Made", url: "/buying-a-company-in-malta", status: "planned", category: "Ready-Made" },
   { title: "Bulgaria Ready-Made", url: "/buying-a-company-in-bulgaria", status: "planned", category: "Ready-Made" },
   { title: "Switzerland Ready-Made", url: "/buying-a-company-in-switzerland", status: "planned", category: "Ready-Made" },
+  { title: "Buy a Company in Canada", url: "/buying-a-company-in-canada", status: "planned", category: "Ready-Made" },
+  { title: "Buy a Company in Germany", url: "/buying-a-company-in-germany", status: "planned", category: "Ready-Made" },
+  { title: "Buy a Company in Poland", url: "/buying-a-company-in-poland", status: "planned", category: "Ready-Made" },
+  { title: "Buy a Company in Netherlands", url: "/company-purchase-in-the-netherlands", status: "planned", category: "Ready-Made" },
+  { title: "Buy a Company in China", url: "/purchase-a-company-in-china", status: "planned", category: "Ready-Made" },
+  { title: "Buy a Company in England", url: "/purchase-a-company-in-england", status: "planned", category: "Ready-Made" },
+  { title: "Buy a Company in Cyprus", url: "/purchase-of-a-company-in-cyprus", status: "planned", category: "Ready-Made" },
+  { title: "Buy a Company in Luxembourg", url: "/purchase-of-a-company-in-luxembourg", status: "planned", category: "Ready-Made" },
+  { title: "Buy a Company in Czech Republic", url: "/purchase-of-a-company-in-the-czech-republic", status: "planned", category: "Ready-Made" },
+  { title: "Buy a Company in UAE", url: "/purchase-of-a-company-in-the-uae", status: "planned", category: "Ready-Made" },
+  { title: "Buy a Company in USA", url: "/purchase-of-a-company-in-the-usa", status: "planned", category: "Ready-Made" },
 
   // ── BANK ACCOUNTS ──
   { title: "Bank Accounts (Hub)", url: "/accounts-bank", status: "done", category: "Banking" },
@@ -135,6 +146,14 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Andorra Bank Account", url: "/open-a-bank-account-in-andorra", status: "planned", category: "Banking" },
   { title: "Saint Lucia Bank Account", url: "/open-a-bank-account-in-saint-lucia", status: "planned", category: "Banking" },
   { title: "Liechtenstein Bank Account", url: "/open-an-account-in-liechtenstein", status: "planned", category: "Banking" },
+  { title: "Account at Banque de Luxembourg", url: "/opening-an-account-at-banque-de-luxembourg", status: "planned", category: "Banking" },
+  { title: "Account at MKB Bank Hungary", url: "/opening-an-account-at-mkb-bank-hungary", status: "planned", category: "Banking" },
+  { title: "Account in Barclays Bank", url: "/opening-an-account-in-barclays-bank", status: "planned", category: "Banking" },
+  { title: "Account in HSBC Bank", url: "/opening-an-account-in-hsbc-bank", status: "planned", category: "Banking" },
+  { title: "Account in Revolut", url: "/opening-an-account-in-revolut", status: "planned", category: "Banking" },
+  { title: "Account in PayPal", url: "/opening-an-account-in-the-pay-pal-payment-system", status: "planned", category: "Banking" },
+  { title: "Account in Payoneer", url: "/opening-an-account-in-the-payoneer-payment-system", status: "planned", category: "Banking" },
+  { title: "Account in Wise", url: "/opening-an-account-in-the-wise-payment-system", status: "planned", category: "Banking" },
 
   // ── FUNDS ──
   { title: "Investment Funds (Hub)", url: "/offshore-investment-funds", status: "done", category: "Funds" },
