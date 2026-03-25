@@ -766,7 +766,7 @@ const Navbar = () => {
                     <div className="absolute inset-0 bg-[#22c55e]" />
                     <div className="absolute inset-0 bg-[#22c55e] animate-ping" style={{ opacity: 0.4 }} />
                   </div>
-                  <span className="text-[10px] text-[#5A5550]">26 jurisdictions live</span>
+                  <span className="text-[10px] text-[#5A5550]">181 pages live</span>
                 </div>
 
                 <button
