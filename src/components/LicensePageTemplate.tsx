@@ -94,6 +94,7 @@ export interface LicensePageProps {
   breadcrumbs: BreadcrumbItem[];
   hero: HeroData;
   mapSvg: ReactNode;
+  heroImage?: string;
   fireflies?: FireflyConfig;
   facts: FactItem[];
   process: ProcessData;
@@ -126,6 +127,7 @@ const LicensePageTemplate = ({
   breadcrumbs,
   hero,
   mapSvg,
+  heroImage,
   fireflies,
   facts,
   process,
@@ -190,8 +192,24 @@ const LicensePageTemplate = ({
 
       {/* ── HERO ── */}
       <section className="bg-[#080808] py-[80px] px-12 relative overflow-hidden min-h-[560px]">
+        {heroImage && (
+          <div
+            className="absolute inset-0 z-[1] pointer-events-none opacity-40"
+            style={{
+              backgroundImage: `url(${heroImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center right",
+            }}
+          />
+        )}
         {hero.heroOverlay && (
           <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: hero.heroOverlay }} />
+        )}
+        {!heroImage && (
+          <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: "linear-gradient(to right, #080808 45%, rgba(8,8,8,0.7) 65%, rgba(8,8,8,0) 100%)" }} />
+        )}
+        {heroImage && (
+          <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: "linear-gradient(to right, #080808 40%, rgba(8,8,8,0.85) 60%, rgba(8,8,8,0.4) 100%)" }} />
         )}
         {fireflies && (
           <VallettaFireflies
