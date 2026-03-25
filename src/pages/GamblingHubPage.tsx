@@ -18,7 +18,7 @@ const GamblingHubPage = () => (
       {
         regulator: 'MGA',
         name: 'Malta',
-        description: 'Gold standard for EU operators. Full access to European payment systems and banking. Valid 5 years, renewable.',
+        description: 'Malta is a state with one of the most well-regulated systems of gambling activities. The MGA directly licenses gambling entities. License issued for five years, renewable.',
         timeline: '6–9 months',
         badge: 'EU Regulated',
         href: '/malta-gaming-license',
