@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { CyprusBankVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /open-a-bank-account-in-cyprus
 const PAGE_DATA = {
@@ -58,6 +60,8 @@ const OpenABankAccountInCyprusPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
+    heroVisual={<CyprusBankVisual />}
+
   />
 );
 

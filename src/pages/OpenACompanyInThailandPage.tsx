@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { ThailandCompanyVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /open-a-company-in-thailand
 const PAGE_DATA = {
@@ -40,6 +42,8 @@ const OpenACompanyInThailandPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
+    heroVisual={<ThailandCompanyVisual />}
+
   />
 );
 

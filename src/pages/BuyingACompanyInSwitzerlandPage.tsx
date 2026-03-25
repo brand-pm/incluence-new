@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { SwitzerlandCompanyVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /buying-a-company-in-switzerland
 const BuyingACompanyInSwitzerlandPage = () => (
@@ -52,6 +54,8 @@ const BuyingACompanyInSwitzerlandPage = () => (
         answer: "Yes, a company in Switzerland can be transferred remotely through a power of attorney or in person.",
       },
     ]}
+    heroVisual={<SwitzerlandCompanyVisual />}
+
   />
 );
 

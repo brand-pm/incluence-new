@@ -1,4 +1,6 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import { ChinaCompanyVisual } from "@/components/templates/heroVisuals";
+
 
 // Source: service-texts.md | URL: /company-registration-in-china
 const CompanyRegistrationInChinaPage = () => (
@@ -52,6 +54,8 @@ const CompanyRegistrationInChinaPage = () => (
         answer: "You can register a company in China remotely with the help of a local representative or by visiting in person.",
       },
     ]}
+    heroVisual={<ChinaCompanyVisual />}
+
   />
 );
 
