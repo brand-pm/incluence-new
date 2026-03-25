@@ -33,12 +33,12 @@ const ScanSweep = () => (
 );
 
 const JURISDICTIONS = [
-  { reg: "CySEC", name: "Cyprus", badge: "EU Regulated", desc: "If a Forex broker is planning to expand activities in the EU, Cyprus is the most suitable jurisdiction. The CySEC license allows brokers to legally operate and take customer deposits across all EU member states.", price: "From €35,000", timeline: "6–9 months", href: "/cyprus-forex-license" },
-  { reg: "MFSA", name: "Malta", badge: "EU Regulated", desc: "Obtaining a forex license in Malta takes 5–7 months. Requires company registration, policies, technical documentation, and authorized capital deposit.", price: "From €30,000", timeline: "5–7 months", href: "/forex-broker-licence-in-malta" },
-  { reg: "VFSC", name: "Vanuatu", badge: "Offshore", desc: "The VFSC has established the most favorable conditions for licensing companies. A Vanuatu Forex license can fall into one of three classes, each providing different privileges and advantages.", price: "From $15,000", timeline: "2–3 months", href: "/forex-broker-licence-in-vanuatu" },
-  { reg: "SEC", name: "Montenegro", badge: "Emerging", desc: "A license provides a Forex broker with access to professional stock markets and gives the legal right to conduct trading operations. A guarantee of reliability for traders and investors.", price: "From €20,000", timeline: "4–7 months", href: "/forex-broker-licence-in-montenegro" },
-  { reg: "FSC", name: "Mauritius", badge: "Offshore", desc: "Companies registered in Mauritius can apply for a license to operate legally with options, securities, and futures. The FSC regulates the non-banking financial services sector.", price: "From $20,000", timeline: "3–6 months", href: "/forex-broker-licence-in-mauritius" },
-  { reg: "FSAS", name: "Seychelles", badge: "Offshore", desc: "Relatively low financial costs for registration. Quick processing of license applications — around 3 months. Required share capital 50,000 USD. Corporate tax rate only 1.5%.", price: "From $10,000", timeline: "2–3 months", href: "/forex-license-seychelles" },
+  { reg: "CySEC", name: "Cyprus", badge: "EU Regulated", desc: "If a Forex broker is planning to expand activities in the EU, Cyprus is the most suitable jurisdiction. The CySEC license allows brokers to legally operate and take customer deposits across all EU member states.", timeline: "6–9 months", href: "/cyprus-forex-license" },
+  { reg: "MFSA", name: "Malta", badge: "EU Regulated", desc: "Obtaining a forex license in Malta takes 5–7 months. Requires company registration, policies, technical documentation, and authorized capital deposit.", timeline: "5–7 months", href: "/forex-broker-licence-in-malta" },
+  { reg: "VFSC", name: "Vanuatu", badge: "Offshore", desc: "The VFSC has established the most favorable conditions for licensing companies. A Vanuatu Forex license can fall into one of three classes, each providing different privileges and advantages.", timeline: "2–3 months", href: "/forex-broker-licence-in-vanuatu" },
+  { reg: "SEC", name: "Montenegro", badge: "Emerging", desc: "A license provides a Forex broker with access to professional stock markets and gives the legal right to conduct trading operations. A guarantee of reliability for traders and investors.", timeline: "4–7 months", href: "/forex-broker-licence-in-montenegro" },
+  { reg: "FSC", name: "Mauritius", badge: "Offshore", desc: "Companies registered in Mauritius can apply for a license to operate legally with options, securities, and futures. The FSC regulates the non-banking financial services sector.", timeline: "3–6 months", href: "/forex-broker-licence-in-mauritius" },
+  { reg: "FSAS", name: "Seychelles", badge: "Offshore", desc: "Relatively low financial costs for registration. Quick processing of license applications — around 3 months. Required share capital 50,000 USD. Corporate tax rate only 1.5%.", timeline: "2–3 months", href: "/forex-license-seychelles" },
 ];
 
 const STEPS = [
@@ -180,11 +180,7 @@ const ForexHubPage = () => {
                 </div>
                 <p className="text-[13px] text-[#9A9590] leading-relaxed flex-1 mb-6">{j.desc}</p>
                 <div className="border-t border-white/[0.06] pt-4 flex justify-between items-end">
-                  <div>
-                    <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.08em] block mb-1">Starting from</span>
-                    <span className="text-[16px] font-semibold text-[#F0EBE0]">{j.price}</span>
-                  </div>
-                  <div className="text-right">
+                  <div className="text-right ml-auto">
                     <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.08em] block mb-1">Timeline</span>
                     <span className="text-[13px] text-[#9A9590]">{j.timeline}</span>
                   </div>

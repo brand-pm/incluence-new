@@ -20,10 +20,10 @@ const useCounter = (target: number, duration = 1200) => {
 };
 
 const JURISDICTIONS = [
-  { reg: "Finantsinspektsioon", name: "Estonia", badge: "EU · 0% Tax", desc: "By obtaining an EMI permit in Estonia, you are legally entitled to issue electronic currency, provide payment services to clients, create and maintain payment systems.", price: "From €350,000", timeline: "6–12 months", href: "/emi-license-in-estonia" },
-  { reg: "MFSA", name: "Malta", badge: "EU · Top 3", desc: "Malta is one of the top three countries by number of issued EMI licenses. Single European passport, tax preferences, and loyal attitude to foreign investors.", price: "From €350,000", timeline: "6–12 months", href: "/e-money-license-malta" },
-  { reg: "FCA", name: "United Kingdom", badge: "Tier 1", desc: "The United Kingdom continues to be one of the top jurisdictions for obtaining an EMI license — a prerequisite for legal activities related to electronic payments.", price: "From £350,000", timeline: "12–18 months", href: "/e-money-license-uk" },
-  { reg: "Bank of Lithuania", name: "Lithuania", badge: "EU · Top 5", desc: "Lithuania has been among the top five countries by number of issued EMI permits for several years. The Bank of Lithuania regulates e-money licensing. One of the most attractive countries for FinTech.", price: "From €350,000", timeline: "6–12 months", href: "/e-money-license-lithuania" },
+  { reg: "Finantsinspektsioon", name: "Estonia", badge: "EU · 0% Tax", desc: "By obtaining an EMI permit in Estonia, you are legally entitled to issue electronic currency, provide payment services to clients, create and maintain payment systems.", timeline: "6–12 months", href: "/emi-license-in-estonia" },
+  { reg: "MFSA", name: "Malta", badge: "EU · Top 3", desc: "Malta is one of the top three countries by number of issued EMI licenses. Single European passport, tax preferences, and loyal attitude to foreign investors.", timeline: "6–12 months", href: "/e-money-license-malta" },
+  { reg: "FCA", name: "United Kingdom", badge: "Tier 1", desc: "The United Kingdom continues to be one of the top jurisdictions for obtaining an EMI license — a prerequisite for legal activities related to electronic payments.", timeline: "12–18 months", href: "/e-money-license-uk" },
+  { reg: "Bank of Lithuania", name: "Lithuania", badge: "EU · Top 5", desc: "Lithuania has been among the top five countries by number of issued EMI permits for several years. The Bank of Lithuania regulates e-money licensing. One of the most attractive countries for FinTech.", timeline: "6–12 months", href: "/e-money-license-lithuania" },
 ];
 
 const ACTIVITIES = [
@@ -185,11 +185,7 @@ const EmiHubPage = () => {
                 </div>
                 <p className="text-[13px] text-[#9A9590] leading-relaxed flex-1 mb-6">{j.desc}</p>
                 <div className="border-t border-white/[0.06] pt-4 flex justify-between items-end">
-                  <div>
-                    <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.08em] block">Starting from</span>
-                    <span className="text-[17px] font-semibold text-[#F0EBE0]">{j.price}</span>
-                  </div>
-                  <div className="text-right">
+                  <div className="text-right ml-auto">
                     <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.08em] block">Timeline</span>
                     <span className="text-[13px] text-[#9A9590]">{j.timeline}</span>
                   </div>
