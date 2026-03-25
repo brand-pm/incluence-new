@@ -1,5 +1,6 @@
 import LicensePageTemplate from "@/components/LicensePageTemplate";
 import { TerritoryMap } from "@/components/map/TerritoryMap";
+import heroImg from "@/assets/hero-isle-of-man-gaming.jpg";
 
 const IsleOfManLicensePage = () => (
   <LicensePageTemplate
@@ -20,6 +21,7 @@ const IsleOfManLicensePage = () => (
       cta2: "View Requirements",
     }}
     mapSvg={<TerritoryMap iso="IM" />}
+    heroImage={heroImg}
     facts={[
       { label: "Jurisdiction", value: "Isle of Man", cls: "text-[#F0EBE0]" },
       { label: "Regulator", value: "GSC", cls: "text-[#444CE7] font-semibold" },
