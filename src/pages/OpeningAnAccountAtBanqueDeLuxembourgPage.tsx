@@ -37,6 +37,7 @@ const PAGE_DATA = {
 
 const OpeningAnAccountAtBanqueDeLuxembourgPage = () => (
   <ServiceDetailPage
+    slug="opening-an-account-at-banque-de-luxembourg"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

@@ -3,6 +3,7 @@ import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 // Source: service-texts.md | URL: /buy-ready-made-company-in-lithuania
 const BuyReadyMadeCompanyInLithuaniaPage = () => (
   <ServiceDetailPage
+    slug="buy-ready-made-company-in-lithuania"
     title="Buy ready made company in Lithuania"
     description="Among all the countries located in the Baltic region, Lithuania is one of the best options for all businessmen willing to take their business to a new stage of development."
     sections={[

@@ -36,6 +36,7 @@ const PAGE_DATA = {
 
 const ResidencePermitInDubaiPage = () => (
   <ServiceDetailPage
+    slug="residence-permit-in-dubai"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

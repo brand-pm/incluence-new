@@ -47,6 +47,7 @@ const PAGE_DATA = {
 
 const ReadyMadeOffshoreCompaniesPage = () => (
   <ServiceDetailPage
+    slug="ready-made-offshore-companies"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

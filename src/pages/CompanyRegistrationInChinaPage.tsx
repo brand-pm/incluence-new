@@ -3,6 +3,7 @@ import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 // Source: service-texts.md | URL: /company-registration-in-china
 const CompanyRegistrationInChinaPage = () => (
   <ServiceDetailPage
+    slug="company-registration-in-china"
     title="Company Registration in China"
     description="Opening a company in China is a lengthy process that can take up to 90 days and includes multiple steps."
     sections={[

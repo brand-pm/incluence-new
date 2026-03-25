@@ -22,6 +22,7 @@ const PAGE_DATA = {
 
 const OpenCompanyInUsaPage = () => (
   <ServiceDetailPage
+    slug="open-company-in-usa"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

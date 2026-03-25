@@ -4,6 +4,7 @@ import { Clock, DollarSign, FileX } from "lucide-react";
 
 const CostaRicaGamingPage = () => (
   <LicenseDetailPage
+    slug="gambling-license-in-costa-rica"
     categoryLabel="Gambling License"
     categoryHref="/gamble-license"
     titleAccent="Costa Rica"

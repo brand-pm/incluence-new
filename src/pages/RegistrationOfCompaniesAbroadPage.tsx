@@ -13,6 +13,7 @@ const PAGE_DATA = {
 
 const RegistrationOfCompaniesAbroadPage = () => (
   <ServiceDetailPage
+    slug="registration-of-companies-abroad"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     faq={PAGE_DATA.faq}

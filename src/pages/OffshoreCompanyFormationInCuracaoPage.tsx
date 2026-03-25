@@ -25,6 +25,7 @@ const PAGE_DATA = {
 
 const OffshoreCompanyFormationInCuracaoPage = () => (
   <ServiceDetailPage
+    slug="offshore-company-formation-in-curacao"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

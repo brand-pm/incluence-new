@@ -2,6 +2,7 @@ import { HubPage } from '@/components/templates/HubPage'
 
 const GamblingHubPage = () => (
   <HubPage
+    slug="gamble-license"
     categoryTag="LICENSING"
     titleAccent="Gambling"
     titleRest="License"

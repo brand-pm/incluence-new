@@ -34,6 +34,7 @@ const PAGE_DATA = {
 
 const SeychellesForexPage = () => (
   <ServiceDetailPage
+    slug="forex-license-seychelles"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

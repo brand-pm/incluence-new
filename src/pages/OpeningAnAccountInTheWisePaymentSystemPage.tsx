@@ -39,6 +39,7 @@ const PAGE_DATA = {
 
 const OpeningAnAccountInTheWisePaymentSystemPage = () => (
   <ServiceDetailPage
+    slug="opening-an-account-in-the-wise-payment-system"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

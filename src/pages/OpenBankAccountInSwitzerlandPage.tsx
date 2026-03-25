@@ -29,6 +29,7 @@ const PAGE_DATA = {
 
 const OpenBankAccountInSwitzerlandPage = () => (
   <ServiceDetailPage
+    slug="open-bank-account-as-foreigner-in-switzerland"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

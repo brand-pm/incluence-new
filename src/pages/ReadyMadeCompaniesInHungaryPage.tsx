@@ -21,6 +21,7 @@ const PAGE_DATA = {
 
 const ReadyMadeCompaniesInHungaryPage = () => (
   <ServiceDetailPage
+    slug="ready-made-companies-in-hungary"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

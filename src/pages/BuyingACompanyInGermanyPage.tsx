@@ -3,6 +3,7 @@ import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 // Source: service-texts.md | URL: /buying-a-company-in-germany
 const BuyingACompanyInGermanyPage = () => (
   <ServiceDetailPage
+    slug="buying-a-company-in-germany"
     title="Buying a Company in Germany"
     description="The maximum time to register a new legal entity in Germany through the standard procedure can take up to 3 months. Buying a ready-made company saves time while giving you a business free of legal issues and debts."
     sections={[

@@ -33,6 +33,7 @@ const PAGE_DATA = {
 
 const OpenABankAccountInSaintLuciaPage = () => (
   <ServiceDetailPage
+    slug="open-a-bank-account-in-saint-lucia"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

@@ -30,6 +30,7 @@ const PAGE_DATA = {
 
 const InvestmentFundsMaltaPage = () => (
   <ServiceDetailPage
+    slug="registration-of-investment-funds-in-malta"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

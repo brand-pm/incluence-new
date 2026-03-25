@@ -36,6 +36,7 @@ const PAGE_DATA = {
 
 const OpenABankAccountInBulgariaPage = () => (
   <ServiceDetailPage
+    slug="open-a-bank-account-in-bulgaria"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

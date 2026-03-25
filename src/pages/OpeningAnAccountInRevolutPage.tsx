@@ -35,6 +35,7 @@ const PAGE_DATA = {
 
 const OpeningAnAccountInRevolutPage = () => (
   <ServiceDetailPage
+    slug="opening-an-account-in-revolut"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

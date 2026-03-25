@@ -50,6 +50,7 @@ const PAGE_DATA = {
 
 const OpenABankAccountInPolandPage = () => (
   <ServiceDetailPage
+    slug="open-a-bank-account-in-poland"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

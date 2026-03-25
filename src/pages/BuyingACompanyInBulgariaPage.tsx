@@ -3,6 +3,7 @@ import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 // Source: service-texts.md | URL: /buying-a-company-in-bulgaria
 const BuyingACompanyInBulgariaPage = () => (
   <ServiceDetailPage
+    slug="buying-a-company-in-bulgaria"
     title="Buying a Company in Bulgaria"
     description="Today, Bulgaria offers a favorable business environment, largely due to the simplicity and convenience of most processes necessary for enterprises."
     sections={[

@@ -3,6 +3,7 @@ import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 // Source: service-texts.md | URL: /buying-a-company-in-malta
 const BuyingACompanyInMaltaPage = () => (
   <ServiceDetailPage
+    slug="buying-a-company-in-malta"
     title="Buying a Company in Malta"
     description="If you want to register a company to conduct business, Malta can be a suitable option. This small exotic island nation is characterized by economic stability and offers various investment opportunities."
     sections={[

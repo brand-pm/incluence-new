@@ -31,6 +31,7 @@ const PAGE_DATA = {
 
 const InvestmentFundsCzechPage = () => (
   <ServiceDetailPage
+    slug="registration-of-investment-funds-in-czech"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

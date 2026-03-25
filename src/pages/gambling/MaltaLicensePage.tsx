@@ -4,6 +4,7 @@ import { Shield, Scale, Building } from "lucide-react";
 
 const MaltaLicensePage = () => (
   <LicenseDetailPage
+    slug="malta-gaming-license"
     categoryLabel="Gambling License"
     categoryHref="/gamble-license"
     titleAccent="Malta"

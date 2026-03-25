@@ -35,6 +35,7 @@ const PAGE_DATA = {
 
 const OpeningAnAccountInThePayoneerPaymentSystemPage = () => (
   <ServiceDetailPage
+    slug="opening-an-account-in-the-payoneer-payment-system"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

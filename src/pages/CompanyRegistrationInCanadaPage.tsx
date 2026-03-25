@@ -3,6 +3,7 @@ import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 // Source: service-texts.md | URL: /company-registration-in-canada
 const CompanyRegistrationInCanadaPage = () => (
   <ServiceDetailPage
+    slug="company-registration-in-canada"
     title="Company Registration in Canada"
     description="The ease of doing business and a clear taxation system attract more and more organizations to Canada. Successfully registering a company here depends directly on proper planning and understanding local laws."
     sections={[

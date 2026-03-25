@@ -41,6 +41,7 @@ const PAGE_DATA = {
 
 const PurchaseOfACompanyInTheUsaPage = () => (
   <ServiceDetailPage
+    slug="purchase-of-a-company-in-the-usa"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

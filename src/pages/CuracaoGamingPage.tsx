@@ -4,6 +4,7 @@ import { Zap, Globe, Layers } from "lucide-react";
 
 const CuracaoGamingPage = () => (
   <LicenseDetailPage
+    slug="curacao-gaming-license"
     categoryLabel="Gambling License"
     categoryHref="/gamble-license"
     titleAccent="Curaçao"

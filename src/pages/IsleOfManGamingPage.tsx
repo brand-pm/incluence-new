@@ -4,6 +4,7 @@ import { Shield, Landmark, Crown } from "lucide-react";
 
 const IsleOfManGamingPage = () => (
   <LicenseDetailPage
+    slug="gambling-license-of-the-isle-of-man"
     categoryLabel="Gambling License"
     categoryHref="/gamble-license"
     titleAccent="Isle of Man"

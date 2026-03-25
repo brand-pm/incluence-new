@@ -3,6 +3,7 @@ import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 // Source: service-texts.md | URL: /company-purchase-in-the-netherlands
 const CompanyPurchaseInTheNetherlandsPage = () => (
   <ServiceDetailPage
+    slug="company-purchase-in-the-netherlands"
     title="Company Purchase in the Netherlands"
     description="In recent years, the GDP of the Netherlands has shown consistently positive growth, proving that the country has largely recovered from the effects of the global financial crisis."
     sections={[

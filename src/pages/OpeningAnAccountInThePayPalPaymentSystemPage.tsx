@@ -35,6 +35,7 @@ const PAGE_DATA = {
 
 const OpeningAnAccountInThePayPalPaymentSystemPage = () => (
   <ServiceDetailPage
+    slug="opening-an-account-in-the-pay-pal-payment-system"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

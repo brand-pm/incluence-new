@@ -66,6 +66,7 @@ const PAGE_DATA = {
 
 const CompanyRegistrationPortugalPage = () => (
   <ServiceDetailPage
+    slug="company-registration-portugal"
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}

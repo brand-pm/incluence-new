@@ -3,6 +3,7 @@ import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 // Source: service-texts.md | URL: /buy-ready-made-company-in-hong-kong
 const BuyReadyMadeCompanyInHongKongPage = () => (
   <ServiceDetailPage
+    slug="buy-ready-made-company-in-hong-kong"
     title="Buy ready made company in Hong Kong"
     description="Hong Kong is a special administrative region of China, one of the leading financial centers of Asia and the world."
     sections={[
