@@ -9,9 +9,15 @@ interface FAQItem {
   answer: string;
 }
 
+interface ContentSection {
+  heading: string;
+  body: string;
+}
+
 interface ServiceDetailPageProps {
   title: string;
   description: string;
+  sections?: ContentSection[];
   requirements?: string[];
   faq?: FAQItem[];
 }
@@ -19,6 +25,7 @@ interface ServiceDetailPageProps {
 const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
   title,
   description,
+  sections = [],
   requirements = [],
   faq = [],
 }) => {
@@ -63,6 +70,24 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
           </Link>
         </div>
       </section>
+
+      {/* CONTENT SECTIONS */}
+      {sections.length > 0 && (
+        <section className="bg-[#0a0a0a] py-20">
+          <div className="max-w-[1280px] mx-auto px-6 md:px-12 space-y-16">
+            {sections.map((sec, i) => (
+              <div key={i}>
+                <h2 className="text-[clamp(20px,2.5vw,28px)] font-light text-[#F0EBE0] leading-[1.3] mb-6">
+                  {sec.heading}
+                </h2>
+                <div className="text-[15px] text-[#9A9590] leading-[1.9] whitespace-pre-line max-w-[860px]">
+                  {sec.body}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* REQUIREMENTS */}
       {requirements.length > 0 && (
