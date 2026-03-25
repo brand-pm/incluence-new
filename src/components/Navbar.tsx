@@ -265,7 +265,7 @@ const Navbar = () => {
   }, []);
 
   const closeMenu = useCallback(() => {
-    closeTimer.current = setTimeout(() => setMenuOpen(false), 120);
+    closeTimer.current = setTimeout(() => setMenuOpen(false), 280);
   }, []);
 
   const cancelClose = useCallback(() => {
