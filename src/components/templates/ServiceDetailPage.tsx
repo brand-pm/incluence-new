@@ -135,3 +135,4 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
 };
 
 export default ServiceDetailPage;
+export { ServiceDetailPage };
