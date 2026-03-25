@@ -5,7 +5,7 @@ export const sanityClient = createClient({
   dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
   apiVersion: '2024-01-01',
   useCdn: false,
-  token: import.meta.env.VITE_SANITY_API_TOKEN,
+  token: import.meta.env.VITE_SANITY_TOKEN || import.meta.env.VITE_SANITY_API_TOKEN || '',
 });
 
 // GROQ queries for each page type
