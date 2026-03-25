@@ -3,18 +3,17 @@ import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 // Source: service-texts.md | URL: /company-registration-in-europe
 const PAGE_DATA = {
   title: `Company Registration in Europe`,
-  description: `Registering a company in Europe: how to start a business in the EU Selecting the company’s primary business activity, a suitable legal form, and the company name; Choosing and leasing a legal address in the selected country; Preparing incorporation documents in line with national legislation.`,
+  description: `The reputation of a European-registered company is much higher than that of companies incorporated outside the EU. The European Union attracts non-European entrepreneurs, as foreign banks and partners are more open to working with EU-based businesses.`,
   requirements: [
-    `Company Registration in Europe: specifics of starting a business in the EU`,
-    `The reputation of a European-registered company is much higher than that of companies incorporated outside the EU, particularly in offshore zones. The European Union attracts non-European entrepreneurs, as foreign banks and partners are more open to working with EU-based businesses`,
-    `However, registering a European company is a complex task, since entrepreneurs must take into account many nuances. Moreover, the registration process varies greatly between countries`,
-    `Buying or registering a company in Europe`,
-    `If you don’t want to spend time and effort, registering a company in the EU is not the only option. You can also purchase a ready-made company in your desired country with the help of our specialists`,
-    `There are shelf companies with no debts or obligations to local authorities or third parties. You can purchase such a business with a clean history and start operations almost immediately after signing the purchase agreement`,
-    `Company registration in Europe: business advantages of the EU`,
-    `The EU provides a very comfortable business environment for starting and developing a company. In addition, Europe offers numerous other benefits:`,
-    `modern infrastructure; government support and interest in foreign investment; flexible taxation and various tax benefits; availability of free economic zones; low interest rates on loans from European banks; political and economic stability; multinational consumer market with diverse tastes and preferences; high living standards and purchasing power of consumers`,
-    `Furthermore, registering a company in the EU allows entrepreneurs to trade across the entire European Union, not just in one country`,
+    `Civil passport and copy of beneficiary’s international passport`,
+    `Proof of residence of the beneficiary`,
+    `Proof of financial solvency for bank account opening`,
+    `Selected company name and legal form`,
+    `Legal address lease in the selected country`,
+    `Incorporation documents per national legislation`,
+    `Articles of Association with company details`,
+    `Temporary bank account for share capital deposit`,
+    `Notarized incorporation documents`,
   ],
   faq: [
     { question: `Can a non-resident open a business in Europe?`, answer: `A non-resident who is not on sanctions lists and is not a resident of a sanctioned state can register a company in Europe. In some countries, however, a local director may be required to open a bank account.` },

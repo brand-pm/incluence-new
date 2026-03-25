@@ -3,18 +3,15 @@ import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 // Source: service-texts.md | URL: /company-registration-in-germany
 const PAGE_DATA = {
   title: `Company Registration in Germany`,
-  description: `Why it’s beneficial to open a company in Germany If an entrepreneur wants to do business in a safe environment, Germany may be the right choice — a country characterized by stability in social and political spheres.`,
+  description: `Germany offers a safe business environment characterized by stability in social and political spheres, a developed banking system, a stable economy, and a favorable climate for small and medium-sized businesses.`,
   requirements: [
-    `Why it’s beneficial to open a company in Germany`,
-    `If an entrepreneur wants to do business in a safe environment, Germany may be the right choice — a country characterized by stability in social and political spheres. Its attractiveness is also due to several other factors: a developed banking system, a stable economy, a large solvent market, as well as a favorable climate for small and medium-sized businesses. Moreover, a company established in Germany immediately inspires trust from suppliers, partners, and clients`,
-    `It is important to note that company registration in Germany is quite a labor-intensive process that includes several stages. In some cases, the procedure can take 6–7 months or even longer. To make company registration in Germany faster and smoother for entrepreneurs, we recommend seeking qualified assistance from our specialists`,
-    `Company registration in Germany: benefits for business`,
-    `When setting up a company in Germany, entrepreneurs can expect a number of advantages after successful registration. These include:`,
-    `German companies have the status of reliable partners in the global market. This increases interest in cooperation with such firms from foreign businesses. Registering a company in Germany allows business owners to cross the Schengen zone border multiple times. They can also issue invitations on behalf of the company, enabling their partners to obtain work and visitor visas to enter the country. No limits are imposed on the export or transfer of capital. Company owners are entitled to export equipment, machinery, and other goods without customs duties and VAT. Business registration in Germany gives access to international markets. To achieve this, one can freely open a branch in any EU country`,
-    `Starting a company in Germany: basic information`,
-    `If you decide to register a company in Germany, the first step is to choose a legal form. Under current legislation, entrepreneurs have several options, with the most popular being a Limited Liability Company (GmbH). To register a GmbH in Germany, a share capital of at least €25,000 is required`,
-    `In some cases, entrepreneurs choose to open a UG (mini GmbH), since the minimum share capital is only €1. Company registration for a UG in Germany follows a simplified procedure`,
-    `However, there are certain nuances with this form:`,
+    `Copies of passports of all participants`,
+    `Proof of address for all participants`,
+    `Completed registration forms`,
+    `Information on the source of funding`,
+    `Share capital of at least €25,000 for GmbH`,
+    `Share capital of €1 minimum for UG (mini GmbH)`,
+    `Choice of legal form (GmbH or UG)`,
   ],
   faq: [
     { question: `How much does it cost to start a business in Germany?`, answer: `The final cost of starting a business in Germany depends on the type of activity, number of participants, and other factors. To find out the exact cost of company registration in Germany for your case, please contact our specialists.` },

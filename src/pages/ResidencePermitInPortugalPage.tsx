@@ -3,16 +3,16 @@ import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 // Source: service-texts.md | URL: /residence-permit-in-portugal
 const PAGE_DATA = {
   title: `Residence Permit in Portugal`,
-  description: `Obtaining a Residence Permit: Portugal Portugal is mostly sunny, has a relatively high level of safety, and many other advantages. The country is considered an excellent place to live, but migrants need to obtain a residence permit (V.N.J.) to relocate here.`,
+  description: `Portugal is mostly sunny, has a relatively high level of safety, and many other advantages. The country is considered an excellent place to live, but migrants need to obtain a residence permit to relocate here.`,
   requirements: [
-    `Conditions for Obtaining a Residence Permit in Portugal`,
-    `Residence permits can also be granted for reasons other than investment, including:`,
-    `Education – students admitted to Portuguese schools/universities (Bachelor’s, Master’s, Doctorate). Employment – employees of Portuguese companies with contracts of 4 months or longer. Family reunification – relatives supported by Portuguese citizens can apply. Marriage to a Portuguese citizen – authorities carefully verify legitimacy of the marriage`,
-    `Required Documents for a Residence Permit`,
-    `Documents vary depending on the applicant’s situation. Basic documents typically include:`,
-    `Passport Temporary visa for EU travel Marriage/birth certificates (if applicable) Health insurance Criminal record check Proof of no debts or legal issues`,
-    `Property purchase agreement Proof of bank transfer of investment Certificate of property rights transfer`,
-    `All documents must be properly apostilled and translated, otherwise authorities may reject the application`,
+    `Passport`,
+    `Temporary visa for EU travel`,
+    `Marriage/birth certificates (if applicable)`,
+    `Health insurance`,
+    `Criminal record check`,
+    `Proof of no debts or legal issues`,
+    `Property purchase agreement (for investors)`,
+    `All documents must be apostilled and translated`,
   ],
   faq: [
     { question: `What does a residence permit in Portugal provide?`, answer: `A Portuguese residence permit allows living, working, studying, accessing social benefits, and traveling/residing in the Schengen zone without a visa.` },
