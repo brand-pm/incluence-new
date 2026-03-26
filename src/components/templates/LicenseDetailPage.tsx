@@ -279,28 +279,13 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </nav>
       </section>
 
-      {/* ── HERO — short subtitle only ── */}
-      <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 480 }}>
+      {/* ── HERO — title only ── */}
+      <section className="relative overflow-hidden" style={{ background: "#080808" }}>
         <NoiseOverlay />
-        <div className="relative z-10 max-w-screen-xl mx-auto py-[80px] px-12">
-          <div className="max-w-[600px]">
-            <div className="flex items-center gap-3 mb-5">
-              <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— {p.categoryLabel}</span>
-              <span className="text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">{p.aboutTag}</span>
-            </div>
-            <h1 className="text-[clamp(32px,4vw,52px)] font-light text-[#F0EBE0] leading-tight mb-5">
-              <span className="text-[#444CE7]">{p.titleAccent}</span>{" "}{p.titleRest}
-            </h1>
-            <p className="text-[15px] text-[#9A9590] leading-relaxed mb-10 max-w-[520px]">{heroDesc}</p>
-            <div className="flex gap-3">
-              <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors">
-                Get a Free Quote →
-              </Link>
-              <button onClick={() => document.getElementById("about-section")?.scrollIntoView({ behavior: "smooth" })} className="px-7 py-3 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] border border-white/15 hover:border-white/35 transition-all bg-transparent cursor-pointer" style={{ fontFamily: "inherit" }}>
-                Learn More
-              </button>
-            </div>
-          </div>
+        <div className="relative z-10 max-w-screen-xl mx-auto py-[64px] px-12">
+          <h1 className="text-[clamp(32px,4vw,52px)] font-light text-[#F0EBE0] leading-tight">
+            <span className="text-[#444CE7]">{p.titleAccent}</span>{" "}{p.titleRest}
+          </h1>
         </div>
       </section>
 
