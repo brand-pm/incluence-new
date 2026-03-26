@@ -55,7 +55,6 @@ const CompanyPurchaseInTheNetherlandsPage = () => (
         answer: "Yes, a company in the Netherlands can be purchased remotely via power of attorney or by visiting the Netherlands in person.",
       },
     ]}
-    heroVisual={<NetherlandsCompanyVisual />}
 
   />
 );

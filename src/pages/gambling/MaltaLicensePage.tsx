@@ -11,7 +11,6 @@ const MaltaLicensePage = () => (
     titleAccent="Malta"
     titleRest="Gaming License"
     description="Gaming license Malta: Peculiarities of licensing"
-    heroVisual={<MaltaHeroVisual />}
     heroImage={heroImg}
     seo={{
       title: "Malta Gaming License MGA — Online Gambling License | Incluence",

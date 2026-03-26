@@ -10,7 +10,6 @@ const CostaRicaGamingPage = () => (
     titleAccent="Costa Rica"
     titleRest="Gambling License"
     description="The Data Processing license is issued by the local municipality, and to apply, you only need to have an office in the country and hire a legal representative. If the enterprise is foreign-owned, this position must be filled by a Costa Rican resident."
-    heroVisual={<CostaRicaHeroVisual />}
     seo={{
       title: "Costa Rica Gambling License — Fastest Online Casino License | Incluence",
       description: "Get a Costa Rica gambling license in 2–5 weeks. No business plan, no capital requirement, income tax exempt. From $15,000. Incluence legal support.",

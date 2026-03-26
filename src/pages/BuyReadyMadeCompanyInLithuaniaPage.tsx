@@ -42,7 +42,6 @@ const BuyReadyMadeCompanyInLithuaniaPage = () => (
         answer: "A company in Lithuania can be bought remotely using a power of attorney or during a personal visit to Lithuania.",
       },
     ]}
-    heroVisual={<LithuaniaCompanyVisual />}
 
   />
 );

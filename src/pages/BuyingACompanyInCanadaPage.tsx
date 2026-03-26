@@ -51,7 +51,6 @@ const BuyingACompanyInCanadaPage = () => (
         answer: "A company in Canada can be purchased remotely via power of attorney or by visiting the country in person.",
       },
     ]}
-    heroVisual={<CanadaCompanyVisual />}
 
   />
 );

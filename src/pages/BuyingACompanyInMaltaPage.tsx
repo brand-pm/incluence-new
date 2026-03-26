@@ -49,7 +49,6 @@ const BuyingACompanyInMaltaPage = () => (
         answer: "A company in Malta can be re-registered remotely by proxy or in person when visiting Malta.",
       },
     ]}
-    heroVisual={<MaltaCompanyVisual />}
 
   />
 );

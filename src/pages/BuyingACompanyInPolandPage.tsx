@@ -59,7 +59,6 @@ const BuyingACompanyInPolandPage = () => (
         answer: "A company in Poland can be purchased remotely by proxy or by visiting Poland.",
       },
     ]}
-    heroVisual={<PolandCompanyVisual />}
 
   />
 );

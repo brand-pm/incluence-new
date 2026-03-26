@@ -70,7 +70,6 @@ const BuyingACompanyInGermanyPage = () => (
         answer: "Yes, a company in Germany can be bought remotely via power of attorney or in person while visiting Germany.",
       },
     ]}
-    heroVisual={<GermanyCompanyVisual />}
 
   />
 );

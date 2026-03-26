@@ -41,7 +41,6 @@ const BuyReadyMadeCompanyInHongKongPage = () => (
         answer: "A company in Hong Kong can be re-registered remotely through a local secretary.",
       },
     ]}
-    heroVisual={<HongKongCompanyVisual />}
 
   />
 );

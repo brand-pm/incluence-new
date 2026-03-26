@@ -55,7 +55,6 @@ const BuyingACompanyInSwitzerlandPage = () => (
         answer: "Yes, a company in Switzerland can be transferred remotely through a power of attorney or in person.",
       },
     ]}
-    heroVisual={<SwitzerlandCompanyVisual />}
 
   />
 );

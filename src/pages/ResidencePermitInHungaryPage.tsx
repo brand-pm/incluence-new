@@ -47,7 +47,6 @@ const ResidencePermitInHungaryPage = () => (
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}
     faq={PAGE_DATA.faq}
-    heroVisual={<HungaryResidenceVisual />}
 
   />
 );

@@ -54,7 +54,6 @@ const BuyingACompanyInBulgariaPage = () => (
         answer: "A company in Bulgaria can be re-registered remotely on the basis of a power of attorney or during a personal visit.",
       },
     ]}
-    heroVisual={<BulgariaCompanyVisual />}
 
   />
 );

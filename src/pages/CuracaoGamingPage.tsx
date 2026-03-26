@@ -10,7 +10,6 @@ const CuracaoGamingPage = () => (
     titleAccent="Curaçao"
     titleRest="Gaming License"
     description="Curaçao hosts many companies operating in the gambling industry. This is explained by simple and business-friendly legislation regulating gaming activities. Additional factors include accessibility and low taxation. All of this makes the Curaçao gaming license highly attractive for online casino operators, opening wide opportunities for successful business in the gambling sector."
-    heroVisual={<CuracaoHeroVisual />}
     seo={{
       title: "Curaçao Gaming License CGA — Online Gambling License | Incluence",
       description: "Get a Curaçao CGA gambling license — fastest and most affordable entry point. 3–4 months. Full remote process. Incluence legal support.",

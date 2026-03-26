@@ -27,7 +27,6 @@ const RegisterCompanyInUaePage = () => (
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}
     faq={PAGE_DATA.faq}
-    heroVisual={<UAECompanyVisual />}
 
   />
 );

@@ -29,7 +29,6 @@ const ReadyMadeCompaniesInHungaryPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
-    heroVisual={<HungaryCompanyVisual />}
 
   />
 );
