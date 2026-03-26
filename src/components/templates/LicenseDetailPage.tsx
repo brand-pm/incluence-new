@@ -481,9 +481,9 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
       {/* ── CTA FORM ── */}
       <section style={{ background: "#080808" }} className="py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
-          <div className="col-span-5">
+          <div className="col-span-5 pr-8 min-h-[200px]" style={{ overflowWrap: "break-word", wordBreak: "break-word" }}>
             <Tag>Get Started</Tag>
-            <h2 className="text-[clamp(22px,2.5vw,30px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-6">{p.formTitle}</h2>
+            <h2 className="text-[clamp(22px,2.5vw,38px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-6 max-w-[400px]">{p.formTitle}</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">{p.formSubtitle}</p>
           </div>
           <div className="col-span-7">
