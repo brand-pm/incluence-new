@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { CanadaCompanyVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /company-registration-in-canada
@@ -52,7 +51,6 @@ const CompanyRegistrationInCanadaPage = () => (
         answer: "To register a company in Canada, you need to provide a copy of your passport and proof of address of the company participants.",
       },
     ]}
-    heroVisual={<CanadaCompanyVisual />}
 
   />
 );

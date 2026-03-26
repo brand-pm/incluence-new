@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { EstoniaCompanyVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /buy-company-in-estonia
@@ -41,7 +40,6 @@ const BuyCompanyInEstoniaPage = () => (
         answer: "A company in Estonia can be re-registered online in the registry using an e-resident's card or a resident ID card. Non-residents usually buy a company by proxy.",
       },
     ]}
-    heroVisual={<EstoniaCompanyVisual />}
 
   />
 );

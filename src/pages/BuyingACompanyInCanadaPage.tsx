@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { CanadaCompanyVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /buying-a-company-in-canada
@@ -51,7 +50,6 @@ const BuyingACompanyInCanadaPage = () => (
         answer: "A company in Canada can be purchased remotely via power of attorney or by visiting the country in person.",
       },
     ]}
-    heroVisual={<CanadaCompanyVisual />}
 
   />
 );

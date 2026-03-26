@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { HungaryBankVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /open-a-bank-account-in-hungary
@@ -49,7 +48,6 @@ const OpenABankAccountInHungaryPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
-    heroVisual={<HungaryBankVisual />}
 
   />
 );

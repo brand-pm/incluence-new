@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { USABankVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /opening-an-account-in-the-payoneer-payment-system
@@ -43,7 +42,6 @@ const OpeningAnAccountInThePayoneerPaymentSystemPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
-    heroVisual={<USABankVisual />}
 
   />
 );

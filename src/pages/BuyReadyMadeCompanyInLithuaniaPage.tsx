@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { LithuaniaCompanyVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /buy-ready-made-company-in-lithuania
@@ -42,7 +41,6 @@ const BuyReadyMadeCompanyInLithuaniaPage = () => (
         answer: "A company in Lithuania can be bought remotely using a power of attorney or during a personal visit to Lithuania.",
       },
     ]}
-    heroVisual={<LithuaniaCompanyVisual />}
 
   />
 );

@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { CyprusCompanyVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /purchase-of-a-company-in-cyprus
@@ -50,7 +49,6 @@ const PurchaseOfACompanyInCyprusPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
-    heroVisual={<CyprusCompanyVisual />}
 
   />
 );

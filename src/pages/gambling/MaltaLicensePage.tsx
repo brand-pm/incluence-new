@@ -1,7 +1,5 @@
 import { LicenseDetailPage } from "@/components/templates/LicenseDetailPage";
-import { MaltaHeroVisual } from "@/components/templates/heroVisuals";
 import { Shield, Scale, Building } from "lucide-react";
-import heroImg from "@/assets/hero-malta-gaming.jpg";
 
 const MaltaLicensePage = () => (
   <LicenseDetailPage
@@ -11,7 +9,6 @@ const MaltaLicensePage = () => (
     titleAccent="Malta"
     titleRest="Gaming License"
     description="Gaming license Malta: Peculiarities of licensing"
-    heroVisual={<MaltaHeroVisual />}
     heroImage={heroImg}
     seo={{
       title: "Malta Gaming License MGA — Online Gambling License | Incluence",

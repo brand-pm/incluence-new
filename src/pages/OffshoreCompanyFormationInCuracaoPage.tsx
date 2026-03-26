@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { CuracaoOffshoreVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /offshore-company-formation-in-curacao
@@ -33,7 +32,6 @@ const OffshoreCompanyFormationInCuracaoPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
-    heroVisual={<CuracaoOffshoreVisual />}
 
   />
 );
