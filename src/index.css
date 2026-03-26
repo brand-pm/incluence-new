@@ -4,8 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── DESIGN SYSTEM: zero border-radius everywhere ── */
-*, *::before, *::after { border-radius: 0 !important; }
+/* ── DESIGN SYSTEM: zero border-radius + Manrope everywhere ── */
+*, *::before, *::after {
+  border-radius: 0 !important;
+  font-family: 'Manrope', sans-serif !important;
+}
+::selection { background: rgba(68,76,231,0.3); color: #F0EBE0; }
 
 @layer base {
   :root {

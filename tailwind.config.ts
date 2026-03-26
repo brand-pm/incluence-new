@@ -17,6 +17,7 @@ export default {
     },
     extend: {
       fontFamily: {
+        sans: ["Manrope", "sans-serif"],
         manrope: ["Manrope", "sans-serif"],
       },
       colors: {
@@ -144,9 +145,19 @@ export default {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "var(--radius)",
-        sm: "var(--radius)",
+        none: "0",
+        DEFAULT: "0",
+        sm: "0",
+        md: "0",
+        lg: "0",
+        xl: "0",
+        "2xl": "0",
+        "3xl": "0",
+        full: "0",
+      },
+      fontSize: {
+        hero: "clamp(32px, 4vw, 52px)",
+        section: "clamp(24px, 3vw, 40px)",
       },
       keyframes: {
         "accordion-down": {
