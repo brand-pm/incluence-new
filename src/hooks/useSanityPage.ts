@@ -5,34 +5,34 @@ function isSanityConfigured(): boolean {
   return Boolean(import.meta.env.VITE_SANITY_PROJECT_ID);
 }
 
-export function useServicePage<T>(slug: string, fallback: T) {
+export function useServicePage<T extends Record<string, unknown>>(slug: string, fallback: T) {
   return useQuery<T>({
     queryKey: ['sanity', 'servicePage', slug],
     queryFn: () => sanityClient.fetch(SERVICE_PAGE_QUERY, { slug }),
     enabled: isSanityConfigured(),
-    placeholderData: fallback,
+    placeholderData: fallback as T,
     staleTime: 1000 * 60 * 5,
     select: (data) => data ?? fallback,
   });
 }
 
-export function useHubPage<T>(slug: string, fallback: T) {
+export function useHubPage<T extends Record<string, unknown>>(slug: string, fallback: T) {
   return useQuery<T>({
     queryKey: ['sanity', 'hubPage', slug],
     queryFn: () => sanityClient.fetch(HUB_PAGE_QUERY, { slug }),
     enabled: isSanityConfigured(),
-    placeholderData: fallback,
+    placeholderData: fallback as T,
     staleTime: 1000 * 60 * 5,
     select: (data) => data ?? fallback,
   });
 }
 
-export function useLicensePage<T>(slug: string, fallback: T) {
+export function useLicensePage<T extends Record<string, unknown>>(slug: string, fallback: T) {
   return useQuery<T>({
     queryKey: ['sanity', 'licenseDetailPage', slug],
     queryFn: () => sanityClient.fetch(LICENSE_PAGE_QUERY, { slug }),
     enabled: isSanityConfigured(),
-    placeholderData: fallback,
+    placeholderData: fallback as T,
     staleTime: 1000 * 60 * 5,
     select: (data) => data ?? fallback,
   });
