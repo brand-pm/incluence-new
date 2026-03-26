@@ -11,7 +11,7 @@ const MaltaLicensePage = () => (
     titleAccent="Malta"
     titleRest="Gaming License"
     description="Gaming license Malta: Peculiarities of licensing"
-    heroImage={heroImg}
+    
     seo={{
       title: "Malta Gaming License MGA — Online Gambling License | Incluence",
       description: "Get a Malta MGA gambling license — EU gold standard. 5-year validity, ~6 months timeline. Full legal support by Incluence.",
