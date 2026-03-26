@@ -300,7 +300,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-5 pr-8 min-h-[200px]" style={{ overflowWrap: "break-word", wordBreak: "break-word" }}>
             <Tag>Get Started</Tag>
-            <h2 className="text-[clamp(22px,2.5vw,38px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-6 max-w-[400px]">Ready to Discuss Your Project?</h2>
+            <h2 className="text-[clamp(20px,2vw,28px)] font-light text-[#F0EBE0] leading-[1.4] mt-2 mb-6 max-w-[400px]">Ready to Discuss Your Project?</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">Fill out the form and our team will contact you within 24 hours with a detailed consultation plan.</p>
           </div>
           <div className="col-span-7">
