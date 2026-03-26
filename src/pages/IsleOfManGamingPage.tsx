@@ -1,5 +1,4 @@
 import { LicenseDetailPage } from "@/components/templates/LicenseDetailPage";
-import { IsleOfManHeroVisual } from "@/components/templates/heroVisuals";
 import { Shield, Landmark, Crown } from "lucide-react";
 
 const IsleOfManGamingPage = () => (
@@ -10,7 +9,6 @@ const IsleOfManGamingPage = () => (
     titleAccent="Isle of Man"
     titleRest="Gaming License"
     description="The unique feature of licensing on the Isle of Man is that business owners need to prepare just one package of documents to obtain the right to legally provide any gambling services: online casinos, lotteries, and so on. If another company operates under the same brand, it only requires a sublicense."
-    heroVisual={<IsleOfManHeroVisual />}
     seo={{
       title: "Isle of Man Gambling License GSC — iGaming License | Incluence",
       description: "Obtain an Isle of Man GSC gambling license — Tier-1 prestige for all gaming verticals. From £25,000, 6–12 months. Full legal support by Incluence.",

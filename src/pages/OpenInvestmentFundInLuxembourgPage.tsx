@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { LuxembourgFundVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /open-an-investment-fund-in-luxembourg
@@ -49,7 +48,6 @@ const OpenInvestmentFundInLuxembourgPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
-    heroVisual={<LuxembourgFundVisual />}
 
   />
 );

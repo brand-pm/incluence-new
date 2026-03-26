@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { UKBankVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /opening-an-account-in-the-wise-payment-system
@@ -47,7 +46,6 @@ const OpeningAnAccountInTheWisePaymentSystemPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
-    heroVisual={<UKBankVisual />}
 
   />
 );

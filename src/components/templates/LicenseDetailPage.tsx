@@ -16,7 +16,7 @@ interface LicenseDetailPageProps {
   titleAccent: string;
   titleRest: string;
   description: string;
-  heroVisual: React.ReactNode;
+  heroVisual?: React.ReactNode;
   stats: StatItem[];
   aboutTag: string;
   aboutTitle: string;

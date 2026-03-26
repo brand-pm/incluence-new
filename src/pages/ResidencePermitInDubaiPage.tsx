@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { DubaiResidenceVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /residence-permit-in-dubai
@@ -43,7 +42,6 @@ const ResidencePermitInDubaiPage = () => (
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}
     faq={PAGE_DATA.faq}
-    heroVisual={<DubaiResidenceVisual />}
 
   />
 );

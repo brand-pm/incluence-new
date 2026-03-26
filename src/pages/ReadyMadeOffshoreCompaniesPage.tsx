@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { BVIOffshoreVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /ready-made-offshore-companies
@@ -55,7 +54,6 @@ const ReadyMadeOffshoreCompaniesPage = () => (
     sections={PAGE_DATA.sections}
     requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
-    heroVisual={<BVIOffshoreVisual />}
 
   />
 );

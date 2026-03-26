@@ -5,34 +5,37 @@ function isSanityConfigured(): boolean {
   return Boolean(import.meta.env.VITE_SANITY_PROJECT_ID);
 }
 
-export function useServicePage<T>(slug: string, fallback: T) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function useServicePage<T = any>(slug: string, fallback: T) {
   return useQuery<T>({
     queryKey: ['sanity', 'servicePage', slug],
     queryFn: () => sanityClient.fetch(SERVICE_PAGE_QUERY, { slug }),
     enabled: isSanityConfigured(),
-    placeholderData: fallback,
+    placeholderData: fallback as any,
     staleTime: 1000 * 60 * 5,
     select: (data) => data ?? fallback,
   });
 }
 
-export function useHubPage<T>(slug: string, fallback: T) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function useHubPage<T = any>(slug: string, fallback: T) {
   return useQuery<T>({
     queryKey: ['sanity', 'hubPage', slug],
     queryFn: () => sanityClient.fetch(HUB_PAGE_QUERY, { slug }),
     enabled: isSanityConfigured(),
-    placeholderData: fallback,
+    placeholderData: fallback as any,
     staleTime: 1000 * 60 * 5,
     select: (data) => data ?? fallback,
   });
 }
 
-export function useLicensePage<T>(slug: string, fallback: T) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function useLicensePage<T = any>(slug: string, fallback: T) {
   return useQuery<T>({
     queryKey: ['sanity', 'licenseDetailPage', slug],
     queryFn: () => sanityClient.fetch(LICENSE_PAGE_QUERY, { slug }),
     enabled: isSanityConfigured(),
-    placeholderData: fallback,
+    placeholderData: fallback as any,
     staleTime: 1000 * 60 * 5,
     select: (data) => data ?? fallback,
   });

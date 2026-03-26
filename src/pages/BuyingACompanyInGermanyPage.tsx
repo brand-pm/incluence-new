@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { GermanyCompanyVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /buying-a-company-in-germany
@@ -70,7 +69,6 @@ const BuyingACompanyInGermanyPage = () => (
         answer: "Yes, a company in Germany can be bought remotely via power of attorney or in person while visiting Germany.",
       },
     ]}
-    heroVisual={<GermanyCompanyVisual />}
 
   />
 );
