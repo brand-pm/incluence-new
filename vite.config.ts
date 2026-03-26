@@ -13,6 +13,17 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+          sanity: ["@sanity/client"],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 500,
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
