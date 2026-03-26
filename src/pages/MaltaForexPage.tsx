@@ -166,7 +166,6 @@ const MaltaForexPage = () => {
               </div>
             </div>
             <div className="col-span-5 flex justify-center">
-              <MaltaForexHeroVisual />
             </div>
           </div>
         </div>

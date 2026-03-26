@@ -143,7 +143,6 @@ const EstoniaCryptoPage = () => {
               </div>
             </div>
             <div className="col-span-5 flex justify-center">
-              <EstoniaCryptoHeroVisual />
             </div>
           </div>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-6 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
