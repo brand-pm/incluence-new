@@ -1,7 +1,5 @@
 import { LicenseDetailPage } from "@/components/templates/LicenseDetailPage";
-import { MaltaHeroVisual } from "@/components/templates/heroVisuals";
 import { Shield, Scale, Building } from "lucide-react";
-import heroImg from "@/assets/hero-malta-gaming.jpg";
 
 const MaltaLicensePage = () => (
   <LicenseDetailPage

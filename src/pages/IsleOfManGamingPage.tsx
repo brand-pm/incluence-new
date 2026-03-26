@@ -1,5 +1,4 @@
 import { LicenseDetailPage } from "@/components/templates/LicenseDetailPage";
-import { IsleOfManHeroVisual } from "@/components/templates/heroVisuals";
 import { Shield, Landmark, Crown } from "lucide-react";
 
 const IsleOfManGamingPage = () => (

@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { DubaiResidenceVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /residence-permit-in-dubai

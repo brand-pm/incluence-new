@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { SeychellesForexHeroVisual } from "@/components/templates/heroVisuals";
 
 // Source: service-texts.md | URL: /forex-license-seychelles
 const PAGE_DATA = {

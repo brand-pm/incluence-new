@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { USABankVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /opening-an-account-in-the-pay-pal-payment-system

@@ -1,5 +1,4 @@
 import { LicenseDetailPage } from "@/components/templates/LicenseDetailPage";
-import { CostaRicaHeroVisual } from "@/components/templates/heroVisuals";
 import { Clock, DollarSign, FileX } from "lucide-react";
 
 const CostaRicaGamingPage = () => (

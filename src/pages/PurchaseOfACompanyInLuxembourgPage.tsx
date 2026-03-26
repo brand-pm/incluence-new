@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { LuxembourgCompanyVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /purchase-of-a-company-in-luxembourg

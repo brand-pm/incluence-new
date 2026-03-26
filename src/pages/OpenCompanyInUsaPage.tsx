@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { USACompanyVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /open-company-in-usa

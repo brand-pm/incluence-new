@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { BulgariaBankVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /open-a-bank-account-in-bulgaria

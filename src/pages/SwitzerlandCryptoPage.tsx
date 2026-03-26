@@ -5,7 +5,6 @@ import MicroParticles from "@/components/MicroParticles";
 import { TerritoryMap } from "@/components/map/TerritoryMap";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
 import RelatedJurisdictions from "@/components/RelatedJurisdictions";
-import { SwitzerlandCryptoHeroVisual } from "@/components/templates/heroVisuals";
 
 const useCounter = (target: number, duration = 1200) => {
   const [val, setVal] = useState(0);

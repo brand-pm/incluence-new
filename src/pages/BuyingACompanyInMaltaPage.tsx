@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { MaltaCompanyVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /buying-a-company-in-malta

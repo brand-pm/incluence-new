@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { CuracaoOffshoreVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /offshore-company-formation-in-curacao

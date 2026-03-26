@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { PolandCompanyVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /company-registration-in-poland

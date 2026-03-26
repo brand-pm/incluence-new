@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { LiechtensteinBankVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /open-an-account-in-liechtenstein

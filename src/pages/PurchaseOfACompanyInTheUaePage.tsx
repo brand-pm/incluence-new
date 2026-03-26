@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { UAECompanyVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /purchase-of-a-company-in-the-uae

@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { UKBankVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /opening-a-bank-account-in-the-united-kingdom

@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { EstoniaFundVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /open-an-investment-fund-in-estonia

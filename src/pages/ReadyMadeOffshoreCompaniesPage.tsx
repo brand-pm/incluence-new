@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { BVIOffshoreVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /ready-made-offshore-companies

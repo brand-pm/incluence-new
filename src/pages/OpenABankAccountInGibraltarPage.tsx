@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { GibraltarBankVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /open-a-bank-account-in-gibraltar

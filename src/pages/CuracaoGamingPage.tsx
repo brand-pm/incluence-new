@@ -1,5 +1,4 @@
 import { LicenseDetailPage } from "@/components/templates/LicenseDetailPage";
-import { CuracaoHeroVisual } from "@/components/templates/heroVisuals";
 import { Zap, Globe, Layers } from "lucide-react";
 
 const CuracaoGamingPage = () => (

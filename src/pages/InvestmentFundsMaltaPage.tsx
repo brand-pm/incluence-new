@@ -1,5 +1,4 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
-import { MaltaFundVisual } from "@/components/templates/heroVisuals";
 
 
 // Source: service-texts.md | URL: /registration-of-investment-funds-in-malta
