@@ -170,7 +170,6 @@ const PolandCryptoPage = () => {
               </div>
             </div>
             <div className="col-span-5 flex justify-center">
-              <PolandCryptoHeroVisual />
             </div>
           </div>
         </div>

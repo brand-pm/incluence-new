@@ -163,7 +163,6 @@ const CyprusForexPage = () => {
               </div>
             </div>
             <div className="col-span-5 flex justify-center">
-              <CyprusForexHeroVisual />
             </div>
           </div>
         </div>

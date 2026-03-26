@@ -166,7 +166,6 @@ const SwitzerlandCryptoPage = () => {
               </div>
             </div>
             <div className="col-span-5 flex justify-center">
-              <SwitzerlandCryptoHeroVisual />
             </div>
           </div>
         </div>

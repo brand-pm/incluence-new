@@ -164,7 +164,6 @@ const USACryptoPage = () => {
               </div>
             </div>
             <div className="col-span-5 flex justify-center">
-              <USACryptoHeroVisual />
             </div>
           </div>
         </div>
