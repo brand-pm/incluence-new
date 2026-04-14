@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { useHubPage } from "@/hooks/useSanityPage";
 
+const BLUE_BG = "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)";
+const BLUE_CARD = "#0f1029";
+
 interface JurisdictionCard {
   regulator: string;
   name: string;
@@ -68,6 +71,14 @@ const NoiseOverlay = () => (
     <filter id="hub-noise"><feTurbulence baseFrequency="0.85" numOctaves="4" /><feColorMatrix type="saturate" values="0" /></filter>
     <rect width="100%" height="100%" filter="url(#hub-noise)" />
   </svg>
+);
+
+const AccentGlow = () => (
+  <div className="absolute inset-0 pointer-events-none z-[1]" style={{ background: "radial-gradient(ellipse 600px 400px at 50% 40%, rgba(68,76,231,0.06), transparent)" }} />
+);
+
+const GridDots = () => (
+  <div className="absolute inset-0 pointer-events-none z-[1] opacity-60" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.04) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 );
 
 const Skeleton = () => (
@@ -137,7 +148,7 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
   return (
     <div style={{ fontFamily: "Manrope, sans-serif" }}>
 
-      {/* ── HERO ── */}
+      {/* ── HERO — flat ── */}
       <section className="relative overflow-hidden" style={{ background: "#080808" }}>
         <NoiseOverlay />
         <div className="relative z-10 max-w-screen-xl mx-auto pt-24 md:pt-[140px] pb-16 md:pb-[80px] px-5 md:px-12">
@@ -157,7 +168,7 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
         </div>
       </section>
 
-      {/* ── STATS STRIP ── */}
+      {/* ── STATS STRIP — flat ── */}
       {p.stats.length > 0 && (
         <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-2 md:grid-cols-4 gap-px">
           {p.stats.map((s, i) => (
@@ -170,16 +181,18 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
         </div>
       )}
 
-      {/* ── JURISDICTION CARDS ── */}
+      {/* ── JURISDICTION CARDS — BLUE GRADIENT ── */}
       {p.jurisdictions.length > 0 && (
-        <section id="jurisdictions" style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
-          <div className="max-w-screen-xl mx-auto">
+        <section id="jurisdictions" className="relative overflow-hidden py-12 md:py-[72px] px-5 md:px-12" style={{ background: BLUE_BG }}>
+          <AccentGlow />
+          <NoiseOverlay />
+          <div className="relative z-10 max-w-screen-xl mx-auto">
             <Tag>Jurisdictions</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-3">{p.jurisdictionsTitle || "Choose Your Jurisdiction"}</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed max-w-[520px] mb-14">{p.jurisdictionsSubtitle}</p>
             <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
               {p.jurisdictions.map((j) => (
-                <Link key={j.href} to={j.href} className="bg-[#0d0d0d] p-7 group relative overflow-hidden block no-underline">
+                <Link key={j.href} to={j.href} className="p-7 group relative overflow-hidden block no-underline" style={{ background: BLUE_CARD }}>
                   <div className="flex items-start justify-between mb-1">
                     <h3 className="text-[16px] font-semibold text-[#F0EBE0]">{j.name}</h3>
                     {j.badge && (
@@ -208,9 +221,9 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── REQUIREMENTS ── */}
+      {/* ── REQUIREMENTS — flat ── */}
       {p.requirements.length > 0 && (
-        <section style={{ background: "#111111" }} className="py-12 md:py-[72px] px-5 md:px-12">
+        <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
             <Tag>Requirements</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-3">{p.requirementsTitle || "General Requirements"}</h2>
@@ -223,16 +236,18 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── PROCESS ── */}
+      {/* ── PROCESS — BLUE GRADIENT + grid dots ── */}
       {p.steps.length > 0 && (
-        <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
-          <div className="max-w-screen-xl mx-auto">
+        <section className="relative overflow-hidden py-12 md:py-[72px] px-5 md:px-12" style={{ background: BLUE_BG }}>
+          <GridDots />
+          <NoiseOverlay />
+          <div className="relative z-10 max-w-screen-xl mx-auto">
             <Tag>Process</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-3">{p.processTitle}</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed max-w-[520px] mb-14">{p.processSubtitle}</p>
             <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
               {p.steps.map((step, i) => (
-                <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden">
+                <div key={i} className="p-7 group relative overflow-hidden" style={{ background: BLUE_CARD }}>
                   <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] block mb-3">{step.number}</span>
                   <h3 className="text-[15px] font-semibold text-[#F0EBE0] mb-2">{step.title}</h3>
                   <p className="text-[13px] text-[#9A9590] leading-relaxed">{step.description}</p>
@@ -244,7 +259,7 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── WHY US ── */}
+      {/* ── WHY US — flat ── */}
       <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
         <div className="max-w-screen-xl mx-auto">
           <Tag>Why Incluence</Tag>
@@ -265,10 +280,12 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* ── FAQ — BLUE GRADIENT ── */}
       {p.faq.length > 0 && (
-        <section style={{ background: "#111111" }} className="py-12 md:py-[72px] px-5 md:px-12">
-          <div className="max-w-screen-xl mx-auto">
+        <section className="relative overflow-hidden py-12 md:py-[72px] px-5 md:px-12" style={{ background: BLUE_BG }}>
+          <AccentGlow />
+          <NoiseOverlay />
+          <div className="relative z-10 max-w-screen-xl mx-auto">
             <Tag>FAQ</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-12">Common Questions</h2>
             <div className="max-w-[720px] divide-y divide-white/[0.06]">
@@ -288,7 +305,7 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── CTA FORM ── */}
+      {/* ── CTA FORM — flat ── */}
       <section style={{ background: "#080808" }} className="py-12 md:py-[72px] px-5 md:px-12">
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
           <div className="md:col-span-5 md:pr-8" style={{ overflowWrap: "break-word", wordBreak: "break-word" }}>
