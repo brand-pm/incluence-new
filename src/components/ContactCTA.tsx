@@ -37,7 +37,7 @@ const ContactCTA = () => {
     focused === name ? { borderColor: "rgba(68,76,231,0.5)" } : {};
 
   return (
-    <section className="relative" style={{ background: "#080808", padding: "96px 48px" }}>
+    <section className="relative" style={{ background: "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)", padding: "96px 48px" }}>
       {/* Accent glow */}
       <div
         className="absolute inset-0 pointer-events-none"

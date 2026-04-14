@@ -19,12 +19,12 @@ const listings = [
 ];
 
 const MarketplaceTeaser = () => (
-  <section className="relative" style={{ background: "#161210", padding: "72px 48px" }}>
+  <section className="relative" style={{ background: "#0d0d0d", padding: "72px 48px" }}>
     {/* Warm glow */}
     <div
       className="absolute inset-0 pointer-events-none"
       style={{
-        background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(200,149,96,0.06) 0%, transparent 70%)",
+        background: "none",
       }}
     />
     <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 relative" style={{ zIndex: 1 }}>
