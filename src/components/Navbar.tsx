@@ -208,6 +208,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [projectDialogOpen, setProjectDialogOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
