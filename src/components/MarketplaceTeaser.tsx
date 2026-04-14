@@ -19,8 +19,15 @@ const listings = [
 ];
 
 const MarketplaceTeaser = () => (
-  <section style={{ background: "#111111", padding: "72px 48px" }}>
-    <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+  <section className="relative" style={{ background: "#161210", padding: "72px 48px" }}>
+    {/* Warm glow */}
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(200,149,96,0.06) 0%, transparent 70%)",
+      }}
+    />
+    <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 relative" style={{ zIndex: 1 }}>
       {/* Left 60% */}
       <motion.div
         className="lg:col-span-3 flex flex-col justify-center"
