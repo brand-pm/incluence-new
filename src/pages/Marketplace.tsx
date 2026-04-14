@@ -81,7 +81,6 @@ const COMPANIES: Company[] = [
   { flag: "🇪🇪", country: "Estonia", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "July 2025", activity: "Other business support service activities n.e.c.", hasBank: false, description: "E*** established in July 2025. Corporate and operational support services. Debt-free, fully compliant." },
 ];
 
-};
 
 const JURISDICTIONS = ["All", "Estonia", "United Kingdom", "Lithuania", "Bulgaria", "Poland", "Serbia"];
 
