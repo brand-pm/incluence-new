@@ -49,31 +49,6 @@ const JURISDICTIONS = ["All", "Estonia", "United Kingdom", "Lithuania", "Bulgari
 
 /* ── COMPANY CARD ─────────────────────────────────────────────────── */
 const CompanyCard = ({ c, i }: { c: Company; i: number }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
-
-  const handleMouseEnter = useCallback(() => {
-    const el = cardRef.current;
-    if (!el) return;
-    el.style.background = "#111111";
-    el.classList.remove("scanning");
-    void el.offsetWidth;
-    el.classList.add("scanning");
-    clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => {
-      el.classList.remove("scanning");
-      el.classList.add("scan-done");
-    }, 700);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    const el = cardRef.current;
-    if (!el) return;
-    el.style.background = "#0d0d0d";
-    el.classList.remove("scanning", "scan-done");
-    clearTimeout(timerRef.current);
-  }, []);
-
   const bs = BADGE_STYLES[c.badge];
 
   return (
