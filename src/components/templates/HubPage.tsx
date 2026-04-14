@@ -54,7 +54,7 @@ const pickText = (...sources: (string | null | undefined)[]): string => {
 
 const highlightText = (text: string): React.ReactNode => {
   if (!text) return null;
-  const parts = text.split(/((?:from\s+\d[\d.,]*\s+to\s+|up\s+to\s+|at\s+least\s+|starting\s+from\s+|no\s+more\s+than\s+|about\s+|approximately\s+)?(?:\$|€|£)?\d[\d.,]*(?:\s+to\s+\d[\d.,]*)?\s*(?:%|percent|years?|months?|weeks?|days?|hours?)|(?:from\s+\d[\d.,]*\s+to\s+|up\s+to\s+|at\s+least\s+|starting\s+from\s+|about\s+|approximately\s+)?(?:\$|€|£)\d[\d.,]*(?:\s+to\s+(?:\$|€|£)?\d[\d.,]*)?|\d[\d.,]*\s*(?:EUR|USD|GBP)|\b\d{1,2}\s*(?:–|-)\s*\d{1,2}\s*(?:months?|weeks?|days?))/gi);
+  const parts = text.split(/((?:from\s+\d[\d.,]*\s+to\s+|up\s+to\s+|at\s+least\s+|starting\s+from\s+|no\s+more\s+than\s+|about\s+|approximately\s+)?(?:\$|€|£)?\d[\d.,]*(?:\s+to\s+\d[\d.,]*)?\s*(?:%|percent|years?|months?|weeks?|days?|hours?|euros?|dollars?|pounds?|EUR|USD|GBP)|(?:from\s+\d[\d.,]*\s+to\s+|up\s+to\s+|at\s+least\s+|starting\s+from\s+|about\s+|approximately\s+)?(?:\$|€|£)\d[\d.,]*(?:\s+to\s+(?:\$|€|£)?\d[\d.,]*)?|\b\d{1,2}\s*(?:–|-)\s*\d{1,2}\s*(?:months?|weeks?|days?))/gi);
   if (parts.length <= 1) return text;
   return parts.map((part, i) => {
     if (i % 2 === 1) return <span key={i} className="text-[#F0EBE0] font-semibold">{part}</span>;
