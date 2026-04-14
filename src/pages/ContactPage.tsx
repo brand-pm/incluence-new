@@ -113,6 +113,9 @@ const ContactPage = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const { submitLead, submitting } = useLeadForm();
 
+  const focusBorder = (name: string): React.CSSProperties =>
+    focused === name ? { borderColor: "rgba(68,76,231,0.5)" } : {};
+
   return (
     <>
       {/* ── BREADCRUMB ── */}
