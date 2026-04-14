@@ -646,11 +646,11 @@ const Navbar = () => {
       {/* ── START A PROJECT DIALOG ── */}
       <Dialog open={projectDialogOpen} onOpenChange={setProjectDialogOpen}>
         <DialogContent
-          className="border-white/[0.08] p-8 max-w-lg"
+          className="border-white/[0.08] p-5 sm:p-8 max-w-lg w-[calc(100%-2rem)] max-h-[90vh] overflow-y-auto"
           style={{ background: "#080808", fontFamily: "Manrope, sans-serif" }}
         >
           <DialogHeader>
-            <DialogTitle className="text-[#F0EBE0] text-[20px] font-light tracking-tight">
+            <DialogTitle className="text-[#F0EBE0] text-[18px] sm:text-[20px] font-light tracking-tight">
               Start a Project
             </DialogTitle>
             <p className="text-[#9A9590] text-[13px] mt-1">
