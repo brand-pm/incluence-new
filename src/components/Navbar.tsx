@@ -380,7 +380,7 @@ const Navbar = () => {
             <ChevronDown size={12} />
           </button>
           <Link to="/marketplace" className={navLinkClass("/marketplace")} style={{ fontSize: 14 }}>
-            Marketplace
+            Ready Made Company
           </Link>
           <Link to="/affiliate-program" className={navLinkClass("/affiliate-program")} style={{ fontSize: 14 }}>
             Affiliate Program
@@ -541,7 +541,7 @@ const Navbar = () => {
             </div>
           ))}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 16, marginTop: 8 }}>
-            <Link to="/marketplace" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "8px 0" }}>Marketplace</Link>
+            <Link to="/marketplace" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "8px 0" }}>Ready Made Company</Link>
             <Link to="/affiliate-program" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "8px 0" }}>Affiliate Program</Link>
             <Link to="/about" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "8px 0" }}>About</Link>
           </div>
