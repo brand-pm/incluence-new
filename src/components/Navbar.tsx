@@ -642,6 +642,30 @@ const Navbar = () => {
           </div>
         </div>
       )}
+
+      {/* ── START A PROJECT DIALOG ── */}
+      <Dialog open={projectDialogOpen} onOpenChange={setProjectDialogOpen}>
+        <DialogContent
+          className="border-white/[0.08] p-8 max-w-lg"
+          style={{ background: "#080808", fontFamily: "Manrope, sans-serif" }}
+        >
+          <DialogHeader>
+            <DialogTitle className="text-[#F0EBE0] text-[20px] font-light tracking-tight">
+              Start a Project
+            </DialogTitle>
+            <p className="text-[#9A9590] text-[13px] mt-1">
+              Fill in the details and we'll get back to you within 24 hours.
+            </p>
+          </DialogHeader>
+          <div className="mt-4">
+            <FormBlock
+              bgColor="#080808"
+              fields={["Full Name", "Email", "Company Name", "Service Interest"]}
+              buttonText="SEND REQUEST →"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   );
 };
