@@ -1,59 +1,90 @@
 
 
-# Редизайн главной страницы — визуальное разделение секций
+# Редизайн секций — цветовые блоки вместо линий
 
 ## Проблема
-Все секции используют фоны #080808, #0d0d0d и #111111 — разница всего 2-3% яркости. Визуально страница выглядит как одно чёрное полотно без структуры.
+Сейчас все секции #080808 / #0d0d0d / #111111 + тонкие accent-линии. Разница минимальна — всё сливается. Нужны реальные цветовые блоки, а не просто разделители.
 
 ## Решение
-Использовать имеющуюся палитру (accent #444CE7, text #F0EBE0, muted tones) для создания контраста через цветовые акценты, паттерны и градиенты — без отхода от тёмной темы.
+Каждая 2-я секция получает заметный accent-tinted фон. Не subtle 3-4% opacity, а полноценные 8-15% тонировки + gradient-переходы между секциями. Плюс отдельные "акцентные блоки" внутри секций.
 
-## Что изменится
+## Конкретные изменения
 
-### 1. Чередующиеся фоновые эффекты для каждой второй секции
-Каждая вторая секция получит тонкий акцентный градиент:
-- Subtle radial gradient с accent (#444CE7) at 3-5% opacity в углу или по центру
-- Или паттерн grid-dots с чуть повышенной яркостью
-- Это создаст ритм "чистый → акцентный → чистый → акцентный"
+### 1. Убрать SectionDivider полностью
+Линии-разделители удалить. Вместо них — gradient fade между секциями через CSS на самих секциях (padding-top/bottom gradient).
 
-### 2. Accent-полоски вместо одинаковых SectionDivider
-Обновить `SectionDivider` — добавить вариант с тонкой горизонтальной accent-линией (gradient от transparent → #444CE7 → transparent) шириной 100%, высотой 1px. Это чётче отделит секции.
+### 2. ProcessSection — accent-tinted фон
+```
+background: linear-gradient(180deg, 
+  #0f1029 0%,      /* тёмный синий */
+  #111133 50%,     /* чуть насыщеннее */
+  #0f1029 100%)
+```
+Это даст секции явный "синий" оттенок, визуально отделяя от соседей. Карточки шагов — фон `#12143a` вместо `#111111`.
 
-### 3. Секция LicenseCategories — accent glow
-- Добавить радиальный градиент `rgba(68,76,231,0.06)` за карточками
-- Левый вертикальный accent-бордер (2px #444CE7) у каждой карточки
+### 3. StatsBar — "highlight block"
+Полноценный accent-бэнд:
+```
+background: linear-gradient(135deg, #1a1d4d 0%, #141638 50%, #1a1d4d 100%)
+border-top/bottom: 1px solid hsl(233 84% 60% / 0.25)
+```
+Это выделит статистику как отдельный "яркий" блок.
 
-### 4. Секция ProcessSection — акцентный фон
-- Фон: gradient от `#0d0d0d` к `rgba(68,76,231,0.04)` — едва заметный синий оттенок
-- Номера шагов (01, 02...) сделать более яркими accent-цветом
+### 4. MarketplaceTeaser — warm accent
+Тёплый оттенок для разнообразия:
+```
+background: #161210  /* тёмно-тёплый */
+```
+С радиальным warm glow `rgba(200,149,96,0.06)`. Это создаст контраст с холодными синими секциями.
 
-### 5. Секция OurServicesSection — grid-dots паттерн
-- Добавить CSS-класс `grid-dots` на фон секции для визуальной текстуры
-- Accent-линия слева от section-tag
+### 5. ContactCTA — strong accent glow
+Усилить accent-фон до заметного:
+```
+background: radial-gradient(ellipse 80% 60% at 50% 0%, 
+  hsl(233 84% 60% / 0.15) 0%, #080808 70%)
+```
 
-### 6. JurisdictionComparison — без изменений (уже имеет таблицу с contrast)
+### 6. OurServicesSection — subtle warm tint
+```
+background: #110f0d  /* чуть тёплее чем #0d0d0d */
+```
+С grid-dots увеличенной opacity.
 
-### 7. JurisdictionsSection — accent underline у заголовка
-- Подчеркнуть заголовок секции градиентной accent-линией
+### 7. LicenseCategories — accent bottom glow усилить
+Radial gradient снизу увеличить до 10% opacity.
 
-### 8. StatsBar — accent gradient background
-- Заменить плоский #080808 на subtle gradient: `linear-gradient(135deg, rgba(68,76,231,0.08) 0%, #080808 50%, rgba(68,76,231,0.05) 100%)`
-- Это выделит статистику как "особый" блок
+### 8. PartnersSection — остаётся нейтральной (#0d0d0d) для контраста
 
-### 9. PartnersSection — subtle dot pattern
-- Добавить grid-dots на фон для текстуры
+### 9. JurisdictionsSection — лёгкий accent tint
+```
+background: #0d0e18  /* еле-еле синий */
+```
 
-### 10. ContactCTA — усилить accent glow
-- Увеличить интенсивность radial gradient с accent до 10-12% opacity
+## Визуальный ритм (сверху вниз)
+```text
+Hero           #080808        — нейтральный
+Ticker         #080808        — нейтральный
+LicenseCateg   #0d0d0d+glow   — нейтральный + glow снизу
+ProcessSection #0f1029        — СИНИЙ (акцент!)
+OurServices    #110f0d        — ТЁПЛЫЙ
+JurisdCompare  #111111        — нейтральный  
+Jurisdictions  #0d0e18        — лёгкий синий
+Marketplace    #161210        — ТЁПЛЫЙ
+StatsBar       #1a1d4d        — ЯРКИЙ СИНИЙ
+Partners       #0d0d0d        — нейтральный
+ContactCTA     #080808+glow   — нейтральный + сильный glow
+```
+
+Такое чередование cold → warm → cold → warm + 2 ярких accent-блока создаст чёткий визуальный ритм.
 
 ## Файлы для изменения
-- `src/components/SectionDivider.tsx` — новый gradient divider
-- `src/components/LicenseCategories.tsx` — accent glow background
-- `src/components/ProcessSection.tsx` — tinted background
-- `src/components/OurServicesSection.tsx` — grid-dots pattern
-- `src/components/JurisdictionsSection.tsx` — accent underline
-- `src/components/StatsBar.tsx` — gradient background
-- `src/components/PartnersSection.tsx` — dot pattern
-- `src/components/ContactCTA.tsx` — stronger glow
-- `src/pages/Index.tsx` — minor wrapper adjustments
+- `src/pages/Index.tsx` — убрать все `<SectionDivider />`
+- `src/components/SectionDivider.tsx` — удалить файл
+- `src/components/ProcessSection.tsx` — синий tinted background + карточки
+- `src/components/StatsBar.tsx` — яркий accent background
+- `src/components/MarketplaceTeaser.tsx` — warm tint
+- `src/components/OurServicesSection.tsx` — warm tint
+- `src/components/JurisdictionsSection.tsx` — лёгкий синий tint
+- `src/components/LicenseCategories.tsx` — усилить glow
+- `src/components/ContactCTA.tsx` — усилить accent glow
 
