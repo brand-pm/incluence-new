@@ -186,10 +186,9 @@ const CatalogCard = ({ c, i }: { c: Company; i: number }) => {
 
 /* ── DATA BOARD ROW (Variant 2 — Data Board) ─────────────────────── */
 const DataBoardRow = ({ c, i }: { c: Company; i: number }) => {
-  const bs = BADGE_STYLES[c.badge];
   return (
     <motion.div
-      className="grid items-center"
+      className="grid items-center group relative"
       style={{
         gridTemplateColumns: "2fr 2.5fr 1fr 1fr 1fr auto",
         background: "hsl(var(--bg-2))",
@@ -201,52 +200,20 @@ const DataBoardRow = ({ c, i }: { c: Company; i: number }) => {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.3, delay: i * 0.03 }}
+      whileHover={{ backgroundColor: "rgba(255,255,255,0.02)" }}
     >
-      {/* Country */}
       <div className="flex items-center gap-3">
-        <FlagEmojiGroup flag={c.flag} size={20} />
+        <CountryBadge country={c.country} size={18} />
         <div>
           <span style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))", display: "block" }}>{c.country}</span>
           <span style={{ fontSize: 11, color: "hsl(var(--text-muted))" }}>EST. {c.established}</span>
         </div>
       </div>
-
-      {/* Activity */}
-      <div>
-        <span style={{ fontSize: 13, color: "hsl(var(--text-secondary))", lineHeight: 1.4 }}>{c.activity}</span>
-      </div>
-
-      {/* Bank */}
-      <span style={{ fontSize: 12, color: c.hasBank ? "#22c55e" : "hsl(var(--text-muted))", fontWeight: 500 }}>
-        {c.hasBank ? "✓ Yes" : "No"}
-      </span>
-
-      {/* Price */}
+      <div><span style={{ fontSize: 13, color: "hsl(var(--text-secondary))", lineHeight: 1.4 }}>{c.activity}</span></div>
+      <span style={{ fontSize: 12, color: c.hasBank ? "#22c55e" : "hsl(var(--text-muted))", fontWeight: 500 }}>{c.hasBank ? "✓ Yes" : "No"}</span>
       <span style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))" }}>{c.price}</span>
-
-      {/* Badge */}
-      <span
-        style={{
-          fontSize: 10, fontWeight: 600, padding: "3px 8px", letterSpacing: "0.06em",
-          background: bs.bg, border: `1px solid ${bs.border}`, color: bs.color,
-          display: "inline-block", textAlign: "center",
-        }}
-      >
-        {c.badge === "HOT" ? "🔥 HOT" : c.badge}
-      </span>
-
-      {/* CTA */}
-      <Link
-        to="/contact"
-        style={{
-          padding: "8px 16px",
-          background: "hsl(var(--accent) / 0.12)",
-          border: "1px solid hsl(var(--accent) / 0.25)",
-          color: "hsl(var(--accent-light))",
-          fontSize: 11, fontWeight: 600, textDecoration: "none", textTransform: "uppercase",
-          letterSpacing: "0.04em", whiteSpace: "nowrap",
-        }}
-      >
+      <StatusBadge badge={c.badge} />
+      <Link to="/contact" style={{ padding: "8px 16px", background: "hsl(var(--accent) / 0.12)", border: "1px solid hsl(var(--accent) / 0.25)", color: "hsl(var(--accent-light))", fontSize: 11, fontWeight: 600, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.04em", whiteSpace: "nowrap" }}>
         Inquire →
       </Link>
     </motion.div>
@@ -255,14 +222,9 @@ const DataBoardRow = ({ c, i }: { c: Company; i: number }) => {
 
 /* ── MOBILE DATA ROW ─────────────────────────────────────────────── */
 const DataBoardRowMobile = ({ c, i }: { c: Company; i: number }) => {
-  const bs = BADGE_STYLES[c.badge];
   return (
     <motion.div
-      style={{
-        background: "hsl(var(--bg-2))",
-        padding: "16px 20px",
-        borderBottom: "1px solid hsl(var(--border-default))",
-      }}
+      style={{ background: "hsl(var(--bg-2))", padding: "16px 20px", borderBottom: "1px solid hsl(var(--border-default))" }}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -270,36 +232,18 @@ const DataBoardRowMobile = ({ c, i }: { c: Company; i: number }) => {
     >
       <div className="flex items-center justify-between" style={{ marginBottom: 10 }}>
         <div className="flex items-center gap-2">
-          <FlagEmojiGroup flag={c.flag} size={18} />
+          <CountryBadge country={c.country} size={16} />
           <span style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))" }}>{c.country}</span>
         </div>
-        <span
-          style={{
-            fontSize: 10, fontWeight: 600, padding: "3px 8px", letterSpacing: "0.06em",
-            background: bs.bg, border: `1px solid ${bs.border}`, color: bs.color,
-          }}
-        >
-          {c.badge === "HOT" ? "🔥 HOT" : c.badge}
-        </span>
+        <StatusBadge badge={c.badge} />
       </div>
       <div style={{ fontSize: 12, color: "hsl(var(--text-secondary))", marginBottom: 6 }}>{c.activity}</div>
       <div className="flex items-center justify-between" style={{ marginTop: 8 }}>
         <div className="flex items-center gap-4">
           <span style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))" }}>{c.price}</span>
-          <span style={{ fontSize: 11, color: c.hasBank ? "#22c55e" : "hsl(var(--text-muted))" }}>
-            {c.hasBank ? "✓ Bank" : "No bank"}
-          </span>
+          <span style={{ fontSize: 11, color: c.hasBank ? "#22c55e" : "hsl(var(--text-muted))" }}>{c.hasBank ? "✓ Bank" : "No bank"}</span>
         </div>
-        <Link
-          to="/contact"
-          style={{
-            padding: "6px 14px",
-            background: "hsl(var(--accent) / 0.12)",
-            border: "1px solid hsl(var(--accent) / 0.25)",
-            color: "hsl(var(--accent-light))",
-            fontSize: 11, fontWeight: 600, textDecoration: "none",
-          }}
-        >
+        <Link to="/contact" style={{ padding: "6px 14px", background: "hsl(var(--accent) / 0.12)", border: "1px solid hsl(var(--accent) / 0.25)", color: "hsl(var(--accent-light))", fontSize: 11, fontWeight: 600, textDecoration: "none" }}>
           Inquire →
         </Link>
       </div>
