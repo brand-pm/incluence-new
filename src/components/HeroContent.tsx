@@ -39,7 +39,6 @@ const FONT = "Manrope, sans-serif";
 const HeroContent = () => (
   <>
     <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
       @keyframes ping {
         0%   { transform: scale(1); opacity: 0.4; }
         75%, 100% { transform: scale(2.4); opacity: 0; }

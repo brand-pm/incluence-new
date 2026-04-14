@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useLeadForm } from "@/hooks/useLeadForm";
+import FormBlock from "@/components/FormBlock";
 import { Link } from "react-router-dom";
 import { ChevronRight, ChevronDown, Check, X } from "lucide-react";
 import { useLicensePage } from "@/hooks/useSanityPage";
@@ -455,23 +457,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">{p.formSubtitle}</p>
           </div>
           <div className="md:col-span-7">
-            <form onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-                {formFields.map((label) => (
-                  <div key={label}>
-                    <label className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-2 block">{label}</label>
-                    <input type="text" className="w-full border border-white/[0.08] focus:border-[#444CE7]/50 text-[#F0EBE0] text-[14px] placeholder:text-[#5A5550] px-4 py-3 outline-none" style={{ fontFamily: "inherit", background: BLUE_CARD }} />
-                  </div>
-                ))}
-              </div>
-              <div className="mb-5">
-                <label className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-2 block">{formTextareaLabel}</label>
-                <textarea className="w-full border border-white/[0.08] focus:border-[#444CE7]/50 text-[#F0EBE0] text-[14px] placeholder:text-[#5A5550] px-4 py-3 outline-none min-h-[100px] resize-none" style={{ fontFamily: "inherit", background: BLUE_CARD }} />
-              </div>
-              <button type="submit" className="w-full px-8 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors cursor-pointer border-0" style={{ fontFamily: "inherit" }}>
-                {formButtonText}
-              </button>
-            </form>
+            <FormBlock bgColor={BLUE_CARD} />
           </div>
         </div>
       </section>

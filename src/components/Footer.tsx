@@ -12,8 +12,18 @@ const serviceLinks = [
   { label: "AML / Compliance", href: "/legal-business" },
 ];
 const jurisdictionLinks = [
-  "Malta", "Gibraltar", "Cyprus", "Estonia", "United Kingdom", "Switzerland",
-  "Hong Kong", "Singapore", "UAE", "Cayman Islands", "BVI", "Seychelles",
+  { label: "Malta", href: "/company-registration-in-malta" },
+  { label: "Gibraltar", href: "/company-registration-in-gibraltar" },
+  { label: "Cyprus", href: "/company-registration-in-cyprus" },
+  { label: "Estonia", href: "/open-a-company-in-estonia" },
+  { label: "United Kingdom", href: "/register-company-in-uk" },
+  { label: "Switzerland", href: "/register-company-in-switzerland" },
+  { label: "Hong Kong", href: "/register-company-in-hong-kong" },
+  { label: "Singapore", href: "/register-company-in-singapore" },
+  { label: "UAE", href: "/register-company-in-uae" },
+  { label: "Cayman Islands", href: "/offshore-in-the-cayman-islands" },
+  { label: "BVI", href: "/offshore-in-the-british-virgin-islands" },
+  { label: "Seychelles", href: "/offshore-company-formation-in-seychelles" },
 ];
 const companyLinks = [
   { label: "About Us", href: "/about-us" },
@@ -68,7 +78,7 @@ const Footer = () => (
         <div style={colHeading}>Jurisdictions</div>
         <div className="flex flex-col" style={{ gap: 12 }}>
           {jurisdictionLinks.map((s) => (
-            <Link key={s} to="/" style={linkStyle} className="hover:!text-foreground">{s}</Link>
+            <Link key={s.label} to={s.href} style={linkStyle} className="hover:!text-foreground">{s.label}</Link>
           ))}
         </div>
       </div>
@@ -91,7 +101,7 @@ const Footer = () => (
         borderTop: "1px solid rgba(255,255,255,0.04)",
       }}
     >
-      <span style={{ fontSize: 12, color: "#5A5550" }}>© 2024 Incluence Ltd. All rights reserved.</span>
+      <span style={{ fontSize: 12, color: "#5A5550" }}>© {new Date().getFullYear()} Incluence Ltd. All rights reserved.</span>
       <div className="flex gap-4" style={{ fontSize: 12 }}>
         <Link to="/privacy-policy" style={{ color: "#5A5550", textDecoration: "none", transition: "color 0.2s" }} className="hover:!text-muted-foreground">Privacy Policy</Link>
         <span style={{ color: "#5A5550" }}>·</span>

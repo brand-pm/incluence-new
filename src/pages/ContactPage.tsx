@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { ChevronRight, ArrowRight, Phone, Mail, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import NodePulse from "@/components/NodePulse";
+import { useLeadForm } from "@/hooks/useLeadForm";
 
 /* ── DATA ── */
 
@@ -109,6 +110,8 @@ const labelStyle: React.CSSProperties = {
 
 const ContactPage = () => {
   const [focused, setFocused] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const { submitLead, submitting } = useLeadForm();
 
   const focusBorder = (name: string): React.CSSProperties =>
     focused === name ? { borderColor: "rgba(68,76,231,0.5)" } : {};
@@ -371,15 +374,32 @@ const ContactPage = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
           >
             <form
+              ref={formRef}
               className="flex flex-col"
               style={{ gap: 20 }}
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const form = formRef.current;
+                if (!form) return;
+                const d = new FormData(form);
+                const ok = await submitLead({
+                  name: d.get("name") as string,
+                  email: d.get("email") as string,
+                  phone: d.get("phone") as string,
+                  company: d.get("company") as string,
+                  service: d.get("service") as string,
+                  message: d.get("message") as string,
+                  source_page: "/contact",
+                });
+                if (ok) form.reset();
+              }}
             >
               {/* Row 1: Name + Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 20 }}>
                 <div>
                   <label style={labelStyle}>Name *</label>
                   <input
+                    name="name"
                     required
                     placeholder="Your name"
                     style={{ ...fieldStyle, ...focusBorder("name") }}
@@ -391,6 +411,7 @@ const ContactPage = () => {
                   <label style={labelStyle}>Email *</label>
                   <input
                     type="email"
+                    name="email"
                     required
                     placeholder="your@email.com"
                     style={{ ...fieldStyle, ...focusBorder("email") }}
@@ -406,6 +427,7 @@ const ContactPage = () => {
                   <label style={labelStyle}>Phone</label>
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="+1 234 567 8900"
                     style={{ ...fieldStyle, ...focusBorder("phone") }}
                     onFocus={() => setFocused("phone")}
@@ -415,6 +437,7 @@ const ContactPage = () => {
                 <div>
                   <label style={labelStyle}>Company</label>
                   <input
+                    name="company"
                     placeholder="Company name"
                     style={{ ...fieldStyle, ...focusBorder("company") }}
                     onFocus={() => setFocused("company")}
@@ -427,6 +450,7 @@ const ContactPage = () => {
               <div>
                 <label style={labelStyle}>Service Interest</label>
                 <select
+                  name="service"
                   style={{ ...fieldStyle, ...focusBorder("service"), appearance: "none", color: "#9A9590" }}
                   onFocus={() => setFocused("service")}
                   onBlur={() => setFocused(null)}
@@ -446,6 +470,7 @@ const ContactPage = () => {
               <div>
                 <label style={labelStyle}>Message *</label>
                 <textarea
+                  name="message"
                   rows={5}
                   required
                   placeholder="Briefly describe your project or question..."
@@ -458,6 +483,7 @@ const ContactPage = () => {
               {/* Submit */}
               <button
                 type="submit"
+                disabled={submitting}
                 className="hover:!bg-[#3538CD]"
                 style={{
                   width: "100%",
@@ -476,9 +502,10 @@ const ContactPage = () => {
                   justifyContent: "center",
                   gap: 8,
                   transition: "background 0.2s",
+                  opacity: submitting ? 0.5 : 1,
                 }}
               >
-                Send Message <ArrowRight size={14} />
+                {submitting ? "Sending..." : "Send Message"} <ArrowRight size={14} />
               </button>
 
               <p style={{ fontSize: 11, color: "#5A5550", textAlign: "center", margin: 0, marginTop: 4 }}>

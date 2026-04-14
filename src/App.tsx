@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
@@ -9,6 +10,7 @@ import Footer from "./components/Footer";
 import AIConsultant from "./components/ui/AIConsultant";
 
 // --- Lazy page imports (default exports) ---
+const NotFoundPage = React.lazy(() => import("./pages/NotFound"));
 const Index = React.lazy(() => import("./pages/Index"));
 const GamblingHubPage = React.lazy(() => import("./pages/GamblingHubPage"));
 const MaltaLicensePage = React.lazy(() => import("./pages/gambling/MaltaLicensePage"));
@@ -175,11 +177,12 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar />
         <main>
           <Suspense fallback={
             <div className="min-h-screen bg-[#080808] flex items-center justify-center">
-              <div className="flex flex-col gap-3 w-[400px] px-12">
+              <div className="flex flex-col gap-3 w-full max-w-[400px] px-12">
                 <div className="h-12 bg-[#111111] animate-pulse" />
                 <div className="h-4 bg-[#111111] animate-pulse w-2/3" />
                 <div className="h-4 bg-[#111111] animate-pulse w-1/2" />
@@ -363,7 +366,7 @@ const App = () => (
               <Route path="/residence-permit-in-slovakia" element={<ResidencePermitInSlovakiaPage />} />
 
               {/* Catch-all */}
-              <Route path="*" element={<PlaceholderPage title="Page Not Found" />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
         </main>

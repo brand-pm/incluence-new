@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { useLeadForm } from "@/hooks/useLeadForm";
 import { motion } from "framer-motion";
 
 const serviceOptions = [
@@ -32,6 +33,8 @@ const labelStyle: React.CSSProperties = {
 
 const ContactCTA = () => {
   const [focused, setFocused] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const { submitLead, submitting } = useLeadForm();
 
   const focusBorder = (name: string): React.CSSProperties =>
     focused === name ? { borderColor: "rgba(68,76,231,0.5)" } : {};
@@ -119,13 +122,28 @@ const ContactCTA = () => {
           transition={{ duration: 0.6, delay: 0.15 }}
         >
           <form
+            ref={formRef}
             className="flex flex-col"
             style={{ gap: 16 }}
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const form = formRef.current;
+              if (!form) return;
+              const d = new FormData(form);
+              const ok = await submitLead({
+                name: d.get("name") as string,
+                email: d.get("email") as string,
+                company: d.get("company") as string,
+                service: d.get("service") as string,
+                message: d.get("message") as string,
+              });
+              if (ok) form.reset();
+            }}
           >
             <div>
               <label style={labelStyle}>Name</label>
               <input
+                name="name"
                 placeholder="Your name"
                 style={{ ...fieldStyle, ...focusBorder("name") }}
                 onFocus={() => setFocused("name")}
@@ -135,6 +153,7 @@ const ContactCTA = () => {
             <div>
               <label style={labelStyle}>Company</label>
               <input
+                name="company"
                 placeholder="Company name (optional)"
                 style={{ ...fieldStyle, ...focusBorder("company") }}
                 onFocus={() => setFocused("company")}
@@ -145,6 +164,7 @@ const ContactCTA = () => {
               <label style={labelStyle}>Email *</label>
               <input
                 type="email"
+                name="email"
                 required
                 placeholder="Email address"
                 style={{ ...fieldStyle, ...focusBorder("email") }}
@@ -155,6 +175,7 @@ const ContactCTA = () => {
             <div>
               <label style={labelStyle}>Service Interest</label>
               <select
+                name="service"
                 style={{ ...fieldStyle, ...focusBorder("service"), appearance: "none" }}
                 onFocus={() => setFocused("service")}
                 onBlur={() => setFocused(null)}
@@ -169,6 +190,7 @@ const ContactCTA = () => {
             <div>
               <label style={labelStyle}>Message</label>
               <textarea
+                name="message"
                 rows={4}
                 placeholder="Describe your project briefly"
                 style={{ ...fieldStyle, ...focusBorder("message"), resize: "none" }}
@@ -178,15 +200,17 @@ const ContactCTA = () => {
             </div>
             <button
               type="submit"
+              disabled={submitting}
               style={{
                 width: "100%", background: "#444CE7", color: "#fff",
                 padding: 15, fontSize: 13, fontWeight: 500,
                 letterSpacing: "0.1em", textTransform: "uppercase",
                 border: "none", cursor: "pointer", fontFamily: "Manrope, sans-serif",
                 display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                opacity: submitting ? 0.5 : 1,
               }}
             >
-              Send Message <ArrowRight size={14} />
+              {submitting ? "Sending..." : "Send Message"} <ArrowRight size={14} />
             </button>
             <p style={{ fontSize: 11, color: "#5A5550", textAlign: "center", margin: 0 }}>
               Typically respond within 2 business hours
