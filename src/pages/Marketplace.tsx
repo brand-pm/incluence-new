@@ -90,10 +90,9 @@ const JURISDICTIONS = ["All", "Estonia", "United Kingdom", "Lithuania", "Bulgari
 
 /* ── CATALOG CARD (Variant 3 — Premium Catalog) ──────────────────── */
 const CatalogCard = ({ c, i }: { c: Company; i: number }) => {
-  const bs = BADGE_STYLES[c.badge];
   return (
     <motion.div
-      className="flex flex-col"
+      className="flex flex-col group relative"
       style={{
         background: "hsl(var(--bg-2))",
         border: "1px solid hsl(var(--border-default))",
@@ -103,27 +102,24 @@ const CatalogCard = ({ c, i }: { c: Company; i: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.45, delay: (i % 6) * 0.05 }}
+      whileHover={{ y: -4, transition: { duration: 0.25 } }}
     >
+      {/* Bottom accent line */}
+      <div className="absolute bottom-0 left-0 h-[2px] bg-[hsl(var(--accent))] w-0 group-hover:w-full transition-all duration-300" />
+
       {/* Header bar */}
       <div
         className="flex items-center justify-between"
         style={{ padding: "16px 20px", borderBottom: "1px solid hsl(var(--border-default))" }}
       >
         <div className="flex items-center gap-3">
-          <FlagEmojiGroup flag={c.flag} size={22} />
+          <CountryBadge country={c.country} size={22} />
           <div>
             <span style={{ fontSize: 15, fontWeight: 600, color: "hsl(var(--text-primary))", display: "block" }}>{c.country}</span>
             <span style={{ fontSize: 11, color: "hsl(var(--text-muted))" }}>EST. {c.established}</span>
           </div>
         </div>
-        <span
-          style={{
-            fontSize: 10, fontWeight: 600, padding: "4px 10px", letterSpacing: "0.06em",
-            background: bs.bg, border: `1px solid ${bs.border}`, color: bs.color,
-          }}
-        >
-          {c.badge === "HOT" ? "🔥 HOT" : c.badge}
-        </span>
+        <StatusBadge badge={c.badge} />
       </div>
 
       {/* Body */}
@@ -612,11 +608,17 @@ const Marketplace = () => {
             </p>
             <div className="flex flex-wrap" style={{ gap: 16, marginBottom: 32 }}>
               {[
-                { flag: "🇬🇧", name: "UK" }, { flag: "🇭🇰", name: "HK" }, { flag: "🇪🇪", name: "Estonia" },
-                { flag: "🇻🇬", name: "BVI" }, { flag: "🇸🇨", name: "Seychelles" }, { flag: "🇸🇬", name: "Singapore" },
+                { code: "UK", name: "UK" }, { code: "HK", name: "HK" }, { code: "EE", name: "Estonia" },
+                { code: "BVI", name: "BVI" }, { code: "SC", name: "Seychelles" }, { code: "SG", name: "Singapore" },
               ].map(j => (
-                <span key={j.name} className="flex items-center gap-1.5" style={{ fontSize: 13, color: "hsl(var(--text-secondary))" }}>
-                  <FlagEmojiGroup flag={j.flag} size={14} /> {j.name}
+                <span key={j.name} className="flex items-center gap-2" style={{ fontSize: 13, color: "hsl(var(--text-secondary))" }}>
+                  <span style={{
+                    display: "inline-flex", alignItems: "center", justifyContent: "center",
+                    width: 24, height: 24, fontSize: 9, fontWeight: 600,
+                    background: "hsl(var(--accent) / 0.08)", border: "1px solid hsl(var(--accent) / 0.15)",
+                    color: "hsl(var(--accent-light))", letterSpacing: "0.05em",
+                  }}>{j.code}</span>
+                  {j.name}
                 </span>
               ))}
             </div>
