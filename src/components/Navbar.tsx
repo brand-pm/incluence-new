@@ -470,14 +470,13 @@ const Navbar = () => {
               <Phone size={16} style={{ color: "#9A9590" }} />
             </a>
           </div>
-          <Link
-            to="/contact"
-            onClick={handleLinkClick}
-            className="block no-underline text-center"
-            style={{ marginTop: 16, background: "#444CE7", color: "#fff", padding: "14px 24px", fontSize: 12, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase" }}
+          <button
+            onClick={() => { setMobileOpen(false); setProjectDialogOpen(true); }}
+            className="block w-full text-center border-0 cursor-pointer"
+            style={{ marginTop: 16, background: "#444CE7", color: "#fff", padding: "14px 24px", fontSize: 12, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase" as const, fontFamily: "inherit" }}
           >
             Start a Project
-          </Link>
+          </button>
         </div>
       )}
 
