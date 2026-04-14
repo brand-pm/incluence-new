@@ -53,72 +53,88 @@ const CompanyCard = ({ c, i }: { c: Company; i: number }) => {
 
   return (
     <motion.div
-      className="service-card group relative overflow-hidden"
-      style={{ background: "#0d0d0d", padding: "28px 24px", display: "flex", flexDirection: "column" }}
+      className="relative overflow-hidden flex flex-col"
+      style={{ background: "#0d0d0d", padding: "28px 24px", borderBottom: "2px solid transparent", transition: "border-color 0.3s" }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.5, delay: (i % 6) * 0.06 }}
+      whileHover={{ borderBottomColor: "#444CE7" }}
     >
       {/* Badge */}
       <span
         className="absolute"
         style={{
           top: 16, right: 16,
-          fontSize: 10, fontWeight: 600, padding: "3px 8px", letterSpacing: "0.06em",
+          fontSize: 10, fontWeight: 600, padding: "4px 10px", letterSpacing: "0.06em",
           background: bs.bg, border: `1px solid ${bs.border}`, color: bs.color,
         }}
       >
         {c.badge === "HOT" ? "🔥 HOT" : c.badge}
       </span>
 
-      {/* Country + type */}
-      <div className="flex flex-col">
-        <div className="flex items-center gap-2">
-          <FlagEmojiGroup flag={c.flag} size={18} />
-          <span style={{ fontSize: 14, fontWeight: 600, color: "#F0EBE0" }}>{c.country}</span>
+      {/* Country + type + established */}
+      <div className="flex items-center gap-3 mb-1">
+        <FlagEmojiGroup flag={c.flag} size={22} />
+        <div>
+          <span style={{ fontSize: 16, fontWeight: 600, color: "#F0EBE0", display: "block" }}>{c.country}</span>
+          <span style={{ fontSize: 11, color: "#5A5550" }}>{c.type} · EST. {c.established}</span>
         </div>
-        <span style={{ fontSize: 11, color: "#9A9590", marginTop: 2 }}>{c.type} · {c.established}</span>
       </div>
 
       {/* Separator */}
-      <div style={{ height: 1, background: "rgba(255,255,255,0.04)", margin: "16px 0" }} />
+      <div style={{ height: 1, background: "rgba(255,255,255,0.04)", margin: "20px 0 16px" }} />
 
-      {/* Activity */}
-      <div style={{ fontSize: 14, fontWeight: 500, color: "#F0EBE0", marginBottom: 8 }}>
+      {/* Activity title */}
+      <div style={{ fontSize: 13, color: "#9A9590", marginBottom: 16 }}>
         {c.activity}
       </div>
 
-      {/* Description */}
-      <p style={{ fontSize: 12, color: "#9A9590", lineHeight: 1.65, marginBottom: 16, flex: 1 }}>
-        {c.description}
-      </p>
-
-      {/* Details table */}
-      <div style={{ marginBottom: 16 }}>
+      {/* Feature bullets */}
+      <div className="flex flex-col" style={{ gap: 12, marginBottom: 20, flex: 1 }}>
         {[
-          { label: "Business activity", value: c.activity },
-          { label: "Country", value: c.country },
-          { label: "Established", value: c.established },
-          { label: "Bank account", value: c.hasBank ? "Yes" : "No bank account" },
-          { label: "Price", value: c.price },
-        ].map(row => (
-          <div key={row.label} className="flex justify-between" style={{ padding: "6px 0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-            <span style={{ fontSize: 11, color: "#5A5550" }}>{row.label}</span>
-            <span style={{ fontSize: 11, color: "#9A9590", fontWeight: 500 }}>{row.value}</span>
+          c.hasBank ? "Bank account included" : "No bank account",
+          `Established ${c.established}`,
+          "No debts, clean history",
+        ].map(f => (
+          <div key={f} className="flex items-start" style={{ gap: 10 }}>
+            <div style={{ width: 4, height: 4, background: "#444CE7", marginTop: 6, flexShrink: 0 }} />
+            <span style={{ fontSize: 13, color: "#9A9590", lineHeight: 1.5 }}>{f}</span>
           </div>
         ))}
       </div>
 
-      {/* Enquire link */}
-      <div>
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-1 hover:underline"
-          style={{ fontSize: 13, color: "#444CE7", textDecoration: "none", fontWeight: 500 }}
-        >
-          Enquire <ArrowRight size={12} />
-        </Link>
+      {/* CTA Button */}
+      <Link
+        to="/contact"
+        className="flex items-center justify-center gap-2 w-full"
+        style={{
+          padding: "16px 24px",
+          background: "rgba(68,76,231,0.15)",
+          border: "1px solid rgba(68,76,231,0.3)",
+          color: "#A5B4FC",
+          fontSize: 13,
+          fontWeight: 600,
+          letterSpacing: "0.05em",
+          textTransform: "uppercase",
+          textDecoration: "none",
+          marginBottom: 20,
+          transition: "background 0.2s",
+        }}
+      >
+        Inquire About This Company <ArrowRight size={14} />
+      </Link>
+
+      {/* Bottom row: Price + Transfer */}
+      <div className="flex items-end justify-between">
+        <div>
+          <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.06em", display: "block", marginBottom: 4 }}>Price</span>
+          <span style={{ fontSize: 18, fontWeight: 600, color: "#F0EBE0" }}>{c.price}</span>
+        </div>
+        <div className="text-right">
+          <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.06em", display: "block", marginBottom: 4 }}>Transfer</span>
+          <span style={{ fontSize: 14, color: "#9A9590" }}>5–7 days</span>
+        </div>
       </div>
     </motion.div>
   );
