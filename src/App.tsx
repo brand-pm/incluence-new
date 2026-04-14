@@ -363,7 +363,7 @@ const App = () => (
               <Route path="/residence-permit-in-slovakia" element={<ResidencePermitInSlovakiaPage />} />
 
               {/* Catch-all */}
-              <Route path="*" element={<PlaceholderPage title="Page Not Found" />} />
+              <Route path="*" element={<React.lazy(() => import("./pages/NotFound")) />} />
             </Routes>
           </Suspense>
         </main>
