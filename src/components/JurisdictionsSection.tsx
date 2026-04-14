@@ -26,10 +26,17 @@ const JurisdictionsSection = () => (
         <h2 style={{
           fontFamily: "Manrope, sans-serif", fontSize: 44, fontWeight: 300,
           color: "#F0EBE0", maxWidth: 600, lineHeight: 1.15, letterSpacing: "-0.02em",
-          marginBottom: 20,
+          marginBottom: 8,
         }}>
           The world's most effective licensing locations
         </h2>
+        {/* Accent underline */}
+        <div style={{
+          width: 80,
+          height: 2,
+          background: "linear-gradient(90deg, #444CE7, transparent)",
+          marginBottom: 20,
+        }} />
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <p style={{ fontSize: 16, color: "#9A9590", margin: 0 }}>
             Handpicked for regulatory credibility, cost-efficiency, and banking access.

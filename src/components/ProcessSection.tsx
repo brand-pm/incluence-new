@@ -27,7 +27,13 @@ const steps = [
 ];
 
 const ProcessSection = () => (
-  <section className="relative" style={{ background: "#111111", padding: "72px 48px" }}>
+  <section
+    className="relative"
+    style={{
+      background: "linear-gradient(180deg, #111111 0%, hsl(233 84% 60% / 0.04) 50%, #111111 100%)",
+      padding: "72px 48px",
+    }}
+  >
     <div className="mx-auto max-w-[1280px] relative">
       <ProcessFlowCanvas />
       <motion.div
@@ -65,10 +71,10 @@ const ProcessSection = () => (
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
           >
-            {/* Ghost number */}
+            {/* Ghost number — brighter accent */}
             <span className="step-ghost-num" style={{
               position: "absolute", top: 16, right: 24,
-              fontSize: 80, fontWeight: 300, color: "rgba(68,76,231,0.12)", transition: "color 0.3s ease",
+              fontSize: 80, fontWeight: 300, color: "hsl(233 84% 60% / 0.18)", transition: "color 0.3s ease",
               lineHeight: 1, pointerEvents: "none",
             }}>
               {step.num}

@@ -38,8 +38,18 @@ const services: ServiceCardData[] = [
 ];
 
 const OurServicesSection = () => (
-  <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
-    <div className="mx-auto max-w-[1280px]">
+  <section className="relative" style={{ background: "#0d0d0d", padding: "72px 48px" }}>
+    {/* Grid dots pattern */}
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        backgroundImage: "radial-gradient(circle, hsl(233 84% 60% / 0.08) 1px, transparent 1px)",
+        backgroundSize: "32px 32px",
+        opacity: 0.5,
+      }}
+    />
+
+    <div className="mx-auto max-w-[1280px] relative" style={{ zIndex: 1 }}>
       <motion.div
         style={{ marginBottom: 64 }}
         initial={{ opacity: 0, y: 24 }}

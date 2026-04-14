@@ -31,8 +31,16 @@ const cards = [
 ];
 
 const LicenseCategories = () => (
-  <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
-    <div className="mx-auto max-w-[1280px]">
+  <section className="relative" style={{ background: "#0d0d0d", padding: "72px 48px" }}>
+    {/* Accent glow */}
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        background: "radial-gradient(ellipse 80% 60% at 50% 100%, hsl(233 84% 60% / 0.06) 0%, transparent 70%)",
+      }}
+    />
+
+    <div className="mx-auto max-w-[1280px] relative" style={{ zIndex: 1 }}>
       <motion.div
         style={{ marginBottom: 64 }}
         initial={{ opacity: 0, y: 24 }}
@@ -61,13 +69,24 @@ const LicenseCategories = () => (
           <Link key={card.num} to={card.href} style={{ textDecoration: "none" }}>
           <motion.div
             className="group relative flex flex-col cursor-pointer overflow-hidden h-full"
-            style={{ background: "#0d0d0d", padding: "32px 28px", transition: "background 0.3s" }}
+            style={{
+              background: "#0d0d0d",
+              padding: "32px 28px",
+              borderLeft: "2px solid hsl(233 84% 60% / 0.15)",
+              transition: "background 0.3s, border-color 0.3s",
+            }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#111111")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "#0d0d0d")}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#111111";
+              e.currentTarget.style.borderLeftColor = "hsl(233 84% 60% / 0.5)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "#0d0d0d";
+              e.currentTarget.style.borderLeftColor = "hsl(233 84% 60% / 0.15)";
+            }}
           >
             <div
               className="absolute bottom-0 left-0 w-full h-[2px]"

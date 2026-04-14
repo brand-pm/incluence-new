@@ -3,20 +3,16 @@ import { motion } from "framer-motion";
 /* Inline SVG logos styled to match each brand's identity */
 const NebeusLogo = () => (
   <svg width="120" height="28" viewBox="0 0 120 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Circle icon */}
     <circle cx="12" cy="14" r="10" stroke="#F0EBE0" strokeWidth="2" fill="none" />
     <circle cx="12" cy="14" r="4" fill="#F0EBE0" />
-    {/* Text */}
     <text x="28" y="19" fontFamily="Manrope, sans-serif" fontSize="16" fontWeight="400" fill="#F0EBE0" letterSpacing="0.5">nebeus</text>
   </svg>
 );
 
 const B5Logo = () => (
   <svg width="130" height="28" viewBox="0 0 130 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* B5 icon circle */}
     <circle cx="14" cy="14" r="12" fill="none" stroke="#C89560" strokeWidth="1.5" />
     <text x="8" y="19" fontFamily="Manrope, sans-serif" fontSize="14" fontWeight="700" fill="#C89560">5</text>
-    {/* Text */}
     <text x="32" y="19" fontFamily="Manrope, sans-serif" fontSize="15" fontWeight="700" fill="#F0EBE0">B5</text>
     <text x="52" y="19" fontFamily="Manrope, sans-serif" fontSize="13" fontWeight="300" fill="#9A9590" letterSpacing="0.5">Exchange</text>
   </svg>
@@ -24,19 +20,15 @@ const B5Logo = () => (
 
 const N5BankLogo = () => (
   <svg width="100" height="32" viewBox="0 0 100 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Geometric N icon */}
     <rect x="0" y="4" width="24" height="24" rx="0" fill="none" stroke="#4F6AFF" strokeWidth="1.5" />
     <path d="M6 22 L6 10 L18 22 L18 10" stroke="#4F6AFF" strokeWidth="2" fill="none" strokeLinecap="square" />
-    {/* Text */}
     <text x="30" y="21" fontFamily="Manrope, sans-serif" fontSize="15" fontWeight="600" fill="#F0EBE0" letterSpacing="-0.5">bank</text>
   </svg>
 );
 
 const AvitarLogo = () => (
   <svg width="90" height="28" viewBox="0 0 90 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Stylized A */}
     <text x="0" y="20" fontFamily="Manrope, sans-serif" fontSize="18" fontWeight="700" fill="#F0EBE0" letterSpacing="1.5">AVITAR</text>
-    {/* Dot accent */}
     <circle cx="85" cy="18" r="2.5" fill="#E83B6C" />
   </svg>
 );
@@ -49,8 +41,18 @@ const partners = [
 ];
 
 const PartnersSection = () => (
-  <section style={{ background: "#0d0d0d", padding: "64px 48px" }}>
-    <div className="mx-auto max-w-[1280px]">
+  <section className="relative" style={{ background: "#0d0d0d", padding: "64px 48px" }}>
+    {/* Dot pattern */}
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        backgroundImage: "radial-gradient(circle, hsl(233 84% 60% / 0.06) 1px, transparent 1px)",
+        backgroundSize: "40px 40px",
+        opacity: 0.4,
+      }}
+    />
+
+    <div className="mx-auto max-w-[1280px] relative" style={{ zIndex: 1 }}>
       <div className="section-tag" style={{ marginBottom: 12 }}>Trusted By</div>
       <p style={{ fontSize: 16, color: "#9A9590", marginBottom: 40 }}>
         Our partners and integrations

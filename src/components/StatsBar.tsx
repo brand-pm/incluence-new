@@ -12,9 +12,9 @@ const stats = [
 
 const StatsBar = () => (
   <section className="relative" style={{
-    background: "#080808",
-    borderTop: "1px solid rgba(255,255,255,0.06)",
-    borderBottom: "1px solid rgba(255,255,255,0.06)",
+    background: "linear-gradient(135deg, hsl(233 84% 60% / 0.08) 0%, #080808 50%, hsl(233 84% 60% / 0.05) 100%)",
+    borderTop: "1px solid hsl(233 84% 60% / 0.15)",
+    borderBottom: "1px solid hsl(233 84% 60% / 0.15)",
     padding: "48px",
   }}>
     <MicroParticles />
