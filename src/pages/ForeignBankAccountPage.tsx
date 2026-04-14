@@ -70,7 +70,7 @@ const ForeignBankAccountPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Account Conditions</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What Conditions for Opening an Account in Payment Systems</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">What Conditions for Opening an Account in Payment Systems</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-relaxed">The exact conditions for opening an account depend on the rules of the chosen payment system. Typically, you need to:</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-2 gap-px">
             {CONDITIONS.map((c, i) => (
@@ -90,7 +90,7 @@ const ForeignBankAccountPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Remote Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Is It Possible to Open a Foreign Bank Account Online?</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Is It Possible to Open a Foreign Bank Account Online?</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Today, entrepreneurs can open a foreign bank account online, but not all banks provide such an option. This is largely due to the fact that if the bank values its reputation, it is obliged to conduct preliminary customer verification.</p>
@@ -115,7 +115,7 @@ const ForeignBankAccountPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Frequently Asked Questions</h2>
           <div className="max-w-[720px] space-y-px">
             {FAQS.map((faq, i) => (
               <div key={i} className="border-b border-white/[0.06]">
@@ -137,7 +137,7 @@ const ForeignBankAccountPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <div className="max-w-[600px] mx-auto">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Open Your Foreign Bank Account</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Open Your Foreign Bank Account</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed mb-8">Contact us to discuss your banking needs. We'll handle document preparation and bank selection.</p>
             <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
           </div>

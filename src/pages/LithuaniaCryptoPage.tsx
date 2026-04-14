@@ -177,7 +177,7 @@ const LithuaniaCryptoPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About Lithuania VASP</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Understanding the Crypto Exchange License in Lithuania</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-6">Understanding the Crypto Exchange License in Lithuania</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
               <p>A crypto exchange license in Lithuania grants companies the legal status to provide a wide range of Virtual Asset Service Provider (VASP) activities under the supervision of Lithuanian regulators. Licensed activities include: Fiat-to-Crypto Exchange, Crypto-to-Crypto Exchange, Custodial Wallet Services, and Transaction Mediation.</p>
               <p>Two main institutions oversee crypto activities in Lithuania: the Financial Crimes Investigation Service (FCIS) — the primary authority for supervising VASPs, and the Bank of Lithuania — which plays a key role in shaping financial market policies, payment systems, and the integration of crypto with traditional financial services.</p>
@@ -204,7 +204,7 @@ const LithuaniaCryptoPage = () => {
       <section style={{ background: "#111111", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How to Obtain a Lithuania VASP License</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">How to Obtain a Lithuania VASP License</h2>
           <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-12">A 7-step process managed by our team. The MLRO appointment is the most critical factor in approval speed.</p>
           <div ref={containerRef} className="relative">
             <ProcessFlowCanvas />
@@ -237,7 +237,7 @@ const LithuaniaCryptoPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Requirements</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Documents & Eligibility</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Documents & Eligibility</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-8">FCIS has strict requirements — particularly around MLRO qualifications and AML implementation. We prepare the full package to meet FCIS standards.</p>
             <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
               {REQS.map((r, i) => (
@@ -272,7 +272,7 @@ const LithuaniaCryptoPage = () => {
       <section style={{ background: "#111111", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Assessment</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Advantages & Limitations</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Advantages & Limitations</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             <div className="bg-[#111111] p-7">
               <h3 className="text-[13px] text-[#22c55e] uppercase tracking-[0.08em] mb-5">Advantages</h3>
@@ -290,7 +290,7 @@ const LithuaniaCryptoPage = () => {
       <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Common Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Common Questions</h2>
           <div className="max-w-[720px]">
             {FAQS.map((f, i) => (
               <div key={i} className="border-b border-white/[0.06]">
@@ -312,7 +312,7 @@ const LithuaniaCryptoPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Apply for a Lithuania VASP License</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Apply for a Lithuania VASP License</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">Tell us about your crypto business. We'll handle UAB formation, MLRO appointment, FCIS licensing, and MiCA transition planning.</p>
           </div>
           <div className="lg:col-span-7">

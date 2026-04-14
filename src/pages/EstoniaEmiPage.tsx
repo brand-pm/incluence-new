@@ -167,7 +167,7 @@ const EstoniaEmiPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About Estonia EMI</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Issue E-Money with 0% Tax on Retained Earnings</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-6">Issue E-Money with 0% Tax on Retained Earnings</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
               <p>By obtaining this permit, you will be legally entitled to: issue your own electronic currency; provide various payment services to clients; create and maintain payment systems; carry out other services related to the company's operations (including those not directly connected to electronic money).</p>
               <p>All applicants must meet several conditions set for this type of licensing. Specifically, you must: register a company in Estonia; provide proof of a share capital of at least €350,000; prepare a relatively large package of documents required for licensing: company charter, business plan, description of technical security measures for funds, and others.</p>
@@ -194,7 +194,7 @@ const EstoniaEmiPage = () => {
       <section style={{ background: "#111111", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How to Obtain an Estonia EMI License</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">How to Obtain an Estonia EMI License</h2>
           <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-12">6-step process. E-Residency enables remote company management. Finantsinspektsioon review takes 6–9 months.</p>
           <div ref={containerRef} className="relative">
             <ProcessFlowCanvas />
@@ -217,7 +217,7 @@ const EstoniaEmiPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Requirements</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Estonia EMI Requirements</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Estonia EMI Requirements</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-8">Finantsinspektsioon applies thorough due diligence. We prepare the full package tailored to Estonian standards.</p>
             <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
               {REQS.map((r, i) => (
@@ -253,7 +253,7 @@ const EstoniaEmiPage = () => {
       <section style={{ background: "#111111", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Assessment</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Pros & Cons</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Pros & Cons</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             <div className="bg-[#111111] p-8">
               <h3 className="text-[13px] text-[#22c55e] uppercase tracking-[0.1em] mb-6">Advantages</h3>
@@ -285,7 +285,7 @@ const EstoniaEmiPage = () => {
       <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Common Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Common Questions</h2>
           <div className="max-w-[720px]">
             {FAQS.map((f, i) => (
               <div key={i} className="border-b border-white/[0.06]">
@@ -307,7 +307,7 @@ const EstoniaEmiPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Apply for an Estonia EMI License</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Apply for an Estonia EMI License</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">Tell us about your payment business model. We'll recommend the optimal structure and provide a detailed timeline and cost breakdown.</p>
           </div>
           <div className="lg:col-span-7">

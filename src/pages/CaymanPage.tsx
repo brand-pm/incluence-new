@@ -91,7 +91,7 @@ const CaymanPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— Advantages</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Cayman Islands: Why Entrepreneurs Choose This Jurisdiction</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Cayman Islands: Why Entrepreneurs Choose This Jurisdiction</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">The Cayman Islands are popular among entrepreneurs for several reasons.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
             {[
@@ -113,7 +113,7 @@ const CaymanPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-7">
             <span className="section-tag mb-3 block">— Tax Exemption</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">20-Year Tax Exemption Certificate</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-6">20-Year Tax Exemption Certificate</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">
               One of the main advantages of offshore registration in the Cayman Islands is the complete absence of taxation. Moreover, legal entities can obtain a tax exemption certificate valid for up to 20 years. This benefit is available to firms registered as an Exempt Company.
             </p>
@@ -156,7 +156,7 @@ const CaymanPage = () => {
       <section id="requirements" className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— Requirements</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What Is Required for Cayman Registration</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">What Is Required for Cayman Registration</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-relaxed">Remote registration is available through a local representative. Documents required at minimum:</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-2 gap-px">
             {[
@@ -177,7 +177,7 @@ const CaymanPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Steps to Register a Cayman Offshore</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Steps to Register a Cayman Offshore</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[480px] leading-relaxed">2–3 weeks average. All steps handled by our specialists — including name availability checks, document preparation, and Registry submission.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-4 gap-px">
             {[
@@ -200,7 +200,7 @@ const CaymanPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
           <div className="max-w-[720px] divide-y divide-white/[0.06]">
             {FAQS.map((f,i)=>(
               <div key={i}><button onClick={()=>setOpenFaq(openFaq===i?null:i)} className="w-full flex items-center justify-between py-5 text-left group"><span className="text-[14px] text-[#F0EBE0] font-medium pr-8">{f.q}</span><ChevronDown className={`w-4 h-4 text-[#5A5550] transition-transform flex-shrink-0 ${openFaq===i?"rotate-180":""}`}/></button>{openFaq===i&&<p className="text-[13px] text-[#9A9590] leading-relaxed pb-5">{f.a}</p>}</div>
@@ -214,7 +214,7 @@ const CaymanPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-5">
             <span className="section-tag mb-3 block">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Register Your Cayman Company</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Register Your Cayman Company</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed">Contact our specialists to begin the registration process. We handle everything from document preparation to final submission.</p>
           </div>
           <div className="col-span-7">

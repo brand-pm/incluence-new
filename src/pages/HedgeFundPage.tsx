@@ -151,7 +151,7 @@ const HedgeFundPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Use Cases</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Why Create a Hedge Fund</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Why Create a Hedge Fund</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[500px] leading-[1.8]">
             A hedge fund is a private investment vehicle for specific investors. Such funds are generally not subject to strict regulation and are not accessible to a wide range of individuals. At the same time, hedge funds are often used for:
           </p>
@@ -173,7 +173,7 @@ const HedgeFundPage = () => {
       <section className="bg-[#111111] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Where to Register</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Offshore vs EU Jurisdictions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Offshore vs EU Jurisdictions</h2>
           <div className="grid grid-cols-12 gap-12">
             <div className="col-span-6">
               <div className="bg-[#080808] border border-white/[0.06] p-7 relative overflow-hidden group h-full">
@@ -221,7 +221,7 @@ const HedgeFundPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Registration Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How Hedge Fund Registration Works</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">How Hedge Fund Registration Works</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[480px] leading-[1.8]">
             The fund registration process may vary depending on the country, but there are several common steps you will need to follow when opening a hedge fund.
           </p>
@@ -244,7 +244,7 @@ const HedgeFundPage = () => {
       <section className="bg-[#111111] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Required Documents</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">What Documents Are Required</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">What Documents Are Required</h2>
           <div className="grid grid-cols-12 gap-12">
             <div className="col-span-7">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">
@@ -297,7 +297,7 @@ const HedgeFundPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
           <div className="max-w-[720px] space-y-px bg-[rgba(255,255,255,0.06)]">
             {FAQS.map((f, i) => (
               <div key={i} className="bg-[#0d0d0d]">
@@ -319,7 +319,7 @@ const HedgeFundPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Open Your Hedge Fund</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Open Your Hedge Fund</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">
               Contact our specialists to discuss jurisdiction, fund structure, and investor strategy.
             </p>

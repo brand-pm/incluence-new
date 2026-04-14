@@ -192,7 +192,7 @@ const DenmarkPaymentPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Key Requirements</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What Business Owners Must Know</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">What Business Owners Must Know</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-[1.8]">
             A payment system license in Denmark is only possible by following several strict rules. These are non-negotiable requirements set by Danish law.
           </p>
@@ -216,7 +216,7 @@ const DenmarkPaymentPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Required Documents</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Documents for the Danish FSA</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Documents for the Danish FSA</h2>
             <p className="text-[14px] text-[#9A9590] mb-8 leading-[1.8]">
               Before a licensed payment system can fully operate, the following must be provided to the regulator.
             </p>
@@ -259,7 +259,7 @@ const DenmarkPaymentPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
           <div className="max-w-[720px] space-y-px bg-[rgba(255,255,255,0.06)]">
             {FAQS.map((f, i) => (
               <div key={i} className="bg-[#0d0d0d]">
@@ -281,7 +281,7 @@ const DenmarkPaymentPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-5 flex flex-col justify-center">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Apply for a Denmark PS License</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Apply for a Denmark PS License</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">
               Contact our specialists to discuss your payment business model and Danish FSA requirements.
             </p>

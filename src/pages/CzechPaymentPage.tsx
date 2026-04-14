@@ -167,7 +167,7 @@ const CzechPaymentPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Why Czech Republic</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Advantages of a Czech Payment System License</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Advantages of a Czech Payment System License</h2>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
             {ADVANTAGES.map(a => (
               <div key={a.title} className="bg-[#0d0d0d] p-7 relative overflow-hidden group">
@@ -188,7 +188,7 @@ const CzechPaymentPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Requirements</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Requirements for a Czech PS License</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Requirements for a Czech PS License</h2>
             <p className="text-[14px] text-[#9A9590] mb-8 leading-[1.8]">
               To obtain a payment system license in the Czech Republic, all core requirements must be met. The CNB (Czech National Bank) supervises all licensed payment institutions.
             </p>
@@ -231,7 +231,7 @@ const CzechPaymentPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
           <div className="max-w-[720px] space-y-px bg-[rgba(255,255,255,0.06)]">
             {FAQS.map((f, i) => (
               <div key={i} className="bg-[#0d0d0d]">
@@ -253,7 +253,7 @@ const CzechPaymentPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-5 flex flex-col justify-center">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Apply for a Czech PS License</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Apply for a Czech PS License</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">
               Contact our specialists to discuss your payment business model and CNB requirements.
             </p>

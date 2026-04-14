@@ -103,7 +103,7 @@ const ContractsPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About International Contracts</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">What Is an International Contract</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">What Is an International Contract</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">An international contract is an agreement concluded between two or more parties located in different countries. Such agreements typically concern the sale or supply of goods, performance of work, provision of services, and similar transactions. An international contract is a fundamental document for any cross-border deal.</p>
@@ -135,7 +135,7 @@ const ContractsPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Required Sections</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Structure of an International Contract</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Structure of an International Contract</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-relaxed">Every international economic contract should include specific sections. Properly detailing them ensures smooth processing by banks and government authorities.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {SECTIONS.map((s, i) => (
@@ -153,7 +153,7 @@ const ContractsPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Frequently Asked Questions</h2>
           <div className="max-w-[720px] space-y-px">
             {FAQS.map((faq, i) => (
               <div key={i} className="border-b border-white/[0.06]">
@@ -175,7 +175,7 @@ const ContractsPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Order a Contract</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Draft Your International Contract</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Draft Your International Contract</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed">Tell us about your transaction — we'll prepare a legally sound contract covering all required sections.</p>
           </div>
           <div className="md:col-span-7">

@@ -166,7 +166,7 @@ const MaltaEmiPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About Malta EMI</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Top-3 Global EMI Hub with EU Passport</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-6">Top-3 Global EMI Hub with EU Passport</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
               <p>The Republic of Malta is one of the top three countries by the number of issued EMI licenses. Increased interest in this jurisdiction and the status of e money license Malta is caused by certain factors, among which are the single European passport, tax preferences, loyal attitude to foreign investors, and all-round active government support to suppliers and users of financial services.</p>
               <p>Electronic Money Institution or EMI is a license allowing one to manage/operate such an asset as electronic money. In particular, permission is required to operate payment systems and arrange payments via electronic wallets. An EMI license also gives the right to issue e-money. E-money, or electronic money, is an alternative to cash. It is assets stored electronically and on an electronic medium. Like physical money, it can be used for trade, exchange, and various payment transactions (transfers).</p>
@@ -193,7 +193,7 @@ const MaltaEmiPage = () => {
       <section style={{ background: "#111111", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How to Obtain a Malta EMI License</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">How to Obtain a Malta EMI License</h2>
           <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-12">6-step fully managed process. MFSA review is thorough — quality documentation and genuine substance are key.</p>
           <div ref={containerRef} className="relative">
             <ProcessFlowCanvas />
@@ -216,7 +216,7 @@ const MaltaEmiPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Requirements</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Malta EMI Requirements</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Malta EMI Requirements</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-8">MFSA applies thorough due diligence. We prepare the full package tailored to their standards.</p>
             <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
               {REQS.map((r, i) => (
@@ -252,7 +252,7 @@ const MaltaEmiPage = () => {
       <section style={{ background: "#111111", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Assessment</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Pros & Cons</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Pros & Cons</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             <div className="bg-[#111111] p-8">
               <h3 className="text-[13px] text-[#22c55e] uppercase tracking-[0.1em] mb-6">Advantages</h3>
@@ -284,7 +284,7 @@ const MaltaEmiPage = () => {
       <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Common Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Common Questions</h2>
           <div className="max-w-[720px]">
             {FAQS.map((f, i) => (
               <div key={i} className="border-b border-white/[0.06]">
@@ -306,7 +306,7 @@ const MaltaEmiPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Apply for a Malta EMI License</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Apply for a Malta EMI License</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">Tell us about your payment business model and target EU markets. We'll provide a detailed cost and timeline breakdown within 24 hours.</p>
           </div>
           <div className="lg:col-span-7">

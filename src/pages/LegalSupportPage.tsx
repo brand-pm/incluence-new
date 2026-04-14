@@ -97,7 +97,7 @@ const LegalSupportPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Services</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">What Legal Support We Provide</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">What Legal Support We Provide</h2>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {SERVICES.map((s, i) => (
               <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden">
@@ -115,7 +115,7 @@ const LegalSupportPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Qualification & Experience</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Our Track Record</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Our Track Record</h2>
           <div className="bg-[rgba(255,255,255,0.06)]">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px">
               {STATS_ROW1.map((s, i) => (
@@ -143,7 +143,7 @@ const LegalSupportPage = () => {
       <section className="bg-[#080808]" style={{ padding: "80px 48px" }}>
         <div className="max-w-screen-xl mx-auto max-w-[600px] mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Discuss Your Legal Matter</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Discuss Your Legal Matter</h2>
           <p className="text-[14px] text-[#9A9590] leading-relaxed mb-8">Contact us for a free initial consultation. We will review your situation and provide clear recommendations.</p>
           <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
         </div>

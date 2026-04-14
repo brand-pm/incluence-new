@@ -106,7 +106,7 @@ const BuyBusinessAbroadPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Why Buy Ready-Made</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">When It May Be Necessary to Buy a Business Abroad</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">When It May Be Necessary to Buy a Business Abroad</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">The process of entering the international market is always accompanied by dealing with all sorts of legal issues. A popular one is opening a new company in the chosen country. The thing is that it is not always possible to quickly register a company "from scratch," and the difficulties that arise can greatly delay the procedure. It is also worth mentioning the opening of a new bank account since this process sometimes takes many months.</p>
@@ -129,7 +129,7 @@ const BuyBusinessAbroadPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Benefits by Jurisdiction</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What Benefits Can You Get</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">What Benefits Can You Get</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Depending on the chosen jurisdiction, an entrepreneur can expect certain advantages in the process of doing business. In particular, various countries around the world can offer the businessman:</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-2 gap-px">
             <div className="bg-[#111111] p-8 group relative overflow-hidden">
@@ -174,7 +174,7 @@ const BuyBusinessAbroadPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">How to Buy a Company Abroad</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">How to Buy a Company Abroad</h2>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-4 gap-px">
             {STEPS.map((step, i) => (
               <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden">
@@ -192,7 +192,7 @@ const BuyBusinessAbroadPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Important</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Requirements After Re-registration</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Requirements After Re-registration</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">Please note that after re-registering ownership, the company can begin conducting business only under certain conditions and legal requirements. First of all, it concerns the minimum number of directors and shareholders, the presence of an accountant, the lease of an office in the territory of the chosen country, and more.</p>
@@ -219,7 +219,7 @@ const BuyBusinessAbroadPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Frequently Asked Questions</h2>
           <div className="max-w-[720px] space-y-px">
             {FAQS.map((faq, i) => (
               <div key={i} className="border-b border-white/[0.06]">
@@ -241,7 +241,7 @@ const BuyBusinessAbroadPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Find Your Company</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Buy a Ready-Made Company</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Buy a Ready-Made Company</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed">Tell us your requirements — activities, banking needs, existing licenses. We'll find the right match.</p>
           </div>
           <div className="md:col-span-7">

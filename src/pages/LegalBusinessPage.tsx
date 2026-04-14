@@ -104,7 +104,7 @@ const LegalBusinessPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Why It Matters</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">A Business Without a Legal Structure Is Constrained on Four Sides</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">A Business Without a Legal Structure Is Constrained on Four Sides</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[560px] leading-relaxed">Without a proper legal structure, your business cannot make contracts, conduct transactions, protect its interests, or enter international markets.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-4 gap-px">
             {CONSTRAINTS.map((c, i) => (
@@ -123,7 +123,7 @@ const LegalBusinessPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Our Services</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">What We Do for Your Business</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">What We Do for Your Business</h2>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {SERVICES.map((s, i) => (
               <div key={i} className="bg-[#111111] p-7 group relative overflow-hidden">
@@ -142,7 +142,7 @@ const LegalBusinessPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Our Approach</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">After Selecting the Place, We Lay the Foundation</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">After Selecting the Place, We Lay the Foundation</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-6">On one hand, a legal structure is only a set of business documents. On the other hand, this set of documents gives your company a solid foundation you cannot build a legitimate and lasting business without.</p>
@@ -178,7 +178,7 @@ const LegalBusinessPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Start Legitimizing Your Business</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Start Legitimizing Your Business</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed">Tell us about your business — current structure, target markets, and main challenges. We'll provide a clear roadmap.</p>
           </div>
           <div className="md:col-span-7">

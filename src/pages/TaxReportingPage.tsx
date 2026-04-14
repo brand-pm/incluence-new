@@ -103,7 +103,7 @@ const TaxReportingPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Our Services</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">What We Do</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">What We Do</h2>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {SERVICES.map((s, i) => (
               <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden">
@@ -121,7 +121,7 @@ const TaxReportingPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Workflow</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How We Work</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">How We Work</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[480px] leading-relaxed">Controlling meeting of the deadlines at every stage. A four-step process ensuring accurate and timely financial reporting.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-4 gap-px">
             {STEPS.map((s, i) => (
@@ -141,7 +141,7 @@ const TaxReportingPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Set Up Your Tax & Reporting</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Set Up Your Tax & Reporting</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed">Tell us about your current situation — jurisdictions, reporting needs, and challenges. We'll handle the rest.</p>
           </div>
           <div className="md:col-span-7">

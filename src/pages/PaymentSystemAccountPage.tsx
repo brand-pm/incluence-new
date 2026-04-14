@@ -155,7 +155,7 @@ const PaymentSystemAccountPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About Payment Systems</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Payment System as a Banking Alternative</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Payment System as a Banking Alternative</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-[1.8]">
             A payment system is a company that facilitates the exchange of funds between participants — both individuals and legal entities. It provides financial services under a specific license (EMI or similar), allowing money transfers for third parties.
           </p>
@@ -178,7 +178,7 @@ const PaymentSystemAccountPage = () => {
       <section className="bg-[#111111] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— After Opening</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What a Payment System Account Provides</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">What a Payment System Account Provides</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[500px] leading-[1.8]">
             Once your account is opened, you get access to a full range of financial tools for international business operations.
           </p>
@@ -201,7 +201,7 @@ const PaymentSystemAccountPage = () => {
       <section id="psa-docs" className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Required Documents</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Documents Required to Open a Payment System Account</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Documents Required to Open a Payment System Account</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-[1.8]">
             These are not exhaustive — the payment system may request additional documents at any stage. Failure to provide them will result in account denial.
           </p>
@@ -246,7 +246,7 @@ const PaymentSystemAccountPage = () => {
       <section className="bg-[#111111] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Steps to Open a Payment System Account</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Steps to Open a Payment System Account</h2>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-5 gap-px">
             {STEPS.map(s => (
               <div key={s.num} className="bg-[#111111] p-6 relative overflow-hidden group">
@@ -266,7 +266,7 @@ const PaymentSystemAccountPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
           <div className="max-w-[720px] space-y-px bg-[rgba(255,255,255,0.06)]">
             {FAQS.map((f, i) => (
               <div key={i} className="bg-[#0d0d0d]">
@@ -288,7 +288,7 @@ const PaymentSystemAccountPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-5 flex flex-col justify-center">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Open Your Payment System Account</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Open Your Payment System Account</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">
               Contact our specialists to discuss your business needs and select the best payment system.
             </p>

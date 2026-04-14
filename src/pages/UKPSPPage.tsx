@@ -176,7 +176,7 @@ const UKPSPPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About the License</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">UK AEMI — Authorised Electronic Money Institution</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">UK AEMI — Authorised Electronic Money Institution</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-[1.8]">
             The AEMI (Authorised Electronic Money Institution) is the main payment system license issued by the UK Financial Conduct Authority. It combines the functions of both PSP and EMI — making it one of the most powerful financial licenses available globally.
           </p>
@@ -200,7 +200,7 @@ const UKPSPPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Requirements</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Requirements for a UK PSP License</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Requirements for a UK PSP License</h2>
             <p className="text-[14px] text-[#9A9590] mb-8 leading-[1.8]">
               To obtain a payment system license in the UK, all core regulatory requirements must be met. The FCA applies stringent fit-and-proper assessments to all applicants.
             </p>
@@ -243,7 +243,7 @@ const UKPSPPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
           <div className="max-w-[720px] space-y-px bg-[rgba(255,255,255,0.06)]">
             {FAQS.map((f, i) => (
               <div key={i} className="bg-[#0d0d0d]">
@@ -265,7 +265,7 @@ const UKPSPPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-5 flex flex-col justify-center">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Apply for a UK PSP License</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Apply for a UK PSP License</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">
               Contact our specialists to discuss your payment business model and SWIFT/SEPA requirements.
             </p>
