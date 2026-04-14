@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState } from "react";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -11,93 +11,55 @@ interface Company {
   flag: string;
   country: string;
   type: string;
-  badge: "HOT" | "PREMIUM" | "AVAILABLE";
+  badge: "HOT" | "AVAILABLE";
   price: string;
-  transfer: string;
-  features: string[];
-  jurisdiction: string;
+  established: string;
+  activity: string;
   hasBank: boolean;
+  description: string;
 }
 
 const COMPANIES: Company[] = [
-  { flag: "🇬🇧", country: "United Kingdom", type: "LTD Company", badge: "HOT", price: "£8,500", transfer: "3 days", features: ["Registered at Companies House", "NatWest business account included", "VAT registered", "2023 shelf company"], jurisdiction: "UK", hasBank: true },
-  { flag: "🇭🇰", country: "Hong Kong", type: "Limited Company", badge: "PREMIUM", price: "$12,000", transfer: "5 days", features: ["HSBC corporate account", "Registered in Wanchai", "Clean history 2022", "E-residency compatible"], jurisdiction: "Hong Kong", hasBank: true },
-  { flag: "🇪🇪", country: "Estonia", type: "OÜ (E-Residency)", badge: "AVAILABLE", price: "€9,500", transfer: "2 days", features: ["LHV bank account", "E-Residency company", "VAT EU registered", "Ideal for digital services"], jurisdiction: "Estonia", hasBank: true },
-  { flag: "🇻🇬", country: "BVI", type: "Business Company", badge: "AVAILABLE", price: "$7,500", transfer: "3 days", features: ["Nominee director available", "Clean 2023 registration", "No audit requirement", "Bearer shares"], jurisdiction: "BVI", hasBank: false },
-  { flag: "🇸🇨", country: "Seychelles", type: "IBC", badge: "AVAILABLE", price: "$6,000", transfer: "3 days", features: ["Clean 2023", "Nominee available", "Ideal for trading and investments", "Bank intro available"], jurisdiction: "Seychelles", hasBank: false },
-  { flag: "🇦🇪", country: "UAE (RAK)", type: "Free Zone LLC", badge: "PREMIUM", price: "$18,000", transfer: "7 days", features: ["RAK ICC registration", "0% corporate tax", "Emirates NBD intro", "Trade license included"], jurisdiction: "UAE", hasBank: false },
-  { flag: "🇰🇾", country: "Cayman Islands", type: "Exempted Company", badge: "PREMIUM", price: "$22,000", transfer: "10 days", features: ["Butterfield bank account", "Clean 2022 shelf", "Ideal for fund structures", "No local tax"], jurisdiction: "Cayman", hasBank: true },
-  { flag: "🇵🇦", country: "Panama", type: "SA (Sociedad Anónima)", badge: "AVAILABLE", price: "$5,500", transfer: "5 days", features: ["Bearer shares possible", "No reporting requirement", "Territorial tax", "Bank intro available"], jurisdiction: "Other", hasBank: false },
-  { flag: "🇨🇾", country: "Cyprus", type: "Limited Company", badge: "AVAILABLE", price: "$11,000", transfer: "7 days", features: ["Hellenic bank account", "VAT EU registered", "12.5% corporate tax", "2022 shelf"], jurisdiction: "Other", hasBank: true },
-  { flag: "🇲🇺", country: "Mauritius", type: "GBL Company", badge: "AVAILABLE", price: "$8,000", transfer: "7 days", features: ["Standard Chartered account", "15% corp tax + treaty network", "Clean 2023", "DTA with 43 countries"], jurisdiction: "Other", hasBank: true },
-  { flag: "🇧🇿", country: "Belize", type: "IBC", badge: "AVAILABLE", price: "$4,500", transfer: "2 days", features: ["Quick transfer", "No public records", "Nominee available", "Tax exempt offshore"], jurisdiction: "Other", hasBank: false },
-  { flag: "🇨🇭", country: "Switzerland", type: "GmbH", badge: "PREMIUM", price: "$35,000", transfer: "14 days", features: ["PostFinance account", "Canton Zug registered", "Clean 2022", "Ideal for fintech/crypto"], jurisdiction: "Other", hasBank: true },
+  { flag: "🇧🇬", country: "Bulgaria", type: "Ready-made", badge: "HOT", price: "Contact us", established: "February 2021", activity: "Digital Marketing and IT", hasBank: true, description: "Digital Marketing and IT company established in Bulgaria. Has a bank account. Hot offer." },
+  { flag: "🇬🇧", country: "United Kingdom", type: "Ready-made", badge: "HOT", price: "Contact us", established: "June 2022", activity: "Electrical services, onsite electrical work", hasBank: true, description: "Ready-made business in the UK specializing in electrical services. Has a bank account. Hot offer." },
+  { flag: "🇵🇱", country: "Poland", type: "Ready-made", badge: "HOT", price: "EUR 3,995", established: "April 2018", activity: "Marketing and IT company", hasBank: false, description: "Marketing and IT company established in Poland. Hot offer." },
+  { flag: "🇱🇹", country: "Lithuania", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "October 2022", activity: "Holding companies", hasBank: false, description: "L*** set up in October 2022 with registered activity like holding company activities. No bank account. No debts. Available for reservation." },
+  { flag: "🇪🇪", country: "Estonia", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "April 2019", activity: "Computer programming activities", hasBank: false, description: "Dec** established in April 2019, specializes in computer programming activities. Director and shareholder both from Estonia. No debts, reports filled on time." },
+  { flag: "🇬🇧", country: "United Kingdom", type: "Ready-made", badge: "AVAILABLE", price: "GBP 4,500", established: "January 2020", activity: "Combined office administrative service activities", hasBank: false, description: "En*** established in January 2020. Director and shareholder both from Spain. No bank account. No debts, reports filled on time." },
+  { flag: "🇬🇧", country: "United Kingdom", type: "Ready-made", badge: "AVAILABLE", price: "EUR 3,000", established: "September 2023", activity: "IT and Wholesale of computers, peripheral equipment and software", hasBank: false, description: "Tec*** established in September 2023. Director and shareholder from Lithuania. Nominee director service available." },
+  { flag: "🇷🇸", country: "Serbia", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "March 2021", activity: "Wholesale trade of various goods", hasBank: false, description: "Sol*** established in March 2021 in Belgrade. Wholesale trade of various goods. Employs one person. No reported debts. Active." },
+  { flag: "🇪🇪", country: "Estonia", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "September 2021", activity: "Arts, entertainment and recreation", hasBank: false, description: "Di*** established in September 2021. Director and shareholder both from Estonia. No debts, reports filled on time." },
+  { flag: "🇱🇹", country: "Lithuania", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "June 2022", activity: "Consulting services", hasBank: false, description: "La*** set up in June 2022. Formed for crypto-related use but share capital was not raised. No debts." },
+  { flag: "🇬🇧", country: "United Kingdom", type: "Ready-made", badge: "AVAILABLE", price: "GBP 10,000", established: "October 2012", activity: "Video production activities", hasBank: false, description: "Ar*** established in October 2012. Director and shareholder both from Mexico. No debts, reports filled on time." },
+  { flag: "🇪🇪", country: "Estonia", type: "Ready-made", badge: "AVAILABLE", price: "EUR 4,950", established: "April 2018", activity: "Computer programming activities", hasBank: false, description: "Computer programming activities company established in Estonia in April 2018." },
+  { flag: "🇪🇪", country: "Estonia", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "May 2017", activity: "Freight transport by road", hasBank: true, description: "TS*** established in May 2017. Has transport license (3.5t). Director and shareholder from Latvia. Share capital paid — €9,508. VAT number since March 2022." },
+  { flag: "🇪🇪", country: "Estonia", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "October 2017", activity: "Other personal service activities n.e.c.", hasBank: false, description: "Pu*** established in October 2017. Broad category suitable for various personal and lifestyle services." },
+  { flag: "🇪🇪", country: "Estonia", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "April 2009", activity: "Wholesale and retail trade; repair of motor vehicles", hasBank: true, description: "St*** established in April 2009. Director from Estonia, shareholders from Norway and Estonia. Share capital paid — €10,050. VAT number since February 2011." },
+  { flag: "🇪🇪", country: "Estonia", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "February 2016", activity: "IT and computer service activities", hasBank: false, description: "Te*** established in February 2016 for IT and software development. Director and shareholder both from Estonia." },
+  { flag: "🇪🇪", country: "Estonia", type: "Ready-made", badge: "AVAILABLE", price: "EUR 3,600", established: "December 2017", activity: "Administrative and support service activities", hasBank: false, description: "Wi*** established in December 2017. Director and shareholder both from Estonia. Share capital paid — €2,508." },
+  { flag: "🇪🇪", country: "Estonia", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "July 2025", activity: "Other business support service activities n.e.c.", hasBank: false, description: "E*** established in July 2025. Corporate and operational support services. Debt-free, fully compliant." },
 ];
 
 const BADGE_STYLES: Record<string, { bg: string; border: string; color: string }> = {
   HOT: { bg: "rgba(217,32,32,0.15)", border: "rgba(217,32,32,0.3)", color: "#D92020" },
-  PREMIUM: { bg: "rgba(68,76,231,0.12)", border: "rgba(68,76,231,0.3)", color: "#6172F3" },
   AVAILABLE: { bg: "rgba(34,197,94,0.1)", border: "rgba(34,197,94,0.3)", color: "#22c55e" },
 };
 
-const JURISDICTIONS = ["All", "UK", "Hong Kong", "Estonia", "BVI", "Seychelles", "UAE", "Cayman"];
-const TYPES = ["All", "LTD", "LLC", "Inc", "Foundation"];
+const JURISDICTIONS = ["All", "Estonia", "United Kingdom", "Lithuania", "Bulgaria", "Poland", "Serbia"];
 
 /* ── COMPANY CARD ─────────────────────────────────────────────────── */
 const CompanyCard = ({ c, i }: { c: Company; i: number }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
-
-  const handleMouseEnter = useCallback(() => {
-    const el = cardRef.current;
-    if (!el) return;
-    el.style.background = "#111111";
-    el.classList.remove("scanning");
-    void el.offsetWidth;
-    el.classList.add("scanning");
-    clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => {
-      el.classList.remove("scanning");
-      el.classList.add("scan-done");
-    }, 700);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    const el = cardRef.current;
-    if (!el) return;
-    el.style.background = "#0d0d0d";
-    el.classList.remove("scanning", "scan-done");
-    clearTimeout(timerRef.current);
-  }, []);
-
   const bs = BADGE_STYLES[c.badge];
 
   return (
     <motion.div
-      ref={cardRef}
-      className="service-card group relative overflow-hidden cursor-pointer"
-      style={{ background: "#0d0d0d", padding: "28px 24px", transition: "background 0.3s, border-color 0.3s" }}
+      className="service-card group relative overflow-hidden"
+      style={{ background: "#0d0d0d", padding: "28px 24px", display: "flex", flexDirection: "column" }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.5, delay: (i % 6) * 0.06 }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
-      <div className="scan-line" />
-
-      {/* Bottom accent */}
-      <div
-        className="absolute bottom-0 left-0 w-full h-[2px]"
-        style={{ background: "#444CE7", transform: "scaleX(0)", transformOrigin: "left", transition: "transform 0.35s ease" }}
-        ref={(el) => {
-          if (!el) return;
-          const p = el.parentElement!;
-          p.addEventListener("mouseenter", () => (el.style.transform = "scaleX(1)"));
-          p.addEventListener("mouseleave", () => (el.style.transform = "scaleX(0)"));
-        }}
-      />
-
       {/* Badge */}
       <span
         className="absolute"
@@ -107,7 +69,7 @@ const CompanyCard = ({ c, i }: { c: Company; i: number }) => {
           background: bs.bg, border: `1px solid ${bs.border}`, color: bs.color,
         }}
       >
-        {c.badge}
+        {c.badge === "HOT" ? "🔥 HOT" : c.badge}
       </span>
 
       {/* Country + type */}
@@ -116,32 +78,42 @@ const CompanyCard = ({ c, i }: { c: Company; i: number }) => {
           <FlagEmojiGroup flag={c.flag} size={18} />
           <span style={{ fontSize: 14, fontWeight: 600, color: "#F0EBE0" }}>{c.country}</span>
         </div>
-        <span style={{ fontSize: 11, color: "#9A9590", marginTop: 2 }}>{c.type}</span>
+        <span style={{ fontSize: 11, color: "#9A9590", marginTop: 2 }}>{c.type} · {c.established}</span>
       </div>
 
       {/* Separator */}
       <div style={{ height: 1, background: "rgba(255,255,255,0.04)", margin: "16px 0" }} />
 
-      {/* Features */}
-      <div className="flex flex-col" style={{ gap: 8, marginBottom: 16 }}>
-        {c.features.map(f => (
-          <div key={f} className="flex items-start" style={{ gap: 8 }}>
-            <div style={{ width: 3, height: 3, background: "#444CE7", marginTop: 6, flexShrink: 0 }} />
-            <span style={{ fontSize: 12, color: "#9A9590", lineHeight: 1.5 }}>{f}</span>
+      {/* Activity */}
+      <div style={{ fontSize: 14, fontWeight: 500, color: "#F0EBE0", marginBottom: 8 }}>
+        {c.activity}
+      </div>
+
+      {/* Description */}
+      <p style={{ fontSize: 12, color: "#9A9590", lineHeight: 1.65, marginBottom: 16, flex: 1 }}>
+        {c.description}
+      </p>
+
+      {/* Details table */}
+      <div style={{ marginBottom: 16 }}>
+        {[
+          { label: "Business activity", value: c.activity },
+          { label: "Country", value: c.country },
+          { label: "Established", value: c.established },
+          { label: "Bank account", value: c.hasBank ? "Yes" : "No bank account" },
+          { label: "Price", value: c.price },
+        ].map(row => (
+          <div key={row.label} className="flex justify-between" style={{ padding: "6px 0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+            <span style={{ fontSize: 11, color: "#5A5550" }}>{row.label}</span>
+            <span style={{ fontSize: 11, color: "#9A9590", fontWeight: 500 }}>{row.value}</span>
           </div>
         ))}
       </div>
 
-      {/* Bottom row */}
-      <div className="flex items-end justify-between" style={{ marginTop: "auto" }}>
-        <span style={{ fontSize: 18, fontWeight: 600, color: "#F0EBE0" }}>{c.price}</span>
-        <span style={{ fontSize: 11, color: "#5A5550" }}>Transfer in {c.transfer}</span>
-      </div>
-
       {/* Enquire link */}
-      <div style={{ marginTop: 12 }}>
+      <div>
         <Link
-          to="/"
+          to="/contact"
           className="inline-flex items-center gap-1 hover:underline"
           style={{ fontSize: 13, color: "#444CE7", textDecoration: "none", fontWeight: 500 }}
         >
@@ -211,7 +183,7 @@ const Marketplace = () => {
   const [bankOnly, setBankOnly] = useState(false);
 
   const filtered = COMPANIES.filter(c => {
-    if (jurisdiction !== "All" && c.jurisdiction !== jurisdiction) return false;
+    if (jurisdiction !== "All" && c.country !== jurisdiction) return false;
     if (type !== "All" && !c.type.toLowerCase().includes(type.toLowerCase())) return false;
     if (bankOnly && !c.hasBank) return false;
     return true;
@@ -274,13 +246,6 @@ const Marketplace = () => {
               <span style={{ fontSize: 11, color: "#5A5550", marginRight: 8 }}>Jurisdiction:</span>
               {JURISDICTIONS.map(j => (
                 <FilterBtn key={j} label={j} active={jurisdiction === j} onClick={() => setJurisdiction(j)} />
-              ))}
-            </div>
-            {/* Type */}
-            <div className="flex flex-wrap items-center" style={{ gap: 8 }}>
-              <span style={{ fontSize: 11, color: "#5A5550", marginRight: 8 }}>Type:</span>
-              {TYPES.map(t => (
-                <FilterBtn key={t} label={t} active={type === t} onClick={() => setType(t)} />
               ))}
             </div>
             {/* Bank toggle */}
