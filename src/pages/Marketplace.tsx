@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight, LayoutGrid, List, Building2, Globe, Clock, Banknote } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import MicroParticles from "@/components/MicroParticles";
@@ -47,137 +47,258 @@ const BADGE_STYLES: Record<string, { bg: string; border: string; color: string }
 
 const JURISDICTIONS = ["All", "Estonia", "United Kingdom", "Lithuania", "Bulgaria", "Poland", "Serbia"];
 
-/* ── COMPANY CARD ─────────────────────────────────────────────────── */
-const CompanyCard = ({ c, i }: { c: Company; i: number }) => {
+/* ── CATALOG CARD (Variant 3 — Premium Catalog) ──────────────────── */
+const CatalogCard = ({ c, i }: { c: Company; i: number }) => {
   const bs = BADGE_STYLES[c.badge];
-
   return (
     <motion.div
-      className="relative overflow-hidden flex flex-col"
-      style={{ background: "#0d0d0d", padding: "28px 24px", borderBottom: "2px solid transparent", transition: "border-color 0.3s" }}
+      className="flex flex-col"
+      style={{
+        background: "hsl(var(--bg-2))",
+        border: "1px solid hsl(var(--border-default))",
+        overflow: "hidden",
+      }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.5, delay: (i % 6) * 0.06 }}
-      whileHover={{ borderBottomColor: "#444CE7" }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.45, delay: (i % 6) * 0.05 }}
     >
-      {/* Badge */}
-      <span
-        className="absolute"
-        style={{
-          top: 16, right: 16,
-          fontSize: 10, fontWeight: 600, padding: "4px 10px", letterSpacing: "0.06em",
-          background: bs.bg, border: `1px solid ${bs.border}`, color: bs.color,
-        }}
+      {/* Header bar */}
+      <div
+        className="flex items-center justify-between"
+        style={{ padding: "16px 20px", borderBottom: "1px solid hsl(var(--border-default))" }}
       >
-        {c.badge === "HOT" ? "🔥 HOT" : c.badge}
-      </span>
-
-      {/* Country + type + established */}
-      <div className="flex items-center gap-3 mb-1">
-        <FlagEmojiGroup flag={c.flag} size={22} />
-        <div>
-          <span style={{ fontSize: 16, fontWeight: 600, color: "#F0EBE0", display: "block" }}>{c.country}</span>
-          <span style={{ fontSize: 11, color: "#5A5550" }}>{c.type} · EST. {c.established}</span>
-        </div>
-      </div>
-
-      {/* Separator */}
-      <div style={{ height: 1, background: "rgba(255,255,255,0.04)", margin: "20px 0 16px" }} />
-
-      {/* Activity title */}
-      <div style={{ fontSize: 13, color: "#9A9590", marginBottom: 16 }}>
-        {c.activity}
-      </div>
-
-      {/* Feature bullets */}
-      <div className="flex flex-col" style={{ gap: 12, marginBottom: 20, flex: 1 }}>
-        {[
-          c.hasBank ? "Bank account included" : "No bank account",
-          `Established ${c.established}`,
-          "No debts, clean history",
-        ].map(f => (
-          <div key={f} className="flex items-start" style={{ gap: 10 }}>
-            <div style={{ width: 4, height: 4, background: "#444CE7", marginTop: 6, flexShrink: 0 }} />
-            <span style={{ fontSize: 13, color: "#9A9590", lineHeight: 1.5 }}>{f}</span>
+        <div className="flex items-center gap-3">
+          <FlagEmojiGroup flag={c.flag} size={22} />
+          <div>
+            <span style={{ fontSize: 15, fontWeight: 600, color: "hsl(var(--text-primary))", display: "block" }}>{c.country}</span>
+            <span style={{ fontSize: 11, color: "hsl(var(--text-muted))" }}>EST. {c.established}</span>
           </div>
-        ))}
+        </div>
+        <span
+          style={{
+            fontSize: 10, fontWeight: 600, padding: "4px 10px", letterSpacing: "0.06em",
+            background: bs.bg, border: `1px solid ${bs.border}`, color: bs.color,
+          }}
+        >
+          {c.badge === "HOT" ? "🔥 HOT" : c.badge}
+        </span>
       </div>
 
-      {/* CTA Button */}
-      <Link
-        to="/contact"
-        className="flex items-center justify-center gap-2 w-full"
-        style={{
-          padding: "16px 24px",
-          background: "rgba(68,76,231,0.15)",
-          border: "1px solid rgba(68,76,231,0.3)",
-          color: "#A5B4FC",
-          fontSize: 13,
-          fontWeight: 600,
-          letterSpacing: "0.05em",
-          textTransform: "uppercase",
-          textDecoration: "none",
-          marginBottom: 20,
-          transition: "background 0.2s",
-        }}
-      >
-        Inquire About This Company <ArrowRight size={14} />
-      </Link>
+      {/* Body */}
+      <div style={{ padding: "20px", flex: 1, display: "flex", flexDirection: "column" }}>
+        {/* Activity */}
+        <h3 style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))", marginBottom: 8, lineHeight: 1.4 }}>
+          {c.activity}
+        </h3>
 
-      {/* Bottom row: Price + Transfer */}
-      <div className="flex items-end justify-between">
-        <div>
-          <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.06em", display: "block", marginBottom: 4 }}>Price</span>
-          <span style={{ fontSize: 18, fontWeight: 600, color: "#F0EBE0" }}>{c.price}</span>
+        {/* Description */}
+        <p style={{ fontSize: 12, color: "hsl(var(--text-secondary))", lineHeight: 1.7, marginBottom: 16 }}>
+          {c.description}
+        </p>
+
+        {/* Detail grid */}
+        <div
+          className="grid grid-cols-2"
+          style={{ gap: 1, background: "hsl(var(--border-default))", marginBottom: 20 }}
+        >
+          {[
+            { icon: <Building2 size={12} />, label: "Type", value: c.type },
+            { icon: <Globe size={12} />, label: "Bank Account", value: c.hasBank ? "✓ Included" : "Not included" },
+            { icon: <Clock size={12} />, label: "Transfer Time", value: "5–7 days" },
+            { icon: <Banknote size={12} />, label: "Debts", value: "None" },
+          ].map((d) => (
+            <div key={d.label} style={{ background: "hsl(var(--bg-1))", padding: "12px 14px" }}>
+              <div className="flex items-center gap-1.5" style={{ marginBottom: 4 }}>
+                <span style={{ color: "hsl(var(--text-accent))" }}>{d.icon}</span>
+                <span style={{ fontSize: 10, color: "hsl(var(--text-muted))", textTransform: "uppercase", letterSpacing: "0.06em" }}>{d.label}</span>
+              </div>
+              <span style={{ fontSize: 12, fontWeight: 500, color: d.value === "✓ Included" ? "#22c55e" : "hsl(var(--text-primary))" }}>
+                {d.value}
+              </span>
+            </div>
+          ))}
         </div>
-        <div className="text-right">
-          <span style={{ fontSize: 10, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.06em", display: "block", marginBottom: 4 }}>Transfer</span>
-          <span style={{ fontSize: 14, color: "#9A9590" }}>5–7 days</span>
+
+        {/* Price + CTA row */}
+        <div className="mt-auto flex items-center justify-between" style={{ gap: 12 }}>
+          <div>
+            <span style={{ fontSize: 10, color: "hsl(var(--text-muted))", textTransform: "uppercase", letterSpacing: "0.06em", display: "block", marginBottom: 2 }}>Price</span>
+            <span style={{ fontSize: 20, fontWeight: 600, color: "hsl(var(--text-primary))" }}>{c.price}</span>
+          </div>
+          <Link
+            to="/contact"
+            className="flex items-center gap-2"
+            style={{
+              padding: "12px 20px",
+              background: "hsl(var(--accent) / 0.12)",
+              border: "1px solid hsl(var(--accent) / 0.25)",
+              color: "hsl(var(--accent-light))",
+              fontSize: 12, fontWeight: 600, letterSpacing: "0.04em",
+              textDecoration: "none", textTransform: "uppercase",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Inquire <ArrowRight size={12} />
+          </Link>
         </div>
       </div>
     </motion.div>
   );
 };
 
-/* ── FAQ ACCORDION ────────────────────────────────────────────────── */
+/* ── DATA BOARD ROW (Variant 2 — Data Board) ─────────────────────── */
+const DataBoardRow = ({ c, i }: { c: Company; i: number }) => {
+  const bs = BADGE_STYLES[c.badge];
+  return (
+    <motion.div
+      className="grid items-center"
+      style={{
+        gridTemplateColumns: "2fr 2.5fr 1fr 1fr 1fr auto",
+        background: "hsl(var(--bg-2))",
+        padding: "16px 20px",
+        borderBottom: "1px solid hsl(var(--border-default))",
+        gap: 16,
+      }}
+      initial={{ opacity: 0, x: -10 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.3, delay: i * 0.03 }}
+    >
+      {/* Country */}
+      <div className="flex items-center gap-3">
+        <FlagEmojiGroup flag={c.flag} size={20} />
+        <div>
+          <span style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))", display: "block" }}>{c.country}</span>
+          <span style={{ fontSize: 11, color: "hsl(var(--text-muted))" }}>EST. {c.established}</span>
+        </div>
+      </div>
+
+      {/* Activity */}
+      <div>
+        <span style={{ fontSize: 13, color: "hsl(var(--text-secondary))", lineHeight: 1.4 }}>{c.activity}</span>
+      </div>
+
+      {/* Bank */}
+      <span style={{ fontSize: 12, color: c.hasBank ? "#22c55e" : "hsl(var(--text-muted))", fontWeight: 500 }}>
+        {c.hasBank ? "✓ Yes" : "No"}
+      </span>
+
+      {/* Price */}
+      <span style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))" }}>{c.price}</span>
+
+      {/* Badge */}
+      <span
+        style={{
+          fontSize: 10, fontWeight: 600, padding: "3px 8px", letterSpacing: "0.06em",
+          background: bs.bg, border: `1px solid ${bs.border}`, color: bs.color,
+          display: "inline-block", textAlign: "center",
+        }}
+      >
+        {c.badge === "HOT" ? "🔥 HOT" : c.badge}
+      </span>
+
+      {/* CTA */}
+      <Link
+        to="/contact"
+        style={{
+          padding: "8px 16px",
+          background: "hsl(var(--accent) / 0.12)",
+          border: "1px solid hsl(var(--accent) / 0.25)",
+          color: "hsl(var(--accent-light))",
+          fontSize: 11, fontWeight: 600, textDecoration: "none", textTransform: "uppercase",
+          letterSpacing: "0.04em", whiteSpace: "nowrap",
+        }}
+      >
+        Inquire →
+      </Link>
+    </motion.div>
+  );
+};
+
+/* ── MOBILE DATA ROW ─────────────────────────────────────────────── */
+const DataBoardRowMobile = ({ c, i }: { c: Company; i: number }) => {
+  const bs = BADGE_STYLES[c.badge];
+  return (
+    <motion.div
+      style={{
+        background: "hsl(var(--bg-2))",
+        padding: "16px 20px",
+        borderBottom: "1px solid hsl(var(--border-default))",
+      }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.3, delay: i * 0.03 }}
+    >
+      <div className="flex items-center justify-between" style={{ marginBottom: 10 }}>
+        <div className="flex items-center gap-2">
+          <FlagEmojiGroup flag={c.flag} size={18} />
+          <span style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))" }}>{c.country}</span>
+        </div>
+        <span
+          style={{
+            fontSize: 10, fontWeight: 600, padding: "3px 8px", letterSpacing: "0.06em",
+            background: bs.bg, border: `1px solid ${bs.border}`, color: bs.color,
+          }}
+        >
+          {c.badge === "HOT" ? "🔥 HOT" : c.badge}
+        </span>
+      </div>
+      <div style={{ fontSize: 12, color: "hsl(var(--text-secondary))", marginBottom: 6 }}>{c.activity}</div>
+      <div className="flex items-center justify-between" style={{ marginTop: 8 }}>
+        <div className="flex items-center gap-4">
+          <span style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))" }}>{c.price}</span>
+          <span style={{ fontSize: 11, color: c.hasBank ? "#22c55e" : "hsl(var(--text-muted))" }}>
+            {c.hasBank ? "✓ Bank" : "No bank"}
+          </span>
+        </div>
+        <Link
+          to="/contact"
+          style={{
+            padding: "6px 14px",
+            background: "hsl(var(--accent) / 0.12)",
+            border: "1px solid hsl(var(--accent) / 0.25)",
+            color: "hsl(var(--accent-light))",
+            fontSize: 11, fontWeight: 600, textDecoration: "none",
+          }}
+        >
+          Inquire →
+        </Link>
+      </div>
+    </motion.div>
+  );
+};
+
+/* ── FAQ ──────────────────────────────────────────────────────────── */
 const faqs = [
-  {
-    q: "Can I get a company with a bank account already open?",
-    a: "Yes — selected listings include active corporate accounts with NatWest, HSBC, LHV, or regional banks. Bank account transfer requires additional KYC and typically takes 3–7 additional days.",
-  },
-  {
-    q: "Is the company history clean?",
-    a: "All our shelf companies are verified clean — no liabilities, no trading history, no outstanding filings. We provide a certificate of good standing with every transfer.",
-  },
-  {
-    q: "What documents do I need to provide?",
-    a: "Standard KYC package: valid passport, proof of address, source of funds declaration, and a brief description of intended use. Depending on jurisdiction, additional AML documents may be required.",
-  },
+  { q: "Can I get a company with a bank account already open?", a: "Yes — selected listings include active corporate accounts with NatWest, HSBC, LHV, or regional banks. Bank account transfer requires additional KYC and typically takes 3–7 additional days." },
+  { q: "Is the company history clean?", a: "All our shelf companies are verified clean — no liabilities, no trading history, no outstanding filings. We provide a certificate of good standing with every transfer." },
+  { q: "What documents do I need to provide?", a: "Standard KYC package: valid passport, proof of address, source of funds declaration, and a brief description of intended use. Depending on jurisdiction, additional AML documents may be required." },
 ];
 
 const FaqItem = ({ q, a }: { q: string; a: string }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", padding: "20px 0" }}>
+    <div style={{ borderBottom: "1px solid hsl(var(--border-default))", padding: "20px 0" }}>
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between"
-        style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "Manrope, sans-serif", textAlign: "left" }}
+        style={{ background: "none", border: "none", cursor: "pointer", textAlign: "left" }}
       >
-        <span style={{ fontSize: 15, fontWeight: 500, color: "#F0EBE0" }}>{q}</span>
+        <span style={{ fontSize: 15, fontWeight: 500, color: "hsl(var(--text-primary))" }}>{q}</span>
         <ChevronRight
           size={16}
           style={{
-            color: "#444CE7", flexShrink: 0, marginLeft: 16,
+            color: "hsl(var(--accent))", flexShrink: 0, marginLeft: 16,
             transform: open ? "rotate(90deg)" : "rotate(0deg)",
             transition: "transform 0.2s ease",
           }}
         />
       </button>
       {open && (
-        <div style={{ marginTop: 12, borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 12 }}>
-          <p style={{ fontSize: 13, color: "#9A9590", lineHeight: 1.75, margin: 0 }}>{a}</p>
+        <div style={{ marginTop: 12, borderTop: "1px solid hsl(var(--border-default))", paddingTop: 12 }}>
+          <p style={{ fontSize: 13, color: "hsl(var(--text-secondary))", lineHeight: 1.75, margin: 0 }}>{a}</p>
         </div>
       )}
     </div>
@@ -195,12 +316,11 @@ const transferSteps = [
 /* ── PAGE ──────────────────────────────────────────────────────────── */
 const Marketplace = () => {
   const [jurisdiction, setJurisdiction] = useState("All");
-  const [type, setType] = useState("All");
   const [bankOnly, setBankOnly] = useState(false);
+  const [viewMode, setViewMode] = useState<"catalog" | "board">("catalog");
 
   const filtered = COMPANIES.filter(c => {
     if (jurisdiction !== "All" && c.country !== jurisdiction) return false;
-    if (type !== "All" && !c.type.toLowerCase().includes(type.toLowerCase())) return false;
     if (bankOnly && !c.hasBank) return false;
     return true;
   });
@@ -209,10 +329,10 @@ const Marketplace = () => {
     <button
       onClick={onClick}
       style={{
-        padding: "8px 16px", fontSize: 12, fontFamily: "Manrope, sans-serif",
-        border: `1px solid ${active ? "#444CE7" : "rgba(255,255,255,0.08)"}`,
-        color: active ? "#F0EBE0" : "#9A9590",
-        background: active ? "rgba(68,76,231,0.08)" : "transparent",
+        padding: "8px 16px", fontSize: 12,
+        border: `1px solid ${active ? "hsl(var(--accent))" : "hsl(var(--border-default))"}`,
+        color: active ? "hsl(var(--text-primary))" : "hsl(var(--text-secondary))",
+        background: active ? "hsl(var(--accent) / 0.08)" : "transparent",
         cursor: "pointer", transition: "all 0.2s",
       }}
     >
@@ -222,24 +342,24 @@ const Marketplace = () => {
 
   return (
     <div>
-      {/* ══ SECTION 1: HERO ══════════════════════════════════════════ */}
-      <section className="relative overflow-hidden" style={{ background: "#080808", padding: "96px 48px", paddingTop: "calc(var(--nav-height) + 96px)" }}>
+      {/* ══ HERO ═════════════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden" style={{ background: "hsl(var(--bg-1))", padding: "96px 24px", paddingTop: "calc(var(--nav-height) + 96px)" }}>
         <MicroParticles />
         <div className="mx-auto max-w-[1280px] relative" style={{ zIndex: 1 }}>
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="section-tag" style={{ marginBottom: 12 }}>Ready Made Companies</div>
             <h1 style={{
-              fontFamily: "Manrope, sans-serif", fontSize: "clamp(32px, 4.5vw, 56px)", fontWeight: 300,
-              color: "#F0EBE0", lineHeight: 1.12, letterSpacing: "-0.02em", maxWidth: 640, marginBottom: 16,
+              fontSize: "clamp(32px, 4.5vw, 56px)", fontWeight: 300,
+              color: "hsl(var(--text-primary))", lineHeight: 1.12, letterSpacing: "-0.02em", maxWidth: 640, marginBottom: 16,
             }}>
               Acquire a company. Launch tomorrow.
             </h1>
-            <p style={{ fontSize: 16, color: "#9A9590", lineHeight: 1.7, maxWidth: 560, marginBottom: 48 }}>
+            <p style={{ fontSize: 16, color: "hsl(var(--text-secondary))", lineHeight: 1.7, maxWidth: 560, marginBottom: 48 }}>
               Pre-registered legal entities in 12+ jurisdictions. Bank accounts included on select listings. Immediate transfer.
             </p>
           </motion.div>
 
-          {/* Stats row */}
+          {/* Stats */}
           <motion.div className="flex flex-wrap" style={{ gap: 48, marginBottom: 48 }}
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }}>
             {[
@@ -248,40 +368,71 @@ const Marketplace = () => {
               { num: "3 days", label: "avg transfer time" },
             ].map(s => (
               <div key={s.label}>
-                <span style={{ fontSize: 24, fontWeight: 300, color: "#F0EBE0" }}>{s.num}</span>
-                <span style={{ fontSize: 12, color: "#5A5550", marginLeft: 8 }}>{s.label}</span>
+                <span style={{ fontSize: 24, fontWeight: 300, color: "hsl(var(--text-primary))" }}>{s.num}</span>
+                <span style={{ fontSize: 12, color: "hsl(var(--text-muted))", marginLeft: 8 }}>{s.label}</span>
               </div>
             ))}
           </motion.div>
 
-          {/* Filters */}
+          {/* Filters + View Toggle */}
           <motion.div className="flex flex-col" style={{ gap: 12 }}
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.25 }}>
-            {/* Jurisdiction */}
-            <div className="flex flex-wrap items-center" style={{ gap: 8 }}>
-              <span style={{ fontSize: 11, color: "#5A5550", marginRight: 8 }}>Jurisdiction:</span>
-              {JURISDICTIONS.map(j => (
-                <FilterBtn key={j} label={j} active={jurisdiction === j} onClick={() => setJurisdiction(j)} />
-              ))}
+            <div className="flex flex-wrap items-center justify-between" style={{ gap: 12 }}>
+              {/* Jurisdiction filters */}
+              <div className="flex flex-wrap items-center" style={{ gap: 8 }}>
+                <span style={{ fontSize: 11, color: "hsl(var(--text-muted))", marginRight: 8 }}>Jurisdiction:</span>
+                {JURISDICTIONS.map(j => (
+                  <FilterBtn key={j} label={j} active={jurisdiction === j} onClick={() => setJurisdiction(j)} />
+                ))}
+              </div>
+
+              {/* View toggle */}
+              <div className="flex items-center" style={{ gap: 2, background: "hsl(var(--bg-2))", border: "1px solid hsl(var(--border-default))", padding: 2 }}>
+                <button
+                  onClick={() => setViewMode("catalog")}
+                  title="Catalog View"
+                  style={{
+                    padding: "8px 12px", border: "none", cursor: "pointer",
+                    background: viewMode === "catalog" ? "hsl(var(--accent) / 0.12)" : "transparent",
+                    color: viewMode === "catalog" ? "hsl(var(--accent-light))" : "hsl(var(--text-muted))",
+                    display: "flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 500,
+                  }}
+                >
+                  <LayoutGrid size={14} /> Catalog
+                </button>
+                <button
+                  onClick={() => setViewMode("board")}
+                  title="Board View"
+                  style={{
+                    padding: "8px 12px", border: "none", cursor: "pointer",
+                    background: viewMode === "board" ? "hsl(var(--accent) / 0.12)" : "transparent",
+                    color: viewMode === "board" ? "hsl(var(--accent-light))" : "hsl(var(--text-muted))",
+                    display: "flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 500,
+                  }}
+                >
+                  <List size={14} /> Board
+                </button>
+              </div>
             </div>
+
             {/* Bank toggle */}
             <div className="flex items-center" style={{ gap: 10 }}>
-              <span style={{ fontSize: 11, color: "#5A5550" }}>Bank:</span>
+              <span style={{ fontSize: 11, color: "hsl(var(--text-muted))" }}>Bank:</span>
               <button
                 onClick={() => setBankOnly(!bankOnly)}
                 className="flex items-center"
                 style={{
-                  gap: 8, padding: "8px 16px", fontSize: 12, fontFamily: "Manrope, sans-serif",
-                  border: `1px solid ${bankOnly ? "#444CE7" : "rgba(255,255,255,0.08)"}`,
-                  color: bankOnly ? "#F0EBE0" : "#9A9590",
-                  background: bankOnly ? "rgba(68,76,231,0.08)" : "transparent",
+                  gap: 8, padding: "8px 16px", fontSize: 12,
+                  border: `1px solid ${bankOnly ? "hsl(var(--accent))" : "hsl(var(--border-default))"}`,
+                  color: bankOnly ? "hsl(var(--text-primary))" : "hsl(var(--text-secondary))",
+                  background: bankOnly ? "hsl(var(--accent) / 0.08)" : "transparent",
                   cursor: "pointer", transition: "all 0.2s",
                 }}
               >
                 <div style={{
                   width: 14, height: 14,
-                  border: `1px solid ${bankOnly ? "#444CE7" : "rgba(255,255,255,0.15)"}`,
-                  background: bankOnly ? "#444CE7" : "transparent",
+                  border: `1px solid ${bankOnly ? "hsl(var(--accent))" : "hsl(var(--border-default))"}`,
+                  background: bankOnly ? "hsl(var(--accent))" : "transparent",
                   transition: "all 0.2s",
                 }} />
                 With bank account
@@ -291,85 +442,108 @@ const Marketplace = () => {
         </div>
       </section>
 
-      {/* ══ SECTION 2: COMPANY GRID ═══════════════════════════════════ */}
-      <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
+      {/* ══ LISTINGS ═════════════════════════════════════════════════════ */}
+      <section style={{ background: "hsl(var(--bg-2))", padding: "72px 24px" }}>
         <div className="mx-auto max-w-[1280px]">
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-            style={{ gap: 1, background: "rgba(255,255,255,0.06)" }}
-          >
-            {filtered.map((c, i) => (
-              <CompanyCard key={`${c.country}-${c.type}`} c={c} i={i} />
-            ))}
-          </div>
+          {viewMode === "catalog" ? (
+            /* CATALOG GRID */
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3" style={{ gap: 16 }}>
+              {filtered.map((c, i) => (
+                <CatalogCard key={`${c.country}-${c.established}-${i}`} c={c} i={i} />
+              ))}
+            </div>
+          ) : (
+            /* DATA BOARD */
+            <div>
+              {/* Desktop header */}
+              <div
+                className="hidden lg:grid items-center"
+                style={{
+                  gridTemplateColumns: "2fr 2.5fr 1fr 1fr 1fr auto",
+                  padding: "12px 20px", gap: 16,
+                  borderBottom: "2px solid hsl(var(--accent) / 0.2)",
+                }}
+              >
+                {["Jurisdiction", "Activity", "Bank", "Price", "Status", ""].map(h => (
+                  <span key={h} style={{ fontSize: 10, fontWeight: 600, color: "hsl(var(--text-muted))", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                    {h}
+                  </span>
+                ))}
+              </div>
+              {/* Desktop rows */}
+              <div className="hidden lg:block">
+                {filtered.map((c, i) => (
+                  <DataBoardRow key={`${c.country}-${c.established}-${i}`} c={c} i={i} />
+                ))}
+              </div>
+              {/* Mobile rows */}
+              <div className="lg:hidden">
+                {filtered.map((c, i) => (
+                  <DataBoardRowMobile key={`${c.country}-${c.established}-${i}`} c={c} i={i} />
+                ))}
+              </div>
+            </div>
+          )}
+
           {filtered.length === 0 && (
             <div style={{ textAlign: "center", padding: "64px 0" }}>
-              <p style={{ fontSize: 15, color: "#9A9590", marginBottom: 16 }}>No companies match your filters.</p>
+              <p style={{ fontSize: 15, color: "hsl(var(--text-secondary))", marginBottom: 16 }}>No companies match your filters.</p>
               <button
-                onClick={() => { setJurisdiction("All"); setType("All"); setBankOnly(false); }}
-                style={{ fontSize: 13, color: "#444CE7", background: "none", border: "none", cursor: "pointer", fontFamily: "Manrope, sans-serif" }}
+                onClick={() => { setJurisdiction("All"); setBankOnly(false); }}
+                style={{ fontSize: 13, color: "hsl(var(--accent))", background: "none", border: "none", cursor: "pointer" }}
               >
                 Clear all filters →
               </button>
             </div>
           )}
-          <div style={{ marginTop: 32, fontSize: 13, color: "#5A5550" }}>
+          <div style={{ marginTop: 32, fontSize: 13, color: "hsl(var(--text-muted))" }}>
             Showing {filtered.length} of {COMPANIES.length} listings
           </div>
         </div>
       </section>
 
-      {/* ══ SECTION 3: HOW TRANSFER WORKS ═════════════════════════════ */}
-      <section className="relative" style={{ background: "#111111", padding: "72px 48px" }}>
+      {/* ══ TRANSFER PROCESS ═════════════════════════════════════════════ */}
+      <section className="relative" style={{ background: "hsl(var(--bg-3))", padding: "72px 24px" }}>
         <div className="mx-auto max-w-[1280px] relative">
           <ProcessFlowCanvas />
-
           <motion.div style={{ marginBottom: 56 }}
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }}>
             <div className="section-tag" style={{ marginBottom: 12 }}>Transfer Process</div>
             <h2 style={{
-              fontFamily: "Manrope, sans-serif", fontSize: 40, fontWeight: 300,
-              color: "#F0EBE0", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 16,
+              fontSize: 40, fontWeight: 300,
+              color: "hsl(var(--text-primary))", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 16,
             }}>
               From selection to ownership in days
             </h2>
-            <p style={{ fontSize: 15, color: "#9A9590", lineHeight: 1.7 }}>
+            <p style={{ fontSize: 15, color: "hsl(var(--text-secondary))", lineHeight: 1.7 }}>
               A fully managed process — we handle all documentation, notarization, and bank introductions.
             </p>
           </motion.div>
 
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-            style={{ gap: 1, background: "rgba(255,255,255,0.06)" }}
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ gap: 1, background: "hsl(var(--border-default))" }}>
             {transferSteps.map((step, i) => (
               <motion.div
                 key={step.num}
-                data-step={String(i + 1)}
                 className="relative overflow-hidden"
-                style={{ background: "#111111", padding: "28px 24px" }}
+                style={{ background: "hsl(var(--bg-3))", padding: "28px 24px" }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <span className="step-ghost-num" style={{
+                <span style={{
                   position: "absolute", top: 12, right: 20,
-                  fontSize: 64, fontWeight: 300, color: "rgba(68,76,231,0.12)",
-                  lineHeight: 1, pointerEvents: "none", transition: "color 0.3s ease",
+                  fontSize: 64, fontWeight: 300, color: "hsl(var(--accent) / 0.12)",
+                  lineHeight: 1, pointerEvents: "none",
                 }}>
                   {step.num}
                 </span>
-                <h3 style={{ fontSize: 16, fontWeight: 600, color: "#F0EBE0", marginBottom: 10 }}>
-                  {step.title}
-                </h3>
-                <p style={{ fontSize: 13, color: "#9A9590", lineHeight: 1.65, marginBottom: 16 }}>
-                  {step.desc}
-                </p>
+                <h3 style={{ fontSize: 16, fontWeight: 600, color: "hsl(var(--text-primary))", marginBottom: 10 }}>{step.title}</h3>
+                <p style={{ fontSize: 13, color: "hsl(var(--text-secondary))", lineHeight: 1.65, marginBottom: 16 }}>{step.desc}</p>
                 <span style={{
                   display: "inline-block",
-                  border: "1px solid rgba(68,76,231,0.2)", color: "#6172F3",
+                  border: "1px solid hsl(var(--accent) / 0.2)", color: "hsl(var(--accent-light))",
                   fontSize: 11, padding: "4px 10px", fontWeight: 500,
                 }}>
                   {step.duration}
@@ -380,72 +554,47 @@ const Marketplace = () => {
         </div>
       </section>
 
-      {/* ══ SECTION 4: CUSTOM COMPANY FORMATION ═══════════════════════ */}
-      <section style={{ background: "#080808", padding: "72px 48px" }}>
+      {/* ══ CUSTOM FORMATION ═════════════════════════════════════════════ */}
+      <section style={{ background: "hsl(var(--bg-1))", padding: "72px 24px" }}>
         <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-[60%_40%]" style={{ gap: 48 }}>
-          {/* Left */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }}>
             <div className="section-tag" style={{ marginBottom: 12 }}>Don't See What You Need?</div>
             <h2 style={{
-              fontFamily: "Manrope, sans-serif", fontSize: 36, fontWeight: 300,
-              color: "#F0EBE0", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 16,
+              fontSize: 36, fontWeight: 300,
+              color: "hsl(var(--text-primary))", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 16,
             }}>
               We form new companies in 48 hours
             </h2>
-            <p style={{ fontSize: 15, color: "#9A9590", lineHeight: 1.75, marginBottom: 32 }}>
+            <p style={{ fontSize: 15, color: "hsl(var(--text-secondary))", lineHeight: 1.75, marginBottom: 32 }}>
               Can't find your jurisdiction or structure in the marketplace? Our team can incorporate
               fresh in most jurisdictions within 24–72 hours.
             </p>
-
             <div className="flex flex-wrap" style={{ gap: 16, marginBottom: 32 }}>
               {[
-                { flag: "🇬🇧", name: "UK" },
-                { flag: "🇭🇰", name: "HK" },
-                { flag: "🇪🇪", name: "Estonia" },
-                { flag: "🇻🇬", name: "BVI" },
-                { flag: "🇸🇨", name: "Seychelles" },
-                { flag: "🇸🇬", name: "Singapore" },
+                { flag: "🇬🇧", name: "UK" }, { flag: "🇭🇰", name: "HK" }, { flag: "🇪🇪", name: "Estonia" },
+                { flag: "🇻🇬", name: "BVI" }, { flag: "🇸🇨", name: "Seychelles" }, { flag: "🇸🇬", name: "Singapore" },
               ].map(j => (
-                <span key={j.name} className="flex items-center gap-1.5" style={{ fontSize: 13, color: "#9A9590" }}>
+                <span key={j.name} className="flex items-center gap-1.5" style={{ fontSize: 13, color: "hsl(var(--text-secondary))" }}>
                   <FlagEmojiGroup flag={j.flag} size={14} /> {j.name}
                 </span>
               ))}
             </div>
-
-            <Link
-              to="/"
-              className="btn-primary inline-flex items-center gap-2"
-              style={{ textDecoration: "none" }}
-            >
+            <Link to="/" className="btn-primary inline-flex items-center gap-2" style={{ textDecoration: "none" }}>
               Request Custom Formation <ArrowRight size={14} />
             </Link>
           </motion.div>
 
-          {/* Right — stats grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            <div
-              className="grid grid-cols-2"
-              style={{ gap: 1, background: "rgba(255,255,255,0.06)" }}
-            >
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, delay: 0.15 }}>
+            <div className="grid grid-cols-2" style={{ gap: 1, background: "hsl(var(--border-default))" }}>
               {[
                 { num: "48h", label: "Formation in UK & Seychelles" },
                 { num: "15+", label: "Jurisdictions available" },
                 { num: "€3,500", label: "Starting price" },
                 { num: "Clean", label: "100% new registrations" },
               ].map(s => (
-                <div key={s.label} className="text-center" style={{ background: "#0d0d0d", padding: 24 }}>
-                  <div style={{ fontSize: 24, fontWeight: 300, color: "#F0EBE0", marginBottom: 4 }}>
-                    {s.num}
-                  </div>
-                  <div style={{ fontSize: 11, color: "#5A5550", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                    {s.label}
-                  </div>
+                <div key={s.label} className="text-center" style={{ background: "hsl(var(--bg-2))", padding: 24 }}>
+                  <div style={{ fontSize: 24, fontWeight: 300, color: "hsl(var(--text-primary))", marginBottom: 4 }}>{s.num}</div>
+                  <div style={{ fontSize: 11, color: "hsl(var(--text-muted))", textTransform: "uppercase", letterSpacing: "0.06em" }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -453,31 +602,23 @@ const Marketplace = () => {
         </div>
       </section>
 
-      {/* ══ SECTION 5: FAQ ════════════════════════════════════════════ */}
-      <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
+      {/* ══ FAQ ═══════════════════════════════════════════════════════════ */}
+      <section style={{ background: "hsl(var(--bg-2))", padding: "72px 24px" }}>
         <div className="mx-auto max-w-[800px]">
           <motion.div style={{ marginBottom: 48 }}
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }}>
             <div className="section-tag" style={{ marginBottom: 12 }}>FAQ</div>
             <h2 style={{
-              fontFamily: "Manrope, sans-serif", fontSize: 36, fontWeight: 300,
-              color: "#F0EBE0", lineHeight: 1.2, letterSpacing: "-0.02em",
+              fontSize: 36, fontWeight: 300,
+              color: "hsl(var(--text-primary))", lineHeight: 1.2, letterSpacing: "-0.02em",
             }}>
               Frequently asked questions
             </h2>
           </motion.div>
-
-          {faqs.map((faq, i) => (
-            <FaqItem key={i} q={faq.q} a={faq.a} />
-          ))}
-
+          {faqs.map((faq, i) => <FaqItem key={i} q={faq.q} a={faq.a} />)}
           <div style={{ marginTop: 32 }}>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-1 hover:underline"
-              style={{ fontSize: 13, color: "#444CE7", textDecoration: "none", fontWeight: 500 }}
-            >
+            <Link to="/" className="inline-flex items-center gap-1 hover:underline" style={{ fontSize: 13, color: "hsl(var(--accent))", textDecoration: "none", fontWeight: 500 }}>
               Have more questions? <ArrowRight size={12} /> Talk to a specialist
             </Link>
           </div>
