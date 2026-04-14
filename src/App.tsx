@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import AIConsultant from "./components/ui/AIConsultant";
 
 // --- Lazy page imports (default exports) ---
+const NotFoundPage = React.lazy(() => import("./pages/NotFound"));
 const Index = React.lazy(() => import("./pages/Index"));
 const GamblingHubPage = React.lazy(() => import("./pages/GamblingHubPage"));
 const MaltaLicensePage = React.lazy(() => import("./pages/gambling/MaltaLicensePage"));
