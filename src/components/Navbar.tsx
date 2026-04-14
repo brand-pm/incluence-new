@@ -354,9 +354,9 @@ const Navbar = () => {
             <Phone size={14} className="text-[#9A9590] group-hover:text-[#444CE7] transition-colors duration-200" />
           </a>
 
-          <Link
-            to="/contact"
-            className="no-underline transition-colors duration-200"
+          <button
+            onClick={() => setProjectDialogOpen(true)}
+            className="no-underline transition-colors duration-200 border-0 cursor-pointer"
             style={{
               background: "#444CE7",
               color: "#fff",
@@ -364,14 +364,15 @@ const Navbar = () => {
               fontSize: 11,
               fontWeight: 500,
               letterSpacing: "0.08em",
-              textTransform: "uppercase",
+              textTransform: "uppercase" as const,
               borderRadius: 0,
+              fontFamily: "inherit",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "#3538CD")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "#444CE7")}
           >
             Start a Project
-          </Link>
+          </button>
         </div>
 
         {/* Mobile toggle */}
