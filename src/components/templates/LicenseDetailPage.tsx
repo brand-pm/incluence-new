@@ -57,34 +57,25 @@ const pickText = (...sources: (string | null | undefined)[]): string => {
   return valid.sort((a, b) => b.length - a.length)[0];
 };
 
-/* ── SMART TEXT UTILITIES ── */
-
-/** Truncate text to ~160 chars at the nearest sentence boundary */
 const heroSubtitle = (text: string): string => {
   if (!text) return "";
   if (text.length <= 180) return text;
-  // Find sentence end before 180
   const cut = text.slice(0, 180);
   const lastDot = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("? "), cut.lastIndexOf("! "));
   if (lastDot > 80) return text.slice(0, lastDot + 1);
   return cut.replace(/\s+\S*$/, "") + "…";
 };
 
-/** Highlight numbers, percentages, currencies, and time periods in body text */
 const highlightText = (text: string): React.ReactNode => {
   if (!text) return null;
-  // Split on patterns we want to highlight
   const parts = text.split(/((?:\$|€|£)?\d[\d.,]*\s*(?:%|percent|years?|months?|weeks?|days?|hours?)|\d[\d.,]*\s*(?:EUR|USD|GBP)|\b\d{1,2}\s*(?:–|-)\s*\d{1,2}\s*(?:months?|weeks?))/gi);
   if (parts.length <= 1) return text;
   return parts.map((part, i) => {
-    if (i % 2 === 1) {
-      return <span key={i} className="text-[#F0EBE0] font-semibold">{part}</span>;
-    }
+    if (i % 2 === 1) return <span key={i} className="text-[#F0EBE0] font-semibold">{part}</span>;
     return part;
   });
 };
 
-/** Classify a paragraph by content */
 type ParagraphType = "intro" | "requirements" | "costs" | "timeline" | "body";
 
 const classifyParagraph = (text: string): ParagraphType => {
@@ -95,9 +86,7 @@ const classifyParagraph = (text: string): ParagraphType => {
   return "body";
 };
 
-/** Check if paragraph contains list-like content (semicolons, dashes, bullets) */
 const isListParagraph = (text: string): boolean => {
-  // If it has 3+ items separated by semicolons or line-break + dash
   const semicolons = (text.match(/;/g) || []).length;
   if (semicolons >= 2) return true;
   const dashLines = (text.match(/\n-\s/g) || []).length;
@@ -105,36 +94,22 @@ const isListParagraph = (text: string): boolean => {
   return false;
 };
 
-/** Split a list-like paragraph into items */
 const splitListItems = (text: string): string[] => {
-  // Try semicolons first
-  if (text.includes(";")) {
-    return text.split(/;\s*/).map(s => s.trim()).filter(Boolean);
-  }
-  // Try newline-dashes
-  if (text.includes("\n-")) {
-    return text.split(/\n-\s*/).map(s => s.trim()).filter(Boolean);
-  }
+  if (text.includes(";")) return text.split(/;\s*/).map(s => s.trim()).filter(Boolean);
+  if (text.includes("\n-")) return text.split(/\n-\s*/).map(s => s.trim()).filter(Boolean);
   return [text];
 };
 
-/** Check if a paragraph starts with a heading-like pattern */
 const extractSubHeading = (text: string): { heading: string; body: string } | null => {
-  // "Title:" or "**Title**" patterns
   const match = text.match(/^(?:\*\*(.+?)\*\*|([A-Z][^.]{3,50}):)\s*([\s\S]+)/);
-  if (match) {
-    return { heading: match[1] || match[2], body: match[3] };
-  }
+  if (match) return { heading: match[1] || match[2], body: match[3] };
   return null;
 };
 
-/** Check if text starts the same as another (deduplication) */
 const startsLike = (a: string, b: string, minLen = 50): boolean => {
   if (!a || !b) return false;
   return a.slice(0, minLen).trim() === b.slice(0, minLen).trim();
 };
-
-/* ── SHARED UI ATOMS ── */
 
 const Tag = ({ children }: { children: React.ReactNode }) => (
   <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.12em]">— {children}</span>
@@ -149,7 +124,7 @@ const NoiseOverlay = () => (
 
 const Skeleton = () => (
   <div className="min-h-screen" style={{ background: "#080808", fontFamily: "Manrope, sans-serif" }}>
-    <div className="max-w-screen-xl mx-auto py-[120px] px-12 space-y-6">
+    <div className="max-w-screen-xl mx-auto py-[120px] px-5 md:px-12 space-y-6">
       {[320, 480, 240].map((w, i) => (
         <div key={i} className="h-4 bg-[#111111] animate-pulse" style={{ maxWidth: w }} />
       ))}
@@ -157,14 +132,11 @@ const Skeleton = () => (
   </div>
 );
 
-/* ── SMART PARAGRAPH RENDERER ── */
-
 const SmartParagraph: React.FC<{ text: string; type: ParagraphType }> = ({ text, type }) => {
   const subHeading = extractSubHeading(text);
   const isList = isListParagraph(subHeading ? subHeading.body : text);
   const bodyText = subHeading ? subHeading.body : text;
 
-  // Type-specific accent
   const typeIndicator = type === "requirements"
     ? <span className="text-[10px] text-[#444CE7]/60 uppercase tracking-[0.1em] mb-2 block">Requirements</span>
     : type === "costs"
@@ -197,8 +169,6 @@ const SmartParagraph: React.FC<{ text: string; type: ParagraphType }> = ({ text,
   );
 };
 
-/* ── MAIN COMPONENT ── */
-
 export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
   const { data, isLoading, isError } = useLicensePage(props.slug || "", props);
   const raw = (data || {}) as Partial<LicenseDetailPageProps>;
@@ -219,20 +189,16 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
     heroVisual: props.heroVisual,
   };
 
-  // ── DESCRIPTION DEDUP ──
-  // Full text comes from aboutParagraphs. Hero only gets a short subtitle.
   const sanityDesc = raw.description || "";
   const propsDesc = props.description || "";
   const aboutFirst = p.aboutParagraphs?.[0] || "";
   const fullDescription = pickText(sanityDesc, aboutFirst, propsDesc);
   const heroDesc = heroSubtitle(fullDescription);
 
-  // Deduplicate: if aboutParagraphs[0] starts same as description, skip it
   const dedupedParagraphs = p.aboutParagraphs.filter((para, i) => {
     if (i === 0 && startsLike(para, fullDescription)) return false;
     return true;
   });
-  // If all paragraphs were deduped, use the full description as the body content
   const bodyParagraphs = dedupedParagraphs.length > 0 ? dedupedParagraphs : (fullDescription ? [fullDescription] : []);
 
   const [openFaq, setOpenFaq] = useState<number[]>([]);
@@ -268,22 +234,22 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
 
       {/* ── BREADCRUMB ── */}
       <section style={{ background: "#080808", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <nav className="max-w-screen-xl mx-auto py-3.5 px-12">
+        <nav className="max-w-screen-xl mx-auto py-3.5 px-5 md:px-12">
           <div className="flex items-center gap-2 text-[12px]">
             <Link to="/" className="text-[#5A5550] hover:text-[#9A9590] transition-colors">Incluence</Link>
             <ChevronRight className="w-3 h-3 text-[#5A5550]" />
             <Link to={p.categoryHref} className="text-[#5A5550] hover:text-[#9A9590] transition-colors">{p.categoryLabel}</Link>
             <ChevronRight className="w-3 h-3 text-[#5A5550]" />
-            <span className="text-[#9A9590]">{p.titleAccent} {p.titleRest}</span>
+            <span className="text-[#9A9590] line-clamp-1">{p.titleAccent} {p.titleRest}</span>
           </div>
         </nav>
       </section>
 
-      {/* ── HERO — title only ── */}
+      {/* ── HERO ── */}
       <section className="relative overflow-hidden" style={{ background: "#080808" }}>
         <NoiseOverlay />
-        <div className="relative z-10 max-w-screen-xl mx-auto py-[64px] px-12">
-          <h1 className="text-[clamp(32px,4vw,52px)] font-light text-[#F0EBE0] leading-tight">
+        <div className="relative z-10 max-w-screen-xl mx-auto py-12 md:py-[64px] px-5 md:px-12">
+          <h1 className="text-[clamp(28px,4vw,52px)] font-light text-[#F0EBE0] leading-tight">
             <span className="text-[#444CE7]">{p.titleAccent}</span>{" "}{p.titleRest}
           </h1>
         </div>
@@ -291,30 +257,28 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
 
       {/* ── FACTS STRIP ── */}
       {facts.length > 0 && (
-        <div className="bg-[rgba(255,255,255,0.06)] grid gap-px" style={{ gridTemplateColumns: `repeat(${Math.min(facts.length, 6)}, 1fr)` }}>
+        <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px">
           {facts.slice(0, 6).map((f, i) => (
-            <div key={i} className="bg-[#080808] p-7 group relative overflow-hidden cursor-default" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.03) 1px, transparent 1px)", backgroundSize: "24px 24px" }}>
+            <div key={i} className="bg-[#080808] p-5 md:p-7 group relative overflow-hidden cursor-default" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.03) 1px, transparent 1px)", backgroundSize: "24px 24px" }}>
               <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-3 block">{f.label}</span>
-              <span className={`text-[15px] font-medium ${i === 0 ? "text-[#444CE7] font-semibold" : "text-[#F0EBE0]"}`}>{f.value}</span>
+              <span className={`text-[14px] md:text-[15px] font-medium ${i === 0 ? "text-[#444CE7] font-semibold" : "text-[#F0EBE0]"}`}>{f.value}</span>
               <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
             </div>
           ))}
         </div>
       )}
 
-      {/* ── ABOUT — smart paragraph rendering ── */}
+      {/* ── ABOUT ── */}
       {bodyParagraphs.length > 0 && (
-        <section id="about-section" style={{ background: "#111111" }} className="py-[72px] px-12">
+        <section id="about-section" style={{ background: "#111111" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
             <Tag>{p.aboutTag || "About"}</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-4">{p.aboutTitle || `About ${p.titleAccent} ${p.titleRest}`}</h2>
 
-            {/* Intro: first paragraph, always full width */}
             <div className="max-w-[800px] mb-8">
               <p className="text-[14px] text-[#9A9590] leading-[1.85]">{highlightText(bodyParagraphs[0])}</p>
             </div>
 
-            {/* Remaining paragraphs: smart classified rendering */}
             {bodyParagraphs.length > 1 && (
               <div className="max-w-[800px]">
                 {bodyParagraphs.slice(1).map((para, i) => (
@@ -328,12 +292,12 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
 
       {/* ── PROCESS ── */}
       {p.steps.length > 0 && (
-        <section style={{ background: "#0d0d0d" }} className="py-[72px] px-12">
+        <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
             <Tag>Process</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-3">{p.processTitle}</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed max-w-[520px] mb-14">{p.processSubtitle}</p>
-            <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
+            <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
               {p.steps.map((step, i) => (
                 <div key={i} className="bg-[#0d0d0d] p-7 group relative overflow-hidden">
                   <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] block mb-3">{step.number}</span>
@@ -349,9 +313,9 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
 
       {/* ── REQUIREMENTS ── */}
       {p.requirements.length > 0 && (
-        <section id="requirements" style={{ background: "#111111" }} className="py-[72px] px-12">
-          <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
-            <div className="col-span-7">
+        <section id="requirements" style={{ background: "#111111" }} className="py-12 md:py-[72px] px-5 md:px-12">
+          <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+            <div className="md:col-span-7">
               <Tag>Requirements</Tag>
               <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-4">Documents & Eligibility</h2>
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-8">{highlightText(p.requirementsIntro)}</p>
@@ -364,8 +328,8 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
                 ))}
               </div>
             </div>
-            <div className="col-span-5">
-              <div className="sticky top-[100px] bg-[#080808] border border-white/[0.06] p-8">
+            <div className="md:col-span-5">
+              <div className="md:sticky md:top-[100px] bg-[#080808] border border-white/[0.06] p-6 md:p-8">
                 <h4 className="text-[13px] font-semibold text-[#F0EBE0] uppercase tracking-[0.08em] mb-6">Key Facts</h4>
                 <div className="space-y-4">
                   {facts.map((f, i) => (
@@ -388,12 +352,12 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
 
       {/* ── PROS & CONS ── */}
       {(p.advantages.length > 0 || p.limitations.length > 0) && (
-        <section style={{ background: "#0d0d0d" }} className="py-[72px] px-12">
+        <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
             <Tag>Advantages & Limitations</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-12">Pros & Cons</h2>
-            <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-2 gap-px">
-              <div className="bg-[#0d0d0d] p-8">
+            <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-2 gap-px">
+              <div className="bg-[#0d0d0d] p-6 md:p-8">
                 <span className="text-[11px] text-[#22c55e]/70 uppercase tracking-[0.1em] block mb-6">Advantages</span>
                 <div className="space-y-4">
                   {p.advantages.map((item, i) => (
@@ -404,7 +368,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
                   ))}
                 </div>
               </div>
-              <div className="bg-[#111111] p-8">
+              <div className="bg-[#111111] p-6 md:p-8">
                 <span className="text-[11px] text-[#f59e0b]/70 uppercase tracking-[0.1em] block mb-6">Limitations</span>
                 <div className="space-y-4">
                   {p.limitations.map((item, i) => (
@@ -422,7 +386,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
 
       {/* ── FAQ ── */}
       {p.faq.length > 0 && (
-        <section style={{ background: "#0d0d0d" }} className="py-[72px] px-12">
+        <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
             <Tag>FAQ</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-12">Common Questions</h2>
@@ -445,11 +409,11 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
 
       {/* ── RELATED ── */}
       {p.related.length > 0 && (
-        <section style={{ background: "#111111" }} className="py-[72px] px-12">
+        <section style={{ background: "#111111" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
             <Tag>Related Licenses</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-12">Explore Other Jurisdictions</h2>
-            <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
+            <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
               {p.related.map((r, i) => (
                 <Link key={i} to={r.href} className="bg-[#111111] p-7 group relative overflow-hidden block no-underline">
                   <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] block mb-2">{r.regulator}</span>
@@ -464,16 +428,16 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
       )}
 
       {/* ── CTA FORM ── */}
-      <section style={{ background: "#080808" }} className="py-[72px] px-12">
-        <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
-          <div className="col-span-5 pr-8 min-h-[200px]" style={{ overflowWrap: "break-word", wordBreak: "break-word" }}>
+      <section style={{ background: "#080808" }} className="py-12 md:py-[72px] px-5 md:px-12">
+        <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+          <div className="md:col-span-5 md:pr-8" style={{ overflowWrap: "break-word", wordBreak: "break-word" }}>
             <Tag>Get Started</Tag>
             <h2 className="text-[clamp(20px,2vw,28px)] font-light text-[#F0EBE0] leading-[1.4] mt-2 mb-6 max-w-[400px]">{p.formTitle}</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">{p.formSubtitle}</p>
           </div>
-          <div className="col-span-7">
+          <div className="md:col-span-7">
             <form onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-2 gap-5 mb-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                 {formFields.map((label) => (
                   <div key={label}>
                     <label className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-2 block">{label}</label>
