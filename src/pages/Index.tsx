@@ -10,7 +10,6 @@ import MarketplaceTeaser from "@/components/MarketplaceTeaser";
 import StatsBar from "@/components/StatsBar";
 import PartnersSection from "@/components/PartnersSection";
 import ContactCTA from "@/components/ContactCTA";
-import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => (
   <div>
@@ -47,40 +46,14 @@ const Index = () => (
     </section>
 
     <IndustriesTicker />
-
-    {/* bg: #0d0d0d */}
     <LicenseCategories />
-    <SectionDivider />
-
-    {/* bg: #111111 */}
     <ProcessSection />
-    <SectionDivider />
-
-    {/* bg: #0d0d0d */}
     <OurServicesSection />
-    <SectionDivider />
-
-    {/* bg: #111111 */}
     <JurisdictionComparison />
-    <SectionDivider />
-
-    {/* bg: #0d0d0d */}
     <JurisdictionsSection />
-    <SectionDivider />
-
-    {/* bg: #111111 */}
     <MarketplaceTeaser />
-    <SectionDivider />
-
-    {/* bg: #080808 */}
     <StatsBar />
-    <SectionDivider />
-
-    {/* bg: #0d0d0d */}
     <PartnersSection />
-    <SectionDivider />
-
-    {/* bg: #080808 */}
     <ContactCTA />
   </div>
 );

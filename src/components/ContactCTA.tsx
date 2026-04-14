@@ -42,7 +42,7 @@ const ContactCTA = () => {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 60% 50% at 50% 0%, hsl(233 84% 60% / 0.1) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse 80% 60% at 50% 0%, hsl(233 84% 60% / 0.15) 0%, transparent 60%)",
         }}
       />
 

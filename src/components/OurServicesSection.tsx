@@ -38,7 +38,7 @@ const services: ServiceCardData[] = [
 ];
 
 const OurServicesSection = () => (
-  <section className="relative" style={{ background: "#0d0d0d", padding: "72px 48px" }}>
+  <section className="relative" style={{ background: "#110f0d", padding: "72px 48px" }}>
     {/* Grid dots pattern */}
     <div
       className="absolute inset-0 pointer-events-none"

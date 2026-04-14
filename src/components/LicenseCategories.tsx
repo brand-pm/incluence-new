@@ -36,7 +36,7 @@ const LicenseCategories = () => (
     <div
       className="absolute inset-0 pointer-events-none"
       style={{
-        background: "radial-gradient(ellipse 80% 60% at 50% 100%, hsl(233 84% 60% / 0.06) 0%, transparent 70%)",
+        background: "radial-gradient(ellipse 80% 60% at 50% 100%, hsl(233 84% 60% / 0.10) 0%, transparent 70%)",
       }}
     />
 
