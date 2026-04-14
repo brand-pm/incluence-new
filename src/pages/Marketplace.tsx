@@ -1,10 +1,51 @@
 import { useState } from "react";
-import { ArrowRight, ChevronRight, LayoutGrid, List, Building2, Globe, Clock, Banknote } from "lucide-react";
+import { ArrowRight, ChevronRight, LayoutGrid, List, Building2, Globe, Clock, Banknote, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import MicroParticles from "@/components/MicroParticles";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
-import { FlagEmojiGroup } from "@/components/FlagEmoji";
+
+/* ── COUNTRY CODE MAP ────────────────────────────────────────────── */
+const COUNTRY_CODES: Record<string, string> = {
+  "Bulgaria": "BG", "United Kingdom": "UK", "Poland": "PL",
+  "Lithuania": "LT", "Estonia": "EE", "Serbia": "RS",
+};
+
+const CountryBadge = ({ country, size = 22 }: { country: string; size?: number }) => (
+  <div
+    className="flex items-center justify-center"
+    style={{
+      width: size + 10, height: size + 10,
+      background: "hsl(var(--accent) / 0.08)",
+      border: "1px solid hsl(var(--accent) / 0.15)",
+      fontSize: size * 0.45, fontWeight: 600,
+      color: "hsl(var(--accent-light))",
+      letterSpacing: "0.05em",
+    }}
+  >
+    {COUNTRY_CODES[country] || country.slice(0, 2).toUpperCase()}
+  </div>
+);
+
+/* ── BADGE COMPONENT ─────────────────────────────────────────────── */
+const StatusBadge = ({ badge }: { badge: string }) => {
+  const isHot = badge === "HOT";
+  return (
+    <span
+      className="flex items-center gap-1"
+      style={{
+        fontSize: 10, fontWeight: 600, padding: "4px 10px", letterSpacing: "0.08em",
+        background: isHot ? "hsl(var(--accent) / 0.12)" : "rgba(34,197,94,0.08)",
+        border: `1px solid ${isHot ? "hsl(var(--accent) / 0.3)" : "rgba(34,197,94,0.25)"}`,
+        color: isHot ? "hsl(var(--accent-light))" : "#22c55e",
+        textTransform: "uppercase",
+      }}
+    >
+      {isHot && <Zap size={10} />}
+      {isHot ? "HOT DEAL" : badge}
+    </span>
+  );
+};
 
 /* ── DATA ──────────────────────────────────────────────────────────── */
 interface Company {
