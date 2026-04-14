@@ -1,5 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useCallback, useEffect } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import FormBlock from "@/components/FormBlock";
 import { ChevronDown, Menu, X, MessageCircle, Send, Phone, Mail, ChevronRight } from "lucide-react";
 import NodePulse from "./NodePulse";
 
@@ -206,6 +208,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [projectDialogOpen, setProjectDialogOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
@@ -351,9 +354,9 @@ const Navbar = () => {
             <Phone size={14} className="text-[#9A9590] group-hover:text-[#444CE7] transition-colors duration-200" />
           </a>
 
-          <Link
-            to="/contact"
-            className="no-underline transition-colors duration-200"
+          <button
+            onClick={() => setProjectDialogOpen(true)}
+            className="no-underline transition-colors duration-200 border-0 cursor-pointer"
             style={{
               background: "#444CE7",
               color: "#fff",
@@ -361,14 +364,15 @@ const Navbar = () => {
               fontSize: 11,
               fontWeight: 500,
               letterSpacing: "0.08em",
-              textTransform: "uppercase",
+              textTransform: "uppercase" as const,
               borderRadius: 0,
+              fontFamily: "inherit",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "#3538CD")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "#444CE7")}
           >
             Start a Project
-          </Link>
+          </button>
         </div>
 
         {/* Mobile toggle */}
@@ -466,14 +470,13 @@ const Navbar = () => {
               <Phone size={16} style={{ color: "#9A9590" }} />
             </a>
           </div>
-          <Link
-            to="/contact"
-            onClick={handleLinkClick}
-            className="block no-underline text-center"
-            style={{ marginTop: 16, background: "#444CE7", color: "#fff", padding: "14px 24px", fontSize: 12, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase" }}
+          <button
+            onClick={() => { setMobileOpen(false); setProjectDialogOpen(true); }}
+            className="block w-full text-center border-0 cursor-pointer"
+            style={{ marginTop: 16, background: "#444CE7", color: "#fff", padding: "14px 24px", fontSize: 12, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase" as const, fontFamily: "inherit" }}
           >
             Start a Project
-          </Link>
+          </button>
         </div>
       )}
 
@@ -639,6 +642,30 @@ const Navbar = () => {
           </div>
         </div>
       )}
+
+      {/* ── START A PROJECT DIALOG ── */}
+      <Dialog open={projectDialogOpen} onOpenChange={setProjectDialogOpen}>
+        <DialogContent
+          className="border-white/[0.08] p-8 max-w-lg"
+          style={{ background: "#080808", fontFamily: "Manrope, sans-serif" }}
+        >
+          <DialogHeader>
+            <DialogTitle className="text-[#F0EBE0] text-[20px] font-light tracking-tight">
+              Start a Project
+            </DialogTitle>
+            <p className="text-[#9A9590] text-[13px] mt-1">
+              Fill in the details and we'll get back to you within 24 hours.
+            </p>
+          </DialogHeader>
+          <div className="mt-4">
+            <FormBlock
+              bgColor="#080808"
+              fields={["Full Name", "Email", "Company Name", "Service Interest"]}
+              buttonText="SEND REQUEST →"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   );
 };
