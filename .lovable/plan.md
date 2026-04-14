@@ -1,84 +1,43 @@
 
 
-# Redesign Mega Menu — Clean Column Layout
+# Fix JurisdictionComparison — Verified Data Only
 
 ## Problem
-Current menu: 4 abstract tabs → 2-column card grid → hover for jurisdiction sidebar. Too many layers, overlapping categories (offshore in 2 tabs), hard to find what you need.
+The comparison table contains invented data: fake prices (€25,000 Malta, £30,000 Gibraltar, €30,000 Cyprus), invented capital requirements, tax rates, and mixes gambling jurisdictions with forex (Cyprus CySEC). Per project rules: no invented content, no prices we don't know.
 
-## Solution
-Replace with a **5-column flat layout** — no tabs, no hover previews. Everything visible at once. Each column = one service group with direct links to hubs and top jurisdictions.
+## Verified Data from Actual Pages
 
-## New Structure
+| Field | Malta MGA | Curaçao CGA | Isle of Man GSC | Costa Rica |
+|-------|-----------|-------------|-----------------|------------|
+| Timeline | ~6 months | 3–4 months | 6–12 months | 2–5 weeks |
+| Cost | On request | From €15,000 | On request | $15,000 |
+| Capital | €100,000 | None | On request | 25% of share capital |
+| Validity | 5 years | — | 5 years | Annual |
+| Type | B2C / B2B | Master / Sub | All verticals | Data Processing |
+| Market | EU passporting | Global | Crown Dependency | International |
+| Presence | Required | Not required | Required | Office required |
+| Renewal | — | Annual | Annual | $1,500/quarter |
 
-```text
-┌─────────────────────────────────────────────────────────────────────────┐
-│  LICENSING        │  BANKING &       │  COMPANY         │  INVESTMENT  │  LEGAL           │
-│                   │  PAYMENTS        │  FORMATION       │  & RESIDENCY │  SERVICES        │
-│                   │                  │                  │              │                  │
-│  Gambling →       │  Bank Accounts → │  Registration →  │  Funds →     │  Legitimization →│
-│   Malta           │   Cyprus         │   Estonia        │   Luxembourg │  Tax Reporting → │
-│   Curaçao         │   Germany        │   UK             │   Malta      │  Legal Support → │
-│   Isle of Man     │   Switzerland    │   UAE            │   Estonia    │  Contracts →     │
-│   Costa Rica      │   UK             │   Singapore      │   Czech      │                  │
-│                   │   USA            │   Hong Kong      │              │                  │
-│  Forex →          │   +15 more       │   +23 more       │  Hedge Fund →│                  │
-│   Cyprus          │                  │                  │              │                  │
-│   Malta           │  Merchant →      │  Ready-Made →    │  Residence → │                  │
-│   Vanuatu         │                  │   Estonia        │   Portugal   │                  │
-│   Mauritius       │  Payment         │   Malta          │   Dubai      │                  │
-│                   │  Systems →       │   Cyprus         │   Cyprus     │                  │
-│  Crypto/VASP →    │   Wise           │   England        │   Lithuania  │                  │
-│   Estonia         │   PayPal         │                  │              │                  │
-│   Lithuania       │   Revolut        │  Offshore →      │              │                  │
-│   Switzerland     │                  │   BVI            │              │                  │
-│   Malta           │  PSP License →   │   Cayman         │              │                  │
-│                   │   Cyprus         │   Seychelles     │              │                  │
-│  EMI →            │   Lithuania      │   Panama         │              │                  │
-│   UK              │   UK             │                  │              │                  │
-│   Lithuania       │   Czech          │                  │              │                  │
-│   Malta           │                  │                  │              │                  │
-│   Estonia         │                  │                  │              │                  │
-└─────────────────────────────────────────────────────────────────────────┘
-│  Quick: Gambling·MGA  │  Estonia·VASP  │  UK·EMI  │  BVI·Offshore  │  Start a Project →  │
-└─────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+**Gibraltar** — no detail page exists with verified facts. Remove from comparison.
+**Cyprus CySEC** — this is forex, not gambling. Remove from this gambling-focused comparison.
 
-## Key Design Decisions
+## Changes
 
-1. **No tabs** — all 5 columns visible immediately on hover/click of "Services"
-2. **Hub links as bold headers** with `→` arrow, jurisdiction links as simple text list below
-3. **Max 4 jurisdictions per hub** shown, with "+N more" link to hub page
-4. **Scrollable on smaller screens** — columns wrap or get horizontal scroll
-5. **Visual hierarchy**: Column headers are accent-colored section labels (`— LICENSING`), hub names are white bold, jurisdictions are muted gray
-6. **Bottom bar** stays with Quick Access pills
-7. **Right sidebar removed** — no more hover-for-preview, jurisdictions are inline
+### `src/components/sections/JurisdictionComparison.tsx`
 
-## Visual Style
-- Background: `#0a0a0a` with `border-bottom: 1px solid rgba(255,255,255,0.07)`
-- Column dividers: `1px solid rgba(255,255,255,0.04)` between columns
-- Hub link: `14px`, `#F0EBE0`, `font-weight: 600`, hover → accent color
-- Jurisdiction link: `12px`, `#9A9590`, hover → `#F0EBE0` with left accent border
-- Section label: `10px`, `#444CE7`, uppercase tracking
-- Same animation: `megaMenuIn 0.18s ease-out`
+1. **Keep 4 jurisdictions**: Malta, Curaçao, Isle of Man, Costa Rica (all have gambling detail pages with verified data)
+2. **Remove**: Gibraltar, Cyprus (no verified gambling data)
+3. **Replace `cost` field** with "On request" where we don't know the price
+4. **Update rows** to match verified facts:
+   - License Cost → replace with verified values or "On request"
+   - Timeline → verified from pages
+   - Remove Tax Rate (not consistently documented)
+   - Capital → verified
+   - Replace "Permitted Games" with "License Type" (B2C/B2B, Master/Sub, etc.)
+   - Add "Validity" row
+   - Add "Physical Presence" row
+   - Keep Banking, Reputation, Remote as qualitative assessments from page content
+   - Remove Privacy Level (not documented)
 
-## Mobile Menu
-- Keep accordion-style: tap category → expand list of hubs → tap hub → see jurisdictions
-- Simpler than current flat list
-
-## Files to Change
-- `src/components/Navbar.tsx` — complete rewrite of mega menu panel (lines ~559-836), simplify NAV_DATA structure, remove LICENSE_PREVIEWS, remove tab system. Keep navbar bar, contact dropdown, mobile menu structure.
-
-## What Gets Removed
-- `CATS` array (4 tabs)
-- `LICENSE_PREVIEWS` object
-- Tab bar with sliding indicator
-- `LicensePreviewPanel` component
-- `hoveredItem` state
-- `tabRefs` / `indicatorStyle` state
-- Right sidebar panel
-
-## What Gets Added
-- `MENU_COLUMNS` — 5 columns, each with section label + array of hubs (each hub has name, href, top jurisdictions)
-- Simple 5-column CSS grid layout
-- Cleaner mobile accordion
+5. **Update section title/subtitle** to focus on gambling comparison since all 4 are gambling jurisdictions
 
