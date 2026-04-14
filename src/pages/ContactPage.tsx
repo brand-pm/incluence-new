@@ -399,6 +399,7 @@ const ContactPage = () => {
                 <div>
                   <label style={labelStyle}>Name *</label>
                   <input
+                    name="name"
                     required
                     placeholder="Your name"
                     style={{ ...fieldStyle, ...focusBorder("name") }}
@@ -410,6 +411,7 @@ const ContactPage = () => {
                   <label style={labelStyle}>Email *</label>
                   <input
                     type="email"
+                    name="email"
                     required
                     placeholder="your@email.com"
                     style={{ ...fieldStyle, ...focusBorder("email") }}
@@ -425,6 +427,7 @@ const ContactPage = () => {
                   <label style={labelStyle}>Phone</label>
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="+1 234 567 8900"
                     style={{ ...fieldStyle, ...focusBorder("phone") }}
                     onFocus={() => setFocused("phone")}
@@ -434,6 +437,7 @@ const ContactPage = () => {
                 <div>
                   <label style={labelStyle}>Company</label>
                   <input
+                    name="company"
                     placeholder="Company name"
                     style={{ ...fieldStyle, ...focusBorder("company") }}
                     onFocus={() => setFocused("company")}
@@ -446,6 +450,7 @@ const ContactPage = () => {
               <div>
                 <label style={labelStyle}>Service Interest</label>
                 <select
+                  name="service"
                   style={{ ...fieldStyle, ...focusBorder("service"), appearance: "none", color: "#9A9590" }}
                   onFocus={() => setFocused("service")}
                   onBlur={() => setFocused(null)}
@@ -465,6 +470,7 @@ const ContactPage = () => {
               <div>
                 <label style={labelStyle}>Message *</label>
                 <textarea
+                  name="message"
                   rows={5}
                   required
                   placeholder="Briefly describe your project or question..."
@@ -477,6 +483,7 @@ const ContactPage = () => {
               {/* Submit */}
               <button
                 type="submit"
+                disabled={submitting}
                 className="hover:!bg-[#3538CD]"
                 style={{
                   width: "100%",
@@ -495,9 +502,10 @@ const ContactPage = () => {
                   justifyContent: "center",
                   gap: 8,
                   transition: "background 0.2s",
+                  opacity: submitting ? 0.5 : 1,
                 }}
               >
-                Send Message <ArrowRight size={14} />
+                {submitting ? "Sending..." : "Send Message"} <ArrowRight size={14} />
               </button>
 
               <p style={{ fontSize: 11, color: "#5A5550", textAlign: "center", margin: 0, marginTop: 4 }}>
