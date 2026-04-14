@@ -15,6 +15,9 @@ interface ServiceDetailPageProps {
   slug?: string;
 }
 
+const BLUE_BG = "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)";
+const BLUE_CARD = "#0f1029";
+
 const pick = <T,>(...sources: (T[] | null | undefined)[]): T[] => {
   for (const s of sources) { if (s && s.length > 0) return s; }
   return [];
@@ -74,6 +77,14 @@ const NoiseOverlay = () => (
     <filter id="svc-noise"><feTurbulence baseFrequency="0.85" numOctaves="4" /><feColorMatrix type="saturate" values="0" /></filter>
     <rect width="100%" height="100%" filter="url(#svc-noise)" />
   </svg>
+);
+
+const AccentGlow = () => (
+  <div className="absolute inset-0 pointer-events-none z-[1]" style={{ background: "radial-gradient(ellipse 600px 400px at 50% 40%, rgba(68,76,231,0.06), transparent)" }} />
+);
+
+const GridDots = () => (
+  <div className="absolute inset-0 pointer-events-none z-[1] opacity-60" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.04) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 );
 
 const Skeleton = () => (
@@ -156,7 +167,8 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
   if (isLoading) return <Skeleton />;
   if (isError) return <div className="min-h-screen bg-[#080808] flex items-center justify-center text-[#9A9590]" style={{ fontFamily: "Manrope, sans-serif" }}>Failed to load page data.</div>;
 
-  const sectionBgs = ["#111111", "#0d0d0d"];
+  // Alternating: content sections use flat=#0d0d0d / blue=gradient
+  const contentBgs = dedupedSections.filter(s => s.body).map((_, i) => i % 2 === 0 ? "flat" : "blue");
 
   return (
     <div style={{ fontFamily: "Manrope, sans-serif" }}>
@@ -191,10 +203,12 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
         </div>
       </section>
 
-      {/* ── ABOUT ── */}
+      {/* ── ABOUT — BLUE GRADIENT ── */}
       {fullDescription && fullDescription.length > 0 && (
-        <section style={{ background: "#111111" }} className="py-12 md:py-[72px] px-5 md:px-12">
-          <div className="max-w-screen-xl mx-auto">
+        <section className="relative overflow-hidden py-12 md:py-[72px] px-5 md:px-12" style={{ background: BLUE_BG }}>
+          <AccentGlow />
+          <NoiseOverlay />
+          <div className="relative z-10 max-w-screen-xl mx-auto">
             <Tag>Overview</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-6">About This Service</h2>
             <div className="max-w-[800px]">
@@ -204,21 +218,30 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── CONTENT SECTIONS ── */}
-      {dedupedSections.filter(s => s.body).map((sec, i) => (
-        <section key={i} style={{ background: sectionBgs[(i + 1) % 2] }} className="py-12 md:py-[72px] px-5 md:px-12">
-          <div className="max-w-screen-xl mx-auto">
-            <h3 className="text-[18px] font-semibold text-[#F0EBE0] mb-6">
-              <span className="text-[#444CE7] mr-2">▸</span>{sec.heading}
-            </h3>
-            <div className="max-w-[800px]">
-              <SectionBody body={sec.body} />
+      {/* ── CONTENT SECTIONS — alternating flat / blue ── */}
+      {dedupedSections.filter(s => s.body).map((sec, i) => {
+        const isBlue = contentBgs[i] === "blue";
+        return (
+          <section
+            key={i}
+            className={`relative overflow-hidden py-12 md:py-[72px] px-5 md:px-12`}
+            style={{ background: isBlue ? BLUE_BG : "#0d0d0d" }}
+          >
+            {isBlue && <AccentGlow />}
+            {isBlue && <NoiseOverlay />}
+            <div className="relative z-10 max-w-screen-xl mx-auto">
+              <h3 className="text-[18px] font-semibold text-[#F0EBE0] mb-6">
+                <span className="text-[#444CE7] mr-2">▸</span>{sec.heading}
+              </h3>
+              <div className="max-w-[800px]">
+                <SectionBody body={sec.body} />
+              </div>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        );
+      })}
 
-      {/* ── REQUIREMENTS ── */}
+      {/* ── REQUIREMENTS — flat ── */}
       {requirements.length > 0 && (
         <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
@@ -236,9 +259,11 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── WHY US ── */}
-      <section style={{ background: "#111111" }} className="py-12 md:py-[72px] px-5 md:px-12">
-        <div className="max-w-screen-xl mx-auto">
+      {/* ── WHY US — BLUE GRADIENT + grid dots ── */}
+      <section className="relative overflow-hidden py-12 md:py-[72px] px-5 md:px-12" style={{ background: BLUE_BG }}>
+        <GridDots />
+        <NoiseOverlay />
+        <div className="relative z-10 max-w-screen-xl mx-auto">
           <Tag>Why Incluence</Tag>
           <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-14">Why Work With Us</h2>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
@@ -247,7 +272,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
               { metric: "12+", title: "Years of Experience", body: "Trusted by entrepreneurs and corporations globally since 2012." },
               { metric: "24h", title: "Response Time", body: "Every inquiry gets a senior consultant response within one business day." },
             ].map((item, i) => (
-              <div key={i} className="bg-[#111111] p-7">
+              <div key={i} style={{ background: BLUE_CARD }} className="p-7">
                 <span className="text-[40px] font-light text-[#444CE7] leading-none mb-3 block">{item.metric}</span>
                 <h3 className="text-[15px] font-semibold text-[#F0EBE0] mb-2">{item.title}</h3>
                 <p className="text-[13px] text-[#9A9590] leading-relaxed">{item.body}</p>
@@ -257,7 +282,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* ── FAQ — flat ── */}
       {faq.length > 0 && (
         <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
@@ -280,9 +305,11 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── CTA FORM ── */}
-      <section style={{ background: "#080808" }} className="py-12 md:py-[72px] px-5 md:px-12">
-        <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+      {/* ── CTA FORM — BLUE GRADIENT ── */}
+      <section className="relative overflow-hidden py-12 md:py-[72px] px-5 md:px-12" style={{ background: BLUE_BG }}>
+        <AccentGlow />
+        <NoiseOverlay />
+        <div className="relative z-10 max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
           <div className="md:col-span-5 md:pr-8" style={{ overflowWrap: "break-word", wordBreak: "break-word" }}>
             <Tag>Get Started</Tag>
             <h2 className="text-[clamp(20px,2vw,28px)] font-light text-[#F0EBE0] leading-[1.4] mt-2 mb-6 max-w-[400px]">Ready to Discuss Your Project?</h2>
@@ -294,13 +321,13 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
                 {["Full Name", "Company Name", "Service Interest", "Budget Range"].map((label) => (
                   <div key={label}>
                     <label className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-2 block">{label}</label>
-                    <input type="text" className="w-full bg-[#080808] border border-white/[0.08] focus:border-[#444CE7]/50 text-[#F0EBE0] text-[14px] placeholder:text-[#5A5550] px-4 py-3 outline-none" style={{ fontFamily: "inherit" }} />
+                    <input type="text" className="w-full border border-white/[0.08] focus:border-[#444CE7]/50 text-[#F0EBE0] text-[14px] placeholder:text-[#5A5550] px-4 py-3 outline-none" style={{ fontFamily: "inherit", background: BLUE_CARD }} />
                   </div>
                 ))}
               </div>
               <div className="mb-5">
                 <label className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-2 block">Additional details — target markets, timeline, requirements...</label>
-                <textarea className="w-full bg-[#080808] border border-white/[0.08] focus:border-[#444CE7]/50 text-[#F0EBE0] text-[14px] placeholder:text-[#5A5550] px-4 py-3 outline-none min-h-[100px] resize-none" style={{ fontFamily: "inherit" }} />
+                <textarea className="w-full border border-white/[0.08] focus:border-[#444CE7]/50 text-[#F0EBE0] text-[14px] placeholder:text-[#5A5550] px-4 py-3 outline-none min-h-[100px] resize-none" style={{ fontFamily: "inherit", background: BLUE_CARD }} />
               </div>
               <button type="submit" className="w-full px-8 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors cursor-pointer border-0" style={{ fontFamily: "inherit" }}>
                 SEND REQUEST →

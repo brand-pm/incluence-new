@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { ChevronRight, ChevronDown, Check, X } from "lucide-react";
 import { useLicensePage } from "@/hooks/useSanityPage";
 
+const BLUE_BG = "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)";
+const BLUE_CARD = "#0f1029";
+
 interface StatItem { value: string; label: string }
 interface BenefitCard { icon: React.ReactNode; title: string; description: string }
 interface ProcessStep { number: string; title: string; description: string }
@@ -122,6 +125,14 @@ const NoiseOverlay = () => (
   </svg>
 );
 
+const AccentGlow = () => (
+  <div className="absolute inset-0 pointer-events-none z-[1]" style={{ background: "radial-gradient(ellipse 600px 400px at 50% 40%, rgba(68,76,231,0.06), transparent)" }} />
+);
+
+const GridDots = () => (
+  <div className="absolute inset-0 pointer-events-none z-[1] opacity-60" style={{ backgroundImage: "radial-gradient(circle, rgba(68,76,231,0.04) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+);
+
 const Skeleton = () => (
   <div className="min-h-screen" style={{ background: "#080808", fontFamily: "Manrope, sans-serif" }}>
     <div className="max-w-screen-xl mx-auto py-[120px] px-5 md:px-12 space-y-6">
@@ -232,7 +243,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
   return (
     <div style={{ fontFamily: "Manrope, sans-serif" }}>
 
-      {/* ── BREADCRUMB ── */}
+      {/* ── BREADCRUMB — flat ── */}
       <section style={{ background: "#080808", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <nav className="max-w-screen-xl mx-auto py-3.5 px-5 md:px-12">
           <div className="flex items-center gap-2 text-[12px]">
@@ -245,7 +256,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </nav>
       </section>
 
-      {/* ── HERO ── */}
+      {/* ── HERO — flat ── */}
       <section className="relative overflow-hidden" style={{ background: "#080808" }}>
         <NoiseOverlay />
         <div className="relative z-10 max-w-screen-xl mx-auto py-12 md:py-[64px] px-5 md:px-12">
@@ -268,10 +279,12 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </div>
       )}
 
-      {/* ── ABOUT ── */}
+      {/* ── ABOUT — BLUE GRADIENT + accent glow ── */}
       {bodyParagraphs.length > 0 && (
-        <section id="about-section" style={{ background: "#111111" }} className="py-12 md:py-[72px] px-5 md:px-12">
-          <div className="max-w-screen-xl mx-auto">
+        <section id="about-section" className="relative overflow-hidden py-12 md:py-[72px] px-5 md:px-12" style={{ background: BLUE_BG }}>
+          <AccentGlow />
+          <NoiseOverlay />
+          <div className="relative z-10 max-w-screen-xl mx-auto">
             <Tag>{p.aboutTag || "About"}</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-4">{p.aboutTitle || `About ${p.titleAccent} ${p.titleRest}`}</h2>
 
@@ -290,7 +303,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── PROCESS ── */}
+      {/* ── PROCESS — flat ── */}
       {p.steps.length > 0 && (
         <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
@@ -311,10 +324,12 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── REQUIREMENTS ── */}
+      {/* ── REQUIREMENTS — BLUE GRADIENT + grid dots ── */}
       {p.requirements.length > 0 && (
-        <section id="requirements" style={{ background: "#111111" }} className="py-12 md:py-[72px] px-5 md:px-12">
-          <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        <section id="requirements" className="relative overflow-hidden py-12 md:py-[72px] px-5 md:px-12" style={{ background: BLUE_BG }}>
+          <GridDots />
+          <NoiseOverlay />
+          <div className="relative z-10 max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
             <div className="md:col-span-7">
               <Tag>Requirements</Tag>
               <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-4">Documents & Eligibility</h2>
@@ -329,7 +344,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
               </div>
             </div>
             <div className="md:col-span-5">
-              <div className="md:sticky md:top-[100px] bg-[#080808] border border-white/[0.06] p-6 md:p-8">
+              <div className="md:sticky md:top-[100px] border border-white/[0.06] p-6 md:p-8" style={{ background: BLUE_CARD }}>
                 <h4 className="text-[13px] font-semibold text-[#F0EBE0] uppercase tracking-[0.08em] mb-6">Key Facts</h4>
                 <div className="space-y-4">
                   {facts.map((f, i) => (
@@ -350,7 +365,7 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── PROS & CONS ── */}
+      {/* ── PROS & CONS — flat ── */}
       {(p.advantages.length > 0 || p.limitations.length > 0) && (
         <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
@@ -384,10 +399,12 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── FAQ ── */}
+      {/* ── FAQ — BLUE GRADIENT ── */}
       {p.faq.length > 0 && (
-        <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
-          <div className="max-w-screen-xl mx-auto">
+        <section className="relative overflow-hidden py-12 md:py-[72px] px-5 md:px-12" style={{ background: BLUE_BG }}>
+          <AccentGlow />
+          <NoiseOverlay />
+          <div className="relative z-10 max-w-screen-xl mx-auto">
             <Tag>FAQ</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-12">Common Questions</h2>
             <div className="max-w-[720px] divide-y divide-white/[0.06]">
@@ -407,15 +424,15 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── RELATED ── */}
+      {/* ── RELATED — flat ── */}
       {p.related.length > 0 && (
-        <section style={{ background: "#111111" }} className="py-12 md:py-[72px] px-5 md:px-12">
+        <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
             <Tag>Related Licenses</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-12">Explore Other Jurisdictions</h2>
             <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
               {p.related.map((r, i) => (
-                <Link key={i} to={r.href} className="bg-[#111111] p-7 group relative overflow-hidden block no-underline">
+                <Link key={i} to={r.href} className="bg-[#0d0d0d] p-7 group relative overflow-hidden block no-underline">
                   <span className="text-[11px] text-[#444CE7] uppercase tracking-[0.1em] block mb-2">{r.regulator}</span>
                   <h3 className="text-[16px] font-semibold text-[#F0EBE0] mb-2">{r.name}</h3>
                   <p className="text-[13px] text-[#9A9590] leading-relaxed">{r.description}</p>
@@ -427,9 +444,11 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── CTA FORM ── */}
-      <section style={{ background: "#080808" }} className="py-12 md:py-[72px] px-5 md:px-12">
-        <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+      {/* ── CTA FORM — BLUE GRADIENT + accent glow ── */}
+      <section className="relative overflow-hidden py-12 md:py-[72px] px-5 md:px-12" style={{ background: BLUE_BG }}>
+        <AccentGlow />
+        <NoiseOverlay />
+        <div className="relative z-10 max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
           <div className="md:col-span-5 md:pr-8" style={{ overflowWrap: "break-word", wordBreak: "break-word" }}>
             <Tag>Get Started</Tag>
             <h2 className="text-[clamp(20px,2vw,28px)] font-light text-[#F0EBE0] leading-[1.4] mt-2 mb-6 max-w-[400px]">{p.formTitle}</h2>
@@ -441,13 +460,13 @@ export const LicenseDetailPage: React.FC<LicenseDetailPageProps> = (props) => {
                 {formFields.map((label) => (
                   <div key={label}>
                     <label className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-2 block">{label}</label>
-                    <input type="text" className="w-full bg-[#080808] border border-white/[0.08] focus:border-[#444CE7]/50 text-[#F0EBE0] text-[14px] placeholder:text-[#5A5550] px-4 py-3 outline-none" style={{ fontFamily: "inherit" }} />
+                    <input type="text" className="w-full border border-white/[0.08] focus:border-[#444CE7]/50 text-[#F0EBE0] text-[14px] placeholder:text-[#5A5550] px-4 py-3 outline-none" style={{ fontFamily: "inherit", background: BLUE_CARD }} />
                   </div>
                 ))}
               </div>
               <div className="mb-5">
                 <label className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-2 block">{formTextareaLabel}</label>
-                <textarea className="w-full bg-[#080808] border border-white/[0.08] focus:border-[#444CE7]/50 text-[#F0EBE0] text-[14px] placeholder:text-[#5A5550] px-4 py-3 outline-none min-h-[100px] resize-none" style={{ fontFamily: "inherit" }} />
+                <textarea className="w-full border border-white/[0.08] focus:border-[#444CE7]/50 text-[#F0EBE0] text-[14px] placeholder:text-[#5A5550] px-4 py-3 outline-none min-h-[100px] resize-none" style={{ fontFamily: "inherit", background: BLUE_CARD }} />
               </div>
               <button type="submit" className="w-full px-8 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors cursor-pointer border-0" style={{ fontFamily: "inherit" }}>
                 {formButtonText}
