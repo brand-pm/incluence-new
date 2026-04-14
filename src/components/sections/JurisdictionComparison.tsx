@@ -104,7 +104,7 @@ const JurisdictionComparison = () => {
   const selectedData = selected.map(k => ({ key: k, ...JURISDICTIONS[k] }));
 
   return (
-    <section style={{ background: '#0d0d0d', padding: '72px 48px' }}>
+    <section style={{ background: '#111111', padding: '72px 48px' }}>
       <div className="mx-auto" style={{ maxWidth: 1280 }}>
         <SectionTag style={{ marginBottom: 12 }}>Jurisdiction Comparison</SectionTag>
         <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 44, fontWeight: 300, color: '#F0EBE0', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: 16 }}>
