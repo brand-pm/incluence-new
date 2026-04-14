@@ -71,6 +71,27 @@ const CellValue = ({ row, j }: { row: typeof ROWS[number]; j: JurisdictionData }
   return <span style={{ fontSize: 13, fontWeight: 500, color: '#F0EBE0' }}>{val as string}</span>;
 };
 
+/* ── Mobile card view ── */
+const MobileComparisonCard = ({ j }: { j: JurisdictionData & { key: string } }) => (
+  <div style={{ background: '#111111', padding: '20px', marginBottom: 1 }}>
+    <div className="flex items-center gap-2" style={{ marginBottom: 16 }}>
+      <FlagEmoji flag={j.flag} size={20} />
+      <div>
+        <div style={{ fontSize: 15, fontWeight: 600, color: '#F0EBE0' }}>{j.name}</div>
+        <div style={{ fontSize: 11, color: '#444CE7', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{j.reg}</div>
+      </div>
+    </div>
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px 16px' }}>
+      {ROWS.map(row => (
+        <div key={row.key}>
+          <div style={{ fontSize: 10, color: '#5A5550', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 4 }}>{row.label}</div>
+          <CellValue row={row} j={j} />
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 const JurisdictionComparison = () => {
   const [selected, setSelected] = useState<string[]>(['malta', 'curacao']);
 
@@ -88,10 +109,10 @@ const JurisdictionComparison = () => {
   const selectedData = selected.map(k => ({ key: k, ...JURISDICTIONS[k] }));
 
   return (
-    <section style={{ background: '#0d0d0d', padding: '72px 48px' }}>
+    <section className="py-12 px-5 md:py-[72px] md:px-12" style={{ background: '#0d0d0d' }}>
       <div className="mx-auto" style={{ maxWidth: 1280 }}>
         <SectionTag style={{ marginBottom: 12 }}>Jurisdiction Comparison</SectionTag>
-        <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 44, fontWeight: 300, color: '#F0EBE0', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: 16 }}>
+        <h2 style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 300, color: '#F0EBE0', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: 16, fontSize: 'clamp(26px, 5vw, 44px)' }}>
           Compare Gambling Jurisdictions{'\n'}Side by Side
         </h2>
         <p style={{ fontSize: 15, color: '#9A9590', maxWidth: 520, margin: 0 }}>
@@ -99,7 +120,7 @@ const JurisdictionComparison = () => {
         </p>
 
         {/* Chips */}
-        <div className="flex gap-2 flex-wrap" style={{ marginTop: 32, marginBottom: 40 }}>
+        <div className="flex gap-2 flex-wrap" style={{ marginTop: 24, marginBottom: 32 }}>
           {Object.entries(JURISDICTIONS).map(([key, j]) => {
             const active = selected.includes(key);
             return (
@@ -108,7 +129,7 @@ const JurisdictionComparison = () => {
                 onClick={() => toggle(key)}
                 className="flex items-center gap-2 transition-all duration-150"
                 style={{
-                  padding: '8px 16px',
+                  padding: '8px 14px',
                   fontSize: 13,
                   border: `1px solid ${active ? '#444CE7' : 'rgba(255,255,255,0.1)'}`,
                   background: active ? '#444CE7' : 'transparent',
@@ -123,16 +144,16 @@ const JurisdictionComparison = () => {
           })}
         </div>
 
-        {/* Table */}
-        <div style={{ overflowX: 'auto' }}>
+        {/* Desktop Table */}
+        <div className="hidden md:block" style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
               <tr>
-                <th style={{ width: 180, minWidth: 180, background: '#0d0d0d', fontSize: 10, color: '#5A5550', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)', textAlign: 'left', fontWeight: 500 }}>
+                <th style={{ width: 180, minWidth: 160, background: '#0d0d0d', fontSize: 10, color: '#5A5550', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)', textAlign: 'left', fontWeight: 500 }}>
                   Metric
                 </th>
                 {selectedData.map(j => (
-                  <th key={j.key} style={{ minWidth: 180, background: '#0d0d0d', padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)', borderLeft: '1px solid rgba(255,255,255,0.04)', textAlign: 'left', fontWeight: 400 }}>
+                  <th key={j.key} style={{ minWidth: 160, background: '#0d0d0d', padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)', borderLeft: '1px solid rgba(255,255,255,0.04)', textAlign: 'left', fontWeight: 400 }}>
                     <FlagEmoji flag={j.flag} size={20} />
                     <div style={{ fontSize: 14, fontWeight: 600, color: '#F0EBE0', marginTop: 4 }}>{j.name}</div>
                     <div style={{ fontSize: 11, color: '#444CE7', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{j.reg}</div>
@@ -143,11 +164,11 @@ const JurisdictionComparison = () => {
             <tbody>
               {ROWS.map((row, ri) => (
                 <tr key={row.key} style={{ background: ri % 2 === 0 ? '#080808' : '#0d0d0d' }}>
-                  <td style={{ padding: '16px 20px', fontSize: 12, color: '#9A9590', textTransform: 'uppercase', letterSpacing: '0.06em', width: 180, minWidth: 180, borderRight: '1px solid rgba(255,255,255,0.04)' }}>
+                  <td style={{ padding: '16px 20px', fontSize: 12, color: '#9A9590', textTransform: 'uppercase', letterSpacing: '0.06em', width: 180, minWidth: 160, borderRight: '1px solid rgba(255,255,255,0.04)' }}>
                     {row.label}
                   </td>
                   {selectedData.map(j => (
-                    <td key={j.key} style={{ padding: '16px 20px', borderLeft: '1px solid rgba(255,255,255,0.04)', minWidth: 180 }}>
+                    <td key={j.key} style={{ padding: '16px 20px', borderLeft: '1px solid rgba(255,255,255,0.04)', minWidth: 160 }}>
                       <CellValue row={row} j={j} />
                     </td>
                   ))}
@@ -157,8 +178,15 @@ const JurisdictionComparison = () => {
           </table>
         </div>
 
+        {/* Mobile Cards */}
+        <div className="md:hidden" style={{ background: 'rgba(255,255,255,0.04)' }}>
+          {selectedData.map(j => (
+            <MobileComparisonCard key={j.key} j={j} />
+          ))}
+        </div>
+
         {/* CTA */}
-        <div className="flex items-center justify-between" style={{ marginTop: 32, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4" style={{ marginTop: 32, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
           <span style={{ fontSize: 13, color: '#9A9590', maxWidth: 500 }}>
             Need a detailed breakdown? Our attorneys prepare jurisdiction analysis reports tailored to your business model.
           </span>

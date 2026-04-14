@@ -13,10 +13,10 @@ const jurisdictions: JurisdictionCardData[] = [
 ];
 
 const JurisdictionsSection = () => (
-  <section style={{ background: "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)", padding: "72px 48px" }}>
+  <section className="py-12 px-5 md:py-[72px] md:px-12" style={{ background: "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)" }}>
     <div className="mx-auto max-w-[1280px]">
       <motion.div
-        style={{ marginBottom: 56 }}
+        className="mb-8 md:mb-14"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -24,9 +24,9 @@ const JurisdictionsSection = () => (
       >
         <div className="section-tag" style={{ marginBottom: 12 }}>Top Jurisdictions</div>
         <h2 style={{
-          fontFamily: "Manrope, sans-serif", fontSize: 44, fontWeight: 300,
+          fontFamily: "Manrope, sans-serif", fontWeight: 300,
           color: "#F0EBE0", maxWidth: 600, lineHeight: 1.15, letterSpacing: "-0.02em",
-          marginBottom: 8,
+          marginBottom: 8, fontSize: "clamp(26px, 5vw, 44px)",
         }}>
           The world's most effective licensing locations
         </h2>
@@ -38,7 +38,7 @@ const JurisdictionsSection = () => (
           marginBottom: 20,
         }} />
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <p style={{ fontSize: 16, color: "#9A9590", margin: 0 }}>
+          <p style={{ fontSize: "clamp(14px, 2vw, 16px)", color: "#9A9590", margin: 0 }}>
             Handpicked for regulatory credibility, cost-efficiency, and banking access.
           </p>
           <Link

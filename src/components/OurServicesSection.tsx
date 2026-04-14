@@ -38,7 +38,7 @@ const services: ServiceCardData[] = [
 ];
 
 const OurServicesSection = () => (
-  <section className="relative" style={{ background: "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)", padding: "72px 48px" }}>
+  <section className="relative py-12 px-5 md:py-[72px] md:px-12" style={{ background: "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)" }}>
     {/* Grid dots pattern */}
     <div
       className="absolute inset-0 pointer-events-none"
@@ -51,7 +51,7 @@ const OurServicesSection = () => (
 
     <div className="mx-auto max-w-[1280px] relative" style={{ zIndex: 1 }}>
       <motion.div
-        style={{ marginBottom: 64 }}
+        className="mb-10 md:mb-16"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -59,8 +59,9 @@ const OurServicesSection = () => (
       >
         <div className="section-tag" style={{ marginBottom: 12 }}>Services</div>
         <h2 style={{
-          fontFamily: "Manrope, sans-serif", fontSize: 48, fontWeight: 300,
+          fontFamily: "Manrope, sans-serif", fontWeight: 300,
           color: "#F0EBE0", maxWidth: 560, lineHeight: 1.15, letterSpacing: "-0.02em",
+          fontSize: "clamp(28px, 5vw, 48px)",
         }}>
           Everything you need to operate globally
         </h2>
@@ -77,11 +78,10 @@ const OurServicesSection = () => (
 
       {/* CTA bar */}
       <div
-        className="flex flex-col sm:flex-row items-start sm:items-center justify-between"
+        className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-5 md:px-12 py-6"
         style={{
           background: "#0d0d0d",
           borderTop: "1px solid rgba(255,255,255,0.06)",
-          padding: "24px 48px",
           gap: 16,
         }}
       >

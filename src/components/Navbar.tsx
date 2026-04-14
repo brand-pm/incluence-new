@@ -219,6 +219,16 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
   const openMenu = useCallback(() => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setMenuOpen(true);
@@ -249,7 +259,7 @@ const Navbar = () => {
     <>
       {/* ── BASE NAVBAR ── */}
       <nav
-        className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between"
+        className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-4 md:px-12"
         style={{
           height: 60,
           background: "rgba(8,8,8,0.88)",
@@ -257,7 +267,6 @@ const Navbar = () => {
           WebkitBackdropFilter: "blur(20px) saturate(160%)",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
           fontFamily: "Manrope, sans-serif",
-          padding: "0 48px",
         }}
       >
         <Link to="/" className="no-underline" style={{ fontSize: 18, fontWeight: 600 }}>
@@ -372,15 +381,15 @@ const Navbar = () => {
       {mobileOpen && (
         <div
           className="md:hidden fixed top-[60px] left-0 right-0 bottom-0 z-[99] overflow-y-auto"
-          style={{ background: "#0a0a0a", fontFamily: "Manrope, sans-serif", padding: "16px 24px 48px" }}
+          style={{ background: "#0a0a0a", fontFamily: "Manrope, sans-serif", padding: "16px 20px 120px" }}
         >
           {MENU_COLUMNS.map((col) => (
-            <div key={col.title} style={{ marginBottom: 8 }}>
+            <div key={col.title} style={{ marginBottom: 4 }}>
               <button
                 onClick={() => setMobileExpanded(mobileExpanded === col.title ? null : col.title)}
                 className="flex items-center justify-between w-full bg-transparent border-0 cursor-pointer"
                 style={{
-                  padding: "12px 0",
+                  padding: "14px 0",
                   borderBottom: "1px solid rgba(255,255,255,0.06)",
                   fontFamily: "inherit",
                 }}
@@ -439,15 +448,29 @@ const Navbar = () => {
           ))}
 
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 16, marginTop: 8 }}>
-            <Link to="/marketplace" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "8px 0" }}>Ready Made Company</Link>
-            <Link to="/affiliate-program" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "8px 0" }}>Affiliate Program</Link>
-            <Link to="/about" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "8px 0" }}>About</Link>
+            <Link to="/marketplace" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "10px 0" }}>Ready Made Company</Link>
+            <Link to="/affiliate-program" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "10px 0" }}>Affiliate Program</Link>
+            <Link to="/about" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "10px 0" }}>About</Link>
+          </div>
+
+          {/* Mobile social + CTA */}
+          <div className="flex items-center gap-3" style={{ marginTop: 20 }}>
+            <a href="https://t.me/incluence" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center"
+              style={{ width: 40, height: 40, border: "1px solid rgba(255,255,255,0.08)" }}>
+              <Send size={16} style={{ color: "#9A9590" }} />
+            </a>
+            <a href="https://wa.me/37281703037" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center"
+              style={{ width: 40, height: 40, border: "1px solid rgba(255,255,255,0.08)" }}>
+              <Phone size={16} style={{ color: "#9A9590" }} />
+            </a>
           </div>
           <Link
             to="/contact"
             onClick={handleLinkClick}
-            className="inline-block no-underline"
-            style={{ marginTop: 16, background: "#444CE7", color: "#fff", padding: "10px 24px", fontSize: 11, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase" }}
+            className="block no-underline text-center"
+            style={{ marginTop: 16, background: "#444CE7", color: "#fff", padding: "14px 24px", fontSize: 12, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase" }}
           >
             Start a Project
           </Link>

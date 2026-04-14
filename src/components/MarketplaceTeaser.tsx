@@ -19,15 +19,8 @@ const listings = [
 ];
 
 const MarketplaceTeaser = () => (
-  <section className="relative" style={{ background: "#0d0d0d", padding: "72px 48px" }}>
-    {/* Warm glow */}
-    <div
-      className="absolute inset-0 pointer-events-none"
-      style={{
-        background: "none",
-      }}
-    />
-    <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 relative" style={{ zIndex: 1 }}>
+  <section className="relative py-12 px-5 md:py-[72px] md:px-12" style={{ background: "#0d0d0d" }}>
+    <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 relative" style={{ zIndex: 1 }}>
       {/* Left 60% */}
       <motion.div
         className="lg:col-span-3 flex flex-col justify-center"
@@ -38,8 +31,9 @@ const MarketplaceTeaser = () => (
       >
         <div className="section-tag" style={{ marginBottom: 12 }}>Marketplace</div>
         <h2 style={{
-          fontFamily: "Manrope, sans-serif", fontSize: 48, fontWeight: 300,
+          fontFamily: "Manrope, sans-serif", fontWeight: 300,
           color: "#F0EBE0", lineHeight: 1.15, letterSpacing: "-0.02em", marginBottom: 20,
+          fontSize: "clamp(28px, 5vw, 48px)",
         }}>
           Need a company <em style={{ fontStyle: "italic", color: "#444CE7", fontWeight: 300 }}>today</em>?
         </h2>
@@ -48,7 +42,7 @@ const MarketplaceTeaser = () => (
           ready for immediate transfer. Bank accounts included on select listings.
         </p>
 
-        <div className="flex items-center gap-1.5" style={{ fontSize: 14, marginBottom: 28 }}>
+        <div className="flex items-center gap-1.5 flex-wrap" style={{ fontSize: 14, marginBottom: 28 }}>
           <span style={{ color: "#444CE7", fontWeight: 500 }}>47 companies</span>
           <span style={{ color: "#5A5550" }}>available now</span>
           <span style={{ color: "#5A5550", margin: "0 6px" }}>·</span>
@@ -76,7 +70,7 @@ const MarketplaceTeaser = () => (
         style={{
           background: "#131313",
           border: "1px solid rgba(255,255,255,0.06)",
-          padding: 24,
+          padding: "16px",
         }}
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -87,8 +81,8 @@ const MarketplaceTeaser = () => (
           {listings.map((l) => (
             <div
               key={l.country}
-              className="flex items-center justify-between"
-              style={{ padding: "16px 20px", background: "#131313" }}
+              className="flex items-center justify-between flex-wrap gap-2"
+              style={{ padding: "14px 16px", background: "#131313" }}
             >
               <div>
                 <div className="flex items-center gap-2">
