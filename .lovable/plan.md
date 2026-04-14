@@ -1,84 +1,81 @@
 
 
-# Typography and Spacing Audit — Fix Readability Across All Components
+# Page Audit & Component-Level Standardization
 
-## Problems Found
+## Current Page Inventory
 
-1. **Section headings** use `lineHeight: 1.15` which causes text overlap on mobile when titles wrap to 2-3 lines
-2. **Inconsistent vertical rhythm** — gap between section-tag → h2 → subtitle varies (12/16/20px) across sections
-3. **Card body text** at 13px with tight line-height makes long descriptions hard to read
-4. **StatsBar labels** at 10px are below minimum readable size
-5. **Footer links** have only 10px gap between items
-6. **JurisdictionCard** has cramped internal spacing
-7. **ServiceCard** inconsistent padding and text sizing
-
-## Standardized Typography Rules
+The site has **~150 non-homepage pages** built from **3 templates + ~58 standalone pages**:
 
 ```text
-Component          Current → Fixed
-─────────────────────────────────────────
-Section tag → h2   12px mb → 16px mb (consistent)
-h2 line-height     1.15 → 1.2 (prevents overlap)
-h2 → subtitle      varies → 16px gap (consistent)
-Subtitle → content varies → 32px gap on desktop, 24px mobile
-Card desc text     13px/1.6 → 14px/1.7
-Card padding       varies → 28px 24px (uniform)
-Stats labels       10px → 11px
-Footer link gap    10px → 12px
+Template                   Pages   Content Variations
+──────────────────────────────────────────────────────
+ServiceDetailPage           83     The universal fallback
+LicenseDetailPage            4     Gambling jurisdiction leaves
+HubPage                     5     Category hubs
+Standalone (custom)         58     Each has its own layout
+──────────────────────────────────────────────────────
 ```
 
-## Files to Edit (10 components)
+## ServiceDetailPage — 83 pages, 4 content profiles
 
-### 1. `src/components/LicenseCategories.tsx`
-- h2 lineHeight: 1.15 → 1.2
-- Card desc fontSize: 13 → 14, lineHeight: 1.6 → 1.7
-- Section-tag marginBottom: 12 → 16
+These 83 pages all pass different combinations of props. The template conditionally renders sections based on what's provided:
 
-### 2. `src/components/ProcessSection.tsx`
-- h2 lineHeight: 1.15 → 1.2
-- Section-tag marginBottom: 12 → 16
-- Step desc lineHeight: 1.75 (already good, keep)
+```text
+Profile          Count   Props Present
+────────────────────────────────────────────────
+A: Minimal        13    title + description + faq only
+B: With Sections  20    title + description + sections[] + faq
+C: With Reqs      30    title + description + requirements[] + faq
+D: Full           20    title + description + sections[] + requirements[] + faq
+```
 
-### 3. `src/components/OurServicesSection.tsx`
-- h2 lineHeight: 1.15 → 1.2
-- Section-tag marginBottom: 12 → 16
-- Add marginBottom: 16 to h2
+All 83 pages render through **one component** (`ServiceDetailPage.tsx`), so fixing it once fixes all 83.
 
-### 4. `src/components/ServiceCard.tsx`
-- Title fontSize: 18 → 17, marginTop: 32 → 24
-- Desc fontSize: 13 → 14, lineHeight: 1.7 (keep)
+## Problems Found Across All 3 Templates
 
-### 5. `src/components/JurisdictionsSection.tsx`
-- h2 lineHeight: 1.15 → 1.2
-- Section-tag marginBottom: 12 → 16
+All three templates share the same issues:
 
-### 6. `src/components/JurisdictionCard.tsx`
-- License text fontSize: 13 → 14
-- Subtitle marginBottom: 16 → 14 (reduce gap before divider)
-- Price row marginTop: 16 → 14
+1. **No mobile responsiveness** — `px-12` everywhere (48px padding on 375px screen = content squeezed to 279px)
+2. **`grid-cols-12` CTA form** — `col-span-5` / `col-span-7` with no mobile breakpoint → form breaks on mobile
+3. **`grid-cols-3` cards** — "Why Us", Process, Jurisdictions all use 3-col grid with no responsive fallback
+4. **`grid-cols-2` Pros/Cons** — no mobile stack
+5. **Hero padding** — `pt-[140px]` on HubPage is excessive on mobile
+6. **Breadcrumb** — `px-12` no mobile override
+7. **Facts strip** — dynamic `gridTemplateColumns` doesn't collapse on mobile
 
-### 7. `src/components/MarketplaceTeaser.tsx`
-- h2 lineHeight: 1.15 → 1.2
-- Section-tag marginBottom: 12 → 16
+## Plan — Fix at Component Level (3 files)
 
-### 8. `src/components/StatsBar.tsx`
-- Label fontSize: 10 → 11, marginTop: 6 → 8
+### 1. `ServiceDetailPage.tsx` — fixes 83 pages
 
-### 9. `src/components/ContactCTA.tsx`
-- h2 lineHeight: 1.2 (already ok)
-- Section-tag marginBottom: 12 → 16
+- All `px-12` → `px-5 md:px-12`
+- All `py-[72px]` → `py-12 md:py-[72px]`
+- Hero `py-[80px]` → `py-16 md:py-[80px]`
+- `grid grid-cols-3` (Why Us) → `grid-cols-1 md:grid-cols-3`
+- CTA form `grid-cols-12` → `grid-cols-1 md:grid-cols-12`, `col-span-5`/`col-span-7` → `md:col-span-5`/`md:col-span-7`
+- Form inputs `grid-cols-2` → `grid-cols-1 md:grid-cols-2`
 
-### 10. `src/components/Footer.tsx`
-- Link gap: 10 → 12
-- colHeading marginBottom: 16 → 20
+### 2. `HubPage.tsx` — fixes 5 pages
 
-### 11. `src/components/sections/JurisdictionComparison.tsx`
-- h2 lineHeight: 1.15 → 1.2
-- Fix `{'\n'}` in h2 (renders as literal text, not line break)
+- Same `px-12` → `px-5 md:px-12` pattern
+- Hero `pt-[140px]` → `pt-24 md:pt-[140px]`
+- Jurisdiction grid `grid-cols-3` → `grid-cols-1 md:grid-cols-3`
+- Process grid `grid-cols-3` → `grid-cols-1 md:grid-cols-3`
+- Why Us grid `grid-cols-3` → `grid-cols-1 md:grid-cols-3`
+- Stats strip: add `grid-cols-2 md:grid-cols-4` responsive
+- CTA form: same fix as ServiceDetailPage
+- Hero buttons: `flex gap-3` → `flex flex-col md:flex-row gap-3`
 
-### 12. `src/components/HeroContent.tsx`
-- Mobile stats label fontSize: 8 → 10
-- Mobile h1 marginBottom: 12 → 16
+### 3. `LicenseDetailPage.tsx` — fixes 4 pages
 
-## No structural changes, no layout changes — only font sizes, line heights, and margins adjusted for readability.
+- Same `px-12` → `px-5 md:px-12` pattern
+- Facts strip: responsive `grid-cols-2 md:grid-cols-N`
+- Requirements `grid-cols-12` → stack on mobile (sidebar below content)
+- Process `grid-cols-3` → `grid-cols-1 md:grid-cols-3`
+- Pros/Cons `grid-cols-2` → `grid-cols-1 md:grid-cols-2`
+- Related `grid-cols-3` → `grid-cols-1 md:grid-cols-3`
+- CTA form: same fix
+
+### Summary
+
+**3 files edited = 92 pages fixed.** The 58 standalone pages are separate and would need individual attention in a follow-up pass.
 
