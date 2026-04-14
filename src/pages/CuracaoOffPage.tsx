@@ -90,7 +90,7 @@ const CuracaoOffPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— Why Curaçao</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Curaçao: Key Advantages for International Business</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Curaçao: Key Advantages for International Business</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Curaçao attracts foreign businessmen and investors through several distinct advantages not available in other Caribbean jurisdictions.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
             {[
@@ -112,7 +112,7 @@ const CuracaoOffPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-7">
             <span className="section-tag mb-3 block">— Requirements</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What Is Required for Curaçao Registration</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">What Is Required for Curaçao Registration</h2>
             <p className="text-[14px] text-[#9A9590] mb-8 leading-relaxed">The registration procedure is straightforward. Below is the standard document list. Additional documents may be requested based on your specific company type and activities.</p>
             <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
               {["Copies of passports of all company participants","Confirmation of address of all company participants","Completed registration forms","Information on source of funds for company creation","Additional documents may be requested based on activity type"].map((t,i)=>(
@@ -140,7 +140,7 @@ const CuracaoOffPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
           <div className="max-w-[720px] divide-y divide-white/[0.06]">
             {FAQS.map((f,i)=>(
               <div key={i}><button onClick={()=>setOpenFaq(openFaq===i?null:i)} className="w-full flex items-center justify-between py-5 text-left group"><span className="text-[14px] text-[#F0EBE0] font-medium pr-8">{f.q}</span><ChevronDown className={`w-4 h-4 text-[#5A5550] transition-transform flex-shrink-0 ${openFaq===i?"rotate-180":""}`}/></button>{openFaq===i&&<p className="text-[13px] text-[#9A9590] leading-relaxed pb-5">{f.a}</p>}</div>
@@ -154,7 +154,7 @@ const CuracaoOffPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-5">
             <span className="section-tag mb-3 block">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Register Your Curaçao Company</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Register Your Curaçao Company</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed">Contact our specialists to begin the registration process.</p>
           </div>
           <div className="col-span-7">

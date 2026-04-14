@@ -128,7 +128,7 @@ const BankAccountsHubPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Advantages</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Why Open a Foreign Bank Account</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Why Open a Foreign Bank Account</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Foreign bank accounts provide their owners with many other advantages, which may vary depending on the selected jurisdiction.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {ADVANTAGES.map((a, i) => (
@@ -146,7 +146,7 @@ const BankAccountsHubPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Account Types</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Types of Foreign Bank Accounts</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Types of Foreign Bank Accounts</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[480px] leading-relaxed">Depending on your goals, banks can offer different account types. Choose the one that matches your purpose.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {ACCOUNT_TYPES.map((t, i) => (
@@ -164,7 +164,7 @@ const BankAccountsHubPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Our Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How We Open a Foreign Bank Account</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">How We Open a Foreign Bank Account</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[480px] leading-relaxed">Controlling meeting the deadlines at every stage.</p>
           <div ref={containerRef} className="relative">
             <ProcessFlowCanvas />
@@ -186,7 +186,7 @@ const BankAccountsHubPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Important</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">What You Need to Know About Due Diligence</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">What You Need to Know About Due Diligence</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Today, entrepreneurs can open a foreign bank account online, but not all banks provide such an option. This is largely due to the fact that if the bank values its reputation, it is obliged to conduct preliminary customer verification. So, if you want to open a foreign bank account, you will need to go through a procedure called Due Diligence. In some cases, banks can do it remotely, but in most cases, the customer must be present in person.</p>
@@ -218,7 +218,7 @@ const BankAccountsHubPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Frequently Asked Questions</h2>
           <div className="max-w-[720px] space-y-px">
             {FAQS.map((faq, i) => (
               <div key={i} className="border-b border-white/[0.06]">
@@ -240,7 +240,7 @@ const BankAccountsHubPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Open Your Foreign Bank Account</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Open Your Foreign Bank Account</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed">Tell us about your company and banking needs. We'll select the right bank and handle the paperwork.</p>
           </div>
           <div className="md:col-span-7">

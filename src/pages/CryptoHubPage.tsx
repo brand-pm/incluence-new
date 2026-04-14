@@ -157,7 +157,7 @@ const CryptoHubPage = () => {
       <section id="jurisdictions" style={{ background: "#0d0d0d", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Available Licenses</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Choose Your VASP Jurisdiction</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Choose Your VASP Jurisdiction</h2>
           <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-12">Each jurisdiction offers a different balance of speed, cost, EU market access and MiCA readiness. We select the right one for your crypto business model.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             {JURISDICTIONS.map((j) => (
@@ -189,7 +189,7 @@ const CryptoHubPage = () => {
       <section style={{ background: "#111111", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Licensed Activities</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What a Crypto License Authorizes</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">What a Crypto License Authorizes</h2>
           <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[600px] mb-12">A VASP license grants your company the legal right to offer digital asset services to clients — either as a standalone crypto business or integrated into a broader fintech product.</p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             {ACTIVITIES.map((a, i) => (
@@ -209,7 +209,7 @@ const CryptoHubPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— EU Regulation</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">MiCA: The New EU Standard for Crypto</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-6">MiCA: The New EU Standard for Crypto</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
               <p>The EU's Markets in Crypto-Assets Regulation (MiCA) is the most comprehensive crypto regulatory framework in the world — and it took full effect in 2025. Any company offering crypto services to EU clients must now be MiCA-compliant.</p>
               <p>Lithuania and Estonia are the two fastest EU jurisdictions for VASP licensing — and both already align closely with MiCA's CASP (Crypto Asset Service Provider) framework. Companies licensed in these jurisdictions today are positioned for smooth MiCA transition and EU-wide passporting.</p>
@@ -240,7 +240,7 @@ const CryptoHubPage = () => {
       <section style={{ background: "#111111", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">From Registration to Licensed VASP</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">From Registration to Licensed VASP</h2>
           <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-12">We manage every step of the VASP licensing process. Timeline depends on jurisdiction — fastest with Lithuania at 1–3 months.</p>
           <div ref={containerRef} className="relative">
             <ProcessFlowCanvas />
@@ -263,7 +263,7 @@ const CryptoHubPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Requirements</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Common VASP Requirements</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Common VASP Requirements</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-8">Requirements vary by jurisdiction. EU licenses (MiCA-aligned) require stricter compliance frameworks. We prepare the full documentation package — you provide personal documents only.</p>
             <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
               {REQS.map((r, i) => (
@@ -304,7 +304,7 @@ const CryptoHubPage = () => {
       <section style={{ background: "#111111", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Common Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Common Questions</h2>
           <div className="max-w-[720px]">
             {FAQS.map((f, i) => (
               <div key={i} className="border-b border-white/[0.06]">
@@ -324,7 +324,7 @@ const CryptoHubPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Apply for a Crypto / VASP License</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Apply for a Crypto / VASP License</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">Tell us about your crypto services — exchange, custody, OTC, wallet — and we'll design the right licensing structure with a full MiCA transition roadmap.</p>
           </div>
           <div className="lg:col-span-7">

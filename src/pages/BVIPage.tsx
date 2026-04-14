@@ -134,7 +134,7 @@ const BVIPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— Why BVI</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Why Buy an Offshore Company in the British Virgin Islands</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Why Buy an Offshore Company in the British Virgin Islands</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">
             BVI attracts entrepreneurs from around the world. Opening an offshore company here has many advantages that are hard to match in any other jurisdiction.
           </p>
@@ -160,7 +160,7 @@ const BVIPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— Available Forms</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Legal Forms Available in BVI</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Legal Forms Available in BVI</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[500px] leading-relaxed">
             BVI provides broad opportunities for company registration. The International Business Company (IBC) is the most preferred option for the majority of entrepreneurs.
           </p>
@@ -185,7 +185,7 @@ const BVIPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-7">
             <span className="section-tag mb-3 block">— Requirements</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What Is Required for BVI Registration</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">What Is Required for BVI Registration</h2>
             <p className="text-[14px] text-[#9A9590] mb-8 leading-relaxed">
               The registration procedure is relatively simple. However, legislative changes — particularly stricter investor identification rules — must be monitored.
             </p>
@@ -258,7 +258,7 @@ const BVIPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
           <div className="max-w-[720px] divide-y divide-white/[0.06]">
             {FAQS.map((f, i) => (
               <div key={i}>
@@ -278,7 +278,7 @@ const BVIPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-5">
             <span className="section-tag mb-3 block">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Register Your BVI Company</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Register Your BVI Company</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed">
               Contact our specialists to begin the registration process. We handle everything from document preparation to final submission.
             </p>

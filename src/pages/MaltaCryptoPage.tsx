@@ -173,7 +173,7 @@ const MaltaCryptoPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— About Malta VFA License</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Types of Cryptocurrency Licenses in Malta</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-6">Types of Cryptocurrency Licenses in Malta</h2>
             <div className="space-y-4 text-[14px] text-[#9A9590] leading-[1.85]">
               <p>If you are interested in licensing a Maltese company, you should first determine the class of license. Each class authorizes specific services, and the complexity of obtaining the required permit depends on it. There are four classes of cryptocurrency licenses in Malta.</p>
               <p>Class 1: Receiving and transmitting orders, providing investment advice regarding Virtual Financial Assets (VFAs). Class 2: Operations with funds, excluding exchange trading or proprietary trading. Class 3: Any operations except exchange and proprietary trading, holding and controlling client funds is permitted. Class 4: All cryptocurrency operations, including those involving client funds.</p>
@@ -196,7 +196,7 @@ const MaltaCryptoPage = () => {
       <section style={{ background: "#111111", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How to Obtain a Malta VFA License</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">How to Obtain a Malta VFA License</h2>
           <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-12">A 6-step process managed end-to-end. MFSA review is the longest phase — we prepare documentation to minimize delays.</p>
           <div ref={containerRef} className="relative">
             <ProcessFlowCanvas />
@@ -219,7 +219,7 @@ const MaltaCryptoPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Requirements</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Documents & Eligibility</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Documents & Eligibility</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-8">MFSA requires comprehensive documentation for all VFA license classes. Higher classes carry stricter personnel and capital requirements.</p>
             <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
               {REQS.map((r, i) => (
@@ -254,7 +254,7 @@ const MaltaCryptoPage = () => {
       <section style={{ background: "#111111", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Assessment</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Advantages & Limitations</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Advantages & Limitations</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             <div className="bg-[#111111] p-7">
               <h3 className="text-[13px] text-[#22c55e] uppercase tracking-[0.08em] mb-5">Advantages</h3>
@@ -272,7 +272,7 @@ const MaltaCryptoPage = () => {
       <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Common Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Common Questions</h2>
           <div className="max-w-[720px]">
             {FAQS.map((f, i) => (
               <div key={i} className="border-b border-white/[0.06]">
@@ -294,7 +294,7 @@ const MaltaCryptoPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Apply for a Malta VFA License</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Apply for a Malta VFA License</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">Tell us about your crypto business. We'll recommend the right VFA class and manage the full MFSA licensing process.</p>
           </div>
           <div className="lg:col-span-7">

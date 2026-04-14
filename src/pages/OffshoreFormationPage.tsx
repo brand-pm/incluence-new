@@ -161,7 +161,7 @@ const OffshoreFormationPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Advantages</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Benefits of Offshore Company Registration</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Benefits of Offshore Company Registration</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Cooperation with an offshore bank provides the businessman with plenty of benefits. First and foremost, it is recommended to open an offshore bank account because of the accessibility and flexibility of products.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {ADVANTAGES.map((a, i) => (
@@ -179,7 +179,7 @@ const OffshoreFormationPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Available Jurisdictions</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Where We Register Offshore Companies</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Where We Register Offshore Companies</h2>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {JURISDICTIONS.map((j, i) => (
               <Link key={i} to={j.href} className="bg-[#111111] p-7 group relative overflow-hidden no-underline flex flex-col">
@@ -198,7 +198,7 @@ const OffshoreFormationPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">How Offshore Registration Works</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">How Offshore Registration Works</h2>
           <div ref={containerRef} className="relative">
             <ProcessFlowCanvas />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[rgba(255,255,255,0.06)] relative z-[2]">
@@ -219,7 +219,7 @@ const OffshoreFormationPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Offshore Banking</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Choosing the Right Offshore Bank</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Choosing the Right Offshore Bank</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Once you have decided on the jurisdiction, you should be careful when choosing the right bank. We recommend opening an offshore company account in banks that offer convenient working methods, selection of a certain currency, and an easy opening procedure.</p>
@@ -266,7 +266,7 @@ const OffshoreFormationPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Frequently Asked Questions</h2>
           <div className="max-w-[720px] space-y-px">
             {FAQS.map((faq, i) => (
               <div key={i} className="border-b border-white/[0.06]">
@@ -288,7 +288,7 @@ const OffshoreFormationPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Register Your Offshore Company</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Register Your Offshore Company</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed">Tell us about your goals — asset protection, payment operations, confidentiality. We'll recommend the right jurisdiction and structure.</p>
           </div>
           <div className="md:col-span-7">

@@ -147,7 +147,7 @@ const EmiHubPage = () => {
       <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Licensed Activities</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What an EMI License Authorizes</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">What an EMI License Authorizes</h2>
           <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[600px] mb-14">Electronic money is increasingly being used in domestic and international transactions. No need to exchange such money. Several currencies can be kept in electronic wallets and accounts. Funds can be used remotely. Money transfers are usually instant. Electronic money is protected against fraud, theft, change of face value, and so on.</p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             {ACTIVITIES.map((a, i) => (
@@ -166,7 +166,7 @@ const EmiHubPage = () => {
       <section id="jurisdictions" style={{ background: "#111111", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Available Licenses</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Choose Your EMI Jurisdiction</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Choose Your EMI Jurisdiction</h2>
           <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-12">Each jurisdiction offers different capital requirements, timelines, and market access. Lithuania and the UK are the most popular globally — for different reasons.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
             {JURISDICTIONS.map((j) => (
@@ -198,7 +198,7 @@ const EmiHubPage = () => {
       <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">From Application to Licensed EMI</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">From Application to Licensed EMI</h2>
           <p className="text-[14px] text-[#9A9590] leading-[1.8] max-w-[480px] mb-12">A thorough 6-step process. EMI licensing requires genuine substance — qualified people, real capital, and functional compliance infrastructure.</p>
           <div ref={containerRef} className="relative">
             <ProcessFlowCanvas />
@@ -221,7 +221,7 @@ const EmiHubPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Requirements</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Core EMI Requirements</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Core EMI Requirements</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-8">The process of obtaining a license is quite complicated and can also vary from jurisdiction to jurisdiction. Owners of any company applying for an EMI license are subject to thorough due diligence. On average, it takes three to six months, but the terms can vary.</p>
             <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
               {REQS.map((r, i) => (
@@ -262,7 +262,7 @@ const EmiHubPage = () => {
       <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Common Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Common Questions</h2>
           <div className="max-w-[720px]">
             {FAQS.map((f, i) => (
               <div key={i} className="border-b border-white/[0.06]">
@@ -282,7 +282,7 @@ const EmiHubPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Apply for an EMI License</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Apply for an EMI License</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">Tell us about your payment business — e-wallet, neobank, remittance, card issuing — and we'll design the optimal EMI licensing structure for your market.</p>
           </div>
           <div className="lg:col-span-7">

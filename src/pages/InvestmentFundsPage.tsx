@@ -132,7 +132,7 @@ const InvestmentFundsPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Available Jurisdictions</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Where We Register Investment Funds</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Where We Register Investment Funds</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[500px] leading-[1.8]">
             Our specialists help with the opening of investment funds around the world, including Luxembourg, Liechtenstein, Estonia, Czech Republic, Switzerland, Malta, Seychelles, Bahamas.
           </p>
@@ -151,7 +151,7 @@ const InvestmentFundsPage = () => {
       <section className="bg-[#111111] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Requirements</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">What Is Required to Open an Investment Fund</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">What Is Required to Open an Investment Fund</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[500px] leading-[1.8]">
             In order to create an investment fund, it is necessary to prepare business plan and policies, register a legal entity, if necessary, open an account and deposit authorized capital, confirm that the fund manager has sufficient experience. The Fund must approve the conditions for attracting participants. All new participants must be registered in accordance with the rules of the fund and under the legislation of the country of registration.
           </p>
@@ -176,7 +176,7 @@ const InvestmentFundsPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
           <div className="max-w-[720px] space-y-px bg-[rgba(255,255,255,0.06)]">
             {FAQS.map((f, i) => (
               <div key={i} className="bg-[#0d0d0d]">
@@ -197,7 +197,7 @@ const InvestmentFundsPage = () => {
       <section className="bg-[#080808] py-[80px] px-12">
         <div className="max-w-[600px] mx-auto text-center">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Register Your Investment Fund</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Register Your Investment Fund</h2>
           <p className="text-[14px] text-[#9A9590] mb-8 leading-[1.8]">
             Contact our specialists to discuss your fund structure, jurisdiction, and timeline.
           </p>

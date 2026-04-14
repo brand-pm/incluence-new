@@ -66,7 +66,7 @@ const OffshoreBankAccountPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Benefits</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Opening an Account for an Offshore Company: Benefits</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Opening an Account for an Offshore Company: Benefits</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[500px] leading-relaxed">Partnering with an offshore bank provides entrepreneurs with a wide range of benefits.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {BENEFITS.map((b, i) => (
@@ -84,7 +84,7 @@ const OffshoreBankAccountPage = () => {
       <section className="bg-[#111111]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">How to Open an Offshore Account</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">How to Open an Offshore Account</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Each bank sets specific requirements for clients. If you want to open an offshore account at a particular bank, consult our specialists. If necessary, we will help you choose a jurisdiction that meets your requirements and conditions.</p>
@@ -118,7 +118,7 @@ const OffshoreBankAccountPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Important</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-12">Is Offshore Account Opening Guaranteed?</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-12">Is Offshore Account Opening Guaranteed?</h2>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-8">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">Having a bank account for an offshore company offers many advantages, making this service popular. However, there is no guarantee that the account will be opened. The decision is made solely by bank staff, who carefully review all documents and assess potential risks.</p>
@@ -141,7 +141,7 @@ const OffshoreBankAccountPage = () => {
         <div className="max-w-screen-xl mx-auto">
           <div className="max-w-[600px] mx-auto">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Open Your Offshore Bank Account</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Open Your Offshore Bank Account</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed mb-8">Contact us to discuss your offshore banking needs. We'll select the right bank and handle everything.</p>
             <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
           </div>

@@ -153,7 +153,7 @@ const ResidencePermitPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Pathways</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How to Obtain a Residence Permit Abroad</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">How to Obtain a Residence Permit Abroad</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-[1.8]">
             There are several ways to obtain a residence permit abroad, each with its advantages and requirements. By meeting the conditions, a foreigner can legalize their stay in the chosen country. Below are some of the most common options.
           </p>
@@ -176,7 +176,7 @@ const ResidencePermitPage = () => {
       <section className="bg-[#111111] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Types</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Temporary vs Permanent Residence Permit</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Temporary vs Permanent Residence Permit</h2>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-2 gap-px">
             <div className="bg-[#111111] p-8 relative overflow-hidden group">
               <CornerAccent /><ScanSweep />
@@ -204,7 +204,7 @@ const ResidencePermitPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— What It Provides</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Why Obtain a Residence Permit Abroad</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Why Obtain a Residence Permit Abroad</h2>
           <p className="text-[14px] text-[#9A9590] mb-10 max-w-[540px] leading-[1.8]">
             There are many benefits available to residence permit holders abroad. This permit grants foreigners nearly the same civil rights as citizens. The only restrictions are: they cannot vote or hold government positions.
           </p>
@@ -226,7 +226,7 @@ const ResidencePermitPage = () => {
       <section className="bg-[#111111] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Required Documents</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Documents Required for a Residence Permit</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Documents Required for a Residence Permit</h2>
           <div className="grid grid-cols-12 gap-12">
             <div className="col-span-7">
               <p className="text-[14px] text-[#9A9590] leading-[1.85] mb-5">
@@ -272,7 +272,7 @@ const ResidencePermitPage = () => {
       <section className="bg-[#0d0d0d] py-[72px] px-12">
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
           <div className="max-w-[720px] space-y-px bg-[rgba(255,255,255,0.06)]">
             {FAQS.map((f, i) => (
               <div key={i} className="bg-[#0d0d0d]">
@@ -294,7 +294,7 @@ const ResidencePermitPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Apply for a Residence Permit Abroad</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Apply for a Residence Permit Abroad</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">
               Contact our specialists to discuss your target country, grounds for residence, and timeline.
             </p>

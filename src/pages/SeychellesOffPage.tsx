@@ -91,7 +91,7 @@ const SeychellesOffPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— Why Seychelles</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Seychelles: A Favorable Offshore Zone</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Seychelles: A Favorable Offshore Zone</h2>
           <p className="text-[14px] text-[#9A9590] mb-12 max-w-[540px] leading-relaxed">Today, offshore companies in Seychelles are available to business people in several organizational and legal forms. In addition, one can both register a company in Seychelles and buy a ready-made business in Seychelles to start operating in the shortest possible time.</p>
           <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
             {[
@@ -113,7 +113,7 @@ const SeychellesOffPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-7">
             <span className="section-tag mb-3 block">— Requirements</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Documents Required for Seychelles Registration</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Documents Required for Seychelles Registration</h2>
             <p className="text-[14px] text-[#9A9590] mb-8 leading-relaxed">To register a company in the Seychelles, the following documents are required at minimum. Contact our specialists for the complete list specific to your structure.</p>
             <div className="border-l-2 border-[#444CE7]/20 pl-6 space-y-3">
               {["Copies of passports of all company participants","Confirmation of address of all company participants","Reference letters for beneficiaries","Completed registration forms","Information on source of funds for company creation"].map((t,i)=>(
@@ -144,7 +144,7 @@ const SeychellesOffPage = () => {
       <section className="bg-[#0d0d0d]" style={{ padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="section-tag mb-3 block">— FAQ</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-10">Frequently Asked Questions</h2>
           <div className="max-w-[720px] divide-y divide-white/[0.06]">
             {FAQS.map((f,i)=>(
               <div key={i}><button onClick={()=>setOpenFaq(openFaq===i?null:i)} className="w-full flex items-center justify-between py-5 text-left group"><span className="text-[14px] text-[#F0EBE0] font-medium pr-8">{f.q}</span><ChevronDown className={`w-4 h-4 text-[#5A5550] transition-transform flex-shrink-0 ${openFaq===i?"rotate-180":""}`}/></button>{openFaq===i&&<p className="text-[13px] text-[#9A9590] leading-relaxed pb-5">{f.a}</p>}</div>
@@ -158,7 +158,7 @@ const SeychellesOffPage = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
           <div className="col-span-5">
             <span className="section-tag mb-3 block">— Get Started</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Register Your Seychelles Company</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Register Your Seychelles Company</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed">Contact our specialists to begin the registration process.</p>
           </div>
           <div className="col-span-7">

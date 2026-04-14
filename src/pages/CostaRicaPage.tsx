@@ -146,7 +146,7 @@ const CostaRicaPage = () => {
       <section className="bg-[hsl(var(--bg-3))] py-[72px] px-12">
         <div className="max-w-[1280px] mx-auto">
           <SectionTag>HOW IT WORKS</SectionTag>
-          <h2 className="text-[clamp(28px,3vw,40px)] font-light text-[hsl(var(--text-primary))] mb-12">
+          <h2 className="text-[clamp(28px,3vw,40px)] font-light leading-[1.2] text-[hsl(var(--text-primary))] mb-12">
             From application to licensed operation
           </h2>
           <div className="relative">
@@ -218,7 +218,7 @@ const CostaRicaPage = () => {
       <section className="bg-[hsl(var(--bg-1))] py-[72px] px-12">
         <div className="max-w-[1280px] mx-auto">
           <SectionTag>ADVANTAGES & RESTRICTIONS</SectionTag>
-          <h2 className="text-[clamp(28px,3vw,40px)] font-light text-[hsl(var(--text-primary))] mb-12">
+          <h2 className="text-[clamp(28px,3vw,40px)] font-light leading-[1.2] text-[hsl(var(--text-primary))] mb-12">
             What you need to know before applying
           </h2>
           <div className="bg-[hsl(0_0%_100%/0.06)] grid grid-cols-2 gap-px">
@@ -254,7 +254,7 @@ const CostaRicaPage = () => {
       <section className="bg-[hsl(var(--bg-2))] py-[72px] px-12">
         <div className="max-w-[1280px] mx-auto">
           <SectionTag>FAQ</SectionTag>
-          <h2 className="text-[clamp(28px,3vw,40px)] font-light text-[hsl(var(--text-primary))] mb-12">
+          <h2 className="text-[clamp(28px,3vw,40px)] font-light leading-[1.2] text-[hsl(var(--text-primary))] mb-12">
             Common questions about Costa Rica licensing
           </h2>
           <div>
@@ -296,7 +296,7 @@ const CostaRicaPage = () => {
         <div className="max-w-[1280px] mx-auto flex gap-16 items-start">
           <div className="flex-1">
             <SectionTag>GET IN TOUCH</SectionTag>
-            <h2 className="text-[clamp(28px,3vw,40px)] font-light text-[hsl(var(--text-primary))] mb-4">
+            <h2 className="text-[clamp(28px,3vw,40px)] font-light leading-[1.2] text-[hsl(var(--text-primary))] mb-4">
               Start your Costa Rica license application
             </h2>
             <p className="text-[15px] text-[hsl(var(--text-secondary))] leading-relaxed max-w-[440px] mb-8">

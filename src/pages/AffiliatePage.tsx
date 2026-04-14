@@ -185,7 +185,7 @@ const AffiliatePage = () => {
       <section style={{ background: "#0d0d0d", padding: "72px 48px" }}>
         <div className="max-w-screen-xl mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Process</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">How the Partner Program Works</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">How the Partner Program Works</h2>
           <p className="text-[14px] text-[#9A9590] max-w-[480px] mb-14 leading-[1.8]">
             A simple four-step process. Submit once, receive a personal manager,
             and start earning on every referral.
@@ -210,7 +210,7 @@ const AffiliatePage = () => {
           {/* left text */}
           <div className="col-span-12 lg:col-span-5">
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Partner Benefits</span>
-            <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-6">Why Partner with Incluence</h2>
+            <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-6">Why Partner with Incluence</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">
               We work in high-value industries where a single referred client
               can generate significant commission. Our transparent reporting
@@ -240,7 +240,7 @@ const AffiliatePage = () => {
       <section style={{ background: "#080808", padding: "88px 48px" }}>
         <div className="max-w-[640px] mx-auto">
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Join Now</span>
-          <h2 className="text-[clamp(24px,3vw,40px)] font-light text-[#F0EBE0] mb-4">Ready to Start Earning?</h2>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Ready to Start Earning?</h2>
           <p className="text-[14px] text-[#9A9590] leading-[1.8] mb-10">
             Submit your application below. Our partner manager will contact
             you within 1–3 business days with your personal dashboard access
