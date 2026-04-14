@@ -27,7 +27,7 @@ const companyLinks = [
 
 const colHeading: React.CSSProperties = {
   fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em",
-  color: "#9A9590", marginBottom: 16, fontWeight: 500,
+  color: "#9A9590", marginBottom: 20, fontWeight: 500,
 };
 
 const linkStyle: React.CSSProperties = {
@@ -56,7 +56,7 @@ const Footer = () => (
       {/* Col 2 — Services */}
       <div>
         <div style={colHeading}>Services</div>
-        <div className="flex flex-col" style={{ gap: 10 }}>
+        <div className="flex flex-col" style={{ gap: 12 }}>
           {serviceLinks.map((s) => (
             <Link key={s.label} to={s.href} style={linkStyle} className="hover:!text-foreground">{s.label}</Link>
           ))}
@@ -66,7 +66,7 @@ const Footer = () => (
       {/* Col 3 — Jurisdictions */}
       <div className="hidden sm:block">
         <div style={colHeading}>Jurisdictions</div>
-        <div className="flex flex-col" style={{ gap: 10 }}>
+        <div className="flex flex-col" style={{ gap: 12 }}>
           {jurisdictionLinks.map((s) => (
             <Link key={s} to="/" style={linkStyle} className="hover:!text-foreground">{s}</Link>
           ))}
@@ -76,7 +76,7 @@ const Footer = () => (
       {/* Col 4 — Company */}
       <div>
         <div style={colHeading}>Company</div>
-        <div className="flex flex-col" style={{ gap: 10 }}>
+        <div className="flex flex-col" style={{ gap: 12 }}>
           {companyLinks.map((s) => (
             <Link key={s.label} to={s.href} style={linkStyle} className="hover:!text-foreground">{s.label}</Link>
           ))}

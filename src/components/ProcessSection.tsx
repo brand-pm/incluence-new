@@ -40,10 +40,10 @@ const ProcessSection = () => (
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="section-tag" style={{ marginBottom: 12 }}>How It Works</div>
+        <div className="section-tag" style={{ marginBottom: 16 }}>How It Works</div>
         <h2 style={{
           fontFamily: "Manrope, sans-serif", fontWeight: 300,
-          color: "#F0EBE0", maxWidth: 520, marginBottom: 16, lineHeight: 1.15,
+          color: "#F0EBE0", maxWidth: 520, marginBottom: 16, lineHeight: 1.2,
           letterSpacing: "-0.02em", fontSize: "clamp(28px, 5vw, 48px)",
         }}>
           From first call to licensed operation

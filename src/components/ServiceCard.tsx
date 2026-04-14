@@ -86,10 +86,10 @@ const ServiceCard = ({ svc, i }: ServiceCardProps) => {
         />
       </div>
 
-      <h3 className="relative z-10" style={{ fontSize: 18, fontWeight: 600, color: "#F0EBE0", marginTop: 32, marginBottom: 12 }}>
+      <h3 className="relative z-10" style={{ fontSize: 17, fontWeight: 600, color: "#F0EBE0", marginTop: 24, marginBottom: 12 }}>
         {svc.title}
       </h3>
-      <p className="relative z-10" style={{ fontSize: 13, color: "#9A9590", lineHeight: 1.7, marginBottom: 20 }}>
+      <p className="relative z-10" style={{ fontSize: 14, color: "#9A9590", lineHeight: 1.7, marginBottom: 20 }}>
         {svc.desc}
       </p>
 

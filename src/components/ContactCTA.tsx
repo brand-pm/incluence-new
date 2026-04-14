@@ -54,7 +54,7 @@ const ContactCTA = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="section-tag" style={{ marginBottom: 12 }}>Get In Touch</div>
+          <div className="section-tag" style={{ marginBottom: 16 }}>Get In Touch</div>
           <h2 style={{
             fontFamily: "Manrope, sans-serif", fontWeight: 300,
             color: "#F0EBE0", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 16,

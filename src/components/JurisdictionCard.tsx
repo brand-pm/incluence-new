@@ -69,14 +69,14 @@ const JurisdictionCard = ({ j, i, pulseDelay }: JurisdictionCardProps) => (
       {j.reg}
     </div>
 
-    <p style={{ fontSize: 13, color: "#9A9590", marginBottom: j.subtitle ? 4 : 16 }}>{j.license}</p>
+    <p style={{ fontSize: 14, color: "#9A9590", marginBottom: j.subtitle ? 4 : 14 }}>{j.license}</p>
     {j.subtitle && (
-      <p style={{ fontSize: 11, color: "#5A5550", marginBottom: 16, fontStyle: "italic" }}>{j.subtitle}</p>
+      <p style={{ fontSize: 11, color: "#5A5550", marginBottom: 14, fontStyle: "italic" }}>{j.subtitle}</p>
     )}
 
     <div style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />
 
-    <div className="flex items-center justify-between" style={{ marginTop: 16 }}>
+    <div className="flex items-center justify-between" style={{ marginTop: 14 }}>
       <div>
         <span style={{ fontSize: 12, color: "#5A5550" }}>From </span>
         <span style={{ fontSize: 16, fontWeight: 600, color: "#F0EBE0" }}>{j.price}</span>

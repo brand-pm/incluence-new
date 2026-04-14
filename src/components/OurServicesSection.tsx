@@ -57,10 +57,10 @@ const OurServicesSection = () => (
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="section-tag" style={{ marginBottom: 12 }}>Services</div>
+        <div className="section-tag" style={{ marginBottom: 16 }}>Services</div>
         <h2 style={{
           fontFamily: "Manrope, sans-serif", fontWeight: 300,
-          color: "#F0EBE0", maxWidth: 560, lineHeight: 1.15, letterSpacing: "-0.02em",
+          color: "#F0EBE0", maxWidth: 560, lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 16,
           fontSize: "clamp(28px, 5vw, 48px)",
         }}>
           Everything you need to operate globally
