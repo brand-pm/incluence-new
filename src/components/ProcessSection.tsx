@@ -30,7 +30,7 @@ const ProcessSection = () => (
   <section
     className="relative"
     style={{
-      background: "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)",
+      background: "#0d0d0d",
       padding: "72px 48px",
     }}
   >
@@ -65,7 +65,7 @@ const ProcessSection = () => (
             key={step.num}
             className="relative overflow-hidden"
             data-step={step.num === "01" ? "1" : step.num === "02" ? "2" : step.num === "03" ? "3" : "4"}
-            style={{ background: "#12143a", padding: "40px 36px" }}
+            style={{ background: "#111111", padding: "40px 36px" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}

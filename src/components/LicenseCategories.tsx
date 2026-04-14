@@ -31,7 +31,7 @@ const cards = [
 ];
 
 const LicenseCategories = () => (
-  <section className="relative" style={{ background: "#0d0d0d", padding: "72px 48px" }}>
+  <section className="relative" style={{ background: "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)", padding: "72px 48px" }}>
     {/* Accent glow */}
     <div
       className="absolute inset-0 pointer-events-none"
