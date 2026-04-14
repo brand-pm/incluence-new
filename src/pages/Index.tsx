@@ -1,10 +1,7 @@
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import WorldMapCanvas from "@/components/WorldMapCanvas";
 import HeroContent from "@/components/HeroContent";
 import IndustriesTicker from "@/components/IndustriesTicker";
 import LicenseCategories from "@/components/LicenseCategories";
-import ServicesSection from "@/components/ServicesSection";
 import OurServicesSection from "@/components/OurServicesSection";
 import JurisdictionComparison from "@/components/sections/JurisdictionComparison";
 import ProcessSection from "@/components/ProcessSection";
@@ -13,6 +10,7 @@ import MarketplaceTeaser from "@/components/MarketplaceTeaser";
 import StatsBar from "@/components/StatsBar";
 import PartnersSection from "@/components/PartnersSection";
 import ContactCTA from "@/components/ContactCTA";
+import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => (
   <div>
@@ -33,7 +31,7 @@ const Index = () => (
         }}
       />
 
-      {/* Noise overlay to eliminate gradient banding */}
+      {/* Noise overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -49,14 +47,40 @@ const Index = () => (
     </section>
 
     <IndustriesTicker />
+
+    {/* bg: #0d0d0d */}
     <LicenseCategories />
+    <SectionDivider />
+
+    {/* bg: #111111 */}
     <ProcessSection />
+    <SectionDivider />
+
+    {/* bg: #0d0d0d */}
     <OurServicesSection />
+    <SectionDivider />
+
+    {/* bg: #111111 */}
     <JurisdictionComparison />
+    <SectionDivider />
+
+    {/* bg: #0d0d0d */}
     <JurisdictionsSection />
+    <SectionDivider />
+
+    {/* bg: #111111 */}
     <MarketplaceTeaser />
+    <SectionDivider />
+
+    {/* bg: #080808 */}
     <StatsBar />
+    <SectionDivider />
+
+    {/* bg: #0d0d0d */}
     <PartnersSection />
+    <SectionDivider />
+
+    {/* bg: #080808 */}
     <ContactCTA />
   </div>
 );
