@@ -37,9 +37,9 @@ const linkStyle: React.CSSProperties = {
 
 const Footer = () => (
   <footer style={{ background: "#080808", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-    <div className="mx-auto max-w-[1280px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ padding: "64px 48px", gap: 48 }}>
+    <div className="mx-auto max-w-[1280px] grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 px-5 py-10 md:px-12 md:py-16 gap-8 md:gap-12">
       {/* Col 1 — Brand */}
-      <div>
+      <div className="col-span-2 sm:col-span-1">
         <div style={{ fontSize: 20, fontWeight: 600, fontFamily: "Manrope, sans-serif" }}>
           <span style={{ color: "#F0EBE0" }}>Inclu</span>
           <span style={{ color: "#444CE7" }}>ence</span>
@@ -64,7 +64,7 @@ const Footer = () => (
       </div>
 
       {/* Col 3 — Jurisdictions */}
-      <div>
+      <div className="hidden sm:block">
         <div style={colHeading}>Jurisdictions</div>
         <div className="flex flex-col" style={{ gap: 10 }}>
           {jurisdictionLinks.map((s) => (
@@ -86,10 +86,9 @@ const Footer = () => (
 
     {/* Bottom bar */}
     <div
-      className="flex flex-col sm:flex-row items-center justify-between"
+      className="flex flex-col sm:flex-row items-center justify-between gap-2 px-5 md:px-12 py-5"
       style={{
         borderTop: "1px solid rgba(255,255,255,0.04)",
-        padding: "20px 48px",
       }}
     >
       <span style={{ fontSize: 12, color: "#5A5550" }}>© 2024 Incluence Ltd. All rights reserved.</span>

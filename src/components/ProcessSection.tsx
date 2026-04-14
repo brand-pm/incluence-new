@@ -28,16 +28,13 @@ const steps = [
 
 const ProcessSection = () => (
   <section
-    className="relative"
-    style={{
-      background: "#0d0d0d",
-      padding: "72px 48px",
-    }}
+    className="relative py-12 px-5 md:py-[72px] md:px-12"
+    style={{ background: "#0d0d0d" }}
   >
     <div className="mx-auto max-w-[1280px] relative">
       <ProcessFlowCanvas />
       <motion.div
-        style={{ marginBottom: 72 }}
+        className="mb-10 md:mb-[72px]"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -45,13 +42,13 @@ const ProcessSection = () => (
       >
         <div className="section-tag" style={{ marginBottom: 12 }}>How It Works</div>
         <h2 style={{
-          fontFamily: "Manrope, sans-serif", fontSize: 48, fontWeight: 300,
+          fontFamily: "Manrope, sans-serif", fontWeight: 300,
           color: "#F0EBE0", maxWidth: 520, marginBottom: 16, lineHeight: 1.15,
-          letterSpacing: "-0.02em",
+          letterSpacing: "-0.02em", fontSize: "clamp(28px, 5vw, 48px)",
         }}>
           From first call to licensed operation
         </h2>
-        <p style={{ fontSize: 16, color: "#9A9590", lineHeight: 1.6 }}>
+        <p style={{ fontSize: "clamp(14px, 2vw, 16px)", color: "#9A9590", lineHeight: 1.6 }}>
           A structured process refined across 500+ client projects
         </p>
       </motion.div>
@@ -65,22 +62,22 @@ const ProcessSection = () => (
             key={step.num}
             className="relative overflow-hidden"
             data-step={step.num === "01" ? "1" : step.num === "02" ? "2" : step.num === "03" ? "3" : "4"}
-            style={{ background: "#111111", padding: "40px 36px" }}
+            style={{ background: "#111111", padding: "32px 24px" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
           >
-            {/* Ghost number — brighter accent */}
+            {/* Ghost number */}
             <span className="step-ghost-num" style={{
-              position: "absolute", top: 16, right: 24,
-              fontSize: 80, fontWeight: 300, color: "hsl(233 84% 60% / 0.18)", transition: "color 0.3s ease",
+              position: "absolute", top: 12, right: 16,
+              fontSize: "clamp(56px, 10vw, 80px)", fontWeight: 300, color: "hsl(233 84% 60% / 0.18)", transition: "color 0.3s ease",
               lineHeight: 1, pointerEvents: "none",
             }}>
               {step.num}
             </span>
 
-            <h3 style={{ fontSize: 20, fontWeight: 600, color: "#F0EBE0", marginBottom: 12 }}>
+            <h3 style={{ fontSize: "clamp(16px, 2.5vw, 20px)", fontWeight: 600, color: "#F0EBE0", marginBottom: 12 }}>
               {step.title}
             </h3>
             <p style={{ fontSize: 14, color: "#9A9590", lineHeight: 1.75 }}>

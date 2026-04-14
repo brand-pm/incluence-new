@@ -31,7 +31,7 @@ const cards = [
 ];
 
 const LicenseCategories = () => (
-  <section className="relative" style={{ background: "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)", padding: "72px 48px" }}>
+  <section className="relative py-12 px-5 md:py-[72px] md:px-12" style={{ background: "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)" }}>
     {/* Accent glow */}
     <div
       className="absolute inset-0 pointer-events-none"
@@ -42,7 +42,7 @@ const LicenseCategories = () => (
 
     <div className="mx-auto max-w-[1280px] relative" style={{ zIndex: 1 }}>
       <motion.div
-        style={{ marginBottom: 64 }}
+        className="mb-10 md:mb-16"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -50,13 +50,13 @@ const LicenseCategories = () => (
       >
         <div className="section-tag" style={{ marginBottom: 12 }}>What We License</div>
         <h2 style={{
-          fontFamily: "Manrope, sans-serif", fontSize: 48, fontWeight: 300,
+          fontFamily: "Manrope, sans-serif", fontWeight: 300,
           color: "#F0EBE0", maxWidth: 640, marginBottom: 16, lineHeight: 1.15,
-          letterSpacing: "-0.02em",
+          letterSpacing: "-0.02em", fontSize: "clamp(28px, 5vw, 48px)",
         }}>
           Every license your business needs — in one place
         </h2>
-        <p style={{ fontSize: 16, color: "#9A9590", lineHeight: 1.6 }}>
+        <p style={{ fontSize: "clamp(14px, 2vw, 16px)", color: "#9A9590", lineHeight: 1.6 }}>
           From regulated EU jurisdictions to efficient offshore structures — we cover the full spectrum.
         </p>
       </motion.div>
@@ -71,7 +71,7 @@ const LicenseCategories = () => (
             className="group relative flex flex-col cursor-pointer overflow-hidden h-full"
             style={{
               background: "#0d0d0d",
-              padding: "32px 28px",
+              padding: "28px 24px",
               borderLeft: "2px solid hsl(233 84% 60% / 0.15)",
               transition: "background 0.3s, border-color 0.3s",
             }}
@@ -104,17 +104,17 @@ const LicenseCategories = () => (
               }}
             />
 
-            <span style={{ fontSize: 48, fontWeight: 300, color: "rgba(68,76,231,0.2)", lineHeight: 1 }}>
+            <span style={{ fontSize: "clamp(36px, 5vw, 48px)", fontWeight: 300, color: "rgba(68,76,231,0.2)", lineHeight: 1 }}>
               {card.num}
             </span>
             <card.icon
-              size={40} strokeWidth={1.5} color="#444CE7"
-              style={{ marginTop: 20 }}
+              size={36} strokeWidth={1.5} color="#444CE7"
+              style={{ marginTop: 16 }}
             />
-            <h3 style={{ fontSize: 16, fontWeight: 600, color: "#F0EBE0", marginTop: 20, marginBottom: 8 }}>
+            <h3 style={{ fontSize: 16, fontWeight: 600, color: "#F0EBE0", marginTop: 16, marginBottom: 8 }}>
               {card.title}
             </h3>
-            <p style={{ fontSize: 13, color: "#9A9590", lineHeight: 1.6, marginBottom: 20, flex: 1 }}>
+            <p style={{ fontSize: 13, color: "#9A9590", lineHeight: 1.6, marginBottom: 16, flex: 1 }}>
               {card.desc}
             </p>
             <span style={{ fontSize: 11, color: "#444CE7", fontWeight: 500 }}>

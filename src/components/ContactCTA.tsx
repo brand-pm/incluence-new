@@ -37,7 +37,7 @@ const ContactCTA = () => {
     focused === name ? { borderColor: "rgba(68,76,231,0.5)" } : {};
 
   return (
-    <section className="relative" style={{ background: "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)", padding: "96px 48px" }}>
+    <section className="relative py-12 px-5 md:py-24 md:px-12" style={{ background: "linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)" }}>
       {/* Accent glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -46,7 +46,7 @@ const ContactCTA = () => {
         }}
       />
 
-      <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-2 relative" style={{ gap: 96, zIndex: 1 }}>
+      <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-2 relative gap-12 lg:gap-24" style={{ zIndex: 1 }}>
         {/* LEFT — Contact info */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -56,8 +56,9 @@ const ContactCTA = () => {
         >
           <div className="section-tag" style={{ marginBottom: 12 }}>Get In Touch</div>
           <h2 style={{
-            fontFamily: "Manrope, sans-serif", fontSize: 40, fontWeight: 300,
+            fontFamily: "Manrope, sans-serif", fontWeight: 300,
             color: "#F0EBE0", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 16,
+            fontSize: "clamp(26px, 4vw, 40px)",
           }}>
             Start your project with a free consultation
           </h2>
@@ -107,10 +108,10 @@ const ContactCTA = () => {
 
         {/* RIGHT — Form */}
         <motion.div
+          className="p-6 md:p-10"
           style={{
             background: "#0d0d0d",
             border: "1px solid rgba(255,255,255,0.06)",
-            padding: 40,
           }}
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

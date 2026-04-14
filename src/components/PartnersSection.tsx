@@ -41,7 +41,7 @@ const partners = [
 ];
 
 const PartnersSection = () => (
-  <section className="relative" style={{ background: "#0d0d0d", padding: "64px 48px" }}>
+  <section className="relative py-12 px-5 md:py-16 md:px-12" style={{ background: "#0d0d0d" }}>
     {/* Dot pattern */}
     <div
       className="absolute inset-0 pointer-events-none"
@@ -58,7 +58,7 @@ const PartnersSection = () => (
         Our partners and integrations
       </p>
 
-      <div className="flex flex-wrap justify-around items-center" style={{ gap: 48 }}>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {partners.map((p, i) => (
           <motion.a
             key={p.name}
@@ -69,8 +69,7 @@ const PartnersSection = () => (
             style={{
               background: "#131313",
               border: "1px solid rgba(255,255,255,0.06)",
-              padding: "28px 40px",
-              minWidth: 200,
+              padding: "24px 16px",
               minHeight: 90,
               filter: "grayscale(100%) brightness(1.8) opacity(0.5)",
               transition: "filter 0.3s, border-color 0.3s",
