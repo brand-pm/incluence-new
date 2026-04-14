@@ -10,47 +10,46 @@ interface JurisdictionData {
   region: string;
   cost: string;
   timeline: string;
-  tax: string;
   capital: string;
-  games: string[];
+  licenseType: string;
+  market: string;
+  validity: string;
+  presence: string;
   renewal: string;
-  privacy: string;
   banking: string;
   reputation: string;
   remote: boolean;
 }
 
 const JURISDICTIONS: Record<string, JurisdictionData> = {
-  malta: { name: 'Malta', reg: 'MGA', flag: '🇲🇹', region: 'EU', cost: '€25,000', timeline: '6–9 mo', tax: '35% (refund to 5%)', capital: '€100,000', games: ['Casino', 'Sports', 'Poker', 'Live'], renewal: 'Annual', privacy: 'Low', banking: 'Excellent', reputation: 'Tier 1', remote: true },
-  curacao: { name: 'Curaçao', reg: 'CGA', flag: '🇨🇼', region: 'Caribbean', cost: '€15,000', timeline: '3–4 mo', tax: '2% offshore', capital: 'None', games: ['Casino', 'Sports', 'Poker', 'Live', 'Crypto'], renewal: 'Annual', privacy: 'Medium', banking: 'Good', reputation: 'Tier 2', remote: true },
-  gibraltar: { name: 'Gibraltar', reg: 'GBGA', flag: '🇬🇮', region: 'UK Territory', cost: '£30,000', timeline: '6–12 mo', tax: '10%', capital: '£100,000', games: ['Casino', 'Sports', 'Poker'], renewal: 'Annual', privacy: 'Low', banking: 'Excellent', reputation: 'Tier 1', remote: false },
-  iom: { name: 'Isle of Man', reg: 'GSC', flag: '🇮🇲', region: 'Crown Dependency', cost: '£25,000', timeline: '6–12 mo', tax: '0%', capital: '£100,000', games: ['Casino', 'Sports', 'Poker', 'Live'], renewal: 'Annual', privacy: 'Medium', banking: 'Excellent', reputation: 'Tier 1', remote: false },
-  costarica: { name: 'Costa Rica', reg: 'Municipality', flag: '🇨🇷', region: 'Americas', cost: '$15,000', timeline: '2–5 wk', tax: '0% offshore', capital: 'None', games: ['Casino', 'Sports', 'Poker', 'Live', 'Crypto'], renewal: 'None', privacy: 'High', banking: 'Limited', reputation: 'Tier 3', remote: true },
-  cyprus: { name: 'Cyprus', reg: 'CySEC', flag: '🇨🇾', region: 'EU', cost: '€30,000', timeline: '4–6 mo', tax: '12.5%', capital: '€200,000', games: ['Casino', 'Sports'], renewal: 'Annual', privacy: 'Low', banking: 'Good', reputation: 'Tier 1', remote: false },
+  malta: { name: 'Malta', reg: 'MGA', flag: '🇲🇹', region: 'EU', cost: 'On request', timeline: '~6 months', capital: '€100,000', licenseType: 'B2C / B2B', market: 'EU passporting', validity: '5 years', presence: 'Required', renewal: '—', banking: 'Excellent', reputation: 'Tier 1', remote: false },
+  curacao: { name: 'Curaçao', reg: 'CGA', flag: '🇨🇼', region: 'Caribbean', cost: 'From €15,000', timeline: '3–4 months', capital: 'None', licenseType: 'Master / Sub', market: 'Global', validity: '—', presence: 'Not required', renewal: 'Annual', banking: 'Good', reputation: 'Tier 2', remote: true },
+  iom: { name: 'Isle of Man', reg: 'GSC', flag: '🇮🇲', region: 'Crown Dependency', cost: 'On request', timeline: '6–12 months', capital: 'On request', licenseType: 'All verticals', market: 'Crown Dependency', validity: '5 years', presence: 'Required', renewal: 'Annual', banking: 'Excellent', reputation: 'Tier 1', remote: false },
+  costarica: { name: 'Costa Rica', reg: 'Municipality', flag: '🇨🇷', region: 'Americas', cost: '$15,000', timeline: '2–5 weeks', capital: '25% of share capital', licenseType: 'Data Processing', market: 'International', validity: 'Annual', presence: 'Office required', renewal: '$1,500/quarter', banking: 'Limited', reputation: 'Tier 3', remote: true },
 };
 
 const ROWS: { key: keyof JurisdictionData; label: string; type: string }[] = [
   { key: 'cost', label: 'License Cost', type: 'value' },
   { key: 'timeline', label: 'Timeline', type: 'value' },
-  { key: 'tax', label: 'Tax Rate', type: 'value' },
   { key: 'capital', label: 'Capital Requirement', type: 'value' },
-  { key: 'games', label: 'Permitted Games', type: 'tags' },
+  { key: 'licenseType', label: 'License Type', type: 'value' },
+  { key: 'market', label: 'Target Market', type: 'value' },
+  { key: 'validity', label: 'Validity', type: 'value' },
+  { key: 'presence', label: 'Physical Presence', type: 'value' },
+  { key: 'renewal', label: 'Renewal', type: 'value' },
   { key: 'banking', label: 'Banking Access', type: 'rating' },
   { key: 'reputation', label: 'Reputation Tier', type: 'tier' },
-  { key: 'privacy', label: 'Privacy Level', type: 'privacy' },
   { key: 'remote', label: 'Remote Application', type: 'bool' },
-  { key: 'renewal', label: 'License Renewal', type: 'value' },
 ];
 
 const TierDisplay = ({ tier }: { tier: string }) => {
   const n = tier === 'Tier 1' ? 3 : tier === 'Tier 2' ? 2 : 1;
-  const color = tier === 'Tier 1' ? '#444CE7' : tier === 'Tier 2' ? '#9A9590' : '#5A5550';
   return (
     <div className="flex items-center gap-1.5">
       {[0, 1, 2].map(i => (
         <div key={i} className="w-2 h-2" style={{ background: i < n ? '#444CE7' : 'rgba(255,255,255,0.08)' }} />
       ))}
-      <span style={{ fontSize: 12, color }}>{tier}</span>
+      <span style={{ fontSize: 12, color: '#444CE7' }}>{tier}</span>
     </div>
   );
 };
@@ -58,27 +57,12 @@ const TierDisplay = ({ tier }: { tier: string }) => {
 const CellValue = ({ row, j }: { row: typeof ROWS[number]; j: JurisdictionData }) => {
   const val = j[row.key];
 
-  if (row.type === 'tags' && Array.isArray(val)) {
-    return (
-      <div className="flex flex-wrap gap-1">
-        {val.map(t => (
-          <span key={t} style={{ fontSize: 10, color: '#9A9590', border: '1px solid rgba(255,255,255,0.1)', padding: '2px 8px', textTransform: 'uppercase' }}>{t}</span>
-        ))}
-      </div>
-    );
-  }
-
   if (row.type === 'rating') {
     const color = val === 'Excellent' ? '#22c55e' : val === 'Limited' ? '#f59e0b' : '#F0EBE0';
     return <span style={{ fontSize: 13, fontWeight: 500, color }}>{val as string}</span>;
   }
 
   if (row.type === 'tier') return <TierDisplay tier={val as string} />;
-
-  if (row.type === 'privacy') {
-    const color = val === 'High' ? '#22c55e' : val === 'Medium' ? '#f59e0b' : '#9A9590';
-    return <span style={{ fontSize: 13, color }}>{val as string}</span>;
-  }
 
   if (row.type === 'bool') {
     return <span style={{ fontSize: 13, color: val ? '#444CE7' : '#5A5550' }}>{val ? 'Yes' : 'No'}</span>;
@@ -108,10 +92,10 @@ const JurisdictionComparison = () => {
       <div className="mx-auto" style={{ maxWidth: 1280 }}>
         <SectionTag style={{ marginBottom: 12 }}>Jurisdiction Comparison</SectionTag>
         <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 44, fontWeight: 300, color: '#F0EBE0', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: 16 }}>
-          Compare Licensing Jurisdictions{'\n'}Side by Side
+          Compare Gambling Jurisdictions{'\n'}Side by Side
         </h2>
         <p style={{ fontSize: 15, color: '#9A9590', maxWidth: 520, margin: 0 }}>
-          Select up to 3 jurisdictions to compare costs, timelines, tax rates, and requirements in real time.
+          Select up to 3 jurisdictions to compare timelines, requirements, and licensing conditions.
         </p>
 
         {/* Chips */}
