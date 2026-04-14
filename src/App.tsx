@@ -17,7 +17,7 @@ const IsleOfManGamingPage = React.lazy(() => import("./pages/IsleOfManGamingPage
 const CostaRicaGamingPage = React.lazy(() => import("./pages/CostaRicaGamingPage"));
 const AboutPage = React.lazy(() => import("./pages/AboutPage"));
 const ContactPage = React.lazy(() => import("./pages/ContactPage"));
-const MarketplacePage = React.lazy(() => import("./pages/MarketplacePage"));
+const MarketplacePage = React.lazy(() => import("./pages/Marketplace"));
 const SitemapPage = React.lazy(() => import("./pages/SitemapPage"));
 const ForexHubPage = React.lazy(() => import("./pages/ForexHubPage"));
 const CyprusForexPage = React.lazy(() => import("./pages/CyprusForexPage"));
