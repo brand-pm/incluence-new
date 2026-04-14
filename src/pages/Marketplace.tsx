@@ -208,7 +208,7 @@ const Marketplace = () => {
   const [bankOnly, setBankOnly] = useState(false);
 
   const filtered = COMPANIES.filter(c => {
-    if (jurisdiction !== "All" && c.jurisdiction !== jurisdiction) return false;
+    if (jurisdiction !== "All" && c.country !== jurisdiction) return false;
     if (type !== "All" && !c.type.toLowerCase().includes(type.toLowerCase())) return false;
     if (bankOnly && !c.hasBank) return false;
     return true;
@@ -271,13 +271,6 @@ const Marketplace = () => {
               <span style={{ fontSize: 11, color: "#5A5550", marginRight: 8 }}>Jurisdiction:</span>
               {JURISDICTIONS.map(j => (
                 <FilterBtn key={j} label={j} active={jurisdiction === j} onClick={() => setJurisdiction(j)} />
-              ))}
-            </div>
-            {/* Type */}
-            <div className="flex flex-wrap items-center" style={{ gap: 8 }}>
-              <span style={{ fontSize: 11, color: "#5A5550", marginRight: 8 }}>Type:</span>
-              {TYPES.map(t => (
-                <FilterBtn key={t} label={t} active={type === t} onClick={() => setType(t)} />
               ))}
             </div>
             {/* Bank toggle */}
