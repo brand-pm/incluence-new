@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLeadForm } from "@/hooks/useLeadForm";
+import FormBlock from "@/components/FormBlock";
 import { Link } from "react-router-dom";
 import { ChevronRight, ChevronDown, Check, X } from "lucide-react";
 import { useLicensePage } from "@/hooks/useSanityPage";
