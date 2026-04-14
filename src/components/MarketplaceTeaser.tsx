@@ -29,10 +29,10 @@ const MarketplaceTeaser = () => (
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="section-tag" style={{ marginBottom: 12 }}>Marketplace</div>
+        <div className="section-tag" style={{ marginBottom: 16 }}>Marketplace</div>
         <h2 style={{
           fontFamily: "Manrope, sans-serif", fontWeight: 300,
-          color: "#F0EBE0", lineHeight: 1.15, letterSpacing: "-0.02em", marginBottom: 20,
+          color: "#F0EBE0", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 20,
           fontSize: "clamp(28px, 5vw, 48px)",
         }}>
           Need a company <em style={{ fontStyle: "italic", color: "#444CE7", fontWeight: 300 }}>today</em>?

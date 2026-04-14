@@ -48,10 +48,10 @@ const LicenseCategories = () => (
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="section-tag" style={{ marginBottom: 12 }}>What We License</div>
+        <div className="section-tag" style={{ marginBottom: 16 }}>What We License</div>
         <h2 style={{
           fontFamily: "Manrope, sans-serif", fontWeight: 300,
-          color: "#F0EBE0", maxWidth: 640, marginBottom: 16, lineHeight: 1.15,
+          color: "#F0EBE0", maxWidth: 640, marginBottom: 16, lineHeight: 1.2,
           letterSpacing: "-0.02em", fontSize: "clamp(28px, 5vw, 48px)",
         }}>
           Every license your business needs — in one place
@@ -114,7 +114,7 @@ const LicenseCategories = () => (
             <h3 style={{ fontSize: 16, fontWeight: 600, color: "#F0EBE0", marginTop: 16, marginBottom: 8 }}>
               {card.title}
             </h3>
-            <p style={{ fontSize: 13, color: "#9A9590", lineHeight: 1.6, marginBottom: 16, flex: 1 }}>
+            <p style={{ fontSize: 14, color: "#9A9590", lineHeight: 1.7, marginBottom: 16, flex: 1 }}>
               {card.desc}
             </p>
             <span style={{ fontSize: 11, color: "#444CE7", fontWeight: 500 }}>

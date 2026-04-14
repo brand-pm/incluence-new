@@ -90,7 +90,7 @@ const HeroContent = () => (
       <motion.h1 style={{
         fontFamily: FONT, fontSize: "clamp(22px, 6.5vw, 30px)",
         fontWeight: 300, lineHeight: 1.12, letterSpacing: "-0.02em",
-        color: "#F0EBE0", margin: 0, marginBottom: 12,
+        color: "#F0EBE0", margin: 0, marginBottom: 16,
       }}
         initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -140,7 +140,7 @@ const HeroContent = () => (
               <div style={{ fontSize: 18, fontWeight: 300, color: "#F0EBE0", lineHeight: 1 }}>
                 {s.num}<span style={{ color: "#444CE7" }}>{s.suffix}</span>
               </div>
-              <div style={{ fontSize: 8, color: "#5A5550", marginTop: 3, textTransform: "uppercase", letterSpacing: "0.06em" }}>{s.label}</div>
+              <div style={{ fontSize: 10, color: "#5A5550", marginTop: 4, textTransform: "uppercase", letterSpacing: "0.06em" }}>{s.label}</div>
             </motion.div>
           ))}
         </div>

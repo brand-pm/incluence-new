@@ -34,7 +34,7 @@ const StatsBar = () => (
           <div style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 300, color: "#F0EBE0", fontFamily: "Manrope, sans-serif", lineHeight: 1 }}>
             {s.num}<span style={{ color: "#444CE7" }}>{s.suffix}</span>
           </div>
-          <div style={{ fontSize: 10, color: "#5A5550", letterSpacing: "0.08em", textTransform: "uppercase", marginTop: 6 }}>
+          <div style={{ fontSize: 11, color: "#5A5550", letterSpacing: "0.08em", textTransform: "uppercase", marginTop: 8 }}>
             {s.label}
           </div>
         </motion.div>

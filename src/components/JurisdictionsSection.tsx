@@ -22,10 +22,10 @@ const JurisdictionsSection = () => (
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="section-tag" style={{ marginBottom: 12 }}>Top Jurisdictions</div>
+        <div className="section-tag" style={{ marginBottom: 16 }}>Top Jurisdictions</div>
         <h2 style={{
           fontFamily: "Manrope, sans-serif", fontWeight: 300,
-          color: "#F0EBE0", maxWidth: 600, lineHeight: 1.15, letterSpacing: "-0.02em",
+          color: "#F0EBE0", maxWidth: 600, lineHeight: 1.2, letterSpacing: "-0.02em",
           marginBottom: 8, fontSize: "clamp(26px, 5vw, 44px)",
         }}>
           The world's most effective licensing locations

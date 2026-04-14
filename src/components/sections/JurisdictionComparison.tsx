@@ -111,9 +111,9 @@ const JurisdictionComparison = () => {
   return (
     <section className="py-12 px-5 md:py-[72px] md:px-12" style={{ background: '#0d0d0d' }}>
       <div className="mx-auto" style={{ maxWidth: 1280 }}>
-        <SectionTag style={{ marginBottom: 12 }}>Jurisdiction Comparison</SectionTag>
-        <h2 style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 300, color: '#F0EBE0', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: 16, fontSize: 'clamp(26px, 5vw, 44px)' }}>
-          Compare Gambling Jurisdictions{'\n'}Side by Side
+        <SectionTag style={{ marginBottom: 16 }}>Jurisdiction Comparison</SectionTag>
+        <h2 style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 300, color: '#F0EBE0', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: 16, fontSize: 'clamp(26px, 5vw, 44px)' }}>
+          Compare Gambling Jurisdictions<br />Side by Side
         </h2>
         <p style={{ fontSize: 15, color: '#9A9590', maxWidth: 520, margin: 0 }}>
           Select up to 3 jurisdictions to compare timelines, requirements, and licensing conditions.
