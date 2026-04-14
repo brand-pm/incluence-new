@@ -1,81 +1,74 @@
 
 
-# Page Audit & Component-Level Standardization
+# Apply Homepage Color Blocking to All 3 Templates
 
-## Current Page Inventory
+## Current State
+All three templates (ServiceDetailPage, HubPage, LicenseDetailPage) use flat dark backgrounds only: `#080808`, `#0d0d0d`, `#111111`. The homepage alternates between flat black sections and deep blue gradient sections (`linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)`) with subtle accent glows. This creates visual rhythm that the inner pages lack.
 
-The site has **~150 non-homepage pages** built from **3 templates + ~58 standalone pages**:
+## Color Pattern
 
+The blue gradient block style from homepage:
+```css
+background: linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)
+```
+Plus optional accent glow overlays for depth.
+
+## Changes Per Template
+
+### 1. ServiceDetailPage.tsx (83 pages)
+
+Section order and new backgrounds:
 ```text
-Template                   Pages   Content Variations
-──────────────────────────────────────────────────────
-ServiceDetailPage           83     The universal fallback
-LicenseDetailPage            4     Gambling jurisdiction leaves
-HubPage                     5     Category hubs
-Standalone (custom)         58     Each has its own layout
-──────────────────────────────────────────────────────
+Breadcrumb     → #080808 (flat, unchanged)
+Hero           → #080808 (flat, unchanged)
+About          → BLUE GRADIENT + accent glow
+Content[0]     → #0d0d0d (flat)
+Content[1]     → BLUE GRADIENT
+Content[N]     → alternating flat/blue
+Requirements   → #0d0d0d (flat)
+Why Us         → BLUE GRADIENT + grid dots
+FAQ            → #0d0d0d (flat)
+CTA Form       → BLUE GRADIENT + accent glow
 ```
 
-## ServiceDetailPage — 83 pages, 4 content profiles
+Card backgrounds inside blue sections change from `#111111` to `#0f1029` to blend with gradient.
 
-These 83 pages all pass different combinations of props. The template conditionally renders sections based on what's provided:
+### 2. HubPage.tsx (5 pages)
 
 ```text
-Profile          Count   Props Present
-────────────────────────────────────────────────
-A: Minimal        13    title + description + faq only
-B: With Sections  20    title + description + sections[] + faq
-C: With Reqs      30    title + description + requirements[] + faq
-D: Full           20    title + description + sections[] + requirements[] + faq
+Hero           → #080808 (flat, unchanged)
+Stats Strip    → keep gap-px pattern (flat)
+Jurisdictions  → BLUE GRADIENT + accent glow
+Requirements   → #0d0d0d (flat)
+Process        → BLUE GRADIENT + grid dots
+Why Us         → #0d0d0d (flat)
+FAQ            → BLUE GRADIENT
+CTA Form       → #080808 (flat)
 ```
 
-All 83 pages render through **one component** (`ServiceDetailPage.tsx`), so fixing it once fixes all 83.
+### 3. LicenseDetailPage.tsx (4 pages)
 
-## Problems Found Across All 3 Templates
+```text
+Breadcrumb     → #080808 (flat)
+Hero           → #080808 (flat)
+Facts Strip    → keep as-is
+About          → BLUE GRADIENT + accent glow
+Process        → #0d0d0d (flat)
+Requirements   → BLUE GRADIENT + grid dots
+Pros & Cons    → #0d0d0d (flat)
+FAQ            → BLUE GRADIENT
+Related        → #0d0d0d (flat)
+CTA Form       → BLUE GRADIENT + accent glow
+```
 
-All three templates share the same issues:
+## Implementation Details
 
-1. **No mobile responsiveness** — `px-12` everywhere (48px padding on 375px screen = content squeezed to 279px)
-2. **`grid-cols-12` CTA form** — `col-span-5` / `col-span-7` with no mobile breakpoint → form breaks on mobile
-3. **`grid-cols-3` cards** — "Why Us", Process, Jurisdictions all use 3-col grid with no responsive fallback
-4. **`grid-cols-2` Pros/Cons** — no mobile stack
-5. **Hero padding** — `pt-[140px]` on HubPage is excessive on mobile
-6. **Breadcrumb** — `px-12` no mobile override
-7. **Facts strip** — dynamic `gridTemplateColumns` doesn't collapse on mobile
+For each blue gradient section, add:
+- `position: relative` on section
+- Background: `linear-gradient(180deg, #0f1029 0%, #111133 50%, #0f1029 100%)`
+- Accent glow overlay div (same as homepage components use)
+- Update inner card backgrounds from `#111111`/`#0d0d0d` to `#0f1029` so cards blend with the gradient
+- All content wrapped in `relative z-10` to stay above overlays
 
-## Plan — Fix at Component Level (3 files)
-
-### 1. `ServiceDetailPage.tsx` — fixes 83 pages
-
-- All `px-12` → `px-5 md:px-12`
-- All `py-[72px]` → `py-12 md:py-[72px]`
-- Hero `py-[80px]` → `py-16 md:py-[80px]`
-- `grid grid-cols-3` (Why Us) → `grid-cols-1 md:grid-cols-3`
-- CTA form `grid-cols-12` → `grid-cols-1 md:grid-cols-12`, `col-span-5`/`col-span-7` → `md:col-span-5`/`md:col-span-7`
-- Form inputs `grid-cols-2` → `grid-cols-1 md:grid-cols-2`
-
-### 2. `HubPage.tsx` — fixes 5 pages
-
-- Same `px-12` → `px-5 md:px-12` pattern
-- Hero `pt-[140px]` → `pt-24 md:pt-[140px]`
-- Jurisdiction grid `grid-cols-3` → `grid-cols-1 md:grid-cols-3`
-- Process grid `grid-cols-3` → `grid-cols-1 md:grid-cols-3`
-- Why Us grid `grid-cols-3` → `grid-cols-1 md:grid-cols-3`
-- Stats strip: add `grid-cols-2 md:grid-cols-4` responsive
-- CTA form: same fix as ServiceDetailPage
-- Hero buttons: `flex gap-3` → `flex flex-col md:flex-row gap-3`
-
-### 3. `LicenseDetailPage.tsx` — fixes 4 pages
-
-- Same `px-12` → `px-5 md:px-12` pattern
-- Facts strip: responsive `grid-cols-2 md:grid-cols-N`
-- Requirements `grid-cols-12` → stack on mobile (sidebar below content)
-- Process `grid-cols-3` → `grid-cols-1 md:grid-cols-3`
-- Pros/Cons `grid-cols-2` → `grid-cols-1 md:grid-cols-2`
-- Related `grid-cols-3` → `grid-cols-1 md:grid-cols-3`
-- CTA form: same fix
-
-### Summary
-
-**3 files edited = 92 pages fixed.** The 58 standalone pages are separate and would need individual attention in a follow-up pass.
+**3 files edited = 92 pages get the homepage color rhythm.**
 
