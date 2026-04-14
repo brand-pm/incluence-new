@@ -293,7 +293,56 @@ const Navbar = () => {
         </div>
 
         {/* Contact dropdown + CTA — desktop */}
-        <div className="hidden md:flex items-center gap-5">
+        <div className="hidden md:flex items-center gap-3">
+          {/* Telegram & WhatsApp direct icons */}
+          <a
+            href="https://t.me/incluence"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-center transition-all duration-200"
+            style={{
+              width: 34,
+              height: 34,
+              border: "1px solid rgba(255,255,255,0.08)",
+              background: "transparent",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "rgba(68,76,231,0.5)";
+              e.currentTarget.style.background = "rgba(68,76,231,0.08)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+              e.currentTarget.style.background = "transparent";
+            }}
+            title="Telegram"
+          >
+            <Send size={14} className="text-[#9A9590] group-hover:text-[#444CE7] transition-colors duration-200" />
+          </a>
+          <a
+            href="https://wa.me/37281703037"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-center transition-all duration-200"
+            style={{
+              width: 34,
+              height: 34,
+              border: "1px solid rgba(255,255,255,0.08)",
+              background: "transparent",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "rgba(68,76,231,0.5)";
+              e.currentTarget.style.background = "rgba(68,76,231,0.08)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+              e.currentTarget.style.background = "transparent";
+            }}
+            title="WhatsApp"
+          >
+            <Phone size={14} className="text-[#9A9590] group-hover:text-[#444CE7] transition-colors duration-200" />
+          </a>
+
+          <div style={{ width: 1, height: 20, background: "rgba(255,255,255,0.08)" }} />
           <div ref={contactRef} className="relative">
             <button
               onClick={() => setContactOpen(!contactOpen)}
