@@ -1,11 +1,14 @@
 const SectionDivider = () => (
   <div
-    className="flex items-center w-full"
-    style={{ padding: "0 48px", background: "#0a0a0a" }}
+    className="relative w-full"
+    style={{ background: "#0a0a0a", height: 1 }}
   >
-    <div className="flex-1" style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />
-    <div style={{ width: 4, height: 4, background: "#444CE7", margin: "0 16px", flexShrink: 0 }} />
-    <div className="flex-1" style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />
+    <div
+      className="absolute inset-0"
+      style={{
+        background: "linear-gradient(90deg, transparent 0%, hsl(233 84% 60% / 0.4) 50%, transparent 100%)",
+      }}
+    />
   </div>
 );
 

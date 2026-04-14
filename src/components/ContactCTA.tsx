@@ -37,8 +37,16 @@ const ContactCTA = () => {
     focused === name ? { borderColor: "rgba(68,76,231,0.5)" } : {};
 
   return (
-    <section style={{ background: "#080808", padding: "96px 48px" }}>
-      <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-2" style={{ gap: 96 }}>
+    <section className="relative" style={{ background: "#080808", padding: "96px 48px" }}>
+      {/* Accent glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 60% 50% at 50% 0%, hsl(233 84% 60% / 0.1) 0%, transparent 60%)",
+        }}
+      />
+
+      <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-2 relative" style={{ gap: 96, zIndex: 1 }}>
         {/* LEFT — Contact info */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
