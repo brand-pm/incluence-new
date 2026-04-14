@@ -28,7 +28,6 @@ const pickText = (...sources: (string | null | undefined)[]): string => {
   return valid.sort((a, b) => b.length - a.length)[0];
 };
 
-/** Get first sentence for hero subtitle */
 const firstSentence = (text: string): string => {
   if (!text) return "";
   const match = text.match(/^(.+?[.!?])\s/);
@@ -37,7 +36,6 @@ const firstSentence = (text: string): string => {
   return text.slice(0, 160).replace(/\s+\S*$/, "") + "…";
 };
 
-/** Highlight numbers, percentages, currencies, time periods */
 const highlightText = (text: string): React.ReactNode => {
   if (!text) return null;
   const parts = text.split(/((?:\$|€|£)?\d[\d.,]*\s*(?:%|percent|years?|months?|weeks?|days?|hours?)|\d[\d.,]*\s*(?:EUR|USD|GBP)|\b\d{1,2}\s*(?:–|-)\s*\d{1,2}\s*(?:months?|weeks?))/gi);
@@ -48,13 +46,11 @@ const highlightText = (text: string): React.ReactNode => {
   });
 };
 
-/** Check if text starts same as another (dedup) */
 const startsLike = (a: string, b: string, minLen = 50): boolean => {
   if (!a || !b) return false;
   return a.slice(0, minLen).trim() === b.slice(0, minLen).trim();
 };
 
-/** Check if paragraph has list-like content */
 const isListContent = (text: string): boolean => {
   const semicolons = (text.match(/;/g) || []).length;
   if (semicolons >= 2) return true;
@@ -63,7 +59,6 @@ const isListContent = (text: string): boolean => {
   return false;
 };
 
-/** Split list text into items */
 const splitListItems = (text: string): string[] => {
   if (text.includes(";")) return text.split(/;\s*/).map(s => s.trim()).filter(Boolean);
   if (text.includes("\n-")) return text.split(/\n-\s*/).map(s => s.trim()).filter(Boolean);
@@ -83,7 +78,7 @@ const NoiseOverlay = () => (
 
 const Skeleton = () => (
   <div className="min-h-screen" style={{ background: "#080808", fontFamily: "Manrope, sans-serif" }}>
-    <div className="max-w-screen-xl mx-auto py-[120px] px-12 space-y-6">
+    <div className="max-w-screen-xl mx-auto py-[120px] px-5 md:px-12 space-y-6">
       {[320, 480, 240].map((w, i) => (
         <div key={i} className="h-4 bg-[#111111] animate-pulse" style={{ maxWidth: w }} />
       ))}
@@ -91,11 +86,9 @@ const Skeleton = () => (
   </div>
 );
 
-/* ── SECTION BODY RENDERER ── */
 const SectionBody: React.FC<{ body: string }> = ({ body }) => {
   if (isListContent(body)) {
     const items = splitListItems(body);
-    // If the first item looks like an intro sentence, render it separately
     const firstIsIntro = items[0] && items[0].length > 80 && !items[0].includes(":");
     return (
       <div>
@@ -114,7 +107,6 @@ const SectionBody: React.FC<{ body: string }> = ({ body }) => {
     );
   }
 
-  // Regular body text — split into paragraphs by double newlines
   const paragraphs = body.split(/\n\n+/).filter(Boolean);
   return (
     <div className="space-y-4">
@@ -124,8 +116,6 @@ const SectionBody: React.FC<{ body: string }> = ({ body }) => {
     </div>
   );
 };
-
-/* ── MAIN COMPONENT ── */
 
 const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
   const fallback = {
@@ -139,23 +129,19 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
   const d = (data || fallback) as typeof fallback;
   const title = d.title || fallback.title;
 
-  // Full description: prefer sections body if description is truncated
   const sanityDesc = d.description || "";
   const fallbackDesc = fallback.description || "";
   const sectionBody = d.sections?.[0]?.body || "";
   const fullDescription = pickText(sanityDesc, sectionBody, fallbackDesc);
-
-  // Hero only gets first sentence
   const heroDesc = firstSentence(fullDescription);
 
   const sections = pick(d.sections, fallback.sections);
   const requirements = pick(d.requirements, fallback.requirements);
   const faq = pick(d.faq, fallback.faq);
 
-  // Deduplicate: if sections[0].body starts same as description, skip section body
   const dedupedSections = sections.map((sec, i) => {
     if (i === 0 && startsLike(sec.body, fullDescription)) {
-      return { ...sec, body: "" }; // Will be hidden
+      return { ...sec, body: "" };
     }
     return sec;
   }).filter(sec => sec.body.trim().length > 0 || sec.heading.trim().length > 0);
@@ -170,7 +156,6 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
   if (isLoading) return <Skeleton />;
   if (isError) return <div className="min-h-screen bg-[#080808] flex items-center justify-center text-[#9A9590]" style={{ fontFamily: "Manrope, sans-serif" }}>Failed to load page data.</div>;
 
-  // Alternating backgrounds for sections
   const sectionBgs = ["#111111", "#0d0d0d"];
 
   return (
@@ -178,24 +163,24 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
 
       {/* ── BREADCRUMB ── */}
       <section style={{ background: "#080808", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <nav className="max-w-screen-xl mx-auto py-3.5 px-12">
+        <nav className="max-w-screen-xl mx-auto py-3.5 px-5 md:px-12">
           <div className="flex items-center gap-2 text-[12px]">
             <Link to="/" className="text-[#5A5550] hover:text-[#9A9590] transition-colors">Incluence</Link>
             <ChevronRight className="w-3 h-3 text-[#5A5550]" />
-            <span className="text-[#9A9590]">{breadcrumbLabel}</span>
+            <span className="text-[#9A9590] line-clamp-1">{breadcrumbLabel}</span>
           </div>
         </nav>
       </section>
 
-      {/* ── HERO — first sentence only ── */}
+      {/* ── HERO ── */}
       <section className="relative overflow-hidden" style={{ background: "#080808", minHeight: 420 }}>
         <NoiseOverlay />
-        <div className="relative z-10 max-w-screen-xl mx-auto py-[80px] px-12">
+        <div className="relative z-10 max-w-screen-xl mx-auto py-16 md:py-[80px] px-5 md:px-12">
           <div className="max-w-[600px]">
             <div className="flex items-center gap-3 mb-5">
               <Tag>Services</Tag>
             </div>
-            <h1 className="text-[clamp(32px,4vw,52px)] font-light text-[#F0EBE0] leading-tight mb-5">
+            <h1 className="text-[clamp(28px,4vw,52px)] font-light text-[#F0EBE0] leading-tight mb-5">
               {title}
             </h1>
             <p className="text-[15px] text-[#9A9590] leading-relaxed mb-10 max-w-[520px]">{heroDesc}</p>
@@ -206,9 +191,9 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
         </div>
       </section>
 
-      {/* ── ABOUT — full description block (not duplicated in sections) ── */}
+      {/* ── ABOUT ── */}
       {fullDescription && fullDescription.length > 0 && (
-        <section style={{ background: "#111111" }} className="py-[72px] px-12">
+        <section style={{ background: "#111111" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
             <Tag>Overview</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-6">About This Service</h2>
@@ -219,9 +204,9 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
         </section>
       )}
 
-      {/* ── CONTENT SECTIONS — each as its own visual block ── */}
+      {/* ── CONTENT SECTIONS ── */}
       {dedupedSections.filter(s => s.body).map((sec, i) => (
-        <section key={i} style={{ background: sectionBgs[(i + 1) % 2] }} className="py-[72px] px-12">
+        <section key={i} style={{ background: sectionBgs[(i + 1) % 2] }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
             <h3 className="text-[18px] font-semibold text-[#F0EBE0] mb-6">
               <span className="text-[#444CE7] mr-2">▸</span>{sec.heading}
@@ -235,7 +220,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
 
       {/* ── REQUIREMENTS ── */}
       {requirements.length > 0 && (
-        <section style={{ background: "#0d0d0d" }} className="py-[72px] px-12">
+        <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
             <Tag>Requirements</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-14">What You'll Need</h2>
@@ -252,11 +237,11 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
       )}
 
       {/* ── WHY US ── */}
-      <section style={{ background: "#111111" }} className="py-[72px] px-12">
+      <section style={{ background: "#111111" }} className="py-12 md:py-[72px] px-5 md:px-12">
         <div className="max-w-screen-xl mx-auto">
           <Tag>Why Incluence</Tag>
           <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-14">Why Work With Us</h2>
-          <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-3 gap-px">
+          <div className="bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
             {[
               { metric: "500+", title: "Companies Registered", body: "Across 50+ jurisdictions worldwide with full compliance support." },
               { metric: "12+", title: "Years of Experience", body: "Trusted by entrepreneurs and corporations globally since 2012." },
@@ -274,7 +259,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
 
       {/* ── FAQ ── */}
       {faq.length > 0 && (
-        <section style={{ background: "#0d0d0d" }} className="py-[72px] px-12">
+        <section style={{ background: "#0d0d0d" }} className="py-12 md:py-[72px] px-5 md:px-12">
           <div className="max-w-screen-xl mx-auto">
             <Tag>FAQ</Tag>
             <h2 className="text-[clamp(24px,3vw,36px)] font-light text-[#F0EBE0] leading-[1.2] mt-2 mb-12">Common Questions</h2>
@@ -296,16 +281,16 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
       )}
 
       {/* ── CTA FORM ── */}
-      <section style={{ background: "#080808" }} className="py-[72px] px-12">
-        <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-12">
-          <div className="col-span-5 pr-8 min-h-[200px]" style={{ overflowWrap: "break-word", wordBreak: "break-word" }}>
+      <section style={{ background: "#080808" }} className="py-12 md:py-[72px] px-5 md:px-12">
+        <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+          <div className="md:col-span-5 md:pr-8" style={{ overflowWrap: "break-word", wordBreak: "break-word" }}>
             <Tag>Get Started</Tag>
             <h2 className="text-[clamp(20px,2vw,28px)] font-light text-[#F0EBE0] leading-[1.4] mt-2 mb-6 max-w-[400px]">Ready to Discuss Your Project?</h2>
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">Fill out the form and our team will contact you within 24 hours with a detailed consultation plan.</p>
           </div>
-          <div className="col-span-7">
+          <div className="md:col-span-7">
             <form onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-2 gap-5 mb-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                 {["Full Name", "Company Name", "Service Interest", "Budget Range"].map((label) => (
                   <div key={label}>
                     <label className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-2 block">{label}</label>
