@@ -1,10 +1,51 @@
 import { useState } from "react";
-import { ArrowRight, ChevronRight, LayoutGrid, List, Building2, Globe, Clock, Banknote } from "lucide-react";
+import { ArrowRight, ChevronRight, LayoutGrid, List, Building2, Globe, Clock, Banknote, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import MicroParticles from "@/components/MicroParticles";
 import ProcessFlowCanvas from "@/components/ProcessFlowCanvas";
-import { FlagEmojiGroup } from "@/components/FlagEmoji";
+
+/* ── COUNTRY CODE MAP ────────────────────────────────────────────── */
+const COUNTRY_CODES: Record<string, string> = {
+  "Bulgaria": "BG", "United Kingdom": "UK", "Poland": "PL",
+  "Lithuania": "LT", "Estonia": "EE", "Serbia": "RS",
+};
+
+const CountryBadge = ({ country, size = 22 }: { country: string; size?: number }) => (
+  <div
+    className="flex items-center justify-center"
+    style={{
+      width: size + 10, height: size + 10,
+      background: "hsl(var(--accent) / 0.08)",
+      border: "1px solid hsl(var(--accent) / 0.15)",
+      fontSize: size * 0.45, fontWeight: 600,
+      color: "hsl(var(--accent-light))",
+      letterSpacing: "0.05em",
+    }}
+  >
+    {COUNTRY_CODES[country] || country.slice(0, 2).toUpperCase()}
+  </div>
+);
+
+/* ── BADGE COMPONENT ─────────────────────────────────────────────── */
+const StatusBadge = ({ badge }: { badge: string }) => {
+  const isHot = badge === "HOT";
+  return (
+    <span
+      className="flex items-center gap-1"
+      style={{
+        fontSize: 10, fontWeight: 600, padding: "4px 10px", letterSpacing: "0.08em",
+        background: isHot ? "hsl(var(--accent) / 0.12)" : "rgba(34,197,94,0.08)",
+        border: `1px solid ${isHot ? "hsl(var(--accent) / 0.3)" : "rgba(34,197,94,0.25)"}`,
+        color: isHot ? "hsl(var(--accent-light))" : "#22c55e",
+        textTransform: "uppercase",
+      }}
+    >
+      {isHot && <Zap size={10} />}
+      {isHot ? "HOT DEAL" : badge}
+    </span>
+  );
+};
 
 /* ── DATA ──────────────────────────────────────────────────────────── */
 interface Company {
@@ -40,19 +81,14 @@ const COMPANIES: Company[] = [
   { flag: "🇪🇪", country: "Estonia", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "July 2025", activity: "Other business support service activities n.e.c.", hasBank: false, description: "E*** established in July 2025. Corporate and operational support services. Debt-free, fully compliant." },
 ];
 
-const BADGE_STYLES: Record<string, { bg: string; border: string; color: string }> = {
-  HOT: { bg: "rgba(217,32,32,0.15)", border: "rgba(217,32,32,0.3)", color: "#D92020" },
-  AVAILABLE: { bg: "rgba(34,197,94,0.1)", border: "rgba(34,197,94,0.3)", color: "#22c55e" },
-};
 
 const JURISDICTIONS = ["All", "Estonia", "United Kingdom", "Lithuania", "Bulgaria", "Poland", "Serbia"];
 
 /* ── CATALOG CARD (Variant 3 — Premium Catalog) ──────────────────── */
 const CatalogCard = ({ c, i }: { c: Company; i: number }) => {
-  const bs = BADGE_STYLES[c.badge];
   return (
     <motion.div
-      className="flex flex-col"
+      className="flex flex-col group relative"
       style={{
         background: "hsl(var(--bg-2))",
         border: "1px solid hsl(var(--border-default))",
@@ -62,27 +98,24 @@ const CatalogCard = ({ c, i }: { c: Company; i: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.45, delay: (i % 6) * 0.05 }}
+      whileHover={{ y: -4, transition: { duration: 0.25 } }}
     >
+      {/* Bottom accent line */}
+      <div className="absolute bottom-0 left-0 h-[2px] bg-[hsl(var(--accent))] w-0 group-hover:w-full transition-all duration-300" />
+
       {/* Header bar */}
       <div
         className="flex items-center justify-between"
         style={{ padding: "16px 20px", borderBottom: "1px solid hsl(var(--border-default))" }}
       >
         <div className="flex items-center gap-3">
-          <FlagEmojiGroup flag={c.flag} size={22} />
+          <CountryBadge country={c.country} size={22} />
           <div>
             <span style={{ fontSize: 15, fontWeight: 600, color: "hsl(var(--text-primary))", display: "block" }}>{c.country}</span>
             <span style={{ fontSize: 11, color: "hsl(var(--text-muted))" }}>EST. {c.established}</span>
           </div>
         </div>
-        <span
-          style={{
-            fontSize: 10, fontWeight: 600, padding: "4px 10px", letterSpacing: "0.06em",
-            background: bs.bg, border: `1px solid ${bs.border}`, color: bs.color,
-          }}
-        >
-          {c.badge === "HOT" ? "🔥 HOT" : c.badge}
-        </span>
+        <StatusBadge badge={c.badge} />
       </div>
 
       {/* Body */}
@@ -149,10 +182,9 @@ const CatalogCard = ({ c, i }: { c: Company; i: number }) => {
 
 /* ── DATA BOARD ROW (Variant 2 — Data Board) ─────────────────────── */
 const DataBoardRow = ({ c, i }: { c: Company; i: number }) => {
-  const bs = BADGE_STYLES[c.badge];
   return (
     <motion.div
-      className="grid items-center"
+      className="grid items-center group relative"
       style={{
         gridTemplateColumns: "2fr 2.5fr 1fr 1fr 1fr auto",
         background: "hsl(var(--bg-2))",
@@ -164,52 +196,20 @@ const DataBoardRow = ({ c, i }: { c: Company; i: number }) => {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.3, delay: i * 0.03 }}
+      whileHover={{ backgroundColor: "rgba(255,255,255,0.02)" }}
     >
-      {/* Country */}
       <div className="flex items-center gap-3">
-        <FlagEmojiGroup flag={c.flag} size={20} />
+        <CountryBadge country={c.country} size={18} />
         <div>
           <span style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))", display: "block" }}>{c.country}</span>
           <span style={{ fontSize: 11, color: "hsl(var(--text-muted))" }}>EST. {c.established}</span>
         </div>
       </div>
-
-      {/* Activity */}
-      <div>
-        <span style={{ fontSize: 13, color: "hsl(var(--text-secondary))", lineHeight: 1.4 }}>{c.activity}</span>
-      </div>
-
-      {/* Bank */}
-      <span style={{ fontSize: 12, color: c.hasBank ? "#22c55e" : "hsl(var(--text-muted))", fontWeight: 500 }}>
-        {c.hasBank ? "✓ Yes" : "No"}
-      </span>
-
-      {/* Price */}
+      <div><span style={{ fontSize: 13, color: "hsl(var(--text-secondary))", lineHeight: 1.4 }}>{c.activity}</span></div>
+      <span style={{ fontSize: 12, color: c.hasBank ? "#22c55e" : "hsl(var(--text-muted))", fontWeight: 500 }}>{c.hasBank ? "✓ Yes" : "No"}</span>
       <span style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))" }}>{c.price}</span>
-
-      {/* Badge */}
-      <span
-        style={{
-          fontSize: 10, fontWeight: 600, padding: "3px 8px", letterSpacing: "0.06em",
-          background: bs.bg, border: `1px solid ${bs.border}`, color: bs.color,
-          display: "inline-block", textAlign: "center",
-        }}
-      >
-        {c.badge === "HOT" ? "🔥 HOT" : c.badge}
-      </span>
-
-      {/* CTA */}
-      <Link
-        to="/contact"
-        style={{
-          padding: "8px 16px",
-          background: "hsl(var(--accent) / 0.12)",
-          border: "1px solid hsl(var(--accent) / 0.25)",
-          color: "hsl(var(--accent-light))",
-          fontSize: 11, fontWeight: 600, textDecoration: "none", textTransform: "uppercase",
-          letterSpacing: "0.04em", whiteSpace: "nowrap",
-        }}
-      >
+      <StatusBadge badge={c.badge} />
+      <Link to="/contact" style={{ padding: "8px 16px", background: "hsl(var(--accent) / 0.12)", border: "1px solid hsl(var(--accent) / 0.25)", color: "hsl(var(--accent-light))", fontSize: 11, fontWeight: 600, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.04em", whiteSpace: "nowrap" }}>
         Inquire →
       </Link>
     </motion.div>
@@ -218,14 +218,9 @@ const DataBoardRow = ({ c, i }: { c: Company; i: number }) => {
 
 /* ── MOBILE DATA ROW ─────────────────────────────────────────────── */
 const DataBoardRowMobile = ({ c, i }: { c: Company; i: number }) => {
-  const bs = BADGE_STYLES[c.badge];
   return (
     <motion.div
-      style={{
-        background: "hsl(var(--bg-2))",
-        padding: "16px 20px",
-        borderBottom: "1px solid hsl(var(--border-default))",
-      }}
+      style={{ background: "hsl(var(--bg-2))", padding: "16px 20px", borderBottom: "1px solid hsl(var(--border-default))" }}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -233,36 +228,18 @@ const DataBoardRowMobile = ({ c, i }: { c: Company; i: number }) => {
     >
       <div className="flex items-center justify-between" style={{ marginBottom: 10 }}>
         <div className="flex items-center gap-2">
-          <FlagEmojiGroup flag={c.flag} size={18} />
+          <CountryBadge country={c.country} size={16} />
           <span style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))" }}>{c.country}</span>
         </div>
-        <span
-          style={{
-            fontSize: 10, fontWeight: 600, padding: "3px 8px", letterSpacing: "0.06em",
-            background: bs.bg, border: `1px solid ${bs.border}`, color: bs.color,
-          }}
-        >
-          {c.badge === "HOT" ? "🔥 HOT" : c.badge}
-        </span>
+        <StatusBadge badge={c.badge} />
       </div>
       <div style={{ fontSize: 12, color: "hsl(var(--text-secondary))", marginBottom: 6 }}>{c.activity}</div>
       <div className="flex items-center justify-between" style={{ marginTop: 8 }}>
         <div className="flex items-center gap-4">
           <span style={{ fontSize: 14, fontWeight: 600, color: "hsl(var(--text-primary))" }}>{c.price}</span>
-          <span style={{ fontSize: 11, color: c.hasBank ? "#22c55e" : "hsl(var(--text-muted))" }}>
-            {c.hasBank ? "✓ Bank" : "No bank"}
-          </span>
+          <span style={{ fontSize: 11, color: c.hasBank ? "#22c55e" : "hsl(var(--text-muted))" }}>{c.hasBank ? "✓ Bank" : "No bank"}</span>
         </div>
-        <Link
-          to="/contact"
-          style={{
-            padding: "6px 14px",
-            background: "hsl(var(--accent) / 0.12)",
-            border: "1px solid hsl(var(--accent) / 0.25)",
-            color: "hsl(var(--accent-light))",
-            fontSize: 11, fontWeight: 600, textDecoration: "none",
-          }}
-        >
+        <Link to="/contact" style={{ padding: "6px 14px", background: "hsl(var(--accent) / 0.12)", border: "1px solid hsl(var(--accent) / 0.25)", color: "hsl(var(--accent-light))", fontSize: 11, fontWeight: 600, textDecoration: "none" }}>
           Inquire →
         </Link>
       </div>
@@ -571,11 +548,17 @@ const Marketplace = () => {
             </p>
             <div className="flex flex-wrap" style={{ gap: 16, marginBottom: 32 }}>
               {[
-                { flag: "🇬🇧", name: "UK" }, { flag: "🇭🇰", name: "HK" }, { flag: "🇪🇪", name: "Estonia" },
-                { flag: "🇻🇬", name: "BVI" }, { flag: "🇸🇨", name: "Seychelles" }, { flag: "🇸🇬", name: "Singapore" },
+                { code: "UK", name: "UK" }, { code: "HK", name: "HK" }, { code: "EE", name: "Estonia" },
+                { code: "BVI", name: "BVI" }, { code: "SC", name: "Seychelles" }, { code: "SG", name: "Singapore" },
               ].map(j => (
-                <span key={j.name} className="flex items-center gap-1.5" style={{ fontSize: 13, color: "hsl(var(--text-secondary))" }}>
-                  <FlagEmojiGroup flag={j.flag} size={14} /> {j.name}
+                <span key={j.name} className="flex items-center gap-2" style={{ fontSize: 13, color: "hsl(var(--text-secondary))" }}>
+                  <span style={{
+                    display: "inline-flex", alignItems: "center", justifyContent: "center",
+                    width: 24, height: 24, fontSize: 9, fontWeight: 600,
+                    background: "hsl(var(--accent) / 0.08)", border: "1px solid hsl(var(--accent) / 0.15)",
+                    color: "hsl(var(--accent-light))", letterSpacing: "0.05em",
+                  }}>{j.code}</span>
+                  {j.name}
                 </span>
               ))}
             </div>
