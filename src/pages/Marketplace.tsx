@@ -81,9 +81,6 @@ const COMPANIES: Company[] = [
   { flag: "🇪🇪", country: "Estonia", type: "Ready-made", badge: "AVAILABLE", price: "Contact us", established: "July 2025", activity: "Other business support service activities n.e.c.", hasBank: false, description: "E*** established in July 2025. Corporate and operational support services. Debt-free, fully compliant." },
 ];
 
-const BADGE_STYLES: Record<string, { bg: string; border: string; color: string }> = {
-  HOT: { bg: "rgba(217,32,32,0.15)", border: "rgba(217,32,32,0.3)", color: "#D92020" },
-  AVAILABLE: { bg: "rgba(34,197,94,0.1)", border: "rgba(34,197,94,0.3)", color: "#22c55e" },
 };
 
 const JURISDICTIONS = ["All", "Estonia", "United Kingdom", "Lithuania", "Bulgaria", "Poland", "Serbia"];
