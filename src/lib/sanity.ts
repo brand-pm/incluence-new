@@ -1,11 +1,10 @@
 import { createClient } from '@sanity/client';
 
 export const sanityClient = createClient({
-  projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
-  dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
+  projectId: 'pgbkmfzt',
+  dataset: 'production',
   apiVersion: '2024-01-01',
-  useCdn: false,
-  token: import.meta.env.VITE_SANITY_TOKEN || import.meta.env.VITE_SANITY_API_TOKEN || '',
+  useCdn: true,
 });
 
 // GROQ queries for each page type
