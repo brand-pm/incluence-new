@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useLeadForm } from "@/hooks/useLeadForm";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { useHubPage } from "@/hooks/useSanityPage";
@@ -314,23 +315,7 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
             <p className="text-[14px] text-[#9A9590] leading-[1.8]">{p.formSubtitle || "Fill out the form and our team will contact you within 24 hours."}</p>
           </div>
           <div className="md:col-span-7">
-            <form onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-                {["Full Name", "Company Name", "Target Market", "Budget Range"].map((label) => (
-                  <div key={label}>
-                    <label className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-2 block">{label}</label>
-                    <input type="text" className="w-full bg-[#080808] border border-white/[0.08] focus:border-[#444CE7]/50 text-[#F0EBE0] text-[14px] placeholder:text-[#5A5550] px-4 py-3 outline-none" style={{ fontFamily: "inherit" }} />
-                  </div>
-                ))}
-              </div>
-              <div className="mb-5">
-                <label className="text-[10px] text-[#5A5550] uppercase tracking-[0.1em] mb-2 block">Additional details — target markets, existing structure, timeline</label>
-                <textarea className="w-full bg-[#080808] border border-white/[0.08] focus:border-[#444CE7]/50 text-[#F0EBE0] text-[14px] placeholder:text-[#5A5550] px-4 py-3 outline-none min-h-[100px] resize-none" style={{ fontFamily: "inherit" }} />
-              </div>
-              <button type="submit" className="w-full px-8 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors cursor-pointer border-0" style={{ fontFamily: "inherit" }}>
-                SEND REQUEST →
-              </button>
-            </form>
+            <FormBlock />
           </div>
         </div>
       </section>
