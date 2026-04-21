@@ -357,11 +357,11 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-8" style={{ fontSize: 14, fontWeight: 400 }}>
           <button
-            onMouseEnter={openMenu}
+            onMouseEnter={() => openMenu("services")}
             onMouseLeave={closeMenu}
             className="flex items-center gap-1 bg-transparent border-none cursor-pointer transition-colors duration-200"
             style={{
-              color: menuOpen ? "#F0EBE0" : "#9A9590",
+              color: activeMenu === "services" ? "#F0EBE0" : "#9A9590",
               fontSize: 14,
               fontWeight: 400,
               fontFamily: "inherit",
@@ -369,6 +369,21 @@ const Navbar = () => {
             }}
           >
             Services
+            <ChevronDown size={12} />
+          </button>
+          <button
+            onMouseEnter={() => openMenu("company")}
+            onMouseLeave={closeMenu}
+            className="flex items-center gap-1 bg-transparent border-none cursor-pointer transition-colors duration-200"
+            style={{
+              color: activeMenu === "company" ? "#F0EBE0" : "#9A9590",
+              fontSize: 14,
+              fontWeight: 400,
+              fontFamily: "inherit",
+              padding: 0,
+            }}
+          >
+            Company
             <ChevronDown size={12} />
           </button>
           <Link to="/marketplace" className={navLinkClass("/marketplace")} style={{ fontSize: 14 }}>
