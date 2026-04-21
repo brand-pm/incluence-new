@@ -362,6 +362,7 @@ const COMPANY_HUBS: HubCard[] = [
 const Navbar = () => {
   const location = useLocation();
   const [activeMenu, setActiveMenu] = useState<null | "services" | "company">(null);
+  const [hoveredHub, setHoveredHub] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
