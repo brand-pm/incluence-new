@@ -345,22 +345,11 @@ const Navbar = () => {
   const isServicesActive = servicesPaths.includes(location.pathname);
   const isCompanyActive = companyPaths.includes(location.pathname);
 
-  // Reusable styles for nav links — compact + clear active underline
+  // Reusable styles for nav links — compact + active background pill
   const NAV_LINK_FS = 13;
-  const ActiveBar = () => (
-    <span
-      aria-hidden
-      style={{
-        position: "absolute",
-        left: 0,
-        right: 0,
-        bottom: -20,
-        height: 2,
-        background: "#444CE7",
-        boxShadow: "0 0 12px rgba(68,76,231,0.6)",
-      }}
-    />
-  );
+  const activeBg = "rgba(68,76,231,0.14)";
+  const activeBorder = "1px solid rgba(68,76,231,0.45)";
+  const inactiveBorder = "1px solid transparent";
 
   return (
     <>
@@ -381,7 +370,7 @@ const Navbar = () => {
           <span style={{ color: "#444CE7" }}>ence</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-5 lg:gap-6" style={{ fontSize: NAV_LINK_FS, fontWeight: 400 }}>
+        <div className="hidden md:flex items-center gap-1 lg:gap-1.5" style={{ fontSize: NAV_LINK_FS, fontWeight: 400 }}>
           {([
             { key: "services", label: "Services", active: isServicesActive || activeMenu === "services" },
             { key: "company", label: "Company", active: isCompanyActive || activeMenu === "company" },
@@ -390,24 +379,37 @@ const Navbar = () => {
               key={item.key}
               onMouseEnter={() => openMenu(item.key)}
               onMouseLeave={closeMenu}
-              className="relative flex items-center gap-1 bg-transparent border-none cursor-pointer transition-colors duration-200"
+              className="flex items-center gap-1 bg-transparent cursor-pointer transition-all duration-200"
               style={{
                 color: item.active ? "#F0EBE0" : "#9A9590",
                 fontSize: NAV_LINK_FS,
                 fontWeight: item.active ? 500 : 400,
                 fontFamily: "inherit",
-                padding: "20px 0",
+                padding: "7px 12px",
                 lineHeight: 1,
+                background: item.active ? activeBg : "transparent",
+                border: item.active ? activeBorder : inactiveBorder,
+              }}
+              onMouseOver={(e) => {
+                if (!item.active) {
+                  (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.04)";
+                  (e.currentTarget as HTMLButtonElement).style.color = "#F0EBE0";
+                }
+              }}
+              onMouseOut={(e) => {
+                if (!item.active) {
+                  (e.currentTarget as HTMLButtonElement).style.background = "transparent";
+                  (e.currentTarget as HTMLButtonElement).style.color = "#9A9590";
+                }
               }}
             >
               {item.label}
               <ChevronDown size={11} />
-              {item.active && <ActiveBar />}
             </button>
           ))}
           {[
-            { to: "/marketplace", label: "Ready Made" },
-            { to: "/affiliate-program", label: "Affiliate" },
+            { to: "/marketplace", label: "Ready Made Company" },
+            { to: "/affiliate-program", label: "Affiliate Program" },
             { to: "/about", label: "About" },
             { to: "/blog", label: "Blog" },
           ].map((l) => {
@@ -416,19 +418,30 @@ const Navbar = () => {
               <Link
                 key={l.to}
                 to={l.to}
-                className="relative no-underline transition-colors duration-200"
+                className="no-underline transition-all duration-200"
                 style={{
                   fontSize: NAV_LINK_FS,
                   color: active ? "#F0EBE0" : "#9A9590",
                   fontWeight: active ? 500 : 400,
-                  padding: "20px 0",
+                  padding: "7px 12px",
                   lineHeight: 1,
+                  background: active ? activeBg : "transparent",
+                  border: active ? activeBorder : inactiveBorder,
                 }}
-                onMouseEnter={(e) => { if (!active) (e.currentTarget as HTMLAnchorElement).style.color = "#F0EBE0"; }}
-                onMouseLeave={(e) => { if (!active) (e.currentTarget as HTMLAnchorElement).style.color = "#9A9590"; }}
+                onMouseEnter={(e) => {
+                  if (!active) {
+                    (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.04)";
+                    (e.currentTarget as HTMLAnchorElement).style.color = "#F0EBE0";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!active) {
+                    (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+                    (e.currentTarget as HTMLAnchorElement).style.color = "#9A9590";
+                  }
+                }}
               >
                 {l.label}
-                {active && <ActiveBar />}
               </Link>
             );
           })}
