@@ -30,7 +30,7 @@ const companyLinks = [
   { label: "How We Work", href: "/about-us" },
   { label: "Marketplace", href: "/marketplace" },
   { label: "Affiliate Program", href: "/affiliate-program" },
-  { label: "Blog", href: "/" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
   { label: "Site Map", href: "/sitemap" },
 ];

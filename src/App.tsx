@@ -12,6 +12,8 @@ import AIConsultant from "./components/ui/AIConsultant";
 // --- Lazy page imports (default exports) ---
 const NotFoundPage = React.lazy(() => import("./pages/NotFound"));
 const Index = React.lazy(() => import("./pages/Index"));
+const BlogPage = React.lazy(() => import("./pages/BlogPage"));
+const BlogPostPage = React.lazy(() => import("./pages/BlogPostPage"));
 const GamblingHubPage = React.lazy(() => import("./pages/GamblingHubPage"));
 const MaltaLicensePage = React.lazy(() => import("./pages/gambling/MaltaLicensePage"));
 const CuracaoGamingPage = React.lazy(() => import("./pages/CuracaoGamingPage"));
@@ -364,6 +366,10 @@ const App = () => (
               <Route path="/residence-permit-in-cyprus" element={<ResidencePermitInCyprusPage />} />
               <Route path="/residence-permit-in-hungary" element={<ResidencePermitInHungaryPage />} />
               <Route path="/residence-permit-in-slovakia" element={<ResidencePermitInSlovakiaPage />} />
+
+              {/* Blog */}
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:slug" element={<BlogPostPage />} />
 
               {/* Catch-all */}
               <Route path="*" element={<NotFoundPage />} />
