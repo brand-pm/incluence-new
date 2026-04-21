@@ -393,6 +393,7 @@ const Navbar = () => {
   const openMenu = useCallback((which: "services" | "company") => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setActiveMenu(which);
+    setHoveredHub(null);
   }, []);
 
   const closeMenu = useCallback(() => {
