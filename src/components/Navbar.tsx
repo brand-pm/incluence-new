@@ -104,41 +104,6 @@ const MENU_COLUMNS: MenuColumn[] = [
     ],
   },
   {
-    title: "COMPANY FORMATION",
-    hubs: [
-      {
-        name: "Registration",
-        href: "/registration-of-companies-abroad",
-        jurisdictions: [
-          { label: "Estonia", href: "/open-a-company-in-estonia" },
-          { label: "UK", href: "/register-company-in-uk" },
-          { label: "UAE", href: "/register-company-in-uae" },
-          { label: "Singapore", href: "/register-company-in-singapore" },
-        ],
-      },
-      {
-        name: "Ready-Made",
-        href: "/buy-a-business-abroad",
-        jurisdictions: [
-          { label: "Estonia", href: "/buy-company-in-estonia" },
-          { label: "Malta", href: "/buying-a-company-in-malta" },
-          { label: "Cyprus", href: "/purchase-of-a-company-in-cyprus" },
-          { label: "England", href: "/purchase-a-company-in-england" },
-        ],
-      },
-      {
-        name: "Offshore",
-        href: "/offshore-company-formation",
-        jurisdictions: [
-          { label: "BVI", href: "/offshore-in-the-british-virgin-islands" },
-          { label: "Cayman", href: "/offshore-in-the-cayman-islands" },
-          { label: "Seychelles", href: "/offshore-company-formation-in-seychelles" },
-          { label: "Panama", href: "/panama-company-formation" },
-        ],
-      },
-    ],
-  },
-  {
     title: "INVESTMENT & RESIDENCY",
     hubs: [
       {
