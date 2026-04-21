@@ -574,7 +574,7 @@ const Navbar = () => {
       )}
 
       {/* ── MEGA-MENU PANEL ── */}
-      {menuOpen && (
+      {activeMenu && (
         <div
           onMouseEnter={cancelClose}
           onMouseLeave={closeMenu}
