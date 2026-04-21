@@ -613,7 +613,7 @@ const Navbar = () => {
                   key={col.title}
                   style={{
                     padding: "28px 24px 24px",
-                    borderRight: colIdx < MENU_COLUMNS.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none",
+                    borderRight: colIdx < cols.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none",
                   }}
                 >
                   {/* Column header */}
