@@ -381,49 +381,57 @@ const Navbar = () => {
           <span style={{ color: "#444CE7" }}>ence</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8" style={{ fontSize: 14, fontWeight: 400 }}>
-          <button
-            onMouseEnter={() => openMenu("services")}
-            onMouseLeave={closeMenu}
-            className="flex items-center gap-1 bg-transparent border-none cursor-pointer transition-colors duration-200"
-            style={{
-              color: activeMenu === "services" ? "#F0EBE0" : "#9A9590",
-              fontSize: 14,
-              fontWeight: 400,
-              fontFamily: "inherit",
-              padding: 0,
-            }}
-          >
-            Services
-            <ChevronDown size={12} />
-          </button>
-          <button
-            onMouseEnter={() => openMenu("company")}
-            onMouseLeave={closeMenu}
-            className="flex items-center gap-1 bg-transparent border-none cursor-pointer transition-colors duration-200"
-            style={{
-              color: activeMenu === "company" ? "#F0EBE0" : "#9A9590",
-              fontSize: 14,
-              fontWeight: 400,
-              fontFamily: "inherit",
-              padding: 0,
-            }}
-          >
-            Company
-            <ChevronDown size={12} />
-          </button>
-          <Link to="/marketplace" className={navLinkClass("/marketplace")} style={{ fontSize: 14 }}>
-            Ready Made Company
-          </Link>
-          <Link to="/affiliate-program" className={navLinkClass("/affiliate-program")} style={{ fontSize: 14 }}>
-            Affiliate Program
-          </Link>
-          <Link to="/about" className={navLinkClass("/about")} style={{ fontSize: 14 }}>
-            About
-          </Link>
-          <Link to="/blog" className={navLinkClass("/blog")} style={{ fontSize: 14 }}>
-            Blog
-          </Link>
+        <div className="hidden md:flex items-center gap-5 lg:gap-6" style={{ fontSize: NAV_LINK_FS, fontWeight: 400 }}>
+          {([
+            { key: "services", label: "Services", active: isServicesActive || activeMenu === "services" },
+            { key: "company", label: "Company", active: isCompanyActive || activeMenu === "company" },
+          ] as const).map((item) => (
+            <button
+              key={item.key}
+              onMouseEnter={() => openMenu(item.key)}
+              onMouseLeave={closeMenu}
+              className="relative flex items-center gap-1 bg-transparent border-none cursor-pointer transition-colors duration-200"
+              style={{
+                color: item.active ? "#F0EBE0" : "#9A9590",
+                fontSize: NAV_LINK_FS,
+                fontWeight: item.active ? 500 : 400,
+                fontFamily: "inherit",
+                padding: "20px 0",
+                lineHeight: 1,
+              }}
+            >
+              {item.label}
+              <ChevronDown size={11} />
+              {item.active && <ActiveBar />}
+            </button>
+          ))}
+          {[
+            { to: "/marketplace", label: "Ready Made" },
+            { to: "/affiliate-program", label: "Affiliate" },
+            { to: "/about", label: "About" },
+            { to: "/blog", label: "Blog" },
+          ].map((l) => {
+            const active = isPathActive(l.to);
+            return (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="relative no-underline transition-colors duration-200"
+                style={{
+                  fontSize: NAV_LINK_FS,
+                  color: active ? "#F0EBE0" : "#9A9590",
+                  fontWeight: active ? 500 : 400,
+                  padding: "20px 0",
+                  lineHeight: 1,
+                }}
+                onMouseEnter={(e) => { if (!active) (e.currentTarget as HTMLAnchorElement).style.color = "#F0EBE0"; }}
+                onMouseLeave={(e) => { if (!active) (e.currentTarget as HTMLAnchorElement).style.color = "#9A9590"; }}
+              >
+                {l.label}
+                {active && <ActiveBar />}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Contact dropdown + CTA — desktop */}
