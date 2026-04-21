@@ -286,7 +286,7 @@ interface HubCard {
   title: string;
   description: string;
   href: string;
-  Icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
+  Icon: React.ElementType;
   count?: string;
 }
 
