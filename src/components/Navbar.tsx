@@ -902,9 +902,7 @@ const Navbar = () => {
             })()}
           </div>
 
-          <div>
 
-            {/* ── BOTTOM BAR ── */}
             <div
               className="flex items-center justify-between"
               style={{ borderTop: "1px solid rgba(255,255,255,0.04)", background: "#080808", padding: "14px 24px" }}
