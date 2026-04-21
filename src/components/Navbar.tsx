@@ -598,15 +598,17 @@ const Navbar = () => {
           `}</style>
 
           <div className="max-w-screen-xl mx-auto">
-            {/* ── 5-COLUMN GRID ── */}
+            {(() => {
+              const cols = activeMenu === "company" ? COMPANY_COLUMNS : MENU_COLUMNS;
+              return (
             <div
               className="grid"
               style={{
-                gridTemplateColumns: "1.2fr 1fr 1fr 1fr 0.8fr",
+                gridTemplateColumns: `repeat(${cols.length}, minmax(0, 1fr))`,
                 gap: 0,
               }}
             >
-              {MENU_COLUMNS.map((col, colIdx) => (
+              {cols.map((col, colIdx) => (
                 <div
                   key={col.title}
                   style={{
