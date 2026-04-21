@@ -943,8 +943,8 @@ const Navbar = () => {
                 </button>
               </div>
             </div>
-          </div>
         </div>
+
       )}
 
       {/* ── START A PROJECT DIALOG ── */}
