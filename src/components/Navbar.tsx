@@ -729,49 +729,39 @@ const Navbar = () => {
             @keyframes pd{0%{transform:scale(1);opacity:.5}100%{transform:scale(2.5);opacity:0}}
           `}</style>
 
-          <div className="max-w-screen-xl mx-auto" style={{ padding: "28px 24px 8px" }}>
+          <div className="max-w-screen-xl mx-auto" style={{ padding: "20px 24px 0" }}>
             {(() => {
               const isCompany = activeMenu === "company";
               const hubs: HubCard[] = isCompany ? COMPANY_HUBS : SERVICES_HUBS;
+              const columns: MenuColumn[] = isCompany ? COMPANY_COLUMNS : MENU_COLUMNS;
               const sectionLabel = isCompany ? "COMPANY FORMATION" : "SERVICES";
-              const sectionTitle = isCompany
-                ? "Where do you want to incorporate?"
-                : "What do you need to launch?";
               const allHref = isCompany ? "/registration-of-companies-abroad" : "/licenses";
               const allLabel = isCompany ? "View all jurisdictions" : "View all services";
 
-              // Stable grid: always 6 columns on lg, 3 on md.
-              // Hubs fill first cells (max 5), CTA always occupies the last cell.
+              // Active hub = hovered, fallback to first
+              const activeHubIndex = Math.max(
+                0,
+                hubs.findIndex((h) => h.href === hoveredHub),
+              );
+              const activeHub = hubs[activeHubIndex];
+              // Map hub by index to corresponding column (same order in data definitions)
+              const activeColumn = columns[activeHubIndex];
+
               return (
                 <>
-                  {/* Section header */}
-                  <div className="flex items-end justify-between mb-6">
-                    <div>
-                      <span
-                        style={{
-                          display: "block",
-                          fontSize: 10,
-                          fontWeight: 600,
-                          color: "#444CE7",
-                          textTransform: "uppercase",
-                          letterSpacing: "0.14em",
-                          marginBottom: 8,
-                        }}
-                      >
-                        — {sectionLabel}
-                      </span>
-                      <h3
-                        style={{
-                          fontSize: 18,
-                          fontWeight: 300,
-                          color: "#F0EBE0",
-                          letterSpacing: "-0.01em",
-                          lineHeight: 1.2,
-                        }}
-                      >
-                        {sectionTitle}
-                      </h3>
-                    </div>
+                  {/* Top bar: section label + view all */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span
+                      style={{
+                        fontSize: 10,
+                        fontWeight: 600,
+                        color: "#444CE7",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.14em",
+                      }}
+                    >
+                      — {sectionLabel}
+                    </span>
                     <button
                       onClick={() => go(allHref)}
                       className="bg-transparent border-0 cursor-pointer flex items-center gap-1.5 transition-colors duration-150"
@@ -781,7 +771,7 @@ const Navbar = () => {
                         color: "#9A9590",
                         textTransform: "uppercase",
                         letterSpacing: "0.12em",
-                        padding: "6px 0",
+                        padding: "4px 0",
                       }}
                       onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#444CE7")}
                       onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#9A9590")}
@@ -790,201 +780,227 @@ const Navbar = () => {
                     </button>
                   </div>
 
-                  {/* Hub cards grid + CTA — column count derived deterministically from hubs */}
+                  {/* Two-column layout */}
                   <div
                     className="grid"
                     style={{
-                      gridTemplateColumns: `repeat(${hubs.length + 1}, minmax(0, 1fr))`,
-                      gap: 1,
-                      background: "rgba(255,255,255,0.06)",
+                      gridTemplateColumns: "300px 1fr",
+                      gap: 0,
+                      border: "1px solid rgba(255,255,255,0.06)",
+                      background: "#0a0a0a",
+                      minHeight: 340,
                     }}
                   >
-                    {hubs.map((hub) => {
-                      const Icon = hub.Icon;
-                      return (
-                        <button
-                          key={`${activeMenu}-${hub.href}`}
-                          onClick={() => go(hub.href)}
-                          className="group relative text-left border-0 cursor-pointer overflow-hidden bg-[#0d0d0d] hover:bg-[#111111] transition-colors duration-200"
-                          style={{
-                            fontFamily: "inherit",
-                            padding: "20px 18px 22px",
-                          }}
-                        >
-                          {/* Bottom accent line — pure CSS hover, no refs */}
-                          <span
-                            aria-hidden
-                            className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full bg-[#444CE7] transition-all duration-300"
-                          />
-
-                          {/* Icon + arrow */}
-                          <div className="flex items-center justify-between mb-4">
-                            <div
-                              className="flex items-center justify-center"
-                              style={{
-                                width: 36,
-                                height: 36,
-                                background: "rgba(68,76,231,0.10)",
-                                border: "1px solid rgba(68,76,231,0.25)",
-                                color: "#818CF8",
-                              }}
-                            >
-                              <Icon size={16} strokeWidth={1.5} />
-                            </div>
-                            <ArrowUpRight
-                              size={14}
-                              className="text-[#5A5550] group-hover:text-[#F0EBE0] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
-                            />
-                          </div>
-
-                          <h4
-                            className="group-hover:text-white transition-colors duration-200"
-                            style={{
-                              fontSize: 14,
-                              fontWeight: 500,
-                              color: "#F0EBE0",
-                              marginBottom: 6,
-                              letterSpacing: "-0.005em",
-                            }}
-                          >
-                            {hub.title}
-                          </h4>
-
-                          <p
-                            style={{
-                              fontSize: 12,
-                              color: "#9A9590",
-                              lineHeight: 1.55,
-                              marginBottom: 12,
-                            }}
-                          >
-                            {hub.description}
-                          </p>
-
-                          {hub.count && (
-                            <span
-                              style={{
-                                display: "inline-block",
-                                fontSize: 10,
-                                color: "#5A5550",
-                                textTransform: "uppercase",
-                                letterSpacing: "0.1em",
-                                paddingTop: 8,
-                                borderTop: "1px solid rgba(255,255,255,0.06)",
-                                width: "100%",
-                              }}
-                            >
-                              {hub.count}
-                            </span>
-                          )}
-                        </button>
-                      );
-                    })}
-
-                    {/* PROMO / CTA CARD — always the last cell */}
-                    <button
-                      key={`${activeMenu}-cta`}
-                      onClick={() => { setActiveMenu(null); setProjectDialogOpen(true); }}
-                      className="group relative text-left border-0 cursor-pointer overflow-hidden transition-all duration-300"
+                    {/* LEFT: hub list */}
+                    <div
                       style={{
-                        fontFamily: "inherit",
-                        padding: "20px 18px 22px",
-                        background:
-                          "linear-gradient(140deg, rgba(68,76,231,0.18) 0%, rgba(68,76,231,0.06) 45%, #0d0d0d 100%)",
+                        background: "#0d0d0d",
+                        borderRight: "1px solid rgba(255,255,255,0.06)",
+                        padding: "12px 0",
                       }}
                     >
-                      {/* Decorative grid dots */}
-                      <span
-                        aria-hidden
-                        className="absolute inset-0 opacity-40 pointer-events-none"
-                        style={{
-                          backgroundImage:
-                            "radial-gradient(rgba(68,76,231,0.35) 1px, transparent 1px)",
-                          backgroundSize: "16px 16px",
-                          maskImage:
-                            "radial-gradient(ellipse at top right, black 30%, transparent 75%)",
-                          WebkitMaskImage:
-                            "radial-gradient(ellipse at top right, black 30%, transparent 75%)",
-                        }}
-                      />
-
-                      {/* Floating accent ring */}
-                      <span
-                        aria-hidden
-                        className="absolute pointer-events-none rounded-full"
-                        style={{
-                          top: -30,
-                          right: -30,
-                          width: 110,
-                          height: 110,
-                          border: "1px solid rgba(68,76,231,0.35)",
-                        }}
-                      />
-
-                      <div className="relative z-10 flex flex-col h-full">
-                        <div className="flex items-center justify-between mb-4">
-                          <span
+                      {hubs.map((hub) => {
+                        const Icon = hub.Icon;
+                        const isActive = hub.href === activeHub.href;
+                        return (
+                          <button
+                            key={`${activeMenu}-${hub.href}`}
+                            onMouseEnter={() => setHoveredHub(hub.href)}
+                            onClick={() => go(hub.href)}
+                            className="w-full text-left bg-transparent cursor-pointer transition-all duration-150"
                             style={{
-                              fontSize: 10,
-                              fontWeight: 600,
-                              color: "#818CF8",
-                              textTransform: "uppercase",
-                              letterSpacing: "0.14em",
+                              fontFamily: "inherit",
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 12,
+                              padding: "12px 20px",
+                              borderLeft: isActive ? "2px solid #444CE7" : "2px solid transparent",
+                              background: isActive ? "rgba(68,76,231,0.08)" : "transparent",
+                              border: "0",
+                              borderLeftWidth: 2,
+                              borderLeftStyle: "solid",
+                              borderLeftColor: isActive ? "#444CE7" : "transparent",
                             }}
                           >
-                            — {isCompany ? "Need a structure?" : "Not sure where to start?"}
-                          </span>
-                          <ArrowUpRight
-                            size={14}
-                            className="text-[#818CF8] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
-                          />
-                        </div>
+                            <div
+                              className="flex items-center justify-center shrink-0"
+                              style={{
+                                width: 30,
+                                height: 30,
+                                background: isActive ? "rgba(68,76,231,0.18)" : "rgba(68,76,231,0.08)",
+                                border: "1px solid rgba(68,76,231,0.25)",
+                                color: isActive ? "#A5B4FC" : "#818CF8",
+                              }}
+                            >
+                              <Icon size={14} strokeWidth={1.5} />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div
+                                style={{
+                                  fontSize: 13,
+                                  fontWeight: isActive ? 500 : 400,
+                                  color: isActive ? "#F0EBE0" : "#9A9590",
+                                  letterSpacing: "-0.005em",
+                                  lineHeight: 1.2,
+                                }}
+                              >
+                                {hub.title}
+                              </div>
+                              {hub.count && (
+                                <div
+                                  style={{
+                                    fontSize: 10,
+                                    color: "#5A5550",
+                                    textTransform: "uppercase",
+                                    letterSpacing: "0.1em",
+                                    marginTop: 3,
+                                  }}
+                                >
+                                  {hub.count}
+                                </div>
+                              )}
+                            </div>
+                            <ChevronRight
+                              size={12}
+                              style={{
+                                color: isActive ? "#818CF8" : "#5A5550",
+                                transition: "color 0.15s",
+                              }}
+                            />
+                          </button>
+                        );
+                      })}
+                    </div>
 
-                        <h4
+                    {/* RIGHT: details for active hub */}
+                    <div
+                      key={`${activeMenu}-${activeHub.href}-detail`}
+                      style={{ padding: "24px 28px", display: "flex", flexDirection: "column", animation: "fadeInRight 0.18s ease-out both" }}
+                    >
+                      <div className="mb-5">
+                        <h3
                           style={{
-                            fontSize: 16,
-                            fontWeight: 400,
+                            fontSize: 20,
+                            fontWeight: 300,
                             color: "#F0EBE0",
-                            lineHeight: 1.25,
-                            marginBottom: 10,
                             letterSpacing: "-0.01em",
+                            lineHeight: 1.2,
+                            marginBottom: 6,
                           }}
                         >
-                          {isCompany
-                            ? "Let our experts design your incorporation."
-                            : "Get a free 30-min consultation."}
-                        </h4>
-
+                          {activeHub.title}
+                        </h3>
                         <p
                           style={{
                             fontSize: 12,
                             color: "#9A9590",
                             lineHeight: 1.55,
+                            maxWidth: 520,
+                          }}
+                        >
+                          {activeHub.description}
+                        </p>
+                      </div>
+
+                      {/* Sub-items grid (from MENU_COLUMNS) */}
+                      {activeColumn && activeColumn.hubs.length > 0 && (
+                        <div
+                          className="grid"
+                          style={{
+                            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                            gap: 1,
+                            background: "rgba(255,255,255,0.06)",
                             marginBottom: 16,
                           }}
                         >
-                          {isCompany
-                            ? "We'll map jurisdictions, taxes and banking to your business model."
-                            : "We'll listen to your case and recommend the right licence and stack."}
-                        </p>
+                          {activeColumn.hubs.map((sub) => (
+                            <button
+                              key={sub.href}
+                              onClick={() => go(sub.href)}
+                              className="group text-left bg-[#0a0a0a] hover:bg-[#111111] cursor-pointer transition-colors duration-150"
+                              style={{
+                                fontFamily: "inherit",
+                                border: 0,
+                                padding: "12px 14px",
+                              }}
+                            >
+                              <div className="flex items-center justify-between mb-1">
+                                <span
+                                  className="group-hover:text-white transition-colors"
+                                  style={{ fontSize: 13, fontWeight: 500, color: "#F0EBE0" }}
+                                >
+                                  {sub.name}
+                                </span>
+                                <ArrowUpRight
+                                  size={12}
+                                  className="text-[#5A5550] group-hover:text-[#818CF8] transition-colors"
+                                />
+                              </div>
+                              {sub.jurisdictions.length > 0 && (
+                                <div
+                                  style={{
+                                    fontSize: 11,
+                                    color: "#9A9590",
+                                    lineHeight: 1.4,
+                                  }}
+                                >
+                                  {sub.jurisdictions.slice(0, 4).map((j) => j.label).join(" · ")}
+                                  {sub.jurisdictions.length > 4 ? ` +${sub.jurisdictions.length - 4}` : ""}
+                                </div>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      )}
 
-                        <span
-                          className="inline-flex items-center gap-1.5 mt-auto"
+                      {/* Hub CTA + Project CTA */}
+                      <div className="flex items-center gap-2 mt-auto pt-2">
+                        <button
+                          onClick={() => go(activeHub.href)}
+                          className="flex-1 text-left cursor-pointer transition-all duration-150"
                           style={{
-                            fontSize: 11,
-                            fontWeight: 500,
-                            color: "#F0EBE0",
-                            background: "#444CE7",
-                            padding: "8px 12px",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.12em",
-                            alignSelf: "flex-start",
+                            fontFamily: "inherit",
+                            border: "1px solid rgba(68,76,231,0.25)",
+                            background: "rgba(68,76,231,0.06)",
+                            padding: "10px 14px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                          }}
+                          onMouseEnter={(e) => {
+                            (e.currentTarget as HTMLButtonElement).style.background = "rgba(68,76,231,0.12)";
+                            (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(68,76,231,0.45)";
+                          }}
+                          onMouseLeave={(e) => {
+                            (e.currentTarget as HTMLButtonElement).style.background = "rgba(68,76,231,0.06)";
+                            (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(68,76,231,0.25)";
                           }}
                         >
+                          <span style={{ fontSize: 12, color: "#F0EBE0", fontWeight: 500 }}>
+                            Open {activeHub.title} hub
+                          </span>
+                          <ArrowUpRight size={13} style={{ color: "#818CF8" }} />
+                        </button>
+                        <button
+                          onClick={() => { setActiveMenu(null); setProjectDialogOpen(true); }}
+                          className="cursor-pointer border-0 transition-colors duration-150"
+                          style={{
+                            fontFamily: "inherit",
+                            background: "#444CE7",
+                            color: "#fff",
+                            padding: "11px 16px",
+                            fontSize: 11,
+                            fontWeight: 500,
+                            letterSpacing: "0.1em",
+                            textTransform: "uppercase",
+                          }}
+                          onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#3538CD")}
+                          onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#444CE7")}
+                        >
                           Start a project →
-                        </span>
+                        </button>
                       </div>
-                    </button>
+                    </div>
                   </div>
                 </>
               );
