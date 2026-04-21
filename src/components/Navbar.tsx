@@ -692,6 +692,8 @@ const Navbar = () => {
                 </div>
               ))}
             </div>
+              );
+            })()}
 
             {/* ── BOTTOM BAR ── */}
             <div
