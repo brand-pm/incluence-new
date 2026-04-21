@@ -395,6 +395,9 @@ const Navbar = () => {
           <Link to="/about" className={navLinkClass("/about")} style={{ fontSize: 14 }}>
             About
           </Link>
+          <Link to="/blog" className={navLinkClass("/blog")} style={{ fontSize: 14 }}>
+            Blog
+          </Link>
         </div>
 
         {/* Contact dropdown + CTA — desktop */}
@@ -548,6 +551,7 @@ const Navbar = () => {
             <Link to="/marketplace" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "10px 0" }}>Ready Made Company</Link>
             <Link to="/affiliate-program" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "10px 0" }}>Affiliate Program</Link>
             <Link to="/about" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "10px 0" }}>About</Link>
+            <Link to="/blog" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "10px 0" }}>Blog</Link>
           </div>
 
           {/* Mobile social + CTA */}
