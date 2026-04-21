@@ -280,6 +280,85 @@ const PILLS = [
   { label: "BVI · Offshore", href: "/offshore-in-the-british-virgin-islands" },
 ];
 
+/* ── COMPACT HUB CARDS — only top-level hub pages, with icons + descriptions ── */
+
+interface HubCard {
+  title: string;
+  description: string;
+  href: string;
+  Icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
+  count?: string;
+}
+
+const SERVICES_HUBS: HubCard[] = [
+  {
+    title: "Licensing",
+    description: "Gambling, Forex, Crypto/VASP and EMI licences across 25+ jurisdictions.",
+    href: "/licenses",
+    Icon: Scale,
+    count: "4 verticals",
+  },
+  {
+    title: "Banking & Payments",
+    description: "Corporate accounts, merchant accounts, payment systems and PSP licences.",
+    href: "/accounts-bank",
+    Icon: Landmark,
+    count: "Bank · PSP · EMI",
+  },
+  {
+    title: "Investment & Residency",
+    description: "Investment funds, hedge funds and residence-permit programmes.",
+    href: "/offshore-investment-funds",
+    Icon: TrendingUp,
+    count: "Funds · RP",
+  },
+  {
+    title: "Legal Services",
+    description: "Legitimization, tax & reporting, legal support and international contracts.",
+    href: "/legal-business",
+    Icon: FileText,
+    count: "Full-stack legal",
+  },
+];
+
+const COMPANY_HUBS: HubCard[] = [
+  {
+    title: "Companies Abroad",
+    description: "Incorporation in 30+ jurisdictions worldwide — from Estonia to Singapore.",
+    href: "/registration-of-companies-abroad",
+    Icon: Building2,
+    count: "30+ countries",
+  },
+  {
+    title: "Europe",
+    description: "EU incorporation: Cyprus, Germany, Netherlands, Poland, Malta and more.",
+    href: "/company-registration-in-europe",
+    Icon: Globe2,
+    count: "12 EU states",
+  },
+  {
+    title: "Asia & Americas",
+    description: "USA, Canada, China, Malaysia, Thailand and other global jurisdictions.",
+    href: "/registration-of-companies-abroad",
+    Icon: MapPin,
+    count: "Worldwide",
+  },
+  {
+    title: "Ready-Made",
+    description: "Buy a turnkey business in Europe, UAE, USA, Hong Kong and more.",
+    href: "/buy-a-business-abroad",
+    Icon: ShoppingBag,
+    count: "16 markets",
+  },
+  {
+    title: "Offshore",
+    description: "BVI, Cayman, Seychelles, Panama and other classic offshore centres.",
+    href: "/offshore-company-formation",
+    Icon: Anchor,
+    count: "8 jurisdictions",
+  },
+];
+
 const Navbar = () => {
   const location = useLocation();
   const [activeMenu, setActiveMenu] = useState<null | "services" | "company">(null);
