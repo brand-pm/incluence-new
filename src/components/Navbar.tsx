@@ -333,8 +333,34 @@ const Navbar = () => {
     window.location.href = href;
   };
 
-  const navLinkClass = (path: string) =>
-    `transition-colors duration-200 no-underline ${location.pathname === path ? "text-[#F0EBE0]" : "text-[#9A9590] hover:text-[#F0EBE0]"}`;
+  const isPathActive = (path: string) => location.pathname === path;
+
+  // Determine if Services / Company dropdowns should appear active based on current route
+  const servicesPaths = MENU_COLUMNS.flatMap((c) =>
+    c.hubs.flatMap((h) => [h.href, ...h.jurisdictions.map((j) => j.href)])
+  );
+  const companyPaths = COMPANY_COLUMNS.flatMap((c) =>
+    c.hubs.flatMap((h) => [h.href, ...h.jurisdictions.map((j) => j.href)])
+  );
+  const isServicesActive = servicesPaths.includes(location.pathname);
+  const isCompanyActive = companyPaths.includes(location.pathname);
+
+  // Reusable styles for nav links — compact + clear active underline
+  const NAV_LINK_FS = 13;
+  const ActiveBar = () => (
+    <span
+      aria-hidden
+      style={{
+        position: "absolute",
+        left: 0,
+        right: 0,
+        bottom: -20,
+        height: 2,
+        background: "#444CE7",
+        boxShadow: "0 0 12px rgba(68,76,231,0.6)",
+      }}
+    />
+  );
 
   return (
     <>
