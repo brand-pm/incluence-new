@@ -282,7 +282,7 @@ const PILLS = [
 
 const Navbar = () => {
   const location = useLocation();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<null | "services" | "company">(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
@@ -310,13 +310,13 @@ const Navbar = () => {
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
-  const openMenu = useCallback(() => {
+  const openMenu = useCallback((which: "services" | "company") => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setMenuOpen(true);
+    setActiveMenu(which);
   }, []);
 
   const closeMenu = useCallback(() => {
-    closeTimer.current = setTimeout(() => setMenuOpen(false), 280);
+    closeTimer.current = setTimeout(() => setActiveMenu(null), 280);
   }, []);
 
   const cancelClose = useCallback(() => {
@@ -324,7 +324,7 @@ const Navbar = () => {
   }, []);
 
   const handleLinkClick = () => {
-    setMenuOpen(false);
+    setActiveMenu(null);
     setMobileOpen(false);
   };
 
