@@ -480,7 +480,7 @@ const Navbar = () => {
           className="md:hidden fixed top-[60px] left-0 right-0 bottom-0 z-[99] overflow-y-auto"
           style={{ background: "#0a0a0a", fontFamily: "Manrope, sans-serif", padding: "16px 20px 120px" }}
         >
-          {MENU_COLUMNS.map((col) => (
+          {[...MENU_COLUMNS, ...COMPANY_COLUMNS.map(c => ({ ...c, title: c.title === "REGISTRATION" ? "COMPANY · REGISTRATION" : `COMPANY · ${c.title}` }))].map((col) => (
             <div key={col.title} style={{ marginBottom: 4 }}>
               <button
                 onClick={() => setMobileExpanded(mobileExpanded === col.title ? null : col.title)}
