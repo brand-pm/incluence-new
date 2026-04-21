@@ -786,11 +786,13 @@ const Navbar = () => {
                     </button>
                   </div>
 
-                  {/* Compact hub cards grid */}
+                  {/* Compact hub cards grid + promo CTA */}
                   <div
                     className="grid"
                     style={{
-                      gridTemplateColumns: `repeat(${hubs.length}, minmax(0, 1fr))`,
+                      // Services: 4 hubs + 1 CTA = 5 cols
+                      // Company:  5 hubs + 1 CTA = 6 cols
+                      gridTemplateColumns: `repeat(${hubs.length + 1}, minmax(0, 1fr))`,
                       gap: 1,
                       background: "rgba(255,255,255,0.06)",
                     }}
@@ -896,6 +898,111 @@ const Navbar = () => {
                         </button>
                       );
                     })}
+
+                    {/* PROMO / CTA CARD — fills the last grid cell */}
+                    <button
+                      onClick={() => { setActiveMenu(null); setProjectDialogOpen(true); }}
+                      className="group relative text-left border-0 cursor-pointer overflow-hidden transition-all duration-300"
+                      style={{
+                        fontFamily: "inherit",
+                        padding: "20px 18px 22px",
+                        background:
+                          "linear-gradient(140deg, rgba(68,76,231,0.18) 0%, rgba(68,76,231,0.06) 45%, #0d0d0d 100%)",
+                      }}
+                    >
+                      {/* Decorative grid dots */}
+                      <span
+                        aria-hidden
+                        className="absolute inset-0 opacity-40 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "radial-gradient(rgba(68,76,231,0.35) 1px, transparent 1px)",
+                          backgroundSize: "16px 16px",
+                          maskImage:
+                            "radial-gradient(ellipse at top right, black 30%, transparent 75%)",
+                          WebkitMaskImage:
+                            "radial-gradient(ellipse at top right, black 30%, transparent 75%)",
+                        }}
+                      />
+
+                      {/* Floating accent ring */}
+                      <span
+                        aria-hidden
+                        className="absolute pointer-events-none"
+                        style={{
+                          top: -30,
+                          right: -30,
+                          width: 110,
+                          height: 110,
+                          border: "1px solid rgba(68,76,231,0.35)",
+                          borderRadius: "50% !important" as any,
+                        }}
+                      />
+
+                      <div className="relative z-10 flex flex-col h-full">
+                        <div className="flex items-center justify-between mb-4">
+                          <span
+                            style={{
+                              fontSize: 10,
+                              fontWeight: 600,
+                              color: "#818CF8",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.14em",
+                            }}
+                          >
+                            — {isCompany ? "Need a structure?" : "Not sure where to start?"}
+                          </span>
+                          <ArrowUpRight
+                            size={14}
+                            className="text-[#818CF8] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
+                          />
+                        </div>
+
+                        <h4
+                          style={{
+                            fontSize: 16,
+                            fontWeight: 400,
+                            color: "#F0EBE0",
+                            lineHeight: 1.25,
+                            marginBottom: 10,
+                            letterSpacing: "-0.01em",
+                          }}
+                        >
+                          {isCompany
+                            ? "Let our experts design your incorporation."
+                            : "Get a free 30-min consultation."}
+                        </h4>
+
+                        <p
+                          style={{
+                            fontSize: 12,
+                            color: "#9A9590",
+                            lineHeight: 1.55,
+                            marginBottom: 16,
+                          }}
+                        >
+                          {isCompany
+                            ? "We'll map jurisdictions, taxes and banking to your business model."
+                            : "We'll listen to your case and recommend the right licence and stack."}
+                        </p>
+
+                        <span
+                          className="inline-flex items-center gap-1.5 mt-auto"
+                          style={{
+                            fontSize: 11,
+                            fontWeight: 500,
+                            color: "#F0EBE0",
+                            background: "#444CE7",
+                            padding: "8px 12px",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.12em",
+                            alignSelf: "flex-start",
+                          }}
+                        >
+                          Start a project →
+                        </span>
+                      </div>
+                    </button>
                   </div>
                 </>
               );
