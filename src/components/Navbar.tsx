@@ -727,103 +727,182 @@ const Navbar = () => {
             @keyframes pd{0%{transform:scale(1);opacity:.5}100%{transform:scale(2.5);opacity:0}}
           `}</style>
 
-          <div className="max-w-screen-xl mx-auto">
+          <div className="max-w-screen-xl mx-auto" style={{ padding: "28px 24px 8px" }}>
             {(() => {
-              const cols = activeMenu === "company" ? COMPANY_COLUMNS : MENU_COLUMNS;
-              return (
-            <div
-              className="grid"
-              style={{
-                gridTemplateColumns: `repeat(${cols.length}, minmax(0, 1fr))`,
-                gap: 0,
-              }}
-            >
-              {cols.map((col, colIdx) => (
-                <div
-                  key={col.title}
-                  style={{
-                    padding: "28px 24px 24px",
-                    borderRight: colIdx < cols.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none",
-                  }}
-                >
-                  {/* Column header */}
-                  <span
-                    style={{
-                      display: "block",
-                      fontSize: 10,
-                      fontWeight: 600,
-                      color: "#444CE7",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.12em",
-                      marginBottom: 20,
-                    }}
-                  >
-                    — {col.title}
-                  </span>
+              const isCompany = activeMenu === "company";
+              const hubs: HubCard[] = isCompany ? COMPANY_HUBS : SERVICES_HUBS;
+              const sectionLabel = isCompany ? "COMPANY FORMATION" : "SERVICES";
+              const sectionTitle = isCompany
+                ? "Where do you want to incorporate?"
+                : "What do you need to launch?";
+              const allHref = isCompany ? "/registration-of-companies-abroad" : "/licenses";
+              const allLabel = isCompany ? "View all jurisdictions" : "View all services";
 
-                  {/* Hubs */}
-                  {col.hubs.map((hub, hubIdx) => (
-                    <div key={hub.href} style={{ marginBottom: hubIdx < col.hubs.length - 1 ? 20 : 0 }}>
-                      {/* Hub link */}
-                      <button
-                        onClick={() => go(hub.href)}
-                        className="flex items-center gap-1.5 bg-transparent border-0 cursor-pointer group w-full text-left"
+              return (
+                <>
+                  {/* Section header */}
+                  <div className="flex items-end justify-between mb-6">
+                    <div>
+                      <span
                         style={{
-                          fontFamily: "inherit",
-                          padding: "2px 0",
-                          marginBottom: hub.jurisdictions.length > 0 ? 8 : 0,
+                          display: "block",
+                          fontSize: 10,
+                          fontWeight: 600,
+                          color: "#444CE7",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.14em",
+                          marginBottom: 8,
                         }}
                       >
-                        <span
-                          className="group-hover:text-[#444CE7] transition-colors duration-150"
-                          style={{ fontSize: 14, fontWeight: 600, color: "#F0EBE0" }}
-                        >
-                          {hub.name}
-                        </span>
-                        <ChevronRight
-                          size={12}
-                          className="text-[#444CE7] opacity-0 group-hover:opacity-100 transition-opacity duration-150"
-                        />
-                      </button>
+                        — {sectionLabel}
+                      </span>
+                      <h3
+                        style={{
+                          fontSize: 18,
+                          fontWeight: 300,
+                          color: "#F0EBE0",
+                          letterSpacing: "-0.01em",
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {sectionTitle}
+                      </h3>
+                    </div>
+                    <button
+                      onClick={() => go(allHref)}
+                      className="bg-transparent border-0 cursor-pointer flex items-center gap-1.5 transition-colors duration-150"
+                      style={{
+                        fontFamily: "inherit",
+                        fontSize: 11,
+                        color: "#9A9590",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.12em",
+                        padding: "6px 0",
+                      }}
+                      onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#444CE7")}
+                      onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#9A9590")}
+                    >
+                      {allLabel} <ArrowUpRight size={12} />
+                    </button>
+                  </div>
 
-                      {/* Jurisdiction links */}
-                      {hub.jurisdictions.length > 0 && (
-                        <div className="flex flex-col gap-0.5" style={{ paddingLeft: 0 }}>
-                          {hub.jurisdictions.map((j) => (
-                            <button
-                              key={j.href}
-                              onClick={() => go(j.href)}
-                              className="bg-transparent border-0 cursor-pointer text-left group/j flex items-center"
+                  {/* Compact hub cards grid */}
+                  <div
+                    className="grid"
+                    style={{
+                      gridTemplateColumns: `repeat(${hubs.length}, minmax(0, 1fr))`,
+                      gap: 1,
+                      background: "rgba(255,255,255,0.06)",
+                    }}
+                  >
+                    {hubs.map((hub) => {
+                      const Icon = hub.Icon;
+                      return (
+                        <button
+                          key={hub.href}
+                          onClick={() => go(hub.href)}
+                          className="group relative text-left bg-transparent border-0 cursor-pointer overflow-hidden transition-colors duration-200"
+                          style={{
+                            fontFamily: "inherit",
+                            background: "#0d0d0d",
+                            padding: "20px 18px 22px",
+                          }}
+                          onMouseEnter={(e) => {
+                            (e.currentTarget as HTMLButtonElement).style.background = "#111111";
+                          }}
+                          onMouseLeave={(e) => {
+                            (e.currentTarget as HTMLButtonElement).style.background = "#0d0d0d";
+                          }}
+                        >
+                          {/* Bottom accent line */}
+                          <span
+                            aria-hidden
+                            className="absolute bottom-0 left-0 h-[2px] transition-all duration-300"
+                            style={{
+                              width: "0%",
+                              background: "#444CE7",
+                            }}
+                            ref={(el) => {
+                              if (!el) return;
+                              const parent = el.parentElement!;
+                              parent.addEventListener("mouseenter", () => (el.style.width = "100%"));
+                              parent.addEventListener("mouseleave", () => (el.style.width = "0%"));
+                            }}
+                          />
+
+                          {/* Icon + arrow */}
+                          <div className="flex items-center justify-between mb-4">
+                            <div
+                              className="flex items-center justify-center transition-all duration-200"
                               style={{
-                                fontFamily: "inherit",
-                                padding: "3px 0 3px 10px",
-                                borderLeft: "2px solid transparent",
-                                transition: "border-color 0.15s, color 0.15s",
-                              }}
-                              onMouseEnter={(e) => {
-                                e.currentTarget.style.borderLeftColor = "#444CE7";
-                              }}
-                              onMouseLeave={(e) => {
-                                e.currentTarget.style.borderLeftColor = "transparent";
+                                width: 36,
+                                height: 36,
+                                background: "rgba(68,76,231,0.10)",
+                                border: "1px solid rgba(68,76,231,0.25)",
+                                color: "#818CF8",
                               }}
                             >
-                              <span
-                                className="group-hover/j:text-[#F0EBE0] transition-colors duration-150"
-                                style={{ fontSize: 12, color: "#9A9590" }}
-                              >
-                                {j.label}
-                              </span>
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
+                              <Icon size={16} strokeWidth={1.5} />
+                            </div>
+                            <ArrowUpRight
+                              size={14}
+                              className="text-[#5A5550] group-hover:text-[#F0EBE0] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                            />
+                          </div>
+
+                          {/* Title */}
+                          <h4
+                            className="group-hover:text-white transition-colors duration-200"
+                            style={{
+                              fontSize: 14,
+                              fontWeight: 500,
+                              color: "#F0EBE0",
+                              marginBottom: 6,
+                              letterSpacing: "-0.005em",
+                            }}
+                          >
+                            {hub.title}
+                          </h4>
+
+                          {/* Description */}
+                          <p
+                            style={{
+                              fontSize: 12,
+                              color: "#9A9590",
+                              lineHeight: 1.55,
+                              marginBottom: 12,
+                            }}
+                          >
+                            {hub.description}
+                          </p>
+
+                          {/* Count tag */}
+                          {hub.count && (
+                            <span
+                              style={{
+                                display: "inline-block",
+                                fontSize: 10,
+                                color: "#5A5550",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.1em",
+                                paddingTop: 8,
+                                borderTop: "1px solid rgba(255,255,255,0.06)",
+                                width: "100%",
+                              }}
+                            >
+                              {hub.count}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </>
               );
             })()}
+          </div>
+
+          <div>
 
             {/* ── BOTTOM BAR ── */}
             <div
