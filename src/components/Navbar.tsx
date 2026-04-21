@@ -738,6 +738,8 @@ const Navbar = () => {
               const allHref = isCompany ? "/registration-of-companies-abroad" : "/licenses";
               const allLabel = isCompany ? "View all jurisdictions" : "View all services";
 
+              // Stable grid: always 6 columns on lg, 3 on md.
+              // Hubs fill first cells (max 5), CTA always occupies the last cell.
               return (
                 <>
                   {/* Section header */}
@@ -786,12 +788,10 @@ const Navbar = () => {
                     </button>
                   </div>
 
-                  {/* Compact hub cards grid + promo CTA */}
+                  {/* Hub cards grid + CTA — column count derived deterministically from hubs */}
                   <div
                     className="grid"
                     style={{
-                      // Services: 4 hubs + 1 CTA = 5 cols
-                      // Company:  5 hubs + 1 CTA = 6 cols
                       gridTemplateColumns: `repeat(${hubs.length + 1}, minmax(0, 1fr))`,
                       gap: 1,
                       background: "rgba(255,255,255,0.06)",
@@ -801,41 +801,24 @@ const Navbar = () => {
                       const Icon = hub.Icon;
                       return (
                         <button
-                          key={hub.href}
+                          key={`${activeMenu}-${hub.href}`}
                           onClick={() => go(hub.href)}
-                          className="group relative text-left bg-transparent border-0 cursor-pointer overflow-hidden transition-colors duration-200"
+                          className="group relative text-left border-0 cursor-pointer overflow-hidden bg-[#0d0d0d] hover:bg-[#111111] transition-colors duration-200"
                           style={{
                             fontFamily: "inherit",
-                            background: "#0d0d0d",
                             padding: "20px 18px 22px",
                           }}
-                          onMouseEnter={(e) => {
-                            (e.currentTarget as HTMLButtonElement).style.background = "#111111";
-                          }}
-                          onMouseLeave={(e) => {
-                            (e.currentTarget as HTMLButtonElement).style.background = "#0d0d0d";
-                          }}
                         >
-                          {/* Bottom accent line */}
+                          {/* Bottom accent line — pure CSS hover, no refs */}
                           <span
                             aria-hidden
-                            className="absolute bottom-0 left-0 h-[2px] transition-all duration-300"
-                            style={{
-                              width: "0%",
-                              background: "#444CE7",
-                            }}
-                            ref={(el) => {
-                              if (!el) return;
-                              const parent = el.parentElement!;
-                              parent.addEventListener("mouseenter", () => (el.style.width = "100%"));
-                              parent.addEventListener("mouseleave", () => (el.style.width = "0%"));
-                            }}
+                            className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full bg-[#444CE7] transition-all duration-300"
                           />
 
                           {/* Icon + arrow */}
                           <div className="flex items-center justify-between mb-4">
                             <div
-                              className="flex items-center justify-center transition-all duration-200"
+                              className="flex items-center justify-center"
                               style={{
                                 width: 36,
                                 height: 36,
@@ -852,7 +835,6 @@ const Navbar = () => {
                             />
                           </div>
 
-                          {/* Title */}
                           <h4
                             className="group-hover:text-white transition-colors duration-200"
                             style={{
@@ -866,7 +848,6 @@ const Navbar = () => {
                             {hub.title}
                           </h4>
 
-                          {/* Description */}
                           <p
                             style={{
                               fontSize: 12,
@@ -878,7 +859,6 @@ const Navbar = () => {
                             {hub.description}
                           </p>
 
-                          {/* Count tag */}
                           {hub.count && (
                             <span
                               style={{
@@ -899,8 +879,9 @@ const Navbar = () => {
                       );
                     })}
 
-                    {/* PROMO / CTA CARD — fills the last grid cell */}
+                    {/* PROMO / CTA CARD — always the last cell */}
                     <button
+                      key={`${activeMenu}-cta`}
                       onClick={() => { setActiveMenu(null); setProjectDialogOpen(true); }}
                       className="group relative text-left border-0 cursor-pointer overflow-hidden transition-all duration-300"
                       style={{
@@ -928,14 +909,13 @@ const Navbar = () => {
                       {/* Floating accent ring */}
                       <span
                         aria-hidden
-                        className="absolute pointer-events-none"
+                        className="absolute pointer-events-none rounded-full"
                         style={{
                           top: -30,
                           right: -30,
                           width: 110,
                           height: 110,
                           border: "1px solid rgba(68,76,231,0.35)",
-                          borderRadius: "50% !important" as any,
                         }}
                       />
 
