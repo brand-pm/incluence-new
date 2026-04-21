@@ -160,6 +160,119 @@ const MENU_COLUMNS: MenuColumn[] = [
   },
 ];
 
+const COMPANY_COLUMNS: MenuColumn[] = [
+  {
+    title: "REGISTRATION",
+    hubs: [
+      {
+        name: "Companies Abroad",
+        href: "/registration-of-companies-abroad",
+        jurisdictions: [
+          { label: "Estonia", href: "/open-a-company-in-estonia" },
+          { label: "UK", href: "/register-company-in-uk" },
+          { label: "UAE", href: "/register-company-in-uae" },
+          { label: "Singapore", href: "/register-company-in-singapore" },
+          { label: "Hong Kong", href: "/register-company-in-hong-kong" },
+          { label: "Switzerland", href: "/register-company-in-switzerland" },
+          { label: "Lithuania", href: "/register-company-in-lithuania" },
+          { label: "Bulgaria", href: "/register-company-in-bulgaria" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "EUROPE",
+    hubs: [
+      {
+        name: "EU Jurisdictions",
+        href: "/company-registration-in-europe",
+        jurisdictions: [
+          { label: "Cyprus", href: "/company-registration-in-cyprus" },
+          { label: "Germany", href: "/company-registration-in-germany" },
+          { label: "Netherlands", href: "/company-registration-in-the-netherlands" },
+          { label: "Poland", href: "/company-registration-in-poland" },
+          { label: "Czechia", href: "/company-registration-in-czechia" },
+          { label: "Ireland", href: "/company-registration-in-ireland" },
+          { label: "Luxembourg", href: "/company-registration-in-luxembourg" },
+          { label: "Malta", href: "/company-registration-in-malta" },
+          { label: "Portugal", href: "/company-registration-portugal" },
+          { label: "Croatia", href: "/company-registration-in-croatia" },
+          { label: "Hungary", href: "/starting-a-business-in-hungary" },
+          { label: "Gibraltar", href: "/company-registration-in-gibraltar" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "ASIA & AMERICAS",
+    hubs: [
+      {
+        name: "Worldwide",
+        href: "/registration-of-companies-abroad",
+        jurisdictions: [
+          { label: "USA", href: "/open-company-in-usa" },
+          { label: "Canada", href: "/company-registration-in-canada" },
+          { label: "China", href: "/company-registration-in-china" },
+          { label: "Malaysia", href: "/company-registration-in-malaysia" },
+          { label: "Thailand", href: "/open-a-company-in-thailand" },
+          { label: "Montenegro", href: "/starting-a-business-in-montenegro" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "READY-MADE",
+    hubs: [
+      {
+        name: "Buy a Business",
+        href: "/buy-a-business-abroad",
+        jurisdictions: [
+          { label: "Estonia", href: "/buy-company-in-estonia" },
+          { label: "Malta", href: "/buying-a-company-in-malta" },
+          { label: "Cyprus", href: "/purchase-of-a-company-in-cyprus" },
+          { label: "England", href: "/purchase-a-company-in-england" },
+          { label: "Germany", href: "/buying-a-company-in-germany" },
+          { label: "Switzerland", href: "/buying-a-company-in-switzerland" },
+          { label: "Poland", href: "/buying-a-company-in-poland" },
+          { label: "Bulgaria", href: "/buying-a-company-in-bulgaria" },
+          { label: "Canada", href: "/buying-a-company-in-canada" },
+          { label: "Netherlands", href: "/company-purchase-in-the-netherlands" },
+          { label: "Luxembourg", href: "/purchase-of-a-company-in-luxembourg" },
+          { label: "UAE", href: "/purchase-of-a-company-in-the-uae" },
+          { label: "USA", href: "/purchase-of-a-company-in-the-usa" },
+          { label: "Hong Kong", href: "/buy-a-ready-made-company-in-hong-kong" },
+          { label: "Lithuania", href: "/buy-a-ready-made-company-in-lithuania" },
+          { label: "Hungary", href: "/ready-made-companies-in-hungary" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "OFFSHORE",
+    hubs: [
+      {
+        name: "Offshore Formation",
+        href: "/offshore-company-formation",
+        jurisdictions: [
+          { label: "BVI", href: "/offshore-in-the-british-virgin-islands" },
+          { label: "Cayman Islands", href: "/offshore-in-the-cayman-islands" },
+          { label: "Seychelles", href: "/offshore-company-formation-in-seychelles" },
+          { label: "Panama", href: "/panama-company-formation" },
+          { label: "Costa Rica", href: "/offshore-company-formation-in-costa-rica" },
+          { label: "Curaçao", href: "/offshore-company-formation-in-curacao" },
+          { label: "St. Vincent", href: "/offshore-in-st-vincent" },
+          { label: "Isle of Man", href: "/offshore-company-formation-in-the-isle-of-man" },
+        ],
+      },
+      {
+        name: "Ready-Made Offshore",
+        href: "/ready-made-offshore-companies",
+        jurisdictions: [],
+      },
+    ],
+  },
+];
+
 const PILLS = [
   { label: "Gambling · MGA", href: "/malta-gaming-license" },
   { label: "Estonia · VASP", href: "/cryptocurrency-exchange-license-in-estonia" },
