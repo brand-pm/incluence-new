@@ -1,113 +1,131 @@
 
 
-## Navbar Refactor — Final TZ Implementation
+## /mica-license — Dedicated MiCA CASP Landing Page
 
-Реструктурируем навбар согласно ТЗ: упрощённая структура верхнего уровня, плоские дропдауны, новая CTA-кнопка, языковой переключатель и аналитика GA4.
+Создаём новую страницу `/mica-license` строго по предоставленному ТЗ (3 блока: Hero+Urgency, Jurisdictions+Capital, Process+FAQ+CTA). Вместо общей `HubPage` строим кастомный компонент — структура нестандартная (8-юрисдикционная таблица, 3 capital-карточки, EU-карта с пульсацией, JSON-LD).
 
-### 1. Новая структура (слева → направо)
+### 1. Новая страница
 
-```
-[Logo]  Licenses ▾   Company Formation ▾   MiCA   Ready-Made   Services ▾   Resources ▾   EN/RU ▾   [Get Free Consultation]
-```
+**Файл:** `src/pages/MiCALicensePage.tsx` — кастомный одностраничный компонент.
+**Роут:** `<Route path="/mica-license" element={<MiCALicensePage />} />` в `src/App.tsx` (lazy-loaded, до catch-all).
+**Navbar:** в `LICENSES_FLAT` и top-level `MiCA` link меняем `/cryptocurrency-exchange-license` → `/mica-license` (CASP/MiCA pункт + прямая ссылка). Меняется в `src/components/Navbar.tsx`.
 
-### 2. Содержимое дропдаунов
+### 2. Структура страницы (3 блока + meta)
 
-**Licenses ▾** — плоский список (без юрисдикций):
-- Crypto / VASP → `/cryptocurrency-exchange-license`
-- CASP → `/cryptocurrency-exchange-license` (та же хаб-страница, MiCA-контекст)
-- EMI → `/emi-license`
-- PSP → `/provider-payment-systems`
-- Gambling / iGaming → `/gamble-license`
-- Forex → `/forex-license`
+**`<head>` инъекция** через `react-helmet-async` (если установлен) или нативный `useEffect` с `document.head` манипуляциями — посмотрю что используется в проекте, выберу единый подход:
+- Title, description, canonical, OG tags
+- JSON-LD `@graph` (Service + FAQPage) — точно по ТЗ
 
-**Company Formation ▾** — плоский список регионов:
-- UK → `/register-company-in-uk`
-- USA → `/open-company-in-usa`
-- EU Jurisdictions → `/company-registration-in-europe`
-- Worldwide (Asia & Americas) → `/registration-of-companies-abroad`
-- Offshore → `/offshore-company-formation`
+**BLOCK 1 — Hero + Urgency**
+- 2-column layout (text 55% / EU-map 45%), stack на mobile
+- Eyebrow `EU MICA REGULATION · LIVE SINCE 30 DEC 2024` (`#444CE7`, uppercase 12px)
+- H1 `MiCA CASP License` (48/32px)
+- Sub `EU authorization for crypto-asset service providers — 8 jurisdictions, one team`
+- Body parag (точно по ТЗ)
+- CTA: Primary `Get Free Consultation` (открывает `FormBlock` dialog) + Secondary text-link `Download MiCA Checklist PDF` (anchor `#`, заглушка пока без файла)
+- Visual: SVG EU-map (упрощённая контурная) с 8 анимированными `<circle>` + pulsing rings (CSS keyframes 2s ease-in-out). Hover на точке → tooltip (страна + регулятор + timeline)
+- Urgency strip снизу: dark-card `#1A1A24`, `Transition deadline: national cut-offs run through Q3–Q4 2026  ·  Lithuania · Estonia · France · Germany — specific dates vary` + `Check your deadline →` (anchor `#jurisdictions`)
 
-**MiCA** — прямая ссылка (без дропдауна) → `/cryptocurrency-exchange-license` (хаб содержит MICA_FACTS-секцию). Визуально подсвечен как «hot»: маленький точечный индикатор `#444CE7` + тултип «July 2026 deadline».
+**BLOCK 2 — Jurisdictions + Capital**
+- Часть A: Heading `8 EU jurisdictions we cover` + sub
+- Desktop: таблица 6 колонок (Flag+Country · Regulator · Timeline · Language · Best for · arrow), row hover `#1A1A24`, вся строка clickable
+- Mobile: горизонтальный snap-swiper с карточками (85vw)
+- 8 строк данных (Germany BaFin, France AMF/ACPR, Netherlands AFM/DNB, Ireland CBI, Malta MFSA, Lithuania LB, Poland KNF, Luxembourg CSSF) — точные значения возьму из ТЗ-блока (документ обрезан на этом месте, **прошу подтвердить полный список из ТЗ при имплементации** — пока проставлю стандартные регуляторы EU)
+- Внизу таблицы: `Compare all 8 jurisdictions side-by-side →` (anchor)
+- Часть B: 3-column capital cards (`€50,000` Class 1 / `€125,000` Class 2 / `€150,000` Class 3) с расшифровкой услуг (точно по ТЗ Article 67)
+- Footer-note курсивом про own funds maintenance
 
-**Ready-Made** — прямая ссылка → `/marketplace`.
+**BLOCK 3 — Process + FAQ + Final CTA**
+- Soft gradient `#0E0E14 → #141420`
+- 5-step process timeline (горизонтальная на desktop с пунктирной линией, вертикальная на mobile). Steps возьму стандартные для CASP: Scoping → Jurisdiction selection → Substance & docs prep → Filing & regulator dialogue → Authorization & post-launch (если нет точного списка в ТЗ — детали уточним при имплементации)
+- FAQ accordion — 5 Q/A точно по ТЗ (single-expand, slide 200ms, chevron rotate). Используем `@/components/ui/accordion`
+- Final CTA card: `max-w-720px`, `#1A1A24` (zero radius согласно дизайн-системе — переопределим `border-radius: 24px` из ТЗ на `0` чтобы не нарушать core правило, либо оставим как ТЗ — **прошу подтвердить**)
+- 2 кнопки + Telegram contact line `@incluence_manager` → `https://t.me/incluence_manager`
 
-**Services ▾** — всё остальное, сгруппировано:
-- *Banking & Payments*: Bank Accounts, Merchant Account, Payment Systems, PSP License
-- *Investment & Residency*: Investment Funds, Hedge Fund, Residence Permit
-- *Legal Services*: Legitimization, Tax & Reporting, Legal Support, Contracts
+### 3. Дизайн-система
 
-(Двухколоночная навигация — слева категории, справа ссылки. Сохраняем текущий стиль mega-menu.)
+ТЗ использует цвета `#0E0E14`, `#1A1A24`, `#5B54F4`, `#B0B3B8`, `#D4D4D8` — это **отличается** от текущей системы (`#0a0a0a`, `#444CE7`, `#F0EBE0`, `#9A9590`). 
 
-**Resources ▾** — плоский список:
-- About → `/about`
-- Blog → `/blog`
-- Affiliate Program → `/affiliate-program`
-- Contacts → `/contact`
+**Решение:** маппим к существующим токенам сайта чтобы страница не выглядела чужой:
+- `#5B54F4` → `#444CE7` (project accent)
+- `#0E0E14` / `#1A1A24` → `#0a0a0a` / `#0d0d0d`
+- `#B0B3B8` → `#9A9590`
+- `#D4D4D8` → `#F0EBE0`
 
-**EN / RU ▾** — переключатель языка. RU ведёт на `/ru/` (внешний редирект пока нет страниц — ставим `<a href="/ru/">`, чтобы не ломать SPA-роутинг). Текущий выбор отмечен галочкой.
+Manrope, zero border-radius (включая Final CTA card → переопределяем 24px на 0), gap-px grid trick для разделителей.
 
-### 3. CTA-кнопка «Get Free Consultation»
+### 4. Аналитика GA4
 
-Заменяем текст «Start a Project» во всех CTA-точках на **«Get Free Consultation»**:
-- Desktop navbar (строка 598)
-- Mobile navbar (строка 703)
-- Project dialog title (строка 1064)
-- `BlogPage.tsx` (375), `BlogPostPage.tsx` (455), `PaymentSystemsPage.tsx` (144, 303, 351)
+Хелпер `trackEvent(name, params)` для:
+- `mica_hero_cta_click`
+- `mica_jurisdiction_click` (label = country)
+- `mica_pdf_download`
+- `mica_telegram_click`
+- `mica_consultation_click`
 
-Стиль кнопки: оставляем `#444CE7`, но добавляем лёгкое свечение (`box-shadow: 0 0 0 1px rgba(68,76,231,0.4), 0 8px 24px rgba(68,76,231,0.25)`) — выделяет среди прочих элементов.
+### 5. Технические детали
 
-### 4. Поведение
+- **EU map SVG**: inline в компоненте (упрощённый контур EU + 8 точек с координатами). Без внешнего ассета `/hero/eu-map-mica.svg`.
+- **PDF download**: пока заглушка (`href="#"` + `disabled` стиль) — ассет PDF не предоставлен. **Прошу подтвердить либо предоставить файл.**
+- **Lazy-loading** изображений (`loading="lazy"`) — кроме hero.
+- **Sanity:** ТЗ упоминает `hubPage` тип — но контентные блоки уникальны (8-юрисдикционная таблица, capital cards). **Решение:** хардкодим контент в компоненте `MiCALicensePage.tsx` (быстрее и точнее по ТЗ). Sanity-интеграция — отдельный шаг при необходимости.
+- **`dangerouslySetInnerHTML`** для JSON-LD `<script type="application/ld+json">` в `<head>` через `useEffect`.
 
-- **Sticky** при скролле — уже реализовано (`fixed top-0`).
-- **Hover на десктопе / тап на мобиле** — переключение дропдаунов (текущая логика hover + click сохраняется).
-- **Mobile**: бургер с аккордеоном; кнопка «Get Free Consultation» **фиксируется снизу** экрана на мобиле (`fixed bottom-0`, full-width, `z-[100]`) — всегда видна.
-- **GA4 события** на клик по основным пунктам:
-  ```ts
-  window.gtag?.('event', 'nav_click', { item: 'Licenses' });
-  ```
-  обёртка `trackNav(label)` вызывается в `onClick` каждого top-level пункта (включая пункты дропдаунов).
-
-### 5. Технические изменения
-
-**Файлы:**
-
-- `src/components/Navbar.tsx` — полный рефакторинг:
-  - Новые типы: `FlatMenuItem` для плоских списков (Licenses, Company Formation, Resources).
-  - Новые константы: `LICENSES_FLAT`, `COMPANY_FLAT`, `SERVICES_GROUPED`, `RESOURCES_FLAT`, `LANGUAGES`.
-  - Состояния: `activeMenu: 'licenses' | 'company' | 'services' | 'resources' | 'lang' | null`.
-  - Новый компонент `FlatDropdown` (компактная карточка-список 240–280px шириной, hover-подсветка строк).
-  - Компонент `LangSwitcher` (мини-дропдаун EN/RU).
-  - `MegaMenuServices` — оставляем двухколоночный (3 группы слева, ссылки справа).
-  - Mobile-меню: новый аккордеон по новой структуре + sticky bottom CTA.
-  - Хелпер `trackNav(label)` для GA4.
-- `src/pages/BlogPage.tsx`, `BlogPostPage.tsx`, `PaymentSystemsPage.tsx` — заменить текст CTA.
-
-### 6. Layout / диаграмма
+### 6. Layout схема
 
 ```text
-DESKTOP NAVBAR (60px height)
-┌──────────────────────────────────────────────────────────────────────────────┐
-│ Inclu·ence  Licenses▾ Company▾ MiCA• Ready-Made Services▾ Resources▾  EN▾  [GET FREE CONSULTATION] │
-└──────────────────────────────────────────────────────────────────────────────┘
-                  ↓ hover
-         ┌─────────────────────┐
-         │ — LICENSES          │
-         │  Crypto / VASP   →  │
-         │  CASP            →  │
-         │  EMI             →  │
-         │  PSP             →  │
-         │  Gambling/iGaming →  │
-         │  Forex           →  │
-         └─────────────────────┘
+┌─────────────────────────────────────────────┐
+│ NAVBAR (sticky)                             │
+├─────────────────────────────────────────────┤
+│ HERO (min-h 520)                            │
+│ ┌───────────────┬─────────────────────────┐ │
+│ │ Eyebrow       │   EU MAP SVG            │ │
+│ │ H1            │   • 8 pulsing dots      │ │
+│ │ H2 sub        │   tooltip on hover      │ │
+│ │ Body          │                         │ │
+│ │ [CTA] [link]  │                         │ │
+│ └───────────────┴─────────────────────────┘ │
+│ [URGENCY STRIP — clock icon + deadline]     │
+├─────────────────────────────────────────────┤
+│ #jurisdictions                              │
+│ H2 + sub                                    │
+│ ┌─────────────────────────────────────────┐ │
+│ │ TABLE (8 rows, 6 cols) / mobile swiper  │ │
+│ └─────────────────────────────────────────┘ │
+│ → Compare all 8 jurisdictions               │
+│                                             │
+│ H3: CASP capital by service class           │
+│ ┌────────┬────────┬────────┐                │
+│ │ €50K   │ €125K  │ €150K  │                │
+│ │ Class1 │ Class2 │ Class3 │                │
+│ └────────┴────────┴────────┘                │
+│ [own funds note]                            │
+├─────────────────────────────────────────────┤
+│ H2: How we deliver your CASP authorization  │
+│ ① ─── ② ─── ③ ─── ④ ─── ⑤  (timeline)        │
+│                                             │
+│ H2: Frequently asked questions              │
+│ [accordion × 5]                             │
+│                                             │
+│ ┌──── FINAL CTA CARD (max-w 720) ────────┐  │
+│ │ H2 + body                               │  │
+│ │ [Book Free Consultation] [PDF]          │  │
+│ │ ── Telegram @incluence_manager          │  │
+│ └─────────────────────────────────────────┘  │
+├─────────────────────────────────────────────┤
+│ FOOTER                                      │
+└─────────────────────────────────────────────┘
 ```
 
-### 7. Сохраняемое поведение
+### 7. Файлы
 
-- Дизайн-система (Manrope, zero radius, `#444CE7` accent, `#F0EBE0` text) — без изменений.
-- Existing project dialog (`projectDialogOpen`) — переиспользуется, только меняется текст.
-- Telegram/WhatsApp иконки — остаются справа от CTA на десктопе.
+- **Новый:** `src/pages/MiCALicensePage.tsx`
+- **Изменения:** `src/App.tsx` (lazy import + route), `src/components/Navbar.tsx` (CASP/MiCA href + top-level MiCA href → `/mica-license`)
 
-### 8. Открытые вопросы
+### 8. Открытые вопросы (требуют подтверждения перед стартом)
 
-- `/ru/` страниц пока нет — RU-ссылка ведёт на `/ru/` через нативный `<a href>` (внешний редирект подхватит, когда RU-локаль появится). Если нужно скрыть RU до релиза — отметим как `disabled` с тултипом «Coming soon».
+1. **Полная таблица 8 юрисдикций** в ТЗ обрезана (`* PSAN transition — греенфилд 9–12 мес`). Использовать стандартные значения по EU regulators (BaFin, AMF, AFM, CBI, MFSA, LB, KNF, CSSF) с шаблонными timeline 6–12 мес — или дождаться полного списка?
+2. **Final CTA border-radius**: ТЗ требует `24px` — это нарушает zero-radius правило сайта. Оставляем `24px` (по ТЗ) или `0` (по дизайн-системе)?
+3. **PDF файл** для download — есть готовый ассет, или заглушка `#`?
+4. **Process steps**: ТЗ говорит «5 steps» но содержимое обрезано — придумать стандартные CASP-шаги или дождаться текста?
 
