@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import FormBlock from "@/components/FormBlock";
+import MicaGlobe from "@/components/MicaGlobe";
 import { ArrowUpRight, Clock, Download, Send, ChevronRight } from "lucide-react";
 
 /* ─── DESIGN TOKENS (mapped to project system) ─── */
@@ -30,20 +31,21 @@ interface Jurisdiction {
   timeline: string;
   language: string;
   bestFor: string;
-  /** rough x/y on 800×500 simplified EU map (percentages of viewBox) */
-  cx: number;
-  cy: number;
+  /** [longitude, latitude] for globe markers */
+  coords: [number, number];
+  /** ISO 3166-1 numeric, used to highlight country fill on globe */
+  iso: number;
 }
 
 const JURISDICTIONS: Jurisdiction[] = [
-  { flag: "🇩🇪", country: "Germany",     regulator: "BaFin",      timeline: "9–12 months", language: "DE / EN", bestFor: "Institutional credibility · BaFin pedigree", cx: 470, cy: 195 },
-  { flag: "🇫🇷", country: "France",      regulator: "AMF / ACPR", timeline: "8–12 months", language: "FR / EN", bestFor: "PSAN transition · large EU consumer market",  cx: 405, cy: 270 },
-  { flag: "🇳🇱", country: "Netherlands", regulator: "AFM / DNB",  timeline: "9–12 months", language: "NL / EN", bestFor: "EN-friendly process · strong fintech ecosystem", cx: 440, cy: 200 },
-  { flag: "🇮🇪", country: "Ireland",     regulator: "CBI",        timeline: "10–14 months", language: "EN",      bestFor: "English-language regime · IRL hub for fintech",  cx: 320, cy: 200 },
-  { flag: "🇲🇹", country: "Malta",       regulator: "MFSA",       timeline: "6–10 months", language: "EN / MT", bestFor: "Crypto-native regulator · prior MFSA VFA history", cx: 510, cy: 380 },
-  { flag: "🇱🇹", country: "Lithuania",   regulator: "Lietuvos bankas", timeline: "6–9 months", language: "LT / EN", bestFor: "Fastest path · existing VASP transition",          cx: 580, cy: 175 },
-  { flag: "🇵🇱", country: "Poland",      regulator: "KNF",        timeline: "9–12 months", language: "PL / EN", bestFor: "Large local market · cost-effective substance",   cx: 540, cy: 220 },
-  { flag: "🇱🇺", country: "Luxembourg",  regulator: "CSSF",       timeline: "10–14 months", language: "FR / EN / DE", bestFor: "Funds & institutional clients · CSSF prestige", cx: 445, cy: 235 },
+  { flag: "🇩🇪", country: "Germany",     regulator: "BaFin",           timeline: "9–12 months",  language: "DE / EN",       bestFor: "Institutional credibility · BaFin pedigree",       coords: [10.45, 51.16], iso: 276 },
+  { flag: "🇫🇷", country: "France",      regulator: "AMF / ACPR",      timeline: "8–12 months",  language: "FR / EN",       bestFor: "PSAN transition · large EU consumer market",       coords: [2.21, 46.23],  iso: 250 },
+  { flag: "🇳🇱", country: "Netherlands", regulator: "AFM / DNB",       timeline: "9–12 months",  language: "NL / EN",       bestFor: "EN-friendly process · strong fintech ecosystem",   coords: [5.29, 52.13],  iso: 528 },
+  { flag: "🇮🇪", country: "Ireland",     regulator: "CBI",             timeline: "10–14 months", language: "EN",            bestFor: "English-language regime · IRL hub for fintech",    coords: [-7.69, 53.14], iso: 372 },
+  { flag: "🇲🇹", country: "Malta",       regulator: "MFSA",            timeline: "6–10 months",  language: "EN / MT",       bestFor: "Crypto-native regulator · prior MFSA VFA history", coords: [14.37, 35.94], iso: 470 },
+  { flag: "🇱🇹", country: "Lithuania",   regulator: "Lietuvos bankas", timeline: "6–9 months",   language: "LT / EN",       bestFor: "Fastest path · existing VASP transition",          coords: [23.88, 55.17], iso: 440 },
+  { flag: "🇵🇱", country: "Poland",      regulator: "KNF",             timeline: "9–12 months",  language: "PL / EN",       bestFor: "Large local market · cost-effective substance",    coords: [19.13, 51.92], iso: 616 },
+  { flag: "🇱🇺", country: "Luxembourg",  regulator: "CSSF",            timeline: "10–14 months", language: "FR / EN / DE",  bestFor: "Funds & institutional clients · CSSF prestige",    coords: [6.13, 49.81],  iso: 442 },
 ];
 
 const CAPITAL_CLASSES = [
@@ -164,54 +166,7 @@ function useDocumentHead() {
   }, []);
 }
 
-/* ─── EU MAP (simplified outline + 8 dots) ─── */
-const EuMap = ({ onDotClick }: { onDotClick: (j: Jurisdiction) => void }) => {
-  return (
-    <div className="relative w-full" style={{ aspectRatio: "8/5" }}>
-      <svg viewBox="0 0 800 500" className="w-full h-full" role="img" aria-label="EU jurisdictions covered">
-        {/* dot grid background */}
-        <defs>
-          <pattern id="mica-dots" width="24" height="24" patternUnits="userSpaceOnUse">
-            <circle cx="1" cy="1" r="1" fill="rgba(240,235,224,0.04)" />
-          </pattern>
-          <radialGradient id="mica-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor={C_ACCENT} stopOpacity="0.18" />
-            <stop offset="100%" stopColor={C_ACCENT} stopOpacity="0" />
-          </radialGradient>
-        </defs>
-        <rect width="800" height="500" fill="url(#mica-dots)" />
-        <ellipse cx="450" cy="260" rx="280" ry="180" fill="url(#mica-glow)" />
-
-        {/* simplified EU silhouette — soft outlined blob for visual context */}
-        <path
-          d="M250,180 Q280,120 360,110 Q440,95 510,120 Q590,100 640,150 Q680,200 660,260 Q650,330 580,380 Q500,420 430,400 Q350,420 290,380 Q230,340 240,270 Q235,220 250,180 Z"
-          fill="none"
-          stroke={BORDER}
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-
-        {/* dots */}
-        {JURISDICTIONS.map((j) => (
-          <g
-            key={j.country}
-            style={{ cursor: "pointer" }}
-            onClick={() => onDotClick(j)}
-          >
-            {/* pulsing ring */}
-            <circle cx={j.cx} cy={j.cy} r="6" fill="none" stroke={C_ACCENT} strokeWidth="1">
-              <animate attributeName="r" from="6" to="22" dur="2.4s" repeatCount="indefinite" />
-              <animate attributeName="opacity" from="0.7" to="0" dur="2.4s" repeatCount="indefinite" />
-            </circle>
-            <circle cx={j.cx} cy={j.cy} r="5" fill={C_ACCENT} />
-            <circle cx={j.cx} cy={j.cy} r="2" fill={C_TEXT} />
-            <title>{`${j.country} · ${j.regulator} · ${j.timeline}`}</title>
-          </g>
-        ))}
-      </svg>
-    </div>
-  );
-};
+/* (legacy EuMap removed — replaced by <MicaGlobe />) */
 
 /* ─── PAGE ─── */
 const MiCALicensePage = () => {
@@ -288,13 +243,21 @@ const MiCALicensePage = () => {
             </div>
           </div>
 
-          {/* RIGHT — EU map */}
+          {/* RIGHT — interactive globe */}
           <div className="relative">
-            <div
-              className="absolute inset-0 -z-0"
-              style={{ background: "radial-gradient(circle at 50% 50%, rgba(68,76,231,0.08), transparent 70%)" }}
+            <MicaGlobe
+              points={JURISDICTIONS.map((j) => ({
+                country: j.country,
+                regulator: j.regulator,
+                timeline: j.timeline,
+                coords: j.coords,
+              }))}
+              highlightIso={JURISDICTIONS.map((j) => j.iso)}
+              onPointClick={(p) => {
+                trackEvent("mica_jurisdiction_click", { country: p.country });
+                scrollTo("jurisdictions");
+              }}
             />
-            <EuMap onDotClick={(j) => { trackEvent("mica_jurisdiction_click", { country: j.country }); scrollTo("jurisdictions"); }} />
           </div>
         </div>
 
