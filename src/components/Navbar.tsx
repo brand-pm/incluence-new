@@ -229,22 +229,27 @@ const Navbar = () => {
       onMouseLeave={scheduleClose}
       className="absolute"
       style={{
-        top: "calc(100% + 6px)",
+        top: "100%",
         [align]: 0,
         width,
-        background: C_BG,
-        border: `1px solid ${BORDER}`,
-        boxShadow: "0 24px 48px rgba(0,0,0,0.7)",
-        animation: "dropIn .16s ease-out both",
+        paddingTop: 8,
         fontFamily: "Manrope, sans-serif",
         zIndex: 110,
       } as React.CSSProperties}
     >
-      <div style={{ padding: "10px 14px 8px", borderBottom: `1px solid ${BORDER}` }}>
-        <span style={{ fontSize: 10, color: C_ACCENT, letterSpacing: "0.14em", fontWeight: 600, textTransform: "uppercase" }}>
-          — {title}
-        </span>
-      </div>
+      <div
+        style={{
+          background: C_BG,
+          border: `1px solid ${BORDER}`,
+          boxShadow: "0 24px 48px rgba(0,0,0,0.7)",
+          animation: "dropIn .16s ease-out both",
+        }}
+      >
+        <div style={{ padding: "10px 14px 8px", borderBottom: `1px solid ${BORDER}` }}>
+          <span style={{ fontSize: 10, color: C_ACCENT, letterSpacing: "0.14em", fontWeight: 600, textTransform: "uppercase" }}>
+            — {title}
+          </span>
+        </div>
       <div>
         {items.map((it) => (
           <Link
