@@ -127,7 +127,8 @@ const Navbar = () => {
     setActiveMenu(k);
   }, []);
   const scheduleClose = useCallback(() => {
-    closeTimer.current = setTimeout(() => setActiveMenu(null), 220);
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setActiveMenu(null), 500);
   }, []);
   const cancelClose = useCallback(() => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
