@@ -1,83 +1,113 @@
 
 
-# Project Improvement Audit — Prioritized Fixes
+## Navbar Refactor — Final TZ Implementation
 
-## Critical Issues
+Реструктурируем навбар согласно ТЗ: упрощённая структура верхнего уровня, плоские дропдауны, новая CTA-кнопка, языковой переключатель и аналитика GA4.
 
-### 1. No Scroll-to-Top on Route Change
-When navigating between pages via `<Link>`, the browser stays at the current scroll position. User lands mid-page on every internal navigation. This is the single biggest UX problem.
+### 1. Новая структура (слева → направо)
 
-**Fix**: Add a `ScrollToTop` component in `App.tsx` that calls `window.scrollTo(0,0)` on every `location.pathname` change.
+```
+[Logo]  Licenses ▾   Company Formation ▾   MiCA   Ready-Made   Services ▾   Resources ▾   EN/RU ▾   [Get Free Consultation]
+```
 
-### 2. All Forms Are Non-Functional
-Every contact form across all templates (`ServiceDetailPage`, `HubPage`, `LicenseDetailPage`, `ContactCTA`, `ContactPage`) calls `e.preventDefault()` and does nothing. No data is sent anywhere — leads are lost.
+### 2. Содержимое дропдаунов
 
-**Fix**: Create a `leads` table in the database and an edge function to receive form submissions. Update all 5 form locations to POST data and show a success toast.
+**Licenses ▾** — плоский список (без юрисдикций):
+- Crypto / VASP → `/cryptocurrency-exchange-license`
+- CASP → `/cryptocurrency-exchange-license` (та же хаб-страница, MiCA-контекст)
+- EMI → `/emi-license`
+- PSP → `/provider-payment-systems`
+- Gambling / iGaming → `/gamble-license`
+- Forex → `/forex-license`
 
-### 3. Footer Jurisdiction Links All Point to "/"
-The `jurisdictionLinks` array in `Footer.tsx` renders 12 country names that all link to `"/"` — they go nowhere.
+**Company Formation ▾** — плоский список регионов:
+- UK → `/register-company-in-uk`
+- USA → `/open-company-in-usa`
+- EU Jurisdictions → `/company-registration-in-europe`
+- Worldwide (Asia & Americas) → `/registration-of-companies-abroad`
+- Offshore → `/offshore-company-formation`
 
-**Fix**: Map each jurisdiction name to its correct page URL (e.g., "Malta" → `/company-registration-in-malta`, "Cyprus" → `/company-registration-in-cyprus`).
+**MiCA** — прямая ссылка (без дропдауна) → `/cryptocurrency-exchange-license` (хаб содержит MICA_FACTS-секцию). Визуально подсвечен как «hot»: маленький точечный индикатор `#444CE7` + тултип «July 2026 deadline».
 
-### 4. 404 Page Uses Default Styling
-`NotFound.tsx` uses generic Tailwind classes (`bg-muted`, `text-primary`) that don't match the site's dark theme at all.
+**Ready-Made** — прямая ссылка → `/marketplace`.
 
-**Fix**: Restyle with the project's design system — `#080808` background, Manrope font, accent color, proper navigation back.
+**Services ▾** — всё остальное, сгруппировано:
+- *Banking & Payments*: Bank Accounts, Merchant Account, Payment Systems, PSP License
+- *Investment & Residency*: Investment Funds, Hedge Fund, Residence Permit
+- *Legal Services*: Legitimization, Tax & Reporting, Legal Support, Contracts
 
-## SEO Improvements
+(Двухколоночная навигация — слева категории, справа ссылки. Сохраняем текущий стиль mega-menu.)
 
-### 5. No `og:image` on Any Page
-None of the 150+ pages set an Open Graph image. Social shares show no preview image.
+**Resources ▾** — плоский список:
+- About → `/about`
+- Blog → `/blog`
+- Affiliate Program → `/affiliate-program`
+- Contacts → `/contact`
 
-**Fix**: Add a default `og:image` meta tag in `index.html` pointing to a branded social card image (needs to be created/uploaded to `/public`).
+**EN / RU ▾** — переключатель языка. RU ведёт на `/ru/` (внешний редирект пока нет страниц — ставим `<a href="/ru/">`, чтобы не ломать SPA-роутинг). Текущий выбор отмечен галочкой.
 
-### 6. Copyright Year Hardcoded to 2024
-Footer says `© 2024 Incluence Ltd` — should be dynamic or at least updated to 2026.
+### 3. CTA-кнопка «Get Free Consultation»
 
-**Fix**: Use `new Date().getFullYear()` in `Footer.tsx`.
+Заменяем текст «Start a Project» во всех CTA-точках на **«Get Free Consultation»**:
+- Desktop navbar (строка 598)
+- Mobile navbar (строка 703)
+- Project dialog title (строка 1064)
+- `BlogPage.tsx` (375), `BlogPostPage.tsx` (455), `PaymentSystemsPage.tsx` (144, 303, 351)
 
-### 7. Duplicate `@import` for Manrope Font
-`HeroContent.tsx` has an inline `@import url(...)` for Manrope that's already loaded in `index.html`. Causes a redundant network request.
+Стиль кнопки: оставляем `#444CE7`, но добавляем лёгкое свечение (`box-shadow: 0 0 0 1px rgba(68,76,231,0.4), 0 8px 24px rgba(68,76,231,0.25)`) — выделяет среди прочих элементов.
 
-**Fix**: Remove the `@import` line from `HeroContent.tsx`.
+### 4. Поведение
 
-## UX Polish
+- **Sticky** при скролле — уже реализовано (`fixed top-0`).
+- **Hover на десктопе / тап на мобиле** — переключение дропдаунов (текущая логика hover + click сохраняется).
+- **Mobile**: бургер с аккордеоном; кнопка «Get Free Consultation» **фиксируется снизу** экрана на мобиле (`fixed bottom-0`, full-width, `z-[100]`) — всегда видна.
+- **GA4 события** на клик по основным пунктам:
+  ```ts
+  window.gtag?.('event', 'nav_click', { item: 'Licenses' });
+  ```
+  обёртка `trackNav(label)` вызывается в `onClick` каждого top-level пункта (включая пункты дропдаунов).
 
-### 8. StatsBar Data Inconsistencies
-`HeroContent.tsx` says "12 yrs Experience" while `StatsBar.tsx` says "9 yrs Legal Experience". The About page also says "12 yrs".
+### 5. Технические изменения
 
-**Fix**: Align all stats to consistent values across components.
+**Файлы:**
 
-### 9. Contact Info Inconsistencies
-- Navbar WhatsApp: `+37281703037` (Estonia number)
-- ContactPage phone: `+852 8192 6676` (HK number)
-- ContactPage WhatsApp: `+85281926676` (HK number)
-- Footer: no phone/email at all
+- `src/components/Navbar.tsx` — полный рефакторинг:
+  - Новые типы: `FlatMenuItem` для плоских списков (Licenses, Company Formation, Resources).
+  - Новые константы: `LICENSES_FLAT`, `COMPANY_FLAT`, `SERVICES_GROUPED`, `RESOURCES_FLAT`, `LANGUAGES`.
+  - Состояния: `activeMenu: 'licenses' | 'company' | 'services' | 'resources' | 'lang' | null`.
+  - Новый компонент `FlatDropdown` (компактная карточка-список 240–280px шириной, hover-подсветка строк).
+  - Компонент `LangSwitcher` (мини-дропдаун EN/RU).
+  - `MegaMenuServices` — оставляем двухколоночный (3 группы слева, ссылки справа).
+  - Mobile-меню: новый аккордеон по новой структуре + sticky bottom CTA.
+  - Хелпер `trackNav(label)` для GA4.
+- `src/pages/BlogPage.tsx`, `BlogPostPage.tsx`, `PaymentSystemsPage.tsx` — заменить текст CTA.
 
-**Fix**: Standardize all contact details across Navbar, Footer, and Contact page.
+### 6. Layout / диаграмма
 
-### 10. Suspense Fallback Width Not Responsive
-The loading skeleton has `w-[400px]` which overflows on mobile screens (375px).
+```text
+DESKTOP NAVBAR (60px height)
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Inclu·ence  Licenses▾ Company▾ MiCA• Ready-Made Services▾ Resources▾  EN▾  [GET FREE CONSULTATION] │
+└──────────────────────────────────────────────────────────────────────────────┘
+                  ↓ hover
+         ┌─────────────────────┐
+         │ — LICENSES          │
+         │  Crypto / VASP   →  │
+         │  CASP            →  │
+         │  EMI             →  │
+         │  PSP             →  │
+         │  Gambling/iGaming →  │
+         │  Forex           →  │
+         └─────────────────────┘
+```
 
-**Fix**: Change to `w-full max-w-[400px]`.
+### 7. Сохраняемое поведение
 
-## Files to Edit
+- Дизайн-система (Manrope, zero radius, `#444CE7` accent, `#F0EBE0` text) — без изменений.
+- Existing project dialog (`projectDialogOpen`) — переиспользуется, только меняется текст.
+- Telegram/WhatsApp иконки — остаются справа от CTA на десктопе.
 
-| # | File | Change |
-|---|------|--------|
-| 1 | `src/App.tsx` | Add `ScrollToTop` component, fix fallback width |
-| 2 | `src/components/Footer.tsx` | Fix jurisdiction links, dynamic year |
-| 3 | `src/pages/NotFound.tsx` | Restyle to match design system |
-| 4 | `src/components/HeroContent.tsx` | Remove duplicate font import |
-| 5 | `src/components/StatsBar.tsx` | Align stats values |
-| 6 | `index.html` | Add default og:image meta |
-| 7 | `src/components/ContactCTA.tsx` | Wire form submission |
-| 8 | `src/components/templates/ServiceDetailPage.tsx` | Wire form submission |
-| 9 | `src/components/templates/HubPage.tsx` | Wire form submission |
-| 10 | `src/components/templates/LicenseDetailPage.tsx` | Wire form submission |
-| 11 | `src/pages/ContactPage.tsx` | Wire form submission |
-| 12 | Database migration | Create `leads` table |
-| 13 | `supabase/functions/submit-lead/index.ts` | Edge function for form handling |
+### 8. Открытые вопросы
 
-No URL changes. No text content changes. Only structural/functional improvements.
+- `/ru/` страниц пока нет — RU-ссылка ведёт на `/ru/` через нативный `<a href>` (внешний редирект подхватит, когда RU-локаль появится). Если нужно скрыть RU до релиза — отметим как `disabled` с тултипом «Coming soon».
 
