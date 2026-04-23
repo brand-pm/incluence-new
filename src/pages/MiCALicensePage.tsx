@@ -289,12 +289,8 @@ const MiCALicensePage = () => {
             </div>
           </div>
 
-          {/* RIGHT — EU map */}
-          <div className="relative" style={{ border: `1px solid ${BORDER}`, background: "#08080c" }}>
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{ background: "radial-gradient(circle at 50% 50%, rgba(68,76,231,0.10), transparent 70%)" }}
-            />
+          {/* RIGHT — EU map (ambient, borderless, integrated) */}
+          <div className="relative">
             <MiCAEuMap
               onCountryClick={(c) => {
                 trackEvent("mica_jurisdiction_click", { country: c.country });
