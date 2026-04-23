@@ -243,13 +243,21 @@ const MiCALicensePage = () => {
             </div>
           </div>
 
-          {/* RIGHT — EU map */}
+          {/* RIGHT — interactive globe */}
           <div className="relative">
-            <div
-              className="absolute inset-0 -z-0"
-              style={{ background: "radial-gradient(circle at 50% 50%, rgba(68,76,231,0.08), transparent 70%)" }}
+            <MicaGlobe
+              points={JURISDICTIONS.map((j) => ({
+                country: j.country,
+                regulator: j.regulator,
+                timeline: j.timeline,
+                coords: j.coords,
+              }))}
+              highlightIso={JURISDICTIONS.map((j) => j.iso)}
+              onPointClick={(p) => {
+                trackEvent("mica_jurisdiction_click", { country: p.country });
+                scrollTo("jurisdictions");
+              }}
             />
-            <EuMap onDotClick={(j) => { trackEvent("mica_jurisdiction_click", { country: j.country }); scrollTo("jurisdictions"); }} />
           </div>
         </div>
 
