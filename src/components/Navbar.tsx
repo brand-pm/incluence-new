@@ -15,7 +15,7 @@ interface FlatItem {
 
 const LICENSES_FLAT: FlatItem[] = [
   { label: "Crypto / VASP", href: "/cryptocurrency-exchange-license", hint: "Exchange & custody" },
-  { label: "CASP (MiCA)", href: "/cryptocurrency-exchange-license", hint: "EU-wide passport", hot: true },
+  { label: "CASP (MiCA)", href: "/mica-license", hint: "EU-wide passport", hot: true },
   { label: "EMI", href: "/emi-license", hint: "E-money issuance" },
   { label: "PSP", href: "/provider-payment-systems", hint: "Payment services" },
   { label: "Gambling / iGaming", href: "/gamble-license", hint: "MGA · CGA · GSC · CR" },
@@ -144,7 +144,7 @@ const Navbar = () => {
   const isCompanyActive = flatPaths(COMPANY_FLAT).includes(location.pathname) || activeMenu === "company";
   const isServicesActive = groupedPaths.includes(location.pathname) || activeMenu === "services";
   const isResourcesActive = flatPaths(RESOURCES_FLAT).includes(location.pathname) || activeMenu === "resources";
-  const isMicaActive = location.pathname === "/cryptocurrency-exchange-license";
+  const isMicaActive = location.pathname === "/mica-license";
   const isReadyMadeActive = location.pathname === "/marketplace";
 
   /* helpers */
@@ -411,7 +411,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <NavDirectLink to="/cryptocurrency-exchange-license" label="MiCA" active={isMicaActive} hot title="July 2026 deadline" />
+          <NavDirectLink to="/mica-license" label="MiCA" active={isMicaActive} hot title="July 2026 deadline" />
           <NavDirectLink to="/marketplace" label="Ready-Made" active={isReadyMadeActive} />
 
           <div className="relative" onMouseEnter={() => openMenu("services")} onMouseLeave={scheduleClose}>
@@ -609,7 +609,7 @@ const Navbar = () => {
 
           {/* MiCA + Ready-Made direct */}
           <Link
-            to="/cryptocurrency-exchange-license"
+            to="/mica-license"
             onClick={() => { trackNav("mobile: MiCA"); closeAll(); }}
             className="no-underline flex items-center justify-between"
             style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontSize: 13, color: C_TEXT, fontWeight: 500 }}

@@ -31,6 +31,7 @@ const MaltaForexPage = React.lazy(() => import("./pages/MaltaForexPage"));
 const MauritiusForexPage = React.lazy(() => import("./pages/MauritiusForexPage"));
 const SeychellesForexPage = React.lazy(() => import("./pages/SeychellesForexPage"));
 const CryptoHubPage = React.lazy(() => import("./pages/CryptoHubPage"));
+const MiCALicensePage = React.lazy(() => import("./pages/MiCALicensePage"));
 const EstoniaCryptoPage = React.lazy(() => import("./pages/EstoniaCryptoPage"));
 const LithuaniaCryptoPage = React.lazy(() => import("./pages/LithuaniaCryptoPage"));
 const MaltaCryptoPage = React.lazy(() => import("./pages/MaltaCryptoPage"));
@@ -208,6 +209,7 @@ const App = () => (
               <Route path="/gamble-license" element={<GamblingHubPage />} />
               <Route path="/forex-license" element={<ForexHubPage />} />
               <Route path="/cryptocurrency-exchange-license" element={<CryptoHubPage />} />
+              <Route path="/mica-license" element={<MiCALicensePage />} />
               <Route path="/emi-license" element={<EmiHubPage />} />
 
               {/* Service pages */}
