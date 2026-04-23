@@ -452,7 +452,7 @@ const BlogPostPage = () => {
                   </span>
                   <span className="text-[11px] uppercase tracking-[0.14em] inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform"
                         style={{ color: cat.accent }}>
-                    Start a project →
+                    Get Free Consultation →
                   </span>
                 </Link>
               </div>
