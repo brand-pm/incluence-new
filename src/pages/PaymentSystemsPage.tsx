@@ -300,7 +300,7 @@ const PaymentSystemsPage = () => {
                     You can also buy an already established and licensed payment system. Contact our managers for additional consultations.
                   </p>
                 </div>
-                <Link to="/contact" className="btn-primary w-full text-center mt-6 block">Start a Project →</Link>
+                <Link to="/contact" className="btn-primary w-full text-center mt-6 block">Get Free Consultation →</Link>
               </div>
             </div>
           </div>
