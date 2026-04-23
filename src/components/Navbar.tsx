@@ -458,26 +458,36 @@ const Navbar = () => {
               >
                 {LANGUAGES.map((l) => {
                   const selected = l.code === currentLang;
-                  const Comp = l.code === "RU" ? "a" : Link;
-                  const props = l.code === "RU"
-                    ? { href: l.href }
-                    : { to: l.href, onClick: () => { setCurrentLang("EN"); setActiveMenu(null); trackNav("Lang: EN"); } };
-                  return (
-                    <Comp
-                      key={l.code}
-                      {...(props as Record<string, unknown>)}
-                      className="no-underline flex items-center justify-between"
-                      style={{
-                        padding: "10px 14px",
-                        borderBottom: `1px solid ${BORDER}`,
-                        fontSize: 13,
-                        color: selected ? C_TEXT : C_MUTED,
-                        fontWeight: selected ? 500 : 400,
-                      }}
-                    >
+                  const sharedStyle: React.CSSProperties = {
+                    padding: "10px 14px",
+                    borderBottom: `1px solid ${BORDER}`,
+                    fontSize: 13,
+                    color: selected ? C_TEXT : C_MUTED,
+                    fontWeight: selected ? 500 : 400,
+                  };
+                  const inner = (
+                    <>
                       <span>{l.code} · {l.label}</span>
                       {selected && <Check size={12} style={{ color: C_ACCENT }} />}
-                    </Comp>
+                    </>
+                  );
+                  if (l.code === "RU") {
+                    return (
+                      <a key={l.code} href={l.href} className="no-underline flex items-center justify-between" style={sharedStyle}>
+                        {inner}
+                      </a>
+                    );
+                  }
+                  return (
+                    <Link
+                      key={l.code}
+                      to={l.href}
+                      onClick={() => { setCurrentLang("EN"); setActiveMenu(null); trackNav("Lang: EN"); }}
+                      className="no-underline flex items-center justify-between"
+                      style={sharedStyle}
+                    >
+                      {inner}
+                    </Link>
                   );
                 })}
               </div>
