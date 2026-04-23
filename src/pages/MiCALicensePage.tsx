@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import FormBlock from "@/components/FormBlock";
+import MiCAEuMap from "@/components/MiCAEuMap";
 import { ArrowUpRight, Clock, Download, Send, ChevronRight } from "lucide-react";
 
 /* ─── DESIGN TOKENS (mapped to project system) ─── */
@@ -289,12 +290,17 @@ const MiCALicensePage = () => {
           </div>
 
           {/* RIGHT — EU map */}
-          <div className="relative">
+          <div className="relative" style={{ border: `1px solid ${BORDER}`, background: "#08080c" }}>
             <div
-              className="absolute inset-0 -z-0"
-              style={{ background: "radial-gradient(circle at 50% 50%, rgba(68,76,231,0.08), transparent 70%)" }}
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: "radial-gradient(circle at 50% 50%, rgba(68,76,231,0.10), transparent 70%)" }}
             />
-            <EuMap onDotClick={(j) => { trackEvent("mica_jurisdiction_click", { country: j.country }); scrollTo("jurisdictions"); }} />
+            <MiCAEuMap
+              onCountryClick={(c) => {
+                trackEvent("mica_jurisdiction_click", { country: c.country });
+                scrollTo("jurisdictions");
+              }}
+            />
           </div>
         </div>
 
