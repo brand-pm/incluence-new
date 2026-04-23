@@ -453,50 +453,56 @@ const Navbar = () => {
                 onMouseLeave={scheduleClose}
                 className="absolute"
                 style={{
-                  top: "calc(100% + 6px)",
+                  top: "100%",
                   right: 0,
                   width: 160,
-                  background: C_BG,
-                  border: `1px solid ${BORDER}`,
-                  boxShadow: "0 24px 48px rgba(0,0,0,0.7)",
+                  paddingTop: 8,
                   zIndex: 110,
-                  animation: "dropIn .16s ease-out both",
                 }}
               >
-                {LANGUAGES.map((l) => {
-                  const selected = l.code === currentLang;
-                  const sharedStyle: React.CSSProperties = {
-                    padding: "10px 14px",
-                    borderBottom: `1px solid ${BORDER}`,
-                    fontSize: 13,
-                    color: selected ? C_TEXT : C_MUTED,
-                    fontWeight: selected ? 500 : 400,
-                  };
-                  const inner = (
-                    <>
-                      <span>{l.code} · {l.label}</span>
-                      {selected && <Check size={12} style={{ color: C_ACCENT }} />}
-                    </>
-                  );
-                  if (l.code === "RU") {
-                    return (
-                      <a key={l.code} href={l.href} className="no-underline flex items-center justify-between" style={sharedStyle}>
-                        {inner}
-                      </a>
+                <div
+                  style={{
+                    background: C_BG,
+                    border: `1px solid ${BORDER}`,
+                    boxShadow: "0 24px 48px rgba(0,0,0,0.7)",
+                    animation: "dropIn .16s ease-out both",
+                  }}
+                >
+                  {LANGUAGES.map((l) => {
+                    const selected = l.code === currentLang;
+                    const sharedStyle: React.CSSProperties = {
+                      padding: "10px 14px",
+                      borderBottom: `1px solid ${BORDER}`,
+                      fontSize: 13,
+                      color: selected ? C_TEXT : C_MUTED,
+                      fontWeight: selected ? 500 : 400,
+                    };
+                    const inner = (
+                      <>
+                        <span>{l.code} · {l.label}</span>
+                        {selected && <Check size={12} style={{ color: C_ACCENT }} />}
+                      </>
                     );
-                  }
-                  return (
-                    <Link
-                      key={l.code}
-                      to={l.href}
-                      onClick={() => { setCurrentLang("EN"); setActiveMenu(null); trackNav("Lang: EN"); }}
-                      className="no-underline flex items-center justify-between"
-                      style={sharedStyle}
-                    >
-                      {inner}
-                    </Link>
-                  );
-                })}
+                    if (l.code === "RU") {
+                      return (
+                        <a key={l.code} href={l.href} className="no-underline flex items-center justify-between" style={sharedStyle}>
+                          {inner}
+                        </a>
+                      );
+                    }
+                    return (
+                      <Link
+                        key={l.code}
+                        to={l.href}
+                        onClick={() => { setCurrentLang("EN"); setActiveMenu(null); trackNav("Lang: EN"); }}
+                        className="no-underline flex items-center justify-between"
+                        style={sharedStyle}
+                      >
+                        {inner}
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
             )}
           </div>
