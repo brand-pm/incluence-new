@@ -141,7 +141,7 @@ const PaymentSystemsPage = () => {
             Properly created and licensed payment systems allow companies to carry out financial transactions via the Internet and using plastic cards. This is one of the most widespread and profitable types of business in the financial market. We handle registration, licensing and full setup of both domestic and international payment organizations.
           </p>
           <div className="flex gap-4">
-            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">Start a Project →</Link>
+            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">Get Free Consultation →</Link>
             <button className="btn-secondary" onClick={() => document.getElementById("requirements")?.scrollIntoView({ behavior: "smooth" })}>View Requirements</button>
           </div>
 
