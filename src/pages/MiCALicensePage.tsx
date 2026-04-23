@@ -229,8 +229,13 @@ const MiCALicensePage = () => {
 
   return (
     <div style={{ background: C_BG, color: C_TEXT, fontFamily: "Manrope, sans-serif" }} className="min-h-screen">
-      {/* ─── BLOCK 1: HERO ─── */}
-      <section className="pt-[120px] md:pt-[140px] px-5 md:px-12">
+      {/* ─── BLOCK 1: HERO (black with subtle accent glow) ─── */}
+      <section
+        className="pt-[120px] md:pt-[140px] px-5 md:px-12 pb-12 md:pb-20 relative overflow-hidden"
+        style={{
+          background: `radial-gradient(ellipse 80% 60% at 70% 20%, rgba(68,76,231,0.10), transparent 60%), ${C_BG}`,
+        }}
+      >
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-[55%_45%] gap-10 lg:gap-12 items-center">
           {/* LEFT — text */}
           <div>
@@ -318,8 +323,16 @@ const MiCALicensePage = () => {
         </div>
       </section>
 
-      {/* ─── BLOCK 2: JURISDICTIONS + CAPITAL ─── */}
-      <section id="jurisdictions" className="px-5 md:px-12 py-12 md:py-[80px] mt-12 md:mt-20">
+      {/* ─── BLOCK 2: JURISDICTIONS + CAPITAL (deep-blue gradient) ─── */}
+      <section
+        id="jurisdictions"
+        className="px-5 md:px-12 py-16 md:py-[100px] relative"
+        style={{
+          background: `linear-gradient(180deg, #0a0a0a 0%, #0d1230 50%, #0a0a18 100%)`,
+          borderTop: `1px solid ${BORDER}`,
+          borderBottom: `1px solid ${BORDER}`,
+        }}
+      >
         <div className="max-w-[1280px] mx-auto">
           {/* Heading */}
           <div className="mb-10 md:mb-14">
@@ -460,10 +473,12 @@ const MiCALicensePage = () => {
         </div>
       </section>
 
-      {/* ─── BLOCK 3: PROCESS + FAQ + CTA ─── */}
+      {/* ─── BLOCK 3: PROCESS + FAQ + CTA (back to black with bottom accent) ─── */}
       <section
-        className="px-5 md:px-12 py-12 md:py-[80px]"
-        style={{ background: "linear-gradient(180deg, #0a0a0a 0%, #0e0e16 100%)" }}
+        className="px-5 md:px-12 py-16 md:py-[100px]"
+        style={{
+          background: `radial-gradient(ellipse 70% 50% at 50% 100%, rgba(68,76,231,0.12), transparent 70%), ${C_BG}`,
+        }}
       >
         <div className="max-w-[1280px] mx-auto">
           {/* Process */}
