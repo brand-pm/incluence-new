@@ -37,10 +37,10 @@ const MicaGlobe = ({
   points,
   highlightIso = [],
   onPointClick,
-  initialLon = 12,
-  lat = -50,
-  rotateSpeed = 0.4,
-  scale = 720,
+  initialLon = 15,
+  lat = -52,
+  rotateSpeed = 0,
+  scale = 1400,
 }: MicaGlobeProps) => {
   const [lon, setLon] = useState(initialLon);
   const [hovered, setHovered] = useState<string | null>(null);
