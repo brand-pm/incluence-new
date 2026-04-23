@@ -18,14 +18,14 @@ export interface MiCACountry {
 }
 
 export const MICA_COUNTRIES: MiCACountry[] = [
-  { iso: 276, code: "DE", country: "Germany",     short: "Germany",     regulator: "BaFin",            timeline: "9–12 mo",  coords: [13.40, 52.52], labelOffset: [ 60,  -30], side: "r" },
-  { iso: 250, code: "FR", country: "France",      short: "France",      regulator: "AMF / ACPR",       timeline: "8–12 mo",  coords: [2.35, 48.86],  labelOffset: [-90,   20], side: "l" },
-  { iso: 528, code: "NL", country: "Netherlands", short: "Netherlands", regulator: "AFM / DNB",        timeline: "9–12 mo",  coords: [4.90, 52.37],  labelOffset: [-95,  -32], side: "l" },
-  { iso: 372, code: "IE", country: "Ireland",     short: "Ireland",     regulator: "CBI",              timeline: "10–14 mo", coords: [-6.27, 53.33], labelOffset: [-85,    0], side: "l" },
-  { iso: 470, code: "MT", country: "Malta",       short: "Malta",       regulator: "MFSA",             timeline: "6–10 mo",  coords: [14.51, 35.90], labelOffset: [ 55,   30], side: "r" },
-  { iso: 440, code: "LT", country: "Lithuania",   short: "Lithuania",   regulator: "Lietuvos bankas",  timeline: "6–9 mo",   coords: [25.28, 54.69], labelOffset: [ 70,  -20], side: "r" },
-  { iso: 616, code: "PL", country: "Poland",      short: "Poland",      regulator: "KNF",              timeline: "9–12 mo",  coords: [21.01, 52.23], labelOffset: [ 75,   25], side: "r" },
-  { iso: 442, code: "LU", country: "Luxembourg",  short: "Luxembourg",  regulator: "CSSF",             timeline: "10–14 mo", coords: [6.13, 49.61],  labelOffset: [-110,  35], side: "l" },
+  { iso: 276, code: "DE", country: "Germany",     short: "Germany",     regulator: "BaFin",            timeline: "9–12 mo",  coords: [13.40, 52.52], labelOffset: [ 70,  -55], side: "r" },
+  { iso: 250, code: "FR", country: "France",      short: "France",      regulator: "AMF / ACPR",       timeline: "8–12 mo",  coords: [2.35, 48.86],  labelOffset: [-95,   25], side: "l" },
+  { iso: 528, code: "NL", country: "Netherlands", short: "Netherlands", regulator: "AFM / DNB",        timeline: "9–12 mo",  coords: [4.90, 52.37],  labelOffset: [-110, -45], side: "l" },
+  { iso: 372, code: "IE", country: "Ireland",     short: "Ireland",     regulator: "CBI",              timeline: "10–14 mo", coords: [-6.27, 53.33], labelOffset: [-90,   -5], side: "l" },
+  { iso: 470, code: "MT", country: "Malta",       short: "Malta",       regulator: "MFSA",             timeline: "6–10 mo",  coords: [14.51, 35.90], labelOffset: [ 60,   35], side: "r" },
+  { iso: 440, code: "LT", country: "Lithuania",   short: "Lithuania",   regulator: "Lietuvos bankas",  timeline: "6–9 mo",   coords: [25.28, 54.69], labelOffset: [ 85,  -25], side: "r" },
+  { iso: 616, code: "PL", country: "Poland",      short: "Poland",      regulator: "KNF",              timeline: "9–12 mo",  coords: [21.01, 52.23], labelOffset: [ 90,   45], side: "r" },
+  { iso: 442, code: "LU", country: "Luxembourg",  short: "Luxembourg",  regulator: "CSSF",             timeline: "10–14 mo", coords: [6.13, 49.61],  labelOffset: [-125,  60], side: "l" },
 ];
 
 const HIGHLIGHT_ISOS = new Set(MICA_COUNTRIES.map((c) => c.iso));
