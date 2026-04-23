@@ -372,7 +372,7 @@ const BlogPage = () => {
             className="inline-flex items-center gap-3 px-6 py-3.5 text-[13px] uppercase tracking-[0.14em] no-underline"
             style={{ background: "#444CE7", color: "#F0EBE0", border: "1px solid #444CE7" }}
           >
-            Start a project <span>→</span>
+            Get Free Consultation <span>→</span>
           </Link>
         </div>
       </section>

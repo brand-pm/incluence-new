@@ -141,7 +141,7 @@ const PaymentSystemsPage = () => {
             Properly created and licensed payment systems allow companies to carry out financial transactions via the Internet and using plastic cards. This is one of the most widespread and profitable types of business in the financial market. We handle registration, licensing and full setup of both domestic and international payment organizations.
           </p>
           <div className="flex gap-4">
-            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">Start a Project →</Link>
+            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">Get Free Consultation →</Link>
             <button className="btn-secondary" onClick={() => document.getElementById("requirements")?.scrollIntoView({ behavior: "smooth" })}>View Requirements</button>
           </div>
 
@@ -300,7 +300,7 @@ const PaymentSystemsPage = () => {
                     You can also buy an already established and licensed payment system. Contact our managers for additional consultations.
                   </p>
                 </div>
-                <Link to="/contact" className="btn-primary w-full text-center mt-6 block">Start a Project →</Link>
+                <Link to="/contact" className="btn-primary w-full text-center mt-6 block">Get Free Consultation →</Link>
               </div>
             </div>
           </div>
@@ -348,7 +348,7 @@ const PaymentSystemsPage = () => {
               <input type="text" placeholder="Payment System Type (domestic/international)" value={form.type} onChange={e => setForm({...form, type: e.target.value})} className="bg-[hsl(var(--bg-2))] border border-white/[0.06] px-4 py-3 text-[13px] text-[hsl(var(--text-primary))] placeholder:text-[hsl(var(--text-muted))] focus:border-[hsl(var(--accent))]/40 outline-none transition-colors" />
               <input type="text" placeholder="Target Regions" value={form.regions} onChange={e => setForm({...form, regions: e.target.value})} className="bg-[hsl(var(--bg-2))] border border-white/[0.06] px-4 py-3 text-[13px] text-[hsl(var(--text-primary))] placeholder:text-[hsl(var(--text-muted))] focus:border-[hsl(var(--accent))]/40 outline-none transition-colors" />
               <textarea placeholder="Describe your payment services — transaction types, volumes, currencies..." value={form.details} onChange={e => setForm({...form, details: e.target.value})} rows={4} className="col-span-2 bg-[hsl(var(--bg-2))] border border-white/[0.06] px-4 py-3 text-[13px] text-[hsl(var(--text-primary))] placeholder:text-[hsl(var(--text-muted))] focus:border-[hsl(var(--accent))]/40 outline-none transition-colors resize-none" />
-              <button type="submit" className="btn-primary col-span-2">Start a Project →</button>
+              <button type="submit" className="btn-primary col-span-2">Get Free Consultation →</button>
             </form>
           </div>
         </div>

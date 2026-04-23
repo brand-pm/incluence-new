@@ -2,1058 +2,777 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import FormBlock from "@/components/FormBlock";
-import { ChevronDown, Menu, X, MessageCircle, Send, Phone, Mail, ChevronRight, Scale, Landmark, TrendingUp, FileText, Building2, Globe2, MapPin, ShoppingBag, Anchor, ArrowUpRight } from "lucide-react";
-import NodePulse from "./NodePulse";
+import { ChevronDown, Menu, X, Send, Phone, ArrowUpRight, Check } from "lucide-react";
 
-/* ── MENU DATA ── */
+/* ─────────── DATA ─────────── */
 
-interface MenuHub {
-  name: string;
+interface FlatItem {
+  label: string;
   href: string;
-  jurisdictions: { label: string; href: string }[];
+  hint?: string;
+  hot?: boolean;
 }
 
-interface MenuColumn {
+const LICENSES_FLAT: FlatItem[] = [
+  { label: "Crypto / VASP", href: "/cryptocurrency-exchange-license", hint: "Exchange & custody" },
+  { label: "CASP (MiCA)", href: "/cryptocurrency-exchange-license", hint: "EU-wide passport", hot: true },
+  { label: "EMI", href: "/emi-license", hint: "E-money issuance" },
+  { label: "PSP", href: "/provider-payment-systems", hint: "Payment services" },
+  { label: "Gambling / iGaming", href: "/gamble-license", hint: "MGA · CGA · GSC · CR" },
+  { label: "Forex", href: "/forex-license", hint: "Brokerage licensing" },
+];
+
+const COMPANY_FLAT: FlatItem[] = [
+  { label: "UK", href: "/register-company-in-uk", hint: "LTD · LLP" },
+  { label: "USA", href: "/open-company-in-usa", hint: "LLC · C-Corp" },
+  { label: "EU Jurisdictions", href: "/company-registration-in-europe", hint: "12 member states" },
+  { label: "Worldwide (Asia & Americas)", href: "/registration-of-companies-abroad", hint: "Singapore · UAE · HK · CA" },
+  { label: "Offshore", href: "/offshore-company-formation", hint: "BVI · Cayman · Seychelles" },
+];
+
+const RESOURCES_FLAT: FlatItem[] = [
+  { label: "About", href: "/about", hint: "Team & approach" },
+  { label: "Blog", href: "/blog", hint: "Insights & analysis" },
+  { label: "Affiliate Program", href: "/affiliate-program", hint: "Partner with us" },
+  { label: "Contacts", href: "/contact", hint: "Get in touch" },
+];
+
+interface ServiceGroup {
   title: string;
-  hubs: MenuHub[];
+  items: FlatItem[];
 }
 
-const MENU_COLUMNS: MenuColumn[] = [
-  {
-    title: "LICENSING",
-    hubs: [
-      {
-        name: "Gambling",
-        href: "/gamble-license",
-        jurisdictions: [
-          { label: "Malta", href: "/malta-gaming-license" },
-          { label: "Curaçao", href: "/curacao-gaming-license" },
-          { label: "Isle of Man", href: "/gambling-license-of-the-isle-of-man" },
-          { label: "Costa Rica", href: "/gambling-license-in-costa-rica" },
-        ],
-      },
-      {
-        name: "Forex",
-        href: "/forex-license",
-        jurisdictions: [
-          { label: "Cyprus", href: "/cyprus-forex-license" },
-          { label: "Malta", href: "/forex-broker-licence-in-malta" },
-          { label: "Vanuatu", href: "/forex-broker-licence-in-vanuatu" },
-          { label: "Mauritius", href: "/forex-broker-licence-in-mauritius" },
-        ],
-      },
-      {
-        name: "Crypto / VASP",
-        href: "/cryptocurrency-exchange-license",
-        jurisdictions: [
-          { label: "Estonia", href: "/cryptocurrency-exchange-license-in-estonia" },
-          { label: "Lithuania", href: "/lithuania-crypto-license" },
-          { label: "Switzerland", href: "/cryptocurrency-exchange-license-in-switzerland" },
-          { label: "Malta", href: "/cryptocurrency-license-in-malta" },
-        ],
-      },
-      {
-        name: "EMI License",
-        href: "/emi-license",
-        jurisdictions: [
-          { label: "UK", href: "/e-money-license-uk" },
-          { label: "Lithuania", href: "/e-money-license-lithuania" },
-          { label: "Malta", href: "/e-money-license-malta" },
-          { label: "Estonia", href: "/emi-license-in-estonia" },
-        ],
-      },
-    ],
-  },
-  {
-    title: "BANKING & PAYMENTS",
-    hubs: [
-      {
-        name: "Bank Accounts",
-        href: "/accounts-bank",
-        jurisdictions: [
-          { label: "Cyprus", href: "/open-a-bank-account-in-cyprus" },
-          { label: "Germany", href: "/open-a-bank-account-in-germany" },
-          { label: "Switzerland", href: "/open-bank-account-as-foreigner-in-switzerland" },
-          { label: "UK", href: "/opening-a-bank-account-in-the-united-kingdom" },
-        ],
-      },
-      {
-        name: "Merchant Account",
-        href: "/opening-a-merchant-account",
-        jurisdictions: [],
-      },
-      {
-        name: "Payment Systems",
-        href: "/open-an-account-in-a-payment-system",
-        jurisdictions: [
-          { label: "Wise", href: "/opening-an-account-in-the-wise-payment-system" },
-          { label: "PayPal", href: "/opening-an-account-in-the-pay-pal-payment-system" },
-          { label: "Revolut", href: "/opening-an-account-in-revolut" },
-        ],
-      },
-      {
-        name: "PSP License",
-        href: "/provider-payment-systems",
-        jurisdictions: [
-          { label: "Cyprus", href: "/payment-system-license-in-cyprus" },
-          { label: "Lithuania", href: "/payment-system-license-in-lithuania" },
-          { label: "UK", href: "/psp-system-uk" },
-          { label: "Czech", href: "/czech-payment-system-license" },
-        ],
-      },
-    ],
-  },
-  {
-    title: "INVESTMENT & RESIDENCY",
-    hubs: [
-      {
-        name: "Investment Funds",
-        href: "/offshore-investment-funds",
-        jurisdictions: [
-          { label: "Luxembourg", href: "/open-an-investment-fund-in-luxembourg" },
-          { label: "Malta", href: "/registration-of-investment-funds-in-malta" },
-          { label: "Estonia", href: "/open-an-investment-fund-in-estonia" },
-          { label: "Czech", href: "/registration-of-investment-funds-in-czech" },
-        ],
-      },
-      {
-        name: "Hedge Fund",
-        href: "/open-a-hedge-fund",
-        jurisdictions: [],
-      },
-      {
-        name: "Residence Permit",
-        href: "/residence-permit-abroad",
-        jurisdictions: [
-          { label: "Portugal", href: "/residence-permit-in-portugal" },
-          { label: "Dubai", href: "/residence-permit-in-dubai" },
-          { label: "Cyprus", href: "/residence-permit-in-cyprus" },
-          { label: "Lithuania", href: "/residence-permit-in-lithuania" },
-        ],
-      },
-    ],
-  },
-  {
-    title: "LEGAL SERVICES",
-    hubs: [
-      {
-        name: "Legitimization",
-        href: "/legal-business",
-        jurisdictions: [],
-      },
-      {
-        name: "Tax & Reporting",
-        href: "/finance-reporting",
-        jurisdictions: [],
-      },
-      {
-        name: "Legal Support",
-        href: "/support-legal",
-        jurisdictions: [],
-      },
-      {
-        name: "Contracts",
-        href: "/drafting-international-contracts",
-        jurisdictions: [],
-      },
-    ],
-  },
-];
-
-const COMPANY_COLUMNS: MenuColumn[] = [
-  {
-    title: "REGISTRATION",
-    hubs: [
-      {
-        name: "Companies Abroad",
-        href: "/registration-of-companies-abroad",
-        jurisdictions: [
-          { label: "Estonia", href: "/open-a-company-in-estonia" },
-          { label: "UK", href: "/register-company-in-uk" },
-          { label: "UAE", href: "/register-company-in-uae" },
-          { label: "Singapore", href: "/register-company-in-singapore" },
-          { label: "Hong Kong", href: "/register-company-in-hong-kong" },
-          { label: "Switzerland", href: "/register-company-in-switzerland" },
-          { label: "Lithuania", href: "/register-company-in-lithuania" },
-          { label: "Bulgaria", href: "/register-company-in-bulgaria" },
-        ],
-      },
-    ],
-  },
-  {
-    title: "EUROPE",
-    hubs: [
-      {
-        name: "EU Jurisdictions",
-        href: "/company-registration-in-europe",
-        jurisdictions: [
-          { label: "Cyprus", href: "/company-registration-in-cyprus" },
-          { label: "Germany", href: "/company-registration-in-germany" },
-          { label: "Netherlands", href: "/company-registration-in-the-netherlands" },
-          { label: "Poland", href: "/company-registration-in-poland" },
-          { label: "Czechia", href: "/company-registration-in-czechia" },
-          { label: "Ireland", href: "/company-registration-in-ireland" },
-          { label: "Luxembourg", href: "/company-registration-in-luxembourg" },
-          { label: "Malta", href: "/company-registration-in-malta" },
-          { label: "Portugal", href: "/company-registration-portugal" },
-          { label: "Croatia", href: "/company-registration-in-croatia" },
-          { label: "Hungary", href: "/starting-a-business-in-hungary" },
-          { label: "Gibraltar", href: "/company-registration-in-gibraltar" },
-        ],
-      },
-    ],
-  },
-  {
-    title: "ASIA & AMERICAS",
-    hubs: [
-      {
-        name: "Worldwide",
-        href: "/registration-of-companies-abroad",
-        jurisdictions: [
-          { label: "USA", href: "/open-company-in-usa" },
-          { label: "Canada", href: "/company-registration-in-canada" },
-          { label: "China", href: "/company-registration-in-china" },
-          { label: "Malaysia", href: "/company-registration-in-malaysia" },
-          { label: "Thailand", href: "/open-a-company-in-thailand" },
-          { label: "Montenegro", href: "/starting-a-business-in-montenegro" },
-        ],
-      },
-    ],
-  },
-  {
-    title: "READY-MADE",
-    hubs: [
-      {
-        name: "Buy a Business",
-        href: "/buy-a-business-abroad",
-        jurisdictions: [
-          { label: "Estonia", href: "/buy-company-in-estonia" },
-          { label: "Malta", href: "/buying-a-company-in-malta" },
-          { label: "Cyprus", href: "/purchase-of-a-company-in-cyprus" },
-          { label: "England", href: "/purchase-a-company-in-england" },
-          { label: "Germany", href: "/buying-a-company-in-germany" },
-          { label: "Switzerland", href: "/buying-a-company-in-switzerland" },
-          { label: "Poland", href: "/buying-a-company-in-poland" },
-          { label: "Bulgaria", href: "/buying-a-company-in-bulgaria" },
-          { label: "Canada", href: "/buying-a-company-in-canada" },
-          { label: "Netherlands", href: "/company-purchase-in-the-netherlands" },
-          { label: "Luxembourg", href: "/purchase-of-a-company-in-luxembourg" },
-          { label: "UAE", href: "/purchase-of-a-company-in-the-uae" },
-          { label: "USA", href: "/purchase-of-a-company-in-the-usa" },
-          { label: "Hong Kong", href: "/buy-a-ready-made-company-in-hong-kong" },
-          { label: "Lithuania", href: "/buy-a-ready-made-company-in-lithuania" },
-          { label: "Hungary", href: "/ready-made-companies-in-hungary" },
-        ],
-      },
-    ],
-  },
-  {
-    title: "OFFSHORE",
-    hubs: [
-      {
-        name: "Offshore Formation",
-        href: "/offshore-company-formation",
-        jurisdictions: [
-          { label: "BVI", href: "/offshore-in-the-british-virgin-islands" },
-          { label: "Cayman Islands", href: "/offshore-in-the-cayman-islands" },
-          { label: "Seychelles", href: "/offshore-company-formation-in-seychelles" },
-          { label: "Panama", href: "/panama-company-formation" },
-          { label: "Costa Rica", href: "/offshore-company-formation-in-costa-rica" },
-          { label: "Curaçao", href: "/offshore-company-formation-in-curacao" },
-          { label: "St. Vincent", href: "/offshore-in-st-vincent" },
-          { label: "Isle of Man", href: "/offshore-company-formation-in-the-isle-of-man" },
-        ],
-      },
-      {
-        name: "Ready-Made Offshore",
-        href: "/ready-made-offshore-companies",
-        jurisdictions: [],
-      },
-    ],
-  },
-];
-
-const PILLS = [
-  { label: "Gambling · MGA", href: "/malta-gaming-license" },
-  { label: "Estonia · VASP", href: "/cryptocurrency-exchange-license-in-estonia" },
-  { label: "UK · EMI", href: "/e-money-license-uk" },
-  { label: "BVI · Offshore", href: "/offshore-in-the-british-virgin-islands" },
-];
-
-/* ── COMPACT HUB CARDS — only top-level hub pages, with icons + descriptions ── */
-
-interface HubCard {
-  title: string;
-  description: string;
-  href: string;
-  Icon: React.ElementType;
-  count?: string;
-}
-
-const SERVICES_HUBS: HubCard[] = [
-  {
-    title: "Licensing",
-    description: "Gambling, Forex, Crypto/VASP and EMI licences across 25+ jurisdictions.",
-    href: "/licenses",
-    Icon: Scale,
-    count: "4 verticals",
-  },
+const SERVICES_GROUPED: ServiceGroup[] = [
   {
     title: "Banking & Payments",
-    description: "Corporate accounts, merchant accounts, payment systems and PSP licences.",
-    href: "/accounts-bank",
-    Icon: Landmark,
-    count: "Bank · PSP · EMI",
+    items: [
+      { label: "Bank Accounts", href: "/accounts-bank", hint: "Corporate accounts in 15+ countries" },
+      { label: "Merchant Account", href: "/opening-a-merchant-account", hint: "High-risk & e-commerce" },
+      { label: "Payment Systems", href: "/open-an-account-in-a-payment-system", hint: "Wise · PayPal · Revolut · Payoneer" },
+      { label: "PSP License", href: "/provider-payment-systems", hint: "Cyprus · Lithuania · UK · Czech" },
+    ],
   },
   {
     title: "Investment & Residency",
-    description: "Investment funds, hedge funds and residence-permit programmes.",
-    href: "/offshore-investment-funds",
-    Icon: TrendingUp,
-    count: "Funds · RP",
+    items: [
+      { label: "Investment Funds", href: "/offshore-investment-funds", hint: "Luxembourg · Malta · Estonia · Czech" },
+      { label: "Hedge Fund", href: "/open-a-hedge-fund", hint: "Setup & structuring" },
+      { label: "Residence Permit", href: "/residence-permit-abroad", hint: "Portugal · Dubai · Cyprus · Lithuania" },
+    ],
   },
   {
     title: "Legal Services",
-    description: "Legitimization, tax & reporting, legal support and international contracts.",
-    href: "/legal-business",
-    Icon: FileText,
-    count: "Full-stack legal",
+    items: [
+      { label: "Legitimization", href: "/legal-business", hint: "Source-of-funds & compliance" },
+      { label: "Tax & Reporting", href: "/finance-reporting", hint: "Cross-border tax structuring" },
+      { label: "Legal Support", href: "/support-legal", hint: "Ongoing corporate counsel" },
+      { label: "Contracts", href: "/drafting-international-contracts", hint: "Drafting & review" },
+    ],
   },
 ];
 
-const COMPANY_HUBS: HubCard[] = [
-  {
-    title: "Companies Abroad",
-    description: "Incorporation in 30+ jurisdictions worldwide — from Estonia to Singapore.",
-    href: "/registration-of-companies-abroad",
-    Icon: Building2,
-    count: "30+ countries",
-  },
-  {
-    title: "Europe",
-    description: "EU incorporation: Cyprus, Germany, Netherlands, Poland, Malta and more.",
-    href: "/company-registration-in-europe",
-    Icon: Globe2,
-    count: "12 EU states",
-  },
-  {
-    title: "Asia & Americas",
-    description: "USA, Canada, China, Malaysia, Thailand and other global jurisdictions.",
-    href: "/registration-of-companies-abroad",
-    Icon: MapPin,
-    count: "Worldwide",
-  },
-  {
-    title: "Ready-Made",
-    description: "Buy a turnkey business in Europe, UAE, USA, Hong Kong and more.",
-    href: "/buy-a-business-abroad",
-    Icon: ShoppingBag,
-    count: "16 markets",
-  },
-  {
-    title: "Offshore",
-    description: "BVI, Cayman, Seychelles, Panama and other classic offshore centres.",
-    href: "/offshore-company-formation",
-    Icon: Anchor,
-    count: "8 jurisdictions",
-  },
+interface Lang {
+  code: "EN" | "RU";
+  label: string;
+  href: string;
+}
+const LANGUAGES: Lang[] = [
+  { code: "EN", label: "English", href: "/" },
+  { code: "RU", label: "Русский", href: "/ru/" },
 ];
+
+/* ─────────── GA4 ─────────── */
+declare global {
+  interface Window { gtag?: (...args: unknown[]) => void }
+}
+const trackNav = (label: string) => {
+  try { window.gtag?.("event", "nav_click", { item: label }); } catch { /* noop */ }
+};
+
+/* ─────────── STYLE TOKENS ─────────── */
+const NAV_FS = 13;
+const C_TEXT = "#F0EBE0";
+const C_MUTED = "#9A9590";
+const C_DIM = "#5A5550";
+const C_ACCENT = "#444CE7";
+const C_BG = "#0a0a0a";
+const C_BG2 = "#0d0d0d";
+const BORDER = "rgba(255,255,255,0.06)";
+const ACTIVE_BG = "rgba(68,76,231,0.14)";
+
+const CTA_LABEL = "Get Free Consultation";
+const CTA_SHADOW = "0 0 0 1px rgba(68,76,231,0.4), 0 8px 24px rgba(68,76,231,0.25)";
+
+/* ─────────── COMPONENT ─────────── */
+
+type MenuKey = "licenses" | "company" | "services" | "resources" | "lang";
 
 const Navbar = () => {
   const location = useLocation();
-  const [activeMenu, setActiveMenu] = useState<null | "services" | "company">(null);
-  const [hoveredHub, setHoveredHub] = useState<string | null>(null);
+  const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [contactOpen, setContactOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [projectDialogOpen, setProjectDialogOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState<"EN" | "RU">("EN");
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
 
+  // Close mobile + lock scroll
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (contactRef.current && !contactRef.current.contains(e.target as Node)) {
-        setContactOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => { document.body.style.overflow = ''; };
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const openMenu = useCallback((which: "services" | "company") => {
+  const openMenu = useCallback((k: MenuKey) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setActiveMenu(which);
-    setHoveredHub(null);
+    setActiveMenu(k);
   }, []);
-
-  const closeMenu = useCallback(() => {
-    closeTimer.current = setTimeout(() => setActiveMenu(null), 280);
+  const scheduleClose = useCallback(() => {
+    closeTimer.current = setTimeout(() => setActiveMenu(null), 220);
   }, []);
-
   const cancelClose = useCallback(() => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
   }, []);
 
-  const handleLinkClick = () => {
-    setActiveMenu(null);
-    setMobileOpen(false);
-  };
+  const closeAll = () => { setActiveMenu(null); setMobileOpen(false); };
+  const isActive = (path: string) => location.pathname === path;
 
-  const go = (href: string) => {
-    handleLinkClick();
-    window.location.href = href;
-  };
+  // Determine active states for top buttons
+  const flatPaths = (arr: FlatItem[]) => arr.map(i => i.href);
+  const groupedPaths = SERVICES_GROUPED.flatMap(g => g.items.map(i => i.href));
+  const isLicensesActive = flatPaths(LICENSES_FLAT).includes(location.pathname) || activeMenu === "licenses";
+  const isCompanyActive = flatPaths(COMPANY_FLAT).includes(location.pathname) || activeMenu === "company";
+  const isServicesActive = groupedPaths.includes(location.pathname) || activeMenu === "services";
+  const isResourcesActive = flatPaths(RESOURCES_FLAT).includes(location.pathname) || activeMenu === "resources";
+  const isMicaActive = location.pathname === "/cryptocurrency-exchange-license";
+  const isReadyMadeActive = location.pathname === "/marketplace";
 
-  const isPathActive = (path: string) => location.pathname === path;
+  /* helpers */
 
-  // Determine if Services / Company dropdowns should appear active based on current route
-  const servicesPaths = MENU_COLUMNS.flatMap((c) =>
-    c.hubs.flatMap((h) => [h.href, ...h.jurisdictions.map((j) => j.href)])
+  const NavButton = ({ k, label, active, hot }: { k: MenuKey; label: string; active: boolean; hot?: boolean }) => (
+    <button
+      onMouseEnter={() => openMenu(k)}
+      onMouseLeave={scheduleClose}
+      onClick={() => { trackNav(label); openMenu(k); }}
+      className="flex items-center gap-1 bg-transparent cursor-pointer"
+      style={{
+        fontFamily: "inherit",
+        fontSize: NAV_FS,
+        fontWeight: active ? 500 : 400,
+        color: active ? C_TEXT : C_MUTED,
+        padding: "7px 12px",
+        lineHeight: 1,
+        background: active ? ACTIVE_BG : "transparent",
+        border: active ? "1px solid rgba(68,76,231,0.45)" : "1px solid transparent",
+        transition: "all .18s ease",
+        position: "relative",
+      }}
+    >
+      {label}
+      <ChevronDown size={11} />
+      {hot && (
+        <span
+          className="absolute"
+          style={{ top: 4, right: 4, width: 5, height: 5, background: C_ACCENT, borderRadius: 999 }}
+        />
+      )}
+    </button>
   );
-  const companyPaths = COMPANY_COLUMNS.flatMap((c) =>
-    c.hubs.flatMap((h) => [h.href, ...h.jurisdictions.map((j) => j.href)])
+
+  const NavDirectLink = ({ to, label, active, hot, title }: { to: string; label: string; active: boolean; hot?: boolean; title?: string }) => (
+    <Link
+      to={to}
+      onClick={() => trackNav(label)}
+      title={title}
+      className="no-underline relative"
+      style={{
+        fontFamily: "inherit",
+        fontSize: NAV_FS,
+        fontWeight: active ? 500 : 400,
+        color: active ? C_TEXT : C_MUTED,
+        padding: "7px 12px",
+        lineHeight: 1,
+        background: active ? ACTIVE_BG : "transparent",
+        border: active ? "1px solid rgba(68,76,231,0.45)" : "1px solid transparent",
+        transition: "all .18s ease",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+      }}
+      onMouseEnter={(e) => { if (!active) { (e.currentTarget as HTMLAnchorElement).style.color = C_TEXT; (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.04)"; } }}
+      onMouseLeave={(e) => { if (!active) { (e.currentTarget as HTMLAnchorElement).style.color = C_MUTED; (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; } }}
+    >
+      {label}
+      {hot && (
+        <span
+          aria-hidden
+          style={{ width: 6, height: 6, background: C_ACCENT, borderRadius: 999, boxShadow: "0 0 8px rgba(68,76,231,0.7)" }}
+        />
+      )}
+    </Link>
   );
-  const isServicesActive = servicesPaths.includes(location.pathname);
-  const isCompanyActive = companyPaths.includes(location.pathname);
 
-  // Reusable styles for nav links — compact + active background pill
-  const NAV_LINK_FS = 13;
-  const activeBg = "rgba(68,76,231,0.14)";
-  const activeBorder = "1px solid rgba(68,76,231,0.45)";
-  const inactiveBorder = "1px solid transparent";
+  /* ─────────── FLAT DROPDOWN ─────────── */
+  const FlatDropdown = ({
+    title,
+    items,
+    width = 280,
+    align = "left",
+  }: {
+    title: string;
+    items: FlatItem[];
+    width?: number;
+    align?: "left" | "right";
+  }) => (
+    <div
+      onMouseEnter={cancelClose}
+      onMouseLeave={scheduleClose}
+      className="absolute"
+      style={{
+        top: "calc(100% + 6px)",
+        [align]: 0,
+        width,
+        background: C_BG,
+        border: `1px solid ${BORDER}`,
+        boxShadow: "0 24px 48px rgba(0,0,0,0.7)",
+        animation: "dropIn .16s ease-out both",
+        fontFamily: "Manrope, sans-serif",
+        zIndex: 110,
+      } as React.CSSProperties}
+    >
+      <div style={{ padding: "10px 14px 8px", borderBottom: `1px solid ${BORDER}` }}>
+        <span style={{ fontSize: 10, color: C_ACCENT, letterSpacing: "0.14em", fontWeight: 600, textTransform: "uppercase" }}>
+          — {title}
+        </span>
+      </div>
+      <div>
+        {items.map((it) => (
+          <Link
+            key={it.label}
+            to={it.href}
+            onClick={() => { trackNav(`${title}: ${it.label}`); closeAll(); }}
+            className="no-underline block group"
+            style={{
+              padding: "10px 14px",
+              borderBottom: `1px solid ${BORDER}`,
+              transition: "background .14s ease",
+              position: "relative",
+            }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "rgba(68,76,231,0.06)")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "transparent")}
+          >
+            <div className="flex items-center justify-between">
+              <span style={{ fontSize: 13, color: C_TEXT, fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 6 }}>
+                {it.label}
+                {it.hot && (
+                  <span style={{ width: 5, height: 5, background: C_ACCENT, borderRadius: 999 }} />
+                )}
+              </span>
+              <ArrowUpRight size={12} style={{ color: C_DIM }} className="group-hover:text-[#818CF8] transition-colors" />
+            </div>
+            {it.hint && (
+              <div style={{ fontSize: 11, color: C_MUTED, marginTop: 2, lineHeight: 1.3 }}>{it.hint}</div>
+            )}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
 
+  /* ─────────── SERVICES MEGA (3 columns) ─────────── */
+  const ServicesMega = () => (
+    <div
+      onMouseEnter={cancelClose}
+      onMouseLeave={scheduleClose}
+      className="hidden md:block fixed left-0 right-0"
+      style={{
+        top: 60,
+        background: C_BG,
+        borderBottom: `1px solid ${BORDER}`,
+        boxShadow: "0 40px 80px rgba(0,0,0,0.7)",
+        zIndex: 99,
+        animation: "dropIn .18s ease-out both",
+        fontFamily: "Manrope, sans-serif",
+      }}
+    >
+      <div className="max-w-screen-xl mx-auto" style={{ padding: "20px 24px 24px" }}>
+        <div className="flex items-center justify-between mb-4">
+          <span style={{ fontSize: 10, color: C_ACCENT, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" }}>
+            — Services
+          </span>
+          <Link
+            to="/contact"
+            onClick={() => { trackNav("Services: contact"); closeAll(); }}
+            className="no-underline flex items-center gap-1.5"
+            style={{ fontSize: 11, color: C_MUTED, textTransform: "uppercase", letterSpacing: "0.12em" }}
+          >
+            Discuss your case <ArrowUpRight size={12} />
+          </Link>
+        </div>
+
+        <div
+          className="grid"
+          style={{
+            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+            gap: 1,
+            background: BORDER,
+            border: `1px solid ${BORDER}`,
+          }}
+        >
+          {SERVICES_GROUPED.map((group) => (
+            <div key={group.title} style={{ background: C_BG2, padding: "16px 18px" }}>
+              <div
+                style={{
+                  fontSize: 11,
+                  color: C_ACCENT,
+                  fontWeight: 600,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  marginBottom: 12,
+                  paddingBottom: 8,
+                  borderBottom: `1px solid ${BORDER}`,
+                }}
+              >
+                {group.title}
+              </div>
+              <div className="flex flex-col">
+                {group.items.map((it) => (
+                  <Link
+                    key={it.href}
+                    to={it.href}
+                    onClick={() => { trackNav(`Services › ${group.title}: ${it.label}`); closeAll(); }}
+                    className="no-underline block group"
+                    style={{
+                      padding: "8px 0",
+                      borderBottom: `1px solid ${BORDER}`,
+                    }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span style={{ fontSize: 13, color: C_TEXT, fontWeight: 500 }}>{it.label}</span>
+                      <ArrowUpRight size={12} style={{ color: C_DIM }} className="group-hover:text-[#818CF8] transition-colors" />
+                    </div>
+                    {it.hint && <div style={{ fontSize: 11, color: C_MUTED, marginTop: 2, lineHeight: 1.3 }}>{it.hint}</div>}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  /* ─────────── RENDER ─────────── */
   return (
     <>
-      {/* ── BASE NAVBAR ── */}
+      <style>{`
+        @keyframes dropIn {
+          from { opacity: 0; transform: translateY(-4px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+
       <nav
-        className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-4 md:px-12"
+        className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-4 md:px-8 lg:px-12"
         style={{
           height: 60,
           background: "rgba(8,8,8,0.88)",
           backdropFilter: "blur(20px) saturate(160%)",
           WebkitBackdropFilter: "blur(20px) saturate(160%)",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: `1px solid ${BORDER}`,
           fontFamily: "Manrope, sans-serif",
         }}
       >
-        <Link to="/" className="no-underline" style={{ fontSize: 18, fontWeight: 600 }}>
-          <span style={{ color: "#F0EBE0" }}>Inclu</span>
-          <span style={{ color: "#444CE7" }}>ence</span>
+        {/* Logo */}
+        <Link to="/" onClick={() => trackNav("Logo")} className="no-underline" style={{ fontSize: 18, fontWeight: 600 }}>
+          <span style={{ color: C_TEXT }}>Inclu</span>
+          <span style={{ color: C_ACCENT }}>ence</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-1 lg:gap-1.5" style={{ fontSize: NAV_LINK_FS, fontWeight: 400 }}>
-          {([
-            { key: "services", label: "Services", active: isServicesActive || activeMenu === "services" },
-            { key: "company", label: "Company", active: isCompanyActive || activeMenu === "company" },
-          ] as const).map((item) => (
-            <button
-              key={item.key}
-              onMouseEnter={() => openMenu(item.key)}
-              onMouseLeave={closeMenu}
-              className="flex items-center gap-1 bg-transparent cursor-pointer transition-all duration-200"
-              style={{
-                color: item.active ? "#F0EBE0" : "#9A9590",
-                fontSize: NAV_LINK_FS,
-                fontWeight: item.active ? 500 : 400,
-                fontFamily: "inherit",
-                padding: "7px 12px",
-                lineHeight: 1,
-                background: item.active ? activeBg : "transparent",
-                border: item.active ? activeBorder : inactiveBorder,
-              }}
-              onMouseOver={(e) => {
-                if (!item.active) {
-                  (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.04)";
-                  (e.currentTarget as HTMLButtonElement).style.color = "#F0EBE0";
-                }
-              }}
-              onMouseOut={(e) => {
-                if (!item.active) {
-                  (e.currentTarget as HTMLButtonElement).style.background = "transparent";
-                  (e.currentTarget as HTMLButtonElement).style.color = "#9A9590";
-                }
-              }}
-            >
-              {item.label}
-              <ChevronDown size={11} />
-            </button>
-          ))}
-          {[
-            { to: "/marketplace", label: "Ready Made Company" },
-            { to: "/affiliate-program", label: "Affiliate Program" },
-            { to: "/about", label: "About" },
-            { to: "/blog", label: "Blog" },
-          ].map((l) => {
-            const active = isPathActive(l.to);
-            return (
-              <Link
-                key={l.to}
-                to={l.to}
-                className="no-underline transition-all duration-200"
-                style={{
-                  fontSize: NAV_LINK_FS,
-                  color: active ? "#F0EBE0" : "#9A9590",
-                  fontWeight: active ? 500 : 400,
-                  padding: "7px 12px",
-                  lineHeight: 1,
-                  background: active ? activeBg : "transparent",
-                  border: active ? activeBorder : inactiveBorder,
-                }}
-                onMouseEnter={(e) => {
-                  if (!active) {
-                    (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.04)";
-                    (e.currentTarget as HTMLAnchorElement).style.color = "#F0EBE0";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!active) {
-                    (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
-                    (e.currentTarget as HTMLAnchorElement).style.color = "#9A9590";
-                  }
-                }}
-              >
-                {l.label}
-              </Link>
-            );
-          })}
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-0.5 lg:gap-1" style={{ fontSize: NAV_FS }}>
+          <div className="relative" onMouseEnter={() => openMenu("licenses")} onMouseLeave={scheduleClose}>
+            <NavButton k="licenses" label="Licenses" active={isLicensesActive} />
+            {activeMenu === "licenses" && (
+              <FlatDropdown title="Licenses" items={LICENSES_FLAT} width={300} />
+            )}
+          </div>
+
+          <div className="relative" onMouseEnter={() => openMenu("company")} onMouseLeave={scheduleClose}>
+            <NavButton k="company" label="Company Formation" active={isCompanyActive} />
+            {activeMenu === "company" && (
+              <FlatDropdown title="Company Formation" items={COMPANY_FLAT} width={320} />
+            )}
+          </div>
+
+          <NavDirectLink to="/cryptocurrency-exchange-license" label="MiCA" active={isMicaActive} hot title="July 2026 deadline" />
+          <NavDirectLink to="/marketplace" label="Ready-Made" active={isReadyMadeActive} />
+
+          <div className="relative" onMouseEnter={() => openMenu("services")} onMouseLeave={scheduleClose}>
+            <NavButton k="services" label="Services" active={isServicesActive} />
+            {/* Services mega is full-width — rendered outside this relative wrapper */}
+          </div>
+
+          <div className="relative" onMouseEnter={() => openMenu("resources")} onMouseLeave={scheduleClose}>
+            <NavButton k="resources" label="Resources" active={isResourcesActive} />
+            {activeMenu === "resources" && (
+              <FlatDropdown title="Resources" items={RESOURCES_FLAT} width={260} />
+            )}
+          </div>
         </div>
 
-        {/* Contact dropdown + CTA — desktop */}
-        <div className="hidden md:flex items-center gap-3">
-          {/* Telegram & WhatsApp direct icons */}
+        {/* CTA + lang + socials */}
+        <div className="hidden md:flex items-center gap-2.5">
+          {/* Language switcher */}
+          <div className="relative" onMouseEnter={() => openMenu("lang")} onMouseLeave={scheduleClose}>
+            <button
+              className="flex items-center gap-1 bg-transparent cursor-pointer"
+              style={{
+                fontFamily: "inherit",
+                fontSize: 12,
+                color: C_MUTED,
+                padding: "7px 10px",
+                lineHeight: 1,
+                border: `1px solid ${BORDER}`,
+                fontWeight: 500,
+                letterSpacing: "0.04em",
+              }}
+            >
+              {currentLang}
+              <ChevronDown size={11} />
+            </button>
+            {activeMenu === "lang" && (
+              <div
+                onMouseEnter={cancelClose}
+                onMouseLeave={scheduleClose}
+                className="absolute"
+                style={{
+                  top: "calc(100% + 6px)",
+                  right: 0,
+                  width: 160,
+                  background: C_BG,
+                  border: `1px solid ${BORDER}`,
+                  boxShadow: "0 24px 48px rgba(0,0,0,0.7)",
+                  zIndex: 110,
+                  animation: "dropIn .16s ease-out both",
+                }}
+              >
+                {LANGUAGES.map((l) => {
+                  const selected = l.code === currentLang;
+                  const sharedStyle: React.CSSProperties = {
+                    padding: "10px 14px",
+                    borderBottom: `1px solid ${BORDER}`,
+                    fontSize: 13,
+                    color: selected ? C_TEXT : C_MUTED,
+                    fontWeight: selected ? 500 : 400,
+                  };
+                  const inner = (
+                    <>
+                      <span>{l.code} · {l.label}</span>
+                      {selected && <Check size={12} style={{ color: C_ACCENT }} />}
+                    </>
+                  );
+                  if (l.code === "RU") {
+                    return (
+                      <a key={l.code} href={l.href} className="no-underline flex items-center justify-between" style={sharedStyle}>
+                        {inner}
+                      </a>
+                    );
+                  }
+                  return (
+                    <Link
+                      key={l.code}
+                      to={l.href}
+                      onClick={() => { setCurrentLang("EN"); setActiveMenu(null); trackNav("Lang: EN"); }}
+                      className="no-underline flex items-center justify-between"
+                      style={sharedStyle}
+                    >
+                      {inner}
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
           <a
             href="https://t.me/incluence"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-center transition-all duration-200"
-            style={{
-              width: 34,
-              height: 34,
-              border: "1px solid rgba(255,255,255,0.08)",
-              background: "transparent",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(68,76,231,0.5)";
-              e.currentTarget.style.background = "rgba(68,76,231,0.08)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-              e.currentTarget.style.background = "transparent";
-            }}
+            className="group flex items-center justify-center"
+            style={{ width: 34, height: 34, border: `1px solid ${BORDER}` }}
             title="Telegram"
           >
-            <Send size={14} className="text-[#9A9590] group-hover:text-[#444CE7] transition-colors duration-200" />
+            <Send size={14} className="text-[#9A9590] group-hover:text-[#444CE7] transition-colors" />
           </a>
           <a
             href="https://wa.me/37281703037"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-center transition-all duration-200"
-            style={{
-              width: 34,
-              height: 34,
-              border: "1px solid rgba(255,255,255,0.08)",
-              background: "transparent",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(68,76,231,0.5)";
-              e.currentTarget.style.background = "rgba(68,76,231,0.08)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-              e.currentTarget.style.background = "transparent";
-            }}
+            className="group flex items-center justify-center"
+            style={{ width: 34, height: 34, border: `1px solid ${BORDER}` }}
             title="WhatsApp"
           >
-            <Phone size={14} className="text-[#9A9590] group-hover:text-[#444CE7] transition-colors duration-200" />
+            <Phone size={14} className="text-[#9A9590] group-hover:text-[#444CE7] transition-colors" />
           </a>
 
           <button
-            onClick={() => setProjectDialogOpen(true)}
-            className="no-underline transition-colors duration-200 border-0 cursor-pointer"
+            onClick={() => { trackNav("CTA: Get Free Consultation"); setProjectDialogOpen(true); }}
+            className="cursor-pointer border-0"
             style={{
-              background: "#444CE7",
+              background: C_ACCENT,
               color: "#fff",
-              padding: "8px 20px",
+              padding: "9px 18px",
               fontSize: 11,
-              fontWeight: 500,
+              fontWeight: 600,
               letterSpacing: "0.08em",
-              textTransform: "uppercase" as const,
-              borderRadius: 0,
+              textTransform: "uppercase",
               fontFamily: "inherit",
+              boxShadow: CTA_SHADOW,
+              transition: "background .15s ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#3538CD")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "#444CE7")}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#3538CD")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = C_ACCENT)}
           >
-            Start a Project
+            {CTA_LABEL}
           </button>
         </div>
 
         {/* Mobile toggle */}
-        <button className="md:hidden bg-transparent border-none cursor-pointer" style={{ color: "#F0EBE0" }} onClick={() => setMobileOpen(!mobileOpen)}>
+        <button
+          className="md:hidden bg-transparent border-none cursor-pointer"
+          style={{ color: C_TEXT }}
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Menu"
+        >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </nav>
 
-      {/* ── MOBILE MENU ── */}
+      {/* Services full-width mega-menu (rendered separately so it spans 100%) */}
+      {activeMenu === "services" && <ServicesMega />}
+
+      {/* ─────────── MOBILE MENU ─────────── */}
       {mobileOpen && (
         <div
           className="md:hidden fixed top-[60px] left-0 right-0 bottom-0 z-[99] overflow-y-auto"
-          style={{ background: "#0a0a0a", fontFamily: "Manrope, sans-serif", padding: "16px 20px 120px" }}
+          style={{ background: "#0a0a0a", padding: "12px 20px 120px", fontFamily: "Manrope, sans-serif" }}
         >
-          {[...MENU_COLUMNS, ...COMPANY_COLUMNS.map(c => ({ ...c, title: c.title === "REGISTRATION" ? "COMPANY · REGISTRATION" : `COMPANY · ${c.title}` }))].map((col) => (
-            <div key={col.title} style={{ marginBottom: 4 }}>
+          {([
+            { key: "licenses", title: "Licenses", items: LICENSES_FLAT },
+            { key: "company", title: "Company Formation", items: COMPANY_FLAT },
+          ] as { key: string; title: string; items: FlatItem[] }[]).map((sec) => (
+            <div key={sec.key}>
               <button
-                onClick={() => setMobileExpanded(mobileExpanded === col.title ? null : col.title)}
+                onClick={() => setMobileExpanded(mobileExpanded === sec.key ? null : sec.key)}
                 className="flex items-center justify-between w-full bg-transparent border-0 cursor-pointer"
-                style={{
-                  padding: "14px 0",
-                  borderBottom: "1px solid rgba(255,255,255,0.06)",
-                  fontFamily: "inherit",
-                }}
+                style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontFamily: "inherit" }}
               >
-                <span style={{ fontSize: 11, color: "#444CE7", textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600 }}>
-                  — {col.title}
+                <span style={{ fontSize: 11, color: C_ACCENT, textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600 }}>
+                  — {sec.title}
                 </span>
                 <ChevronDown
                   size={14}
-                  style={{
-                    color: "#5A5550",
-                    transition: "transform 0.2s",
-                    transform: mobileExpanded === col.title ? "rotate(180deg)" : "rotate(0)",
-                  }}
+                  style={{ color: C_DIM, transition: "transform .2s", transform: mobileExpanded === sec.key ? "rotate(180deg)" : "rotate(0)" }}
                 />
               </button>
-
-              {mobileExpanded === col.title && (
+              {mobileExpanded === sec.key && (
                 <div style={{ padding: "8px 0 12px" }}>
-                  {col.hubs.map((hub) => (
-                    <div key={hub.href} style={{ marginBottom: 12 }}>
-                      <Link
-                        to={hub.href}
-                        onClick={handleLinkClick}
-                        className="flex items-center gap-1.5 no-underline group"
-                        style={{ fontSize: 14, fontWeight: 600, color: "#F0EBE0", padding: "6px 0" }}
-                      >
-                        {hub.name}
-                        <ChevronRight size={12} className="text-[#444CE7] opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </Link>
-                      {hub.jurisdictions.length > 0 && (
-                        <div className="flex flex-wrap gap-1.5" style={{ paddingLeft: 0, marginTop: 4 }}>
-                          {hub.jurisdictions.map((j) => (
-                            <Link
-                              key={j.href}
-                              to={j.href}
-                              onClick={handleLinkClick}
-                              className="no-underline hover:text-[#F0EBE0] hover:border-[#444CE7]/40 transition-all"
-                              style={{
-                                fontSize: 12,
-                                color: "#9A9590",
-                                padding: "4px 10px",
-                                border: "1px solid rgba(255,255,255,0.08)",
-                              }}
-                            >
-                              {j.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                  {sec.items.map((it) => (
+                    <Link
+                      key={it.href}
+                      to={it.href}
+                      onClick={() => { trackNav(`mobile: ${sec.title}: ${it.label}`); closeAll(); }}
+                      className="no-underline block"
+                      style={{ padding: "10px 0", fontSize: 14, color: C_TEXT }}
+                    >
+                      {it.label}
+                      {it.hint && <div style={{ fontSize: 11, color: C_MUTED, marginTop: 2 }}>{it.hint}</div>}
+                    </Link>
                   ))}
                 </div>
               )}
             </div>
           ))}
 
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 16, marginTop: 8 }}>
-            <Link to="/marketplace" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "10px 0" }}>Ready Made Company</Link>
-            <Link to="/affiliate-program" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "10px 0" }}>Affiliate Program</Link>
-            <Link to="/about" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "10px 0" }}>About</Link>
-            <Link to="/blog" onClick={handleLinkClick} className="block no-underline" style={{ fontSize: 14, color: "#9A9590", padding: "10px 0" }}>Blog</Link>
+          {/* MiCA + Ready-Made direct */}
+          <Link
+            to="/cryptocurrency-exchange-license"
+            onClick={() => { trackNav("mobile: MiCA"); closeAll(); }}
+            className="no-underline flex items-center justify-between"
+            style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontSize: 13, color: C_TEXT, fontWeight: 500 }}
+          >
+            <span className="flex items-center gap-2">
+              MiCA
+              <span style={{ width: 6, height: 6, background: C_ACCENT, borderRadius: 999 }} />
+            </span>
+            <span style={{ fontSize: 10, color: C_DIM, letterSpacing: "0.1em", textTransform: "uppercase" }}>July 2026</span>
+          </Link>
+          <Link
+            to="/marketplace"
+            onClick={() => { trackNav("mobile: Ready-Made"); closeAll(); }}
+            className="no-underline block"
+            style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontSize: 13, color: C_TEXT, fontWeight: 500 }}
+          >
+            Ready-Made
+          </Link>
+
+          {/* Services accordion */}
+          <button
+            onClick={() => setMobileExpanded(mobileExpanded === "services" ? null : "services")}
+            className="flex items-center justify-between w-full bg-transparent border-0 cursor-pointer"
+            style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontFamily: "inherit" }}
+          >
+            <span style={{ fontSize: 11, color: C_ACCENT, textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600 }}>
+              — Services
+            </span>
+            <ChevronDown
+              size={14}
+              style={{ color: C_DIM, transition: "transform .2s", transform: mobileExpanded === "services" ? "rotate(180deg)" : "rotate(0)" }}
+            />
+          </button>
+          {mobileExpanded === "services" && (
+            <div style={{ padding: "8px 0 12px" }}>
+              {SERVICES_GROUPED.map((g) => (
+                <div key={g.title} style={{ marginBottom: 12 }}>
+                  <div style={{ fontSize: 10, color: C_MUTED, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 6 }}>
+                    {g.title}
+                  </div>
+                  {g.items.map((it) => (
+                    <Link
+                      key={it.href}
+                      to={it.href}
+                      onClick={() => { trackNav(`mobile: Services › ${g.title}: ${it.label}`); closeAll(); }}
+                      className="no-underline block"
+                      style={{ padding: "8px 0", fontSize: 14, color: C_TEXT }}
+                    >
+                      {it.label}
+                    </Link>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Resources */}
+          <button
+            onClick={() => setMobileExpanded(mobileExpanded === "resources" ? null : "resources")}
+            className="flex items-center justify-between w-full bg-transparent border-0 cursor-pointer"
+            style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontFamily: "inherit" }}
+          >
+            <span style={{ fontSize: 11, color: C_ACCENT, textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600 }}>
+              — Resources
+            </span>
+            <ChevronDown
+              size={14}
+              style={{ color: C_DIM, transition: "transform .2s", transform: mobileExpanded === "resources" ? "rotate(180deg)" : "rotate(0)" }}
+            />
+          </button>
+          {mobileExpanded === "resources" && (
+            <div style={{ padding: "8px 0 12px" }}>
+              {RESOURCES_FLAT.map((it) => (
+                <Link
+                  key={it.href}
+                  to={it.href}
+                  onClick={() => { trackNav(`mobile: Resources: ${it.label}`); closeAll(); }}
+                  className="no-underline block"
+                  style={{ padding: "8px 0", fontSize: 14, color: C_TEXT }}
+                >
+                  {it.label}
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {/* Lang */}
+          <div style={{ borderTop: `1px solid ${BORDER}`, marginTop: 12, paddingTop: 12, display: "flex", gap: 8 }}>
+            {LANGUAGES.map((l) => {
+              const selected = l.code === currentLang;
+              if (l.code === "RU") {
+                return (
+                  <a
+                    key={l.code}
+                    href={l.href}
+                    className="no-underline"
+                    style={{
+                      padding: "8px 14px",
+                      fontSize: 12,
+                      color: selected ? C_TEXT : C_MUTED,
+                      border: `1px solid ${selected ? "rgba(68,76,231,0.45)" : BORDER}`,
+                      background: selected ? ACTIVE_BG : "transparent",
+                    }}
+                  >
+                    {l.code}
+                  </a>
+                );
+              }
+              return (
+                <button
+                  key={l.code}
+                  onClick={() => setCurrentLang("EN")}
+                  className="cursor-pointer"
+                  style={{
+                    padding: "8px 14px",
+                    fontSize: 12,
+                    color: selected ? C_TEXT : C_MUTED,
+                    border: `1px solid ${selected ? "rgba(68,76,231,0.45)" : BORDER}`,
+                    background: selected ? ACTIVE_BG : "transparent",
+                    fontFamily: "inherit",
+                  }}
+                >
+                  {l.code}
+                </button>
+              );
+            })}
           </div>
 
-          {/* Mobile social + CTA */}
+          {/* Socials */}
           <div className="flex items-center gap-3" style={{ marginTop: 20 }}>
             <a href="https://t.me/incluence" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center"
-              style={{ width: 40, height: 40, border: "1px solid rgba(255,255,255,0.08)" }}>
-              <Send size={16} style={{ color: "#9A9590" }} />
+              style={{ width: 40, height: 40, border: `1px solid ${BORDER}` }}>
+              <Send size={16} style={{ color: C_MUTED }} />
             </a>
             <a href="https://wa.me/37281703037" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center"
-              style={{ width: 40, height: 40, border: "1px solid rgba(255,255,255,0.08)" }}>
-              <Phone size={16} style={{ color: "#9A9590" }} />
+              style={{ width: 40, height: 40, border: `1px solid ${BORDER}` }}>
+              <Phone size={16} style={{ color: C_MUTED }} />
             </a>
           </div>
+        </div>
+      )}
+
+      {/* Mobile sticky CTA — always visible */}
+      {mobileOpen && (
+        <div
+          className="md:hidden fixed bottom-0 left-0 right-0 z-[101]"
+          style={{
+            padding: "12px 16px",
+            background: "rgba(8,8,8,0.95)",
+            backdropFilter: "blur(20px)",
+            borderTop: `1px solid ${BORDER}`,
+          }}
+        >
           <button
-            onClick={() => { setMobileOpen(false); setProjectDialogOpen(true); }}
-            className="block w-full text-center border-0 cursor-pointer"
-            style={{ marginTop: 16, background: "#444CE7", color: "#fff", padding: "14px 24px", fontSize: 12, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase" as const, fontFamily: "inherit" }}
+            onClick={() => { setMobileOpen(false); trackNav("CTA: Get Free Consultation (mobile)"); setProjectDialogOpen(true); }}
+            className="w-full cursor-pointer border-0"
+            style={{
+              background: C_ACCENT,
+              color: "#fff",
+              padding: "14px 24px",
+              fontSize: 12,
+              fontWeight: 600,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              fontFamily: "inherit",
+              boxShadow: CTA_SHADOW,
+            }}
           >
-            Start a Project
+            {CTA_LABEL}
           </button>
         </div>
       )}
 
-      {/* ── MEGA-MENU PANEL ── */}
-      {activeMenu && (
-        <div
-          onMouseEnter={cancelClose}
-          onMouseLeave={closeMenu}
-          onClick={(e) => e.stopPropagation()}
-          className="hidden md:block fixed left-0 right-0 z-[99]"
-          style={{
-            top: 60,
-            background: "#0a0a0a",
-            borderBottom: "1px solid rgba(255,255,255,0.07)",
-            boxShadow: "0 40px 80px rgba(0,0,0,0.7)",
-            fontFamily: "Manrope, sans-serif",
-            animation: "megaMenuIn 0.18s ease-out both",
-          }}
-        >
-          <style>{`
-            @keyframes megaMenuIn {
-              from { opacity: 0; transform: translateY(-6px); }
-              to { opacity: 1; transform: translateY(0); }
-            }
-            @keyframes pd{0%{transform:scale(1);opacity:.5}100%{transform:scale(2.5);opacity:0}}
-            @keyframes fadeInRight { from { opacity: 0; transform: translateX(4px); } to { opacity: 1; transform: translateX(0); } }
-          `}</style>
-
-          <div className="max-w-screen-xl mx-auto" style={{ padding: "20px 24px 0" }}>
-            {(() => {
-              const isCompany = activeMenu === "company";
-              const hubs: HubCard[] = isCompany ? COMPANY_HUBS : SERVICES_HUBS;
-              const columns: MenuColumn[] = isCompany ? COMPANY_COLUMNS : MENU_COLUMNS;
-              const sectionLabel = isCompany ? "COMPANY FORMATION" : "SERVICES";
-              const allHref = isCompany ? "/registration-of-companies-abroad" : "/licenses";
-              const allLabel = isCompany ? "View all jurisdictions" : "View all services";
-
-              // Active hub = hovered, fallback to first
-              const activeHubIndex = Math.max(
-                0,
-                hubs.findIndex((h) => h.href === hoveredHub),
-              );
-              const activeHub = hubs[activeHubIndex];
-              // Map hub by index to corresponding column (same order in data definitions)
-              const activeColumn = columns[activeHubIndex];
-
-              return (
-                <>
-                  {/* Top bar: section label + view all */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span
-                      style={{
-                        fontSize: 10,
-                        fontWeight: 600,
-                        color: "#444CE7",
-                        textTransform: "uppercase",
-                        letterSpacing: "0.14em",
-                      }}
-                    >
-                      — {sectionLabel}
-                    </span>
-                    <button
-                      onClick={() => go(allHref)}
-                      className="bg-transparent border-0 cursor-pointer flex items-center gap-1.5 transition-colors duration-150"
-                      style={{
-                        fontFamily: "inherit",
-                        fontSize: 11,
-                        color: "#9A9590",
-                        textTransform: "uppercase",
-                        letterSpacing: "0.12em",
-                        padding: "4px 0",
-                      }}
-                      onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#444CE7")}
-                      onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#9A9590")}
-                    >
-                      {allLabel} <ArrowUpRight size={12} />
-                    </button>
-                  </div>
-
-                  {/* Two-column layout */}
-                  <div
-                    className="grid"
-                    style={{
-                      gridTemplateColumns: "300px 1fr",
-                      gap: 0,
-                      border: "1px solid rgba(255,255,255,0.06)",
-                      background: "#0a0a0a",
-                      minHeight: 340,
-                    }}
-                  >
-                    {/* LEFT: hub list */}
-                    <div
-                      style={{
-                        background: "#0d0d0d",
-                        borderRight: "1px solid rgba(255,255,255,0.06)",
-                        padding: "12px 0",
-                      }}
-                    >
-                      {hubs.map((hub) => {
-                        const Icon = hub.Icon;
-                        const isActive = hub.href === activeHub.href;
-                        return (
-                          <button
-                            key={`${activeMenu}-${hub.href}`}
-                            onMouseEnter={() => setHoveredHub(hub.href)}
-                            onClick={() => go(hub.href)}
-                            className="w-full text-left bg-transparent cursor-pointer transition-all duration-150"
-                            style={{
-                              fontFamily: "inherit",
-                              display: "flex",
-                              alignItems: "center",
-                              gap: 12,
-                              padding: "12px 20px",
-                              borderLeft: isActive ? "2px solid #444CE7" : "2px solid transparent",
-                              background: isActive ? "rgba(68,76,231,0.08)" : "transparent",
-                              border: "0",
-                              borderLeftWidth: 2,
-                              borderLeftStyle: "solid",
-                              borderLeftColor: isActive ? "#444CE7" : "transparent",
-                            }}
-                          >
-                            <div
-                              className="flex items-center justify-center shrink-0"
-                              style={{
-                                width: 30,
-                                height: 30,
-                                background: isActive ? "rgba(68,76,231,0.18)" : "rgba(68,76,231,0.08)",
-                                border: "1px solid rgba(68,76,231,0.25)",
-                                color: isActive ? "#A5B4FC" : "#818CF8",
-                              }}
-                            >
-                              <Icon size={14} strokeWidth={1.5} />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <div
-                                style={{
-                                  fontSize: 13,
-                                  fontWeight: isActive ? 500 : 400,
-                                  color: isActive ? "#F0EBE0" : "#9A9590",
-                                  letterSpacing: "-0.005em",
-                                  lineHeight: 1.2,
-                                }}
-                              >
-                                {hub.title}
-                              </div>
-                              {hub.count && (
-                                <div
-                                  style={{
-                                    fontSize: 10,
-                                    color: "#5A5550",
-                                    textTransform: "uppercase",
-                                    letterSpacing: "0.1em",
-                                    marginTop: 3,
-                                  }}
-                                >
-                                  {hub.count}
-                                </div>
-                              )}
-                            </div>
-                            <ChevronRight
-                              size={12}
-                              style={{
-                                color: isActive ? "#818CF8" : "#5A5550",
-                                transition: "color 0.15s",
-                              }}
-                            />
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {/* RIGHT: details for active hub */}
-                    <div
-                      key={`${activeMenu}-${activeHub.href}-detail`}
-                      style={{ padding: "24px 28px", display: "flex", flexDirection: "column", animation: "fadeInRight 0.18s ease-out both" }}
-                    >
-                      <div className="mb-5">
-                        <h3
-                          style={{
-                            fontSize: 20,
-                            fontWeight: 300,
-                            color: "#F0EBE0",
-                            letterSpacing: "-0.01em",
-                            lineHeight: 1.2,
-                            marginBottom: 6,
-                          }}
-                        >
-                          {activeHub.title}
-                        </h3>
-                        <p
-                          style={{
-                            fontSize: 12,
-                            color: "#9A9590",
-                            lineHeight: 1.55,
-                            maxWidth: 520,
-                          }}
-                        >
-                          {activeHub.description}
-                        </p>
-                      </div>
-
-                      {/* Sub-items grid (from MENU_COLUMNS) */}
-                      {activeColumn && activeColumn.hubs.length > 0 && (
-                        <div
-                          className="grid"
-                          style={{
-                            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-                            gap: 1,
-                            background: "rgba(255,255,255,0.06)",
-                            marginBottom: 16,
-                          }}
-                        >
-                          {activeColumn.hubs.map((sub) => (
-                            <button
-                              key={sub.href}
-                              onClick={() => go(sub.href)}
-                              className="group text-left bg-[#0a0a0a] hover:bg-[#111111] cursor-pointer transition-colors duration-150"
-                              style={{
-                                fontFamily: "inherit",
-                                border: 0,
-                                padding: "12px 14px",
-                              }}
-                            >
-                              <div className="flex items-center justify-between mb-1">
-                                <span
-                                  className="group-hover:text-white transition-colors"
-                                  style={{ fontSize: 13, fontWeight: 500, color: "#F0EBE0" }}
-                                >
-                                  {sub.name}
-                                </span>
-                                <ArrowUpRight
-                                  size={12}
-                                  className="text-[#5A5550] group-hover:text-[#818CF8] transition-colors"
-                                />
-                              </div>
-                              {sub.jurisdictions.length > 0 && (
-                                <div
-                                  style={{
-                                    fontSize: 11,
-                                    color: "#9A9590",
-                                    lineHeight: 1.4,
-                                  }}
-                                >
-                                  {sub.jurisdictions.slice(0, 4).map((j) => j.label).join(" · ")}
-                                  {sub.jurisdictions.length > 4 ? ` +${sub.jurisdictions.length - 4}` : ""}
-                                </div>
-                              )}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-
-                      {/* Hub CTA + Project CTA */}
-                      <div className="flex items-center gap-2 mt-auto pt-2">
-                        <button
-                          onClick={() => go(activeHub.href)}
-                          className="flex-1 text-left cursor-pointer transition-all duration-150"
-                          style={{
-                            fontFamily: "inherit",
-                            border: "1px solid rgba(68,76,231,0.25)",
-                            background: "rgba(68,76,231,0.06)",
-                            padding: "10px 14px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                          }}
-                          onMouseEnter={(e) => {
-                            (e.currentTarget as HTMLButtonElement).style.background = "rgba(68,76,231,0.12)";
-                            (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(68,76,231,0.45)";
-                          }}
-                          onMouseLeave={(e) => {
-                            (e.currentTarget as HTMLButtonElement).style.background = "rgba(68,76,231,0.06)";
-                            (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(68,76,231,0.25)";
-                          }}
-                        >
-                          <span style={{ fontSize: 12, color: "#F0EBE0", fontWeight: 500 }}>
-                            Open {activeHub.title} hub
-                          </span>
-                          <ArrowUpRight size={13} style={{ color: "#818CF8" }} />
-                        </button>
-                        <button
-                          onClick={() => { setActiveMenu(null); setProjectDialogOpen(true); }}
-                          className="cursor-pointer border-0 transition-colors duration-150"
-                          style={{
-                            fontFamily: "inherit",
-                            background: "#444CE7",
-                            color: "#fff",
-                            padding: "11px 16px",
-                            fontSize: 11,
-                            fontWeight: 500,
-                            letterSpacing: "0.1em",
-                            textTransform: "uppercase",
-                          }}
-                          onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#3538CD")}
-                          onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#444CE7")}
-                        >
-                          Start a project →
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </>
-              );
-            })()}
-          </div>
-
-
-            <div
-              className="flex items-center justify-between"
-              style={{ borderTop: "1px solid rgba(255,255,255,0.04)", background: "#080808", padding: "14px 24px" }}
-            >
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] text-[#5A5550] uppercase tracking-[0.12em]" style={{ marginRight: 16 }}>
-                  Quick Access:
-                </span>
-                <div className="flex items-center gap-1.5">
-                  {PILLS.map((p) => (
-                    <button
-                      key={p.href}
-                      onClick={() => go(p.href)}
-                      className="text-[11px] text-[#9A9590] border border-white/[0.06] px-3 py-1 bg-transparent hover:border-[#444CE7]/40 hover:text-[#F0EBE0] hover:bg-[#444CE7]/5 transition-all duration-150 cursor-pointer"
-                      style={{ fontFamily: "inherit" }}
-                    >
-                      {p.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2">
-                  <div className="relative" style={{ width: 6, height: 6 }}>
-                    <div className="absolute inset-0 bg-[#22c55e]" />
-                    <div className="absolute inset-0 bg-[#22c55e] animate-ping" style={{ opacity: 0.4 }} />
-                  </div>
-                  <span className="text-[10px] text-[#5A5550]">181 pages live</span>
-                </div>
-
-                <button
-                  onClick={() => go("/licenses")}
-                  className="text-[11px] text-[#5A5550] hover:text-[#444CE7] transition-colors cursor-pointer bg-transparent border-0"
-                  style={{ fontFamily: "inherit" }}
-                >
-                  View all services →
-                </button>
-              </div>
-            </div>
-        </div>
-
-      )}
-
-      {/* ── START A PROJECT DIALOG ── */}
+      {/* ─────────── DIALOG ─────────── */}
       <Dialog open={projectDialogOpen} onOpenChange={setProjectDialogOpen}>
         <DialogContent
           className="border-white/[0.08] p-5 sm:p-8 max-w-lg w-[calc(100%-2rem)] max-h-[90vh] overflow-y-auto"
@@ -1061,7 +780,7 @@ const Navbar = () => {
         >
           <DialogHeader>
             <DialogTitle className="text-[#F0EBE0] text-[18px] sm:text-[20px] font-light tracking-tight">
-              Start a Project
+              {CTA_LABEL}
             </DialogTitle>
             <p className="text-[#9A9590] text-[13px] mt-1">
               Fill in the details and we'll get back to you within 24 hours.
