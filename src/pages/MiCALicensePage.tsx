@@ -378,7 +378,11 @@ const MiCALicensePage = () => {
                 onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-[18px]" style={{ filter: "grayscale(100%) brightness(1.8)" }}>{j.flag}</span>
+                  <span
+                    className="text-[18px] inline-block transition-all duration-300 ease-out grayscale brightness-[1.8] group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-110"
+                  >
+                    {j.flag}
+                  </span>
                   <span className="text-[15px]" style={{ color: C_TEXT, fontWeight: 500 }}>{j.country}</span>
                 </div>
                 <div className="text-[14px]" style={{ color: C_TEXT }}>{j.regulator}</div>
