@@ -25,10 +25,12 @@ interface MicaGlobeProps {
   onPointClick?: (p: Point) => void;
   /** Initial center longitude. Defaults to 12 (centered on Central Europe). */
   initialLon?: number;
-  /** Latitude tilt. Defaults to -48 (slight northern tilt for EU framing). */
+  /** Latitude tilt. Defaults to -50 for tight EU framing. */
   lat?: number;
   /** Auto-rotate speed in degrees per second. 0 = static. */
   rotateSpeed?: number;
+  /** Projection scale (zoom). Higher = closer. Default tuned to fit EU only. */
+  scale?: number;
 }
 
 const MicaGlobe = ({
@@ -36,8 +38,9 @@ const MicaGlobe = ({
   highlightIso = [],
   onPointClick,
   initialLon = 12,
-  lat = -48,
-  rotateSpeed = 1.6,
+  lat = -50,
+  rotateSpeed = 0.4,
+  scale = 720,
 }: MicaGlobeProps) => {
   const [lon, setLon] = useState(initialLon);
   const [hovered, setHovered] = useState<string | null>(null);
