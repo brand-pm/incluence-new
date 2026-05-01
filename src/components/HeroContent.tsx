@@ -38,7 +38,9 @@ const fade = (delay: number) => ({
 
 const FONT = "Manrope, sans-serif";
 
-const HeroContent = () => (
+const HeroContent = () => {
+  const { open } = useConsultation();
+  return (
   <>
     <style>{`
       @keyframes ping {
