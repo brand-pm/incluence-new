@@ -1,131 +1,145 @@
+## Цель правок
 
+Закрыть 3 крупных проблемы воронки и навигации:
+1. CTA "Start project" сейчас ведёт на `/gamble-license` — это баг. Заменим на единый popup "Get Free Consultation" по всему сайту.
+2. В футере отсутствует UK-реквизит (London, College House).
+3. Перекос в структуре Services: Banking задвинут на 4-е место, Merchant Accounts нигде не упомянут, Company Formation в футере представлен только Offshore.
 
-## /mica-license — Dedicated MiCA CASP Landing Page
+---
 
-Создаём новую страницу `/mica-license` строго по предоставленному ТЗ (3 блока: Hero+Urgency, Jurisdictions+Capital, Process+FAQ+CTA). Вместо общей `HubPage` строим кастомный компонент — структура нестандартная (8-юрисдикционная таблица, 3 capital-карточки, EU-карта с пульсацией, JSON-LD).
+## 1. Единый CTA `Get Free Consultation` (popup)
 
-### 1. Новая страница
+### Новый компонент `src/components/ConsultationDialog.tsx`
+- Управляется через лёгкий контекст `ConsultationProvider` (в `App.tsx`), чтобы любой компонент мог вызвать `openConsultation({ service?: string })` без проп-дриллинга.
+- Использует существующий `Dialog` из `ui/dialog.tsx` + `useLeadForm` (как в `ContactCTA.tsx`).
+- Поля формы:
+  - Name *
+  - Email *
+  - Phone (опционально, простой `tel` input — country-picker сделаем флажком в `+CC` префиксе, без сторонних либ; полноценный picker — отдельная задача)
+  - Service of interest * — `<select>` с опциями: Crypto / MiCA, Forex, EMI / PSP, Gambling, Company Formation, Banking & Merchant, Buy Ready-Made Company, Other. Принимает `defaultValue` через пропс.
+  - Message (textarea)
+- Под формой блок **"Or reach us directly"** — иконки/ссылки Telegram, WhatsApp, Email, Phone (значения берём из `ContactCTA.tsx`: `+852 8192 6676`, `info@incluence.net`; placeholders для Telegram/WhatsApp до получения реальных).
+- Thank-you state: после успешного submit показываем экран "Thanks! Our consultant will reply within 24h" + дубль кнопок Telegram/WhatsApp. Кнопка "Close" закрывает диалог.
+- GA4 событие: `window.gtag?.("event", "lead_submit", { service })` после успеха. Pipedrive — указать в плане как требующий отдельной интеграции (нужен API-ключ от клиента; в этой итерации только GA4).
 
-**Файл:** `src/pages/MiCALicensePage.tsx` — кастомный одностраничный компонент.
-**Роут:** `<Route path="/mica-license" element={<MiCALicensePage />} />` в `src/App.tsx` (lazy-loaded, до catch-all).
-**Navbar:** в `LICENSES_FLAT` и top-level `MiCA` link меняем `/cryptocurrency-exchange-license` → `/mica-license` (CASP/MiCA pункт + прямая ссылка). Меняется в `src/components/Navbar.tsx`.
+### Замены кнопок (Start project → Get Free Consultation)
+- `src/components/HeroContent.tsx`: обе кнопки (mobile L114-118 и desktop L200-203) — заменить `<Link to="/gamble-license">` на `<button onClick={() => openConsultation()}>`. Текст: `Get Free Consultation`.
+- `src/components/Navbar.tsx`: правая CTA-кнопка (использует `setProjectDialogOpen` / `FormBlock`) — переключить на общий `openConsultation()`, чтобы поведение и форма были едиными. Текст уже `Get Free Consultation` (`CTA_LABEL`).
+- Внутренние страницы услуг (LicensePageTemplate, ServiceDetailPage, отдельные страницы Gambling/Crypto/EMI и т.д.) — все локальные CTA "Start project / Talk to specialist" заменить на `openConsultation({ service: <контекст страницы> })`. Маппинг service-of-interest по path:
+  - `/mica-license`, `/cryptocurrency-exchange-license`, `/*-crypto-*` → `Crypto / MiCA`
+  - `/forex-license`, `/*-forex-*` → `Forex`
+  - `/emi-license`, `/provider-payment-systems`, `/*-emi-*`, `/*-payment-*` → `EMI / PSP`
+  - `/gamble-license`, `/gambling/*`, `/*-gaming-*` → `Gambling`
+  - `/offshore-company-formation`, `/company-registration-*`, `/register-company-*`, `/open-company-*` → `Company Formation`
+  - `/accounts-bank`, `/opening-a-merchant-account`, `/open-an-account-*`, `/*-bank-account-*` → `Banking & Merchant`
+  - `/marketplace`, `/*ready-made*` → `Buy Ready-Made Company`
+  - всё остальное → `""` (пользователь выберет вручную)
+- В Footer/secondary CTA — оставляем поведение "ведёт на `/contact`" (это требование клиента), но саму страницу `/contact` в будущем расширим (вне этой итерации — флагнем).
 
-### 2. Структура страницы (3 блока + meta)
+### Что увидит пользователь
+- Клик на любой CTA "Get Free Consultation" / "Start project" нигде не уходит на страницу услуги.
+- Открывается popup с формой. На страницах услуг поле Service предзаполнено.
+- Под формой кликабельные Telegram / WhatsApp / Email / Phone.
+- После submit — thank-you + GA4 событие `lead_submit`.
 
-**`<head>` инъекция** через `react-helmet-async` (если установлен) или нативный `useEffect` с `document.head` манипуляциями — посмотрю что используется в проекте, выберу единый подход:
-- Title, description, canonical, OG tags
-- JSON-LD `@graph` (Service + FAQPage) — точно по ТЗ
+---
 
-**BLOCK 1 — Hero + Urgency**
-- 2-column layout (text 55% / EU-map 45%), stack на mobile
-- Eyebrow `EU MICA REGULATION · LIVE SINCE 30 DEC 2024` (`#444CE7`, uppercase 12px)
-- H1 `MiCA CASP License` (48/32px)
-- Sub `EU authorization for crypto-asset service providers — 8 jurisdictions, one team`
-- Body parag (точно по ТЗ)
-- CTA: Primary `Get Free Consultation` (открывает `FormBlock` dialog) + Secondary text-link `Download MiCA Checklist PDF` (anchor `#`, заглушка пока без файла)
-- Visual: SVG EU-map (упрощённая контурная) с 8 анимированными `<circle>` + pulsing rings (CSS keyframes 2s ease-in-out). Hover на точке → tooltip (страна + регулятор + timeline)
-- Urgency strip снизу: dark-card `#1A1A24`, `Transition deadline: national cut-offs run through Q3–Q4 2026  ·  Lithuania · Estonia · France · Germany — specific dates vary` + `Check your deadline →` (anchor `#jurisdictions`)
+## 2. Footer — добавить UK-реквизит
 
-**BLOCK 2 — Jurisdictions + Capital**
-- Часть A: Heading `8 EU jurisdictions we cover` + sub
-- Desktop: таблица 6 колонок (Flag+Country · Regulator · Timeline · Language · Best for · arrow), row hover `#1A1A24`, вся строка clickable
-- Mobile: горизонтальный snap-swiper с карточками (85vw)
-- 8 строк данных (Germany BaFin, France AMF/ACPR, Netherlands AFM/DNB, Ireland CBI, Malta MFSA, Lithuania LB, Poland KNF, Luxembourg CSSF) — точные значения возьму из ТЗ-блока (документ обрезан на этом месте, **прошу подтвердить полный список из ТЗ при имплементации** — пока проставлю стандартные регуляторы EU)
-- Внизу таблицы: `Compare all 8 jurisdictions side-by-side →` (anchor)
-- Часть B: 3-column capital cards (`€50,000` Class 1 / `€125,000` Class 2 / `€150,000` Class 3) с расшифровкой услуг (точно по ТЗ Article 67)
-- Footer-note курсивом про own funds maintenance
+В `src/components/Footer.tsx` блок "Col 1 — Brand" (L60-63) расширить: вместо одного абзаца с HK — два блока с заголовками "Hong Kong" и "United Kingdom":
+- HK: Incluence Ltd · Rm 7B, One Capital Place, 18 Luard Rd, Wan Chai
+- UK: Incluence Ltd · 2nd Floor College House, 17 King Edwards Road, Ruislip, London, HA4 7AE · Reg. 15743262
 
-**BLOCK 3 — Process + FAQ + Final CTA**
-- Soft gradient `#0E0E14 → #141420`
-- 5-step process timeline (горизонтальная на desktop с пунктирной линией, вертикальная на mobile). Steps возьму стандартные для CASP: Scoping → Jurisdiction selection → Substance & docs prep → Filing & regulator dialogue → Authorization & post-launch (если нет точного списка в ТЗ — детали уточним при имплементации)
-- FAQ accordion — 5 Q/A точно по ТЗ (single-expand, slide 200ms, chevron rotate). Используем `@/components/ui/accordion`
-- Final CTA card: `max-w-720px`, `#1A1A24` (zero radius согласно дизайн-системе — переопределим `border-radius: 24px` из ТЗ на `0` чтобы не нарушать core правило, либо оставим как ТЗ — **прошу подтвердить**)
-- 2 кнопки + Telegram contact line `@incluence_manager` → `https://t.me/incluence_manager`
+Стиль: те же `fontSize: 11, color: #5A5550`, разделитель — мини-заголовок `text-[10px] uppercase tracking-[0.1em] text-[#444CE7]` над каждым адресом.
 
-### 3. Дизайн-система
+---
 
-ТЗ использует цвета `#0E0E14`, `#1A1A24`, `#5B54F4`, `#B0B3B8`, `#D4D4D8` — это **отличается** от текущей системы (`#0a0a0a`, `#444CE7`, `#F0EBE0`, `#9A9590`). 
+## 3. Реструктуризация Services
 
-**Решение:** маппим к существующим токенам сайта чтобы страница не выглядела чужой:
-- `#5B54F4` → `#444CE7` (project accent)
-- `#0E0E14` / `#1A1A24` → `#0a0a0a` / `#0d0d0d`
-- `#B0B3B8` → `#9A9590`
-- `#D4D4D8` → `#F0EBE0`
+### 3.1 Footer — колонка Services (`Footer.tsx` L3-13)
+Заменить плоский список на 2 группы (через под-заголовки):
 
-Manrope, zero border-radius (включая Final CTA card → переопределяем 24px на 0), gap-px grid trick для разделителей.
+```
+COMPANY FORMATION
+- EU Companies            → /company-registration-in-europe
+- UK & Switzerland        → /register-company-in-uk
+- USA & Canada            → /open-company-in-usa
+- Asia (HK, SG, UAE)      → /registration-of-companies-abroad
+- Offshore Companies      → /offshore-company-formation
+- Ready-Made Companies    → /marketplace
 
-### 4. Аналитика GA4
+LICENSING & SERVICES
+- Crypto / VASP License   → /cryptocurrency-exchange-license
+- MiCA License            → /mica-license
+- EMI License             → /emi-license
+- Forex Broker License    → /forex-license
+- Gambling License        → /gamble-license
+- Investment Funds        → /offshore-investment-funds
 
-Хелпер `trackEvent(name, params)` для:
-- `mica_hero_cta_click`
-- `mica_jurisdiction_click` (label = country)
-- `mica_pdf_download`
-- `mica_telegram_click`
-- `mica_consultation_click`
+BANKING & PAYMENTS
+- Bank Account Opening    → /accounts-bank
+- Merchant Accounts       → /opening-a-merchant-account
+- PSP & Payment Solutions → /provider-payment-systems
 
-### 5. Технические детали
-
-- **EU map SVG**: inline в компоненте (упрощённый контур EU + 8 точек с координатами). Без внешнего ассета `/hero/eu-map-mica.svg`.
-- **PDF download**: пока заглушка (`href="#"` + `disabled` стиль) — ассет PDF не предоставлен. **Прошу подтвердить либо предоставить файл.**
-- **Lazy-loading** изображений (`loading="lazy"`) — кроме hero.
-- **Sanity:** ТЗ упоминает `hubPage` тип — но контентные блоки уникальны (8-юрисдикционная таблица, capital cards). **Решение:** хардкодим контент в компоненте `MiCALicensePage.tsx` (быстрее и точнее по ТЗ). Sanity-интеграция — отдельный шаг при необходимости.
-- **`dangerouslySetInnerHTML`** для JSON-LD `<script type="application/ld+json">` в `<head>` через `useEffect`.
-
-### 6. Layout схема
-
-```text
-┌─────────────────────────────────────────────┐
-│ NAVBAR (sticky)                             │
-├─────────────────────────────────────────────┤
-│ HERO (min-h 520)                            │
-│ ┌───────────────┬─────────────────────────┐ │
-│ │ Eyebrow       │   EU MAP SVG            │ │
-│ │ H1            │   • 8 pulsing dots      │ │
-│ │ H2 sub        │   tooltip on hover      │ │
-│ │ Body          │                         │ │
-│ │ [CTA] [link]  │                         │ │
-│ └───────────────┴─────────────────────────┘ │
-│ [URGENCY STRIP — clock icon + deadline]     │
-├─────────────────────────────────────────────┤
-│ #jurisdictions                              │
-│ H2 + sub                                    │
-│ ┌─────────────────────────────────────────┐ │
-│ │ TABLE (8 rows, 6 cols) / mobile swiper  │ │
-│ └─────────────────────────────────────────┘ │
-│ → Compare all 8 jurisdictions               │
-│                                             │
-│ H3: CASP capital by service class           │
-│ ┌────────┬────────┬────────┐                │
-│ │ €50K   │ €125K  │ €150K  │                │
-│ │ Class1 │ Class2 │ Class3 │                │
-│ └────────┴────────┴────────┘                │
-│ [own funds note]                            │
-├─────────────────────────────────────────────┤
-│ H2: How we deliver your CASP authorization  │
-│ ① ─── ② ─── ③ ─── ④ ─── ⑤  (timeline)        │
-│                                             │
-│ H2: Frequently asked questions              │
-│ [accordion × 5]                             │
-│                                             │
-│ ┌──── FINAL CTA CARD (max-w 720) ────────┐  │
-│ │ H2 + body                               │  │
-│ │ [Book Free Consultation] [PDF]          │  │
-│ │ ── Telegram @incluence_manager          │  │
-│ └─────────────────────────────────────────┘  │
-├─────────────────────────────────────────────┤
-│ FOOTER                                      │
-└─────────────────────────────────────────────┘
+LEGAL
+- AML / Compliance        → /legal-business
+- Tax Structuring         → /finance-reporting
 ```
 
-### 7. Файлы
+Колонка Services занимает 2 sm:col-span под групповой layout (двух-колоночная сетка внутри). Если визуально перегружено — оставить 1 колонку, но с под-заголовками. Уточним при реализации.
 
-- **Новый:** `src/pages/MiCALicensePage.tsx`
-- **Изменения:** `src/App.tsx` (lazy import + route), `src/components/Navbar.tsx` (CASP/MiCA href + top-level MiCA href → `/mica-license`)
+### 3.2 Главная — секция Our Services (`OurServicesSection.tsx`)
+Поменять порядок и формулировки в массиве `services`:
 
-### 8. Открытые вопросы (требуют подтверждения перед стартом)
+```
+/01 Licensing (Crypto / MiCA / EMI / PSP / Forex / Gambling)
+/02 Company Formation (EU / Non-EU / Offshore / Ready-Made)
+/03 Banking & Merchant Accounts            ← поднять
+/04 Investment Funds & Residency
+/05 AML / KYC Compliance
+/06 Legal Support & Tax Structuring
+```
 
-1. **Полная таблица 8 юрисдикций** в ТЗ обрезана (`* PSAN transition — греенфилд 9–12 мес`). Использовать стандартные значения по EU regulators (BaFin, AMF, AFM, CBI, MFSA, LB, KNF, CSSF) с шаблонными timeline 6–12 мес — или дождаться полного списка?
-2. **Final CTA border-radius**: ТЗ требует `24px` — это нарушает zero-radius правило сайта. Оставляем `24px` (по ТЗ) или `0` (по дизайн-системе)?
-3. **PDF файл** для download — есть готовый ассет, или заглушка `#`?
-4. **Process steps**: ТЗ говорит «5 steps» но содержимое обрезано — придумать стандартные CASP-шаги или дождаться текста?
+Tags и desc — переписать соответственно (Banking карточка получит теги `Banking, Merchant, PSP`).
 
+### 3.3 Hero-чипы (`HeroContent.tsx` L11-18)
+Добавить чип `Banking` → `/accounts-bank` в массив `serviceTags`. Порядок для desktop: VASP, EMI/PSP, **Banking**, Gambling, Offshore Company, Fund Registration, Crypto Regulation. На mobile (`.slice(0, 4)`) Banking войдёт в первые 4.
+
+### 3.4 Navbar
+- В `LICENSES_FLAT` уже есть PSP — ок.
+- В `COMPANY_FLAT` (L25-31) добавить пункт **`Ready-Made Companies`** → `/marketplace`. Также проверить, что в шапке пункт "Ready-Made" (L415) переименовать в **`Ready-Made Company`** (как просит клиент в формулировке).
+- В `SERVICES_GROUPED` группа "Banking & Payments" уже первая и содержит Bank Accounts / Merchant Account / Payment Systems / PSP License — структура совпадает с тем, что просит клиент. Изменений минимум: переименовать `Bank Accounts` → `Corporate Bank Accounts (EU / Asia / USA / Offshore)` для соответствия ТЗ. Добавить hint `Crypto-friendly` — добавим как 5-й пункт `Crypto-Friendly Banks` со ссылкой на `/accounts-bank` (пока тот же URL; отдельная страница — отдельная задача).
+
+### 3.5 Страница `/accounts-bank`
+В рамках этой итерации — **минимально**: добавить разделы Merchant Accounts и PSP integrations как короткие блоки с кросс-ссылками на `/opening-a-merchant-account` и `/provider-payment-systems` (уже существующие страницы). Полноценный рерайт контента — отдельная задача (флагнем клиенту).
+
+---
+
+## Файлы, которые будут затронуты
+
+**Новые:**
+- `src/components/ConsultationDialog.tsx` — popup-форма + provider/контекст
+- `src/hooks/useConsultation.tsx` — хук `openConsultation({service})`
+
+**Изменения:**
+- `src/App.tsx` — обернуть в `ConsultationProvider`
+- `src/components/HeroContent.tsx` — кнопки + чип Banking
+- `src/components/Navbar.tsx` — заменить локальный диалог на общий, переименование Ready-Made, добавить Crypto-Friendly Banks
+- `src/components/Footer.tsx` — UK-реквизит + новая структура Services
+- `src/components/OurServicesSection.tsx` — порядок и тексты карточек
+- `src/components/LicensePageTemplate.tsx`, `src/components/templates/ServiceDetailPage.tsx`, `src/components/templates/LicenseDetailPage.tsx` — заменить локальные CTA на `openConsultation`
+- `src/pages/AccountsBankPage` (или соответствующая) — добавить блоки Merchant/PSP
+
+---
+
+## Что вне итерации (флагнем клиенту)
+
+- **Pipedrive интеграция**: требуется API-ключ + endpoint Edge Function. Сделаем после получения доступа.
+- **Полноценный country-picker для phone**: пока простой `tel` input с placeholder `+44 20 ...`. При желании добавим `react-phone-number-input` отдельной задачей.
+- **Реальные Telegram/WhatsApp ссылки**: нужны username/номер от клиента. Пока в коде placeholder с TODO.
+- **Полный рерайт `/accounts-bank`** + новые URLs `/merchant-accounts`, `/psp-payment-solutions`: предлагаем после согласования копирайта.
+- **Расширение страницы `/contact`** (офисы UK + HK, карта, часы работы): отдельная задача.
+
+---
+
+Подтвердите план — и я приступаю к реализации.

@@ -8,6 +8,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AIConsultant from "./components/ui/AIConsultant";
+import ConsultationDialog from "./components/ConsultationDialog";
+import { ConsultationProvider } from "./hooks/useConsultation";
 
 // --- Lazy page imports (default exports) ---
 const NotFoundPage = React.lazy(() => import("./pages/NotFound"));
@@ -180,6 +182,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ConsultationProvider>
         <ScrollToTop />
         <Navbar />
         <main>
@@ -380,6 +383,8 @@ const App = () => (
         </main>
         <Footer />
         <AIConsultant />
+        <ConsultationDialog />
+        </ConsultationProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

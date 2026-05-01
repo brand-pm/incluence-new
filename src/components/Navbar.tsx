@@ -1,8 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useCallback, useEffect } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import FormBlock from "@/components/FormBlock";
 import { ChevronDown, Menu, X, Send, Phone, ArrowUpRight, Check } from "lucide-react";
+import { useConsultation } from "@/hooks/useConsultation";
 
 /* ─────────── DATA ─────────── */
 
@@ -28,6 +27,7 @@ const COMPANY_FLAT: FlatItem[] = [
   { label: "EU Jurisdictions", href: "/company-registration-in-europe", hint: "12 member states" },
   { label: "Worldwide (Asia & Americas)", href: "/registration-of-companies-abroad", hint: "Singapore · UAE · HK · CA" },
   { label: "Offshore", href: "/offshore-company-formation", hint: "BVI · Cayman · Seychelles" },
+  { label: "Ready-Made Companies", href: "/marketplace", hint: "Buy / sell incorporated entities" },
 ];
 
 const RESOURCES_FLAT: FlatItem[] = [
@@ -46,10 +46,11 @@ const SERVICES_GROUPED: ServiceGroup[] = [
   {
     title: "Banking & Payments",
     items: [
-      { label: "Bank Accounts", href: "/accounts-bank", hint: "Corporate accounts in 15+ countries" },
+      { label: "Corporate Bank Accounts", href: "/accounts-bank", hint: "EU · Asia · USA · Offshore" },
       { label: "Merchant Account", href: "/opening-a-merchant-account", hint: "High-risk & e-commerce" },
+      { label: "PSP & Payment Infrastructure", href: "/provider-payment-systems", hint: "Cyprus · Lithuania · UK · Czech" },
       { label: "Payment Systems", href: "/open-an-account-in-a-payment-system", hint: "Wise · PayPal · Revolut · Payoneer" },
-      { label: "PSP License", href: "/provider-payment-systems", hint: "Cyprus · Lithuania · UK · Czech" },
+      { label: "Crypto-Friendly Banks", href: "/accounts-bank", hint: "Banking for VASP & exchanges" },
     ],
   },
   {
@@ -109,10 +110,10 @@ type MenuKey = "licenses" | "company" | "services" | "resources" | "lang";
 
 const Navbar = () => {
   const location = useLocation();
+  const { open: openConsult } = useConsultation();
   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
-  const [projectDialogOpen, setProjectDialogOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState<"EN" | "RU">("EN");
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -412,7 +413,7 @@ const Navbar = () => {
           </div>
 
           <NavDirectLink to="/mica-license" label="MiCA" active={isMicaActive} hot title="July 2026 deadline" />
-          <NavDirectLink to="/marketplace" label="Ready-Made" active={isReadyMadeActive} />
+          <NavDirectLink to="/marketplace" label="Ready-Made Company" active={isReadyMadeActive} />
 
           <div className="relative" onMouseEnter={() => openMenu("services")} onMouseLeave={scheduleClose}>
             <NavButton k="services" label="Services" active={isServicesActive} />
@@ -529,7 +530,7 @@ const Navbar = () => {
           </a>
 
           <button
-            onClick={() => { trackNav("CTA: Get Free Consultation"); setProjectDialogOpen(true); }}
+            onClick={() => { trackNav("CTA: Get Free Consultation"); openConsult(); }}
             className="cursor-pointer border-0"
             style={{
               background: C_ACCENT,
@@ -626,7 +627,7 @@ const Navbar = () => {
             className="no-underline block"
             style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontSize: 13, color: C_TEXT, fontWeight: 500 }}
           >
-            Ready-Made
+            Ready-Made Company
           </Link>
 
           {/* Services accordion */}
@@ -766,7 +767,7 @@ const Navbar = () => {
           }}
         >
           <button
-            onClick={() => { setMobileOpen(false); trackNav("CTA: Get Free Consultation (mobile)"); setProjectDialogOpen(true); }}
+            onClick={() => { setMobileOpen(false); trackNav("CTA: Get Free Consultation (mobile)"); openConsult(); }}
             className="w-full cursor-pointer border-0"
             style={{
               background: C_ACCENT,
@@ -785,29 +786,7 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* ─────────── DIALOG ─────────── */}
-      <Dialog open={projectDialogOpen} onOpenChange={setProjectDialogOpen}>
-        <DialogContent
-          className="border-white/[0.08] p-5 sm:p-8 max-w-lg w-[calc(100%-2rem)] max-h-[90vh] overflow-y-auto"
-          style={{ background: "#080808", fontFamily: "Manrope, sans-serif" }}
-        >
-          <DialogHeader>
-            <DialogTitle className="text-[#F0EBE0] text-[18px] sm:text-[20px] font-light tracking-tight">
-              {CTA_LABEL}
-            </DialogTitle>
-            <p className="text-[#9A9590] text-[13px] mt-1">
-              Fill in the details and we'll get back to you within 24 hours.
-            </p>
-          </DialogHeader>
-          <div className="mt-4">
-            <FormBlock
-              bgColor="#080808"
-              fields={["Full Name", "Email", "Company Name", "Service Interest"]}
-              buttonText="SEND REQUEST →"
-            />
-          </div>
-        </DialogContent>
-      </Dialog>
+      {/* Consultation popup is rendered globally in App.tsx */}
     </>
   );
 };
