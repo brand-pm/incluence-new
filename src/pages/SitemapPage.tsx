@@ -52,6 +52,7 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Malta Crypto License", url: "/cryptocurrency-license-in-malta", status: "done", category: "Crypto" },
   { title: "Poland Crypto License", url: "/poland-crypto-license", status: "done", category: "Crypto" },
   { title: "USA Crypto License", url: "/cryptocurrency-exchange-license-in-the-usa", status: "done", category: "Crypto" },
+  { title: "MiCA License (EU)", url: "/mica-license", status: "done", category: "Crypto", isNew: true },
 
   // ── EMI ──
   { title: "EMI License (Hub)", url: "/emi-license", status: "done", category: "EMI" },
