@@ -110,10 +110,10 @@ type MenuKey = "licenses" | "company" | "services" | "resources" | "lang";
 
 const Navbar = () => {
   const location = useLocation();
+  const { open: openConsult } = useConsultation();
   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
-  const [projectDialogOpen, setProjectDialogOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState<"EN" | "RU">("EN");
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -530,7 +530,7 @@ const Navbar = () => {
           </a>
 
           <button
-            onClick={() => { trackNav("CTA: Get Free Consultation"); setProjectDialogOpen(true); }}
+            onClick={() => { trackNav("CTA: Get Free Consultation"); openConsult(); }}
             className="cursor-pointer border-0"
             style={{
               background: C_ACCENT,
