@@ -110,7 +110,7 @@ const COMPANY_FLAT: FlatItem[] = [
 ];
 
 const RESOURCES_FLAT: FlatItem[] = [
-  { label: "About", href: "/about", hint: "Team & approach" },
+  { label: "About", href: "/about-us", hint: "Team & approach" },
   { label: "Blog", href: "/blog", hint: "Insights & analysis" },
   { label: "Affiliate Program", href: "/affiliate-program", hint: "Partner with us" },
   { label: "Contacts", href: "/contact", hint: "Get in touch" },
