@@ -21,13 +21,87 @@ const LICENSES_FLAT: FlatItem[] = [
   { label: "Forex", href: "/forex-license", hint: "Brokerage licensing" },
 ];
 
+const COMPANY_GROUPED: ServiceGroup[] = [
+  {
+    title: "EU Jurisdictions",
+    items: [
+      { label: "Estonia", href: "/open-a-company-in-estonia", hint: "OÜ · e-Residency" },
+      { label: "Lithuania", href: "/register-company-in-lithuania", hint: "UAB · Fintech-friendly" },
+      { label: "Cyprus", href: "/company-registration-in-cyprus", hint: "12.5% corporate tax" },
+      { label: "Malta", href: "/company-registration-in-malta", hint: "EU passport" },
+      { label: "Czechia", href: "/company-registration-in-czechia", hint: "s.r.o." },
+      { label: "Poland", href: "/company-registration-in-poland", hint: "Sp. z o.o." },
+      { label: "Ireland", href: "/company-registration-in-ireland", hint: "Tech & holding" },
+      { label: "Germany", href: "/company-registration-in-germany", hint: "GmbH · UG" },
+      { label: "Netherlands", href: "/company-registration-netherlands", hint: "BV" },
+      { label: "Luxembourg", href: "/company-registration-in-luxembourg", hint: "Holdings & funds" },
+      { label: "Portugal", href: "/company-registration-portugal", hint: "Lda" },
+      { label: "Bulgaria", href: "/register-company-in-bulgaria", hint: "10% flat tax" },
+      { label: "Hungary", href: "/starting-a-business-in-hungary", hint: "9% corporate tax" },
+      { label: "All EU →", href: "/company-registration-in-europe", hint: "Compare jurisdictions" },
+    ],
+  },
+  {
+    title: "Non-EU Europe",
+    items: [
+      { label: "UK", href: "/register-company-in-uk", hint: "LTD · LLP" },
+      { label: "Switzerland", href: "/register-company-in-switzerland", hint: "AG · GmbH" },
+      { label: "Gibraltar", href: "/company-registration-in-gibraltar", hint: "Crypto-friendly" },
+      { label: "Croatia", href: "/company-registration-in-croatia", hint: "d.o.o." },
+      { label: "Montenegro", href: "/starting-a-business-in-montenegro", hint: "9% flat tax" },
+    ],
+  },
+  {
+    title: "Americas & Asia",
+    items: [
+      { label: "USA", href: "/open-company-in-usa", hint: "LLC · C-Corp" },
+      { label: "Canada", href: "/company-registration-in-canada", hint: "Federal · BC · Ontario" },
+      { label: "UAE", href: "/register-company-in-uae", hint: "Mainland · Free Zone" },
+      { label: "Hong Kong", href: "/register-company-in-hong-kong", hint: "Trading hub" },
+      { label: "Singapore", href: "/register-company-in-singapore", hint: "Pte Ltd" },
+      { label: "Malaysia", href: "/malaysia-company-registration", hint: "Sdn Bhd · Labuan" },
+      { label: "Thailand", href: "/open-a-company-in-thailand", hint: "Co., Ltd." },
+      { label: "China", href: "/company-registration-in-china", hint: "WFOE" },
+      { label: "All Worldwide →", href: "/registration-of-companies-abroad", hint: "Asia & Americas hub" },
+    ],
+  },
+  {
+    title: "Offshore Jurisdictions",
+    items: [
+      { label: "BVI", href: "/offshore-in-the-british-virgin-islands", hint: "BC · Zero tax" },
+      { label: "Cayman Islands", href: "/offshore-in-the-cayman-islands", hint: "Funds & holdings" },
+      { label: "Seychelles", href: "/offshore-company-formation-in-seychelles", hint: "IBC" },
+      { label: "Panama", href: "/panama-company-formation", hint: "Territorial tax" },
+      { label: "Curaçao", href: "/offshore-company-formation-in-curacao", hint: "iGaming-friendly" },
+      { label: "Costa Rica", href: "/offshore-costa-rica", hint: "SRL" },
+      { label: "Isle of Man", href: "/offshore-in-the-isle-of-man", hint: "Crown Dependency" },
+      { label: "St Vincent", href: "/offshore-company-formation-in-st-vincent-and-the-grenadines", hint: "BC" },
+      { label: "Cyprus Offshore", href: "/cyprus-offshore-company-formation", hint: "Non-dom" },
+      { label: "All Offshore →", href: "/offshore-company-formation", hint: "Compare offshore" },
+    ],
+  },
+  {
+    title: "Buy / Sell Ready-Made",
+    items: [
+      { label: "Ready-Made Offshore", href: "/ready-made-offshore-companies", hint: "Aged BC entities", hot: true },
+      { label: "Marketplace", href: "/marketplace", hint: "Browse all listings" },
+      { label: "Buy a Business Abroad", href: "/buy-a-business-abroad", hint: "M&A advisory" },
+      { label: "Estonia (Ready-Made)", href: "/buy-company-in-estonia", hint: "Aged OÜ" },
+      { label: "Hong Kong (Ready-Made)", href: "/buy-ready-made-company-in-hong-kong", hint: "Aged Ltd" },
+      { label: "UK (Ready-Made)", href: "/purchase-a-company-in-england", hint: "Aged LTD" },
+      { label: "UAE (Ready-Made)", href: "/purchase-of-a-company-in-the-uae", hint: "Free Zone" },
+      { label: "USA (Ready-Made)", href: "/purchase-of-a-company-in-the-usa", hint: "Aged LLC" },
+    ],
+  },
+];
+
+// Flat list kept for active-state detection across all Company links
 const COMPANY_FLAT: FlatItem[] = [
-  { label: "UK", href: "/register-company-in-uk", hint: "LTD · LLP" },
-  { label: "USA", href: "/open-company-in-usa", hint: "LLC · C-Corp" },
-  { label: "EU Jurisdictions", href: "/company-registration-in-europe", hint: "12 member states" },
-  { label: "Worldwide (Asia & Americas)", href: "/registration-of-companies-abroad", hint: "Singapore · UAE · HK · CA" },
-  { label: "Offshore", href: "/offshore-company-formation", hint: "BVI · Cayman · Seychelles" },
-  { label: "Ready-Made Companies", href: "/marketplace", hint: "Buy / sell incorporated entities" },
+  { label: "Hub", href: "/registration-of-companies-abroad" },
+  { label: "EU Hub", href: "/company-registration-in-europe" },
+  { label: "Offshore Hub", href: "/offshore-company-formation" },
+  { label: "Ready-Made Offshore", href: "/ready-made-offshore-companies" },
+  { label: "Marketplace", href: "/marketplace" },
 ];
 
 const RESOURCES_FLAT: FlatItem[] = [
