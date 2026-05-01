@@ -406,62 +406,106 @@ const SitemapPage = () => {
                       style={{
                         background: "#080808",
                         display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        padding: "12px 20px",
+                        flexDirection: "column",
+                        gap: 8,
+                        padding: "14px 20px",
                         cursor: "pointer",
                         transition: "background 0.2s",
                       }}
                       onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#0d0d0d")}
                       onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#080808")}
                     >
-                      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-                        <StatusDot status={p.status} />
-                        <span
-                          className="group-hover:text-[#444CE7]"
-                          style={{
-                            fontSize: 13,
-                            fontWeight: 500,
-                            color: "#F0EBE0",
-                            transition: "color 0.2s",
-                          }}
-                        >
-                          {p.title}
-                        </span>
-                        {p.isNew && (
+                      {/* Row 1: title + url + status */}
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: 16, minWidth: 0 }}>
+                          <StatusDot status={p.status} />
+                          <span
+                            className="group-hover:text-[#444CE7]"
+                            style={{
+                              fontSize: 13,
+                              fontWeight: 500,
+                              color: "#F0EBE0",
+                              transition: "color 0.2s",
+                            }}
+                          >
+                            {p.title}
+                          </span>
+                          {p.isNew && (
+                            <span
+                              style={{
+                                fontSize: 9,
+                                fontWeight: 600,
+                                letterSpacing: "0.12em",
+                                textTransform: "uppercase",
+                                color: "#444CE7",
+                                border: "1px solid #444CE7",
+                                padding: "2px 6px",
+                              }}
+                            >
+                              New
+                            </span>
+                          )}
+                        </div>
+                        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                          <span
+                            style={{
+                              fontSize: 11,
+                              color: "#5A5550",
+                              fontFamily: "monospace",
+                            }}
+                            className="hidden sm:inline"
+                          >
+                            {p.url}
+                          </span>
+                          <StatusBadge status={p.status} />
+                          <span
+                            className="opacity-0 group-hover:opacity-100"
+                            style={{ color: "#444CE7", fontSize: 13, transition: "opacity 0.2s" }}
+                          >
+                            →
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Row 2: placement badges */}
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, paddingLeft: 18 }}>
+                        {p.placement && p.placement.length > 0 ? (
+                          p.placement.map((loc) => {
+                            const isNav = loc.startsWith("Nav");
+                            const color = isNav ? "#22c55e" : "#f59e0b";
+                            const border = isNav ? "rgba(34,197,94,0.3)" : "rgba(245,158,11,0.3)";
+                            return (
+                              <span
+                                key={loc}
+                                style={{
+                                  fontSize: 9,
+                                  textTransform: "uppercase",
+                                  letterSpacing: "0.08em",
+                                  color,
+                                  border: `1px solid ${border}`,
+                                  padding: "2px 7px",
+                                  fontWeight: 500,
+                                }}
+                              >
+                                {loc}
+                              </span>
+                            );
+                          })
+                        ) : (
                           <span
                             style={{
                               fontSize: 9,
-                              fontWeight: 600,
-                              letterSpacing: "0.12em",
                               textTransform: "uppercase",
-                              color: "#444CE7",
-                              border: "1px solid #444CE7",
-                              padding: "2px 6px",
+                              letterSpacing: "0.08em",
+                              color: "#5A5550",
+                              border: "1px solid rgba(255,255,255,0.08)",
+                              padding: "2px 7px",
+                              fontWeight: 500,
                             }}
                           >
-                            New
+                            Orphan · Direct URL only
                           </span>
                         )}
-                      </div>
-                      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-                        <span
-                          style={{
-                            fontSize: 11,
-                            color: "#5A5550",
-                            fontFamily: "monospace",
-                          }}
-                          className="hidden sm:inline"
-                        >
-                          {p.url}
-                        </span>
-                        <StatusBadge status={p.status} />
-                        <span
-                          className="opacity-0 group-hover:opacity-100"
-                          style={{ color: "#444CE7", fontSize: 13, transition: "opacity 0.2s" }}
-                        >
-                          →
-                        </span>
                       </div>
                     </div>
                   ))}
