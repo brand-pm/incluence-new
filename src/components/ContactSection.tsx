@@ -18,7 +18,7 @@ const ContactSection = () => (
           </div>
           <input placeholder="Company Name" className="w-full bg-card border border-border text-body-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none" style={{ padding: "var(--space-3) var(--space-4)" }} />
           <textarea rows={4} placeholder="Tell us about your project..." className="w-full bg-card border border-border text-body-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none resize-none" style={{ padding: "var(--space-3) var(--space-4)" }} />
-          <button type="submit" className="btn-primary self-start">Send Message</button>
+          <button type="submit" className="btn-primary self-start">Get Free Consultation</button>
         </form>
       </div>
     </div>

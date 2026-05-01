@@ -281,7 +281,7 @@ const AffiliatePage = () => {
                 type="submit"
                 className="w-full bg-[#444CE7] text-white text-[13px] font-medium px-7 py-3 hover:bg-[#3940c1] transition-colors"
               >
-                Submit Application →
+                Get Free Consultation →
               </button>
             </div>
           </form>

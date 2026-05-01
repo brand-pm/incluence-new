@@ -556,7 +556,7 @@ const LicensePageTemplate = ({
                   />
                 </div>
                 <button className="w-full py-3.5 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors border-0 cursor-pointer mt-2">
-                  Send Message →
+                  Get Free Consultation →
                 </button>
                 <p className="text-[11px] text-[#5A5550] text-center mt-3">
                   Typically respond within 2 business hours

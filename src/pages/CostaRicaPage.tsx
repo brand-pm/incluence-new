@@ -313,7 +313,7 @@ const CostaRicaPage = () => {
             <Input placeholder="Phone" type="tel" className="bg-[hsl(var(--bg-2))] border-[hsl(var(--border-default))] text-[hsl(var(--text-primary))] placeholder:text-[hsl(var(--text-muted))] rounded-none h-11 text-sm" />
             <Textarea placeholder="Message" className="bg-[hsl(var(--bg-2))] border-[hsl(var(--border-default))] text-[hsl(var(--text-primary))] placeholder:text-[hsl(var(--text-muted))] rounded-none min-h-[120px] text-sm" />
             <Button className="w-full bg-[hsl(var(--accent))] hover:bg-[hsl(var(--accent-hover))] text-white text-xs font-medium uppercase tracking-wider rounded-none h-11">
-              Send Message →
+              Get Free Consultation →
             </Button>
           </div>
         </div>
