@@ -735,7 +735,6 @@ const Navbar = () => {
         >
           {([
             { key: "licenses", title: "Licenses", items: LICENSES_FLAT },
-            { key: "company", title: "Company Formation", items: COMPANY_FLAT },
           ] as { key: string; title: string; items: FlatItem[] }[]).map((sec) => (
             <div key={sec.key}>
               <button
@@ -769,6 +768,44 @@ const Navbar = () => {
               )}
             </div>
           ))}
+
+          {/* Company Formation accordion (grouped by region) */}
+          <button
+            onClick={() => setMobileExpanded(mobileExpanded === "company" ? null : "company")}
+            className="flex items-center justify-between w-full bg-transparent border-0 cursor-pointer"
+            style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontFamily: "inherit" }}
+          >
+            <span style={{ fontSize: 11, color: C_ACCENT, textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600 }}>
+              — Company Formation
+            </span>
+            <ChevronDown
+              size={14}
+              style={{ color: C_DIM, transition: "transform .2s", transform: mobileExpanded === "company" ? "rotate(180deg)" : "rotate(0)" }}
+            />
+          </button>
+          {mobileExpanded === "company" && (
+            <div style={{ padding: "8px 0 12px" }}>
+              {COMPANY_GROUPED.map((g) => (
+                <div key={g.title} style={{ marginBottom: 12 }}>
+                  <div style={{ fontSize: 10, color: C_MUTED, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 6 }}>
+                    {g.title}
+                  </div>
+                  {g.items.map((it) => (
+                    <Link
+                      key={it.href + it.label}
+                      to={it.href}
+                      onClick={() => { trackNav(`mobile: Company › ${g.title}: ${it.label}`); closeAll(); }}
+                      className="no-underline block"
+                      style={{ padding: "8px 0", fontSize: 13, color: C_TEXT }}
+                    >
+                      {it.label}
+                      {it.hint && <div style={{ fontSize: 11, color: C_MUTED, marginTop: 2 }}>{it.hint}</div>}
+                    </Link>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* MiCA + Ready-Made direct */}
           <Link
