@@ -113,6 +113,8 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "China Company", url: "/company-registration-in-china", status: "done", category: "Company Reg" },
   { title: "Canada Company", url: "/company-registration-in-canada", status: "done", category: "Company Reg" },
   { title: "Czechia Company", url: "/company-registration-in-czechia", status: "done", category: "Company Reg" },
+  { title: "Malaysia Company (alt)", url: "/company-registration-in-malaysia", status: "done", category: "Company Reg", isNew: true },
+  { title: "Netherlands Company (alt)", url: "/company-registration-in-the-netherlands", status: "done", category: "Company Reg", isNew: true },
 
   // ── READY-MADE ──
   { title: "Ready-Made Companies (Hub)", url: "/buy-a-business-abroad", status: "done", category: "Ready-Made" },
