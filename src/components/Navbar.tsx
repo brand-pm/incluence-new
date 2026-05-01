@@ -216,7 +216,8 @@ const Navbar = () => {
   const flatPaths = (arr: FlatItem[]) => arr.map(i => i.href);
   const groupedPaths = SERVICES_GROUPED.flatMap(g => g.items.map(i => i.href));
   const isLicensesActive = flatPaths(LICENSES_FLAT).includes(location.pathname) || activeMenu === "licenses";
-  const isCompanyActive = flatPaths(COMPANY_FLAT).includes(location.pathname) || activeMenu === "company";
+  const companyGroupedPaths = COMPANY_GROUPED.flatMap(g => g.items.map(i => i.href));
+  const isCompanyActive = flatPaths(COMPANY_FLAT).includes(location.pathname) || companyGroupedPaths.includes(location.pathname) || activeMenu === "company";
   const isServicesActive = groupedPaths.includes(location.pathname) || activeMenu === "services";
   const isResourcesActive = flatPaths(RESOURCES_FLAT).includes(location.pathname) || activeMenu === "resources";
   const isMicaActive = location.pathname === "/mica-license";
