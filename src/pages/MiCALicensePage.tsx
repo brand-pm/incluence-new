@@ -575,7 +575,7 @@ const MiCALicensePage = () => {
                   boxShadow: "0 0 0 1px rgba(68,76,231,0.4), 0 8px 24px rgba(68,76,231,0.25)",
                 }}
               >
-                Book a Free Consultation <ArrowUpRight size={16} />
+                Get Free Consultation <ArrowUpRight size={16} />
               </button>
               <a
                 href="#"

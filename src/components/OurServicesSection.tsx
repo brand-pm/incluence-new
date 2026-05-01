@@ -93,7 +93,7 @@ const OurServicesSection = () => (
           className="btn-primary inline-flex items-center gap-2"
           style={{ padding: "12px 24px", fontSize: 11, textDecoration: "none" }}
         >
-          Talk to a specialist <ArrowRight size={13} />
+          Get Free Consultation <ArrowRight size={13} />
         </Link>
       </div>
     </div>

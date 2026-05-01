@@ -602,7 +602,7 @@ const Marketplace = () => {
           {faqs.map((faq, i) => <FaqItem key={i} q={faq.q} a={faq.a} />)}
           <div style={{ marginTop: 32 }}>
             <Link to="/" className="inline-flex items-center gap-1 hover:underline" style={{ fontSize: 13, color: "hsl(var(--accent))", textDecoration: "none", fontWeight: 500 }}>
-              Have more questions? <ArrowRight size={12} /> Talk to a specialist
+              Have more questions? <ArrowRight size={12} /> Get Free Consultation
             </Link>
           </div>
         </div>

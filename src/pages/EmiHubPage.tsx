@@ -123,7 +123,7 @@ const EmiHubPage = () => {
             Electronic money is increasingly being used in domestic and international transactions. Compared to any other forms of payment, they have several benefits. An EMI license authorizes your company to issue electronic money, open and manage e-wallets for clients, provide payment services, and create payment systems. Our managers are always ready to give you a piece of advice on the implementation and licensing of this payment system.
           </p>
           <div className="flex gap-4 flex-wrap">
-            <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Consultation →</Link>
+            <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get Free Consultation →</Link>
             <a href="#jurisdictions" className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all inline-block">View Jurisdictions</a>
           </div>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
