@@ -135,7 +135,7 @@ const OffshoreFormationPage = () => {
             Today, companies registered in offshore jurisdictions can open an account that enables firms to conduct payment transactions. Personal data of customers are not disclosed, and any person can open an offshore account. However, please note that the requirements of banks for corporate clients and individuals can vary greatly.
           </p>
           <div className="flex gap-3">
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</Link>
             <button className="text-[13px] text-[#9A9590] border border-white/[0.08] px-6 py-3 hover:border-white/[0.16] transition-colors bg-transparent">View Jurisdictions</button>
           </div>
 
@@ -255,7 +255,7 @@ const OffshoreFormationPage = () => {
                     </div>
                   ))}
                 </div>
-                <Link to="/contact" className="block w-full text-center bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors mt-6">Discuss the Project →</Link>
+                <Link to="/contact" className="block w-full text-center bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors mt-6">Get Free Consultation →</Link>
               </div>
             </div>
           </div>
@@ -298,7 +298,7 @@ const OffshoreFormationPage = () => {
               <input value={form.activity} onChange={e => setForm({ ...form, activity: e.target.value })} placeholder="Business Activity" className="col-span-1 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors" />
               <input value={form.shareholders} onChange={e => setForm({ ...form, shareholders: e.target.value })} placeholder="Number of Shareholders" className="col-span-1 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors" />
               <textarea value={form.details} onChange={e => setForm({ ...form, details: e.target.value })} rows={4} placeholder="Describe your goals — asset protection, payment operations, confidentiality..." className="col-span-2 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors resize-none" />
-              <button type="submit" className="col-span-2 md:col-span-1 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</button>
+              <button type="submit" className="col-span-2 md:col-span-1 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</button>
             </form>
           </div>
         </div>

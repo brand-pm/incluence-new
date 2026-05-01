@@ -195,7 +195,7 @@ const JurisdictionComparison = () => {
             className="no-underline shrink-0 transition-colors"
             style={{ padding: '10px 24px', background: '#444CE7', color: '#fff', fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.07em', textDecoration: 'none' }}
           >
-            Get Full Analysis →
+            Get Free Consultation →
           </Link>
         </div>
       </div>

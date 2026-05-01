@@ -117,7 +117,7 @@ const MerchantAccountPage = () => {
             Merchant Account registration is a popular service among entrepreneurs, especially in the context of online business. With a merchant account, you can accept online payments from clients and efficiently process online transactions. Our experts will answer all questions and handle the full registration procedure.
           </p>
           <div className="flex gap-4">
-            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">Discuss the Project →</Link>
+            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">Get Free Consultation →</Link>
             <button className="btn-secondary" onClick={() => document.getElementById("requirements")?.scrollIntoView({ behavior: "smooth" })}>View Requirements</button>
           </div>
 
@@ -316,7 +316,7 @@ const MerchantAccountPage = () => {
               <input type="text" placeholder="Country of Registration" value={form.country} onChange={e => setForm({...form, country: e.target.value})} className="bg-[hsl(var(--bg-2))] border border-white/[0.06] px-4 py-3 text-[13px] text-[hsl(var(--text-primary))] placeholder:text-[hsl(var(--text-muted))] focus:border-[hsl(var(--accent))]/40 outline-none transition-colors" />
               <input type="text" placeholder="Business Type" value={form.type} onChange={e => setForm({...form, type: e.target.value})} className="bg-[hsl(var(--bg-2))] border border-white/[0.06] px-4 py-3 text-[13px] text-[hsl(var(--text-primary))] placeholder:text-[hsl(var(--text-muted))] focus:border-[hsl(var(--accent))]/40 outline-none transition-colors" />
               <textarea placeholder="Describe your business activity, required currencies, monthly volumes..." value={form.details} onChange={e => setForm({...form, details: e.target.value})} rows={4} className="col-span-2 bg-[hsl(var(--bg-2))] border border-white/[0.06] px-4 py-3 text-[13px] text-[hsl(var(--text-primary))] placeholder:text-[hsl(var(--text-muted))] focus:border-[hsl(var(--accent))]/40 outline-none transition-colors resize-none" />
-              <button type="submit" className="btn-primary col-span-2">Discuss the Project →</button>
+              <button type="submit" className="btn-primary col-span-2">Get Free Consultation →</button>
             </form>
           </div>
         </div>

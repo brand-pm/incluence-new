@@ -62,7 +62,7 @@ const ForeignBankAccountPage = () => {
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
             Incluence provides services in areas such as international tax planning, asset protection, registration and maintenance of foreign companies, and more.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
+          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</Link>
         </div>
       </section>
 
@@ -104,7 +104,7 @@ const ForeignBankAccountPage = () => {
                 <p className="text-[14px] font-semibold text-[#F0EBE0] mb-3">Easier Online Option</p>
                 <p className="text-[13px] text-[#9A9590] leading-relaxed mb-4">Yes. Payment systems usually open accounts online.</p>
                 <p className="text-[13px] text-[#9A9590] leading-relaxed">We work with various payment systems registered in the EU, USA, UK, Hong Kong, Singapore, and other countries. We can easily select a payment system that matches the specifics of your company, available currencies, regions of payment availability, and other factors.</p>
-                <Link to="/contact" className="block w-full text-center bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors mt-6">Discuss the Project →</Link>
+                <Link to="/contact" className="block w-full text-center bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors mt-6">Get Free Consultation →</Link>
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@ const ForeignBankAccountPage = () => {
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
             <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Open Your Foreign Bank Account</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed mb-8">Contact us to discuss your banking needs. We'll handle document preparation and bank selection.</p>
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</Link>
           </div>
         </div>
       </section>

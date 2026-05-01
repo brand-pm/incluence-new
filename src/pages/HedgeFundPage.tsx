@@ -131,7 +131,7 @@ const HedgeFundPage = () => {
             A hedge fund is a private investment vehicle for specific investors. Such funds are generally not subject to strict regulation and are not accessible to a wide range of individuals. At the same time, hedge funds are often used for effective management of third-party funds, protection of personal assets, raising capital from private individuals and professional investors, ensuring confidentiality of ownership of foreign companies, and more.
           </p>
           <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">
-            Discuss the Project →
+            Get Free Consultation →
           </Link>
 
           {/* STATS */}
@@ -284,7 +284,7 @@ const HedgeFundPage = () => {
                     If you want precise information on the cost of opening a hedge fund, our managers are always ready to assist. We provide comprehensive consulting and legal services, prepare and process all necessary documents, and register the fund in the jurisdiction of your choice. On average, registration takes 1.5–2 months, but timelines may vary. Please clarify during consultation.
                   </p>
                   <Link to="/contact" className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">
-                    Discuss the Project →
+                    Get Free Consultation →
                   </Link>
                 </div>
               </div>
@@ -335,7 +335,7 @@ const HedgeFundPage = () => {
             </div>
             <textarea value={form.details} onChange={e => setForm({ ...form, details: e.target.value })} placeholder="Describe your fund goals — investment strategy, capital size, investor base..." rows={4} className="w-full bg-[#111111] border border-white/[0.06] px-4 py-3 text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] outline-none focus:border-[#444CE7]/40 transition-colors resize-none mb-4" />
             <button className="bg-[#444CE7] text-white text-[13px] font-medium px-8 py-3 hover:bg-[#3B41C9] transition-colors">
-              Discuss the Project →
+              Get Free Consultation →
             </button>
           </div>
         </div>

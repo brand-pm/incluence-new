@@ -94,7 +94,7 @@ const LegalBusinessPage = () => {
             Ensuring that your business operates legitimately according to international law. A correctly designed legal structure helps develop trust in your business in the country it operates and internationally — and allows you to attract more customers.
           </p>
           <div className="flex gap-3">
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</Link>
             <button className="text-[13px] text-[#9A9590] border border-white/[0.08] px-6 py-3 hover:border-white/[0.16] transition-colors bg-transparent">Learn More</button>
           </div>
         </div>
@@ -162,7 +162,7 @@ const LegalBusinessPage = () => {
                 <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Free Consultation</span>
                 <p className="text-[18px] font-light text-[#F0EBE0] mb-3">Ready to Legitimize Your Business?</p>
                 <p className="text-[13px] text-[#9A9590] leading-relaxed mb-6">Submit an application and we will take care of the rest. Initial consultation is free and without obligation.</p>
-                <Link to="/contact" className="block w-full text-center bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
+                <Link to="/contact" className="block w-full text-center bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</Link>
                 <div className="mt-6 pt-6 border-t border-white/[0.06] grid grid-cols-2 gap-4">
                   <div><span className="block text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">Response time</span><span className="text-[14px] text-[#F0EBE0]">Within 24 hours</span></div>
                   <div><span className="block text-[11px] text-[#5A5550] uppercase tracking-[0.08em]">Consultation</span><span className="text-[14px] text-[#F0EBE0]">Free</span></div>
@@ -188,7 +188,7 @@ const LegalBusinessPage = () => {
               <input value={form.country} onChange={e => setForm({ ...form, country: e.target.value })} placeholder="Country of Operation" className="col-span-1 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors" />
               <input value={form.type} onChange={e => setForm({ ...form, type: e.target.value })} placeholder="Business Type" className="col-span-1 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors" />
               <textarea value={form.details} onChange={e => setForm({ ...form, details: e.target.value })} rows={4} placeholder="Describe your business — current structure, target markets, main issues..." className="col-span-2 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors resize-none" />
-              <button type="submit" className="col-span-2 md:col-span-1 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</button>
+              <button type="submit" className="col-span-2 md:col-span-1 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</button>
             </form>
           </div>
         </div>

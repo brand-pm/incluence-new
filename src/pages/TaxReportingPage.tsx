@@ -80,7 +80,7 @@ const TaxReportingPage = () => {
           <p className="text-[15px] text-[#9A9590] max-w-[520px] mb-10 leading-[1.8]">
             Setting up correct accounting procedures, helping prepare quality financial statements, controlling timely filing of tax returns and tax payments. Strategic tax planning for your business across multiple jurisdictions.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
+          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</Link>
 
           {/* Stats */}
           <div className="mt-12 bg-[rgba(255,255,255,0.06)] grid grid-cols-1 md:grid-cols-3 gap-px">
@@ -151,7 +151,7 @@ const TaxReportingPage = () => {
               <input value={form.country} onChange={e => setForm({ ...form, country: e.target.value })} placeholder="Country of Operation" className="col-span-1 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors" />
               <input value={form.type} onChange={e => setForm({ ...form, type: e.target.value })} placeholder="Reporting Type" className="col-span-1 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors" />
               <textarea value={form.details} onChange={e => setForm({ ...form, details: e.target.value })} rows={4} placeholder="Describe your current situation — jurisdictions, last filing, main challenges..." className="col-span-2 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors resize-none" />
-              <button type="submit" className="col-span-2 md:col-span-1 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</button>
+              <button type="submit" className="col-span-2 md:col-span-1 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</button>
             </form>
           </div>
         </div>

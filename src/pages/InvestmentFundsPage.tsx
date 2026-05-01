@@ -112,7 +112,7 @@ const InvestmentFundsPage = () => {
             The incluence company provides the following types of services in such areas as international tax planning, asset protection, registration of foreign companies and their maintenance, etc.
           </p>
           <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">
-            Discuss the Project →
+            Get Free Consultation →
           </Link>
 
           {/* STATS */}
@@ -202,7 +202,7 @@ const InvestmentFundsPage = () => {
             Contact our specialists to discuss your fund structure, jurisdiction, and timeline.
           </p>
           <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-8 py-3 hover:bg-[#3B41C9] transition-colors">
-            Discuss the Project →
+            Get Free Consultation →
           </Link>
         </div>
       </section>

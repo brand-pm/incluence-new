@@ -133,7 +133,7 @@ const ResidencePermitPage = () => {
             If you want to apply for a residence permit abroad, contact us. Incluence experts will handle document preparation, application submission, and provide support at all stages of the procedure. There are several ways to obtain a residence permit — each with its advantages and requirements.
           </p>
           <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">
-            Discuss the Project →
+            Get Free Consultation →
           </Link>
 
           {/* STATS */}
@@ -259,7 +259,7 @@ const ResidencePermitPage = () => {
                   </div>
                   <p className="text-[12px] text-[#5A5550] italic mt-4">The exact timeframes depend on the country and must be clarified individually.</p>
                   <Link to="/contact" className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3B41C9] transition-colors">
-                    Discuss the Project →
+                    Get Free Consultation →
                   </Link>
                 </div>
               </div>
@@ -310,7 +310,7 @@ const ResidencePermitPage = () => {
             </div>
             <textarea value={form.details} onChange={e => setForm({ ...form, details: e.target.value })} placeholder="Additional details — investment amount, employment status, family situation..." rows={4} className="w-full bg-[#111111] border border-white/[0.06] px-4 py-3 text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] outline-none focus:border-[#444CE7]/40 transition-colors resize-none mb-4" />
             <button className="bg-[#444CE7] text-white text-[13px] font-medium px-8 py-3 hover:bg-[#3B41C9] transition-colors">
-              Discuss the Project →
+              Get Free Consultation →
             </button>
           </div>
         </div>
