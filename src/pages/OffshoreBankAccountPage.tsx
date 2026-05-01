@@ -58,7 +58,7 @@ const OffshoreBankAccountPage = () => {
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
             Today, companies registered in offshore jurisdictions can open accounts that enable them to conduct payment operations. Clients' personal data is kept confidential, and anyone can open an offshore account. However, it is important to note that banks' requirements for corporate clients and individuals can vary significantly.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
+          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</Link>
         </div>
       </section>
 
@@ -107,7 +107,7 @@ const OffshoreBankAccountPage = () => {
                 <div className="mt-6 pt-6 border-t border-white/[0.06]">
                   <p className="text-[12px] text-[#5A5550] italic">Note: offshore account opening timelines can vary, especially if compliance reviews are busy.</p>
                 </div>
-                <Link to="/contact" className="block w-full text-center bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors mt-4">Discuss the Project →</Link>
+                <Link to="/contact" className="block w-full text-center bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors mt-4">Get Free Consultation →</Link>
               </div>
             </div>
           </div>
@@ -143,7 +143,7 @@ const OffshoreBankAccountPage = () => {
             <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
             <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Open Your Offshore Bank Account</h2>
             <p className="text-[14px] text-[#9A9590] leading-relaxed mb-8">Contact us to discuss your offshore banking needs. We'll select the right bank and handle everything.</p>
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</Link>
           </div>
         </div>
       </section>

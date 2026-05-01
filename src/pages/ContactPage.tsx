@@ -505,7 +505,7 @@ const ContactPage = () => {
                   opacity: submitting ? 0.5 : 1,
                 }}
               >
-                {submitting ? "Sending..." : "Send Message"} <ArrowRight size={14} />
+                {submitting ? "Sending..." : "Get Free Consultation"} <ArrowRight size={14} />
               </button>
 
               <p style={{ fontSize: 11, color: "#5A5550", textAlign: "center", margin: 0, marginTop: 4 }}>

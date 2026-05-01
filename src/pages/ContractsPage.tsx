@@ -95,7 +95,7 @@ const ContractsPage = () => {
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
             An international contract is a fundamental document for any cross-border deal. Proper structure and correct formulation of each clause ensures smooth processing by banks and government authorities — and protects all parties' interests.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
+          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</Link>
         </div>
       </section>
 
@@ -124,7 +124,7 @@ const ContractsPage = () => {
                 <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Our Approach</span>
                 <p className="text-[14px] text-[#F0EBE0] font-medium mb-3">Tailored to Your Transaction</p>
                 <p className="text-[13px] text-[#9A9590] leading-relaxed">You can order the drafting of international contracts from our specialists. We provide services tailored to the specifics of your transaction and legal requirements. For detailed consultation, contact our company managers.</p>
-                <Link to="/contact" className="block w-full text-center bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors mt-6">Discuss the Project →</Link>
+                <Link to="/contact" className="block w-full text-center bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors mt-6">Get Free Consultation →</Link>
               </div>
             </div>
           </div>
@@ -185,7 +185,7 @@ const ContractsPage = () => {
               <input value={form.type} onChange={e => setForm({ ...form, type: e.target.value })} placeholder="Contract Type" className="col-span-1 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors" />
               <input value={form.countries} onChange={e => setForm({ ...form, countries: e.target.value })} placeholder="Parties' Countries" className="col-span-1 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors" />
               <textarea value={form.details} onChange={e => setForm({ ...form, details: e.target.value })} rows={4} placeholder="Describe the transaction — goods/services, parties, key terms..." className="col-span-2 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors resize-none" />
-              <button type="submit" className="col-span-2 md:col-span-1 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</button>
+              <button type="submit" className="col-span-2 md:col-span-1 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</button>
             </form>
           </div>
         </div>

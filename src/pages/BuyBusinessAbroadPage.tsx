@@ -80,7 +80,7 @@ const BuyBusinessAbroadPage = () => {
             Thanks to the constant development of the economy and various technologies, new business opportunities open up before business people almost every day. It is enough to implement them promptly to get a certain profit. As a rule, when a business model is successfully tested within one country, entrepreneurs strive to occupy a niche in the international market before their competitors do so.
           </p>
           <div className="flex gap-3">
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</Link>
             <Link to="/marketplace" className="text-[13px] text-[#9A9590] border border-white/[0.08] px-6 py-3 hover:border-white/[0.16] transition-colors inline-flex items-center">Browse Marketplace</Link>
           </div>
 
@@ -251,7 +251,7 @@ const BuyBusinessAbroadPage = () => {
               <input value={form.type} onChange={e => setForm({ ...form, type: e.target.value })} placeholder="Company Type" className="col-span-1 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors" />
               <input value={form.budget} onChange={e => setForm({ ...form, budget: e.target.value })} placeholder="Budget Range" className="col-span-1 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors" />
               <textarea value={form.details} onChange={e => setForm({ ...form, details: e.target.value })} rows={4} placeholder="Describe requirements — activities, banking needs, existing licenses..." className="col-span-2 bg-[#0d0d0d] border border-white/[0.06] text-[13px] text-[#F0EBE0] placeholder:text-[#5A5550] px-4 py-3 focus:border-[#444CE7]/40 focus:outline-none transition-colors resize-none" />
-              <button type="submit" className="col-span-2 md:col-span-1 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</button>
+              <button type="submit" className="col-span-2 md:col-span-1 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</button>
             </form>
           </div>
         </div>

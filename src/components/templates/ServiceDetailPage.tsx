@@ -199,7 +199,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = (props) => {
             </h1>
             <p className="text-[15px] text-[#9A9590] leading-relaxed mb-10 max-w-[520px]">{heroDesc}</p>
             <Link to="/contact" className="inline-block px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors">
-              Discuss the Project →
+              Get Free Consultation →
             </Link>
           </div>
         </div>

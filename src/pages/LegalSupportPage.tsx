@@ -89,7 +89,7 @@ const LegalSupportPage = () => {
           <p className="text-[15px] text-[#9A9590] max-w-[500px] mb-10 leading-[1.8]">
             Comprehensive legal support at every stage of business development — from initial consultation to ongoing daily advisory. Free initial consultation on legal aspects of daily business activity.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
+          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</Link>
         </div>
       </section>
 
@@ -145,7 +145,7 @@ const LegalSupportPage = () => {
           <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Get Started</span>
           <h2 className="text-[clamp(24px,3vw,40px)] font-light leading-[1.2] text-[#F0EBE0] mb-4">Discuss Your Legal Matter</h2>
           <p className="text-[14px] text-[#9A9590] leading-relaxed mb-8">Contact us for a free initial consultation. We will review your situation and provide clear recommendations.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Discuss the Project →</Link>
+          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#444CE7] text-white text-[13px] font-medium px-6 py-3 hover:bg-[#3538CD] transition-colors">Get Free Consultation →</Link>
         </div>
       </section>
     </div>
