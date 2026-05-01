@@ -9,6 +9,7 @@ type SitemapEntry = {
   url: string;
   status: PageStatus;
   category: string;
+  isNew?: boolean;
 };
 
 const SITEMAP_DATA: SitemapEntry[] = [
