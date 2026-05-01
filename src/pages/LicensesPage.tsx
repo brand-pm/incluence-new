@@ -209,7 +209,7 @@ const AdvisoryForm = () => {
           onFocus={() => setFocused("message")} onBlur={() => setFocused(null)} />
       </div>
       <button type="submit" className="btn-primary w-full inline-flex items-center justify-center gap-2">
-        Send Message <ArrowRight size={14} />
+        Get Free Consultation <ArrowRight size={14} />
       </button>
       <p style={{ fontSize: 11, color: "#5A5550", textAlign: "center", margin: 0 }}>
         Typically respond within 4 business hours

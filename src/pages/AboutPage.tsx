@@ -509,7 +509,7 @@ const AboutPage = () => {
                   gap: 8,
                 }}
               >
-                Send Message <ArrowRight size={14} />
+                Get Free Consultation <ArrowRight size={14} />
               </button>
               <p style={{ fontSize: 11, color: "#5A5550", textAlign: "center", margin: 0 }}>
                 Typically respond within 24 hours
