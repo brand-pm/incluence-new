@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { useConsultation, ServiceInterest } from "@/hooks/useConsultation";
+import { serviceFromPath, useConsultation, ServiceInterest } from "@/hooks/useConsultation";
 import { useLeadForm } from "@/hooks/useLeadForm";
 import { ArrowRight, Send, Phone, Mail, Check } from "lucide-react";
 
@@ -46,17 +47,19 @@ declare global {
 
 const ConsultationDialog = () => {
   const { isOpen, defaultService, close } = useConsultation();
+  const location = useLocation();
   const { submitLead, submitting } = useLeadForm();
   const formRef = useRef<HTMLFormElement>(null);
   const [service, setService] = useState<ServiceInterest>(defaultService);
   const [done, setDone] = useState(false);
+  const selectedService = service || (isOpen ? defaultService || serviceFromPath(location.pathname) : "");
 
   useEffect(() => {
     if (isOpen) {
-      setService(defaultService);
+      setService(defaultService || serviceFromPath(location.pathname));
       setDone(false);
     }
-  }, [isOpen, defaultService]);
+  }, [isOpen, defaultService, location.pathname]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,11 +70,11 @@ const ConsultationDialog = () => {
       name: (d.get("name") as string) || "",
       email: (d.get("email") as string) || "",
       phone: (d.get("phone") as string) || "",
-      service: service || (d.get("service") as string) || "",
+      service: selectedService || (d.get("service") as string) || "",
       message: (d.get("message") as string) || "",
     });
     if (ok) {
-      try { window.gtag?.("event", "lead_submit", { service: service || "unspecified" }); } catch { /* noop */ }
+      try { window.gtag?.("event", "lead_submit", { service: selectedService || "unspecified" }); } catch { /* noop */ }
       setDone(true);
       form.reset();
     }
@@ -141,7 +144,7 @@ const ConsultationDialog = () => {
                 <label style={labelStyle}>Service of interest *</label>
                 <select
                   name="service"
-                  value={service}
+                  value={selectedService}
                   onChange={(e) => setService(e.target.value as ServiceInterest)}
                   required
                   style={{ ...fieldStyle, appearance: "none" }}

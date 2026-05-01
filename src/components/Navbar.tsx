@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { ChevronDown, Menu, X, Send, Phone, ArrowUpRight, Check } from "lucide-react";
-import { useConsultation } from "@/hooks/useConsultation";
+import { serviceFromPath, useConsultation } from "@/hooks/useConsultation";
 
 /* ─────────── DATA ─────────── */
 
@@ -530,7 +530,7 @@ const Navbar = () => {
           </a>
 
           <button
-            onClick={() => { trackNav("CTA: Get Free Consultation"); openConsult(); }}
+            onClick={() => { trackNav("CTA: Get Free Consultation"); openConsult({ service: serviceFromPath(location.pathname) }); }}
             className="cursor-pointer border-0"
             style={{
               background: C_ACCENT,
@@ -767,7 +767,7 @@ const Navbar = () => {
           }}
         >
           <button
-            onClick={() => { setMobileOpen(false); trackNav("CTA: Get Free Consultation (mobile)"); openConsult(); }}
+            onClick={() => { setMobileOpen(false); trackNav("CTA: Get Free Consultation (mobile)"); openConsult({ service: serviceFromPath(location.pathname) }); }}
             className="w-full cursor-pointer border-0"
             style={{
               background: C_ACCENT,
