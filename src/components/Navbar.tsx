@@ -767,7 +767,7 @@ const Navbar = () => {
           }}
         >
           <button
-            onClick={() => { setMobileOpen(false); trackNav("CTA: Get Free Consultation (mobile)"); setProjectDialogOpen(true); }}
+            onClick={() => { setMobileOpen(false); trackNav("CTA: Get Free Consultation (mobile)"); openConsult(); }}
             className="w-full cursor-pointer border-0"
             style={{
               background: C_ACCENT,
@@ -786,29 +786,7 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* ─────────── DIALOG ─────────── */}
-      <Dialog open={projectDialogOpen} onOpenChange={setProjectDialogOpen}>
-        <DialogContent
-          className="border-white/[0.08] p-5 sm:p-8 max-w-lg w-[calc(100%-2rem)] max-h-[90vh] overflow-y-auto"
-          style={{ background: "#080808", fontFamily: "Manrope, sans-serif" }}
-        >
-          <DialogHeader>
-            <DialogTitle className="text-[#F0EBE0] text-[18px] sm:text-[20px] font-light tracking-tight">
-              {CTA_LABEL}
-            </DialogTitle>
-            <p className="text-[#9A9590] text-[13px] mt-1">
-              Fill in the details and we'll get back to you within 24 hours.
-            </p>
-          </DialogHeader>
-          <div className="mt-4">
-            <FormBlock
-              bgColor="#080808"
-              fields={["Full Name", "Email", "Company Name", "Service Interest"]}
-              buttonText="SEND REQUEST →"
-            />
-          </div>
-        </DialogContent>
-      </Dialog>
+      {/* Consultation popup is rendered globally in App.tsx */}
     </>
   );
 };
