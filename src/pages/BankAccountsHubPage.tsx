@@ -235,6 +235,33 @@ const BankAccountsHubPage = () => {
         </div>
       </section>
 
+      {/* Beyond Bank Accounts — Merchant & PSP cross-links */}
+      <section className="bg-[#080808]" style={{ padding: "72px 48px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="max-w-screen-xl mx-auto">
+          <span className="block text-[11px] text-[#444CE7] uppercase tracking-[0.12em] mb-4">— Beyond Bank Accounts</span>
+          <h2 className="text-[clamp(22px,2.6vw,34px)] font-light leading-[1.2] text-[#F0EBE0] mb-3 max-w-[640px]">
+            Full payment infrastructure, not just bank accounts
+          </h2>
+          <p className="text-[14px] text-[#9A9590] leading-relaxed max-w-[680px] mb-10">
+            For high-risk merchants, e-commerce and crypto-friendly flows we set up dedicated merchant accounts and PSP integrations alongside the corporate banking layer.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
+            <Link to="/opening-a-merchant-account" className="block group" style={{ background: "#0d0d0d", padding: "28px 24px" }}>
+              <div className="text-[10px] text-[#444CE7] uppercase tracking-[0.14em] mb-2">Merchant Accounts</div>
+              <div className="text-[18px] text-[#F0EBE0] font-light mb-2 group-hover:text-white transition-colors">High-risk · crypto · gaming · forex</div>
+              <p className="text-[12px] text-[#9A9590] leading-relaxed">Acquiring solutions for industries traditional banks decline. Card processing, alternative payment methods, settlement in EUR/USD/crypto.</p>
+              <div className="text-[11px] text-[#444CE7] mt-4 uppercase tracking-[0.1em]">Explore merchant accounts →</div>
+            </Link>
+            <Link to="/provider-payment-systems" className="block group" style={{ background: "#0d0d0d", padding: "28px 24px" }}>
+              <div className="text-[10px] text-[#444CE7] uppercase tracking-[0.14em] mb-2">PSP & Payment Solutions</div>
+              <div className="text-[18px] text-[#F0EBE0] font-light mb-2 group-hover:text-white transition-colors">PSP licensing & integrations</div>
+              <p className="text-[12px] text-[#9A9590] leading-relaxed">PSP / EMI license setup in Cyprus, Lithuania, UK and Czech Republic — plus integrations with Wise, Revolut, Payoneer, PayPal.</p>
+              <div className="text-[11px] text-[#444CE7] mt-4 uppercase tracking-[0.1em]">Explore PSP solutions →</div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-[#080808]" style={{ padding: "80px 48px" }}>
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
