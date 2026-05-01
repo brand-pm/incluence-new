@@ -202,7 +202,7 @@ const App = () => (
               <Route path="/sitemap" element={<SitemapPage />} />
               <Route path="/marketplace" element={<MarketplacePage />} />
               <Route path="/about-us" element={<AboutPage />} />
-              <Route path="/about" element={<AboutPage />} />
+              
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/licenses" element={<PlaceholderPage title="All Licenses" />} />
               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
