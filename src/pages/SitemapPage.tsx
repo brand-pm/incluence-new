@@ -9,17 +9,24 @@ type SitemapEntry = {
   url: string;
   status: PageStatus;
   category: string;
+  isNew?: boolean;
 };
 
 const SITEMAP_DATA: SitemapEntry[] = [
   // ── CORE ──
   { title: "Homepage", url: "/", status: "done", category: "Core" },
   { title: "About Us", url: "/about-us", status: "done", category: "Core" },
+  { title: "About (alias)", url: "/about", status: "done", category: "Core", isNew: true },
   { title: "Marketplace", url: "/marketplace", status: "done", category: "Core" },
   { title: "Affiliate Program", url: "/affiliate-program", status: "done", category: "Core" },
   { title: "Contact", url: "/contact", status: "done", category: "Core" },
+  { title: "Blog", url: "/blog", status: "done", category: "Core", isNew: true },
+  { title: "Sitemap", url: "/sitemap", status: "done", category: "Core", isNew: true },
   { title: "Privacy Policy", url: "/privacy-policy", status: "done", category: "Core" },
   { title: "Cookie Policy", url: "/cookie-policy", status: "done", category: "Core" },
+
+  // ── LICENSES OVERVIEW ──
+  { title: "Licenses (Overview)", url: "/licenses", status: "done", category: "Core", isNew: true },
 
   // ── GAMBLING ──
   { title: "Gambling License (Hub)", url: "/gamble-license", status: "done", category: "Gambling" },
@@ -45,6 +52,7 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "Malta Crypto License", url: "/cryptocurrency-license-in-malta", status: "done", category: "Crypto" },
   { title: "Poland Crypto License", url: "/poland-crypto-license", status: "done", category: "Crypto" },
   { title: "USA Crypto License", url: "/cryptocurrency-exchange-license-in-the-usa", status: "done", category: "Crypto" },
+  { title: "MiCA License (EU)", url: "/mica-license", status: "done", category: "Crypto", isNew: true },
 
   // ── EMI ──
   { title: "EMI License (Hub)", url: "/emi-license", status: "done", category: "EMI" },
@@ -105,6 +113,8 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "China Company", url: "/company-registration-in-china", status: "done", category: "Company Reg" },
   { title: "Canada Company", url: "/company-registration-in-canada", status: "done", category: "Company Reg" },
   { title: "Czechia Company", url: "/company-registration-in-czechia", status: "done", category: "Company Reg" },
+  { title: "Malaysia Company (alt)", url: "/company-registration-in-malaysia", status: "done", category: "Company Reg", isNew: true },
+  { title: "Netherlands Company (alt)", url: "/company-registration-in-the-netherlands", status: "done", category: "Company Reg", isNew: true },
 
   // ── READY-MADE ──
   { title: "Ready-Made Companies (Hub)", url: "/buy-a-business-abroad", status: "done", category: "Ready-Made" },
@@ -417,6 +427,21 @@ const SitemapPage = () => {
                         >
                           {p.title}
                         </span>
+                        {p.isNew && (
+                          <span
+                            style={{
+                              fontSize: 9,
+                              fontWeight: 600,
+                              letterSpacing: "0.12em",
+                              textTransform: "uppercase",
+                              color: "#444CE7",
+                              border: "1px solid #444CE7",
+                              padding: "2px 6px",
+                            }}
+                          >
+                            New
+                          </span>
+                        )}
                       </div>
                       <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
                         <span
