@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AIConsultant from "./components/ui/AIConsultant";
 import ConsultationDialog from "./components/ConsultationDialog";
+import ContactCTAInterceptor from "./components/ContactCTAInterceptor";
 import { ConsultationProvider } from "./hooks/useConsultation";
 
 // --- Lazy page imports (default exports) ---
@@ -384,6 +385,7 @@ const App = () => (
         <Footer />
         <AIConsultant />
         <ConsultationDialog />
+        <ContactCTAInterceptor />
         </ConsultationProvider>
       </BrowserRouter>
     </TooltipProvider>
