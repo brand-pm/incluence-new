@@ -16,7 +16,7 @@ const SITEMAP_DATA: SitemapEntry[] = [
   // ── CORE ──
   { title: "Homepage", url: "/", status: "done", category: "Core" },
   { title: "About Us", url: "/about-us", status: "done", category: "Core" },
-  { title: "About (alias)", url: "/about", status: "done", category: "Core", isNew: true },
+  
   { title: "Marketplace", url: "/marketplace", status: "done", category: "Core" },
   { title: "Affiliate Program", url: "/affiliate-program", status: "done", category: "Core" },
   { title: "Contact", url: "/contact", status: "done", category: "Core" },
