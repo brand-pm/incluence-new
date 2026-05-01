@@ -413,7 +413,7 @@ const Navbar = () => {
           </div>
 
           <NavDirectLink to="/mica-license" label="MiCA" active={isMicaActive} hot title="July 2026 deadline" />
-          <NavDirectLink to="/marketplace" label="Ready-Made" active={isReadyMadeActive} />
+          <NavDirectLink to="/marketplace" label="Ready-Made Company" active={isReadyMadeActive} />
 
           <div className="relative" onMouseEnter={() => openMenu("services")} onMouseLeave={scheduleClose}>
             <NavButton k="services" label="Services" active={isServicesActive} />
