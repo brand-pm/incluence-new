@@ -427,6 +427,21 @@ const SitemapPage = () => {
                         >
                           {p.title}
                         </span>
+                        {p.isNew && (
+                          <span
+                            style={{
+                              fontSize: 9,
+                              fontWeight: 600,
+                              letterSpacing: "0.12em",
+                              textTransform: "uppercase",
+                              color: "#444CE7",
+                              border: "1px solid #444CE7",
+                              padding: "2px 6px",
+                            }}
+                          >
+                            New
+                          </span>
+                        )}
                       </div>
                       <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
                         <span
