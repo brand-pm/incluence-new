@@ -21,6 +21,11 @@ const LICENSES_FLAT: FlatItem[] = [
   { label: "Forex", href: "/forex-license", hint: "Brokerage licensing" },
 ];
 
+interface ServiceGroup {
+  title: string;
+  items: FlatItem[];
+}
+
 const COMPANY_GROUPED: ServiceGroup[] = [
   {
     title: "EU Jurisdictions",
