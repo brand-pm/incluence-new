@@ -44,10 +44,7 @@ const ServicePage = () => (
             </p>
             <div className="flex flex-wrap" style={{ gap: "var(--space-4)" }}>
               <button className="inline-flex items-center bg-gold text-body-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity" style={{ padding: "var(--space-3) var(--space-8)", gap: "var(--space-2)" }}>
-                Apply Now <ArrowRight size={16} />
-              </button>
-              <button className="inline-flex items-center border border-gold-border text-body-sm font-medium text-gold hover:bg-gold hover:text-primary-foreground transition-colors" style={{ padding: "var(--space-3) var(--space-8)", gap: "var(--space-2)" }}>
-                Book Consultation
+                Get Free Consultation <ArrowRight size={16} />
               </button>
             </div>
           </div>
