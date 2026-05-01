@@ -1,8 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useCallback, useEffect } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import FormBlock from "@/components/FormBlock";
 import { ChevronDown, Menu, X, Send, Phone, ArrowUpRight, Check } from "lucide-react";
+import { useConsultation } from "@/hooks/useConsultation";
 
 /* ─────────── DATA ─────────── */
 
@@ -28,6 +27,7 @@ const COMPANY_FLAT: FlatItem[] = [
   { label: "EU Jurisdictions", href: "/company-registration-in-europe", hint: "12 member states" },
   { label: "Worldwide (Asia & Americas)", href: "/registration-of-companies-abroad", hint: "Singapore · UAE · HK · CA" },
   { label: "Offshore", href: "/offshore-company-formation", hint: "BVI · Cayman · Seychelles" },
+  { label: "Ready-Made Companies", href: "/marketplace", hint: "Buy / sell incorporated entities" },
 ];
 
 const RESOURCES_FLAT: FlatItem[] = [
@@ -46,10 +46,11 @@ const SERVICES_GROUPED: ServiceGroup[] = [
   {
     title: "Banking & Payments",
     items: [
-      { label: "Bank Accounts", href: "/accounts-bank", hint: "Corporate accounts in 15+ countries" },
+      { label: "Corporate Bank Accounts", href: "/accounts-bank", hint: "EU · Asia · USA · Offshore" },
       { label: "Merchant Account", href: "/opening-a-merchant-account", hint: "High-risk & e-commerce" },
+      { label: "PSP & Payment Infrastructure", href: "/provider-payment-systems", hint: "Cyprus · Lithuania · UK · Czech" },
       { label: "Payment Systems", href: "/open-an-account-in-a-payment-system", hint: "Wise · PayPal · Revolut · Payoneer" },
-      { label: "PSP License", href: "/provider-payment-systems", hint: "Cyprus · Lithuania · UK · Czech" },
+      { label: "Crypto-Friendly Banks", href: "/accounts-bank", hint: "Banking for VASP & exchanges" },
     ],
   },
   {
