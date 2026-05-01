@@ -443,6 +443,92 @@ const Navbar = () => {
     </div>
   );
 
+  /* ─────────── COMPANY MEGA (5 columns by region) ─────────── */
+  const CompanyMega = () => (
+    <div
+      onMouseEnter={cancelClose}
+      onMouseLeave={scheduleClose}
+      className="hidden md:block fixed left-0 right-0"
+      style={{
+        top: 60,
+        background: C_BG,
+        borderBottom: `1px solid ${BORDER}`,
+        boxShadow: "0 40px 80px rgba(0,0,0,0.7)",
+        zIndex: 99,
+        animation: "dropIn .18s ease-out both",
+        fontFamily: "Manrope, sans-serif",
+      }}
+    >
+      <div className="max-w-screen-xl mx-auto" style={{ padding: "20px 24px 24px" }}>
+        <div className="flex items-center justify-between mb-4">
+          <span style={{ fontSize: 10, color: C_ACCENT, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" }}>
+            — Company Formation · by region
+          </span>
+          <Link
+            to="/registration-of-companies-abroad"
+            onClick={() => { trackNav("Company: hub"); closeAll(); }}
+            className="no-underline flex items-center gap-1.5"
+            style={{ fontSize: 11, color: C_MUTED, textTransform: "uppercase", letterSpacing: "0.12em" }}
+          >
+            View all jurisdictions <ArrowUpRight size={12} />
+          </Link>
+        </div>
+
+        <div
+          className="grid"
+          style={{
+            gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
+            gap: 1,
+            background: BORDER,
+            border: `1px solid ${BORDER}`,
+          }}
+        >
+          {COMPANY_GROUPED.map((group) => (
+            <div key={group.title} style={{ background: C_BG2, padding: "16px 18px" }}>
+              <div
+                style={{
+                  fontSize: 11,
+                  color: C_ACCENT,
+                  fontWeight: 600,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  marginBottom: 12,
+                  paddingBottom: 8,
+                  borderBottom: `1px solid ${BORDER}`,
+                }}
+              >
+                {group.title}
+              </div>
+              <div className="flex flex-col">
+                {group.items.map((it) => (
+                  <Link
+                    key={it.href + it.label}
+                    to={it.href}
+                    onClick={() => { trackNav(`Company › ${group.title}: ${it.label}`); closeAll(); }}
+                    className="no-underline block group"
+                    style={{
+                      padding: "8px 0",
+                      borderBottom: `1px solid ${BORDER}`,
+                    }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span style={{ fontSize: 13, color: C_TEXT, fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 6 }}>
+                        {it.label}
+                        {it.hot && <span style={{ width: 5, height: 5, background: C_ACCENT, borderRadius: 999 }} />}
+                      </span>
+                      <ArrowUpRight size={12} style={{ color: C_DIM }} className="group-hover:text-[#818CF8] transition-colors" />
+                    </div>
+                    {it.hint && <div style={{ fontSize: 11, color: C_MUTED, marginTop: 2, lineHeight: 1.3 }}>{it.hint}</div>}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
   /* ─────────── RENDER ─────────── */
   return (
     <>
