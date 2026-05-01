@@ -116,11 +116,6 @@ const RESOURCES_FLAT: FlatItem[] = [
   { label: "Contacts", href: "/contact", hint: "Get in touch" },
 ];
 
-interface ServiceGroup {
-  title: string;
-  items: FlatItem[];
-}
-
 const SERVICES_GROUPED: ServiceGroup[] = [
   {
     title: "Banking & Payments",
