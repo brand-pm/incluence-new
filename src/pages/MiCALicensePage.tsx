@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import FormBlock from "@/components/FormBlock";
 import MiCAEuMap from "@/components/MiCAEuMap";
+import { useConsultation } from "@/hooks/useConsultation";
 import { ArrowUpRight, Clock, Download, Send, ChevronRight } from "lucide-react";
 
 /* ─── DESIGN TOKENS (mapped to project system) ─── */
@@ -217,11 +216,11 @@ const EuMap = ({ onDotClick }: { onDotClick: (j: Jurisdiction) => void }) => {
 /* ─── PAGE ─── */
 const MiCALicensePage = () => {
   useDocumentHead();
-  const [consultOpen, setConsultOpen] = useState(false);
+  const { open } = useConsultation();
 
   const openConsult = (source: string) => {
     trackEvent(source);
-    setConsultOpen(true);
+    open({ service: "Crypto / MiCA" });
   };
 
   const scrollTo = (id: string) => {
@@ -606,31 +605,6 @@ const MiCALicensePage = () => {
           </div>
         </div>
       </section>
-
-      {/* Consultation dialog */}
-      <Dialog open={consultOpen} onOpenChange={setConsultOpen}>
-        <DialogContent
-          className="max-w-[640px] border-0 p-0"
-          style={{ background: C_BG, color: C_TEXT, fontFamily: "Manrope, sans-serif", borderRadius: 0 }}
-        >
-          <div className="p-7 md:p-10">
-            <DialogHeader>
-              <DialogTitle className="text-[22px] md:text-[26px] mb-2" style={{ color: C_TEXT, fontWeight: 600, letterSpacing: "-0.02em" }}>
-                Get Free Consultation
-              </DialogTitle>
-              <p className="text-[13px] mb-6" style={{ color: C_MUTED }}>
-                15-minute scoping call on your MiCA CASP options.
-              </p>
-            </DialogHeader>
-            <FormBlock
-              bgColor={C_BG}
-              fields={["Full Name", "Email", "Company Name", "Service Interest"]}
-              textareaLabel="Tell us about your project — current setup, target markets, timeline..."
-              buttonText="REQUEST CONSULTATION →"
-            />
-          </div>
-        </DialogContent>
-      </Dialog>
 
       {/* Inline keyframes */}
       <style>{`
