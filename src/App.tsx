@@ -101,10 +101,8 @@ const CompanyRegistrationInGermanyPage = React.lazy(() => import("./pages/Compan
 const CompanyRegistrationInGibraltarPage = React.lazy(() => import("./pages/CompanyRegistrationInGibraltarPage").then(m => ({ default: m.CompanyRegistrationInGibraltarPage })));
 const CompanyRegistrationInIrelandPage = React.lazy(() => import("./pages/CompanyRegistrationInIrelandPage").then(m => ({ default: m.CompanyRegistrationInIrelandPage })));
 const CompanyRegistrationInLuxembourgPage = React.lazy(() => import("./pages/CompanyRegistrationInLuxembourgPage").then(m => ({ default: m.CompanyRegistrationInLuxembourgPage })));
-const CompanyRegistrationInMalaysiaPage = React.lazy(() => import("./pages/CompanyRegistrationInMalaysiaPage").then(m => ({ default: m.CompanyRegistrationInMalaysiaPage })));
 const CompanyRegistrationInMaltaPage = React.lazy(() => import("./pages/CompanyRegistrationInMaltaPage").then(m => ({ default: m.CompanyRegistrationInMaltaPage })));
 const CompanyRegistrationInPolandPage = React.lazy(() => import("./pages/CompanyRegistrationInPolandPage").then(m => ({ default: m.CompanyRegistrationInPolandPage })));
-const CompanyRegistrationInTheNetherlandsPage = React.lazy(() => import("./pages/CompanyRegistrationInTheNetherlandsPage").then(m => ({ default: m.CompanyRegistrationInTheNetherlandsPage })));
 const CompanyRegistrationNetherlandsPage = React.lazy(() => import("./pages/CompanyRegistrationNetherlandsPage").then(m => ({ default: m.CompanyRegistrationNetherlandsPage })));
 const CompanyRegistrationPortugalPage = React.lazy(() => import("./pages/CompanyRegistrationPortugalPage").then(m => ({ default: m.CompanyRegistrationPortugalPage })));
 const MalaysiaCompanyRegistrationPage = React.lazy(() => import("./pages/MalaysiaCompanyRegistrationPage").then(m => ({ default: m.MalaysiaCompanyRegistrationPage })));
