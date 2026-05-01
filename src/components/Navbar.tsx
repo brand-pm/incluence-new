@@ -567,9 +567,7 @@ const Navbar = () => {
 
           <div className="relative" onMouseEnter={() => openMenu("company")} onMouseLeave={scheduleClose}>
             <NavButton k="company" label="Company Formation" active={isCompanyActive} />
-            {activeMenu === "company" && (
-              <FlatDropdown title="Company Formation" items={COMPANY_FLAT} width={320} />
-            )}
+            {/* Company mega is full-width — rendered outside this relative wrapper */}
           </div>
 
           <NavDirectLink to="/mica-license" label="MiCA" active={isMicaActive} hot title="July 2026 deadline" />
