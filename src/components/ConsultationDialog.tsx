@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { useConsultation, ServiceInterest } from "@/hooks/useConsultation";
+import { serviceFromPath, useConsultation, ServiceInterest } from "@/hooks/useConsultation";
 import { useLeadForm } from "@/hooks/useLeadForm";
 import { ArrowRight, Send, Phone, Mail, Check } from "lucide-react";
 
@@ -46,6 +47,7 @@ declare global {
 
 const ConsultationDialog = () => {
   const { isOpen, defaultService, close } = useConsultation();
+  const location = useLocation();
   const { submitLead, submitting } = useLeadForm();
   const formRef = useRef<HTMLFormElement>(null);
   const [service, setService] = useState<ServiceInterest>(defaultService);
@@ -53,10 +55,10 @@ const ConsultationDialog = () => {
 
   useEffect(() => {
     if (isOpen) {
-      setService(defaultService);
+      setService(defaultService || serviceFromPath(location.pathname));
       setDone(false);
     }
-  }, [isOpen, defaultService]);
+  }, [isOpen, defaultService, location.pathname]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
