@@ -627,7 +627,7 @@ const Navbar = () => {
             className="no-underline block"
             style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontSize: 13, color: C_TEXT, fontWeight: 500 }}
           >
-            Ready-Made
+            Ready-Made Company
           </Link>
 
           {/* Services accordion */}
