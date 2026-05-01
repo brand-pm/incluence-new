@@ -389,7 +389,7 @@ const LicensesPage = () => {
               className="btn-primary inline-flex items-center gap-2"
               style={{ textDecoration: "none" }}
             >
-              Book Free Consultation <ArrowRight size={14} />
+              Get Free Consultation <ArrowRight size={14} />
             </a>
             <p style={{ fontSize: 11, color: "#5A5550", marginTop: 12 }}>
               Available Mon–Fri · Response within 4 hours

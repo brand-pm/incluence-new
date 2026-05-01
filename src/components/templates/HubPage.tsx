@@ -161,7 +161,7 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
           <p className="text-[15px] text-[#9A9590] leading-relaxed mb-10 max-w-[560px]">{p.description}</p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors text-center">
-              Get a Free Consultation →
+              Get Free Consultation →
             </Link>
             <button onClick={() => document.getElementById("jurisdictions")?.scrollIntoView({ behavior: "smooth" })} className="px-7 py-3 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] border border-white/15 hover:border-white/35 transition-all bg-transparent cursor-pointer" style={{ fontFamily: "inherit" }}>
               View Jurisdictions

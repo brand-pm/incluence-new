@@ -133,7 +133,7 @@ const ForexHubPage = () => {
             The incluence company provides the following types of services in such areas as international tax planning, asset protection, registration of foreign companies and their maintenance, etc.
           </p>
           <div className="flex gap-4">
-            <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get a Free Consultation →</Link>
+            <Link to="/contact" className="px-7 py-3 bg-[#444CE7] hover:bg-[#3538CD] text-white text-[13px] font-medium uppercase tracking-[0.08em] transition-colors inline-block">Get Free Consultation →</Link>
             <button className="px-7 py-3 border border-white/15 hover:border-white/35 text-[#F0EBE0] text-[13px] font-medium uppercase tracking-[0.08em] transition-all bg-transparent cursor-pointer">View Jurisdictions</button>
           </div>
 
