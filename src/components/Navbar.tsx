@@ -723,6 +723,9 @@ const Navbar = () => {
       {/* Services full-width mega-menu (rendered separately so it spans 100%) */}
       {activeMenu === "services" && <ServicesMega />}
 
+      {/* Company Formation full-width mega-menu (by region) */}
+      {activeMenu === "company" && <CompanyMega />}
+
       {/* ─────────── MOBILE MENU ─────────── */}
       {mobileOpen && (
         <div
