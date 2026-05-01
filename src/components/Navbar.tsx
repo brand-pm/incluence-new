@@ -21,13 +21,92 @@ const LICENSES_FLAT: FlatItem[] = [
   { label: "Forex", href: "/forex-license", hint: "Brokerage licensing" },
 ];
 
+interface ServiceGroup {
+  title: string;
+  items: FlatItem[];
+}
+
+const COMPANY_GROUPED: ServiceGroup[] = [
+  {
+    title: "EU Jurisdictions",
+    items: [
+      { label: "Estonia", href: "/open-a-company-in-estonia", hint: "OÜ · e-Residency" },
+      { label: "Lithuania", href: "/register-company-in-lithuania", hint: "UAB · Fintech-friendly" },
+      { label: "Cyprus", href: "/company-registration-in-cyprus", hint: "12.5% corporate tax" },
+      { label: "Malta", href: "/company-registration-in-malta", hint: "EU passport" },
+      { label: "Czechia", href: "/company-registration-in-czechia", hint: "s.r.o." },
+      { label: "Poland", href: "/company-registration-in-poland", hint: "Sp. z o.o." },
+      { label: "Ireland", href: "/company-registration-in-ireland", hint: "Tech & holding" },
+      { label: "Germany", href: "/company-registration-in-germany", hint: "GmbH · UG" },
+      { label: "Netherlands", href: "/company-registration-netherlands", hint: "BV" },
+      { label: "Luxembourg", href: "/company-registration-in-luxembourg", hint: "Holdings & funds" },
+      { label: "Portugal", href: "/company-registration-portugal", hint: "Lda" },
+      { label: "Bulgaria", href: "/register-company-in-bulgaria", hint: "10% flat tax" },
+      { label: "Hungary", href: "/starting-a-business-in-hungary", hint: "9% corporate tax" },
+      { label: "All EU →", href: "/company-registration-in-europe", hint: "Compare jurisdictions" },
+    ],
+  },
+  {
+    title: "Non-EU Europe",
+    items: [
+      { label: "UK", href: "/register-company-in-uk", hint: "LTD · LLP" },
+      { label: "Switzerland", href: "/register-company-in-switzerland", hint: "AG · GmbH" },
+      { label: "Gibraltar", href: "/company-registration-in-gibraltar", hint: "Crypto-friendly" },
+      { label: "Croatia", href: "/company-registration-in-croatia", hint: "d.o.o." },
+      { label: "Montenegro", href: "/starting-a-business-in-montenegro", hint: "9% flat tax" },
+    ],
+  },
+  {
+    title: "Americas & Asia",
+    items: [
+      { label: "USA", href: "/open-company-in-usa", hint: "LLC · C-Corp" },
+      { label: "Canada", href: "/company-registration-in-canada", hint: "Federal · BC · Ontario" },
+      { label: "UAE", href: "/register-company-in-uae", hint: "Mainland · Free Zone" },
+      { label: "Hong Kong", href: "/register-company-in-hong-kong", hint: "Trading hub" },
+      { label: "Singapore", href: "/register-company-in-singapore", hint: "Pte Ltd" },
+      { label: "Malaysia", href: "/malaysia-company-registration", hint: "Sdn Bhd · Labuan" },
+      { label: "Thailand", href: "/open-a-company-in-thailand", hint: "Co., Ltd." },
+      { label: "China", href: "/company-registration-in-china", hint: "WFOE" },
+      { label: "All Worldwide →", href: "/registration-of-companies-abroad", hint: "Asia & Americas hub" },
+    ],
+  },
+  {
+    title: "Offshore Jurisdictions",
+    items: [
+      { label: "BVI", href: "/offshore-in-the-british-virgin-islands", hint: "BC · Zero tax" },
+      { label: "Cayman Islands", href: "/offshore-in-the-cayman-islands", hint: "Funds & holdings" },
+      { label: "Seychelles", href: "/offshore-company-formation-in-seychelles", hint: "IBC" },
+      { label: "Panama", href: "/panama-company-formation", hint: "Territorial tax" },
+      { label: "Curaçao", href: "/offshore-company-formation-in-curacao", hint: "iGaming-friendly" },
+      { label: "Costa Rica", href: "/offshore-costa-rica", hint: "SRL" },
+      { label: "Isle of Man", href: "/offshore-in-the-isle-of-man", hint: "Crown Dependency" },
+      { label: "St Vincent", href: "/offshore-company-formation-in-st-vincent-and-the-grenadines", hint: "BC" },
+      { label: "Cyprus Offshore", href: "/cyprus-offshore-company-formation", hint: "Non-dom" },
+      { label: "All Offshore →", href: "/offshore-company-formation", hint: "Compare offshore" },
+    ],
+  },
+  {
+    title: "Buy / Sell Ready-Made",
+    items: [
+      { label: "Ready-Made Offshore", href: "/ready-made-offshore-companies", hint: "Aged BC entities", hot: true },
+      { label: "Marketplace", href: "/marketplace", hint: "Browse all listings" },
+      { label: "Buy a Business Abroad", href: "/buy-a-business-abroad", hint: "M&A advisory" },
+      { label: "Estonia (Ready-Made)", href: "/buy-company-in-estonia", hint: "Aged OÜ" },
+      { label: "Hong Kong (Ready-Made)", href: "/buy-ready-made-company-in-hong-kong", hint: "Aged Ltd" },
+      { label: "UK (Ready-Made)", href: "/purchase-a-company-in-england", hint: "Aged LTD" },
+      { label: "UAE (Ready-Made)", href: "/purchase-of-a-company-in-the-uae", hint: "Free Zone" },
+      { label: "USA (Ready-Made)", href: "/purchase-of-a-company-in-the-usa", hint: "Aged LLC" },
+    ],
+  },
+];
+
+// Flat list kept for active-state detection across all Company links
 const COMPANY_FLAT: FlatItem[] = [
-  { label: "UK", href: "/register-company-in-uk", hint: "LTD · LLP" },
-  { label: "USA", href: "/open-company-in-usa", hint: "LLC · C-Corp" },
-  { label: "EU Jurisdictions", href: "/company-registration-in-europe", hint: "12 member states" },
-  { label: "Worldwide (Asia & Americas)", href: "/registration-of-companies-abroad", hint: "Singapore · UAE · HK · CA" },
-  { label: "Offshore", href: "/offshore-company-formation", hint: "BVI · Cayman · Seychelles" },
-  { label: "Ready-Made Companies", href: "/marketplace", hint: "Buy / sell incorporated entities" },
+  { label: "Hub", href: "/registration-of-companies-abroad" },
+  { label: "EU Hub", href: "/company-registration-in-europe" },
+  { label: "Offshore Hub", href: "/offshore-company-formation" },
+  { label: "Ready-Made Offshore", href: "/ready-made-offshore-companies" },
+  { label: "Marketplace", href: "/marketplace" },
 ];
 
 const RESOURCES_FLAT: FlatItem[] = [
@@ -36,11 +115,6 @@ const RESOURCES_FLAT: FlatItem[] = [
   { label: "Affiliate Program", href: "/affiliate-program", hint: "Partner with us" },
   { label: "Contacts", href: "/contact", hint: "Get in touch" },
 ];
-
-interface ServiceGroup {
-  title: string;
-  items: FlatItem[];
-}
 
 const SERVICES_GROUPED: ServiceGroup[] = [
   {
@@ -142,7 +216,8 @@ const Navbar = () => {
   const flatPaths = (arr: FlatItem[]) => arr.map(i => i.href);
   const groupedPaths = SERVICES_GROUPED.flatMap(g => g.items.map(i => i.href));
   const isLicensesActive = flatPaths(LICENSES_FLAT).includes(location.pathname) || activeMenu === "licenses";
-  const isCompanyActive = flatPaths(COMPANY_FLAT).includes(location.pathname) || activeMenu === "company";
+  const companyGroupedPaths = COMPANY_GROUPED.flatMap(g => g.items.map(i => i.href));
+  const isCompanyActive = flatPaths(COMPANY_FLAT).includes(location.pathname) || companyGroupedPaths.includes(location.pathname) || activeMenu === "company";
   const isServicesActive = groupedPaths.includes(location.pathname) || activeMenu === "services";
   const isResourcesActive = flatPaths(RESOURCES_FLAT).includes(location.pathname) || activeMenu === "resources";
   const isMicaActive = location.pathname === "/mica-license";
@@ -369,6 +444,92 @@ const Navbar = () => {
     </div>
   );
 
+  /* ─────────── COMPANY MEGA (5 columns by region) ─────────── */
+  const CompanyMega = () => (
+    <div
+      onMouseEnter={cancelClose}
+      onMouseLeave={scheduleClose}
+      className="hidden md:block fixed left-0 right-0"
+      style={{
+        top: 60,
+        background: C_BG,
+        borderBottom: `1px solid ${BORDER}`,
+        boxShadow: "0 40px 80px rgba(0,0,0,0.7)",
+        zIndex: 99,
+        animation: "dropIn .18s ease-out both",
+        fontFamily: "Manrope, sans-serif",
+      }}
+    >
+      <div className="max-w-screen-xl mx-auto" style={{ padding: "20px 24px 24px" }}>
+        <div className="flex items-center justify-between mb-4">
+          <span style={{ fontSize: 10, color: C_ACCENT, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" }}>
+            — Company Formation · by region
+          </span>
+          <Link
+            to="/registration-of-companies-abroad"
+            onClick={() => { trackNav("Company: hub"); closeAll(); }}
+            className="no-underline flex items-center gap-1.5"
+            style={{ fontSize: 11, color: C_MUTED, textTransform: "uppercase", letterSpacing: "0.12em" }}
+          >
+            View all jurisdictions <ArrowUpRight size={12} />
+          </Link>
+        </div>
+
+        <div
+          className="grid"
+          style={{
+            gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
+            gap: 1,
+            background: BORDER,
+            border: `1px solid ${BORDER}`,
+          }}
+        >
+          {COMPANY_GROUPED.map((group) => (
+            <div key={group.title} style={{ background: C_BG2, padding: "16px 18px" }}>
+              <div
+                style={{
+                  fontSize: 11,
+                  color: C_ACCENT,
+                  fontWeight: 600,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  marginBottom: 12,
+                  paddingBottom: 8,
+                  borderBottom: `1px solid ${BORDER}`,
+                }}
+              >
+                {group.title}
+              </div>
+              <div className="flex flex-col">
+                {group.items.map((it) => (
+                  <Link
+                    key={it.href + it.label}
+                    to={it.href}
+                    onClick={() => { trackNav(`Company › ${group.title}: ${it.label}`); closeAll(); }}
+                    className="no-underline block group"
+                    style={{
+                      padding: "8px 0",
+                      borderBottom: `1px solid ${BORDER}`,
+                    }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span style={{ fontSize: 13, color: C_TEXT, fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 6 }}>
+                        {it.label}
+                        {it.hot && <span style={{ width: 5, height: 5, background: C_ACCENT, borderRadius: 999 }} />}
+                      </span>
+                      <ArrowUpRight size={12} style={{ color: C_DIM }} className="group-hover:text-[#818CF8] transition-colors" />
+                    </div>
+                    {it.hint && <div style={{ fontSize: 11, color: C_MUTED, marginTop: 2, lineHeight: 1.3 }}>{it.hint}</div>}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
   /* ─────────── RENDER ─────────── */
   return (
     <>
@@ -407,9 +568,7 @@ const Navbar = () => {
 
           <div className="relative" onMouseEnter={() => openMenu("company")} onMouseLeave={scheduleClose}>
             <NavButton k="company" label="Company Formation" active={isCompanyActive} />
-            {activeMenu === "company" && (
-              <FlatDropdown title="Company Formation" items={COMPANY_FLAT} width={320} />
-            )}
+            {/* Company mega is full-width — rendered outside this relative wrapper */}
           </div>
 
           <NavDirectLink to="/mica-license" label="MiCA" active={isMicaActive} hot title="July 2026 deadline" />
@@ -565,6 +724,9 @@ const Navbar = () => {
       {/* Services full-width mega-menu (rendered separately so it spans 100%) */}
       {activeMenu === "services" && <ServicesMega />}
 
+      {/* Company Formation full-width mega-menu (by region) */}
+      {activeMenu === "company" && <CompanyMega />}
+
       {/* ─────────── MOBILE MENU ─────────── */}
       {mobileOpen && (
         <div
@@ -573,7 +735,6 @@ const Navbar = () => {
         >
           {([
             { key: "licenses", title: "Licenses", items: LICENSES_FLAT },
-            { key: "company", title: "Company Formation", items: COMPANY_FLAT },
           ] as { key: string; title: string; items: FlatItem[] }[]).map((sec) => (
             <div key={sec.key}>
               <button
@@ -607,6 +768,44 @@ const Navbar = () => {
               )}
             </div>
           ))}
+
+          {/* Company Formation accordion (grouped by region) */}
+          <button
+            onClick={() => setMobileExpanded(mobileExpanded === "company" ? null : "company")}
+            className="flex items-center justify-between w-full bg-transparent border-0 cursor-pointer"
+            style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontFamily: "inherit" }}
+          >
+            <span style={{ fontSize: 11, color: C_ACCENT, textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600 }}>
+              — Company Formation
+            </span>
+            <ChevronDown
+              size={14}
+              style={{ color: C_DIM, transition: "transform .2s", transform: mobileExpanded === "company" ? "rotate(180deg)" : "rotate(0)" }}
+            />
+          </button>
+          {mobileExpanded === "company" && (
+            <div style={{ padding: "8px 0 12px" }}>
+              {COMPANY_GROUPED.map((g) => (
+                <div key={g.title} style={{ marginBottom: 12 }}>
+                  <div style={{ fontSize: 10, color: C_MUTED, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 6 }}>
+                    {g.title}
+                  </div>
+                  {g.items.map((it) => (
+                    <Link
+                      key={it.href + it.label}
+                      to={it.href}
+                      onClick={() => { trackNav(`mobile: Company › ${g.title}: ${it.label}`); closeAll(); }}
+                      className="no-underline block"
+                      style={{ padding: "8px 0", fontSize: 13, color: C_TEXT }}
+                    >
+                      {it.label}
+                      {it.hint && <div style={{ fontSize: 11, color: C_MUTED, marginTop: 2 }}>{it.hint}</div>}
+                    </Link>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* MiCA + Ready-Made direct */}
           <Link
