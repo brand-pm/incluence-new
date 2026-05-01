@@ -114,8 +114,6 @@ const SITEMAP_DATA: SitemapEntry[] = [
   { title: "China Company", url: "/company-registration-in-china", status: "done", category: "Company Reg" , placement: ["Nav › Company › Americas & Asia"] },
   { title: "Canada Company", url: "/company-registration-in-canada", status: "done", category: "Company Reg" , placement: ["Nav › Company › Americas & Asia"] },
   { title: "Czechia Company", url: "/company-registration-in-czechia", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions"] },
-  { title: "Malaysia Company (alt)", url: "/company-registration-in-malaysia", status: "done", category: "Company Reg", isNew: true , placement: [] },
-  { title: "Netherlands Company (alt)", url: "/company-registration-in-the-netherlands", status: "done", category: "Company Reg", isNew: true , placement: [] },
 
   // ── READY-MADE ──
   { title: "Ready-Made Companies (Hub)", url: "/buy-a-business-abroad", status: "done", category: "Ready-Made" , placement: ["Nav › Company › Buy / Sell Ready-Made"] },
