@@ -10,184 +10,185 @@ type SitemapEntry = {
   status: PageStatus;
   category: string;
   isNew?: boolean;
+  placement?: string[];
 };
 
 const SITEMAP_DATA: SitemapEntry[] = [
   // ── CORE ──
-  { title: "Homepage", url: "/", status: "done", category: "Core" },
-  { title: "About Us", url: "/about-us", status: "done", category: "Core" },
+  { title: "Homepage", url: "/", status: "done", category: "Core" , placement: ["Nav › Logo"] },
+  { title: "About Us", url: "/about-us", status: "done", category: "Core" , placement: ["Nav › Resources","Footer › Company"] },
   
-  { title: "Marketplace", url: "/marketplace", status: "done", category: "Core" },
-  { title: "Affiliate Program", url: "/affiliate-program", status: "done", category: "Core" },
-  { title: "Contact", url: "/contact", status: "done", category: "Core" },
-  { title: "Blog", url: "/blog", status: "done", category: "Core", isNew: true },
-  { title: "Sitemap", url: "/sitemap", status: "done", category: "Core", isNew: true },
-  { title: "Privacy Policy", url: "/privacy-policy", status: "done", category: "Core" },
-  { title: "Cookie Policy", url: "/cookie-policy", status: "done", category: "Core" },
+  { title: "Marketplace", url: "/marketplace", status: "done", category: "Core" , placement: ["Nav › Company › Buy / Sell Ready-Made","Footer › Company Formation","Footer › Company"] },
+  { title: "Affiliate Program", url: "/affiliate-program", status: "done", category: "Core" , placement: ["Nav › Resources","Footer › Company"] },
+  { title: "Contact", url: "/contact", status: "done", category: "Core" , placement: ["Nav › Resources","Footer › Company"] },
+  { title: "Blog", url: "/blog", status: "done", category: "Core", isNew: true , placement: ["Nav › Resources","Footer › Company"] },
+  { title: "Sitemap", url: "/sitemap", status: "done", category: "Core", isNew: true , placement: ["Footer › Company"] },
+  { title: "Privacy Policy", url: "/privacy-policy", status: "done", category: "Core" , placement: ["Footer › Bottom"] },
+  { title: "Cookie Policy", url: "/cookie-policy", status: "done", category: "Core" , placement: ["Footer › Bottom"] },
 
   // ── LICENSES OVERVIEW ──
-  { title: "Licenses (Overview)", url: "/licenses", status: "done", category: "Core", isNew: true },
+  { title: "Licenses (Overview)", url: "/licenses", status: "done", category: "Core", isNew: true , placement: [] },
 
   // ── GAMBLING ──
-  { title: "Gambling License (Hub)", url: "/gamble-license", status: "done", category: "Gambling" },
-  { title: "Malta Gaming License", url: "/malta-gaming-license", status: "done", category: "Gambling" },
-  { title: "Curaçao Gaming License", url: "/curacao-gaming-license", status: "done", category: "Gambling" },
-  { title: "Isle of Man Gambling License", url: "/gambling-license-of-the-isle-of-man", status: "done", category: "Gambling" },
-  { title: "Costa Rica Gambling License", url: "/gambling-license-in-costa-rica", status: "done", category: "Gambling" },
+  { title: "Gambling License (Hub)", url: "/gamble-license", status: "done", category: "Gambling" , placement: ["Nav › Licenses","Footer › Licensing"] },
+  { title: "Malta Gaming License", url: "/malta-gaming-license", status: "done", category: "Gambling" , placement: [] },
+  { title: "Curaçao Gaming License", url: "/curacao-gaming-license", status: "done", category: "Gambling" , placement: [] },
+  { title: "Isle of Man Gambling License", url: "/gambling-license-of-the-isle-of-man", status: "done", category: "Gambling" , placement: [] },
+  { title: "Costa Rica Gambling License", url: "/gambling-license-in-costa-rica", status: "done", category: "Gambling" , placement: [] },
 
   // ── FOREX ──
-  { title: "Forex License (Hub)", url: "/forex-license", status: "done", category: "Forex" },
-  { title: "Cyprus Forex License", url: "/cyprus-forex-license", status: "done", category: "Forex" },
-  { title: "Malta Forex License", url: "/forex-broker-licence-in-malta", status: "done", category: "Forex" },
-  { title: "Vanuatu Forex License", url: "/forex-broker-licence-in-vanuatu", status: "done", category: "Forex" },
-  { title: "Mauritius Forex License", url: "/forex-broker-licence-in-mauritius", status: "done", category: "Forex" },
-  { title: "Montenegro Forex License", url: "/forex-broker-licence-in-montenegro", status: "done", category: "Forex" },
-  { title: "Seychelles Financial License", url: "/forex-license-seychelles", status: "done", category: "Forex" },
+  { title: "Forex License (Hub)", url: "/forex-license", status: "done", category: "Forex" , placement: ["Nav › Licenses","Footer › Licensing"] },
+  { title: "Cyprus Forex License", url: "/cyprus-forex-license", status: "done", category: "Forex" , placement: [] },
+  { title: "Malta Forex License", url: "/forex-broker-licence-in-malta", status: "done", category: "Forex" , placement: [] },
+  { title: "Vanuatu Forex License", url: "/forex-broker-licence-in-vanuatu", status: "done", category: "Forex" , placement: [] },
+  { title: "Mauritius Forex License", url: "/forex-broker-licence-in-mauritius", status: "done", category: "Forex" , placement: [] },
+  { title: "Montenegro Forex License", url: "/forex-broker-licence-in-montenegro", status: "done", category: "Forex" , placement: [] },
+  { title: "Seychelles Financial License", url: "/forex-license-seychelles", status: "done", category: "Forex" , placement: [] },
 
   // ── CRYPTO ──
-  { title: "Crypto License (Hub)", url: "/cryptocurrency-exchange-license", status: "done", category: "Crypto" },
-  { title: "Estonia Crypto License", url: "/cryptocurrency-exchange-license-in-estonia", status: "done", category: "Crypto" },
-  { title: "Lithuania Crypto License", url: "/lithuania-crypto-license", status: "done", category: "Crypto" },
-  { title: "Switzerland Crypto License", url: "/cryptocurrency-exchange-license-in-switzerland", status: "done", category: "Crypto" },
-  { title: "Malta Crypto License", url: "/cryptocurrency-license-in-malta", status: "done", category: "Crypto" },
-  { title: "Poland Crypto License", url: "/poland-crypto-license", status: "done", category: "Crypto" },
-  { title: "USA Crypto License", url: "/cryptocurrency-exchange-license-in-the-usa", status: "done", category: "Crypto" },
-  { title: "MiCA License (EU)", url: "/mica-license", status: "done", category: "Crypto", isNew: true },
+  { title: "Crypto License (Hub)", url: "/cryptocurrency-exchange-license", status: "done", category: "Crypto" , placement: ["Nav › Licenses","Footer › Licensing"] },
+  { title: "Estonia Crypto License", url: "/cryptocurrency-exchange-license-in-estonia", status: "done", category: "Crypto" , placement: [] },
+  { title: "Lithuania Crypto License", url: "/lithuania-crypto-license", status: "done", category: "Crypto" , placement: [] },
+  { title: "Switzerland Crypto License", url: "/cryptocurrency-exchange-license-in-switzerland", status: "done", category: "Crypto" , placement: [] },
+  { title: "Malta Crypto License", url: "/cryptocurrency-license-in-malta", status: "done", category: "Crypto" , placement: [] },
+  { title: "Poland Crypto License", url: "/poland-crypto-license", status: "done", category: "Crypto" , placement: [] },
+  { title: "USA Crypto License", url: "/cryptocurrency-exchange-license-in-the-usa", status: "done", category: "Crypto" , placement: [] },
+  { title: "MiCA License (EU)", url: "/mica-license", status: "done", category: "Crypto", isNew: true , placement: ["Nav › Licenses","Footer › Licensing"] },
 
   // ── EMI ──
-  { title: "EMI License (Hub)", url: "/emi-license", status: "done", category: "EMI" },
-  { title: "Estonia EMI License", url: "/emi-license-in-estonia", status: "done", category: "EMI" },
-  { title: "Malta EMI License", url: "/e-money-license-malta", status: "done", category: "EMI" },
-  { title: "UK EMI License", url: "/e-money-license-uk", status: "done", category: "EMI" },
-  { title: "Lithuania EMI License", url: "/e-money-license-lithuania", status: "done", category: "EMI" },
+  { title: "EMI License (Hub)", url: "/emi-license", status: "done", category: "EMI" , placement: ["Nav › Licenses","Footer › Licensing"] },
+  { title: "Estonia EMI License", url: "/emi-license-in-estonia", status: "done", category: "EMI" , placement: [] },
+  { title: "Malta EMI License", url: "/e-money-license-malta", status: "done", category: "EMI" , placement: [] },
+  { title: "UK EMI License", url: "/e-money-license-uk", status: "done", category: "EMI" , placement: [] },
+  { title: "Lithuania EMI License", url: "/e-money-license-lithuania", status: "done", category: "EMI" , placement: [] },
 
   // ── PAYMENT SYSTEMS ──
-  { title: "Payment Systems (Hub)", url: "/provider-payment-systems", status: "done", category: "Payment" },
-  { title: "Merchant Account", url: "/opening-a-merchant-account", status: "done", category: "Payment" },
-  { title: "Payment System Account", url: "/open-an-account-in-a-payment-system", status: "done", category: "Payment" },
-  { title: "Cyprus Payment License", url: "/payment-system-license-in-cyprus", status: "done", category: "Payment" },
-  { title: "Lithuania Payment License", url: "/payment-system-license-in-lithuania", status: "done", category: "Payment" },
-  { title: "UK PSP License", url: "/psp-system-uk", status: "done", category: "Payment" },
-  { title: "Denmark Payment License", url: "/payment-system-license-in-denmark", status: "done", category: "Payment" },
-  { title: "Czech Payment License", url: "/czech-payment-system-license", status: "done", category: "Payment" },
-  { title: "Hong Kong Payment License", url: "/hong-kong-payment-system-license", status: "done", category: "Payment" },
+  { title: "Payment Systems (Hub)", url: "/provider-payment-systems", status: "done", category: "Payment" , placement: ["Nav › Licenses","Nav › Services › Banking & Payments","Footer › Banking & Payments"] },
+  { title: "Merchant Account", url: "/opening-a-merchant-account", status: "done", category: "Payment" , placement: ["Nav › Services › Banking & Payments","Footer › Banking & Payments"] },
+  { title: "Payment System Account", url: "/open-an-account-in-a-payment-system", status: "done", category: "Payment" , placement: ["Nav › Services › Banking & Payments"] },
+  { title: "Cyprus Payment License", url: "/payment-system-license-in-cyprus", status: "done", category: "Payment" , placement: [] },
+  { title: "Lithuania Payment License", url: "/payment-system-license-in-lithuania", status: "done", category: "Payment" , placement: [] },
+  { title: "UK PSP License", url: "/psp-system-uk", status: "done", category: "Payment" , placement: [] },
+  { title: "Denmark Payment License", url: "/payment-system-license-in-denmark", status: "done", category: "Payment" , placement: [] },
+  { title: "Czech Payment License", url: "/czech-payment-system-license", status: "done", category: "Payment" , placement: [] },
+  { title: "Hong Kong Payment License", url: "/hong-kong-payment-system-license", status: "done", category: "Payment" , placement: [] },
 
   // ── OFFSHORE ──
-  { title: "Offshore Company (Hub)", url: "/offshore-company-formation", status: "done", category: "Offshore" },
-  { title: "BVI Offshore", url: "/offshore-in-the-british-virgin-islands", status: "done", category: "Offshore" },
-  { title: "Cayman Islands Offshore", url: "/offshore-in-the-cayman-islands", status: "done", category: "Offshore" },
-  { title: "Seychelles Offshore", url: "/offshore-company-formation-in-seychelles", status: "done", category: "Offshore" },
-  { title: "Curaçao Offshore", url: "/offshore-company-formation-in-curacao", status: "done", category: "Offshore" },
-  { title: "Costa Rica Offshore", url: "/offshore-costa-rica", status: "done", category: "Offshore" },
-  { title: "Panama Offshore", url: "/panama-company-formation", status: "done", category: "Offshore" },
-  { title: "Isle of Man Offshore", url: "/offshore-in-the-isle-of-man", status: "done", category: "Offshore" },
-  { title: "St Vincent Offshore", url: "/offshore-company-formation-in-st-vincent-and-the-grenadines", status: "done", category: "Offshore" },
-  { title: "Cyprus Offshore", url: "/cyprus-offshore-company-formation", status: "done", category: "Offshore" },
+  { title: "Offshore Company (Hub)", url: "/offshore-company-formation", status: "done", category: "Offshore" , placement: ["Nav › Company › Offshore Jurisdictions","Footer › Company Formation"] },
+  { title: "BVI Offshore", url: "/offshore-in-the-british-virgin-islands", status: "done", category: "Offshore" , placement: ["Nav › Company › Offshore Jurisdictions","Footer › Jurisdictions"] },
+  { title: "Cayman Islands Offshore", url: "/offshore-in-the-cayman-islands", status: "done", category: "Offshore" , placement: ["Nav › Company › Offshore Jurisdictions","Footer › Jurisdictions"] },
+  { title: "Seychelles Offshore", url: "/offshore-company-formation-in-seychelles", status: "done", category: "Offshore" , placement: ["Nav › Company › Offshore Jurisdictions","Footer › Jurisdictions"] },
+  { title: "Curaçao Offshore", url: "/offshore-company-formation-in-curacao", status: "done", category: "Offshore" , placement: ["Nav › Company › Offshore Jurisdictions"] },
+  { title: "Costa Rica Offshore", url: "/offshore-costa-rica", status: "done", category: "Offshore" , placement: ["Nav › Company › Offshore Jurisdictions"] },
+  { title: "Panama Offshore", url: "/panama-company-formation", status: "done", category: "Offshore" , placement: ["Nav › Company › Offshore Jurisdictions"] },
+  { title: "Isle of Man Offshore", url: "/offshore-in-the-isle-of-man", status: "done", category: "Offshore" , placement: ["Nav › Company › Offshore Jurisdictions"] },
+  { title: "St Vincent Offshore", url: "/offshore-company-formation-in-st-vincent-and-the-grenadines", status: "done", category: "Offshore" , placement: ["Nav › Company › Offshore Jurisdictions"] },
+  { title: "Cyprus Offshore", url: "/cyprus-offshore-company-formation", status: "done", category: "Offshore" , placement: ["Nav › Company › Offshore Jurisdictions"] },
 
   // ── COMPANY REGISTRATION ──
-  { title: "Company Registration (Hub)", url: "/registration-of-companies-abroad", status: "done", category: "Company Reg" },
-  { title: "Estonia Company", url: "/open-a-company-in-estonia", status: "done", category: "Company Reg" },
-  { title: "Malta Company", url: "/company-registration-in-malta", status: "done", category: "Company Reg" },
-  { title: "Switzerland Company", url: "/register-company-in-switzerland", status: "done", category: "Company Reg" },
-  { title: "Ireland Company", url: "/company-registration-in-ireland", status: "done", category: "Company Reg" },
-  { title: "Cyprus Company", url: "/company-registration-in-cyprus", status: "done", category: "Company Reg" },
-  { title: "Germany Company", url: "/company-registration-in-germany", status: "done", category: "Company Reg" },
-  { title: "Poland Company", url: "/company-registration-in-poland", status: "done", category: "Company Reg" },
-  { title: "UK Company", url: "/register-company-in-uk", status: "done", category: "Company Reg" },
-  { title: "USA Company", url: "/open-company-in-usa", status: "done", category: "Company Reg" },
-  { title: "Singapore Company", url: "/register-company-in-singapore", status: "done", category: "Company Reg" },
-  { title: "Hong Kong Company", url: "/register-company-in-hong-kong", status: "done", category: "Company Reg" },
-  { title: "Lithuania Company", url: "/register-company-in-lithuania", status: "done", category: "Company Reg" },
-  { title: "UAE Company", url: "/register-company-in-uae", status: "done", category: "Company Reg" },
-  { title: "Hungary Company", url: "/starting-a-business-in-hungary", status: "done", category: "Company Reg" },
-  { title: "Bulgaria Company", url: "/register-company-in-bulgaria", status: "done", category: "Company Reg" },
-  { title: "Portugal Company", url: "/company-registration-portugal", status: "done", category: "Company Reg" },
-  { title: "Netherlands Company", url: "/company-registration-netherlands", status: "done", category: "Company Reg" },
-  { title: "Luxembourg Company", url: "/company-registration-in-luxembourg", status: "done", category: "Company Reg" },
-  { title: "Gibraltar Company", url: "/company-registration-in-gibraltar", status: "done", category: "Company Reg" },
-  { title: "EU Company Registration", url: "/company-registration-in-europe", status: "done", category: "Company Reg" },
-  { title: "Croatia Company", url: "/company-registration-in-croatia", status: "done", category: "Company Reg" },
-  { title: "Malaysia Company", url: "/malaysia-company-registration", status: "done", category: "Company Reg" },
-  { title: "Montenegro Company", url: "/starting-a-business-in-montenegro", status: "done", category: "Company Reg" },
-  { title: "Thailand Company", url: "/open-a-company-in-thailand", status: "done", category: "Company Reg" },
-  { title: "China Company", url: "/company-registration-in-china", status: "done", category: "Company Reg" },
-  { title: "Canada Company", url: "/company-registration-in-canada", status: "done", category: "Company Reg" },
-  { title: "Czechia Company", url: "/company-registration-in-czechia", status: "done", category: "Company Reg" },
-  { title: "Malaysia Company (alt)", url: "/company-registration-in-malaysia", status: "done", category: "Company Reg", isNew: true },
-  { title: "Netherlands Company (alt)", url: "/company-registration-in-the-netherlands", status: "done", category: "Company Reg", isNew: true },
+  { title: "Company Registration (Hub)", url: "/registration-of-companies-abroad", status: "done", category: "Company Reg" , placement: ["Nav › Company › Americas & Asia","Footer › Company Formation"] },
+  { title: "Estonia Company", url: "/open-a-company-in-estonia", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions","Footer › Jurisdictions"] },
+  { title: "Malta Company", url: "/company-registration-in-malta", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions","Footer › Jurisdictions"] },
+  { title: "Switzerland Company", url: "/register-company-in-switzerland", status: "done", category: "Company Reg" , placement: ["Nav › Company › Non-EU Europe","Footer › Jurisdictions"] },
+  { title: "Ireland Company", url: "/company-registration-in-ireland", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions"] },
+  { title: "Cyprus Company", url: "/company-registration-in-cyprus", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions","Footer › Jurisdictions"] },
+  { title: "Germany Company", url: "/company-registration-in-germany", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions"] },
+  { title: "Poland Company", url: "/company-registration-in-poland", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions"] },
+  { title: "UK Company", url: "/register-company-in-uk", status: "done", category: "Company Reg" , placement: ["Nav › Company › Non-EU Europe","Footer › Company Formation","Footer › Jurisdictions"] },
+  { title: "USA Company", url: "/open-company-in-usa", status: "done", category: "Company Reg" , placement: ["Nav › Company › Americas & Asia","Footer › Company Formation"] },
+  { title: "Singapore Company", url: "/register-company-in-singapore", status: "done", category: "Company Reg" , placement: ["Nav › Company › Americas & Asia","Footer › Jurisdictions"] },
+  { title: "Hong Kong Company", url: "/register-company-in-hong-kong", status: "done", category: "Company Reg" , placement: ["Nav › Company › Americas & Asia","Footer › Jurisdictions"] },
+  { title: "Lithuania Company", url: "/register-company-in-lithuania", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions"] },
+  { title: "UAE Company", url: "/register-company-in-uae", status: "done", category: "Company Reg" , placement: ["Nav › Company › Americas & Asia","Footer › Jurisdictions"] },
+  { title: "Hungary Company", url: "/starting-a-business-in-hungary", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions"] },
+  { title: "Bulgaria Company", url: "/register-company-in-bulgaria", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions"] },
+  { title: "Portugal Company", url: "/company-registration-portugal", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions"] },
+  { title: "Netherlands Company", url: "/company-registration-netherlands", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions"] },
+  { title: "Luxembourg Company", url: "/company-registration-in-luxembourg", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions"] },
+  { title: "Gibraltar Company", url: "/company-registration-in-gibraltar", status: "done", category: "Company Reg" , placement: ["Nav › Company › Non-EU Europe","Footer › Jurisdictions"] },
+  { title: "EU Company Registration", url: "/company-registration-in-europe", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions","Footer › Company Formation"] },
+  { title: "Croatia Company", url: "/company-registration-in-croatia", status: "done", category: "Company Reg" , placement: ["Nav › Company › Non-EU Europe"] },
+  { title: "Malaysia Company", url: "/malaysia-company-registration", status: "done", category: "Company Reg" , placement: ["Nav › Company › Americas & Asia"] },
+  { title: "Montenegro Company", url: "/starting-a-business-in-montenegro", status: "done", category: "Company Reg" , placement: ["Nav › Company › Non-EU Europe"] },
+  { title: "Thailand Company", url: "/open-a-company-in-thailand", status: "done", category: "Company Reg" , placement: ["Nav › Company › Americas & Asia"] },
+  { title: "China Company", url: "/company-registration-in-china", status: "done", category: "Company Reg" , placement: ["Nav › Company › Americas & Asia"] },
+  { title: "Canada Company", url: "/company-registration-in-canada", status: "done", category: "Company Reg" , placement: ["Nav › Company › Americas & Asia"] },
+  { title: "Czechia Company", url: "/company-registration-in-czechia", status: "done", category: "Company Reg" , placement: ["Nav › Company › EU Jurisdictions"] },
+  { title: "Malaysia Company (alt)", url: "/company-registration-in-malaysia", status: "done", category: "Company Reg", isNew: true , placement: [] },
+  { title: "Netherlands Company (alt)", url: "/company-registration-in-the-netherlands", status: "done", category: "Company Reg", isNew: true , placement: [] },
 
   // ── READY-MADE ──
-  { title: "Ready-Made Companies (Hub)", url: "/buy-a-business-abroad", status: "done", category: "Ready-Made" },
-  { title: "Ready-Made Offshore", url: "/ready-made-offshore-companies", status: "done", category: "Ready-Made" },
-  { title: "Hungary Ready-Made", url: "/ready-made-companies-in-hungary", status: "done", category: "Ready-Made" },
-  { title: "Estonia Ready-Made", url: "/buy-company-in-estonia", status: "done", category: "Ready-Made" },
-  { title: "Hong Kong Ready-Made", url: "/buy-ready-made-company-in-hong-kong", status: "done", category: "Ready-Made" },
-  { title: "Lithuania Ready-Made", url: "/buy-ready-made-company-in-lithuania", status: "done", category: "Ready-Made" },
-  { title: "Malta Ready-Made", url: "/buying-a-company-in-malta", status: "done", category: "Ready-Made" },
-  { title: "Bulgaria Ready-Made", url: "/buying-a-company-in-bulgaria", status: "done", category: "Ready-Made" },
-  { title: "Switzerland Ready-Made", url: "/buying-a-company-in-switzerland", status: "done", category: "Ready-Made" },
-  { title: "Buy a Company in Canada", url: "/buying-a-company-in-canada", status: "done", category: "Ready-Made" },
-  { title: "Buy a Company in Germany", url: "/buying-a-company-in-germany", status: "done", category: "Ready-Made" },
-  { title: "Buy a Company in Poland", url: "/buying-a-company-in-poland", status: "done", category: "Ready-Made" },
-  { title: "Buy a Company in Netherlands", url: "/company-purchase-in-the-netherlands", status: "done", category: "Ready-Made" },
-  { title: "Buy a Company in China", url: "/purchase-a-company-in-china", status: "done", category: "Ready-Made" },
-  { title: "Buy a Company in England", url: "/purchase-a-company-in-england", status: "done", category: "Ready-Made" },
-  { title: "Buy a Company in Cyprus", url: "/purchase-of-a-company-in-cyprus", status: "done", category: "Ready-Made" },
-  { title: "Buy a Company in Luxembourg", url: "/purchase-of-a-company-in-luxembourg", status: "done", category: "Ready-Made" },
-  { title: "Buy a Company in Czech Republic", url: "/purchase-of-a-company-in-the-czech-republic", status: "done", category: "Ready-Made" },
-  { title: "Buy a Company in UAE", url: "/purchase-of-a-company-in-the-uae", status: "done", category: "Ready-Made" },
-  { title: "Buy a Company in USA", url: "/purchase-of-a-company-in-the-usa", status: "done", category: "Ready-Made" },
+  { title: "Ready-Made Companies (Hub)", url: "/buy-a-business-abroad", status: "done", category: "Ready-Made" , placement: ["Nav › Company › Buy / Sell Ready-Made"] },
+  { title: "Ready-Made Offshore", url: "/ready-made-offshore-companies", status: "done", category: "Ready-Made" , placement: ["Nav › Company › Buy / Sell Ready-Made"] },
+  { title: "Hungary Ready-Made", url: "/ready-made-companies-in-hungary", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Estonia Ready-Made", url: "/buy-company-in-estonia", status: "done", category: "Ready-Made" , placement: ["Nav › Company › Buy / Sell Ready-Made"] },
+  { title: "Hong Kong Ready-Made", url: "/buy-ready-made-company-in-hong-kong", status: "done", category: "Ready-Made" , placement: ["Nav › Company › Buy / Sell Ready-Made"] },
+  { title: "Lithuania Ready-Made", url: "/buy-ready-made-company-in-lithuania", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Malta Ready-Made", url: "/buying-a-company-in-malta", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Bulgaria Ready-Made", url: "/buying-a-company-in-bulgaria", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Switzerland Ready-Made", url: "/buying-a-company-in-switzerland", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Buy a Company in Canada", url: "/buying-a-company-in-canada", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Buy a Company in Germany", url: "/buying-a-company-in-germany", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Buy a Company in Poland", url: "/buying-a-company-in-poland", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Buy a Company in Netherlands", url: "/company-purchase-in-the-netherlands", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Buy a Company in China", url: "/purchase-a-company-in-china", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Buy a Company in England", url: "/purchase-a-company-in-england", status: "done", category: "Ready-Made" , placement: ["Nav › Company › Buy / Sell Ready-Made"] },
+  { title: "Buy a Company in Cyprus", url: "/purchase-of-a-company-in-cyprus", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Buy a Company in Luxembourg", url: "/purchase-of-a-company-in-luxembourg", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Buy a Company in Czech Republic", url: "/purchase-of-a-company-in-the-czech-republic", status: "done", category: "Ready-Made" , placement: [] },
+  { title: "Buy a Company in UAE", url: "/purchase-of-a-company-in-the-uae", status: "done", category: "Ready-Made" , placement: ["Nav › Company › Buy / Sell Ready-Made"] },
+  { title: "Buy a Company in USA", url: "/purchase-of-a-company-in-the-usa", status: "done", category: "Ready-Made" , placement: ["Nav › Company › Buy / Sell Ready-Made"] },
 
   // ── BANK ACCOUNTS ──
-  { title: "Bank Accounts (Hub)", url: "/accounts-bank", status: "done", category: "Banking" },
-  { title: "Foreign Bank Account", url: "/opening-a-foreign-bank-account", status: "done", category: "Banking" },
-  { title: "Offshore Bank Account", url: "/opening-an-offshore-bank-account", status: "done", category: "Banking" },
-  { title: "Cyprus Bank Account", url: "/open-a-bank-account-in-cyprus", status: "done", category: "Banking" },
-  { title: "Germany Bank Account", url: "/open-a-bank-account-in-germany", status: "done", category: "Banking" },
-  { title: "UK Bank Account", url: "/opening-a-bank-account-in-the-united-kingdom", status: "done", category: "Banking" },
-  { title: "Switzerland Bank Account", url: "/open-bank-account-as-foreigner-in-switzerland", status: "done", category: "Banking" },
-  { title: "USA Bank Account", url: "/open-bank-account-as-foreigner-in-usa", status: "done", category: "Banking" },
-  { title: "Hungary Bank Account", url: "/open-a-bank-account-in-hungary", status: "done", category: "Banking" },
-  { title: "Luxembourg Bank Account", url: "/open-a-bank-account-in-luxembourg", status: "done", category: "Banking" },
-  { title: "Poland Bank Account", url: "/open-a-bank-account-in-poland", status: "done", category: "Banking" },
-  { title: "Bulgaria Bank Account", url: "/open-a-bank-account-in-bulgaria", status: "done", category: "Banking" },
-  { title: "Gibraltar Bank Account", url: "/open-a-bank-account-in-gibraltar", status: "done", category: "Banking" },
-  { title: "Turkey Bank Account", url: "/open-a-bank-account-in-turkey", status: "done", category: "Banking" },
-  { title: "Andorra Bank Account", url: "/open-a-bank-account-in-andorra", status: "done", category: "Banking" },
-  { title: "Saint Lucia Bank Account", url: "/open-a-bank-account-in-saint-lucia", status: "done", category: "Banking" },
-  { title: "Liechtenstein Bank Account", url: "/open-an-account-in-liechtenstein", status: "done", category: "Banking" },
-  { title: "Account at Banque de Luxembourg", url: "/opening-an-account-at-banque-de-luxembourg", status: "done", category: "Banking" },
-  { title: "Account at MKB Bank Hungary", url: "/opening-an-account-at-mkb-bank-hungary", status: "done", category: "Banking" },
-  { title: "Account in Barclays Bank", url: "/opening-an-account-in-barclays-bank", status: "done", category: "Banking" },
-  { title: "Account in HSBC Bank", url: "/opening-an-account-in-hsbc-bank", status: "done", category: "Banking" },
-  { title: "Account in Revolut", url: "/opening-an-account-in-revolut", status: "done", category: "Banking" },
-  { title: "Account in PayPal", url: "/opening-an-account-in-the-pay-pal-payment-system", status: "done", category: "Banking" },
-  { title: "Account in Payoneer", url: "/opening-an-account-in-the-payoneer-payment-system", status: "done", category: "Banking" },
-  { title: "Account in Wise", url: "/opening-an-account-in-the-wise-payment-system", status: "done", category: "Banking" },
+  { title: "Bank Accounts (Hub)", url: "/accounts-bank", status: "done", category: "Banking" , placement: ["Nav › Services › Banking & Payments","Footer › Banking & Payments"] },
+  { title: "Foreign Bank Account", url: "/opening-a-foreign-bank-account", status: "done", category: "Banking" , placement: [] },
+  { title: "Offshore Bank Account", url: "/opening-an-offshore-bank-account", status: "done", category: "Banking" , placement: [] },
+  { title: "Cyprus Bank Account", url: "/open-a-bank-account-in-cyprus", status: "done", category: "Banking" , placement: [] },
+  { title: "Germany Bank Account", url: "/open-a-bank-account-in-germany", status: "done", category: "Banking" , placement: [] },
+  { title: "UK Bank Account", url: "/opening-a-bank-account-in-the-united-kingdom", status: "done", category: "Banking" , placement: [] },
+  { title: "Switzerland Bank Account", url: "/open-bank-account-as-foreigner-in-switzerland", status: "done", category: "Banking" , placement: [] },
+  { title: "USA Bank Account", url: "/open-bank-account-as-foreigner-in-usa", status: "done", category: "Banking" , placement: [] },
+  { title: "Hungary Bank Account", url: "/open-a-bank-account-in-hungary", status: "done", category: "Banking" , placement: [] },
+  { title: "Luxembourg Bank Account", url: "/open-a-bank-account-in-luxembourg", status: "done", category: "Banking" , placement: [] },
+  { title: "Poland Bank Account", url: "/open-a-bank-account-in-poland", status: "done", category: "Banking" , placement: [] },
+  { title: "Bulgaria Bank Account", url: "/open-a-bank-account-in-bulgaria", status: "done", category: "Banking" , placement: [] },
+  { title: "Gibraltar Bank Account", url: "/open-a-bank-account-in-gibraltar", status: "done", category: "Banking" , placement: [] },
+  { title: "Turkey Bank Account", url: "/open-a-bank-account-in-turkey", status: "done", category: "Banking" , placement: [] },
+  { title: "Andorra Bank Account", url: "/open-a-bank-account-in-andorra", status: "done", category: "Banking" , placement: [] },
+  { title: "Saint Lucia Bank Account", url: "/open-a-bank-account-in-saint-lucia", status: "done", category: "Banking" , placement: [] },
+  { title: "Liechtenstein Bank Account", url: "/open-an-account-in-liechtenstein", status: "done", category: "Banking" , placement: [] },
+  { title: "Account at Banque de Luxembourg", url: "/opening-an-account-at-banque-de-luxembourg", status: "done", category: "Banking" , placement: [] },
+  { title: "Account at MKB Bank Hungary", url: "/opening-an-account-at-mkb-bank-hungary", status: "done", category: "Banking" , placement: [] },
+  { title: "Account in Barclays Bank", url: "/opening-an-account-in-barclays-bank", status: "done", category: "Banking" , placement: [] },
+  { title: "Account in HSBC Bank", url: "/opening-an-account-in-hsbc-bank", status: "done", category: "Banking" , placement: [] },
+  { title: "Account in Revolut", url: "/opening-an-account-in-revolut", status: "done", category: "Banking" , placement: [] },
+  { title: "Account in PayPal", url: "/opening-an-account-in-the-pay-pal-payment-system", status: "done", category: "Banking" , placement: [] },
+  { title: "Account in Payoneer", url: "/opening-an-account-in-the-payoneer-payment-system", status: "done", category: "Banking" , placement: [] },
+  { title: "Account in Wise", url: "/opening-an-account-in-the-wise-payment-system", status: "done", category: "Banking" , placement: [] },
 
   // ── FUNDS ──
-  { title: "Investment Funds (Hub)", url: "/offshore-investment-funds", status: "done", category: "Funds" },
-  { title: "Hedge Fund", url: "/open-a-hedge-fund", status: "done", category: "Funds" },
-  { title: "Luxembourg Fund", url: "/open-an-investment-fund-in-luxembourg", status: "done", category: "Funds" },
-  { title: "Estonia Fund", url: "/open-an-investment-fund-in-estonia", status: "done", category: "Funds" },
-  { title: "Malta Fund", url: "/registration-of-investment-funds-in-malta", status: "done", category: "Funds" },
-  { title: "Czech Fund", url: "/registration-of-investment-funds-in-czech", status: "done", category: "Funds" },
-  { title: "Switzerland Fund", url: "/registration-of-investment-funds-in-switzerland", status: "done", category: "Funds" },
+  { title: "Investment Funds (Hub)", url: "/offshore-investment-funds", status: "done", category: "Funds" , placement: ["Nav › Services › Investment & Residency","Footer › Licensing"] },
+  { title: "Hedge Fund", url: "/open-a-hedge-fund", status: "done", category: "Funds" , placement: ["Nav › Services › Investment & Residency"] },
+  { title: "Luxembourg Fund", url: "/open-an-investment-fund-in-luxembourg", status: "done", category: "Funds" , placement: [] },
+  { title: "Estonia Fund", url: "/open-an-investment-fund-in-estonia", status: "done", category: "Funds" , placement: [] },
+  { title: "Malta Fund", url: "/registration-of-investment-funds-in-malta", status: "done", category: "Funds" , placement: [] },
+  { title: "Czech Fund", url: "/registration-of-investment-funds-in-czech", status: "done", category: "Funds" , placement: [] },
+  { title: "Switzerland Fund", url: "/registration-of-investment-funds-in-switzerland", status: "done", category: "Funds" , placement: [] },
 
   // ── RESIDENCE ──
-  { title: "Residence Permit (Hub)", url: "/residence-permit-abroad", status: "done", category: "Residence" },
-  { title: "Portugal Residence", url: "/residence-permit-in-portugal", status: "done", category: "Residence" },
-  { title: "Dubai Residence", url: "/residence-permit-in-dubai", status: "done", category: "Residence" },
-  { title: "Lithuania Residence", url: "/residence-permit-in-lithuania", status: "done", category: "Residence" },
-  { title: "Cyprus Residence", url: "/residence-permit-in-cyprus", status: "done", category: "Residence" },
-  { title: "Hungary Residence", url: "/residence-permit-in-hungary", status: "done", category: "Residence" },
-  { title: "Slovakia Residence", url: "/residence-permit-in-slovakia", status: "done", category: "Residence" },
+  { title: "Residence Permit (Hub)", url: "/residence-permit-abroad", status: "done", category: "Residence" , placement: ["Nav › Services › Investment & Residency"] },
+  { title: "Portugal Residence", url: "/residence-permit-in-portugal", status: "done", category: "Residence" , placement: [] },
+  { title: "Dubai Residence", url: "/residence-permit-in-dubai", status: "done", category: "Residence" , placement: [] },
+  { title: "Lithuania Residence", url: "/residence-permit-in-lithuania", status: "done", category: "Residence" , placement: [] },
+  { title: "Cyprus Residence", url: "/residence-permit-in-cyprus", status: "done", category: "Residence" , placement: [] },
+  { title: "Hungary Residence", url: "/residence-permit-in-hungary", status: "done", category: "Residence" , placement: [] },
+  { title: "Slovakia Residence", url: "/residence-permit-in-slovakia", status: "done", category: "Residence" , placement: [] },
 
   // ── LEGAL ──
-  { title: "Business Legitimization", url: "/legal-business", status: "done", category: "Legal" },
-  { title: "Tax & Financial Reporting", url: "/finance-reporting", status: "done", category: "Legal" },
-  { title: "Legal Support", url: "/support-legal", status: "done", category: "Legal" },
-  { title: "International Contracts", url: "/drafting-international-contracts", status: "done", category: "Legal" },
+  { title: "Business Legitimization", url: "/legal-business", status: "done", category: "Legal" , placement: ["Nav › Services › Legal Services","Footer › Legal"] },
+  { title: "Tax & Financial Reporting", url: "/finance-reporting", status: "done", category: "Legal" , placement: ["Nav › Services › Legal Services","Footer › Legal"] },
+  { title: "Legal Support", url: "/support-legal", status: "done", category: "Legal" , placement: ["Nav › Services › Legal Services"] },
+  { title: "International Contracts", url: "/drafting-international-contracts", status: "done", category: "Legal" , placement: ["Nav › Services › Legal Services"] },
 ];
 
 const STATUS_FILTERS: { label: string; value: string }[] = [
@@ -405,62 +406,106 @@ const SitemapPage = () => {
                       style={{
                         background: "#080808",
                         display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        padding: "12px 20px",
+                        flexDirection: "column",
+                        gap: 8,
+                        padding: "14px 20px",
                         cursor: "pointer",
                         transition: "background 0.2s",
                       }}
                       onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#0d0d0d")}
                       onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#080808")}
                     >
-                      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-                        <StatusDot status={p.status} />
-                        <span
-                          className="group-hover:text-[#444CE7]"
-                          style={{
-                            fontSize: 13,
-                            fontWeight: 500,
-                            color: "#F0EBE0",
-                            transition: "color 0.2s",
-                          }}
-                        >
-                          {p.title}
-                        </span>
-                        {p.isNew && (
+                      {/* Row 1: title + url + status */}
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: 16, minWidth: 0 }}>
+                          <StatusDot status={p.status} />
+                          <span
+                            className="group-hover:text-[#444CE7]"
+                            style={{
+                              fontSize: 13,
+                              fontWeight: 500,
+                              color: "#F0EBE0",
+                              transition: "color 0.2s",
+                            }}
+                          >
+                            {p.title}
+                          </span>
+                          {p.isNew && (
+                            <span
+                              style={{
+                                fontSize: 9,
+                                fontWeight: 600,
+                                letterSpacing: "0.12em",
+                                textTransform: "uppercase",
+                                color: "#444CE7",
+                                border: "1px solid #444CE7",
+                                padding: "2px 6px",
+                              }}
+                            >
+                              New
+                            </span>
+                          )}
+                        </div>
+                        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                          <span
+                            style={{
+                              fontSize: 11,
+                              color: "#5A5550",
+                              fontFamily: "monospace",
+                            }}
+                            className="hidden sm:inline"
+                          >
+                            {p.url}
+                          </span>
+                          <StatusBadge status={p.status} />
+                          <span
+                            className="opacity-0 group-hover:opacity-100"
+                            style={{ color: "#444CE7", fontSize: 13, transition: "opacity 0.2s" }}
+                          >
+                            →
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Row 2: placement badges */}
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, paddingLeft: 18 }}>
+                        {p.placement && p.placement.length > 0 ? (
+                          p.placement.map((loc) => {
+                            const isNav = loc.startsWith("Nav");
+                            const color = isNav ? "#22c55e" : "#f59e0b";
+                            const border = isNav ? "rgba(34,197,94,0.3)" : "rgba(245,158,11,0.3)";
+                            return (
+                              <span
+                                key={loc}
+                                style={{
+                                  fontSize: 9,
+                                  textTransform: "uppercase",
+                                  letterSpacing: "0.08em",
+                                  color,
+                                  border: `1px solid ${border}`,
+                                  padding: "2px 7px",
+                                  fontWeight: 500,
+                                }}
+                              >
+                                {loc}
+                              </span>
+                            );
+                          })
+                        ) : (
                           <span
                             style={{
                               fontSize: 9,
-                              fontWeight: 600,
-                              letterSpacing: "0.12em",
                               textTransform: "uppercase",
-                              color: "#444CE7",
-                              border: "1px solid #444CE7",
-                              padding: "2px 6px",
+                              letterSpacing: "0.08em",
+                              color: "#5A5550",
+                              border: "1px solid rgba(255,255,255,0.08)",
+                              padding: "2px 7px",
+                              fontWeight: 500,
                             }}
                           >
-                            New
+                            Orphan · Direct URL only
                           </span>
                         )}
-                      </div>
-                      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-                        <span
-                          style={{
-                            fontSize: 11,
-                            color: "#5A5550",
-                            fontFamily: "monospace",
-                          }}
-                          className="hidden sm:inline"
-                        >
-                          {p.url}
-                        </span>
-                        <StatusBadge status={p.status} />
-                        <span
-                          className="opacity-0 group-hover:opacity-100"
-                          style={{ color: "#444CE7", fontSize: 13, transition: "opacity 0.2s" }}
-                        >
-                          →
-                        </span>
                       </div>
                     </div>
                   ))}
