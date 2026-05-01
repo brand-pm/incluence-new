@@ -16,11 +16,17 @@ const SITEMAP_DATA: SitemapEntry[] = [
   // ── CORE ──
   { title: "Homepage", url: "/", status: "done", category: "Core" },
   { title: "About Us", url: "/about-us", status: "done", category: "Core" },
+  { title: "About (alias)", url: "/about", status: "done", category: "Core", isNew: true },
   { title: "Marketplace", url: "/marketplace", status: "done", category: "Core" },
   { title: "Affiliate Program", url: "/affiliate-program", status: "done", category: "Core" },
   { title: "Contact", url: "/contact", status: "done", category: "Core" },
+  { title: "Blog", url: "/blog", status: "done", category: "Core", isNew: true },
+  { title: "Sitemap", url: "/sitemap", status: "done", category: "Core", isNew: true },
   { title: "Privacy Policy", url: "/privacy-policy", status: "done", category: "Core" },
   { title: "Cookie Policy", url: "/cookie-policy", status: "done", category: "Core" },
+
+  // ── LICENSES OVERVIEW ──
+  { title: "Licenses (Overview)", url: "/licenses", status: "done", category: "Core", isNew: true },
 
   // ── GAMBLING ──
   { title: "Gambling License (Hub)", url: "/gamble-license", status: "done", category: "Gambling" },
