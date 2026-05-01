@@ -1,7 +1,7 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 
 
-// Source: service-texts.md | URL: /register-company-in-uk
+// Source: https://www.incluence.com/register-company-in-uk
 const PAGE_DATA = {
   title: `Register company in UK`,
   description: `Registering a company UK is an option for stable business development rather than a way to take your business offshore.`,
@@ -9,6 +9,26 @@ const PAGE_DATA = {
     {
       heading: `Registering a company in the United Kingdom`,
       body: `Registering a company UK is an option for stable business development rather than a way to take your business offshore. There is a clear system of taxation, which implies paying taxes on profits. Moreover, competent planning of the future company structure and the right choice of organizational-legal form will help to considerably reduce the financial burden.`,
+    },
+    {
+      heading: `Step 01 — Choosing a name for a future company in UK`,
+      body: `The client needs to provide 3 variant names of the company. We will check the availability of these variants for registration and offer free options for the final choice. If all three names are filled, we will ask for additional ones. Three names provision isn't a mandatory requirement, but will speed up the verification process.`,
+    },
+    {
+      heading: `Step 02 — Preparation of documents`,
+      body: `The client needs to prepare personal documents for company registration. Preparation can be carried out in parallel with the first stage. The exact list of documents depends on the characteristics of the future company. Usually, a copy of the passport and confirmation of the address of the company's participants should be provided. Online verification may be required.`,
+    },
+    {
+      heading: `Step 03 — Preparation of registration forms`,
+      body: `A package of documents is formed for submission to the Register based on the data provided by the client.`,
+    },
+    {
+      heading: `Step 04 — Submission of documents for registration`,
+      body: `The collected package of documents is submitted to the Register. After that, the documents are processed by the registrar and the company is entered into the Register database.`,
+    },
+    {
+      heading: `Step 05 — Obtaining confirmation of company registration`,
+      body: `After entering the company into the Register, you can see its registration data in it and if necessary order paper versions of the statutory documents with or without certification. The specialists of our company will help you with all the necessary certification (notarization, apostille) and translations into other languages, if necessary.`,
     },
   ],
   faq: [
@@ -26,7 +46,6 @@ const RegisterCompanyInUkPage = () => (
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}
     faq={PAGE_DATA.faq}
-
   />
 );
 
