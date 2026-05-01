@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useConsultation } from "@/hooks/useConsultation";
 
 const stats = [
   { num: "500", suffix: "+", label: "Companies" },
@@ -11,6 +12,7 @@ const stats = [
 const serviceTags = [
   { label: "VASP License", href: "/cryptocurrency-exchange-license" },
   { label: "EMI / PSP", href: "/emi-license" },
+  { label: "Banking", href: "/accounts-bank" },
   { label: "Gambling License", href: "/gamble-license" },
   { label: "Offshore Company", href: "/offshore-company-formation" },
   { label: "Fund Registration", href: "/offshore-investment-funds" },
@@ -111,10 +113,10 @@ const HeroContent = () => (
 
       <div className="flex gap-2.5">
         <motion.div {...fade(0.7)}>
-          <Link to="/gamble-license" className="inline-flex items-center gap-1.5"
-            style={{ background: "#444CE7", color: "#fff", padding: "10px 18px", fontSize: 10, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>
-            Start project <ArrowRight size={11} />
-          </Link>
+          <button onClick={() => open()} className="inline-flex items-center gap-1.5 cursor-pointer border-0"
+            style={{ background: "#444CE7", color: "#fff", padding: "10px 18px", fontSize: 10, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", fontFamily: FONT }}>
+            Get Free Consultation <ArrowRight size={11} />
+          </button>
         </motion.div>
         <motion.div {...fade(0.85)}>
           <Link to="/marketplace" className="inline-flex items-center"
@@ -197,10 +199,10 @@ const HeroContent = () => (
 
       {/* Buttons */}
       <motion.div className="flex gap-3.5" style={{ marginBottom: 32 }} {...fade(0.8)}>
-        <Link to="/gamble-license" className="inline-flex items-center gap-2"
-          style={{ background: "#444CE7", color: "#fff", padding: "12px 24px", fontSize: 11, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none" }}>
-          Start your project <ArrowRight size={13} />
-        </Link>
+        <button onClick={() => open()} className="inline-flex items-center gap-2 cursor-pointer border-0"
+          style={{ background: "#444CE7", color: "#fff", padding: "12px 24px", fontSize: 11, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: FONT }}>
+          Get Free Consultation <ArrowRight size={13} />
+        </button>
         <Link to="/marketplace" className="inline-flex items-center"
           style={{ background: "transparent", color: "#9A9590", border: "1px solid rgba(255,255,255,0.1)", padding: "12px 20px", fontSize: 11, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none" }}>
           View Marketplace
@@ -254,6 +256,7 @@ const HeroContent = () => (
       ))}
     </motion.div>
   </>
-);
+  );
+};
 
 export default HeroContent;
