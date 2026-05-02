@@ -1,46 +1,17 @@
 import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
 
-// Source: https://www.incluence.com/open-company-in-usa (1:1 copy)
+
+// Source: service-texts.md | URL: /open-company-in-usa
 const PAGE_DATA = {
   title: `Open company in USA`,
-  description: `Today, the US offers many tools for running a successful business. They include huge markets of goods and services, modern developed infrastructure, a reliable legislative system, and much more.`,
-  sections: [
-    {
-      heading: `01. Choosing the state in USA`,
-      body: `The state should be chosen taking into account the specifics and region of the company's activities, the features of accounting and reporting. It is important to understand that each state has its own peculiarities of legislation and its own rules for creating and maintaining companies.`,
-    },
-    {
-      heading: `02. Choosing a name for a future company`,
-      body: `The client needs to provide 3 variant names of the company. We will check the availability of these variants for registration and offer free options for the final choice. If all three names are filled, we will ask for additional ones. Three names provision isn't a mandatory requirement, but will speed up the verification process.`,
-    },
-    {
-      heading: `03. Preparation of documents`,
-      body: `The client needs to prepare personal documents for company registration. Preparation can be carried out in parallel with the first stage. The exact list of documents depends on the characteristics of the future company. Usually, a copy of the passport and confirmation of the address of the company's participants should be provided.`,
-    },
-    {
-      heading: `04. Preparation of registration forms`,
-      body: `A package of documents is formed for submission to the Register based on the data provided by the client.`,
-    },
-    {
-      heading: `05. Submission of documents for registration`,
-      body: `The collected package of documents is submitted to the Register. After that, the documents are processed by the registrar and the company is entered into the Register database.`,
-    },
-    {
-      heading: `06. Obtaining confirmation of company registration`,
-      body: `After entering the company into the Register, you can see its registration data in it and if necessary order paper versions of the statutory documents with or without certification. The specialists of our company will help you with all the necessary certification (notarization, apostille) and translations into other languages, if necessary.`,
-    },
-    {
-      heading: `Additional services — Starting a business in Montenegro`,
-      body: `Montenegro is a country in southeastern Europe that attracts hundreds of thousands of tourists annually. It is noteworthy that the locals understand both English and Russian. It is the main candidate for joining the EU in the near future, and although Montenegro gained independence only in 2006, the prospect of successful business development here is extremely high.`,
-    },
-    {
-      heading: `Additional services — Starting a business in Hungary`,
-      body: `One of the best options for people wishing to open a company in Europe is to start a business in Hungary. Has about 70 agreements on the avoidance of double taxation. The popularity of starting a business in Hungary is due to the low corporate tax, the central location in Europe, and the developed economic infrastructure.`,
-    },
-    {
-      heading: `Additional services — Register company in UK`,
-      body: `Registering a company UK is an option for stable business development rather than a way to take your business offshore. There is a clear system of taxation, which implies paying taxes on profits. Moreover, competent planning of the future company structure and the right choice of organizational-legal form will help to considerably reduce the financial burden.`,
-    },
+  description: `Register a company in the United States by choosing a state suited to your type of activity. The company must have a local agent and address in the selected state.`,
+  sections: [],
+  requirements: [
+    `Copies of passports of company participants`,
+    `Proof of address of company participants`,
+    `Completed registration forms`,
+    `Information about the source of funding`,
+    `Local agent and address in the selected state`,
   ],
   faq: [
     { question: `What is the cost of business registration in the USA?`, answer: `Various factors affect the final cost of the company formation in the USA. You can find out the exact cost of registering a company in the USA by contacting our specialists.` },
@@ -56,7 +27,9 @@ const OpenCompanyInUsaPage = () => (
     title={PAGE_DATA.title}
     description={PAGE_DATA.description}
     sections={PAGE_DATA.sections}
+    requirements={PAGE_DATA.requirements}
     faq={PAGE_DATA.faq}
+
   />
 );
 
