@@ -27,8 +27,7 @@ If you are interested in acquiring a ready-made enterprise in Luxembourg, note t
 
 To buy a firm in Luxembourg, you will need to prepare several documents. At minimum, the following are required:
 
-a notarized copy of a foreign passport;
-
+- a notarized copy of a foreign passport;
 - proof of residence address, such as a utility bill.
 
 Please note that the list of documents, requirements for the new owner, and conditions of doing business may vary. All these matters can be discussed with our specialists during a personal consultation.

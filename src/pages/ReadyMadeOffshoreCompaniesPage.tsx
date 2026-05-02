@@ -15,8 +15,7 @@ Buying offshore companies saves a lot of time and effort, but first you need to 
 
 If you need an offshore company, you should buy it for several reasons:
 
-By purchasing a ready-made offshore in certain jurisdictions, an entrepreneur is exempt from paying corporate income tax, with only an annual registration fee required instead
-
+- By purchasing a ready-made offshore in certain jurisdictions, an entrepreneur is exempt from paying corporate income tax, with only an annual registration fee required instead.
 - You can obtain a ready-made offshore company in minimal time, provided that our professionals handle the preparation and paperwork.
 - Buying offshore companies allows entrepreneurs to choose from a wide range of legal forms.
 - You can buy offshore companies in countries where annual audits are not mandatory, reducing maintenance costs.
@@ -29,14 +28,13 @@ There are several options depending on your requirements for the jurisdiction an
 
 Offshore sales are possible in the following classic offshore jurisdictions:
 
-Belize;
-
-- Bahamas;.
-- Mauritius;.
-- Panama;.
-- British Virgin Islands;.
-- Saint Vincent and the Grenadines;.
-- Saint Lucia;.
+- Belize;
+- Bahamas;
+- Mauritius;
+- Panama;
+- British Virgin Islands;
+- Saint Vincent and the Grenadines;
+- Saint Lucia;
 - Vanuatu, and others.
 
 Purchasing a ready-made offshore in any of these countries provides entrepreneurs with very low tax rates. An additional advantage is that under certain conditions, companies may be completely exempt from taxation.
@@ -49,8 +47,7 @@ For additional advice on how to buy offshore companies in a specific jurisdictio
 
 There is no country where buying a company with an already opened bank account is prohibited. However, there are several nuances:
 
-By deciding to buy an offshore, you can later change the signatory of the existing account
-
+- By deciding to buy an offshore, you can later change the signatory of the existing account.
 - At the same time, you must notify the bank of this change.
 - The bank’s staff will then carry out checks on your identity and the company’s activities.
 - There is no guarantee that the bank will agree to keep the account open. If not, you will need to open a new account, repeating the procedure.
@@ -59,13 +56,9 @@ To avoid possible difficulties and increase your chances of bank approval, seek 
 
 If you are choosing a country for future foreign trade, pay attention to certain nuances:
 
-**Reputation.*
-
-- If you need to buy a midshore company that must look reputable, consider the United Kingdom. This country is generally more attractive to potential business partners.
-- **Location.*.
-- Ready-made offshores should be purchased after determining where your main suppliers and customers are located and understanding the customs requirements. For example, when working with China, Hong Kong is often chosen.
-- **Business partners.*.
-- Some suppliers impose strict requirements on jurisdiction. Therefore, if you buy a ready-made offshore in, for example, the Seychelles, you may face categorical refusals from counterparties.
+- **Reputation.** If you need to buy a midshore company that must look reputable, consider the United Kingdom. This country is generally more attractive to potential business partners.
+- **Location.** Ready-made offshores should be purchased after determining where your main suppliers and customers are located and understanding the customs requirements. For example, when working with China, Hong Kong is often chosen.
+- **Business partners.** Some suppliers impose strict requirements on jurisdiction. Therefore, if you buy a ready-made offshore in, for example, the Seychelles, you may face categorical refusals from counterparties.
 
 Our specialists take all these nuances into account and will help you choose suitable ready-made offshores. We offer companies in many jurisdictions, so we can easily find the right option for you.`,
   sections: [

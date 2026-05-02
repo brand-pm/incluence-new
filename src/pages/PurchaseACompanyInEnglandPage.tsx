@@ -7,20 +7,17 @@ const PAGE_DATA = {
 
 Before purchasing a ready-made business, it is essential to study the existing business forms and taxation. This helps determine the priority business direction and approximate maintenance costs. Companies in England can be registered in the following legal forms:
 
-Limited Partnership (LP) – requires at least 2 partners. One general partner is fully responsible for the company’s operations. LPs have lost popularity due to banks refusing to serve this legal form
-
+- Limited Partnership (LP) – requires at least 2 partners. One general partner is fully responsible for the company’s operations. LPs have lost popularity due to banks refusing to serve this legal form.
 - Limited Liability Partnership (LLP) – requires 2 or more founders and a UK registered address. In an LLP, tax liability lies with individual partners rather than the company. Unlike LPs, all partners are equal.
 - Private Limited Company (LTD) – can operate globally and is not on the offshore blacklist. It is easier to open a bank account for an LTD than for partnerships.
 
 Those interested in ready-made companies in the UK should note:
 
-The UK has agreements to avoid double taxation with over 100 countries
-
+- The UK has agreements to avoid double taxation with over 100 countries.
 - VAT registration is mandatory for turnover above £83,000, with a standard tax rate of 20%.
 - Required documents include notarized copies of passports, proof of registration, and a description of the intended business activities.
 
-Fast re-registration of the company to a new owner – from 1 day
-
+- Fast re-registration of the company to a new owner – from 1 day.
 - Availability of active companies in promising business niches.
 - The new owner does not pay the authorized capital.
 - Remote management is possible using a nominal staff.
@@ -30,21 +27,19 @@ Fast re-registration of the company to a new owner – from 1 day
 
 Since UK law does not impose restrictions on the owner’s citizenship, even a CIS citizen can purchase a company in England. After completing the transaction, depending on the legal form, the new owner will receive:
 
-Certificate of incorporation
-
-- Approved company articles of association.
-- Document of the first shareholder meeting.
-- Share certificate.
+- Certificate of incorporation
+- Approved company articles of association
+- Document of the first shareholder meeting
+- Share certificate
 
 When purchasing without specialized lawyers, all documents must be apostilled, including powers of attorney if used. A company can also create its own Company Seal.
 
 Before buying a company in London, or elsewhere in the UK, the future owner should consider expenses for the transaction and ongoing business operation. These include:
 
-Legal support for the purchase
-
-- Payment for the company and reimbursement of existing authorized capital.
-- Rental of a registered office address.
-- Accounting and financial reporting.
+- Legal support for the purchase
+- Payment for the company and reimbursement of existing authorized capital
+- Rental of a registered office address
+- Accounting and financial reporting
 
 These are minimum expenses, and ongoing operational costs must be planned continuously, especially reporting deadlines, as penalties and removal from the commercial register may apply.
 

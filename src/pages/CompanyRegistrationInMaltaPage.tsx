@@ -17,24 +17,16 @@ Company registration in Malta takes place within a clear and consistent legal sy
 
 Opening a company in Malta requires accurate documentation and disclosure of shareholders and directors. The rules are strict but predictable when properly prepared.
 
-**EU market access.*
+- **EU market access.** The company can operate across the European Union under a recognised legal framework.
+- **Favourable tax structure.** The shareholder refund system may reduce the effective tax rate in certain cases.
+- **Stable legal environment.** Corporate rules are clear, and English is widely used in official documentation.
 
-- The company can operate across the European Union under a recognised legal framework.
-- **Favourable tax structure.*.
-- The shareholder refund system may reduce the effective tax rate in certain cases.
-- **Stable legal environment.*.
-- Corporate rules are clear, and English is widely used in official documentation.
-
-**Strict compliance requirements.*
-
-- Reporting and disclosure obligations are detailed and must be followed carefully.
-- **Transparency standards.*.
-- Shareholder and director information must be properly disclosed.
+- **Strict compliance requirements.** Reporting and disclosure obligations are detailed and must be followed carefully.
+- **Transparency standards.** Shareholder and director information must be properly disclosed.
 
 Malta company incorporation follows a clear sequence:
 
-Determine the company type, share capital, and management structure. This stage shapes how the business will operate
-
+- Determine the company type, share capital, and management structure. This stage shapes how the business will operate.
 - Draft statutory documents, and complete registering a company in Malta through the Malta Business Registry.
 - Transfer the required share capital in line with legal standards. The Malta company incorporation cost depends on the entity type and authorised capital.
 - After approval, official certificates are issued, and the company becomes legally active.

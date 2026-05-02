@@ -9,15 +9,13 @@ Registering a company requires entrepreneurs to prepare a large number of docume
 
 Today, several types of companies are available for purchase, the most common being:
 
-LLC-type companies — they can be private or public, with the latter entitled to list shares on the local stock exchange. Such companies must have at least two directors and one secretary who is a natural person. Private firms cannot trade shares or bonds and are limited to 50 members, although they may have just one shareholder
-
+- LLC-type companies — they can be private or public, with the latter entitled to list shares on the local stock exchange. Such companies must have at least two directors and one secretary who is a natural person. Private firms cannot trade shares or bonds and are limited to 50 members, although they may have just one shareholder.
 - Holding and trading companies — if you decide to buy a company in Malta, it can be used for various types of activities, including consultancy services as well as financial and investment services. Such firms may own and manage shares of other companies.
 - Partnerships — these can be general or limited. The main difference lies in liability: in general partnerships, all partners are equally liable, while in limited partnerships each participant is liable according to their share in the capital.
 
 Purchasing a company in Malta provides several advantages for entrepreneurs, including:
 
-Establishing a reliable business thanks to Malta’s EU membership
-
+- Establishing a reliable business thanks to Malta’s EU membership.
 - Favorable taxation — shareholders may reclaim 6/7 of the tax on dividends, resulting in an effective tax rate of 5%.
 - English as the second official language, which simplifies communication with government bodies and business partners.
 - Access to various markets thanks to Malta’s advantageous geographic location.

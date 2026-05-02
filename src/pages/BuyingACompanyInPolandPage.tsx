@@ -15,26 +15,23 @@ On the other hand, a ready-made company in Poland allows you to start business a
 
 Poland is attractive to entrepreneurs for the following reasons:
 
-stable economy;
-
-- optimal transit and logistics location;.
-- favorable lending conditions, EU subsidies;.
+- stable economy;
+- optimal transit and logistics location;
+- favorable lending conditions, EU subsidies;
 - optimal level of taxation among other EU countries — corporate tax is 19%.
 
 If an entrepreneur decides to buy a ready-made company in Poland, they can gain even more benefits, including:
 
-notarized confirmation that the company has no obligations to the state or third parties;
-
-- a company with no history of business activity;.
+- notarized confirmation that the company has no obligations to the state or third parties;
+- a company with no history of business activity;
 - bank financing under favorable conditions, subsidies.
 
 A ready-made company allows its owner to purchase real estate in Poland, participate in tenders, apply for certain types of licenses, and more.
 
 Such companies already have the necessary registration numbers for business activities:
 
-KRS — in the national court register;
-
-- REGON — in the central statistical register;.
+- KRS — in the national court register;
+- REGON — in the central statistical register;
 - NIP — taxpayer identification number.
 
 Immediately after purchasing a ready-made company in Poland, the entrepreneur becomes its new owner and can start doing business. The company has a registered address, a bank account, a corporate seal, and other tools for full business activity.
@@ -43,25 +40,22 @@ Each company undergoes a thorough check, and most documents are notarized, ensur
 
 The cost of buying a ready-made Polish company depends on several factors, the main one being the type of company:
 
-“Clean” company — a firm with no economic activity, transactions, etc. It is technically active but has not conducted business
-
+- “Clean” company — a firm with no economic activity, transactions, etc. It is technically active but has not conducted business.
 - Ready, operating business — a firm that already has production capacity, operations, signed contracts, etc.
 
 The most common legal form is Sp. z o.o. — a limited liability company. Buying such a company implies additional expenses for notary services, state fees, representation of interests by proxy, and more. All this directly affects the final cost of purchasing a Polish company.
 
 If you want to buy a company ready for business, the simplest and fastest option is acquiring a firm by appointing a new director. In this case, the shareholders remain unchanged. This procedure involves the following steps:
 
-Preparation of documents regarding the change, as well as an order appointing the new CEO. This also includes shareholder resolutions
-
+- Preparation of documents regarding the change, as well as an order appointing the new CEO. This also includes shareholder resolutions.
 - Notarized certification of the new CEO’s signature.
 - Submission of documents to the tax office to register the CEO appointment.
 
 If an entrepreneur decides to buy a ready-made Polish company with both a new CEO and new shareholders, the process requires:
 
-preparation and signing of share transfer documents;
-
-- a shareholders’ meeting to change the board;.
-- notarized sale and purchase agreement;.
+- preparation and signing of share transfer documents;
+- a shareholders’ meeting to change the board;
+- notarized sale and purchase agreement;
 - submission of applications to tax and court authorities for the change of ownership.
 
 If the entrepreneur wants to buy a Polish company and change, for example, its name, an additional shareholders’ meeting is required.
@@ -72,16 +66,14 @@ Acquiring a ready-made company is quite a difficult task if handled independentl
 
 We offer cooperation in a convenient format:
 
-Company selection. Our experts help you choose a company for purchase, discuss deal conditions. You can do this independently, but we also have partners already looking to sell their businesses
-
+- Company selection. Our experts help you choose a company for purchase, discuss deal conditions. You can do this independently, but we also have partners already looking to sell their businesses.
 - Company audit. Before concluding a deal, you must verify the company’s transparency. Our specialists will conduct an audit to ensure there are no creditor, debtor, or government liabilities.
 - Preparation of all documents required to change only the CEO or also the shareholders. This includes the buyer’s personal documentation, powers of attorney, and re-registration forms.
 - Document submission. The full package is submitted to the Register, where the registrar records the new owner’s data and updates the database. Registration is then confirmed — you can order a seal and document certification.
 
 We also provide the following additional services:
 
-Professional tax consulting
-
+- Professional tax consulting.
 - Accounting support for financial issues related to the purchase of a company and further business operations.
 - Company name change, new trademark registration, license applications.
 

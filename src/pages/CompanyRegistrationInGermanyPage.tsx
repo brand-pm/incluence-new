@@ -9,8 +9,7 @@ It is important to note that company registration in Germany is quite a labor-in
 
 When setting up a company in Germany, entrepreneurs can expect a number of advantages after successful registration. These include:
 
-German companies have the status of reliable partners in the global market. This increases interest in cooperation with such firms from foreign businesses
-
+- German companies have the status of reliable partners in the global market. This increases interest in cooperation with such firms from foreign businesses.
 - Registering a company in Germany allows business owners to cross the Schengen zone border multiple times. They can also issue invitations on behalf of the company, enabling their partners to obtain work and visitor visas to enter the country.
 - No limits are imposed on the export or transfer of capital.
 - Company owners are entitled to export equipment, machinery, and other goods without customs duties and VAT.
@@ -22,8 +21,7 @@ In some cases, entrepreneurs choose to open a UG (mini GmbH), since the minimum 
 
 However, there are certain nuances with this form:
 
-25% of profits must be allocated to the share capital until it reaches €25,000;
-
+- 25% of profits must be allocated to the share capital until it reaches €25,000;
 - Partners often distrust UG companies, as the simplified registration increases the risk of entering into contracts with unreliable entrepreneurs.
 
 Once the legal form has been chosen, the process of opening a company in Germany begins. This involves numerous steps, various procedures, preparation of a significant number of documents, and more.

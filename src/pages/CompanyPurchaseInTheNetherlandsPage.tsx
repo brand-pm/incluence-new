@@ -9,8 +9,7 @@ In the Netherlands, both registering a new company and acquiring a ready-made bu
 
 The choice to buy a company in the Netherlands rather than another country is explained by several advantages of this jurisdiction:
 
-Favorable tax policy: no stamp duty, no withholding tax on royalties and interest, and VAT exemptions with reduced rates down to 0%
-
+- Favorable tax policy: no stamp duty, no withholding tax on royalties and interest, and VAT exemptions with reduced rates down to 0%.
 - Strategic location: the Netherlands provides access to European markets, opening unique opportunities for capital growth and increasing import/export volumes.
 - International credibility: the strong reputation of the Netherlands extends to companies registered here, boosting trust not only from potential business partners but also from consumers.
 

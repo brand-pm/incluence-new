@@ -19,25 +19,21 @@ If the company has an open bank account, during the acquisition and ownership tr
 
 There are two main ways to acquire an existing business:
 
-Share deal — purchase of corporate rights;
-
+- Share deal — purchase of corporate rights;
 - Asset deal — purchase of ownership rights to specific assets.
 
 Each method has its own features and should be considered carefully.
 
-gains control over the company’s assets;
-
-- can manage the company, including voting at shareholder meetings;.
+- gains control over the company’s assets;
+- can manage the company, including voting at shareholder meetings;
 - can earn profits from the business in the form of dividends.
 
 By purchasing a company in the USA this way, you receive many benefits, particularly ownership of all:
 
-the company’s assets;
-
+- the company’s assets;
 - licenses, permits, contracts with business partners, and more.
 
-Movable property — both tangible assets (e.g., vehicles) and intangible assets such as patents and trademarks
-
+- Movable property — both tangible assets (e.g., vehicles) and intangible assets such as patents and trademarks.
 - Immovable property — buildings, facilities, land plots, and so on.
 
 Purchasing a ready-made business in the USA in this way allows you to acquire only the assets you need, saving money. Another advantage is that any business-related risks are avoided, since you are not acquiring the company itself, only its assets.

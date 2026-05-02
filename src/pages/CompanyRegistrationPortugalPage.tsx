@@ -9,25 +9,20 @@ Whether you're drawn by the Non-Habitual Resident (NHR) tax regime, planning to 
 
 Portugal offers:
 
-Access to the European Union and Schengen Area
-
-- Attractive personal and corporate tax benefits.
-- Political and economic stability.
-- Skilled, multilingual workforce.
-- Transparent procedures via the Portugal company registry.
+- Access to the European Union and Schengen Area
+- Attractive personal and corporate tax benefits
+- Political and economic stability
+- Skilled, multilingual workforce
+- Transparent procedures via the Portugal company registry
 - Incluence is your gateway to seamless company formation in Portugal.
 
 When setting up a company in Portugal, choosing the correct legal form is a key strategic decision. Each structure varies in terms of liability, capital requirements, taxation, and suitability for specific business models.
 
 The most common legal types include:
 
-**LDA (Sociedade por Quotas):*
-
-- This is the preferred structure for most small and medium businesses. An LDA offers limited liability to its shareholders, and the minimum share capital requirement starts from just €1 per shareholder (though €5,000 is recommended in practice). Ideal for entrepreneurs who want flexibility and control.
-- **SA (Sociedade Anónima):*.
-- A public limited company suitable for larger enterprises and ventures requiring significant capital. The minimum share capital is €50,000, and shares can be publicly traded. SAs are more complex and require a board of directors and statutory auditors.
-- **Sole Proprietorship (Empresário em Nome Individual):*.
-- This is a simple, low-cost option where the individual and the business are the same entity. It's ideal for freelancers or microbusinesses but offers no liability protection.
+- **LDA (Sociedade por Quotas):** This is the preferred structure for most small and medium businesses. An LDA offers limited liability to its shareholders, and the minimum share capital requirement starts from just €1 per shareholder (though €5,000 is recommended in practice). Ideal for entrepreneurs who want flexibility and control.
+- **SA (Sociedade Anónima):** A public limited company suitable for larger enterprises and ventures requiring significant capital. The minimum share capital is €50,000, and shares can be publicly traded. SAs are more complex and require a board of directors and statutory auditors.
+- **Sole Proprietorship (Empresário em Nome Individual):** This is a simple, low-cost option where the individual and the business are the same entity. It's ideal for freelancers or microbusinesses but offers no liability protection.
 
 At Incluence, we help you assess the best structure for your goals, whether you're aiming for local trading, cross-border EU operations, or long-term tax planning via NHR or MIBC.
 
@@ -37,32 +32,27 @@ Your first step is verifying name availability through the RNPC (Registo Naciona
 
 Every shareholder, director, and the company itself must obtain a Portuguese tax number:
 
-**NIF*
-
-- (Número de Identificação Fiscal) for individuals.
-- **NIPC*.
-- (Número de Identificação de Pessoa Colectiva) for the company.
+- **NIF** (Número de Identificação Fiscal) for individuals
+- **NIPC** (Número de Identificação de Pessoa Colectiva) for the company
 
 Non-residents must appoint a legal representative for NIF applications. Incluence assists with obtaining NIFs remotely, ensuring legal compliance from the outset.
 
 The Articles of Association (Contrato de Sociedade) are essential for company incorporation in Portugal. They define:
 
-Company name and registered office
-
-- Business purpose and activity codes (CAE).
-- Share capital structure.
-- Management model and powers of directors.
-- Voting rights and profit distribution.
+- Company name and registered office
+- Business purpose and activity codes (CAE)
+- Share capital structure
+- Management model and powers of directors
+- Voting rights and profit distribution
 
 This legal document must be precise and reflect your operational and ownership intentions. Incluence provides expert legal drafting, translation, and registration.
 
 Before your company can be registered with the Portugal company registry, you must open a corporate bank account and deposit the initial share capital. Banks often require in-person visits, certified documents, and proof of local address. Incluence facilitates:
 
-Appointment booking and introductions
-
-- Preparation of bank resolutions and signatures.
-- Documentation translations.
-- Assistance with share capital deposit confirmation.
+- Appointment booking and introductions
+- Preparation of bank resolutions and signatures
+- Documentation translations
+- Assistance with share capital deposit confirmation
 
 Opening a company in Portugal cost varies depending on the bank and required services, typically ranging from €150 to €400 in initial banking and notary fees.
 
@@ -72,17 +62,15 @@ Registration may be done via the online government platform or through the "Empr
 
 After your company is recognized in the Portugal company registry, it must be registered with:
 
-Tax Authority for corporate income tax (IRC) and VAT registration (IVA)
-
-- Social Security for employer contributions.
-- Local Municipality if a business license is required for certain activities.
+- Tax Authority for corporate income tax (IRC) and VAT registration (IVA)
+- Social Security for employer contributions
+- Local Municipality if a business license is required for certain activities
 
 We ensure accurate filings and ongoing compliance, including:
 
-VAT thresholds and timelines
-
-- Tax representation for non-residents.
-- Registration for staff and directors under the Portuguese social security system.
+- VAT thresholds and timelines
+- Tax representation for non-residents
+- Registration for staff and directors under the Portuguese social security system
 
 When planning company formation in Portugal, it's essential to consider both initial and ongoing investment requirements. Our services are designed to be flexible and scalable, tailored to your business goals and structure.
 
@@ -92,11 +80,10 @@ Opening a business bank account in Portugal for non-residents typically starts f
 
 Additional costs—such as accounting, registered address, tax representation, and licensing—are determined based on the specifics of your company:
 
-Legal form (LDA, SA, branch, etc.)
-
-- Shareholder structure (individual or corporate).
-- Business activity and regulatory requirements.
-- Location (mainland Portugal vs. Madeira).
+- Legal form (LDA, SA, branch, etc.)
+- Shareholder structure (individual or corporate)
+- Business activity and regulatory requirements
+- Location (mainland Portugal vs. Madeira)
 
 Incluence provides fully transparent, customized quotes based on your individual case. Contact us to receive a detailed proposal aligned with your structure, sector, and business plan.*
 
@@ -104,33 +91,29 @@ Preparing the correct documentation is one of the most important aspects of succ
 
 **From Individual Shareholders and Directors:**
 
-Valid passport (clear, full-page scan)
-
-- Portuguese Tax Identification Number (NIF), which must be obtained in advance.
-- Proof of residential address (utility bill or bank statement issued within the last 90 days).
-- Proof of professional status or employment (e.g., tax returns, salary statements, or contracts) — may be required by banks.
-- Portuguese mobile number and email address (often needed for online services and e-certification access).
+- Valid passport (clear, full-page scan)
+- Portuguese Tax Identification Number (NIF), which must be obtained in advance
+- Proof of residential address (utility bill or bank statement issued within the last 90 days)
+- Proof of professional status or employment (e.g., tax returns, salary statements, or contracts) — may be required by banks
+- Portuguese mobile number and email address (often needed for online services and e-certification access)
 
 **From Corporate Shareholders (if applicable):**
 
-Certificate of Incorporation of the parent company
-
-- Memorandum & Articles of Association of the parent company.
-- Shareholder resolution authorizing the establishment of a subsidiary in Portugal.
-- Power of Attorney appointing a Portuguese legal representative.
+- Certificate of Incorporation of the parent company
+- Memorandum & Articles of Association of the parent company
+- Shareholder resolution authorizing the establishment of a subsidiary in Portugal
+- Power of Attorney appointing a Portuguese legal representative
 
 **Company Formation Documents (to be prepared or reviewed by legal counsel):**
 
-Articles of Association (Contrato de Sociedade) tailored to your business model
-
-- Proof of share capital deposit (required for final registration step).
-- Certificate of Admissibility for the company name from RNPC.
+- Articles of Association (Contrato de Sociedade) tailored to your business model
+- Proof of share capital deposit (required for final registration step)
+- Certificate of Admissibility for the company name from RNPC
 
 **Legalization and Authentication Requirements:**
 
-All documents issued outside of Portugal must be notarized and apostilled in accordance with the Hague Apostille Convention or legalized via a Portuguese consulate if the originating country is not a Hague member
-
-- Certified translations into Portuguese may be required for key documents, especially for court registration and tax authority review.
+- All documents issued outside of Portugal must be notarized and apostilled in accordance with the Hague Apostille Convention or legalized via a Portuguese consulate if the originating country is not a Hague member
+- Certified translations into Portuguese may be required for key documents, especially for court registration and tax authority review
 
 Incluence provides full support in preparing, reviewing, and translating documents, ensuring full compliance with the Portugal company registry and bank due diligence requirements.*
 
@@ -144,11 +127,8 @@ Once your company is registered in Portugal, a series of statutory accounting an
 
 If the company is VAT-registered, it must submit periodic VAT returns:
 
-**Monthly*
-
-- : if annual turnover exceeds €650,000.
-- **Quarterly*.
-- : if turnover is below this threshold.
+- **Monthly** : if annual turnover exceeds €650,000
+- **Quarterly** : if turnover is below this threshold
 
 Submissions must be made electronically via the government's e-Fatura platform.
 
@@ -160,10 +140,9 @@ Submissions must be made electronically via the government's e-Fatura platform.
 
 Failure to comply with these requirements can lead to:
 
-Administrative fines and penalties
-
-- Legal enforcement actions by the Tax Authority.
-- Suspension or dissolution of the company from the official register.
+- Administrative fines and penalties
+- Legal enforcement actions by the Tax Authority
+- Suspension or dissolution of the company from the official register
 
 Portugal offers a relatively streamlined company formation process, particularly through its "Empresa na Hora" system, which allows for swift incorporation. However, the overall timeline depends on several variables — notably the readiness of required documentation, the involvement of foreign shareholders or directors, and the efficiency of the banking process.
 
@@ -211,26 +190,24 @@ Includes registration for Corporate Income Tax (IRC), VAT (if applicable), and e
 
 This range assumes prompt coordination and submission of documents, minimal delays in banking processes, and no complications in due diligence procedures. Delays may occur due to:
 
-Incomplete or incorrect documentation
-
-- Extended compliance checks by banks (especially for non-residents or high-risk jurisdictions).
-- Local or national public holidays.
-- Language or translation requirements for foreign documents.
+- Incomplete or incorrect documentation
+- Extended compliance checks by banks (especially for non-residents or high-risk jurisdictions)
+- Local or national public holidays
+- Language or translation requirements for foreign documents
 
 Incluence oversees the entire incorporation process — from securing NIFs and managing translations to coordinating bank account opening and liaising with authorities — to minimize delays and ensure full compliance at every stage.
 
 We offer more than basic filing—we provide full-cycle strategic incorporation. With years of experience helping international entrepreneurs, Incluence specializes in:
 
-Personalized consultation with international business experts
-
-- Tailored advice for tax structuring (NHR, Madeira IBC, Holding Companies).
-- Full coordination with Portuguese authorities and banks.
-- Remote company formation in Portugal.
-- Full NIF/NIPC registration services.
-- Customized Articles of Association for tax and legal optimization.
-- Bank account opening support with local partners.
-- Ongoing accounting, compliance, and tax advisory.
-- Assistance with NHR, MIBC, and even Golden Visa Portugal pathways.
+- Personalized consultation with international business experts
+- Tailored advice for tax structuring (NHR, Madeira IBC, Holding Companies)
+- Full coordination with Portuguese authorities and banks
+- Remote company formation in Portugal
+- Full NIF/NIPC registration services
+- Customized Articles of Association for tax and legal optimization
+- Bank account opening support with local partners
+- Ongoing accounting, compliance, and tax advisory
+- Assistance with NHR, MIBC, and even Golden Visa Portugal pathways
 
 From advising on the right structure to registering with the Portugal company registry and beyond, our team speaks your language—English, Portuguese, Ukrainian, Russian—and your business goals.
 

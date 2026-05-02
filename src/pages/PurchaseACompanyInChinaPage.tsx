@@ -9,16 +9,14 @@ Setting up a company and scaling a business internationally requires entrepreneu
 
 By acquiring an existing business, you can simultaneously:
 
-Legally operate across the country in any type of business permitted by law
-
+- Legally operate across the country in any type of business permitted by law.
 - Engage in import and export. This requires applying for a special license. We can assist in obtaining approval for licensing companies wishing to operate in this sector.
 - Offset the value-added tax (VAT) through exports.
 - Hire personnel who are Chinese residents, without the need for work visas required for foreigners.
 
 Business in this jurisdiction has specific rules that every entrepreneur should know. In particular, after acquiring a company, you will need to:
 
-Pay a fixed tax – all businesses pay 25% of annual profit
-
+- Pay a fixed tax – all businesses pay 25% of annual profit.
 - Maintain accounting records.
 - Prepare annual company reports.
 - Comply with mandatory foreign exchange control requirements.

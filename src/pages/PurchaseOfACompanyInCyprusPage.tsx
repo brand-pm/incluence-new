@@ -13,9 +13,8 @@ When new companies are incorporated in Cyprus, they must meet specific requireme
 
 It is also worth noting the time involved in processes directly related to registering a new company in Cyprus:
 
-company name check;
-
-- preparation of incorporation documents;.
+- company name check;
+- preparation of incorporation documents;
 - handover of documents to the business owner.
 
 Ready-made companies do not need to go through these steps, and entrepreneurs are freed, in particular, from the need to find office space. Therefore, buying a company in Cyprus is usually much faster, and operations can begin within just a few days after the purchase.
@@ -24,19 +23,17 @@ Thanks to the joint efforts of the EU and the Cypriot government, small business
 
 Additional advantages of buying a ready-made company in Cyprus include:
 
-the right to open an account in a European bank;
-
-- relatively low taxes — 19% VAT and 12.5% corporate tax;.
+- the right to open an account in a European bank;
+- relatively low taxes — 19% VAT and 12.5% corporate tax;
 - a wide range of tools and opportunities to run a fully legal business within the EU.
 
 A ready-made firm is a legal entity that has already been incorporated and gone through all necessary procedures. Such a company can immediately engage in trading and financial operations and carry out any activity that does not require special licenses or permits.
 
 These companies have no assets or liabilities, and if needed, the owner may at any time:
 
-change the company name;
-
-- replace the director, secretary, or registered office address;.
-- change the share capital;.
+- change the company name;
+- replace the director, secretary, or registered office address;
+- change the share capital;
 - review and amend the company’s Articles of Association or Memorandum.
 
 Cyprus is a jurisdiction suitable for businesses in a wide range of industries, including international trade, banking, outsourcing, and more.
@@ -49,9 +46,8 @@ Since ready-made firms are already incorporated, the requirements primarily conc
 
 In addition, the company must have the following persons:
 
-shareholders — at least one;
-
-- director — one or more (both individuals and legal entities are allowed);.
+- shareholders — at least one;
+- director — one or more (both individuals and legal entities are allowed);
 - secretary — without signing authority; it is recommended that this role be held by a Cypriot resident.
 
 If all requirements are met, you can conduct business not only in Cyprus but also throughout the EU and participate in international trade.

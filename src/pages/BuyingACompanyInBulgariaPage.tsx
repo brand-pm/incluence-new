@@ -9,17 +9,15 @@ The choice of business direction is limited only by the volume of planned invest
 
 Often, the choice of Bulgaria as a business location is determined by the following factors:
 
-favorable taxation — corporate tax is 10%;
-
-- economic and political stability;.
-- absence of racial and religious conflicts;.
+- favorable taxation — corporate tax is 10%;
+- economic and political stability;
+- absence of racial and religious conflicts;
 - possibility of duty-free trade with EU countries.
 
 If you decide to buy a company in Bulgaria, the list of advantages expands:
 
-most organizational matters are already resolved;
-
-- you can start generating profit immediately, it is enough to simply maintain the company’s current activities;.
+- most organizational matters are already resolved;
+- you can start generating profit immediately, it is enough to simply maintain the company’s current activities;
 - the company already has a market, a stable client base, established supplier relationships, necessary equipment, etc.
 
 Another advantage not to be overlooked is financing. Investors are rarely eager to invest in a new, untested business project. However, when purchasing a ready-made company, you will have a better chance of obtaining financing, since having an established business reputation is one of the key factors for both investors and bankers.
@@ -32,13 +30,9 @@ If the company has temporarily suspended operations, it is still necessary to su
 
 The process of purchasing a business in this country consists of several steps:
 
-**Selection of an offer.*
-
-- Once you compile a list of requirements for the company you wish to acquire, we will prepare several options that meet your criteria.
-- **Obtaining detailed information.*.
-- We will provide full information about the enterprise and its current operations.
-- **Economic analysis.*.
-- After reviewing the company’s data, you will be able to assess its business reputation, growth prospects, and other project features.
+- **Selection of an offer.** Once you compile a list of requirements for the company you wish to acquire, we will prepare several options that meet your criteria.
+- **Obtaining detailed information.** We will provide full information about the enterprise and its current operations.
+- **Economic analysis.** After reviewing the company’s data, you will be able to assess its business reputation, growth prospects, and other project features.
 
 After completing these steps, the purchase and sale transaction is carried out, involving the transfer of ownership rights. We provide support at all stages, offer comprehensive consulting services, and take care of all bureaucratic procedures.`,
   sections: [

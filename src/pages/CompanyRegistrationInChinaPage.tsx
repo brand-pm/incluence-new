@@ -5,8 +5,7 @@ const PAGE_DATA = {
   title: `Company Registration in China`,
   description: `If you plan to conduct business activities in China, the experts at Incluence Limited are ready to support you at every stage of setting up your company:
 
-We will advise you on organizational matters during the preparation and registration stage
-
+- We will advise you on organizational matters during the preparation and registration stage.
 - We will prepare a list of required documents and help you collect them.
 - We will organize the proper completion and submission of mandatory forms.
 - We are ready to provide consulting, legal, and other accompanying services throughout your business operations.
@@ -15,40 +14,34 @@ Our extensive experience in company registration in China has allowed us to earn
 
 Chinese legislation is specific — it restricts the activities of foreign organizations, allowing them to operate only in two forms:
 
-Establishing a wholly foreign-owned company with non-resident founders;
-
+- Establishing a wholly foreign-owned company with non-resident founders;
 - Creating a joint venture with participants from China and other countries.
 
 In the latter case, company registration in China may take the form of:
 
-Equity joint ventures — combining investments;
-
+- Equity joint ventures — combining investments;
 - Cooperative enterprises — combining foreign and local partners.
 
 In addition, there are restrictions on business types. The government allows activities in the following areas:
 
-Manufacturing, trade, or services in China;
-
+- Manufacturing, trade, or services in China;
 - Import and export of goods.
 
-* The amount of registered capital: ranging from 500,000 to 1.5 million RMB (depending on the type of activity).
+- The amount of registered capital: ranging from 500,000 to 1.5 million RMB (depending on the type of activity).
 
 If the company name includes words such as “International,” “Investment,” or “Industrial,” the registered capital must be at least 10 million RMB. For names including “Group” or “Holding,” a minimum of 30 million RMB is required. Partial contributions can be made over several months.
 
-The overall cost of registration
-
+- The overall cost of registration.
 - The cost of the business license.
 
-VAT is 16% under the general system. Under the simplified system (available for certain activities), only 4% of turnover is payable
-
+- VAT is 16% under the general system. Under the simplified system (available for certain activities), only 4% of turnover is payable.
 - Corporate income tax ranges from 25–33%. Some companies may pay a progressive rate of up to 45%.
 
 Contact our specialists for the full list of taxes and possible exemptions.
 
 Opening a company in China is a lengthy process that can take up to 90 days and includes multiple steps. Here are the main stages:
 
-Planning and preparation. Preparing documents, drafting the business description, choosing a name, selecting a registered address, and resolving other organizational matters
-
+- Planning and preparation. Preparing documents, drafting the business description, choosing a name, selecting a registered address, and resolving other organizational matters.
 - Company registration in China. Reserving the company name, registering the entity with the State Administration for Industry and Commerce as per current regulations. Providing several name options is advisable — this is not mandatory but speeds up approval. Incluence Limited specialists will check the proposed names and confirm which ones are available.
 - Registration procedure. Submitting documents and required forms to the registry. It is important to ensure proper completion of documents — professional support can save you significant time. Government fees are also paid at this stage.
 - Post-registration activities. Opening bank accounts in local banks, registering licenses, notifying the tax authorities and other agencies. If needed, statutory documents can be ordered in paper form, translated, and notarized.
@@ -57,26 +50,23 @@ Before registering a company in China, you must ensure all required documentatio
 
 Basic documents include:
 
-2 reference letters from a financial institution where the shareholder holds an account — for both corporate and individual shareholders
-
+- 2 reference letters from a financial institution where the shareholder holds an account — for both corporate and individual shareholders.
 - A certified copy of an identity document. For non-residents — a foreign passport. For Chinese citizens — an ID card.
 - Photographs of the director or legal representative.
 - A business activity description, including registered capital and contribution timeline. Additional documents may be required depending on the business type.
 
 If the shareholder is a legal entity, the following are also required:
 
-3 sets of corporate documents of the parent foreign company (upon request)
-
+- 3 sets of corporate documents of the parent foreign company (upon request).
 - An audited report, certified by a Certified Public Accountant. This applies to foreign companies operating for more than a year and where the shareholder is a legal entity.
 
 Before registering a company in China, all documents must be translated into Chinese and legalized at the Consulate in the country of incorporation.
 
 On average, setting up a company in China costs at least 30,000 RMB, excluding registered capital. This budget typically includes:
 
-Office rent;
-
-- Opening a bank account in a local bank;.
-- Government fees;.
+- Office rent;
+- Opening a bank account in a local bank;
+- Government fees;
 - Licensing and other costs.
 
 China has strict currency controls and complex legislation. For professional support on how to open a company in China, contact our specialists by phone or via our online form.`,

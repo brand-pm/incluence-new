@@ -15,27 +15,21 @@ If you decide to register a company in Europe, you should know that the procedur
 
 Keep in mind that you may be required to provide additional documents, but at the very least you need to prepare:
 
-Civil passport and a copy, as well as the beneficiary’s international passport;
-
-- Proof of residence of the beneficiary (e.g., utility bill);.
+- Civil passport and a copy, as well as the beneficiary’s international passport;
+- Proof of residence of the beneficiary (e.g., utility bill);
 - Proof of financial solvency, required to open a bank account in the EU.
 
-Selecting the company’s primary business activity, a suitable legal form, and the company name;
-
-- Choosing and leasing a legal address in the selected country;.
-- Preparing incorporation documents in line with national legislation. The Articles of Association must specify: company name, legal form, registered office, founders and directors with personal details, and share capital;.
-- Opening a temporary bank account to deposit the share capital (amount varies by country);.
-- Signing incorporation documents. Registration in Europe also requires notarization of these documents;.
-- Registering the company in the Trade Register of the chosen country;.
+- Selecting the company’s primary business activity, a suitable legal form, and the company name;
+- Choosing and leasing a legal address in the selected country;
+- Preparing incorporation documents in line with national legislation. The Articles of Association must specify: company name, legal form, registered office, founders and directors with personal details, and share capital;
+- Opening a temporary bank account to deposit the share capital (amount varies by country);
+- Signing incorporation documents. Registration in Europe also requires notarization of these documents;
+- Registering the company in the Trade Register of the chosen country;
 - Opening the company’s permanent bank account and starting business activity.
 
-**Estonia.*
-
-- Offers relatively simple and quick company registration, favorable taxation, and enjoys investor and partner trust.
-- **Malta.*.
-- Has a relatively low corporate tax rate for local companies — 12.5%. No currency controls and minimal share capital requirements.
-- **Switzerland.*.
-- Reliable banking system, stable currency, multiple double taxation treaties. Local companies enjoy high reputation among investors and partners.
+- **Estonia.** Offers relatively simple and quick company registration, favorable taxation, and enjoys investor and partner trust.
+- **Malta.** Has a relatively low corporate tax rate for local companies — 12.5%. No currency controls and minimal share capital requirements.
+- **Switzerland.** Reliable banking system, stable currency, multiple double taxation treaties. Local companies enjoy high reputation among investors and partners.
 
 If you don’t want to spend time and effort, registering a company in the EU is not the only option. You can also purchase a ready-made company in your desired country with the help of our specialists.
 
@@ -43,14 +37,13 @@ There are shelf companies with no debts or obligations to local authorities or t
 
 The EU provides a very comfortable business environment for starting and developing a company. In addition, Europe offers numerous other benefits:
 
-modern infrastructure;
-
-- government support and interest in foreign investment;.
-- flexible taxation and various tax benefits;.
-- availability of free economic zones;.
-- low interest rates on loans from European banks;.
-- political and economic stability;.
-- multinational consumer market with diverse tastes and preferences;.
+- modern infrastructure;
+- government support and interest in foreign investment;
+- flexible taxation and various tax benefits;
+- availability of free economic zones;
+- low interest rates on loans from European banks;
+- political and economic stability;
+- multinational consumer market with diverse tastes and preferences;
 - high living standards and purchasing power of consumers.
 
 Furthermore, registering a company in the EU allows entrepreneurs to trade across the entire European Union, not just in one country.

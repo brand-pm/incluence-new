@@ -9,8 +9,7 @@ We have extensive experience working in Europe and are ready to support your com
 
 Gibraltar is located on the Iberian Peninsula and is considered a European territory of the United Kingdom. It has its own jurisdiction and a unique tax system. Some additional facts:
 
-Official languages — Llanito (vernacular), English
-
+- Official languages — Llanito (vernacular), English.
 - Currency — British pound sterling.
 - Legal system — common law.
 
@@ -20,67 +19,58 @@ Before opening a company in Gibraltar, it is recommended to study the local tax 
 
 Thus, registering a company in Gibraltar is attractive for international trade because:
 
-there is no property tax;
-
-- no capital gains tax;.
+- there is no property tax;
+- no capital gains tax;
 - no inheritance or gift tax.
 
 For those who want to conduct international business from Gibraltar, there are additional benefits:
 
-no VAT;
-
-- no tax on profits;.
+- no VAT;
+- no tax on profits;
 - confidentiality of beneficiary lists.
 
 Gibraltar is not a tax haven, and the jurisdiction is on the FATCA and OECD white lists.
 
 On Gibraltar’s territory, registering a non-resident company is possible if the following conditions are met:
 
-the company does not hold accounts in local banks;
-
-- the company’s directors and shareholders are non-residents;.
+- the company does not hold accounts in local banks;
+- the company’s directors and shareholders are non-residents;
 - the company does not conduct business in Gibraltar and is not a partner of local firms.
 
 If these conditions are met, the legal entity is exempt from taxes. Registration is simplified thanks to:
 
-Minimal management requirements — one director and one shareholder of any nationality and status. Copies of identity documents are required
-
+- Minimal management requirements — one director and one shareholder of any nationality and status. Copies of identity documents are required.
 - In Gibraltar, the company must have: a registered office address, a secretary, and a company seal.
 - Registration can be completed remotely (through a representative).
 
 A non-resident company is typically registered when it is necessary to:
 
-Protect and maintain confidentiality of existing assets
-
+- Protect and maintain confidentiality of existing assets.
 - Register and use marine or aircraft assets for commercial purposes, including within the EU.
 - Register vehicles tax-free.
 
 Standard steps for opening a company include choosing a unique company name, paying registration fees, and opening an account (e.g., through a payment system). In brief, the process looks like this:
 
-Selecting a name and checking its availability
-
+- Selecting a name and checking its availability.
 - Preparing personal documents for company registration.
 - Preparing and submitting registration forms to the relevant authorities.
 - Receiving registration confirmation.
 
 There are no strict requirements for financial reporting. In this dependent territory, annual reports are not mandatory, and additionally:
 
-small companies are not required to undergo audits;
-
+- small companies are not required to undergo audits;
 - there is no strict currency control.
 
 If a company is registered as a resident, specific norms and deadlines for reporting apply:
 
-Private companies must file financial reports once every 13 months, public companies once every 10 months
-
+- Private companies must file financial reports once every 13 months, public companies once every 10 months.
 - Companies with income exceeding £1.25 million are required to undergo audits.
 
 Thus, a resident company can be used for ICOs or other similar purposes. In such cases, the company pays 10% corporate tax and files regular reports.
 
 Despite its flexibility, the process of registering companies in Gibraltar involves certain challenges:
 
-Special requirements for documentation submission apply
-
+- Special requirements for documentation submission apply.
 - Resident companies must comply with strict deadlines and procedures for financial reporting.
 
 Opening accounts is given particular attention — this is a simple and straightforward process without unnecessary bureaucracy. Financial institutions provide a wide range of services, including a personal manager.

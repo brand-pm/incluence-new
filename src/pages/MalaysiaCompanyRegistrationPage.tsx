@@ -9,19 +9,12 @@ Thinking of expanding your global business footprint? Malaysia might just be the
 
 **Why Malaysia?**
 
-**Strategic Location*
-
-- : Situated in the heart of Southeast Asia, Malaysia offers easy access to major markets including Singapore, Indonesia, Thailand, Vietnam, and China. Kuala Lumpur, its capital, is a central hub for air, sea, and digital connectivity.
-- **Stable and Diversified Economy*.
-- : Malaysia boasts a robust economy with strong manufacturing, services, and tech sectors. It consistently ranks among the top investment destinations in Asia.
-- **Business-Friendly Environment*.
-- : The government has streamlined company registration, reduced bureaucracy, and offers incentives to foreign investors, particularly in tech, finance, education, and green energy.
-- **Full ASEAN Access*.
-- : As a member of the ASEAN Economic Community (AEC), a Malaysian-registered company enjoys tariff-free access and simplified trade with over 600 million consumers in 10 countries.
-- **Multilingual Talent Pool*.
-- : With a workforce fluent in English, Malay, Chinese, and Tamil, and a high literacy rate, Malaysia offers both communication and cultural versatility.
-- **Modern Infrastructure*.
-- : World-class transportation, reliable utilities, and a fast-developing digital economy make operations smoother and more cost-effective.
+- **Strategic Location** : Situated in the heart of Southeast Asia, Malaysia offers easy access to major markets including Singapore, Indonesia, Thailand, Vietnam, and China. Kuala Lumpur, its capital, is a central hub for air, sea, and digital connectivity.
+- **Stable and Diversified Economy** : Malaysia boasts a robust economy with strong manufacturing, services, and tech sectors. It consistently ranks among the top investment destinations in Asia.
+- **Business-Friendly Environment** : The government has streamlined company registration, reduced bureaucracy, and offers incentives to foreign investors, particularly in tech, finance, education, and green energy.
+- **Full ASEAN Access** : As a member of the ASEAN Economic Community (AEC), a Malaysian-registered company enjoys tariff-free access and simplified trade with over 600 million consumers in 10 countries.
+- **Multilingual Talent Pool** : With a workforce fluent in English, Malay, Chinese, and Tamil, and a high literacy rate, Malaysia offers both communication and cultural versatility.
+- **Modern Infrastructure** : World-class transportation, reliable utilities, and a fast-developing digital economy make operations smoother and more cost-effective.
 
 Whether you're a digital nomad launching a startup, a foreign investor seeking tax efficiency, or a multinational establishing a regional HQ, Malaysia delivers the legal flexibility, market access, and growth potential to help you succeed.
 
@@ -29,15 +22,10 @@ Choosing the right legal structure is the foundation of a successful market entr
 
 Here are the main types of business entities available to foreigners:
 
-**Private Limited Company (Sdn. Bhd.)*
-
-- : The most frequently used and flexible entity, offering limited liability and 100% foreign ownership in most sectors.
-- **Labuan Company (Offshore)*.
-- : Ideal for international trading, holding, and investment activities that benefit from a low-tax regime and confidentiality.
-- **Branch Office*.
-- : An extension of a foreign parent company; not a separate legal entity, but suitable for carrying out business locally under the parent’s liability.
-- **Representative Office*.
-- : Functions for market research or feasibility studies only; not permitted to generate revenue or sign contracts.
+- **Private Limited Company (Sdn. Bhd.)** : The most frequently used and flexible entity, offering limited liability and 100% foreign ownership in most sectors.
+- **Labuan Company (Offshore)** : Ideal for international trading, holding, and investment activities that benefit from a low-tax regime and confidentiality.
+- **Branch Office** : An extension of a foreign parent company; not a separate legal entity, but suitable for carrying out business locally under the parent’s liability.
+- **Representative Office** : Functions for market research or feasibility studies only; not permitted to generate revenue or sign contracts.
 
 Private Limited Company (Sdn. Bhd.) – Most Popular & Flexible Option
 
@@ -53,10 +41,9 @@ Private Limited Company (Sdn. Bhd.) – Most Popular & Flexible Option
 
 ‣ **Advantages** :
 
-Full legal control
-
-- Tax rate of 17% on the first RM 600,000 of profit; 24% thereafter.
-- Eligible to apply for Malaysia Digital (MD) status, tax incentives, grants, and employment passes.
+- Full legal control
+- Tax rate of 17% on the first RM 600,000 of profit; 24% thereafter
+- Eligible to apply for Malaysia Digital (MD) status, tax incentives, grants, and employment passes
 
 ‣ **Ideal For** : SMEs, startups, export-focused firms, consulting, and digital businesses.
 
@@ -68,9 +55,8 @@ Full legal control
 
 ‣ **Taxation** :
 
-3% corporate tax on audited profits, or a fixed RM 20,000 per year option
-
-- No capital gains tax, no withholding tax on dividends, and no stamp duty.
+- 3% corporate tax on audited profits, or a fixed RM 20,000 per year option
+- No capital gains tax, no withholding tax on dividends, and no stamp duty
 
 ‣ **Licensing** : Regulated by Labuan Financial Services Authority (LFSA) — required for financial, insurance, fintech, and trust activities.
 
@@ -84,17 +70,15 @@ Full legal control
 
 ‣ **Requirements** :
 
-Two Malaysian resident agents
-
-- Certified documents from the parent company (charter, certificate of incorporation, board resolution).
+- Two Malaysian resident agents
+- Certified documents from the parent company (charter, certificate of incorporation, board resolution)
 
 ‣ **Taxation** : Subject to Malaysian corporate tax at 24% on income generated in Malaysia.
 
 ‣ **Restrictions** :
 
-Cannot conduct activities different from the parent company
-
-- Not eligible for certain government grants or SME programs.
+- Cannot conduct activities different from the parent company
+- Not eligible for certain government grants or SME programs
 
 ‣ **Ideal For** : Multinational corporations looking to maintain centralized global control while operating in Malaysia.
 
@@ -104,17 +88,15 @@ Cannot conduct activities different from the parent company
 
 ‣ **Use Cases** :
 
-Conducting market research and feasibility studies
-
-- Coordinating with Malaysian agents, distributors, or suppliers.
-- Promoting brand presence before formal market entry.
+- Conducting market research and feasibility studies
+- Coordinating with Malaysian agents, distributors, or suppliers
+- Promoting brand presence before formal market entry
 
 ‣ **Setup Requirements** :
 
-Parent company must be in operation for at least 5 years with a strong financial track record
-
-- Minimum operational expenditure of RM 300,000 per year in Malaysia.
-- Renewable yearly (up to 3 years).
+- Parent company must be in operation for at least 5 years with a strong financial track record
+- Minimum operational expenditure of RM 300,000 per year in Malaysia
+- Renewable yearly (up to 3 years)
 
 ‣ **Employment** : Allowed to hire a small team, including one expatriate and local staff, with approval from the Ministry of International Trade and Industry (MITI).
 
@@ -122,16 +104,14 @@ Parent company must be in operation for at least 5 years with a strong financial
 
 Here's a practical, easy-to-follow guide:
 
-Naming rules: Your proposed name must be unique, not offensive, and not infringe existing trademarks or reserved names
-
+- Naming rules: Your proposed name must be unique, not offensive, and not infringe existing trademarks or reserved names.
 - Use SSM's MyCoID portal to search availability.
 - Fee: Standard RM 50 or RM 30 depending on portal.
 - Once approved, the name is reserved for 30 days, extendable for additional periods (up to 180 days) with extra fee.
 
 Prepare and certify the following:
 
-Name approval letter
-
+- Name approval letter.
 - Form 14 / Superform (incorporation application) under the Companies Act 2016.
 - Declaration of Compliance (Sec 15) & Appointment (Sec 201) forms.
 - Company Constitution (optional).
@@ -140,17 +120,15 @@ Name approval letter
 - Paid-up capital proof (minimum RM1; but sector-based higher minimums may apply, e.g. RM500k-RM1m for sectors affecting visa eligibility).
 - Power of attorney or certified translations if documents are in other languages.
 
-Submit all documents via MyCoID 2016 portal or through your company secretary
-
+- Submit all documents via MyCoID 2016 portal or through your company secretary.
 - Pay the registration fees (starts around RM 1,000 for incorporation fee, plus additional cost based on share capital).
 - The appointed Company Secretary (licensed and Malaysian-resident) handles most submissions and compliance tasks. They must be appointed within 30 days of incorporation.
 
-* If all is in order, SSM issues the Certificate of Incorporation (Form 9) within 2–10 working days. With the certificate, your company becomes a legal entity.
+- If all is in order, SSM issues the Certificate of Incorporation (Form 9) within 2–10 working days. With the certificate, your company becomes a legal entity.
 
 From here, you can:
 
-Open a corporate bank account in Malaysia (often requires the presence of directors and proof of capital transfer)
-
+- Open a corporate bank account in Malaysia (often requires the presence of directors and proof of capital transfer).
 - Register for corporate tax with the Inland Revenue Board (LHDN), Sales & Service Tax (SST) if applicable.
 - Register for EPF and SOCSO if hiring staff.
 - Apply for business licences or permits in regulated industries.
@@ -169,10 +147,9 @@ Transparency builds trust—especially with finances. We believe in laying out a
 
 Registering with the Companies Commission of Malaysia (SSM) involves mandatory charges:
 
-Name reservation: ~MYR 50 (approx. €10)
-
-- Incorporation fee: MYR 1,000 (approx. €200).
-- Stamp duty on Constitution (optional): RM 10–100 (approx. €2–20).
+- Name reservation: ~MYR 50 (approx. €10)
+- Incorporation fee: MYR 1,000 (approx. €200)
+- Stamp duty on Constitution (optional): RM 10–100 (approx. €2–20)
 
 Company registration in Malaysia is a multi-step process that requires careful consideration of the legal structure, business activity, regulatory obligations, and the residency status of stakeholders. The overall cost typically starts from **€3,500** , but may vary significantly depending on the complexity of the setup and compliance requirements.
 
@@ -180,14 +157,13 @@ Opening a corporate bank account—whether with a local or international bank op
 
 Beyond incorporation, entrepreneurs should plan for ongoing corporate obligations, which may include:
 
-Appointment and maintenance of a licensed company secretary (mandatory under Malaysian law)
-
-- Preparation and filing of annual returns and audited financial statements.
-- Ongoing tax and SST (Sales and Service Tax) compliance.
-- Maintenance of a registered office or virtual office address.
-- Support with business licensing, work permits, and employment setup.
-- Payroll and HR administration.
-- Corporate governance and internal policies.
+- Appointment and maintenance of a licensed company secretary (mandatory under Malaysian law)
+- Preparation and filing of annual returns and audited financial statements
+- Ongoing tax and SST (Sales and Service Tax) compliance
+- Maintenance of a registered office or virtual office address
+- Support with business licensing, work permits, and employment setup
+- Payroll and HR administration
+- Corporate governance and internal policies
 
 We offer a tailored approach based on your business objectives, ensuring regulatory compliance and operational readiness from day one. Whether you are structuring a holding entity, entering the Southeast Asian market, or launching a fintech or trading operation, our team ensures each step is handled with legal and procedural precision.
 
@@ -197,45 +173,40 @@ Opening a business bank account as a foreigner in Malaysia can be tricky and tim
 
 Common difficulties include:
 
-Inconsistent document requirements among banks
-
-- Need for a strong local business justification.
-- Delays due to internal compliance review.
-- Requests for additional verification of source of funds or business activities.
+- Inconsistent document requirements among banks
+- Need for a strong local business justification
+- Delays due to internal compliance review
+- Requests for additional verification of source of funds or business activities
 
 To streamline the process, we assist clients by:
 
-Pre-screening and selecting the right bank based on your industry and nationality
-
-- Preparing necessary resolutions and forms in both English and Malay.
-- Coordinating with bank officers to schedule appointments.
-- Providing interpreters or local representatives if needed.
+- Pre-screening and selecting the right bank based on your industry and nationality
+- Preparing necessary resolutions and forms in both English and Malay
+- Coordinating with bank officers to schedule appointments
+- Providing interpreters or local representatives if needed
 
 Required documents may include:
 
-Certificate of Incorporation (Form 9)
-
-- Superform or Section 14 (application to register).
-- Business profile from SSM.
-- Passport copy and proof of residential address for all directors and shareholders.
-- Board resolution to open a bank account.
-- Company's Constitution (if applicable).
-- Business plan, invoices or contracts (in some cases).
+- Certificate of Incorporation (Form 9)
+- Superform or Section 14 (application to register)
+- Business profile from SSM
+- Passport copy and proof of residential address for all directors and shareholders
+- Board resolution to open a bank account
+- Company's Constitution (if applicable)
+- Business plan, invoices or contracts (in some cases)
 
 Our team ensures that all paperwork is accurate and complete so you're fully prepared for your bank appointment and can avoid unnecessary delays.
 
 Compliance isn't optional—it's a continuous process that safeguards your company's legal standing and credibility. In Malaysia, every Sdn. Bhd. is required to:
 
-Submit annual returns to the Companies Commission (SSM) within 30 days of the incorporation anniversary
-
-- File tax returns with the Inland Revenue Board (LHDN) annually, even if the company is dormant.
-- Prepare and submit audited financial statements unless the company qualifies for audit exemption as a dormant or small entity.
+- Submit annual returns to the Companies Commission (SSM) within 30 days of the incorporation anniversary
+- File tax returns with the Inland Revenue Board (LHDN) annually, even if the company is dormant
+- Prepare and submit audited financial statements unless the company qualifies for audit exemption as a dormant or small entity
 
 In addition, companies must:
 
-Maintain updated company records, including directors' and shareholders' registers
-
-- Report any changes in directorship, shareholding, or business address within the required timeline.
+- Maintain updated company records, including directors' and shareholders' registers
+- Report any changes in directorship, shareholding, or business address within the required timeline
 
 Failure to comply can result in penalties, fines, and even blacklisting of directors.
 

@@ -29,15 +29,13 @@ By buying a business abroad, you save time that you can profitably spend on the 
 
 Depending on the chosen jurisdiction, an entrepreneur can expect certain advantages in the process of doing business. In particular, various countries around the world can offer the businessman:
 
-Loyal taxation and tax benefits if certain legal requirements are met. One of the latter is that the entrepreneur will not conduct business in the country of incorporation of the firm
-
+- Loyal taxation and tax benefits if certain legal requirements are met. One of the latter is that the entrepreneur will not conduct business in the country of incorporation of the firm.
 - Confidentiality of business ownership. For example, closed registries, non-disclosure of information by employees of the firm, and so on.
 - Various tools for the remote management of business processes, as well as minimum requirements for accounting records, audits, and so on.
 
 Businessmen often wonder whether it is possible to buy a company in Europe because business activity in EU countries looks more attractive in the eyes of potential business partners. In particular, business owners are attracted by the following advantages of doing business in European countries:
 
-Reliability, protection of private property
-
+- Reliability, protection of private property.
 - Stability in the political and economic spheres.
 - Relatively low level of corruption.
 - Absence of pressure on business from the government and regulatory bodies.

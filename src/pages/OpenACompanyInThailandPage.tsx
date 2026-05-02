@@ -7,17 +7,15 @@ const PAGE_DATA = {
 
 The country places great emphasis on attracting foreign investors. In particular, there is a special investment program that allows entrepreneurs to enjoy corporate tax exemption for up to 8 years. The greatest chance of receiving such a benefit is for entrepreneurs who decide to open a company in Thailand to engage in:
 
-scientific research;
-
-- educational activities related to advanced technologies;.
+- scientific research;
+- educational activities related to advanced technologies;
 - licensing certain technologies, with the intention of introducing them to the market in the future.
 
 In other words, if you decide to open a business in Thailand in the field of high technology, you will have the maximum chances of obtaining corporate tax exemption.
 
 If you decide to open a company in Thailand, the process involves the following steps:
 
-Choosing a name for the company
-
+- Choosing a name for the company.
 - Drafting the Articles of Association.
 - Holding a shareholders’ meeting.
 - Direct company registration.
@@ -29,9 +27,8 @@ Please note that when opening a Thai company, a one-time registration fee must b
 
 If you decide to register a company in Thailand, you will need to prepare a certain set of documents. The list may vary depending on several conditions, including the business sector. If, along with company registration, you also wish to open a bank account, you will need at least:
 
-proof of residence and copies of passports of the director and shareholders;
-
-- a list of several possible names for the future company;.
+- proof of residence and copies of passports of the director and shareholders;
+- a list of several possible names for the future company;
 - a brief description of the business model and activities.
 
 When opening a business in Thailand, keep in mind that you need at least one director and no fewer than three shareholders. There are no requirements regarding their residency.

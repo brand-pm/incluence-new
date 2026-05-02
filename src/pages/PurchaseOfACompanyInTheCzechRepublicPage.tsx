@@ -11,29 +11,26 @@ Deciding to buy a company in Czechia not only saves the entrepreneur from variou
 
 A ready-made company can be the best choice for entrepreneurs who want to:
 
-obtain a residence visa in the Czech Republic;
-
-- purchase real estate under the company’s name;.
+- obtain a residence visa in the Czech Republic;
+- purchase real estate under the company’s name;
 - quickly start business operations in the Czech Republic.
 
 The key advantage of buying a company in Czechia is that the new owner can immediately obtain a VAT number. This is not possible when registering a company from scratch, as obtaining the number requires an annual turnover exceeding 1 million CZK.
 
 Purchasing a ready-made company has many advantages, including:
 
-the share capital is fully paid;
-
-- some companies already hold licenses for specific activities;.
-- you can buy a company in Czechia with no business history, no contracts, and no prior activity;.
-- a company with history looks more attractive to potential partners;.
-- the enterprise already has a bank account;.
-- the buyer can make changes during the purchase process, such as changing the company name;.
-- the company has a legal address compliant with Czech legislation;.
+- the share capital is fully paid;
+- some companies already hold licenses for specific activities;
+- you can buy a company in Czechia with no business history, no contracts, and no prior activity;
+- a company with history looks more attractive to potential partners;
+- the enterprise already has a bank account;
+- the buyer can make changes during the purchase process, such as changing the company name;
+- the company has a legal address compliant with Czech legislation;
 - offered ready-made companies have no debts or other obligations to the state or third parties.
 
 The cost of purchasing a company depends primarily on the firm itself: whether it is active, has licenses, and other factors. The price is also influenced by notary services and the preparation of various required documents:
 
-Criminal record certificates for the director from both the country of residence and the Czech Republic. To obtain a Czech certificate, a birth certificate is required as a mandatory supporting document
-
+- Criminal record certificates for the director from both the country of residence and the Czech Republic. To obtain a Czech certificate, a birth certificate is required as a mandatory supporting document.
 - If the legal address needs to be changed, written consent from the property owner is required.
 
 Additional costs may arise due to personal presence requirements or issuing a power of attorney. If the purchase is by proxy, the document can be signed either in person in the Czech Republic or at a Czech consulate abroad.
@@ -42,11 +39,10 @@ Besides documentation and company costs, there are expenses for our due diligenc
 
 If the new owner wishes to make changes, this can be done during the purchase process. Amendments can include:
 
-adding or modifying business activities;
-
-- changing the legal address;.
-- choosing a new company name;.
-- closing or opening additional bank accounts in the desired currency;.
+- adding or modifying business activities;
+- changing the legal address;
+- choosing a new company name;
+- closing or opening additional bank accounts in the desired currency;
 - redistributing share capital among co-founders.
 
 By law, processing such changes may take up to 5 business days.
@@ -59,16 +55,14 @@ If you are interested in a ready-made company in Czechia with a VAT number, it m
 
 During this process, our experts will:
 
-verify the availability and compliance of all documents (founding, ownership, and licensing documents);
-
-- check ownership rights to company shares and the legitimacy of related transactions;.
+- verify the availability and compliance of all documents (founding, ownership, and licensing documents);
+- check ownership rights to company shares and the legitimacy of related transactions;
 - provide recommendations to align documentation with legal standards if needed.
 
 To buy a company in Czechia, you will need:
 
-a high-resolution scan of your international passport;
-
-- your registered residential address, including the city and region;.
+- a high-resolution scan of your international passport;
+- your registered residential address, including the city and region;
 - a criminal record certificate from both your home country and the Czech Republic.
 
 If you are interested in acquiring a ready-made company in Czechia, our specialists will review available offers and select the best option for you. We also provide many additional services, which you can learn about during a consultation with our manager.`,

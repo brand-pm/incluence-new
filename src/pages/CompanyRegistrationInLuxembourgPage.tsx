@@ -9,30 +9,26 @@ Company registration in Luxembourg attracts many entrepreneurs, as the country o
 
 Today, the following business forms are common in Luxembourg:
 
-SARL (LLC). The minimum share capital is EUR 21,400, which must be fully paid before registration. SARLs can issue only registered shares. If the number of shareholders exceeds 25, annual meetings must be held
-
+- SARL (LLC). The minimum share capital is EUR 21,400, which must be fully paid before registration. SARLs can issue only registered shares. If the number of shareholders exceeds 25, annual meetings must be held.
 - SA (JSC). The minimum share capital is EUR 31,100, of which one quarter (EUR 7,750) must be paid at the time of incorporation. SA companies are required to undergo audits.
 
 When choosing a country to start a business, entrepreneurs often select Luxembourg. This is due to the following business benefits:
 
-stable political and economic environment;
-
-- full foreign ownership of businesses allowed;.
-- favorable conditions for foreign investment;.
-- high level of confidentiality;.
-- access to EU markets;.
+- stable political and economic environment;
+- full foreign ownership of businesses allowed;
+- favorable conditions for foreign investment;
+- high level of confidentiality;
+- access to EU markets;
 - developed banking and financial sectors.
 
 Companies are considered tax residents of Luxembourg if:
 
-they are incorporated in Luxembourg and have a registered office in the country;
-
+- they are incorporated in Luxembourg and have a registered office in the country;
 - their effective management is carried out from Luxembourg.
 
 In this case, companies are subject to:
 
-Corporate income tax. The standard rate is 17%. If company income exceeds EUR 200,000 in any period, the total tax rate reaches 24.94%
-
+- Corporate income tax. The standard rate is 17%. If company income exceeds EUR 200,000 in any period, the total tax rate reaches 24.94%.
 - VAT. Standard rate is 17%, but it may be reduced to as low as 3% in some cases. For example, reduced VAT applies to most food products, books, pharmaceuticals, as well as water supply, broadcasting, and television services. Financial and healthcare services are exempt from VAT.
 - Withholding tax on dividend income. A 15% rate applies when dividends are paid by one resident to another. However, if a company meets the EU Parent-Subsidiary Directive requirements and is a resident of an EU member state, it is exempt from this tax.
 
@@ -42,9 +38,8 @@ SA companies must undergo an annual audit conducted by a certified auditor. Repo
 
 SARL companies may be exempt from an audit if:
 
-total balance sheet does not exceed EUR 4.4 million;
-
-- net turnover is below EUR 8.8 million;.
+- total balance sheet does not exceed EUR 4.4 million;
+- net turnover is below EUR 8.8 million;
 - the company employs no more than 50 people.
 
 Entrepreneurs are also required to pay an annual state duty.
@@ -53,10 +48,9 @@ A tax number is assigned to the company upon registration and submission of the 
 
 To start a business and incorporate a Luxembourg company, different documents may be required, depending on the chosen form of business. As a rule, at least the following documents are needed:
 
-notarized articles of association, registered in the Trade Register;
-
-- founding agreement;.
-- company charter;.
+- notarized articles of association, registered in the Trade Register;
+- founding agreement;
+- company charter;
 - resolution appointing directors.
 
 Additionally, a certificate from the selected bank confirming the deposit of the company’s share capital is required.

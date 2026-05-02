@@ -7,10 +7,9 @@ const PAGE_DATA = {
 
 Doing business in Croatia has several advantages for entrepreneurs:
 
-Access to tax incentives established at the legislative level;
-
-- Stability in the country’s social and political spheres;.
-- Developed infrastructure;.
+- Access to tax incentives established at the legislative level;
+- Stability in the country’s social and political spheres;
+- Developed infrastructure;
 - High economic growth rates.
 
 Company registration in Croatia is also attractive due to favorable business lending options available in local banks.
@@ -31,8 +30,7 @@ If you are considering company registration in Croatia, keep in mind the reporti
 
 In most cases, establishing a Croatian company involves several stages. For example, a typical registration process includes three steps:
 
-Preparation and submission of documents. These include: a copy of the passport, a short business description, a founding agreement, and several other documents
-
+- Preparation and submission of documents. These include: a copy of the passport, a short business description, a founding agreement, and several other documents.
 - Payment of state fees and share capital.
 - Registration with Croatia’s social, insurance, and tax authorities.
 

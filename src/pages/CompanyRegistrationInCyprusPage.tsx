@@ -9,8 +9,7 @@ We will provide consultations on the collection and submission of documents, reg
 
 Undoubtedly, setting up a company in Cyprus is considered a promising undertaking for several reasons:
 
-The island state is not classified as an offshore jurisdiction and is not included in any “black” or “grey” lists
-
+- The island state is not classified as an offshore jurisdiction and is not included in any “black” or “grey” lists.
 - There are full opportunities to open a bank account. Thus, an entrepreneur can have an account in the same country where the company is registered.
 - In Cyprus, company registration is always accompanied by a relatively low corporate income tax (Profit Tax), which is 12.5%. This rule applies regardless of the type of business activity.
 - Since autumn 2017, Cyprus has been a full participant in the automatic exchange of tax information.
@@ -18,8 +17,7 @@ The island state is not classified as an offshore jurisdiction and is not includ
 
 Limited Company (LTD) — the business form most commonly chosen by entrepreneurs. Before registering a company in Cyprus in this form, consider:
 
-Share capital from €1,000 to €5,000, with a minimum of €1. This is the standard range
-
+- Share capital from €1,000 to €5,000, with a minimum of €1. This is the standard range.
 - A fee of 0.6% is charged, depending on the amount of share capital.
 - Before opening a company in Cyprus, you must appoint a secretary — this position is mandatory for LTDs.
 - Number of directors — from 1. The director does not have to be a Cyprus resident. This requirement applies unconditionally only if the company wants to be a tax resident.
@@ -33,8 +31,7 @@ _It is possible to register non-resident companies in Cyprus. Foreign firms pay 
 
 If you are interested in registering a company in Cyprus, the cost of setting up a business should include not only organizational expenses. You should consider the main taxes that apply on the island. In addition to Corporation Tax, entrepreneurs must pay:
 
-Defense tax — ranges from 3% to 30%, applicable only to residents
-
+- Defense tax — ranges from 3% to 30%, applicable only to residents.
 - Value Added Tax (VAT) — the standard rate is 19%. In some cases, it can be reduced to 5% or 9%. Exports are taxed at 0%.
 - Withholding tax — officially called Withholding Tax. Levied on residents when paying income to non-residents in the form of interest, royalties, and dividends. Can reach up to 10%.
 - Annual Levy — a fee paid once a year, mandatory for any organization, even those not conducting actual activity. The fee is €350 and is paid annually by June 30. Late payment leads to penalties and possible company liquidation.
@@ -50,15 +47,13 @@ Proof is certified by an official document — a certificate. It confirms that t
 
 To register a company in Cyprus and obtain the certificate, certain requirements have been introduced. They also apply to local legal entities.
 
-The company's management must be located on the island
-
+- The company's management must be located on the island.
 - If the company's interests are represented by power of attorney, it must be specific, i.e., limited to certain powers.
 - Timely submission of reporting is mandatory.
 
 Cyprus companies are required every year to:
 
-Submit financial statements and undergo an audit
-
+- Submit financial statements and undergo an audit.
 - Based on the financial statements, file a tax return with the local tax authority.
 - Provide statistical reports to the Registrar of Companies.
 
@@ -66,18 +61,16 @@ If you are finding out how to open a company in Cyprus, first note that the fisc
 
 Remote company registration in Cyprus is one of the services our company provides. Experienced specialists in international business management will take on your project quickly and with a high guarantee of success. Registering a company in Cyprus opens opportunities for:
 
-holding and e-commerce activities;
-
-- successful international trade;.
-- facilitating import and export transactions between the EU and the CIS;.
+- holding and e-commerce activities;
+- successful international trade;
+- facilitating import and export transactions between the EU and the CIS;
 - obtaining the right to own intellectual property on favorable terms.
 
 Note that the pace of adopting innovations in Cyprus is extremely high. Local legal structures are becoming more structured and expanded, individualized for each entrepreneur, and have their own unique features. The speed of registration depends on the correctness of the submitted documents, but it takes at least 10–15 days.
 
 Company registration is carried out as follows:
 
-Choose a name for the future company. It's better to have several options to check them in the Registry
-
+- Choose a name for the future company. It's better to have several options to check them in the Registry.
 - Collect and submit the package of documents. It is important to strictly follow requirements for documents and registration forms! Otherwise, registration may be refused.
 - Confirmation of registration and receipt of registration documents. Preparation of translations and submission of company information to subsequent authorities.
 

@@ -15,23 +15,20 @@ Another reason to open a company in Estonia is the tax structure. Retained profi
 
 Estonian company registration provides access to the European Union framework. At the same time, you need to follow local compliance rules from the start.
 
-Digital registration and administration. Most procedures are completed online, which reduces time and paperwork
-
+- Digital registration and administration. Most procedures are completed online, which reduces time and paperwork.
 - The corporate tax system is based on distributed profits. Retained earnings are not taxed until paid out.
 - Access to the European Union market. An Estonian entity can operate within the EU legal framework.
 - Transparent legal environment. Corporate rules are clear and publicly accessible.
 - Suitable for international founders. Remote management is possible in many cases.
 
-Ongoing accounting and reporting obligations must be maintained
-
+- Ongoing accounting and reporting obligations must be maintained.
 - Substance requirements may apply depending on business activity.
 - Compliance rules must be followed carefully to avoid penalties.
 - Banking procedures can require additional documentation.
 
 Estonian company formation usually follows five key steps:
 
-Initial consultation and structure planning
-
+- Initial consultation and structure planning.
 - Preparation of incorporation documents and shareholder details.
 - Submission of documents to register a company in Estonia through the electronic system or via a notary.
 - Entry into the official records and confirmation from the authorities.

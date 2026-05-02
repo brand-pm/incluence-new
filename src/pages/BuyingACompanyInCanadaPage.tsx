@@ -11,8 +11,7 @@ This country offers many advantages for entrepreneurs. Essentially, the main obs
 
 In particular, entrepreneurs value Canada as a suitable place for business expansion for the following reasons:
 
-The country attracts entrepreneurs with its investment potential
-
+- The country attracts entrepreneurs with its investment potential.
 - The corporate tax rate in Canada is 15%, applied to enterprises with profits not exceeding CAD 500,000.
 - Most contracts and agreements with business partners can be concluded without additional approval from regulatory authorities.
 - Canada has a convenient geographical location, allowing local companies to supply goods and services throughout North America.

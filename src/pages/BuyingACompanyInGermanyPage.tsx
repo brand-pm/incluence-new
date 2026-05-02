@@ -7,35 +7,30 @@ const PAGE_DATA = {
 
 To ensure future investments bring profit, you should not buy a company without a preliminary check. A properly selected business already has a reputation among potential partners and clients. Our company, Incluence Limited, sells businesses already registered in Germany:
 
-all legal entities undergo a financial evaluation;
-
-- the companies are free of legal issues and debts;.
+- all legal entities undergo a financial evaluation;
+- the companies are free of legal issues and debts;
 - the transaction is carried out with all necessary business documents in place.
 
-Die Aktiengesellschaft — equivalent of a Joint Stock Company. One or several legal or natural persons receive shares in the established company in exchange for their contributions
-
+- Die Aktiengesellschaft — equivalent of a Joint Stock Company. One or several legal or natural persons receive shares in the established company in exchange for their contributions.
 - Die Partnerschaftsgesellschaft — partnership, an association of two or more persons for commercial or other purposes.
 - Die Kommanditgesellschaft — limited partnership, established by two or more legal or natural persons.
 - Gesellschaft mit beschränkter Haftung (GmbH) — equivalent of a Limited Liability Company.
 
 Each company must comply with reporting requirements, minimum share capital, and taxation. The most common form of entrepreneurship is the GmbH. When setting up this company from scratch, you must contribute:
 
-Share capital — €25,000. At registration, at least half (€12,500) must be paid, with the rest to be paid later
-
+- Share capital — €25,000. At registration, at least half (€12,500) must be paid, with the rest to be paid later.
 - Fees to the municipality and entry in the Commercial Register — starting from €300.
 
 Before buying a company in Germany, you should consider the expenses involved in the transaction. The standard list of costs includes:
 
-Payment of the declared company price
-
+- Payment of the declared company price.
 - Replenishment of the share capital in the company’s account.
 - Notary fees for re-registration.
 - Fees for experts assisting with the transaction.
 
 Entrepreneurs are attracted to doing business in Germany, where tax burdens can be minimized. Furthermore, when purchasing a GmbH, the new owner does not need to re-contribute share capital or pay mandatory state fees required for newly registered companies. Other advantages include:
 
-Producing goods or providing services under a recognized German brand. Clients trust local companies, especially those with an established history
-
+- Producing goods or providing services under a recognized German brand. Clients trust local companies, especially those with an established history.
 - The company is seen as a reliable business partner.
 - Opportunity to export goods to CIS countries without VAT. Local companies may also access preferential insurance rates, subsidies, and government grants.
 - Opening accounts in a reputable bank. You can purchase a ready-made company in Germany with an existing bank account, and later obtain a credit card and/or checkbook.
@@ -44,8 +39,7 @@ Producing goods or providing services under a recognized German brand. Clients t
 
 Purchasing an existing company in Germany saves considerable time — about 3 weeks to 1.5 months — not including tasks like finding premises and organizing operations. This time is normally required for:
 
-Issuing a Registration Number — 2 to 5 weeks
-
+- Issuing a Registration Number — 2 to 5 weeks.
 - Opening a bank account — up to 4 weeks.
 - Depositing company capital into the account — from 1 day.
 
@@ -53,33 +47,28 @@ Local financial institutions carefully review companies owned by non-residents, 
 
 After purchase, the new owner may change:
 
-the company’s registered address;
-
-- the brand name;.
+- the company’s registered address;
+- the brand name;
 - the legal form.
 
 The list of documents depends on the buyer’s status. The standard minimum includes:
 
-Information about future directors
-
+- Information about future directors.
 - Identity documents of the owners.
 - Information about the buyer as a legal entity — description of activities, legal address.
 - Power of attorney — if the owner or representatives cannot attend the notary in person.
 
 When buying an existing company, the new owner does not need to register a bank account or go through the initial registration process. Therefore, the transaction can be completed in as little as 1 day by agreement. The process includes:
 
-Choosing a payment method — through the transaction-handling company or a notary
-
+- Choosing a payment method — through the transaction-handling company or a notary.
 - Re-registration — a notary transfers ownership to the new owner and issues a corresponding document.
 
 Then, the standard steps follow:
 
-Obtaining a business license from the Gewerbeerlaubnis (Trade Office)
-
+- Obtaining a business license from the Gewerbeerlaubnis (Trade Office).
 - Obtaining a tax number (Steuernummer), if required, since most companies already have one.
 
-Profitability and efficiency of the company. A financial evaluation highlights strengths and weaknesses, including the company’s credit history
-
+- Profitability and efficiency of the company. A financial evaluation highlights strengths and weaknesses, including the company’s credit history.
 - Reputation. A positive reputation ensures business prospects.
 - Reason for sale. It’s important to know why the company is being sold.
 

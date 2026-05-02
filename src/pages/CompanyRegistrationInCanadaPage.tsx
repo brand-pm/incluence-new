@@ -9,8 +9,7 @@ Contact Incluence in any convenient way to receive a personal consultation. Our 
 
 Entrepreneurs who establish companies in Canada highlight many positive aspects of doing business here:
 
-Company registration in Canada without offshore status
-
+- Company registration in Canada without offshore status.
 - No public register of beneficiaries.
 - Possibility to work successfully with multiple currencies since there is no currency control.
 - The right to open a bank account — you can both register a company and open an account in the same country.
@@ -22,15 +21,13 @@ Company registration in Canada without offshore status
 
 Additionally, to avoid double taxation, Canada has agreements with 87 countries.
 
-The founder of the new company must be of legal age
-
+- The founder of the new company must be of legal age.
 - They must have no outstanding criminal record.
 - A valid foreign passport is required, with at least one year remaining before expiration at the time of registration.
 
 There are also additional forms of ownership such as Limited Partnership and Limited Liability Partnership. However, they are less common among foreign entrepreneurs because Corporation offers more benefits and allows cooperation with both local and foreign partners.
 
-Provide copies of a valid passport and a paid utility bill for property owned by the director. These documents require notarization
-
+- Provide copies of a valid passport and a paid utility bill for property owned by the director. These documents require notarization.
 - Prepare a bank reference from the institution where the entrepreneur has an account.
 - Submit an application form and questionnaire for business registration.
 
@@ -38,8 +35,7 @@ All documents must be submitted in the official language — translated into eit
 
 Registering a company in Canada requires understanding the local tax system. Businesses must pay provincial, federal, and municipal taxes. Rates differ depending on the province and may change, so it’s important to confirm with official sources. The system also includes:
 
-A 5% goods and services tax (GST) — with exemptions for some education and healthcare services
-
+- A 5% goods and services tax (GST) — with exemptions for some education and healthcare services.
 - A general corporate tax rate of 38%. However, depending on turnover, this rate can be reduced. A federal tax credit can lower the rate to 15%.
 
 Entrepreneurs should also consider the Value Added Tax (VAT), which is applied on a progressive scale to businesses operating within Canada.

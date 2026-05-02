@@ -17,9 +17,8 @@ One of the most popular forms of business in Czechia is the Limited Liability Co
 
 Doing business in Czechia opens up a wide range of opportunities:
 
-foreign nationals who register a company in the Czech Republic obtain the same rights as Czech citizens when running a business;
-
-- opening a company in Czechia grants access to all EU markets;.
+- foreign nationals who register a company in the Czech Republic obtain the same rights as Czech citizens when running a business;
+- opening a company in Czechia grants access to all EU markets;
 - a Czech company allows entrepreneurs to purchase real estate in Czechia or obtain a loan for this purpose.
 
 Company founders also have the right to apply for a long-term visa, allowing them to stay in Czechia for up to one year.
@@ -28,31 +27,27 @@ Since joining the EU in 2004, Czechia falls under the EU Parent-Subsidiary Direc
 
 Standard rates in Czechia:
 
-personal income tax — 15%;
-
-- corporate income tax — 19%;.
+- personal income tax — 15%;
+- corporate income tax — 19%;
 - value-added tax — 21%.
 
 Many Ukrainian entrepreneurs choose to register companies in Czechia for several reasons:
 
-no currency control;
-
-- ability to open an account in a European bank;.
-- possibility of obtaining a tax residency certificate;.
-- as a full EU member, companies can operate in any EU state;.
-- double taxation treaties signed with 80+ countries, covering most jurisdictions in Eastern and Central Europe;.
-- EU directives on parent-subsidiary companies as well as interest and royalties are applicable;.
-- Czechia is not an offshore jurisdiction and has never been blacklisted by the EU;.
+- no currency control;
+- ability to open an account in a European bank;
+- possibility of obtaining a tax residency certificate;
+- as a full EU member, companies can operate in any EU state;
+- double taxation treaties signed with 80+ countries, covering most jurisdictions in Eastern and Central Europe;
+- EU directives on parent-subsidiary companies as well as interest and royalties are applicable;
+- Czechia is not an offshore jurisdiction and has never been blacklisted by the EU;
 - a wide range of corporate tax optimization methods are available.
 
-acting as a general supplier — all documentation can be replaced with a single transaction passport;
-
-- acting as a sales agent — via an agency agreement with a company from a favorable tax jurisdiction;.
+- acting as a general supplier — all documentation can be replaced with a single transaction passport;
+- acting as a sales agent — via an agency agreement with a company from a favorable tax jurisdiction;
 - acting as an intermediary for payments between supplier and end customer — without a sales contract. Payments go directly through a Czech bank account.
 
-transfer pricing rules abolished for LLCs and simplified for joint-stock companies;
-
-- to open a company in Czechia, only a one-time share capital is required — reduced from €8,000 to just 1 Czech crown for LLCs;.
+- transfer pricing rules abolished for LLCs and simplified for joint-stock companies;
+- to open a company in Czechia, only a one-time share capital is required — reduced from €8,000 to just 1 Czech crown for LLCs;
 - Czech companies may have collective managers or corporate directors.
 
 Compared to countries like the Netherlands or Sweden, setting up a company in Czechia requires significantly fewer financial resources.
@@ -61,30 +56,27 @@ Until 2014, the process of opening new companies in Czechia was relatively compl
 
 Thanks to this, setting up a business in Czechia has become faster and easier. Notaries are now authorized to:
 
-register new companies;
-
-- make changes to certain documents;.
+- register new companies;
+- make changes to certain documents;
 - add new records to the Commercial Register and issue extracts from it.
 
 These Civil Code changes, along with the affordable registration costs, have made Czechia a popular choice among entrepreneurs — especially as an alternative to jurisdictions with more favorable tax regimes.
 
 The cost of setting up a company in Czechia depends largely on notary fees and government charges. To register an LLC, you will need:
 
-notarial services;
-
-- issuance of a trade license;.
-- rental of a legal address;.
-- entry into the Commercial Register;.
+- notarial services;
+- issuance of a trade license;
+- rental of a legal address;
+- entry into the Commercial Register;
 - other minor expenses.
 
 This minimum package of services costs approximately 10–12 thousand Czech crowns.
 
 If you want to open a company in Czechia, the price may increase due to additional expenses, as operating a business requires a range of supporting services, such as:
 
-accounting services for one year;
-
-- VAT registration;.
-- translations of documents into Czech;.
+- accounting services for one year;
+- VAT registration;
+- translations of documents into Czech;
 - professional legal assistance and more.
 
 You can either register a new company in Czechia or re-register an existing one. No personal visit to Czechia is required. A notarized copy of your passport and a criminal record certificate from your country of residence are sufficient.
