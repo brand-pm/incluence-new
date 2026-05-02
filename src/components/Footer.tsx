@@ -52,7 +52,7 @@ const columns: Group[] = [
 
 const colHeading: React.CSSProperties = {
   fontSize: 10, textTransform: "uppercase", letterSpacing: "0.12em",
-  color: "#9A9590", marginBottom: 12, fontWeight: 600,
+  color: "#444CE7", marginBottom: 12, fontWeight: 600,
 };
 const linkStyle: React.CSSProperties = {
   fontSize: 12.5, color: "#5A5550", textDecoration: "none",
@@ -64,7 +64,7 @@ const Footer = () => (
     <div className="mx-auto max-w-[1280px] px-5 py-10 md:px-12 md:py-12">
       {/* Top row — brand + nav columns */}
       <div className="grid grid-cols-2 lg:grid-cols-6 gap-8 md:gap-10">
-        {/* Brand */}
+        {/* Brand + offices */}
         <div className="col-span-2">
           <div style={{ fontSize: 20, fontWeight: 600, fontFamily: "Manrope, sans-serif" }}>
             <span style={{ color: "#F0EBE0" }}>Inclu</span>
@@ -73,6 +73,18 @@ const Footer = () => (
           <p style={{ fontSize: 12.5, color: "#5A5550", marginTop: 10, maxWidth: 260, lineHeight: 1.6 }}>
             International legal services for FinTech, Crypto and High-Risk businesses.
           </p>
+
+          <div className="mt-6 flex flex-col gap-3" style={{ maxWidth: 280 }}>
+            <div style={{ fontSize: 11.5, color: "#5A5550", lineHeight: 1.6 }}>
+              <span style={{ color: "#444CE7", fontWeight: 600, letterSpacing: "0.08em" }}>UK · </span>
+              Incluence Ltd, 2nd Floor, College House, 17 King Edwards Road, Ruislip, London, HA4 7AE
+              <span style={{ color: "#444CE7" }}> · Reg. 15743262</span>
+            </div>
+            <div style={{ fontSize: 11.5, color: "#5A5550", lineHeight: 1.6 }}>
+              <span style={{ color: "#444CE7", fontWeight: 600, letterSpacing: "0.08em" }}>HK · </span>
+              Incluence Ltd, Rm 7B, One Capital Place, 18 Luard Rd, Wan Chai
+            </div>
+          </div>
         </div>
 
         {/* Nav columns */}
@@ -88,21 +100,6 @@ const Footer = () => (
         ))}
       </div>
 
-      {/* Offices — inline compact row */}
-      <div
-        className="mt-10 pt-6 grid grid-cols-1 sm:grid-cols-2 gap-6"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
-      >
-        <div style={{ fontSize: 11.5, color: "#5A5550", lineHeight: 1.7 }}>
-          <span style={{ color: "#444CE7", fontWeight: 600, letterSpacing: "0.08em" }}>UK · </span>
-          Incluence Ltd, 2nd Floor, College House, 17 King Edwards Road, Ruislip, London, HA4 7AE
-          <span style={{ color: "#444CE7" }}> · Reg. 15743262</span>
-        </div>
-        <div style={{ fontSize: 11.5, color: "#5A5550", lineHeight: 1.7 }}>
-          <span style={{ color: "#444CE7", fontWeight: 600, letterSpacing: "0.08em" }}>HK · </span>
-          Incluence Ltd, Rm 7B, One Capital Place, 18 Luard Rd, Wan Chai
-        </div>
-      </div>
     </div>
 
     {/* Bottom bar */}
