@@ -148,7 +148,9 @@ const RegisterCompanyInSingaporePage = React.lazy(() => import("./pages/Register
 const RegisterCompanyInSwitzerlandPage = React.lazy(() => import("./pages/RegisterCompanyInSwitzerlandPage").then(m => ({ default: m.RegisterCompanyInSwitzerlandPage })));
 const RegisterCompanyInUaePage = React.lazy(() => import("./pages/RegisterCompanyInUaePage").then(m => ({ default: m.RegisterCompanyInUaePage })));
 const RegisterCompanyInUkPage = React.lazy(() => import("./pages/RegisterCompanyInUkPage").then(m => ({ default: m.RegisterCompanyInUkPage })));
-const RegistrationOfCompaniesAbroadPage = React.lazy(() => import("./pages/RegistrationOfCompaniesAbroadPage").then(m => ({ default: m.RegistrationOfCompaniesAbroadPage })));
+const RegistrationOfCompaniesAbroadPage = React.lazy(() => import("./pages/RegistrationOfCompaniesAbroadPage"));
+const CompanyRegistrationNonEuEuropePage = React.lazy(() => import("./pages/CompanyRegistrationNonEuEuropePage"));
+const CompanyRegistrationAmericasAsiaPage = React.lazy(() => import("./pages/CompanyRegistrationAmericasAsiaPage"));
 const ResidencePermitInCyprusPage = React.lazy(() => import("./pages/ResidencePermitInCyprusPage").then(m => ({ default: m.ResidencePermitInCyprusPage })));
 const ResidencePermitInDubaiPage = React.lazy(() => import("./pages/ResidencePermitInDubaiPage").then(m => ({ default: m.ResidencePermitInDubaiPage })));
 const ResidencePermitInHungaryPage = React.lazy(() => import("./pages/ResidencePermitInHungaryPage").then(m => ({ default: m.ResidencePermitInHungaryPage })));
