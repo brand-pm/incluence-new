@@ -305,6 +305,8 @@ const App = () => (
               <Route path="/malaysia-company-registration" element={<MalaysiaCompanyRegistrationPage />} />
               <Route path="/starting-a-business-in-montenegro" element={<StartingABusinessInMontenegroPage />} />
               <Route path="/registration-of-companies-abroad" element={<RegistrationOfCompaniesAbroadPage />} />
+              <Route path="/company-registration-non-eu-europe" element={<CompanyRegistrationNonEuEuropePage />} />
+              <Route path="/company-registration-americas-asia" element={<CompanyRegistrationAmericasAsiaPage />} />
 
               {/* Ready-made companies */}
               <Route path="/ready-made-companies-in-hungary" element={<ReadyMadeCompaniesInHungaryPage />} />
