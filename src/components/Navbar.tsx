@@ -105,6 +105,8 @@ const COMPANY_GROUPED: ServiceGroup[] = [
 const COMPANY_FLAT: FlatItem[] = [
   { label: "Hub", href: "/registration-of-companies-abroad" },
   { label: "EU Hub", href: "/company-registration-in-europe" },
+  { label: "Non-EU Hub", href: "/company-registration-non-eu-europe" },
+  { label: "Americas & Asia Hub", href: "/company-registration-americas-asia" },
   { label: "Offshore Hub", href: "/offshore-company-formation" },
   { label: "Ready-Made Offshore", href: "/ready-made-offshore-companies" },
   { label: "Marketplace", href: "/marketplace" },
