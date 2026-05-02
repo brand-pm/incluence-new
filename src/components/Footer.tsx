@@ -100,21 +100,6 @@ const Footer = () => (
         ))}
       </div>
 
-      {/* Offices — inline compact row */}
-      <div
-        className="mt-10 pt-6 grid grid-cols-1 sm:grid-cols-2 gap-6"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
-      >
-        <div style={{ fontSize: 11.5, color: "#5A5550", lineHeight: 1.7 }}>
-          <span style={{ color: "#444CE7", fontWeight: 600, letterSpacing: "0.08em" }}>UK · </span>
-          Incluence Ltd, 2nd Floor, College House, 17 King Edwards Road, Ruislip, London, HA4 7AE
-          <span style={{ color: "#444CE7" }}> · Reg. 15743262</span>
-        </div>
-        <div style={{ fontSize: 11.5, color: "#5A5550", lineHeight: 1.7 }}>
-          <span style={{ color: "#444CE7", fontWeight: 600, letterSpacing: "0.08em" }}>HK · </span>
-          Incluence Ltd, Rm 7B, One Capital Place, 18 Luard Rd, Wan Chai
-        </div>
-      </div>
     </div>
 
     {/* Bottom bar */}
