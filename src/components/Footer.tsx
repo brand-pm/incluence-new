@@ -6,17 +6,18 @@ const serviceGroups: Group[] = [
   {
     title: "Company Formation",
     items: [
-      { label: "EU Companies", href: "/company-registration-in-europe" },
-      { label: "UK & Switzerland", href: "/register-company-in-uk" },
-      { label: "USA & Canada", href: "/open-company-in-usa" },
-      { label: "Asia (HK, SG, UAE)", href: "/registration-of-companies-abroad" },
-      { label: "Offshore Companies", href: "/offshore-company-formation" },
-      { label: "Ready-Made Companies", href: "/marketplace" },
+      { label: "All Jurisdictions", href: "/registration-of-companies-abroad" },
+      { label: "EU Jurisdictions", href: "/company-registration-in-europe" },
+      { label: "Non-EU Europe", href: "/company-registration-non-eu-europe" },
+      { label: "Americas & Asia", href: "/company-registration-americas-asia" },
+      { label: "Offshore", href: "/offshore-company-formation" },
+      { label: "Ready-Made Companies", href: "/ready-made-offshore-companies" },
     ],
   },
   {
     title: "Licensing",
     items: [
+      { label: "All Licenses", href: "/licenses" },
       { label: "Crypto / VASP License", href: "/cryptocurrency-exchange-license" },
       { label: "MiCA License", href: "/mica-license" },
       { label: "EMI License", href: "/emi-license" },
@@ -28,37 +29,32 @@ const serviceGroups: Group[] = [
   {
     title: "Banking & Payments",
     items: [
-      { label: "Bank Account Opening", href: "/accounts-bank" },
+      { label: "Bank Accounts", href: "/accounts-bank" },
       { label: "Merchant Accounts", href: "/opening-a-merchant-account" },
-      { label: "PSP & Payment Solutions", href: "/provider-payment-systems" },
+      { label: "PSP & Payment Systems", href: "/provider-payment-systems" },
     ],
   },
   {
     title: "Legal",
     items: [
+      { label: "Legal Support", href: "/legal-support" },
       { label: "AML / Compliance", href: "/legal-business" },
-      { label: "Tax Structuring", href: "/finance-reporting" },
+      { label: "Tax & Reporting", href: "/finance-reporting" },
     ],
   },
 ];
 
 const jurisdictionLinks = [
-  { label: "Malta", href: "/company-registration-in-malta" },
-  { label: "Gibraltar", href: "/company-registration-in-gibraltar" },
-  { label: "Cyprus", href: "/company-registration-in-cyprus" },
-  { label: "Estonia", href: "/open-a-company-in-estonia" },
-  { label: "United Kingdom", href: "/register-company-in-uk" },
-  { label: "Switzerland", href: "/register-company-in-switzerland" },
-  { label: "Hong Kong", href: "/register-company-in-hong-kong" },
-  { label: "Singapore", href: "/register-company-in-singapore" },
-  { label: "UAE", href: "/register-company-in-uae" },
-  { label: "Cayman Islands", href: "/offshore-in-the-cayman-islands" },
-  { label: "BVI", href: "/offshore-in-the-british-virgin-islands" },
-  { label: "Seychelles", href: "/offshore-company-formation-in-seychelles" },
+  { label: "EU Jurisdictions", href: "/company-registration-in-europe" },
+  { label: "Non-EU Europe", href: "/company-registration-non-eu-europe" },
+  { label: "Americas & Asia", href: "/company-registration-americas-asia" },
+  { label: "Offshore", href: "/offshore-company-formation" },
+  { label: "Ready-Made", href: "/ready-made-offshore-companies" },
+  { label: "Worldwide Hub", href: "/registration-of-companies-abroad" },
 ];
+
 const companyLinks = [
   { label: "About Us", href: "/about-us" },
-  { label: "How We Work", href: "/about-us" },
   { label: "Marketplace", href: "/marketplace" },
   { label: "Affiliate Program", href: "/affiliate-program" },
   { label: "Blog", href: "/blog" },
