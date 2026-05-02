@@ -218,6 +218,10 @@ export const HubPage: React.FC<HubPageProps> = (props) => {
                   <div className="absolute bottom-0 left-0 h-[2px] bg-[#444CE7] w-0 group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}
+              {/* Filler cells to complete the last row (md: 3 cols) — prevents empty bg gap */}
+              {Array.from({ length: (3 - (p.jurisdictions.length % 3)) % 3 }).map((_, i) => (
+                <div key={`filler-${i}`} className="hidden md:block" style={{ background: BLUE_BG }} />
+              ))}
             </div>
           </div>
         </section>
