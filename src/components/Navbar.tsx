@@ -487,22 +487,54 @@ const Navbar = () => {
             border: `1px solid ${BORDER}`,
           }}
         >
-          {COMPANY_GROUPED.map((group) => (
+          {COMPANY_GROUPED.map((group) => {
+            const hubHref =
+              group.title === "EU Jurisdictions" ? "/company-registration-in-europe" :
+              group.title === "Non-EU Europe" ? "/company-registration-non-eu-europe" :
+              group.title === "Americas & Asia" ? "/company-registration-americas-asia" :
+              group.title === "Offshore Jurisdictions" ? "/offshore-company-formation" :
+              group.title === "Buy / Sell Ready-Made" ? "/ready-made-offshore-companies" :
+              null;
+            return (
             <div key={group.title} style={{ background: C_BG2, padding: "16px 18px" }}>
-              <div
-                style={{
-                  fontSize: 11,
-                  color: C_ACCENT,
-                  fontWeight: 600,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  marginBottom: 12,
-                  paddingBottom: 8,
-                  borderBottom: `1px solid ${BORDER}`,
-                }}
-              >
-                {group.title}
-              </div>
+              {hubHref ? (
+                <Link
+                  to={hubHref}
+                  onClick={() => { trackNav(`Company › ${group.title} (hub)`); closeAll(); }}
+                  className="no-underline block group"
+                  style={{
+                    fontSize: 11,
+                    color: C_ACCENT,
+                    fontWeight: 600,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    marginBottom: 12,
+                    paddingBottom: 8,
+                    borderBottom: `1px solid ${BORDER}`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <span className="group-hover:text-white transition-colors">{group.title}</span>
+                  <ArrowUpRight size={12} className="group-hover:text-white transition-colors" />
+                </Link>
+              ) : (
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: C_ACCENT,
+                    fontWeight: 600,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    marginBottom: 12,
+                    paddingBottom: 8,
+                    borderBottom: `1px solid ${BORDER}`,
+                  }}
+                >
+                  {group.title}
+                </div>
+              )}
               <div className="flex flex-col">
                 {group.items.map((it) => (
                   <Link
