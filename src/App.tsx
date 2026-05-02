@@ -148,7 +148,9 @@ const RegisterCompanyInSingaporePage = React.lazy(() => import("./pages/Register
 const RegisterCompanyInSwitzerlandPage = React.lazy(() => import("./pages/RegisterCompanyInSwitzerlandPage").then(m => ({ default: m.RegisterCompanyInSwitzerlandPage })));
 const RegisterCompanyInUaePage = React.lazy(() => import("./pages/RegisterCompanyInUaePage").then(m => ({ default: m.RegisterCompanyInUaePage })));
 const RegisterCompanyInUkPage = React.lazy(() => import("./pages/RegisterCompanyInUkPage").then(m => ({ default: m.RegisterCompanyInUkPage })));
-const RegistrationOfCompaniesAbroadPage = React.lazy(() => import("./pages/RegistrationOfCompaniesAbroadPage").then(m => ({ default: m.RegistrationOfCompaniesAbroadPage })));
+const RegistrationOfCompaniesAbroadPage = React.lazy(() => import("./pages/RegistrationOfCompaniesAbroadPage"));
+const CompanyRegistrationNonEuEuropePage = React.lazy(() => import("./pages/CompanyRegistrationNonEuEuropePage"));
+const CompanyRegistrationAmericasAsiaPage = React.lazy(() => import("./pages/CompanyRegistrationAmericasAsiaPage"));
 const ResidencePermitInCyprusPage = React.lazy(() => import("./pages/ResidencePermitInCyprusPage").then(m => ({ default: m.ResidencePermitInCyprusPage })));
 const ResidencePermitInDubaiPage = React.lazy(() => import("./pages/ResidencePermitInDubaiPage").then(m => ({ default: m.ResidencePermitInDubaiPage })));
 const ResidencePermitInHungaryPage = React.lazy(() => import("./pages/ResidencePermitInHungaryPage").then(m => ({ default: m.ResidencePermitInHungaryPage })));
@@ -303,6 +305,8 @@ const App = () => (
               <Route path="/malaysia-company-registration" element={<MalaysiaCompanyRegistrationPage />} />
               <Route path="/starting-a-business-in-montenegro" element={<StartingABusinessInMontenegroPage />} />
               <Route path="/registration-of-companies-abroad" element={<RegistrationOfCompaniesAbroadPage />} />
+              <Route path="/company-registration-non-eu-europe" element={<CompanyRegistrationNonEuEuropePage />} />
+              <Route path="/company-registration-americas-asia" element={<CompanyRegistrationAmericasAsiaPage />} />
 
               {/* Ready-made companies */}
               <Route path="/ready-made-companies-in-hungary" element={<ReadyMadeCompaniesInHungaryPage />} />

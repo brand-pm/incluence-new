@@ -1,62 +1,63 @@
-import { ServiceDetailPage } from "@/components/templates/ServiceDetailPage";
+import HubPage from "@/components/templates/HubPage";
 
-
-// Source: service-texts.md | URL: /ready-made-offshore-companies
 const PAGE_DATA = {
-  title: `Ready-made offshore companies`,
-  description: `Opening an offshore company gives entrepreneurs various privileges, making business operations more efficient. Offshore jurisdictions allow company owners to minimize taxation or obtain tax benefits, protect their assets, and more.`,
-  sections: [
-    {
-      heading: `How to choose and buy an offshore company: features of acquiring a ready-made firm`,
-      body: `Opening an offshore company gives entrepreneurs various privileges, making business operations more efficient. Offshore jurisdictions allow company owners to minimize taxation or obtain tax benefits, protect their assets, and more. However, sometimes a ready-made offshore is required, which can be purchased by contacting our specialists.\n\nIf entrepreneurs urgently need offshore companies, ready-made ones are a suitable option, since they allow immediate business activity without waiting for lengthy registration and related procedures.\n\nBuying offshore companies saves a lot of time and effort, but first you need to choose the right firm. Our company's specialists will help you with this by thoroughly analyzing your requirements and then offering several options to choose from.`,
-    },
-    {
-      heading: `Buying an offshore company: advantages of the procedure`,
-      body: `If you need an offshore company, you should buy it for several reasons:\n\nBy purchasing a ready-made offshore in certain jurisdictions, an entrepreneur is exempt from paying corporate income tax, with only an annual registration fee required instead. You can obtain a ready-made offshore company in minimal time, provided that our professionals handle the preparation and paperwork. Buying offshore companies allows entrepreneurs to choose from a wide range of legal forms. You can buy offshore companies in countries where annual audits are not mandatory, reducing maintenance costs. Entrepreneurs can purchase offshore firms that already have an open bank account. Offshore companies are recommended for entrepreneurs who value a high degree of confidentiality, as in many jurisdictions, business ownership information is not publicly accessible and can only be disclosed by court order.`,
-    },
-    {
-      heading: `Where to buy ready-made offshore companies: choosing a jurisdiction`,
-      body: `Today, buying a company offshore is very easy if you decide to contact our company. We will take care of all the necessary procedures, fill out documents, and formalize the deal. However, you first need to choose the country where the sale of ready-made offshore companies is possible.\n\nThere are several options depending on your requirements for the jurisdiction and the company being acquired.\n\nWhere to buy an offshore: classic options\nThis group includes countries that exempt companies registered in their territory from taxes. At the same time, when buying an offshore company, entrepreneurs must remember that business activity must be conducted outside the country of registration. Tax exemption is granted only under these conditions.\n\nOffshore sales are possible in the following classic offshore jurisdictions:\n\nBelize; Bahamas; Mauritius; Panama; British Virgin Islands; Saint Vincent and the Grenadines; Saint Lucia; Vanuatu, and others.`,
-    },
-    {
-      heading: `Where to buy offshores with minimal taxation`,
-      body: `Purchasing a ready-made offshore in any of these countries provides entrepreneurs with very low tax rates. An additional advantage is that under certain conditions, companies may be completely exempt from taxation.\n\nIt is important to remember that in many countries, buying an offshore company requires compliance with certain conditions: maintaining and filing reports, residency of the company director, etc.\n\nIf you are interested in such an offshore, the sale of companies in this zone usually requires a mandatory tax payment at a relatively low rate of 9\u201312%. But if you choose a country with a territorial taxation system, the business may be completely exempt from taxes. This applies to companies that do not derive income from sources in the country of registration and do not operate within its territory. Instead of tax, an annual fee of about $100 must be paid to the state budget. This system applies in Saint Vincent and the Grenadines and several other offshore jurisdictions.\n\nReady-made offshore companies with tax incentives\nYou can also buy a ready-made company in a so-called "midshore" jurisdiction, which enjoys international respectability while still offering attractive tax incentives to business owners. To gain these benefits, simply choose one of the countries in this group. If such offshores interest you, companies can be purchased in midshore jurisdictions such as the United Kingdom and Hong Kong.\n\nFor additional advice on how to buy offshore companies in a specific jurisdiction, contact our specialists.`,
-    },
-    {
-      heading: `What to consider before buying an offshore company`,
-      body: `There is no country where buying a company with an already opened bank account is prohibited. However, there are several nuances:\n\nBy deciding to buy an offshore, you can later change the signatory of the existing account. At the same time, you must notify the bank of this change. The bank's staff will then carry out checks on your identity and the company's activities. There is no guarantee that the bank will agree to keep the account open. If not, you will need to open a new account, repeating the procedure.\n\nTo avoid possible difficulties and increase your chances of bank approval, seek personal advice and assistance from Incluence specialists.`,
-    },
-    {
-      heading: `Buying an offshore company: features of choosing a jurisdiction`,
-      body: `If you are choosing a country for future foreign trade, pay attention to certain nuances:\n\nReputation. If you need to buy a midshore company that must look reputable, consider the United Kingdom. This country is generally more attractive to potential business partners. Location. Ready-made offshores should be purchased after determining where your main suppliers and customers are located and understanding the customs requirements. For example, when working with China, Hong Kong is often chosen. Business partners. Some suppliers impose strict requirements on jurisdiction. Therefore, if you buy a ready-made offshore in, for example, the Seychelles, you may face categorical refusals from counterparties.\n\nOur specialists take all these nuances into account and will help you choose suitable ready-made offshores. We offer companies in many jurisdictions, so we can easily find the right option for you.`,
-    },
+  categoryTag: "Company Formation · Ready-Made",
+  titleAccent: "Ready-Made",
+  titleRest: "offshore companies",
+  description:
+    "Acquire an aged offshore or onshore entity with a clean history — no debts, no obligations, ready to operate immediately. We help you select and re-register companies in BVI, Seychelles, Hong Kong, UK, UAE, USA, Estonia and other jurisdictions. Save time and start business activity right after the purchase agreement is signed.",
+  stats: [
+    { value: "100+", label: "Aged Entities Available" },
+    { value: "10+", label: "Jurisdictions" },
+    { value: "1–3 wks", label: "Re-registration Timeline" },
+    { value: "Remote", label: "Process Available" },
   ],
+  jurisdictionsTitle: "Available Ready-Made Jurisdictions",
+  jurisdictionsSubtitle:
+    "Choose between classic offshore zones with annual government fees, midshore jurisdictions with international reputation, and onshore entities for serious operations.",
+  jurisdictions: [
+    { regulator: "FSC", name: "British Virgin Islands", description: "Aged BVI Business Companies. Zero tax, full confidentiality, the most reputable classic offshore vehicle.", timeline: "1–2 weeks", href: "/offshore-in-the-british-virgin-islands", badge: "BC · Zero Tax" },
+    { regulator: "FSA", name: "Seychelles", description: "Aged IBC entities — fast re-registration, minimal capital, strong privacy laws and annual government fee instead of tax.", timeline: "1–2 weeks", href: "/offshore-company-formation-in-seychelles", badge: "IBC · Aged" },
+    { regulator: "Companies Registry", name: "Hong Kong", description: "Ready-made limited companies in Hong Kong. Territorial tax regime, world-class banking, ideal for trading and holding.", timeline: "1–3 weeks", href: "/buy-ready-made-company-in-hong-kong", badge: "Aged Ltd" },
+    { regulator: "Companies House", name: "United Kingdom", description: "Aged UK LTD companies. English common-law jurisdiction with a premium global reputation and strong banking access.", timeline: "1–2 weeks", href: "/purchase-a-company-in-england", badge: "Aged LTD" },
+    { regulator: "DED / Free Zones", name: "UAE", description: "Ready-made Free Zone or Mainland companies. 0% corporate tax thresholds, residence visa, no currency controls.", timeline: "2–4 weeks", href: "/purchase-of-a-company-in-the-uae", badge: "Free Zone" },
+    { regulator: "State / IRS", name: "USA", description: "Aged LLC entities in Delaware, Wyoming, Florida and other states. Strong banking access for SaaS, e-commerce and global operations.", timeline: "1–2 weeks", href: "/purchase-of-a-company-in-the-usa", badge: "Aged LLC" },
+    { regulator: "Commercial Register", name: "Estonia", description: "Aged OÜ companies with e-Residency support. Fully digital management, 0% tax on retained earnings, EU jurisdiction.", timeline: "1–2 weeks", href: "/buy-company-in-estonia", badge: "Aged OÜ" },
+    { regulator: "Marketplace", name: "All Listings", description: "Browse the full marketplace of available ready-made entities across jurisdictions, ages and price points.", timeline: "Browse", href: "/marketplace", badge: "Marketplace" },
+    { regulator: "Custom Request", name: "Other Jurisdictions", description: "Looking for a ready-made company in a different jurisdiction? Contact us for a tailored search across our partner network.", timeline: "Custom", href: "/contact", badge: "On Request" },
+  ],
+  processTitle: "How the Purchase Works",
+  processSubtitle:
+    "Standard 4-step path from selecting an entity to fully completed re-registration with banking transfer where applicable.",
+  steps: [
+    { number: "01", title: "Select Entity", description: "Our specialists analyse your requirements (jurisdiction, age, sector, banking) and present several pre-vetted options to choose from." },
+    { number: "02", title: "Due Diligence", description: "We confirm the entity has no debts, obligations or regulatory issues. Full company history and corporate documents reviewed before purchase." },
+    { number: "03", title: "Re-registration", description: "Re-registration is handled by local representatives based on power of attorney or via personal visit. New directors and shareholders appointed." },
+    { number: "04", title: "Bank Account Transfer", description: "If the company has an existing bank account, we notify the bank of the change in signatories. The bank performs KYC on the new beneficiaries." },
+  ],
+  requirementsTitle: "What to Consider Before Buying",
+  requirementsIntro: "",
   requirements: [
-    `Business activity must be conducted outside country of registration`,
-    `Some jurisdictions require maintaining and filing reports`,
-    `Company director residency may be required`,
-    `Annual registration fee instead of corporate income tax`,
-    `Bank account may already be included with the company`,
-    `Power of attorney or personal visit for re-registration`,
+    "Business activity must typically be conducted outside the country of registration in classic offshore jurisdictions to maintain tax exemption.",
+    "Some jurisdictions require maintaining and filing annual reports. Audit may be mandatory in midshore jurisdictions like Hong Kong and the UK.",
+    "Company director residency may be required (Singapore, Hong Kong, UK). We provide nominee director services where needed.",
+    "Annual government fee replaces corporate income tax in most classic offshore jurisdictions (typically $100–$1,500 depending on jurisdiction).",
+    "If the company has an existing bank account, the bank will perform KYC on the new beneficiaries. There is no guarantee the account remains open after the change.",
+    "Choose jurisdiction based on reputation, location of suppliers and customers, and partner requirements. Some counterparties refuse to work with classic offshore entities.",
   ],
   faq: [
-    { question: `In which countries do we help with purchasing offshore companies?`, answer: `We will gladly help with the purchase of a company in any offshore jurisdiction not subject to international sanctions. The most popular are Saint Vincent and the Grenadines, Saint Lucia, Seychelles, Marshall Islands, British Virgin Islands, Vanuatu, Belize.` },
-    { question: `Can I buy an offshore company online?`, answer: `The detailed conditions for re-registration of a company upon purchase depend on the legislation of the country of registration. Usually, companies are re-registered by local representatives on the basis of a power of attorney. A company can also be re-registered during a personal visit of the registrar in the required country. In some countries, a company can be re-registered via local representatives using scanned documents. You can choose a company for purchase online.` },
-    { question: `How long does the process of buying an offshore company take?`, answer: `The conditions for re-registering an offshore company depend on the country of registration. Usually, the purchase process takes up to 3 weeks.` },
+    { question: "In which countries do you help with purchasing offshore companies?", answer: "We help with the purchase of companies in any offshore jurisdiction not subject to international sanctions. The most popular are BVI, Seychelles, Saint Vincent & Grenadines, Saint Lucia, Marshall Islands, Vanuatu and Belize. Midshore options include the United Kingdom and Hong Kong." },
+    { question: "Can I buy an offshore company online?", answer: "Yes, the selection process can be completed entirely online. Re-registration of the company is typically handled by local representatives based on a power of attorney. Some jurisdictions accept fully scanned documents; a small number require a personal visit." },
+    { question: "How long does the process of buying an offshore company take?", answer: "The conditions for re-registering an offshore company depend on the country of registration. Most purchases complete within 1–3 weeks. Bank account transfer or opening typically adds another 2–6 weeks depending on the bank's compliance review." },
+    { question: "What should I consider when choosing a jurisdiction?", answer: "Three key factors: reputation (UK and Hong Kong look more reputable to international counterparties), location (Hong Kong is ideal for China trade), and partner requirements (some suppliers refuse to work with companies from certain offshore zones like Seychelles)." },
   ],
+  formTitle: "Ready to Acquire a Company?",
+  formSubtitle:
+    "Tell us about your business needs and we will present pre-vetted ready-made companies that match your requirements.",
+  slug: "ready-made-offshore-companies",
 };
 
-const ReadyMadeOffshoreCompaniesPage = () => (
-  <ServiceDetailPage
-    slug="ready-made-offshore-companies"
-    title={PAGE_DATA.title}
-    description={PAGE_DATA.description}
-    sections={PAGE_DATA.sections}
-    requirements={PAGE_DATA.requirements}
-    faq={PAGE_DATA.faq}
-
-  />
-);
+const ReadyMadeOffshoreCompaniesPage = () => <HubPage {...PAGE_DATA} />;
 
 export default ReadyMadeOffshoreCompaniesPage;
 export { ReadyMadeOffshoreCompaniesPage };
