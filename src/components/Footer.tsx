@@ -53,6 +53,15 @@ const jurisdictionLinks = [
   { label: "Worldwide Hub", href: "/registration-of-companies-abroad" },
 ];
 
+const companyLinks = [
+  { label: "About Us", href: "/about-us" },
+  { label: "Marketplace", href: "/marketplace" },
+  { label: "Affiliate Program", href: "/affiliate-program" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+  { label: "Site Map", href: "/sitemap" },
+];
+
 const colHeading: React.CSSProperties = {
   fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em",
   color: "#9A9590", marginBottom: 16, fontWeight: 500,
