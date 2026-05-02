@@ -6,9 +6,9 @@ import type { ServiceCardData } from "./ServiceCard";
 
 const services: ServiceCardData[] = [
   {
-    num: "/01", title: "Licensing",
-    desc: "Full-cycle license acquisition across Crypto / MiCA, EMI, PSP, Forex and Gambling — preparation, filing, regulator communication and ongoing maintenance.",
-    tags: ["Crypto/MiCA", "EMI/PSP", "Forex", "Gambling"],
+    num: "/01", title: "Banking & Merchant Accounts",
+    desc: "Corporate bank accounts in 20+ countries, merchant accounts for high-risk industries, PSP integrations and crypto-friendly banking partners.",
+    tags: ["Banking", "Merchant", "PSP"],
   },
   {
     num: "/02", title: "Company Formation",
@@ -16,9 +16,9 @@ const services: ServiceCardData[] = [
     tags: ["EU", "Non-EU", "Offshore", "Ready-Made"],
   },
   {
-    num: "/03", title: "Banking & Merchant Accounts",
-    desc: "Corporate bank accounts in 20+ countries, merchant accounts for high-risk industries, PSP integrations and crypto-friendly banking partners.",
-    tags: ["Banking", "Merchant", "PSP"],
+    num: "/03", title: "Licensing",
+    desc: "Full-cycle license acquisition across Crypto / MiCA, EMI, PSP, Forex and Gambling — preparation, filing, regulator communication and ongoing maintenance.",
+    tags: ["Crypto/MiCA", "EMI/PSP", "Forex", "Gambling"],
   },
   {
     num: "/04", title: "Investment Funds & Residency",
