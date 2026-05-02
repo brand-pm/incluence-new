@@ -54,6 +54,7 @@ const COMPANY_GROUPED: ServiceGroup[] = [
       { label: "Gibraltar", href: "/company-registration-in-gibraltar", hint: "Crypto-friendly" },
       { label: "Croatia", href: "/company-registration-in-croatia", hint: "d.o.o." },
       { label: "Montenegro", href: "/starting-a-business-in-montenegro", hint: "9% flat tax" },
+      { label: "All Non-EU →", href: "/company-registration-non-eu-europe", hint: "Compare jurisdictions" },
     ],
   },
   {
@@ -67,7 +68,7 @@ const COMPANY_GROUPED: ServiceGroup[] = [
       { label: "Malaysia", href: "/malaysia-company-registration", hint: "Sdn Bhd · Labuan" },
       { label: "Thailand", href: "/open-a-company-in-thailand", hint: "Co., Ltd." },
       { label: "China", href: "/company-registration-in-china", hint: "WFOE" },
-      { label: "All Worldwide →", href: "/registration-of-companies-abroad", hint: "Asia & Americas hub" },
+      { label: "All Americas & Asia →", href: "/company-registration-americas-asia", hint: "Compare jurisdictions" },
     ],
   },
   {
