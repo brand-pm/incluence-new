@@ -678,9 +678,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-0.5 lg:gap-1" style={{ fontSize: NAV_FS }}>
           <div className="relative" onMouseEnter={() => openMenu("licenses")} onMouseLeave={scheduleClose}>
             <NavButton k="licenses" label="Licenses" active={isLicensesActive} />
-            {activeMenu === "licenses" && (
-              <FlatDropdown title="Licenses" items={LICENSES_FLAT} width={300} />
-            )}
+            {/* Licenses mega is full-width — rendered outside this relative wrapper */}
           </div>
 
           <div className="relative" onMouseEnter={() => openMenu("company")} onMouseLeave={scheduleClose}>
