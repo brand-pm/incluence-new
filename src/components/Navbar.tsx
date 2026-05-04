@@ -969,41 +969,44 @@ const Navbar = () => {
           className="md:hidden fixed top-[60px] left-0 right-0 bottom-0 z-[99] overflow-y-auto"
           style={{ background: "#0a0a0a", padding: "12px 20px 120px", fontFamily: "Manrope, sans-serif" }}
         >
-          {([
-            { key: "licenses", title: "Licenses", items: LICENSES_FLAT },
-          ] as { key: string; title: string; items: FlatItem[] }[]).map((sec) => (
-            <div key={sec.key}>
-              <button
-                onClick={() => setMobileExpanded(mobileExpanded === sec.key ? null : sec.key)}
-                className="flex items-center justify-between w-full bg-transparent border-0 cursor-pointer"
-                style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontFamily: "inherit" }}
-              >
-                <span style={{ fontSize: 11, color: C_ACCENT, textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600 }}>
-                  — {sec.title}
-                </span>
-                <ChevronDown
-                  size={14}
-                  style={{ color: C_DIM, transition: "transform .2s", transform: mobileExpanded === sec.key ? "rotate(180deg)" : "rotate(0)" }}
-                />
-              </button>
-              {mobileExpanded === sec.key && (
-                <div style={{ padding: "8px 0 12px" }}>
-                  {sec.items.map((it) => (
+          {/* Licenses accordion (grouped by category) */}
+          <button
+            onClick={() => setMobileExpanded(mobileExpanded === "licenses" ? null : "licenses")}
+            className="flex items-center justify-between w-full bg-transparent border-0 cursor-pointer"
+            style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontFamily: "inherit" }}
+          >
+            <span style={{ fontSize: 11, color: C_ACCENT, textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600 }}>
+              — Licenses
+            </span>
+            <ChevronDown
+              size={14}
+              style={{ color: C_DIM, transition: "transform .2s", transform: mobileExpanded === "licenses" ? "rotate(180deg)" : "rotate(0)" }}
+            />
+          </button>
+          {mobileExpanded === "licenses" && (
+            <div style={{ padding: "8px 0 12px" }}>
+              {LICENSES_GROUPED.map((g) => (
+                <div key={g.title} style={{ marginBottom: 12 }}>
+                  <div style={{ fontSize: 10, color: C_MUTED, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 6 }}>
+                    {g.title}
+                  </div>
+                  {g.items.map((it) => (
                     <Link
-                      key={it.href}
+                      key={it.href + it.label}
                       to={it.href}
-                      onClick={() => { trackNav(`mobile: ${sec.title}: ${it.label}`); closeAll(); }}
+                      onClick={() => { trackNav(`mobile: Licenses › ${g.title}: ${it.label}`); closeAll(); }}
                       className="no-underline block"
-                      style={{ padding: "10px 0", fontSize: 14, color: C_TEXT }}
+                      style={{ padding: "8px 0", fontSize: 13, color: C_TEXT }}
                     >
                       {it.label}
                       {it.hint && <div style={{ fontSize: 11, color: C_MUTED, marginTop: 2 }}>{it.hint}</div>}
                     </Link>
                   ))}
                 </div>
-              )}
+              ))}
             </div>
-          ))}
+          )}
+
 
           {/* Company Formation accordion (grouped by region) */}
           <button
