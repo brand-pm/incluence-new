@@ -12,19 +12,66 @@ interface FlatItem {
   hot?: boolean;
 }
 
-const LICENSES_FLAT: FlatItem[] = [
-  { label: "Crypto / VASP", href: "/cryptocurrency-exchange-license", hint: "Exchange & custody" },
-  { label: "CASP (MiCA)", href: "/mica-license", hint: "EU-wide passport", hot: true },
-  { label: "EMI", href: "/emi-license", hint: "E-money issuance" },
-  { label: "PSP", href: "/provider-payment-systems", hint: "Payment services" },
-  { label: "Gambling / iGaming", href: "/gamble-license", hint: "MGA · CGA · GSC · CR" },
-  { label: "Forex", href: "/forex-license", hint: "Brokerage licensing" },
-];
-
 interface ServiceGroup {
   title: string;
   items: FlatItem[];
 }
+
+const LICENSES_GROUPED: ServiceGroup[] = [
+  {
+    title: "Crypto & Blockchain",
+    items: [
+      { label: "Crypto / VASP", href: "/cryptocurrency-exchange-license", hint: "Exchange & custody" },
+      { label: "CASP (MiCA)", href: "/mica-license", hint: "EU-wide passport", hot: true },
+      { label: "Estonia", href: "/cryptocurrency-exchange-license-in-estonia", hint: "VASP licensing" },
+      { label: "Lithuania", href: "/lithuania-crypto-license", hint: "EU regulated" },
+      { label: "Poland", href: "/poland-crypto-license", hint: "VASP register" },
+      { label: "Malta", href: "/cryptocurrency-license-in-malta", hint: "VFA framework" },
+      { label: "Switzerland", href: "/cryptocurrency-exchange-license-in-switzerland", hint: "FINMA" },
+      { label: "USA", href: "/cryptocurrency-exchange-license-in-the-usa", hint: "MSB · State MTL" },
+    ],
+  },
+  {
+    title: "EMI & Payments",
+    items: [
+      { label: "EMI Hub", href: "/emi-license", hint: "E-money issuance" },
+      { label: "PSP Hub", href: "/provider-payment-systems", hint: "Payment services" },
+      { label: "UK EMI", href: "/e-money-license-uk", hint: "FCA authorised" },
+      { label: "Lithuania EMI", href: "/e-money-license-lithuania", hint: "EU passport" },
+      { label: "Malta EMI", href: "/e-money-license-malta", hint: "MFSA" },
+      { label: "Estonia EMI", href: "/emi-license-in-estonia", hint: "Fintech-friendly" },
+      { label: "Cyprus PSP", href: "/payment-system-license-in-cyprus", hint: "CBC licensed" },
+      { label: "Lithuania PSP", href: "/payment-system-license-in-lithuania", hint: "Bank of Lithuania" },
+      { label: "Czech PSP", href: "/czech-payment-system-license", hint: "CNB" },
+      { label: "Denmark PSP", href: "/payment-system-license-in-denmark", hint: "DFSA" },
+    ],
+  },
+  {
+    title: "Gambling & iGaming",
+    items: [
+      { label: "Gambling Hub", href: "/gamble-license", hint: "All jurisdictions" },
+      { label: "Malta (MGA)", href: "/malta-gaming-license", hint: "Tier 1 EU" },
+      { label: "Isle of Man (GSC)", href: "/gambling-license-of-the-isle-of-man", hint: "Crown Dependency" },
+      { label: "Curaçao (CGA)", href: "/curacao-gaming-license", hint: "Fast & flexible" },
+      { label: "Costa Rica", href: "/gambling-license-in-costa-rica", hint: "Data-processing" },
+    ],
+  },
+  {
+    title: "Forex & Brokerage",
+    items: [
+      { label: "Forex Hub", href: "/forex-license", hint: "All jurisdictions" },
+      { label: "Cyprus (CySEC)", href: "/cyprus-forex-license", hint: "EU passport" },
+      { label: "Malta (MFSA)", href: "/forex-broker-licence-in-malta", hint: "Tier 1 EU" },
+      { label: "Mauritius (FSC)", href: "/forex-broker-licence-in-mauritius", hint: "GBC" },
+      { label: "Seychelles (FSA)", href: "/forex-license-seychelles", hint: "Securities Dealer" },
+      { label: "Vanuatu (VFSC)", href: "/forex-broker-licence-in-vanuatu", hint: "Offshore" },
+      { label: "Montenegro", href: "/forex-broker-licence-in-montenegro", hint: "Emerging hub" },
+    ],
+  },
+];
+
+// Flat list kept for active-state detection across all License links
+const LICENSES_FLAT: FlatItem[] = LICENSES_GROUPED.flatMap((g) => g.items);
 
 const COMPANY_GROUPED: ServiceGroup[] = [
   {
@@ -364,6 +411,124 @@ const Navbar = () => {
     </div>
   );
 
+  /* ─────────── LICENSES MEGA (4 columns by category) ─────────── */
+  const LicensesMega = () => (
+    <div
+      onMouseEnter={cancelClose}
+      onMouseLeave={scheduleClose}
+      className="hidden md:block fixed left-0 right-0"
+      style={{
+        top: 60,
+        background: C_BG,
+        borderBottom: `1px solid ${BORDER}`,
+        boxShadow: "0 40px 80px rgba(0,0,0,0.7)",
+        zIndex: 99,
+        animation: "dropIn .18s ease-out both",
+        fontFamily: "Manrope, sans-serif",
+      }}
+    >
+      <div className="max-w-screen-xl mx-auto" style={{ padding: "20px 24px 24px" }}>
+        <div className="flex items-center justify-between mb-4">
+          <span style={{ fontSize: 10, color: C_ACCENT, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" }}>
+            — Licenses · by category
+          </span>
+          <Link
+            to="/licenses"
+            onClick={() => { trackNav("Licenses: hub"); closeAll(); }}
+            className="no-underline flex items-center gap-1.5"
+            style={{ fontSize: 11, color: C_MUTED, textTransform: "uppercase", letterSpacing: "0.12em" }}
+          >
+            View all licenses <ArrowUpRight size={12} />
+          </Link>
+        </div>
+
+        <div
+          className="grid"
+          style={{
+            gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+            gap: 1,
+            background: BORDER,
+            border: `1px solid ${BORDER}`,
+          }}
+        >
+          {LICENSES_GROUPED.map((group) => {
+            const hubHref =
+              group.title === "Crypto & Blockchain" ? "/cryptocurrency-exchange-license" :
+              group.title === "EMI & Payments" ? "/emi-license" :
+              group.title === "Gambling & iGaming" ? "/gamble-license" :
+              group.title === "Forex & Brokerage" ? "/forex-license" :
+              null;
+            return (
+            <div key={group.title} style={{ background: C_BG2, padding: "16px 18px" }}>
+              {hubHref ? (
+                <Link
+                  to={hubHref}
+                  onClick={() => { trackNav(`Licenses › ${group.title} (hub)`); closeAll(); }}
+                  className="no-underline block group"
+                  style={{
+                    fontSize: 11,
+                    color: C_ACCENT,
+                    fontWeight: 600,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    marginBottom: 12,
+                    paddingBottom: 8,
+                    borderBottom: `1px solid ${BORDER}`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <span className="group-hover:text-white transition-colors">{group.title}</span>
+                  <ArrowUpRight size={12} className="group-hover:text-white transition-colors" />
+                </Link>
+              ) : (
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: C_ACCENT,
+                    fontWeight: 600,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    marginBottom: 12,
+                    paddingBottom: 8,
+                    borderBottom: `1px solid ${BORDER}`,
+                  }}
+                >
+                  {group.title}
+                </div>
+              )}
+              <div className="flex flex-col">
+                {group.items.map((it) => (
+                  <Link
+                    key={it.href + it.label}
+                    to={it.href}
+                    onClick={() => { trackNav(`Licenses › ${group.title}: ${it.label}`); closeAll(); }}
+                    className="no-underline block group"
+                    style={{
+                      padding: "8px 0",
+                      borderBottom: `1px solid ${BORDER}`,
+                    }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span style={{ fontSize: 13, color: C_TEXT, fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 6 }}>
+                        {it.label}
+                        {it.hot && <span style={{ width: 5, height: 5, background: C_ACCENT, borderRadius: 999 }} />}
+                      </span>
+                      <ArrowUpRight size={12} style={{ color: C_DIM }} className="group-hover:text-[#818CF8] transition-colors" />
+                    </div>
+                    {it.hint && <div style={{ fontSize: 11, color: C_MUTED, marginTop: 2, lineHeight: 1.3 }}>{it.hint}</div>}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+
   /* ─────────── SERVICES MEGA (3 columns) ─────────── */
   const ServicesMega = () => (
     <div
@@ -631,9 +796,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-0.5 lg:gap-1" style={{ fontSize: NAV_FS }}>
           <div className="relative" onMouseEnter={() => openMenu("licenses")} onMouseLeave={scheduleClose}>
             <NavButton k="licenses" label="Licenses" active={isLicensesActive} />
-            {activeMenu === "licenses" && (
-              <FlatDropdown title="Licenses" items={LICENSES_FLAT} width={300} />
-            )}
+            {/* Licenses mega is full-width — rendered outside this relative wrapper */}
           </div>
 
           <div className="relative" onMouseEnter={() => openMenu("company")} onMouseLeave={scheduleClose}>
@@ -791,6 +954,9 @@ const Navbar = () => {
         </button>
       </nav>
 
+      {/* Licenses full-width mega-menu (by category) */}
+      {activeMenu === "licenses" && <LicensesMega />}
+
       {/* Services full-width mega-menu (rendered separately so it spans 100%) */}
       {activeMenu === "services" && <ServicesMega />}
 
@@ -803,41 +969,44 @@ const Navbar = () => {
           className="md:hidden fixed top-[60px] left-0 right-0 bottom-0 z-[99] overflow-y-auto"
           style={{ background: "#0a0a0a", padding: "12px 20px 120px", fontFamily: "Manrope, sans-serif" }}
         >
-          {([
-            { key: "licenses", title: "Licenses", items: LICENSES_FLAT },
-          ] as { key: string; title: string; items: FlatItem[] }[]).map((sec) => (
-            <div key={sec.key}>
-              <button
-                onClick={() => setMobileExpanded(mobileExpanded === sec.key ? null : sec.key)}
-                className="flex items-center justify-between w-full bg-transparent border-0 cursor-pointer"
-                style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontFamily: "inherit" }}
-              >
-                <span style={{ fontSize: 11, color: C_ACCENT, textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600 }}>
-                  — {sec.title}
-                </span>
-                <ChevronDown
-                  size={14}
-                  style={{ color: C_DIM, transition: "transform .2s", transform: mobileExpanded === sec.key ? "rotate(180deg)" : "rotate(0)" }}
-                />
-              </button>
-              {mobileExpanded === sec.key && (
-                <div style={{ padding: "8px 0 12px" }}>
-                  {sec.items.map((it) => (
+          {/* Licenses accordion (grouped by category) */}
+          <button
+            onClick={() => setMobileExpanded(mobileExpanded === "licenses" ? null : "licenses")}
+            className="flex items-center justify-between w-full bg-transparent border-0 cursor-pointer"
+            style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}`, fontFamily: "inherit" }}
+          >
+            <span style={{ fontSize: 11, color: C_ACCENT, textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600 }}>
+              — Licenses
+            </span>
+            <ChevronDown
+              size={14}
+              style={{ color: C_DIM, transition: "transform .2s", transform: mobileExpanded === "licenses" ? "rotate(180deg)" : "rotate(0)" }}
+            />
+          </button>
+          {mobileExpanded === "licenses" && (
+            <div style={{ padding: "8px 0 12px" }}>
+              {LICENSES_GROUPED.map((g) => (
+                <div key={g.title} style={{ marginBottom: 12 }}>
+                  <div style={{ fontSize: 10, color: C_MUTED, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 6 }}>
+                    {g.title}
+                  </div>
+                  {g.items.map((it) => (
                     <Link
-                      key={it.href}
+                      key={it.href + it.label}
                       to={it.href}
-                      onClick={() => { trackNav(`mobile: ${sec.title}: ${it.label}`); closeAll(); }}
+                      onClick={() => { trackNav(`mobile: Licenses › ${g.title}: ${it.label}`); closeAll(); }}
                       className="no-underline block"
-                      style={{ padding: "10px 0", fontSize: 14, color: C_TEXT }}
+                      style={{ padding: "8px 0", fontSize: 13, color: C_TEXT }}
                     >
                       {it.label}
                       {it.hint && <div style={{ fontSize: 11, color: C_MUTED, marginTop: 2 }}>{it.hint}</div>}
                     </Link>
                   ))}
                 </div>
-              )}
+              ))}
             </div>
-          ))}
+          )}
+
 
           {/* Company Formation accordion (grouped by region) */}
           <button
