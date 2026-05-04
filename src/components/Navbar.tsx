@@ -954,6 +954,9 @@ const Navbar = () => {
         </button>
       </nav>
 
+      {/* Licenses full-width mega-menu (by category) */}
+      {activeMenu === "licenses" && <LicensesMega />}
+
       {/* Services full-width mega-menu (rendered separately so it spans 100%) */}
       {activeMenu === "services" && <ServicesMega />}
 
