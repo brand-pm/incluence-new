@@ -12,19 +12,66 @@ interface FlatItem {
   hot?: boolean;
 }
 
-const LICENSES_FLAT: FlatItem[] = [
-  { label: "Crypto / VASP", href: "/cryptocurrency-exchange-license", hint: "Exchange & custody" },
-  { label: "CASP (MiCA)", href: "/mica-license", hint: "EU-wide passport", hot: true },
-  { label: "EMI", href: "/emi-license", hint: "E-money issuance" },
-  { label: "PSP", href: "/provider-payment-systems", hint: "Payment services" },
-  { label: "Gambling / iGaming", href: "/gamble-license", hint: "MGA · CGA · GSC · CR" },
-  { label: "Forex", href: "/forex-license", hint: "Brokerage licensing" },
-];
-
 interface ServiceGroup {
   title: string;
   items: FlatItem[];
 }
+
+const LICENSES_GROUPED: ServiceGroup[] = [
+  {
+    title: "Crypto & Blockchain",
+    items: [
+      { label: "Crypto / VASP", href: "/cryptocurrency-exchange-license", hint: "Exchange & custody" },
+      { label: "CASP (MiCA)", href: "/mica-license", hint: "EU-wide passport", hot: true },
+      { label: "Estonia", href: "/cryptocurrency-exchange-license-in-estonia", hint: "VASP licensing" },
+      { label: "Lithuania", href: "/lithuania-crypto-license", hint: "EU regulated" },
+      { label: "Poland", href: "/poland-crypto-license", hint: "VASP register" },
+      { label: "Malta", href: "/cryptocurrency-license-in-malta", hint: "VFA framework" },
+      { label: "Switzerland", href: "/cryptocurrency-exchange-license-in-switzerland", hint: "FINMA" },
+      { label: "USA", href: "/cryptocurrency-exchange-license-in-the-usa", hint: "MSB · State MTL" },
+    ],
+  },
+  {
+    title: "EMI & Payments",
+    items: [
+      { label: "EMI Hub", href: "/emi-license", hint: "E-money issuance" },
+      { label: "PSP Hub", href: "/provider-payment-systems", hint: "Payment services" },
+      { label: "UK EMI", href: "/e-money-license-uk", hint: "FCA authorised" },
+      { label: "Lithuania EMI", href: "/e-money-license-lithuania", hint: "EU passport" },
+      { label: "Malta EMI", href: "/e-money-license-malta", hint: "MFSA" },
+      { label: "Estonia EMI", href: "/emi-license-in-estonia", hint: "Fintech-friendly" },
+      { label: "Cyprus PSP", href: "/payment-system-license-in-cyprus", hint: "CBC licensed" },
+      { label: "Lithuania PSP", href: "/payment-system-license-in-lithuania", hint: "Bank of Lithuania" },
+      { label: "Czech PSP", href: "/czech-payment-system-license", hint: "CNB" },
+      { label: "Denmark PSP", href: "/payment-system-license-in-denmark", hint: "DFSA" },
+    ],
+  },
+  {
+    title: "Gambling & iGaming",
+    items: [
+      { label: "Gambling Hub", href: "/gamble-license", hint: "All jurisdictions" },
+      { label: "Malta (MGA)", href: "/malta-gaming-license", hint: "Tier 1 EU" },
+      { label: "Isle of Man (GSC)", href: "/gambling-license-of-the-isle-of-man", hint: "Crown Dependency" },
+      { label: "Curaçao (CGA)", href: "/curacao-gaming-license", hint: "Fast & flexible" },
+      { label: "Costa Rica", href: "/gambling-license-in-costa-rica", hint: "Data-processing" },
+    ],
+  },
+  {
+    title: "Forex & Brokerage",
+    items: [
+      { label: "Forex Hub", href: "/forex-license", hint: "All jurisdictions" },
+      { label: "Cyprus (CySEC)", href: "/cyprus-forex-license", hint: "EU passport" },
+      { label: "Malta (MFSA)", href: "/forex-broker-licence-in-malta", hint: "Tier 1 EU" },
+      { label: "Mauritius (FSC)", href: "/forex-broker-licence-in-mauritius", hint: "GBC" },
+      { label: "Seychelles (FSA)", href: "/forex-license-seychelles", hint: "Securities Dealer" },
+      { label: "Vanuatu (VFSC)", href: "/forex-broker-licence-in-vanuatu", hint: "Offshore" },
+      { label: "Montenegro", href: "/forex-broker-licence-in-montenegro", hint: "Emerging hub" },
+    ],
+  },
+];
+
+// Flat list kept for active-state detection across all License links
+const LICENSES_FLAT: FlatItem[] = LICENSES_GROUPED.flatMap((g) => g.items);
 
 const COMPANY_GROUPED: ServiceGroup[] = [
   {
